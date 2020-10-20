@@ -117,7 +117,7 @@ browserHistory.listen(() => {
 
 ### Modal.useModal()
 
-当你需要使用 Context 时，可以通过 `Modal.useModal` 创建一个 `contextHolder` 插入子节点中。通过 hooks 创建的临时 Modal 将会得到 `contextHolder` 所在位置的所有上下文。创建的 `modal` 对象拥有与 [`Modal.method`](<#Modal.method()>) 相同的创建通知方法。
+当你需要使用 Context 时，可以通过 `Modal.useModal` 创建一个 `contextHolder` 插入子节点中。通过 hooks 创建的临时 Modal 将会得到 `contextHolder` 所在位置的所有上下文。创建的 `modal` 对象拥有与 [`Modal.method`](#Modal.method()) 相同的创建通知方法。
 
 ```jsx
 const [modal, contextHolder] = Modal.useModal();

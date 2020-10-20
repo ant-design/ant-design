@@ -31,7 +31,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
 
 ## 方法
 
-| 名称    | 描述     |
-| ------- | -------- |
-| blur()  | 移除焦点 |
+| 名称 | 描述 |
+| --- | --- |
+| blur() | 移除焦点 |
 | focus() | 获取焦点 |

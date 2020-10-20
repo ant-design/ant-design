@@ -95,8 +95,8 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ### Tree Methods
 
-| Name              | Description                          |
-| ----------------- | ------------------------------------ |
+| Name | Description |
+| --- | --- |
 | scrollTo({ key }) | Scroll to key item in virtual scroll |
 
 ## FAQ

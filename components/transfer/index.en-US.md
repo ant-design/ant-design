@@ -47,14 +47,14 @@ One or more elements can be selected from either column, one click on the proper
 
 Transfer accept `children` to customize render list, using follow props:
 
-| Property        | Description             | Type                                 | Version |
-| --------------- | ----------------------- | ------------------------------------ | ------- |
-| direction       | List render direction   | `left` \| `right`                    |         |
-| disabled        | Disable list or not     | boolean                              |         |
-| filteredItems   | Filtered items          | TransferItem\[]                      |         |
-| selectedKeys    | Selected items          | string\[]                            |         |
-| onItemSelect    | Select item             | (key: string, selected: boolean)     |         |
-| onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |         |
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| direction | List render direction | `left` \| `right` |  |
+| disabled | Disable list or not | boolean |  |
+| filteredItems | Filtered items | TransferItem\[] |  |
+| selectedKeys | Selected items | string\[] |  |
+| onItemSelect | Select item | (key: string, selected: boolean) |  |
+| onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |  |
 
 #### example
 

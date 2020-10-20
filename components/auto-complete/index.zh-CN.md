@@ -44,10 +44,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 
 ## 方法
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称 | 描述 | 版本 |
+| --- | --- | --- |
+| blur() | 移除焦点 |  |
+| focus() | 获取焦点 |  |
 
 ## FAQ
 

@@ -38,7 +38,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
 
 ## 方法
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称 | 描述 | 版本 |
+| --- | --- | --- |
+| blur() | 移除焦点 |  |
+| focus() | 获取焦点 |  |

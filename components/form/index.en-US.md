@@ -200,9 +200,9 @@ Some operator functions in render form of Form.List.
 
 New in 4.7.0. Show error messages, should only work with `rules` of Form.List.
 
-| Property | Description | Type         | Default |
-| -------- | ----------- | ------------ | ------- |
-| errors   | Error list  | ReactNode\[] | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| errors | Error list | ReactNode\[] | - |
 
 ## Form.Provider
 
@@ -283,13 +283,13 @@ validateFields()
 
 #### FieldData
 
-| Name       | Description              | Type                     |
-| ---------- | ------------------------ | ------------------------ |
-| errors     | Error messages           | string\[]                |
-| name       | Field name path          | [NamePath](#NamePath)\[] |
-| touched    | Whether is operated      | boolean                  |
-| validating | Whether is in validating | boolean                  |
-| value      | Field value              | any                      |
+| Name | Description | Type |
+| --- | --- | --- |
+| errors | Error messages | string\[] |
+| name | Field name path | [NamePath](#NamePath)\[] |
+| touched | Whether is operated | boolean |
+| validating | Whether is in validating | boolean |
+| value | Field value | any |
 
 #### Rule
 

@@ -77,10 +77,10 @@ The following APIs are shared by DatePicker, RangePicker.
 
 ### Common Methods
 
-| Name    | Description  | Version |
-| ------- | ------------ | ------- |
-| blur()  | Remove focus |         |
-| focus() | Get focus    |         |
+| Name | Description | Version |
+| --- | --- | --- |
+| blur() | Remove focus |  |
+| focus() | Get focus |  |
 
 ### DatePicker
 

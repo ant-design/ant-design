@@ -29,9 +29,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
 
 ### DescriptionItem
 
-| 参数  | 说明         | 类型      | 默认值 | 版本 |
-| ----- | ------------ | --------- | ------ | ---- |
-| label | 内容的描述   | ReactNode | -      |      |
-| span  | 包含列的数量 | number    | 1      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| label | 内容的描述 | ReactNode | - |  |
+| span | 包含列的数量 | number | 1 |  |
 
 > span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。

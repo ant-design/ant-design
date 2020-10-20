@@ -54,13 +54,13 @@ More layouts with navigation: [Layout](/components/layout).
 
 ### Menu.Item
 
-| Param    | Description                          | Type      | Default value | Version |
-| -------- | ------------------------------------ | --------- | ------------- | ------- |
-| danger   | Display the danger style             | boolean   | false         | 4.3.0   |
-| disabled | Whether menu item is disabled        | boolean   | false         |         |
-| icon     | The icon of the menu item            | ReactNode | -             | 4.2.0   |
-| key      | Unique ID of the menu item           | string    | -             |         |
-| title    | Set display title for collapsed item | string    | -             |         |
+| Param | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
+| danger | Display the danger style | boolean | false | 4.3.0 |
+| disabled | Whether menu item is disabled | boolean | false |  |
+| icon | The icon of the menu item | ReactNode | - | 4.2.0 |
+| key | Unique ID of the menu item | string | - |  |
+| title | Set display title for collapsed item | string | - |  |
 
 > Note: `icon` is a newly added prop in`4.2.0`. For previous versions, please use the following method to define the icon.
 >
@@ -96,10 +96,10 @@ More layouts with navigation: [Layout](/components/layout).
 
 ### Menu.ItemGroup
 
-| Param    | Description            | Type        | Default value | Version |
-| -------- | ---------------------- | ----------- | ------------- | ------- |
-| children | Sub-menu items         | MenuItem\[] | -             |         |
-| title    | The title of the group | ReactNode   | -             |         |
+| Param | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
+| children | Sub-menu items | MenuItem\[] | - |  |
+| title | The title of the group | ReactNode | - |  |
 
 ### Menu.Divider
 

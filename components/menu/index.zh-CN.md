@@ -55,13 +55,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 ### Menu.Item
 
-| 参数     | 说明                     | 类型      | 默认值 | 版本  |
-| -------- | ------------------------ | --------- | ------ | ----- |
-| danger   | 展示错误状态样式         | boolean   | false  | 4.3.0 |
-| disabled | 是否禁用                 | boolean   | false  |       |
-| icon     | 菜单图标                 | ReactNode | -      | 4.2.0 |
-| key      | item 的唯一标志          | string    | -      |       |
-| title    | 设置收缩时展示的悬浮标题 | string    | -      |       |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| danger | 展示错误状态样式 | boolean | false | 4.3.0 |
+| disabled | 是否禁用 | boolean | false |  |
+| icon | 菜单图标 | ReactNode | - | 4.2.0 |
+| key | item 的唯一标志 | string | - |  |
+| title | 设置收缩时展示的悬浮标题 | string | - |  |
 
 > 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
 >
@@ -84,23 +84,23 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 ### Menu.SubMenu
 
-| 参数           | 说明           | 类型                          | 默认值 | 版本  |
-| -------------- | -------------- | ----------------------------- | ------ | ----- |
-| children       | 子菜单的菜单项 | Array&lt;MenuItem \| SubMenu> | -      |       |
-| disabled       | 是否禁用       | boolean                       | false  |       |
-| icon           | 菜单图标       | ReactNode                     | -      | 4.2.0 |
-| key            | 唯一标志       | string                        | -      |       |
-| popupClassName | 子菜单样式     | string                        | -      |       |
-| popupOffset    | 子菜单偏移量   | \[number, number]             | -      |       |
-| title          | 子菜单项值     | ReactNode                     | -      |       |
-| onTitleClick   | 点击子菜单标题 | function({ key, domEvent })   | -      |       |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| children | 子菜单的菜单项 | Array&lt;MenuItem \| SubMenu> | - |  |
+| disabled | 是否禁用 | boolean | false |  |
+| icon | 菜单图标 | ReactNode | - | 4.2.0 |
+| key | 唯一标志 | string | - |  |
+| popupClassName | 子菜单样式 | string | - |  |
+| popupOffset | 子菜单偏移量 | \[number, number] | - |  |
+| title | 子菜单项值 | ReactNode | - |  |
+| onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
 
 ### Menu.ItemGroup
 
-| 参数     | 说明         | 类型        | 默认值 | 版本 |
-| -------- | ------------ | ----------- | ------ | ---- |
-| children | 分组的菜单项 | MenuItem\[] | -      |      |
-| title    | 分组标题     | ReactNode   | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| children | 分组的菜单项 | MenuItem\[] | - |  |
+| title | 分组标题 | ReactNode | - |  |
 
 ### Menu.Divider
 

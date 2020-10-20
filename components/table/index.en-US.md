@@ -147,9 +147,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 ### ColumnGroup
 
-| Property | Description               | Type      | Default |
-| -------- | ------------------------- | --------- | ------- |
-| title    | Title of the column group | ReactNode | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| title | Title of the column group | ReactNode | - |
 
 ### pagination
 

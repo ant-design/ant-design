@@ -154,9 +154,9 @@ const columns = [
 
 ### ColumnGroup
 
-| 参数  | 说明         | 类型      | 默认值 |
-| ----- | ------------ | --------- | ------ |
-| title | 列头显示文字 | ReactNode | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| title | 列头显示文字 | ReactNode | - |
 
 ### pagination
 
@@ -220,11 +220,11 @@ const columns = [
 
 ### selection
 
-| 参数     | 说明                       | 类型                        | 默认值 |
-| -------- | -------------------------- | --------------------------- | ------ |
-| key      | React 需要的 key，建议设置 | string                      | -      |
-| text     | 选择项显示的文字           | ReactNode                   | -      |
-| onSelect | 选择项点击回调             | function(changeableRowKeys) | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| key | React 需要的 key，建议设置 | string | - |
+| text | 选择项显示的文字 | ReactNode | - |
+| onSelect | 选择项点击回调 | function(changeableRowKeys) | - |
 
 ## 在 TypeScript 中使用
 

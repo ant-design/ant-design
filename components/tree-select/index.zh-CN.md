@@ -62,25 +62,25 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
 
 ### Tree 方法
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称 | 描述 | 版本 |
+| --- | --- | --- |
+| blur() | 移除焦点 |  |
+| focus() | 获取焦点 |  |
 
 ### TreeNode props
 
 > 建议使用 treeData 来代替 TreeNode，免去手工构造麻烦
 
-| 参数            | 说明                                               | 类型      | 默认值 | 版本 |
-| --------------- | -------------------------------------------------- | --------- | ------ | ---- |
-| checkable       | 当树为 Checkbox 时，设置独立节点是否展示 Checkbox  | boolean   | -      |      |
-| disableCheckbox | 禁掉 Checkbox                                      | boolean   | false  |      |
-| disabled        | 是否禁用                                           | boolean   | false  |      |
-| isLeaf          | 是否是叶子节点                                     | boolean   | false  |      |
-| key             | 此项必须设置（其值在整个树范围内唯一）             | string    | -      |      |
-| selectable      | 是否可选                                           | boolean   | true   |      |
-| title           | 树节点显示的内容                                   | ReactNode | `---`  |      |
-| value           | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string    | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| checkable | 当树为 Checkbox 时，设置独立节点是否展示 Checkbox | boolean | - |  |
+| disableCheckbox | 禁掉 Checkbox | boolean | false |  |
+| disabled | 是否禁用 | boolean | false |  |
+| isLeaf | 是否是叶子节点 | boolean | false |  |
+| key | 此项必须设置（其值在整个树范围内唯一） | string | - |  |
+| selectable | 是否可选 | boolean | true |  |
+| title | 树节点显示的内容 | ReactNode | `---` |  |
+| value | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string | - |  |
 
 ## FAQ
 
