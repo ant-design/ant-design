@@ -30,7 +30,7 @@ When a numeric value needs to be provided.
 | value | The current value | number | - | - |
 | onChange | The callback triggered when the value is changed | function(value: number \| string) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
-| onStep | The callback function that is triggered when click up or down buttons | \`(value: number, info: { offset: number, type: 'up' \| 'down' }) => void\` | - | 4.7.0 |
+| onStep | The callback function that is triggered when click up or down buttons | `(value: number, info: { offset: number, type: 'up' \| 'down' }) => void` | - | 4.7.0 |
 
 ## Methods
 
