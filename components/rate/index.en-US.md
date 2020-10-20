@@ -24,14 +24,14 @@ Rate component.
 | count | Star count | number | 5 |  |
 | defaultValue | The default value | number | 0 |  |
 | disabled | If read only, unable to interact | boolean | false |  |
-| style | The custom style object of rate | CSSProperties | - |  |
-| tooltips | Customize tooltip by each character | string\[] | - |  |
-| value | The current value | number | - |  |
 | onBlur | Callback when component lose focus | function() | - |  |
 | onChange | Callback when select value | function(value: number) | - |  |
 | onFocus | Callback when component get focus | function() | - |  |
 | onHoverChange | Callback when hover item | function(value: number) | - |  |
 | onKeyDown | Callback when keydown on component | function(event) | - |  |
+| style | The custom style object of rate | CSSProperties | - |  |
+| tooltips | Customize tooltip by each character | string\[] | - |  |
+| value | The current value | number | - |  |
 
 ## Methods
 

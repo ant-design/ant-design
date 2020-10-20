@@ -19,23 +19,23 @@ A content area which can be collapsed and expanded.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In `accordion` mode, it's the key of the first panel |  |
-| defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
-| bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
 | accordion | If true, Collapse renders as Accordion | boolean | false |  |
-| onChange | Callback function executed when active panel is changed | function | - |  |
+| activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In `accordion` mode, it's the key of the first panel |  |
+| bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
+| defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
+| destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
 | expandIconPosition | Set expand icon position | `left` \| `right` | - |  |
-| destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
+| onChange | Callback function executed when active panel is changed | function | - |  |
 
 ### Collapse.Panel
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | disabled | If true, panel cannot be opened or closed | boolean | false |  |
+| extra | The extra element in the corner | ReactNode | - |  |
 | forceRender | Forced render of content on panel, instead of lazy rending after clicking on header | boolean | false |  |
 | header | Title of the panel | ReactNode | - |  |
 | key | Unique key identifying the panel from among its siblings | string \| number | - |  |
 | showArrow | If false, panel will not show arrow icon | boolean | true |  |
-| extra | The extra element in the corner | ReactNode | - |  |

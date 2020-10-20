@@ -17,8 +17,8 @@ When requiring users to interact with the application, but without jumping to a 
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties | {} |  |
-| cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
+| cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |  |
 | closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |
