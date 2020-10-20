@@ -47,7 +47,7 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | rows | Set the row count of paragraph | number | - |
-| width | Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width | number \| string \| Array<number \| string> | - |
+| width | Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width | number \| string \| Array&lt;number \| string> | - |
 
 ### SkeletonButtonProps
 

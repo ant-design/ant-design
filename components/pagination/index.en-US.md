@@ -27,8 +27,6 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | disabled | Disable pagination | boolean | - |  |
 | hideOnSinglePage | Whether to hide pager on single page | boolean | false |  |
 | itemRender | To customize item's innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
-| onChange | Called when the page number is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
-| onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  |
 | pageSize | Number of data items per page | number | - |  |
 | pageSizeOptions | Specify the sizeChanger options | string\[] | \[`10`, `20`, `50`, `100`] |  |
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - |  |
@@ -40,3 +38,5 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | simple | Whether to use simple mode | boolean | - |  |
 | size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` |  |
 | total | Total number of data items | number | 0 |  |
+| onChange | Called when the page number is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
+| onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  |

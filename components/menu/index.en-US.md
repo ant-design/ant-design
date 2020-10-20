@@ -36,10 +36,6 @@ More layouts with navigation: [Layout](/components/layout).
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |
 | mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
-| onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
-| onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
-| onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
-| onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
 | overflowedIndicator | Customized icon when menu is collapsed | ReactNode | - |  |
 | selectable | Allows selecting menu items | boolean | true |  |
@@ -49,6 +45,10 @@ More layouts with navigation: [Layout](/components/layout).
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |
 | triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
+| onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
+| onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
+| onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
@@ -89,10 +89,10 @@ More layouts with navigation: [Layout](/components/layout).
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - | 4.2.0 |
 | key | Unique ID of the sub-menu | string | - |  |
-| onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 | popupClassName | Sub-menu class name | string | - |  |
 | popupOffset | Sub-menu offset | \[number, number] | - |  |
 | title | Title of sub menu | ReactNode | - |  |
+| onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
 ### Menu.ItemGroup
 

@@ -33,12 +33,12 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
-| onVisibleChange | Callback executed when visibility of the tooltip card is changed | (visible) => void | - |  |
 | overlayClassName | Class name of the tooltip card | string | - |  |
 | overlayStyle | Style of the tooltip card | object | - |  |
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
 | visible | Whether the floating tooltip card is visible or not | boolean | false |  |
+| onVisibleChange | Callback executed when visibility of the tooltip card is changed | (visible) => void | - |  |
 
 ## Note
 

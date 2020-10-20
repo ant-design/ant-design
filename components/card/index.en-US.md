@@ -32,13 +32,13 @@ A card can be used to display content related to a single subject. The content c
 | headStyle | Inline style to apply to the card head | CSSProperties | - |  |
 | hoverable | Lift up when hovering card | boolean | false |  |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |
-| onTabChange | Callback when tab is switched | (key) => void | - |  |
 | size | Size of card | `default` \| `small` | `default` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode | - |  |
 | tabList | List of TabPane's head | Array&lt;{key: string, tab: ReactNode}> | - |  |
 | tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
+| onTabChange | Callback when tab is switched | (key) => void | - |  |
 
 ### Card.Grid
 

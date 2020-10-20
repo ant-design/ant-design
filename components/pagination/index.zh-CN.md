@@ -28,8 +28,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 | disabled | 禁用分页 | boolean | - |  |
 | hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false |  |
 | itemRender | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
-| onChange | 页码改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  |
-| onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  |
 | pageSize | 每页条数 | number | - |  |
 | pageSizeOptions | 指定每页可以显示多少条 | string\[] | \[`10`, `20`, `50`, `100`] |  |
 | responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - |  |
@@ -41,3 +39,5 @@ cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 | simple | 当添加该属性时，显示为简单分页 | boolean | - |  |
 | size | 当为 `small` 时，是小尺寸分页 | `default` \| `small` | `default` |  |
 | total | 数据总数 | number | 0 |  |
+| onChange | 页码改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  |
+| onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  |

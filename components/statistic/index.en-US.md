@@ -33,9 +33,9 @@ Display statistic number.
 | Property   | Description                              | Type             | Default    | Version |
 | ---------- | ---------------------------------------- | ---------------- | ---------- | ------- |
 | format     | Format as [moment](http://momentjs.com/) | string           | `HH:mm:ss` |         |
-| onFinish   | Trigger when time's up                   | () => void       | -          |         |
 | prefix     | The prefix node of value                 | ReactNode        | -          |         |
 | suffix     | The suffix node of value                 | ReactNode        | -          |         |
 | title      | Display title                            | ReactNode        | -          |         |
 | value      | Set target countdown time                | number \| moment | -          |         |
 | valueStyle | Set value css style                      | CSSProperties    | -          |         |
+| onFinish   | Trigger when time's up                   | () => void       | -          |         |

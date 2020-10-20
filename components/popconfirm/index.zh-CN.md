@@ -25,9 +25,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fjMCD9xRq/Popconfirm.svg
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |
 | okText | 确认按钮文字 | string | `确定` |
 | okType | 确认按钮类型 | string | `primary` |
+| title | 确认框的描述 | ReactNode \| () => ReactNode | - |
 | onCancel | 点击取消的回调 | function(e) | - |
 | onConfirm | 点击确认的回调 | function(e) | - |
-| title | 确认框的描述 | ReactNode \| () => ReactNode | - |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 

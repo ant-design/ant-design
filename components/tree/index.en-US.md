@@ -19,13 +19,13 @@ Almost anything can be represented in a tree structure. Examples include directo
 | --- | --- | --- | --- | --- |
 | autoExpandParent | Whether to automatically expand a parent treeNode | boolean | false |  |
 | blockNode | Whether treeNode fill remaining horizontal space | boolean | false |  |
-| checkStrictly | Check treeNode precisely; parent treeNode and children treeNodes are not associated | boolean | false |  |
 | checkable | Add a Checkbox before the treeNodes | boolean | false |  |
 | checkedKeys | (Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halfChecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other | string\[] \| {checked: string\[], halfChecked: string\[]} | \[] |  |
+| checkStrictly | Check treeNode precisely; parent treeNode and children treeNodes are not associated | boolean | false |  |
 | defaultCheckedKeys | Specifies the keys of the default checked treeNodes | string\[] | \[] |  |
 | defaultExpandAll | Whether to expand all treeNodes by default | boolean | false |  |
-| defaultExpandParent | If auto expand parent treeNodes when init | boolean | true |  |
 | defaultExpandedKeys | Specify the keys of the default expanded treeNodes | string\[] | \[] |  |
+| defaultExpandParent | If auto expand parent treeNodes when init | boolean | true |  |
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |  |
 | disabled | Whether disabled the tree | boolean | false |  |
 | draggable | Specifies whether this Tree is draggable (IE > 8) | boolean | false |  |
@@ -36,6 +36,14 @@ Almost anything can be represented in a tree structure. Examples include directo
 | loadData | Load data asynchronously | function(node) | - |  |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |  |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
+| selectable | Whether can be selected | boolean | true |  |
+| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
+| showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to true | boolean | false |  |
+| showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean} | false |  |
+| switcherIcon | Customize collapse/expand icon of tree node | ReactNode | - |  |
+| titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
+| treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
+| virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
 | onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node, expandedKeys}) | - |  |
@@ -47,20 +55,12 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
-| selectable | Whether can be selected | boolean | true |  |
-| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
-| showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to true | boolean | false |  |
-| showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean} | false |  |
-| switcherIcon | Customize collapse/expand icon of tree node | ReactNode | - |  |
-| titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
-| treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
-| virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 
 ### TreeNode props
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - |
+| Property | Description | Type | Default |  |
+| --- | --- | --- | --- | --- |
+| checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - |  |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
 | disabled | Disables the treeNode | boolean | false |  |
 | icon | Customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode \| (props) => ReactNode | - |  |
@@ -103,7 +103,7 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ### How to hide file icon when use showLine?
 
-File icon realize by using switcherIcon. You can overwrite the style to hide it: https://codesandbox.io/s/883vo47xp8
+File icon realize by using switcherIcon. You can overwrite the style to hide it: <https://codesandbox.io/s/883vo47xp8>
 
 ### Why defaultExpandedAll not working on ajax data?
 

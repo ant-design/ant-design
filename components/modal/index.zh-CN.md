@@ -38,14 +38,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
-| onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |
-| onOk | 点击确定回调 | function(e) | - |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
 | visible | 对话框是否可见 | boolean | - |  |
 | width | 宽度 | string \| number | 520 |  |
 | wrapClassName | 对话框外层容器的类名 | string | - |  |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
+| onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |
+| onOk | 点击确定回调 | function(e) | - |  |
 
 #### 注意
 
@@ -82,12 +82,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
-| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
-| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
 | width | 宽度 | string \| number | 416 |  |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
+| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
+| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 
 以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
 

@@ -37,16 +37,16 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | method | 上传请求的 http method | string | `post` |  |
 | multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件 | boolean | false |  |
 | name | 发到后台的文件参数名 | string | `file` |  |
-| onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | function | - |  |
-| onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
-| onPreview | 点击文件链接或预览图标时的回调 | function(file) | - |  |
-| onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除               | function(file): boolean \| Promise | -   |  |
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true |  |
-| previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise<dataURL: string> | - |  |
+| previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
 | progress | 自定义进度条样式 | [ProgressProps](/components/progress/#API)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 | showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | function(file): string \| Blob \| File \| Promise&lt;string \| Blob \| File> | -   |  |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
+| onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | function | - |  |
+| onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
+| onPreview | 点击文件链接或预览图标时的回调 | function(file) | - |  |
+| onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除               | function(file): boolean \| Promise | -   |  |
 
 ### onChange
 
@@ -75,6 +75,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
    ```
 
 2. `fileList` 当前的文件列表。
+
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
 
 ## FAQ

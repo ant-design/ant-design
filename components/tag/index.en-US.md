@@ -23,8 +23,8 @@ Tag for categorizing or markup.
 | closeIcon | Custom close icon                    | ReactNode   | -       | 4.4.0   |
 | color     | Color of the Tag                     | string      | -       |         |
 | icon      | Set the icon of tag                  | ReactNode   | -       |         |
-| onClose   | Callback executed when tag is closed | (e) => void | -       |         |
 | visible   | Whether the Tag is closed or not     | boolean     | true    |         |
+| onClose   | Callback executed when tag is closed | (e) => void | -       |         |
 
 ### Tag.CheckableTag
 

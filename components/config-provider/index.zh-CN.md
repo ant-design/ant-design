@@ -72,7 +72,7 @@ moment.locale('zh-cn');
 
 #### 配置 `getPopupContainer` 导致 Modal 报错？
 
-相关 issue：https://github.com/ant-design/ant-design/issues/19974
+相关 issue：<https://github.com/ant-design/ant-design/issues/19974>
 
 当如下全局设置 `getPopupContainer` 为触发节点的 parentNode 时，由于 Modal 的用法不存在 `triggerNode`，这样会导致 `triggerNode is undefined` 的报错，需要增加一个[判断条件](https://github.com/afc163/feedback-antd/commit/3e4d1ad1bc1a38460dc3bf3c56517f737fe7d44a)。
 

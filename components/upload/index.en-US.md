@@ -36,16 +36,16 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | method | The http method of upload request | string | `post` |  |
 | multiple | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false |  |
 | name | The name of uploading file | string | `file` |  |
-| onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | function | - |  |
-| onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |  |
-| onPreview | A callback function, will be executed when file link or preview icon is clicked | function(file) | - |  |
-| onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  |
 | openFileDialogOnClick | Click open file dialog | boolean | true |  |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
 | progress | Custom progress bar | [ProgressProps](/components/progress/#API) (support `type="line"` only) | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
 | transformFile   | Customize transform file before request | Function(file): string \| Blob \| File \| Promise&lt;string \| Blob \| File> | - |  |
 | withCredentials | The ajax upload with cookie sent | boolean | false |  |
+| onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | function | - |  |
+| onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |  |
+| onPreview | A callback function, will be executed when file link or preview icon is clicked | function(file) | - |  |
+| onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  |
 
 ### onChange
 
@@ -75,6 +75,7 @@ When uploading state change, it returns:
    ```
 
 2. `fileList` current list of files
+
 3. `event` response from server, including uploading progress, supported by advanced browsers.
 
 ## FAQ
