@@ -38,7 +38,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 | onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |
 | placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |
 | prefix | 设置触发关键字 | string \| string\[] | `@` |
-| split | 设置选中项前后分隔符 | string | \`\` |
+| split | 设置选中项前后分隔符 | string | ` ` |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |
 | value | 设置值 | string | - |
 

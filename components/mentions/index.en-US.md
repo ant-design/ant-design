@@ -37,7 +37,7 @@ When need to mention someone or something.
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |
 | prefix | Set trigger prefix keyword | string \| string\[] | `@` |
-| split | Set split string before and after selected mention | string | \`\` |
+| split | Set split string before and after selected mention | string | ` ` |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |
 | value | Set value of mentions | string | - |
 
