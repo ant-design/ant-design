@@ -4,7 +4,7 @@ const glob = require('glob');
 
 const docPaths = glob
   .sync('components/*/*.md', {
-    ignore: '**/{__tests__,_util,version,index.tsx}',
+    ignore: ['**/{__tests__,_util,version,index.tsx}', '*/grid/*'],
     cwd: join(process.cwd()),
     dot: false,
   })
