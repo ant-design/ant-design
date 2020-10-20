@@ -209,4 +209,11 @@ describe('Input.Search', () => {
       wrapper.find('button').simulate('mousedown');
     }).not.toThrow();
   });
+
+  // https://github.com/ant-design/ant-design/issues/27258
+  it('Search with allowClear should have one className only', () => {
+    const wrapper = mount(<Search allowClear className="className" />);
+    expect(wrapper.find('.ant-input-group-wrapper').hasClass('className')).toBe(true);
+    expect(wrapper.find('.ant-input-affix-wrapper').hasClass('className')).toBe(false);
+  });
 });
