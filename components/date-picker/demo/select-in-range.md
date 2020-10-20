@@ -34,8 +34,8 @@ const App = () => {
     <RangePicker
       disabledDate={disabledDate}
       onCalendarChange={value => {
-        const [start, end] = value
-        const [oldStart, oldEnd] = dates
+        const [start, end] = value;
+        const [oldStart, oldEnd] = dates;
         setDates([start || oldStart, end || oldEnd]);
       }}
     />
