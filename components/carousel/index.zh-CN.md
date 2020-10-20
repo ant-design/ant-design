@@ -16,22 +16,22 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |  |
-| --- | --- | --- | --- | --- | --- |
-| afterChange | 切换面板的回调 | function(current) | - |  |  |
-| autoplay | 是否自动切换 | boolean | false |  |  |
-| beforeChange | 切换面板的回调 | function(from, to) | - |  |  |
-| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | `bottom` |  |  |
-| dots | 是否显示面板指示点，如果为 `object` 则同时可以指定 `dotsClass` 或者 | boolean \| { className?: string } | true |  |  |
-| easing | 动画效果 | string | `linear` |  |  |
-| effect | 动画效果函数 | `scrollx` \| `fade` | `scrollx` |  |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| afterChange | 切换面板的回调 | function(current) | - |  |
+| autoplay | 是否自动切换 | boolean | false |  |
+| beforeChange | 切换面板的回调 | function(from, to) | - |  |
+| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | `bottom` |  |
+| dots | 是否显示面板指示点，如果为 `object` 则同时可以指定 `dotsClass` 或者 | boolean \| { className?: string } | true |  |
+| easing | 动画效果 | string | `linear` |  |
+| effect | 动画效果函数 | `scrollx` \| `fade` | `scrollx` |  |
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
+| 名称                           | 描述                                              |
+| ------------------------------ | ------------------------------------------------- |
 | goTo(slideNumber, dontAnimate) | 切换到指定面板, dontAnimate = true 时，不使用动画 |
-| next() | 切换到下一面板 |
-| prev() | 切换到上一面板 |
+| next()                         | 切换到下一面板                                    |
+| prev()                         | 切换到上一面板                                    |
 
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
