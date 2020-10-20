@@ -62,9 +62,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(string \| number \| LabeledValue, option: Option) | - |  |
 | open | 是否展开下拉菜单 | boolean | - |  |
+| options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }[] | - |  |
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `value` |  |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value` | string | `children` |  |
-| options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }[] | - |  |
 | placeholder | 选择框默认文字 | string | - |  |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | showArrow | 是否显示下拉小箭头 | boolean | 单选为 true，多选为 false |  |

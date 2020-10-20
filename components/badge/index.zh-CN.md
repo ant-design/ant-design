@@ -24,8 +24,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
 | offset | 设置状态点的位置偏移 | \[number, number] | - |  |
 | overflowCount | 展示封顶的数字值 | number | 99 |  |
 | showZero | 当数值为 0 时，是否展示 Badge | boolean | false |  |
-| size | 在设置了 `count` 的前提下有效，设置小圆点的大小 | `default` \| `small` | - | 4.6.0 |
 | status | 设置 Badge 为状态点 | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
+| size | 在设置了 `count` 的前提下有效，设置小圆点的大小 | `default` \| `small` | - | 4.6.0 |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | ReactNode | - |  |
 | title | 设置鼠标放在状态点上时显示的文字 | string | - |  |
 

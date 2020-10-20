@@ -32,8 +32,8 @@ config 参数如下：
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |
 | btn | 自定义关闭按钮 | ReactNode | - |
+| bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |
 | className | 自定义 CSS class | string | - |
 | closeIcon | 自定义关闭图标 | ReactNode | - |
 | description | 通知提醒内容，必选 | ReactNode | - |
@@ -42,8 +42,8 @@ config 参数如下：
 | icon | 自定义图标 | ReactNode | - |
 | key | 当前通知唯一标志 | string | - |
 | message | 通知提醒标题，必选 | ReactNode | - |
-| onClick | 点击通知时触发的回调函数 | function | - |
 | onClose | 当通知关闭时触发 | function | - |
+| onClick | 点击通知时触发的回调函数 | function | - |
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |
@@ -72,8 +72,8 @@ notification.config({
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
-| rtl | 是否开启 RTL 模式 | boolean | false |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |
+| rtl | 是否开启 RTL 模式 | boolean | false |
 
 ## FAQ
 

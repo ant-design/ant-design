@@ -20,11 +20,11 @@ Tag for categorizing or markup.
 | Property  | Description                          | Type        | Default | Version |
 | --------- | ------------------------------------ | ----------- | ------- | ------- |
 | closable  | Whether the Tag can be closed        | boolean     | false   |         |
-| closeIcon | Custom close icon                    | ReactNode   | -       | 4.4.0   |
 | color     | Color of the Tag                     | string      | -       |         |
-| icon      | Set the icon of tag                  | ReactNode   | -       |         |
+| closeIcon | Custom close icon                    | ReactNode   | -       | 4.4.0   |
 | onClose   | Callback executed when tag is closed | (e) => void | -       |         |
 | visible   | Whether the Tag is closed or not     | boolean     | true    |         |
+| icon      | Set the icon of tag                  | ReactNode   | -       |         |
 
 ### Tag.CheckableTag
 

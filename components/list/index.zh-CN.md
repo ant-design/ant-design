@@ -22,18 +22,18 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示边框 | boolean | false |  |
-| dataSource | 列表数据源 | any[] | - |  |
 | footer | 列表底部 | ReactNode | - |  |
 | grid | 列表栅格配置 | [object](#List-grid-props) | - |  |
 | header | 列表头部 | ReactNode | - |  |
 | itemLayout | 设置 `List.Item` 布局, 设置成 `vertical` 则竖直样式显示, 默认横排 | string | - |  |
-| loadMore | 加载更多 | ReactNode | - |  |
 | loading | 当卡片内容还在加载中时，可以用 `loading` 展示一个占位 | boolean \| [object](/components/spin/#API) ([更多](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
+| loadMore | 加载更多 | ReactNode | - |  |
 | locale | 默认文案设置，目前包括空数据文案 | object | {emptyText: `暂无数据`} |  |
 | pagination | 对应的 `pagination` 配置, 设置 false 不显示 | boolean \| object | false |  |
-| renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项 | (item) => ReactNode | - |  |
 | size | list 的尺寸 | `default` \| `large` \| `small` | `default` |  |
 | split | 是否展示分割线 | boolean | true |  |
+| dataSource | 列表数据源 | any[] | - |  |
+| renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项 | (item) => ReactNode | - |  |
 
 ### pagination
 
@@ -51,11 +51,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 | ------ | -------------------- | ------ | ------ | ---- |
 | column | 列数                 | number | -      |      |
 | gutter | 栅格间隔             | number | 0      |      |
-| lg     | `≥992px` 展示的列数  | number | -      |      |
-| md     | `≥768px` 展示的列数  | number | -      |      |
-| sm     | `≥576px` 展示的列数  | number | -      |      |
-| xl     | `≥1200px` 展示的列数 | number | -      |      |
 | xs     | `<576px` 展示的列数  | number | -      |      |
+| sm     | `≥576px` 展示的列数  | number | -      |      |
+| md     | `≥768px` 展示的列数  | number | -      |      |
+| lg     | `≥992px` 展示的列数  | number | -      |      |
+| xl     | `≥1200px` 展示的列数 | number | -      |      |
 | xxl    | `≥1600px` 展示的列数 | number | -      |      |
 
 ### List.Item

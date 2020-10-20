@@ -41,18 +41,18 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | autoInsertSpaceInButton | Set false to remove space between 2 chinese characters on Button | boolean | true |  |
 | componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
-| direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | 4.3.0 |
 | form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validateMessages) } | - |  |
+| input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
+| renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
-| input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | locale | Language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object | - |
-| pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
 | prefixCls | Set prefix className (cooperated with [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7)) | string | `ant` |  |
-| renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
+| pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
+| direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | space | Set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | 4.3.0 |
 
 ## FAQ
 

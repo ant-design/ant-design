@@ -51,12 +51,12 @@ The properties of config are as follows:
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| className | Customized CSS class | string | - |
 | content | The content of the message | ReactNode | - |
 | duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |
+| onClose | Specify a function that will be called when the message is closed | function | - |
 | icon | Customized Icon | ReactNode | - |
 | key | The unique identifier of the Message | string \| number | - |
-| onClose | Specify a function that will be called when the message is closed | function | - |
+| className | Customized CSS class | string | - |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 
 ### Global static methods
@@ -89,9 +89,9 @@ message.config({
 | duration | Time before auto-dismiss, in seconds | number | 1.5 |  |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |  |
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
-| prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
-| rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | number | 24 |  |
+| rtl | Whether to enable RTL mode | boolean | false |  |
+| prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 
 ## FAQ
 
