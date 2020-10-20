@@ -1549,86 +1549,84 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
   class="ant-form ant-form-horizontal"
   id="dynamic_form_item"
 >
-  <div>
+  <div
+    class="ant-row ant-form-item"
+  >
     <div
-      class="ant-row ant-form-item"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
     >
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
+        class="ant-form-item-control-input"
       >
         <div
-          class="ant-form-item-control-input"
+          class="ant-form-item-control-input-content"
         >
-          <div
-            class="ant-form-item-control-input-content"
+          <button
+            class="ant-btn ant-btn-dashed"
+            style="width:60%"
+            type="button"
           >
-            <button
-              class="ant-btn ant-btn-dashed"
-              style="width:60%"
-              type="button"
+            <span
+              aria-label="plus"
+              class="anticon anticon-plus"
+              role="img"
             >
-              <span
-                aria-label="plus"
-                class="anticon anticon-plus"
-                role="img"
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="plus"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="plus"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <defs />
-                  <path
-                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                  />
-                  <path
-                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                  />
-                </svg>
-              </span>
-              <span>
-                 Add field
-              </span>
-            </button>
-            <button
-              class="ant-btn ant-btn-dashed"
-              style="width:60%;margin-top:20px"
-              type="button"
+                <defs />
+                <path
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                />
+              </svg>
+            </span>
+            <span>
+              Add field
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-dashed"
+            style="width:60%;margin-top:20px"
+            type="button"
+          >
+            <span
+              aria-label="plus"
+              class="anticon anticon-plus"
+              role="img"
             >
-              <span
-                aria-label="plus"
-                class="anticon anticon-plus"
-                role="img"
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="plus"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="plus"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <defs />
-                  <path
-                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                  />
-                  <path
-                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                  />
-                </svg>
-              </span>
-              <span>
-                 Add field at head
-              </span>
-            </button>
-          </div>
+                <defs />
+                <path
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                />
+              </svg>
+            </span>
+            <span>
+              Add field at head
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -1666,52 +1664,50 @@ exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
   class="ant-form ant-form-horizontal"
   id="dynamic_form_nest_item"
 >
-  <div>
+  <div
+    class="ant-row ant-form-item"
+  >
     <div
-      class="ant-row ant-form-item"
+      class="ant-col ant-form-item-control"
     >
       <div
-        class="ant-col ant-form-item-control"
+        class="ant-form-item-control-input"
       >
         <div
-          class="ant-form-item-control-input"
+          class="ant-form-item-control-input-content"
         >
-          <div
-            class="ant-form-item-control-input-content"
+          <button
+            class="ant-btn ant-btn-dashed ant-btn-block"
+            type="button"
           >
-            <button
-              class="ant-btn ant-btn-dashed ant-btn-block"
-              type="button"
+            <span
+              aria-label="plus"
+              class="anticon anticon-plus"
+              role="img"
             >
-              <span
-                aria-label="plus"
-                class="anticon anticon-plus"
-                role="img"
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="plus"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="plus"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <defs />
-                  <path
-                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                  />
-                  <path
-                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                  />
-                </svg>
-              </span>
-              <span>
-                 Add field
-              </span>
-            </button>
-          </div>
+                <defs />
+                <path
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                />
+              </svg>
+            </span>
+            <span>
+              Add field
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -1875,7 +1871,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
               </svg>
             </span>
             <span>
-               Add sights
+              Add sights
             </span>
           </button>
         </div>
