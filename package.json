@@ -81,7 +81,7 @@
     "prepublishOnly": "antd-tools run guard",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"npm run color-less\"",
     "sort": "npx sort-package-json",
-    "sort-api": "node ./scripts/sort-api",
+    "sort-api": "antd-tools run sort-api-table",
     "start": "antd-tools run clean && cross-env NODE_ENV=development concurrently \"npm run color-less\" \"bisheng start -c ./site/bisheng.config.js\"",
     "start:preact": "antd-tools run clean && cross-env NODE_ENV=development REACT_ENV=preact concurrently \"npm run color-less\" \"bisheng start -c ./site/bisheng.config.js\"",
     "test": "jest --config .jest.js --cache=false",
