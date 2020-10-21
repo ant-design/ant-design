@@ -80,6 +80,7 @@ export interface ModalProps {
   wrapProps?: any;
   prefixCls?: string;
   closeIcon?: React.ReactNode;
+  modalRender?: (node: React.ReactNode) => React.ReactNode;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -114,6 +115,7 @@ export interface ModalFuncProps {
   transitionName?: string;
   maskTransitionName?: string;
   direction?: string;
+  modalRender?: (node: React.ReactNode) => React.ReactNode;
 }
 
 export interface ModalLocale {
