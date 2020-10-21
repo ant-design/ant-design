@@ -186,6 +186,10 @@ v4 中，DatePicker 默认 `locale` 为 `en`。你可以通过 DatePicker 的 `l
 
 请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：<https://codesandbox.io/s/moment-day-of-week-6dby5>
 
+### 为何使用 `panelRender` 时，原来面板无法切换？
+
+当你通过 `panelRender` 动态改变层级结构时，会使得原本的 Panel 被当做新的节点删除并创建。这使得其原本的状态会被重置，保持结构稳定即可。详情请参考 [#27263](https://github.com/ant-design/ant-design/issues/27263)。
+
 ```js
 moment.locale('en', {
   // 注意请修改你正在使用的 locale 语言，比如 zh-cn
