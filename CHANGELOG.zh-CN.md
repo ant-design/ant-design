@@ -362,7 +362,7 @@ timeline: true
   - 🐞 修复 Form 垂直布局时 Form.Item 设置 `labelCol={{ offset: number }}` 不生效的问题。[#25713](https://github.com/ant-design/ant-design/pull/25713) [@zhangchen915](https://github.com/zhangchen915)
   - ⌨️ Form 错误信息节点增加属性 `role="alert"` 以增强可访问性。[#25735](https://github.com/ant-design/ant-design/pull/25735) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
 - Calendar
-  - 🐞 修复 Calendar 组件的 `validRange` 导致 `disabledDate` 不生效 。[#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
+  - 🐞 修复 Calendar 组件的 `validRange` 导致 `disabledDate` 不生效。[#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
   - 🐞 修复 Calendar `validRange` 对月份下拉菜单不生效的问题。[#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
 - 🐞 修复 Table `getCheckboxProps` 返回的 `indeterminate` 不生效。[#25649](https://github.com/ant-design/ant-design/pull/25649)
 - 🐞 修复 Select 清除按钮在 Form.Item 下位置不对的问题。[#25728](https://github.com/ant-design/ant-design/pull/25728)
