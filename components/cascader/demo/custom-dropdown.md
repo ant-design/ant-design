@@ -62,11 +62,7 @@ function dropdownRender(menus) {
 }
 
 ReactDOM.render(
-  <Cascader
-    options={options}
-    dropdownRender={dropdownRender}
-    placeholder="Please select"
-  />,
+  <Cascader options={options} dropdownRender={dropdownRender} placeholder="Please select" />,
   mountNode,
 );
 ```

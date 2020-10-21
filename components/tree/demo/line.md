@@ -70,7 +70,7 @@ const treeData = [
           { title: 'leaf', key: '0-1-0-1', icon: <CarryOutOutlined /> },
         ],
       },
-    ]
+    ],
   },
 ];
 
