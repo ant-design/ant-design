@@ -17,16 +17,14 @@ interface Recommend {
 const LIST_CN: Recommend[] = [
   {
     title: '树形控件在生产力工具中的设计',
-    description:
-      '惊！半年实践血泪史，3000 字深度好文，一个爱树的设计师手把手教你如何设计「树 」！',
+    description: '惊！半年实践血泪史，3000 字深度好文，一个爱树的设计师手把手教你如何设计「树 」！',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z4eXS55fMigAAAAAAAAAAAAAARQnAQ',
     href: 'https://zhuanlan.zhihu.com/p/260068653',
     popularize: true,
   },
   {
     title: '或许这就是下一代组件库',
-    description:
-      '随着 React hooks、Vue composition API 的推出，或许组件库有了新的突破点。',
+    description: '随着 React hooks、Vue composition API 的推出，或许组件库有了新的突破点。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SU6hQ5jHVEsAAAAAAAAAAAAAARQnAQ',
     href: 'https://zhuanlan.zhihu.com/p/252824872',
   },
@@ -41,7 +39,7 @@ const LIST_CN: Recommend[] = [
 
 const LIST_EN: Recommend[] = [
   {
-    title: "How to Design Tree Component",
+    title: 'How to Design Tree Component',
     description:
       '🌲 Surprise! With half-a-year practice of blood and tears, here comes a designer who deeply loves trees to teach you how to design 「tree」component!',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z4eXS55fMigAAAAAAAAAAAAAARQnAQ',
