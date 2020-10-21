@@ -5,12 +5,14 @@ import classNames from 'classnames';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { fixControlledValue, resolveOnChange } from './Input';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
   showCount?: boolean;
   maxLength?: number;
+  size?: SizeType;
 }
 
 export interface TextAreaState {
@@ -76,15 +78,17 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
   };
 
-  renderTextArea = (prefixCls: string, bordered: boolean) => {
-    const { showCount, className, style } = this.props;
+  renderTextArea = (prefixCls: string, bordered: boolean, size?: SizeType) => {
+    const { showCount, className, style, size: customizeSize } = this.props;
 
     return (
       <RcTextArea
-        {...omit(this.props, ['allowClear', 'bordered', 'showCount'])}
+        {...omit(this.props, ['allowClear', 'bordered', 'showCount', 'size'])}
         className={classNames({
           [`${prefixCls}-borderless`]: !bordered,
           [className!]: className && !showCount,
+          [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
+          [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
         })}
         style={showCount ? null : style}
         prefixCls={prefixCls}
@@ -112,14 +116,14 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     value = hasMaxLength ? value.slice(0, maxLength) : value;
 
     // TextArea
-    let textareaNode = (
+    let textareaNode = (size?: SizeType) => (
       <ClearableLabeledInput
         {...this.props}
         prefixCls={prefixCls}
         direction={direction}
         inputType="text"
         value={value}
-        element={this.renderTextArea(prefixCls, bordered)}
+        element={this.renderTextArea(prefixCls, bordered, size)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
         triggerFocus={this.focus}
@@ -132,7 +136,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       const valueLength = [...value].length;
       const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
-      textareaNode = (
+      textareaNode = (size?: SizeType) => (
         <div
           className={classNames(
             `${prefixCls}-textarea`,
@@ -145,12 +149,12 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
           style={style}
           data-count={dataCount}
         >
-          {textareaNode}
+          {textareaNode(size)}
         </div>
       );
     }
 
-    return textareaNode;
+    return <SizeContext.Consumer>{textareaNode}</SizeContext.Consumer>;
   };
 
   render() {

@@ -50,6 +50,9 @@ const FormSizeDemo = () => {
           <Input.Search allowClear />
         </div>
         <div className="example">
+          <Input.TextArea allowClear />
+        </div>
+        <div className="example">
           <Select defaultValue="demo" options={[{ value: 'demo' }]} />
         </div>
         <div className="example">
