@@ -27,11 +27,7 @@ One or more elements can be selected from either column, one click on the proper
 | footer | A function used for rendering the footer | (props) => ReactNode | - |  |
 | listStyle | A custom CSS style used for rendering the transfer columns | object \| ({direction: `left` \| `right`}) => object | - |  |
 | locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `The list is empty`, searchPlaceholder: `Search here` } |  |
-| onChange | A callback function that is executed when the transfer between columns is complete | (targetKeys, direction, moveKeys): void | - |  |
 | oneWay | Display as single direction style | boolean | false | 4.3.0 |
-| onScroll | A callback function which is executed when scroll options list | (direction, event): void | - |  |
-| onSearch | A callback function which is executed when search field are changed | (direction: `left` \| `right`, value: string): void | - |  |
-| onSelectChange | A callback function which is executed when selected items are changed | (sourceSelectedKeys, targetSelectedKeys): void | - |  |
 | operations | A set of operations that are sorted from top to bottom | string\[] | \[`>`, `<`] |  |
 | operationStyle | A custom CSS style used for rendering the operations column | object | - |  |
 | pagination | Use pagination. Not work in render props | boolean \| { pageSize: number } | false | 4.3.0 |
@@ -42,6 +38,10 @@ One or more elements can be selected from either column, one click on the proper
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
 | targetKeys | A set of keys of elements that are listed on the right column | string\[] | \[] |  |
 | titles | A set of titles that are sorted from left to right | ReactNode\[] | - |  |
+| onChange | A callback function that is executed when the transfer between columns is complete | (targetKeys, direction, moveKeys): void | - |  |
+| onScroll | A callback function which is executed when scroll options list | (direction, event): void | - |  |
+| onSearch | A callback function which is executed when search field are changed | (direction: `left` \| `right`, value: string): void | - |  |
+| onSelectChange | A callback function which is executed when selected items are changed | (sourceSelectedKeys, targetSelectedKeys): void | - |  |
 
 ### Render Props
 
@@ -52,9 +52,9 @@ Transfer accept `children` to customize render list, using follow props:
 | direction | List render direction | `left` \| `right` |  |
 | disabled | Disable list or not | boolean |  |
 | filteredItems | Filtered items | TransferItem\[] |  |
+| selectedKeys | Selected items | string\[] |  |
 | onItemSelect | Select item | (key: string, selected: boolean) |  |
 | onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |  |
-| selectedKeys | Selected items | string\[] |  |
 
 #### example
 

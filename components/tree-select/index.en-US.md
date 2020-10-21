@@ -34,10 +34,6 @@ Tree selection control.
 | maxTagCount | Max tag count to show | number | - |  |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
-| onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  |
-| onSearch | A callback function, can be executed when the search input changes | function(value: string) | - |  |
-| onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
-| onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | searchValue | Work with `onSearch` to make search value controlled | string | - |  |
 | showArrow | Whether to show the `suffixIcon`，when single selection mode, default `true` | boolean | - |  |
@@ -58,6 +54,10 @@ Tree selection control.
 | treeNodeLabelProp | Will render as content of select | string | `title` |  |
 | value | To set the current selected treeNode(s) | string \| string\[] | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
+| onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  |
+| onSearch | A callback function, can be executed when the search input changes | function(value: string) | - |  |
+| onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
+| onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
 
 ### Tree Methods
 

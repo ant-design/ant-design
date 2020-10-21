@@ -29,10 +29,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
-| onFieldsChange | 字段更新时触发回调事件 | function(changedFields, allFields) | - |  |
-| onFinish | 提交表单且数据验证成功后回调事件 | function(values) | - |  |
-| onFinishFailed | 提交表单且数据验证失败后回调事件 | function({ values, errorFields, outOfDate }) | - |  |
-| onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` | true | 4.6.0 |
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean | false |  |
@@ -40,6 +36,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
 | validateTrigger | 统一设置字段校验规则 | string \| string\[] | `onChange` | 4.3.0 |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid/#Col) | - |  |
+| onFieldsChange | 字段更新时触发回调事件 | function(changedFields, allFields) | - |  |
+| onFinish | 提交表单且数据验证成功后回调事件 | function(values) | - |  |
+| onFinishFailed | 提交表单且数据验证失败后回调事件 | function({ values, errorFields, outOfDate }) | - |  |
+| onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
 
 ### validateMessages
 

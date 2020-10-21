@@ -35,9 +35,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
 | defaultValue | 默认选中的选项 | string\[] | \[] |  |
 | disabled | 整组失效 | boolean | false |  |
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
-| onChange | 变化时回调函数 | function(checkedValue) | - |  |
 | options | 指定可选项 | string\[] \| Option\[] | \[] |  |
 | value | 指定选中的选项 | string\[] | \[] |  |
+| onChange | 变化时回调函数 | function(checkedValue) | - |  |
 
 ##### Option
 

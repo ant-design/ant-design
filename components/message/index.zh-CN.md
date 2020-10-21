@@ -57,8 +57,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 | duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
 | icon | 自定义图标 | ReactNode | - |
 | key | 当前提示的唯一标志 | string \| number | - |
-| onClose | 关闭时触发的回调函数 | function | - |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| onClose | 关闭时触发的回调函数 | function | - |
 
 ### 全局方法
 

@@ -33,13 +33,13 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
 | headStyle | 自定义标题区域样式 | CSSProperties | - |  |
 | hoverable | 鼠标移过时可浮起 | boolean | false |  |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
-| onTabChange | 页签切换的回调 | (key) => void | - |  |
 | size | card 的尺寸 | `default` \| `small` | `default` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
 | tabList | 页签标题列表 | Array&lt;{key: string, tab: ReactNode}> | - |  |
 | tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
+| onTabChange | 页签切换的回调 | (key) => void | - |  |
 
 ### Card.Grid
 

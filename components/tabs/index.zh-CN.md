@@ -32,10 +32,6 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |  |
 | keyboard | 开启键盘切换功能 | boolean | true |  |  |
-| onChange | 切换面板的回调 | function(activeKey) {} | - |  |  |
-| onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (targetKey, action): void | - |  |  |
-| onTabClick | tab 被点击的回调 | function(key: string, event: MouseEvent) | - |  |  |
-| onTabScroll | tab 滚动时触发 | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |  |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |  |
 | size | 大小，提供 `large` `default` 和 `small` 三种大小 | string | `default` |  |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - |  |  |
@@ -43,6 +39,10 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabBarStyle | tab bar 的样式对象 | object | - |  |  |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left` | string | `top` |  |  |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | string | `line` |  |  |
+| onChange | 切换面板的回调 | function(activeKey) {} | - |  |  |
+| onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (targetKey, action): void | - |  |  |
+| onTabClick | tab 被点击的回调 | function(key: string, event: MouseEvent) | - |  |  |
+| onTabScroll | tab 滚动时触发 | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |  |
 
 ### Tabs.TabPane
 

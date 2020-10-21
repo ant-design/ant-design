@@ -34,11 +34,11 @@ Radio group can wrap a group of `Radio`。
 | defaultValue | Default selected value | any | - |  |
 | disabled | Disable all radio buttons | boolean | false |  |
 | name | The `name` property of all `input[type="radio"]` children | string | - |  |
-| onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
 | options | Set children optional | string\[] \| Array&lt;{ label: string value: string disabled?: boolean }> | - |  |
 | optionType | Set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | size | The size of radio button style | `large` \| `middle` \| `small` | - |  |
 | value | Used for setting the currently selected value | any | - |  |
+| onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
 
 ## Methods
 
