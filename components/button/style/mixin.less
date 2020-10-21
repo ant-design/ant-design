@@ -301,6 +301,26 @@
   }
   .button-disabled(@btn-secondary-disabled-color; @btn-secondary-disabled-bg; @btn-secondary-disabled-border;);
 }
+// training button style
+.btn-training() {
+  .button-color(@btn-training-color, @btn-training-bg, @btn-training-border);
+  &:hover {
+    color: @btn-training-hover-color;
+    background: @btn-training-hover-bg;
+    border-color: @btn-training-hover-border;
+  }
+  &:focus {
+    color: @btn-training-loading-color;
+    background: @btn-training-loading-bg;
+    border-color: @btn-training-loading-border;
+  }
+  &:active {
+    color: @btn-training-loading-color;
+    background: @btn-training-loading-bg;
+    border-color: @btn-training-loading-border;
+  }
+  .button-disabled(@btn-training-color, @btn-training-bg, @btn-training-border);
+}
 // ghost button style
 .btn-ghost() {
   .button-variant-other(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
