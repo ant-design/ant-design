@@ -95,7 +95,9 @@ describe('Statistic', () => {
     it('responses hover events for Countdown', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
-      const wrapper = mount(<Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+      const wrapper = mount(
+        <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+      );
       wrapper.simulate('mouseenter');
       expect(onMouseEnter).toHaveBeenCalled();
       wrapper.simulate('mouseleave');
