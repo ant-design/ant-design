@@ -32,14 +32,15 @@ Almost anything can be represented in a tree structure. Examples include directo
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  |
 | height | Config virtual scroll height. Will not support horizontal scroll when enable this | number | - |  |
+| icon | Customize treeNode icon | ReactNode \| (props) => ReactNode | - |  |
 | loadData | Load data asynchronously | function(node) | - |  |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |  |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
 | selectable | Whether can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to true | boolean | false |  |
-| switcherIcon | Customize collapse/expand icon of tree node | ReactNode | - |  |
 | showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean} | false |  |
+| switcherIcon | Customize collapse/expand icon of tree node | ReactNode | - |  |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
@@ -54,13 +55,12 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
-| icon | Customize treeNode icon | ReactNode \| (props) => ReactNode | - |  |
 
 ### TreeNode props
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - |
+| Property | Description | Type | Default |  |
+| --- | --- | --- | --- | --- |
+| checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - |  |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
 | disabled | Disables the treeNode | boolean | false |  |
 | icon | Customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode \| (props) => ReactNode | - |  |
@@ -95,15 +95,15 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ### Tree Methods
 
-| Name              | Description                          |
-| ----------------- | ------------------------------------ |
+| Name | Description |
+| --- | --- |
 | scrollTo({ key }) | Scroll to key item in virtual scroll |
 
 ## FAQ
 
 ### How to hide file icon when use showLine?
 
-File icon realize by using switcherIcon. You can overwrite the style to hide it: https://codesandbox.io/s/883vo47xp8
+File icon realize by using switcherIcon. You can overwrite the style to hide it: <https://codesandbox.io/s/883vo47xp8>
 
 ### Why defaultExpandedAll not working on ajax data?
 

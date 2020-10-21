@@ -31,14 +31,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 | --- | --- | --- | --- | --- |
 | dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown) | - |  |
 | href | 链接的目的地 | string | - |  |
-| onClick | 单击事件 | (e:MouseEvent) => void | - |  |
 | overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | - |  |
+| onClick | 单击事件 | (e:MouseEvent) => void | - |  |
 
 ### Breadcrumb.Separator
 
-| 参数     | 说明           | 类型      | 默认值 | 版本 |
-| -------- | -------------- | --------- | ------ | ---- |
-| children | 要显示的分隔符 | ReactNode | `/`    |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| children | 要显示的分隔符 | ReactNode | `/` |  |
 
 > 注意：在使用 `Breadcrumb.Separator` 时，其父组件的分隔符必须设置为 `separator=""`，否则会出现父组件默认的分隔符。
 

@@ -29,6 +29,7 @@ import moment from 'moment';
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
 | className | 选择器类名 | string | - |  |
+| clearIcon | 自定义的清除图标 | ReactNode | - |  |
 | clearText | 清除按钮的提示文案 | string | clear |  |
 | defaultValue | 默认时间 | [moment](http://momentjs.com/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
@@ -45,30 +46,29 @@ import moment from 'moment';
 | placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  |
 | popupClassName | 弹出层类名 | string | - |  |
 | popupStyle | 弹出层样式对象 | object | - |  |
-| secondStep | 秒选项间隔 | number | 1 |  |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| clearIcon | 自定义的清除图标 | ReactNode | - |  |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
+| secondStep | 秒选项间隔 | number | 1 |  |
+| showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
 | value | 当前时间 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
-| showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 
 ## 方法
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称 | 描述 | 版本 |
+| --- | --- | --- |
+| blur() | 移除焦点 |  |
+| focus() | 获取焦点 |  |
 
 ### RangePicker
 
 属性与 DatePicker 的 [RangePicker](/components/date-picker/#RangePicker) 相同。还包含以下属性：
 
-| 参数  | 说明                 | 类型    | 默认值 | 版本  |
-| ----- | -------------------- | ------- | ------ | ----- |
-| order | 始末时间是否自动排序 | boolean | true   | 4.1.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| order | 始末时间是否自动排序 | boolean | true | 4.1.0 |
 
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }

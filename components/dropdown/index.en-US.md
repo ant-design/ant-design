@@ -23,10 +23,10 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
 | overlayClassName | The class name of the dropdown root element | string | - |  |
 | overlayStyle | The style of the dropdown root element | CSSProperties | - |  |
-| onVisibleChange | Called when the visible state is changed | (visible: boolean) => void | - |  |
 | placement | Placement of popup menu: `bottomLeft`, `bottomCenter`, `bottomRight`, `topLeft`, `topCenter` or `topRight` | string | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | visible | Whether the dropdown menu is currently visible | boolean | - |  |
+| onVisibleChange | Called when the visible state is changed | (visible: boolean) => void | - |  |
 
 You should use [Menu](/components/menu/) as `overlay`. The menu items and dividers are also available by using `Menu.Item` and `Menu.Divider`.
 
@@ -38,14 +38,14 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode[]) => ReactNode[] | - |  |
+| buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | icon | Icon (appears on the right) | ReactNode | - |  |
-| onClick | The same as [Button](/components/button/#API): called when you click the button on the left | (event) => void | - |  |
-| onVisibleChange | Called when the visible state is changed | (visible: boolean) => void | - |  |
 | overlay | The dropdown menu | [Menu](/components/menu) | - |  |
 | placement | Placement of popup menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | string | `bottomLeft` |  |
 | size | Size of the button, the same as [Button](/components/button/#API) | string | `default` |  |
 | trigger | The trigger mode which executes the dropdown action | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | type | Type of the button, the same as [Button](/components/button/#API) | string | `default` |  |
 | visible | Whether the dropdown menu is currently visible | boolean | - |  |
+| onClick | The same as [Button](/components/button/#API): called when you click the button on the left | (event) => void | - |  |
+| onVisibleChange | Called when the visible state is changed | (visible: boolean) => void | - |  |
