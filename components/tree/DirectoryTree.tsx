@@ -6,12 +6,20 @@ import { conductExpandParent } from 'rc-tree/lib/util';
 import { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 import FileOutlined from '@ant-design/icons/FileOutlined';
-import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
-import FolderOutlined from '@ant-design/icons/FolderOutlined';
+import Icon from '@ant-design/icons';
+import { FolderFilled, FolderOpenFilled } from './customIcons/foldersSVG';
 import { ConfigContext } from '../config-provider';
 
 import Tree, { TreeProps, AntdTreeNodeAttribute, AntTreeNodeMouseEventParams } from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
+
+const FolderOutlined = (props: any): JSX.Element => (
+  <Icon component={FolderFilled} aria-label="folder-closed" {...props} />
+);
+
+const FolderOpenOutlined = (props: any): JSX.Element => (
+  <Icon component={FolderOpenFilled} aria-label="folder-open" {...props} />
+);
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 
