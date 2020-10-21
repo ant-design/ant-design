@@ -1,4 +1,8 @@
+**/*.png
 **/*.svg
+CODEOWNERS
+.dockerignore
+Dockerfile.ui-test
 package.json
 .umi
 .umi-production
@@ -17,6 +21,8 @@ yarn-error.log
 *.snap
 components/*/*.js
 components/*/*.jsx
+components/*/*.md
+docs/**/*.md
 .gitignore
 .npmignore
 .prettierignore

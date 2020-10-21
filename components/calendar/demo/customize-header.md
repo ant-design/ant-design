@@ -57,9 +57,7 @@ ReactDOM.render(
         }
         return (
           <div style={{ padding: 8 }}>
-            <Typography.Title level={4}>
-              Custom header
-            </Typography.Title>
+            <Typography.Title level={4}>Custom header</Typography.Title>
             <Row gutter={8}>
               <Col>
                 <Radio.Group size="small" onChange={e => onTypeChange(e.target.value)} value={type}>

@@ -33,7 +33,7 @@ const data = [
   {
     title: 'Title 5',
   },
-    {
+  {
     title: 'Title 6',
   },
 ];
@@ -57,11 +57,7 @@ ReactDOM.render(
         </>
       )}
     />
-    <List
-      grid={{ gutter: 16, column: 4 }}
-      dataSource={data}
-      renderItem={() => <ListItem />}
-    />
+    <List grid={{ gutter: 16, column: 4 }} dataSource={data} renderItem={() => <ListItem />} />
     <List
       grid={{ gutter: 16, column: 4 }}
       dataSource={data}

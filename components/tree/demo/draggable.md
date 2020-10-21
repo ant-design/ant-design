@@ -71,7 +71,7 @@ class Demo extends React.Component {
           return callback(data[i], i, data);
         }
         if (data[i].children) {
-           loop(data[i].children, key, callback);
+          loop(data[i].children, key, callback);
         }
       }
     };

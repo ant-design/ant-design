@@ -46,9 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Button onClick={this.showModal}>
-          Open Draggable Modal
-        </Button>
+        <Button onClick={this.showModal}>Open Draggable Modal</Button>
         <Modal
           title={
             <div
