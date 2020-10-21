@@ -10,6 +10,7 @@ import { Omit, tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
+import TrainingIcon from './TrainingIcon';
 import { cloneElement } from '../_util/reactNode';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -72,7 +73,16 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   );
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link', 'text', 'secondary');
+const ButtonTypes = tuple(
+  'default',
+  'primary',
+  'ghost',
+  'dashed',
+  'link',
+  'text',
+  'secondary',
+  'training',
+);
 export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = typeof ButtonShapes[number];
@@ -257,6 +267,12 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
 
+  const trainingIconNode = loading ? (
+    <TrainingIcon prefixCls={prefixCls} loading={!!innerLoading} />
+  ) : (
+    ''
+  );
+
   const kids =
     children || children === 0
       ? spaceChildren(children, isNeedInserted() && autoInsertSpace)
@@ -283,7 +299,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       onClick={handleClick}
       ref={buttonRef}
     >
-      {iconNode}
+      {type === 'training' ? trainingIconNode : iconNode}
       {kids}
     </button>
   );
