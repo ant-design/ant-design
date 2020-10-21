@@ -29,10 +29,6 @@ https://ant.design/components/select/#Select-props
 
 参考：https://ant.design/docs/react/customize-theme 。
 
-### 你们会提供其他主题吗？
-
-不，我们遵守 Ant Design 设计规范。https://github.com/ant-design/ant-design/issues/1241 。
-
 ### 如何修改 Ant Design 组件的默认样式？
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。

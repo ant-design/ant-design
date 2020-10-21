@@ -55,12 +55,14 @@ import locale from 'antd/es/locale/zh_CN';
 | --- | --- | --- | --- | --- |
 | allowClear | 是否显示清除按钮 | boolean | true |  |
 | autoFocus | 自动获取焦点 | boolean | false |  |
+| bordered | 是否有边框 | boolean | true |  |
 | className | 选择器 className | string | - |  |
 | dateRender | 自定义日期单元格的内容 | function(currentDate: moment, today: moment) => React.ReactNode | - |  |
 | disabled | 禁用 | boolean | false |  |
 | disabledDate | 不可选择的日期 | (currentDate: moment) => boolean | - |  |
 | dropdownClassName | 额外的弹出日历 className | string | - |  |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
+| inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | open | 控制弹层是否展开 | boolean | - |  |
@@ -69,29 +71,28 @@ import locale from 'antd/es/locale/zh_CN';
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
-| bordered | 是否有边框 | boolean | true |  |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
-| inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 
 ### 共同的方法
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称 | 描述 | 版本 |
+| --- | --- | --- |
+| blur() | 移除焦点 |  |
+| focus() | 获取焦点 |  |
 
 ### DatePicker
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultValue | 默认日期，如果开始时间或结束时间为 `null` 或者 `undefined`，日期范围将是一个开区间 | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | - |  |
+| defaultValue | 默认日期，如果开始时间或结束时间为 `null` 或者 `undefined`，日期范围将是一个开区间 | [moment](http://momentjs.com/) | - |  |
 | disabledTime | 不可选择的时间 | function(date) | - |  |
-| format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [moment.js](http://momentjs.com/)，支持[自定义格式](#components-date-picker-demo-format) | string \| (value: moment) => string \| (string \| (value: moment) => string)[] | `YYYY-MM-DD` |  |
+| format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [moment.js](http://momentjs.com/)，支持[自定义格式](#components-date-picker-demo-format) | string \| (value: moment) => string \| (string \| (value: moment) => string)\[] | `YYYY-MM-DD` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
+| showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 | showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |  |
 | showToday | 是否展示“今天”按钮 | boolean | true |  |
@@ -99,14 +100,13 @@ import locale from 'antd/es/locale/zh_CN';
 | onChange | 时间发生变化的回调 | function(date: moment, dateString: string) | - |  |
 | onOk | 点击确定按钮的回调 | function() | - |  |
 | onPanelChange | 日期面板变化时的回调 | function(value, mode) | - |  |
-| showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 
 ### DatePicker\[picker=year]
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | - |  |
+| defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | `YYYY` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
@@ -118,8 +118,8 @@ import locale from 'antd/es/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | - |  |
+| defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | `YYYY-\QQ` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
@@ -129,8 +129,8 @@ import locale from 'antd/es/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | - |  |
+| defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | `YYYY-MM` |  |
 | monthCellRender | 自定义的月份内容渲染方法 | function(date, locale): ReactNode | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
@@ -141,12 +141,12 @@ import locale from 'antd/es/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | - |  |
+| defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | `YYYY-wo` |  |
+| renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
-| renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 
 ### RangePicker
 
@@ -154,8 +154,8 @@ import locale from 'antd/es/locale/zh_CN';
 | --- | --- | --- | --- | --- |
 | allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  |
 | dateRender | 自定义日期单元格的内容。`info` 参数自 4.3.0 添加 | function(currentDate: moment, today: moment, info: { range: `start` \| `end` }) => React.ReactNode | - |  |
-| defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | - |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | - |  |
+| defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | - |  |
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
 | disabledTime | 不可选择的时间 | function(date: moment, partial: `start` \| `end`) | - |  |
 | format | 展示的日期格式 | string | `YYYY-MM-DD HH:mm:ss` |  |
@@ -165,8 +165,8 @@ import locale from 'antd/es/locale/zh_CN';
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
 | value | 日期 | [moment](http://momentjs.com/)\[] | - |  |
-| onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[moment, moment\], dateStrings: \[string, string\], info: { range:`start`\|`end` }) | - |  |
-| onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | - |  |
+| onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
+| onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
 
 ## FAQ
 
@@ -184,7 +184,11 @@ v4 中，DatePicker 默认 `locale` 为 `en`。你可以通过 DatePicker 的 `l
 
 ### 如何修改周的起始日？
 
-请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：https://codesandbox.io/s/moment-day-of-week-6dby5
+请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：<https://codesandbox.io/s/moment-day-of-week-6dby5>
+
+### 为何使用 `panelRender` 时，原来面板无法切换？
+
+当你通过 `panelRender` 动态改变层级结构时，会使得原本的 Panel 被当做新的节点删除并创建。这使得其原本的状态会被重置，保持结构稳定即可。详情请参考 [#27263](https://github.com/ant-design/ant-design/issues/27263)。
 
 ```js
 moment.locale('en', {

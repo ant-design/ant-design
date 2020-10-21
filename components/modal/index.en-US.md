@@ -17,8 +17,8 @@ When requiring users to interact with the application, but without jumping to a 
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties | {} |  |
-| cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
+| cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |  |
 | closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |
@@ -35,14 +35,14 @@ When requiring users to interact with the application, but without jumping to a 
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
-| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  |
-| onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
 | title | The modal dialog's title | ReactNode | - |  |
 | visible | Whether the modal dialog is visible or not | boolean | false |  |
 | width | Width of the modal dialog | string \| number | 520 |  |
 | wrapClassName | The class name of the container of the modal dialog | string | - |  |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
+| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  |
+| onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |  |
 
 #### Note
 
@@ -79,12 +79,12 @@ The items listed above are all functions, expecting a settings object as paramet
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
-| onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
-| onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
 | title | Title | ReactNode | - |  |
 | width | Width of the modal dialog | string \| number | 416 |  |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
+| onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
+| onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
 
 All the `Modal.method`s will return a reference, and then we can update and close the modal dialog by the reference.
 
@@ -114,7 +114,7 @@ browserHistory.listen(() => {
 
 ### Modal.useModal()
 
-When you need using Context, you can use `contextHolder` which created by `Modal.useModal` to insert into children. Modal created by hooks will get all the context where `contextHolder` are. Created `modal` has the same creating function with `Modal.method`](<#Modal.method()>).
+When you need using Context, you can use `contextHolder` which created by `Modal.useModal` to insert into children. Modal created by hooks will get all the context where `contextHolder` are. Created `modal` has the same creating function with `Modal.method`](&lt;#Modal.method()>).
 
 ```jsx
 const [modal, contextHolder] = Modal.useModal();
@@ -163,3 +163,7 @@ return (
 ```
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
+
+### How to disable motion?
+
+You can config `transitionName=""` and `maskTransitionName=""` to remove motion class. But you should note that these prop is internal usage which we don't promise exist in next major version.

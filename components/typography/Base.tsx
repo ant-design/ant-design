@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import findDOMNode from 'rc-util/lib/Dom/findDOMNode';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
 import EditOutlined from '@ant-design/icons/EditOutlined';
@@ -318,7 +317,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     );
 
     const { content, text, ellipsis } = measure(
-      findDOMNode(this.contentRef.current),
+      this.contentRef.current,
       { rows, suffix },
       children,
       this.renderOperations(true),

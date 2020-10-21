@@ -6,19 +6,19 @@
 @notification-width: 384px;
 @notification-padding: @notification-padding-vertical @notification-padding-horizontal;
 @notification-margin-bottom: 16px;
+@notification-margin-edge: 24px;
 
 .@{notification-prefix-cls} {
   .reset-component;
 
   position: fixed;
   z-index: @zindex-notification;
-  max-width: ~'calc(100vw - 32px)';
-  margin-right: 24px;
+  margin-right: @notification-margin-edge;
 
   &-topLeft,
   &-bottomLeft {
     margin-right: 0;
-    margin-left: 24px;
+    margin-left: @notification-margin-edge;
 
     .@{notification-prefix-cls}-fade-enter.@{notification-prefix-cls}-fade-enter-active,
     .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
@@ -35,6 +35,7 @@
   &-notice {
     position: relative;
     width: @notification-width;
+    max-width: ~'calc(100vw - @{notification-margin-edge} * 2)';
     margin-bottom: @notification-margin-bottom;
     margin-left: auto;
     overflow: hidden;

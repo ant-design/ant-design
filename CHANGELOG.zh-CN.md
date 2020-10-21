@@ -15,6 +15,42 @@ timeline: true
 
 ---
 
+## 4.7.2
+
+`2020-10-19`
+
+- 💄 修复 Layout.Sider `light` 主题失效问题。[#27227](https://github.com/ant-design/ant-design/pull/27227) [@lingjieee](https://github.com/lingjieee)
+- 💄 修复 TextArea 没有设置 `showCount` 时仍然会包裹 div 的问题，同时解决 `showCount` 下 `className` 和 `style` 没有传递给最外层节点的问题。[#27216](https://github.com/ant-design/ant-design/pull/27216)
+- 🐞 修复 Checkbox.Group TS2559 错误。[#27231](https://github.com/ant-design/ant-design/pull/27231)
+
+## 4.7.1
+
+`2020-10-18`
+
+- DatePicker
+  - 🐞 修复 DatePicker `showTime` 为 `true` 并且 `format` 为一个函数时报错的问题。[#27156](https://github.com/ant-design/ant-design/pull/27156)
+  - 💄 修复 DatePicker 在下拉空间不足时的动画方向问题。[#27101](https://github.com/ant-design/ant-design/pull/27101)
+- Typography
+  - 💄 修复 Typography 没有 `pre` 和 `blockquote` 样式的问题。[#27150](https://github.com/ant-design/ant-design/pull/27150)
+  - 🐞 修复 Typography.Link 悬浮颜色错误的问题。[#27119](https://github.com/ant-design/ant-design/pull/27119)
+  - 🐞 修复 Typography.Link 危险类型的悬浮颜色问题。[#27104](https://github.com/ant-design/ant-design/pull/27104)
+- 💄 修复 Descriptions 组件的内容含有超长数字时无法换行的问题。[#27195](https://github.com/ant-design/ant-design/pull/27195) [@WLyKan](https://github.com/WLyKan)
+- 🐞 修复 Password 在受控模式下未清除 `value` 属性的问题。[#27191](https://github.com/ant-design/ant-design/pull/27191)
+- 🐞 修复 Notification 在小尺寸屏幕下的宽度问题。[#27189](https://github.com/ant-design/ant-design/pull/27189)
+- 🐞 修复 Cascader 类名重复的问题。[#27187](https://github.com/ant-design/ant-design/pull/27187) [@huntdream](https://github.com/huntdream)
+- 🐞 修复 Drawer 会触发 Form 提交事件的问题。[#27175](https://github.com/ant-design/ant-design/pull/27175)
+- 🐞 修复 Dropdown 下拉菜单图标间距丢失的问题。[#27165](https://github.com/ant-design/ant-design/pull/27165)
+- 💄 修复 Layout.Sider 指定 `collapsedWidth` 后侧边菜单部分宽度不对的问题。[#27154](https://github.com/ant-design/ant-design/pull/27154)
+- 🐞 修复 Tabs `animated` 属性为 `true` 时未开启内容切换动画的问题。[#27145](https://github.com/ant-design/ant-design/pull/27145)
+- 🐞 修复 Divider 带标题时的分割线颜色。[#27134](https://github.com/ant-design/ant-design/pull/27134)
+- 💄 修复 Radio 选项选中并禁用时的鼠标样式。[#27125](https://github.com/ant-design/ant-design/pull/27125)
+- 🇪🇸 为西班牙语 es_ES 中添加缺少的翻译。[#27079](https://github.com/ant-design/ant-design/pull/27079) [@gerongams](https://github.com/gersongams)
+- RTL
+  - 💄 优化 Input.TextArea 字数提示在 RTL 模式下的样式。[#27098](https://github.com/ant-design/ant-design/pull/27098)
+- TypeScript
+  - 🤖 Button `shape` 移除文档中未声明的类型。[#27159](https://github.com/ant-design/ant-design/pull/27159)
+  - 🤖 修复 Form.List `rules` 属性缺失的问题。[#27164](https://github.com/ant-design/ant-design/pull/27164) [@huntdream](https://github.com/huntdream)
+
 ## 4.7.0
 
 `2020-10-10`
@@ -35,7 +71,7 @@ timeline: true
   - 🆕 Table `sticky` 支持 `getContainer` 以指定滚动容器。[#26973](https://github.com/ant-design/ant-design/pull/26973)
   - 🐞 修复 Table `column.filterDropdown` 为 `undefined` 时依旧会展示筛选菜单的问题。[#27002](https://github.com/ant-design/ant-design/pull/27002) [@shangyilim](https://github.com/shangyilim)
 - Modal
-  - 🛠 重构 Modal 组件动画，现在关闭时将完全清理相关 Dom 节点。[#26940](https://github.com/ant-design/ant-design/pull/26940)
+  - 🛠 重构 Modal 组件动画，现在 `destroyOnClose` 关闭时将完全清理相关 Dom 节点。[#26940](https://github.com/ant-design/ant-design/pull/26940)
   - 🆕 Modal 新增 `modalRender` 属性，支持可拖拽的对话框。[#26507](https://github.com/ant-design/ant-design/pull/26507) [@jhoneybee](https://github.com/jhoneybee)
 - 🆕 Space 增加 `split` 属性以支持分隔符间隔。[#26948](https://github.com/ant-design/ant-design/pull/26948)
 - 🆕 Image `preview` 属性扩展支持 `visible` 和 `onVisibleChange`。[#26915](https://github.com/ant-design/ant-design/pull/26915)
@@ -326,7 +362,7 @@ timeline: true
   - 🐞 修复 Form 垂直布局时 Form.Item 设置 `labelCol={{ offset: number }}` 不生效的问题。[#25713](https://github.com/ant-design/ant-design/pull/25713) [@zhangchen915](https://github.com/zhangchen915)
   - ⌨️ Form 错误信息节点增加属性 `role="alert"` 以增强可访问性。[#25735](https://github.com/ant-design/ant-design/pull/25735) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
 - Calendar
-  - 🐞 修复 Calendar 组件的 `validRange` 导致 `disabledDate` 不生效 。[#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
+  - 🐞 修复 Calendar 组件的 `validRange` 导致 `disabledDate` 不生效。[#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
   - 🐞 修复 Calendar `validRange` 对月份下拉菜单不生效的问题。[#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
 - 🐞 修复 Table `getCheckboxProps` 返回的 `indeterminate` 不生效。[#25649](https://github.com/ant-design/ant-design/pull/25649)
 - 🐞 修复 Select 清除按钮在 Form.Item 下位置不对的问题。[#25728](https://github.com/ant-design/ant-design/pull/25728)

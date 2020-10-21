@@ -29,13 +29,14 @@ Cascade selection box.
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
-| expandTrigger | expand current item when click or hover, one of `click` `hover` | string | `click` |  |
+| dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |
+| expandTrigger | expand current item when click or hover, one of `click` `hover` | string | `click` |  |
 | fieldNames | Custom field name for label and value and children | object | { label: `label`, value: `value`, children: `children` } |  |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | loadData | To load option lazily, and it cannot work with `showSearch` | (selectedOptions) => void | - |  |
 | notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
-| options | The data options of cascade | [Option](#Option)[] | - |  |
+| options | The data options of cascade | [Option](#Option)\[] | - |  |
 | placeholder | The input placeholder | string | `Please select` |  |
 | popupClassName | The additional className of popup overlay | string | - |  |
 | popupPlacement | Use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |  |
@@ -45,7 +46,6 @@ Cascade selection box.
 | style | The additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | The selected value | string\[] \| number\[] | - |  |
-| dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - |  |
 
@@ -72,7 +72,7 @@ interface Option {
 
 ## Methods
 
-| Name    | Description  | Version |
-| ------- | ------------ | ------- |
-| blur()  | Remove focus |         |
-| focus() | Get focus    |         |
+| Name | Description | Version |
+| --- | --- | --- |
+| blur() | Remove focus |  |
+| focus() | Get focus |  |

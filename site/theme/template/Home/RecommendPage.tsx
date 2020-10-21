@@ -16,51 +16,49 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: '智能组件探索：这个工具栏会自动布局',
-    description:
-      '工程师只需要选择「我要展示哪些元素、每个元素有多少」，而「这些元素怎么摆」、「间距是多少」等细节问题都会根据规则自动生成。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ijAcT7rl4nwAAAAAAAAAAAAAARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/188693322',
+    title: '树形控件在生产力工具中的设计',
+    description: '惊！半年实践血泪史，3000 字深度好文，一个爱树的设计师手把手教你如何设计「树 」！',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z4eXS55fMigAAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/260068653',
     popularize: true,
   },
   {
-    title: '一个好用的智能栅格工具是如何诞生的？',
-    description:
-      '和大家分享一下整个智能栅格的设计开发过程，并从中感受到设计的「穿透力」，聊聊如何打破界限、从表面到内核、从表象到本质。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jmkkRYTanJAAAAAAAAAAAAAAARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/176534657',
+    title: '或许这就是下一代组件库',
+    description: '随着 React hooks、Vue composition API 的推出，或许组件库有了新的突破点。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SU6hQ5jHVEsAAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/252824872',
   },
   {
-    title: '首个 Vue 3 组件库发布',
+    title: 'Ant Design 4.0 的一些杂事儿 - VirtualList 篇',
     description:
-      '支持 Vite & TypeScript，开发体验比德芙还要丝滑！',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GuqtQ4IgCz4AAAAAAAAAAAAAARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/211136687',
+      '在 React 中，我们常说不太需要关注性能问题。然而作为组件库，这些事你就不得不考虑一下。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ULOBQroFRMQAAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/237996796',
   },
 ];
 
 const LIST_EN: Recommend[] = [
   {
-    title: "「Natural Human Computer Interaction」Ant Design's Design Values",
+    title: 'How to Design Tree Component',
     description:
-      '🌺 This time, we will clearly explain one of our design values--「nature」, hoping to inspire you to complete your own products or systems.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/44809866',
+      '🌲 Surprise! With half-a-year practice of blood and tears, here comes a designer who deeply loves trees to teach you how to design 「tree」component!',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z4eXS55fMigAAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/260068653',
     popularize: true,
   },
   {
-    title: 'Information Layouts | Ant Design 4.0',
+    title: 'Next Generation of Component Library?',
     description:
-      '🌃 Information organization is a problem we often encounter in our daily life. How to arrange all kinds of information together? And how to present them to users?',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*67WaSIK0AaYAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/110442621',
+      '😎 With the launch of React hooks and Vue composition API, perhaps we have met a new breakthrough point of component libraries.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SU6hQ5jHVEsAAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/252824872',
   },
   {
-    title: 'Form Widths | Ant Design 4.0',
+    title: 'Stories about Ant Design 4.0: VirtualList',
     description:
-      "💡 Form is one of the most frequently-used elements in business products. Now let's discuss a neglected question: how to decide the width of a form?",
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/110096160',
+      "🏃 In React, usually you don't need to focus on performance problems. However, as a component library, we have to think about it.",
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ULOBQroFRMQAAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/237996796',
   },
 ];
 

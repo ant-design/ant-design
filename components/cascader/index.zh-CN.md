@@ -30,13 +30,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
-| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
+| dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
+| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
 | fieldNames | 自定义 options 中 label name children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | (selectedOptions) => void | - |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | `Not Found` |  |
-| options | 可选项数据源 | [Option](#Option)[] | - |  |
+| options | 可选项数据源 | [Option](#Option)\[] | - |  |
 | placeholder | 输入框占位文本 | string | `请选择` |  |
 | popupClassName | 自定义浮层类名 | string | - |  |
 | popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |  |
@@ -46,7 +47,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | style | 自定义样式 | CSSProperties | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | value | 指定选中项 | string\[] \| number\[] | - |  |
-| dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
 
@@ -73,9 +73,9 @@ interface Option {
 
 ## 方法
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称 | 描述 | 版本 |
+| --- | --- | --- |
+| blur() | 移除焦点 |  |
+| focus() | 获取焦点 |  |
 
 > 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。

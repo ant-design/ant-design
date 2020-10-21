@@ -662,30 +662,28 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       role="button"
       style="padding-left:24px"
     >
-      <span>
-        <span
-          aria-label="mail"
-          class="anticon anticon-mail"
-          role="img"
+      <span
+        aria-label="mail"
+        class="anticon anticon-mail"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="mail"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="mail"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
-            />
-          </svg>
-        </span>
-        <span>
-          Navigation One
-        </span>
+          <path
+            d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation One
       </span>
       <i
         class="ant-menu-submenu-arrow"

@@ -44,9 +44,10 @@ class SiderDemo extends React.Component {
   };
 
   render() {
+    const { collapsed } = this.state;
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+        <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1" icon={<PieChartOutlined />}>
@@ -64,7 +65,9 @@ class SiderDemo extends React.Component {
               <Menu.Item key="6">Team 1</Menu.Item>
               <Menu.Item key="8">Team 2</Menu.Item>
             </SubMenu>
-            <Menu.Item key="9" icon={<FileOutlined />} />
+            <Menu.Item key="9" icon={<FileOutlined />}>
+              Files
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout className="site-layout">

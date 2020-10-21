@@ -133,11 +133,27 @@ describe('TextArea', () => {
     expect(textarea.find('textarea').prop('value')).toBe(input.getDOMNode().value);
   });
 
-  it('should support showCount', async () => {
-    const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
-    const textarea = wrapper.find('.ant-input-textarea');
-    expect(wrapper.find('textarea').prop('value')).toBe('12345');
-    expect(textarea.prop('data-count')).toBe('5 / 5');
+  describe('should support showCount', () => {
+    it('maxLength', () => {
+      const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
+      const textarea = wrapper.find('.ant-input-textarea');
+      expect(wrapper.find('textarea').prop('value')).toBe('12345');
+      expect(textarea.prop('data-count')).toBe('5 / 5');
+    });
+
+    it('className & style patch to outer', () => {
+      const wrapper = mount(
+        <TextArea className="bamboo" style={{ background: 'red' }} showCount />,
+      );
+
+      // Outer
+      expect(wrapper.find('div').first().hasClass('bamboo')).toBeTruthy();
+      expect(wrapper.find('div').first().props().style.background).toEqual('red');
+
+      // Inner
+      expect(wrapper.find('.ant-input').hasClass('bamboo')).toBeFalsy();
+      expect(wrapper.find('.ant-input').props().style.background).toBeFalsy();
+    });
   });
 
   it('should support size', async () => {

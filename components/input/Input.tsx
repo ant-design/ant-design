@@ -210,6 +210,8 @@ class Input extends React.Component<InputProps, InputState> {
   setValue(value: string, callback?: () => void) {
     if (this.props.value === undefined) {
       this.setState({ value }, callback);
+    } else {
+      callback?.();
     }
   }
 

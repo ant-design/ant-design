@@ -13138,6 +13138,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
               aria-label="Close"
               class="config-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13199,6 +13200,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
               aria-label="Close"
               class="config-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13260,6 +13262,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
               aria-label="Close"
               class="config-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13321,6 +13324,7 @@ exports[`ConfigProvider components Drawer configProvider virtual and dropdownMat
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13382,6 +13386,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13443,6 +13448,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
               aria-label="Close"
               class="prefix-Drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -14539,13 +14545,9 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       </span>
     </span>
   </span>
-  <div
-    class="config-input-textarea"
-  >
-    <textarea
-      class="config-input"
-    />
-  </div>
+  <textarea
+    class="config-input"
+  />
 </div>
 `;
 
@@ -14640,13 +14642,9 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       </span>
     </span>
   </span>
-  <div
-    class="config-input-textarea"
-  >
-    <textarea
-      class="config-input config-input-lg"
-    />
-  </div>
+  <textarea
+    class="config-input config-input-lg"
+  />
 </div>
 `;
 
@@ -14741,13 +14739,9 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       </span>
     </span>
   </span>
-  <div
-    class="config-input-textarea"
-  >
-    <textarea
-      class="config-input"
-    />
-  </div>
+  <textarea
+    class="config-input"
+  />
 </div>
 `;
 
@@ -14842,13 +14836,9 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
       </span>
     </span>
   </span>
-  <div
-    class="ant-input-textarea"
-  >
-    <textarea
-      class="ant-input"
-    />
-  </div>
+  <textarea
+    class="ant-input"
+  />
 </div>
 `;
 
@@ -14943,13 +14933,9 @@ exports[`ConfigProvider components Input normal 1`] = `
       </span>
     </span>
   </span>
-  <div
-    class="ant-input-textarea"
-  >
-    <textarea
-      class="ant-input"
-    />
-  </div>
+  <textarea
+    class="ant-input"
+  />
 </div>
 `;
 
@@ -15044,13 +15030,9 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       </span>
     </span>
   </span>
-  <div
-    class="prefix-Input-textarea"
-  >
-    <textarea
-      class="prefix-Input"
-    />
-  </div>
+  <textarea
+    class="prefix-Input"
+  />
 </div>
 `;
 

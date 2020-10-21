@@ -15,6 +15,42 @@ timeline: true
 
 ---
 
+## 4.7.2
+
+`2020-10-19`
+
+- 💄 Fix Layout.Sider `light` theme lost styles. [#27227](https://github.com/ant-design/ant-design/pull/27227) [@lingjieee](https://github.com/lingjieee)
+- 💄 Fix TextArea wrapped with additional div when `showCount` is `false`, and pass `className` and `style` to outer wrapper when `showCount` is `true`. [#27216](https://github.com/ant-design/ant-design/pull/27216)
+- 🐞 Fix Checkbox.Group TS2559 error. [#27231](https://github.com/ant-design/ant-design/pull/27231)
+
+## 4.7.1
+
+`2020-10-18`
+
+- DatePicker
+  - 🐞 Fix DatePicker don't work correctly when `showTime` is `true` and `format` is function. [#27156](https://github.com/ant-design/ant-design/pull/27156)
+  - 💄 Fix DatePicker wrong animation direction when auto overflow. [#27101](https://github.com/ant-design/ant-design/pull/27101)
+- Typography
+  - 💄 Fix Typography miss `pre` and `blockquote` style. [#27150](https://github.com/ant-design/ant-design/pull/27150)
+  - 🐞 Fix Typography.Link hover color. [#27119](https://github.com/ant-design/ant-design/pull/27119)
+  - 🐞 Fix Typography.Link hover color when type is danger. [#27104](https://github.com/ant-design/ant-design/pull/27104)
+- 💄 Fix Descriptions `ant-descriptions-item-content` and add style `word-break:break-word;`. [#27195](https://github.com/ant-design/ant-design/pull/27195) [@WLyKan](https://github.com/WLyKan)
+- 🐞 Fix clear Password value attribute in controlled mode. [#27191](https://github.com/ant-design/ant-design/pull/27191)
+- 🐞 Optimize Notification width in small screen. [#27189](https://github.com/ant-design/ant-design/pull/27189)
+- 🐞 Fix Cascader className duplicate. [#27187](https://github.com/ant-design/ant-design/pull/27187) [@huntdream](https://github.com/huntdream)
+- 🐞 Fix the issue that the Drawer will trigger form submit. [#27175](https://github.com/ant-design/ant-design/pull/27175)
+- 🐞 Fix Dropdown icon missing margin. [#27165](https://github.com/ant-design/ant-design/pull/27165)
+- 💄 Fix Layout.Sider `collapsedWidth` cannot work without modifying `@menu-collapsed-width`. [#27154](https://github.com/ant-design/ant-design/pull/27154)
+- 🐞 Fix Tabs `animated={true}` not working for panels. [#27145](https://github.com/ant-design/ant-design/pull/27145)
+- 🐞 Fix Divider color when contains text. [#27134](https://github.com/ant-design/ant-design/pull/27134)
+- 💄 Fix the cursor style when the Radio option is selected and disabled. [#27125](https://github.com/ant-design/ant-design/pull/27125)
+- 🇪🇸 Add missing translations in es_ES. [#27079](https://github.com/ant-design/ant-design/pull/27079) [@gersongams](https://github.com/gersongams)
+- RTL
+  - 💄 Optimize the style of Input.TextArea character count in RTL mode. [#27098](https://github.com/ant-design/ant-design/pull/27098)
+- TypeScript
+  - 🤖 Button shape remove undeclared doc type. [#27159](https://github.com/ant-design/ant-design/pull/27159)
+  - 🤖 Add optional `rules` property into `FormListProps`. [#27164](https://github.com/ant-design/ant-design/pull/27164) [@huntdream](https://github.com/huntdream)
+
 ## 4.7.0
 
 `2020-10-10`
@@ -35,7 +71,7 @@ timeline: true
   - 🆕 Table `sticky` now support `getContainer`. [#26973](https://github.com/ant-design/ant-design/pull/26973)
   - 🐞 Fix Table should not render dropdown filter icon when filterDropdown is `undefined`. [#27002](https://github.com/ant-design/ant-design/pull/27002) [@shangyilim](https://github.com/shangyilim)
 - Modal
-  - 🛠 Refactor Modal animation code so that it will remove all dom element when closed. [#26940](https://github.com/ant-design/ant-design/pull/26940)
+  - 🛠 Refactor Modal animation code so that it will remove all dom element by `destroyOnClose` when closed. [#26940](https://github.com/ant-design/ant-design/pull/26940)
   - 🆕 Modal add `modalRender` prop which can be used for draggable dialog. [#26507](https://github.com/ant-design/ant-design/pull/26507) [@jhoneybee](https://github.com/jhoneybee)
 - 🆕 Space add `split` prop. [#26948](https://github.com/ant-design/ant-design/pull/26948)
 - 🆕 Image `preview` prop now support `visible` and `onVisibleChange`. [#26915](https://github.com/ant-design/ant-design/pull/26915)

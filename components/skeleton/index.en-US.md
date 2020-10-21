@@ -25,41 +25,41 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 | avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false |
 | loading | Display the skeleton when true | boolean | - |
 | paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
-| title | Show title placeholder | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
 | round | Show paragraph and title radius when true | boolean | false |
+| title | Show title placeholder | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
 
 ### SkeletonAvatarProps
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | active | Show animation effect, only valid when used avatar independently | boolean | false |
-| size | Set the size of avatar | number \| `large` \| `small` \| `default` | - |
 | shape | Set the shape of avatar | `circle` \| `square` | - |
+| size | Set the size of avatar | number \| `large` \| `small` \| `default` | - |
 
 ### SkeletonTitleProps
 
-| Property | Description            | Type             | Default |
-| -------- | ---------------------- | ---------------- | ------- |
-| width    | Set the width of title | number \| string | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| width | Set the width of title | number \| string | - |
 
 ### SkeletonParagraphProps
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | rows | Set the row count of paragraph | number | - |
-| width | Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width | number \| string \| Array<number \| string> | - |
+| width | Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width | number \| string \| Array&lt;number \| string> | - |
 
 ### SkeletonButtonProps
 
-| Property | Description             | Type                             | Default |
-| -------- | ----------------------- | -------------------------------- | ------- |
-| active   | Show animation effect   | boolean                          | false   |
-| size     | Set the size of button  | `large` \| `small` \| `default`  | -       |
-| shape    | Set the shape of button | `circle` \| `round` \| `default` | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| active | Show animation effect | boolean | false |
+| shape | Set the shape of button | `circle` \| `round` \| `default` | - |
+| size | Set the size of button | `large` \| `small` \| `default` | - |
 
 ### SkeletonInputProps
 
-| Property | Description           | Type                            | Default |
-| -------- | --------------------- | ------------------------------- | ------- |
-| active   | Show animation effect | boolean                         | false   |
-| size     | Set the size of input | `large` \| `small` \| `default` | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| active | Show animation effect | boolean | false |
+| size | Set the size of input | `large` \| `small` \| `default` | - |

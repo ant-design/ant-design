@@ -68,9 +68,9 @@ const localeValues: Locale = {
   },
   Form: {
     defaultValidateMessages: {
-      "default": 'خطأ في حقل الإدخال ${label}',
+      default: 'خطأ في حقل الإدخال ${label}',
       required: 'يرجى إدخال ${label}',
-      "enum": '${label} يجب أن يكون واحدا من [${enum}]',
+      enum: '${label} يجب أن يكون واحدا من [${enum}]',
       whitespace: '${label} لا يمكن أن يكون حرفًا فارغًا',
       date: {
         format: '${label} تنسيق التاريخ غير صحيح',

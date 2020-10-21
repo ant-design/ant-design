@@ -112,20 +112,18 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
     const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
-    const affixWrapperCls = classNames(
-      `${prefixCls}-affix-wrapper`,
-      {
-        [`${prefixCls}-affix-wrapper-focused`]: focused,
-        [`${prefixCls}-affix-wrapper-disabled`]: disabled,
-        [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
-        [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
-        [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
-        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-        [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
-        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-      },
-      className,
-    );
+    const affixWrapperCls = classNames(`${prefixCls}-affix-wrapper`, {
+      [`${prefixCls}-affix-wrapper-focused`]: focused,
+      [`${prefixCls}-affix-wrapper-disabled`]: disabled,
+      [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
+      [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
+      [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
+      [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+      [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
+      [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+      // https://github.com/ant-design/ant-design/issues/27258
+      [`${className}`]: !allowClear && className,
+    });
     return (
       <span
         ref={this.containerRef}

@@ -17,18 +17,18 @@ Tag for categorizing or markup.
 
 ### Tag
 
-| Property  | Description                          | Type        | Default | Version |
-| --------- | ------------------------------------ | ----------- | ------- | ------- |
-| closable  | Whether the Tag can be closed        | boolean     | false   |         |
-| color     | Color of the Tag                     | string      | -       |         |
-| closeIcon | Custom close icon                    | ReactNode   | -       | 4.4.0   |
-| onClose   | Callback executed when tag is closed | (e) => void | -       |         |
-| visible   | Whether the Tag is closed or not     | boolean     | true    |         |
-| icon      | Set the icon of tag                  | ReactNode   | -       |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| closable | Whether the Tag can be closed | boolean | false |  |
+| closeIcon | Custom close icon | ReactNode | - | 4.4.0 |
+| color | Color of the Tag | string | - |  |
+| icon | Set the icon of tag | ReactNode | - |  |
+| visible | Whether the Tag is closed or not | boolean | true |  |
+| onClose | Callback executed when tag is closed | (e) => void | - |  |
 
 ### Tag.CheckableTag
 
-| Property | Description                                     | Type              | Default |
-| -------- | ----------------------------------------------- | ----------------- | ------- |
-| checked  | Checked status of Tag                           | boolean           | false   |
-| onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| checked | Checked status of Tag | boolean | false |
+| onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |

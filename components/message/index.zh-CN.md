@@ -25,11 +25,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| 参数     | 说明                                        | 类型                | 默认值 |
-| -------- | ------------------------------------------- | ------------------- | ------ |
-| content  | 提示内容                                    | ReactNode \| config | -      |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number              | 3      |
-| onClose  | 关闭时触发的回调函数                        | function            | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| content | 提示内容 | ReactNode \| config | - |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
+| onClose | 关闭时触发的回调函数 | function | - |
 
 组件同时提供 promise 接口。
 
@@ -52,13 +52,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| className | 自定义 CSS class | string | - |
 | content | 提示内容 | ReactNode | - |
 | duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
-| onClose | 关闭时触发的回调函数 | function | - |
 | icon | 自定义图标 | ReactNode | - |
 | key | 当前提示的唯一标志 | string \| number | - |
-| className | 自定义 CSS class | string | - |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| onClose | 关闭时触发的回调函数 | function | - |
 
 ### 全局方法
 
@@ -90,9 +90,9 @@ message.config({
 | duration | 默认自动关闭延时，单位秒 | number | 3 |  |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body |  |
 | maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |  |
-| top | 消息距离顶部的位置 | number | 24 |  |
-| rtl | 是否开启 RTL 模式 | boolean | false |  |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
+| rtl | 是否开启 RTL 模式 | boolean | false |  |
+| top | 消息距离顶部的位置 | number | 24 |  |
 
 ## FAQ
 

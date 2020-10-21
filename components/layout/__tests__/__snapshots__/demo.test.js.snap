@@ -1141,7 +1141,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           <div />
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child"
+          class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
         >
@@ -1165,7 +1165,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span />
+          <span>
+            Files
+          </span>
         </li>
       </ul>
     </div>

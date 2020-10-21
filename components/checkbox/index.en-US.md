@@ -42,7 +42,7 @@ Checkbox component.
 
 #### Checkbox
 
-| Name    | Description  | Version |
-| ------- | ------------ | ------- |
-| blur()  | Remove focus |         |
-| focus() | Get focus    |         |
+| Name | Description | Version |
+| --- | --- | --- |
+| blur() | Remove focus |  |
+| focus() | Get focus |  |

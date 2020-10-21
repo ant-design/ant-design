@@ -38,7 +38,6 @@ describe('Cascader.typescript', () => {
       },
     ];
 
-
     const result = <Cascader options={options} defaultValue={[1, 'hangzhou']} />;
 
     expect(result).toBeTruthy();
