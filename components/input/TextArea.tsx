@@ -116,7 +116,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     value = hasMaxLength ? value.slice(0, maxLength) : value;
 
     // TextArea
-    let textareaNode = (size?: SizeType) => (
+    const textareaNode = (size?: SizeType) => (
       <ClearableLabeledInput
         {...this.props}
         prefixCls={prefixCls}
@@ -136,21 +136,25 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       const valueLength = [...value].length;
       const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
-      textareaNode = (size?: SizeType) => (
-        <div
-          className={classNames(
-            `${prefixCls}-textarea`,
-            {
-              [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
-            },
-            `${prefixCls}-textarea-show-count`,
-            className,
+      return (
+        <SizeContext.Consumer>
+          {(size?: SizeType) => (
+            <div
+              className={classNames(
+                `${prefixCls}-textarea`,
+                {
+                  [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
+                },
+                `${prefixCls}-textarea-show-count`,
+                className,
+              )}
+              style={style}
+              data-count={dataCount}
+            >
+              {textareaNode(size)}
+            </div>
           )}
-          style={style}
-          data-count={dataCount}
-        >
-          {textareaNode(size)}
-        </div>
+        </SizeContext.Consumer>
       );
     }
 
