@@ -241,3 +241,6 @@ export default class Card extends React.Component<CardProps, {}> {
     return <ConfigConsumer>{this.renderCard}</ConfigConsumer>;
   }
 }
+
+
+// card
