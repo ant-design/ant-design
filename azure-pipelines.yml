@@ -76,5 +76,5 @@ stages:
             displayName: 'Install modules'
           - script: npm run test-image
             displayName: 'UI Test'
-          - script: npm run argos
+          - script: npm run argos -- --token $(ARGOS_TOKEN) --branch $(Build.SourceBranch) --commit $(Build.SourceVersion)
             displayName: 'Upload to argos-ci'

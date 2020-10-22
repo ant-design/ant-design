@@ -92,7 +92,7 @@
     "site:test": "jest --config .jest.site.js --cache=false",
     "test-image": "npm run compile:less && docker-compose run tests",
     "version": "node ./scripts/generate-version",
-    "argos": "argos upload imageSnapshots --token $ARGOS_TOKEN || true"
+    "argos": "argos upload imageSnapshots"
   },
   "husky": {
     "hooks": {
