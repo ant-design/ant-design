@@ -19,7 +19,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
-| bodyStyle | Modal body 样式 | object | {} |  |
+| bodyStyle | Modal body 样式 | CSSProperties |  |  |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
@@ -33,7 +33,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
-| maskStyle | 遮罩样式 | object | {} |  |
+| maskStyle | 遮罩样式 | CSSProperties |  |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
