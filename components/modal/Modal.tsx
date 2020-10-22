@@ -114,6 +114,7 @@ export interface ModalFuncProps {
   transitionName?: string;
   maskTransitionName?: string;
   direction?: string;
+  bodyStyle?: React.CSSProperties;
 }
 
 export interface ModalLocale {

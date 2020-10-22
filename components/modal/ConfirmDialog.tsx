@@ -31,6 +31,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     direction,
     prefixCls,
     rootPrefixCls,
+    bodyStyle,
   } = props;
 
   devWarning(
@@ -95,7 +96,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       getContainer={getContainer}
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
-        <div className={`${contentPrefixCls}-body`}>
+        <div className={`${contentPrefixCls}-body`} style={bodyStyle}>
           {icon}
           {props.title === undefined ? null : (
             <span className={`${contentPrefixCls}-title`}>{props.title}</span>
