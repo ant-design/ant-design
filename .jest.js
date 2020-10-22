@@ -42,6 +42,7 @@ module.exports = {
     '!components/*/locale/index.tsx',
     '!components/*/__tests__/type.test.tsx',
     '!components/**/*/interface.{ts,tsx}',
+    '!components/*/__tests__/image.test.tsx',
   ],
   transformIgnorePatterns,
   snapshotSerializers: ['enzyme-to-json/serializer'],
