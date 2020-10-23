@@ -10,7 +10,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 const { Option } = Select;
 
 describe('Select', () => {
-  focusTest(Select);
+  focusTest(Select, { refFocus: true });
   mountTest(Select);
   rtlTest(Select);
 
