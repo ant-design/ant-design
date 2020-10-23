@@ -16,10 +16,10 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: '树形控件在生产力工具中的设计',
-    description: '惊！半年实践血泪史，3000 字深度好文，一个爱树的设计师手把手教你如何设计「树 」！',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z4eXS55fMigAAAAAAAAAAAAAARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/260068653',
+    title: '这几个 Ant Design 色彩的小知识，我猜你不知道！',
+    description: '今天不说大道理，就给大家科普几个 Ant Design 色彩的小知识——',
+    img: 'https://pic2.zhimg.com/v2-254eebfe6b092b0b9c1f8d17f3c64d3d_1440w.jpg?source=172ae18b',
+    href: 'https://zhuanlan.zhihu.com/p/268168773',
     popularize: true,
   },
   {
@@ -39,11 +39,11 @@ const LIST_CN: Recommend[] = [
 
 const LIST_EN: Recommend[] = [
   {
-    title: 'How to Design Tree Component',
+    title: 'These a few color knowledge of Ant Design, I guess you do not know!',
     description:
-      '🌲 Surprise! With half-a-year practice of blood and tears, here comes a designer who deeply loves trees to teach you how to design 「tree」component!',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z4eXS55fMigAAAAAAAAAAAAAARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/260068653',
+      'This time, we do not talk about theoretical knowledge, just a few color design skills of Ant Design',
+    img: 'https://pic2.zhimg.com/v2-254eebfe6b092b0b9c1f8d17f3c64d3d_1440w.jpg?source=172ae18b',
+    href: 'https://zhuanlan.zhihu.com/p/268168773',
     popularize: true,
   },
   {
