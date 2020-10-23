@@ -85,16 +85,14 @@ describe('Typography', () => {
 
         await sleep(20);
         wrapper.update();
-        expect(wrapper.find('span:not(.anticon)').text()).toEqual('Bamboo is Little ...');
+        expect(wrapper.text()).toEqual('Bamboo is Little ...');
         expect(onEllipsis).toHaveBeenCalledWith(true);
         onEllipsis.mockReset();
 
         wrapper.setProps({ ellipsis: { rows: 2, onEllipsis } });
         await sleep(20);
         wrapper.update();
-        expect(wrapper.find('span:not(.anticon)').text()).toEqual(
-          'Bamboo is Little Light Bamboo is Litt...',
-        );
+        expect(wrapper.text()).toEqual('Bamboo is Little Light Bamboo is Litt...');
         expect(onEllipsis).not.toHaveBeenCalled();
 
         wrapper.setProps({ ellipsis: { rows: 99, onEllipsis } });
@@ -161,7 +159,7 @@ describe('Typography', () => {
         await sleep(20);
         wrapper.update();
 
-        expect(wrapper.find('span:not(.anticon)').text()).toEqual('Bamboo is Little...');
+        expect(wrapper.text()).toEqual('Bamboo is Little...');
       });
 
       it('should expandable work', async () => {
