@@ -73,6 +73,31 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
       </span>
     </button>
   </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-skeleton"
+      >
+        <div
+          class="ant-skeleton-content"
+        >
+          <h3
+            class="ant-skeleton-title"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

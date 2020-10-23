@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
+import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import Countdown from './Countdown';
 import { valueType, FormatConfig } from './utils';
@@ -21,6 +22,7 @@ export interface StatisticProps extends FormatConfig {
   title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  loading?: boolean;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -36,6 +38,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     valueRender,
     prefix,
     suffix,
+    loading,
     direction,
     onMouseEnter,
     onMouseLeave,
@@ -51,11 +54,13 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
   return (
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      <div style={valueStyle} className={`${prefixCls}-content`}>
-        {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
-        {valueRender ? valueRender(valueNode) : valueNode}
-        {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
-      </div>
+      <Skeleton paragraph={false} loading={loading}>
+        <div style={valueStyle} className={`${prefixCls}-content`}>
+          {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
+          {valueRender ? valueRender(valueNode) : valueNode}
+          {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
+        </div>
+      </Skeleton>
     </div>
   );
 };
@@ -63,6 +68,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
 Statistic.defaultProps = {
   decimalSeparator: '.',
   groupSeparator: ',',
+  loading: false,
 };
 
 const WrapperStatistic = withConfigConsumer<StatisticProps>({
