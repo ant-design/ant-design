@@ -34,10 +34,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-const AutoComplete: React.ForwardRefRenderFunction<typeof Select, AutoCompleteProps> = (
-  props,
-  ref,
-) => {
+const AutoComplete: React.ForwardRefRenderFunction<unknown, AutoCompleteProps> = (props, ref) => {
   const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
@@ -129,7 +126,7 @@ const AutoComplete: React.ForwardRefRenderFunction<typeof Select, AutoCompletePr
   );
 };
 
-const RefAutoComplete = React.forwardRef<typeof Select, AutoCompleteProps>(AutoComplete);
+const RefAutoComplete = React.forwardRef<unknown, AutoCompleteProps>(AutoComplete);
 
 type RefAutoCompleteWithOption = typeof RefAutoComplete & {
   Option: OptionType;
