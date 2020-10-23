@@ -20,6 +20,20 @@ cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 <Pagination onChange={onChange} total={50} />
 ```
 
+## 国际化配置
+
+默认语言环境为en-US，如果您需要使用其他语言，建议使用我们在入口处提供的国际化组件。 看着：
+
+如果有特殊需要（仅修改单个组件语言），请使用属性：local。
+
+例：
+
+```jsx
+import locale from "rc-pagination/lib/locale/zh_CN";
+
+<Pagination locale={locale} />
+```
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | current | 当前页数 | number | - |  |
@@ -28,6 +42,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 | disabled | 禁用分页 | boolean | - |  |
 | hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false |  |
 | itemRender | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
+| locale | 本地化配置 | object | [default](https://github.com/react-component/pagination/blob/master/src/locale/en_US.js) |  |
 | pageSize | 每页条数 | number | - |  |
 | pageSizeOptions | 指定每页可以显示多少条 | string\[] | \[`10`, `20`, `50`, `100`] |  |
 | responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - |  |

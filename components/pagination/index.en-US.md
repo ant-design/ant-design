@@ -19,6 +19,21 @@ A long list can be divided into several pages using `Pagination`, and only one p
 <Pagination onChange={onChange} total={50} />
 ```
 
+### Localization
+
+The default locale is en-US, if you need to use other languages, recommend to use internationalized components provided by us at the entrance. Look at: [ConfigProvider](https://ant.design/components/config-provider/).
+
+If there are special needs (only modifying single component language), Please use the property: local.
+
+Example:
+
+```jsx
+import locale from "rc-pagination/lib/locale/zh_CN";
+
+<Pagination locale={locale} />
+```
+
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | current | Current page number | number | - |  |
@@ -27,6 +42,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | disabled | Disable pagination | boolean | - |  |
 | hideOnSinglePage | Whether to hide pager on single page | boolean | false |  |
 | itemRender | To customize item's innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
+| locale | Localization configuration | object | [default](https://github.com/react-component/pagination/blob/master/src/locale/en_US.js) |  |
 | pageSize | Number of data items per page | number | - |  |
 | pageSizeOptions | Specify the sizeChanger options | string\[] | \[`10`, `20`, `50`, `100`] |  |
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - |  |
