@@ -61,6 +61,8 @@ interface ConsumerConfig {
 interface ConstructorProps {
   displayName?: string;
 }
+
+/** @deprecated Use hooks instead. This is a legacy function */
 export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
   return function withConfigConsumerFunc<ComponentDef>(
     Component: IReactComponent,
