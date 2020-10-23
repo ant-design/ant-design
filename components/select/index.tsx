@@ -48,6 +48,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
+    transitionName = 'slide-up',
     ...props
   }: SelectProps<VT>,
   ref: React.Ref<RcSelect<VT>>,
@@ -98,7 +99,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     prefixCls,
   });
 
-  const selectProps = omit(props, ['suffixIcon', 'itemIcon', 'removeIcon', 'clearIcon']);
+  const selectProps = omit(props, ['suffixIcon', 'itemIcon']);
 
   const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
@@ -121,6 +122,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}
+      transitionName={transitionName}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
