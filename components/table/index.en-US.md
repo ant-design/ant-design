@@ -167,7 +167,7 @@ Properties for expandable.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| childrenColumnName | The column contains children to display | string\[] | children |
+| childrenColumnName | The column contains children to display | string | children |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |
