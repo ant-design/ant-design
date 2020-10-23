@@ -8,6 +8,19 @@
     .input();
     display: inline-flex;
 
+    &:hover {
+      .hover();
+      z-index: 1;
+      .@{ant-prefix}-input-search-button & {
+        z-index: 0;
+      }
+    }
+
+    &-focused,
+    &:focus {
+      z-index: 1;
+    }
+
     &-disabled {
       .@{ant-prefix}-input[disabled] {
         background: transparent;

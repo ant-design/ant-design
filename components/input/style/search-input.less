@@ -19,6 +19,10 @@
     }
   }
 
+  .@{ant-prefix}-input-affix-wrapper {
+    border-radius: 0;
+  }
+
   // fix slight height diff in Firefox:
   // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
   .@{ant-prefix}-input-lg {
@@ -26,10 +30,11 @@
   }
 
   > .@{ant-prefix}-input-group {
-    > .@{ant-prefix}-input-affix-wrapper {
-      border-right: 0;
-    }
+    // > .@{ant-prefix}-input-affix-wrapper {
+    //   border-right: 0;
+    // }
     > .@{ant-prefix}-input-group-addon {
+      left: -1px;
       padding: 0;
       border: 0;
 

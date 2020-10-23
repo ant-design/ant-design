@@ -169,6 +169,9 @@
     &:hover {
       z-index: 1;
       border-right-width: 1px;
+      .@{ant-prefix}-input-search-button & {
+        z-index: 0;
+      }
     }
   }
 
@@ -278,6 +281,10 @@
     &:not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+      .@{ant-prefix}-input-search & {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
   }
 
