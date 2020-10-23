@@ -117,9 +117,7 @@ describe('Calendar', () => {
   it('Calendar MonthSelect should display correct label', () => {
     const validRange = [Moment('2018-02-02'), Moment('2019-06-1')];
     const wrapper = mount(<Calendar validRange={validRange} defaultValue={Moment('2019-01-01')} />);
-    const { options } = wrapper.find('MonthSelect > Select').props();
-    expect(options.length).toBe(6);
-    expect(options[5]).toEqual({ label: 'Jun', value: 5 });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('Calendar should change mode by prop', () => {
