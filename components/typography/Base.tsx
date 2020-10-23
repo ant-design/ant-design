@@ -462,22 +462,27 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const cssLineClamp = rows && rows > 1 && cssEllipsis;
 
     let textNode: React.ReactNode = children;
-    let ariaLabel: string | undefined;
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
       const { title } = restProps;
-      ariaLabel = title;
+      let restContent = title || '';
       if (!title && (typeof children === 'string' || typeof children === 'number')) {
-        ariaLabel = String(children);
+        restContent = String(children);
       }
+
+      // show rest content as title on symbol
+      restContent = restContent?.replace(new RegExp(`^${ellipsisContent}`), '');
+
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={ariaLabel} aria-hidden="true">
+        <>
           {ellipsisContent}
-          {ELLIPSIS_STR}
+          <span title={restContent} aria-hidden="true">
+            {ELLIPSIS_STR}
+          </span>
           {suffix}
-        </span>
+        </>
       );
     } else {
       textNode = (
@@ -517,7 +522,6 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                 }}
                 component={component}
                 ref={this.contentRef}
-                aria-label={ariaLabel}
                 direction={direction}
                 {...textProps}
               >
