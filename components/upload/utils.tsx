@@ -90,7 +90,7 @@ export function previewImage(file: File | Blob): Promise<string> {
       let offsetX = 0;
       let offsetY = 0;
 
-      if (width < height) {
+      if (width > height) {
         drawHeight = height * (MEASURE_SIZE / width);
         offsetY = -(drawHeight - drawWidth) / 2;
       } else {
