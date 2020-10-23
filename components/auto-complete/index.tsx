@@ -7,7 +7,6 @@
 
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
-import { SelectProps as RcSelectProps } from 'rc-select';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Select, { InternalSelectProps, OptionType } from '../select';
@@ -16,8 +15,6 @@ import devWarning from '../_util/devWarning';
 import { isValidElement } from '../_util/reactNode';
 
 const { Option } = Select;
-
-const InternalSelect = Select as React.ComponentClass<RcSelectProps>;
 
 export interface DataSourceItemObject {
   value: string;
@@ -37,13 +34,16 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-const AutoComplete: React.ForwardRefRenderFunction<Select, AutoCompleteProps> = (props, ref) => {
+const AutoComplete: React.ForwardRefRenderFunction<typeof Select, AutoCompleteProps> = (
+  props,
+  ref,
+) => {
   const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
-  const selectRef = React.useRef<Select>();
+  const selectRef = React.useRef();
 
-  React.useImperativeHandle<Select, Select>(ref, () => selectRef.current!);
+  React.useImperativeHandle(ref, () => selectRef.current!);
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
@@ -113,7 +113,7 @@ const AutoComplete: React.ForwardRefRenderFunction<Select, AutoCompleteProps> = 
         const prefixCls = getPrefixCls('select', customizePrefixCls);
 
         return (
-          <InternalSelect
+          <Select
             ref={selectRef as any}
             {...omit(props, ['dataSource'])}
             prefixCls={prefixCls}
@@ -122,14 +122,14 @@ const AutoComplete: React.ForwardRefRenderFunction<Select, AutoCompleteProps> = 
             getInputElement={getInputElement}
           >
             {optionChildren}
-          </InternalSelect>
+          </Select>
         );
       }}
     </ConfigConsumer>
   );
 };
 
-const RefAutoComplete = React.forwardRef<Select, AutoCompleteProps>(AutoComplete);
+const RefAutoComplete = React.forwardRef<typeof Select, AutoCompleteProps>(AutoComplete);
 
 type RefAutoCompleteWithOption = typeof RefAutoComplete & {
   Option: OptionType;
