@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
+<ConfigProvider
+  form={
+    Object {
+      "requiredMark": "optional",
+    }
+  }
+>
+  <LocaleReceiver
+    componentName="global"
+  >
+    <SizeContextProvider>
+      <LocaleProvider
+        _ANT_MARK__="internalMark"
+        locale={Object {}}
+      >
+        <ForwardRef(InternalForm)
+          initialValues={
+            Object {
+              "age": 18,
+            }
+          }
+        >
+          <SizeContextProvider>
+            <ForwardRef(Form)
+              className="ant-form ant-form-horizontal"
+              form={
+                Object {
+                  "__INTERNAL__": Object {
+                    "itemRef": [Function],
+                    "name": undefined,
+                  },
+                  "getFieldError": [Function],
+                  "getFieldInstance": [Function],
+                  "getFieldValue": [Function],
+                  "getFieldsError": [Function],
+                  "getFieldsValue": [Function],
+                  "getInternalHooks": [Function],
+                  "isFieldTouched": [Function],
+                  "isFieldValidating": [Function],
+                  "isFieldsTouched": [Function],
+                  "isFieldsValidating": [Function],
+                  "resetFields": [Function],
+                  "scrollToField": [Function],
+                  "setFields": [Function],
+                  "setFieldsValue": [Function],
+                  "submit": [Function],
+                  "validateFields": [Function],
+                }
+              }
+              initialValues={
+                Object {
+                  "age": 18,
+                }
+              }
+              onFinishFailed={[Function]}
+            >
+              <form
+                className="ant-form ant-form-horizontal"
+                onSubmit={[Function]}
+              >
+                <FormItem
+                  label="年龄"
+                  name="age"
+                  rules={
+                    Array [
+                      Object {
+                        "len": 17,
+                        "type": "number",
+                      },
+                    ]
+                  }
+                >
+                  <WrapperField
+                    label="年龄"
+                    messageVariables={
+                      Object {
+                        "label": "年龄",
+                      }
+                    }
+                    name="age"
+                    onReset={[Function]}
+                    rules={
+                      Array [
+                        Object {
+                          "len": 17,
+                          "type": "number",
+                        },
+                      ]
+                    }
+                    trigger="onChange"
+                    validateTrigger="onChange"
+                  >
+                    <Field
+                      key="_age"
+                      label="年龄"
+                      messageVariables={
+                        Object {
+                          "label": "年龄",
+                        }
+                      }
+                      name={
+                        Array [
+                          "age",
+                        ]
+                      }
+                      onReset={[Function]}
+                      rules={
+                        Array [
+                          Object {
+                            "len": 17,
+                            "type": "number",
+                          },
+                        ]
+                      }
+                      trigger="onChange"
+                      validateTrigger="onChange"
+                      valuePropName="value"
+                    >
+                      <Row
+                        className="ant-form-item"
+                        key="row"
+                      >
+                        <div
+                          className="ant-row ant-form-item"
+                          style={Object {}}
+                        >
+                          <FormItemLabel
+                            htmlFor="age"
+                            label="年龄"
+                            name="age"
+                            prefixCls="ant-form"
+                            required={false}
+                            requiredMark="optional"
+                            rules={
+                              Array [
+                                Object {
+                                  "len": 17,
+                                  "type": "number",
+                                },
+                              ]
+                            }
+                          >
+                            <Col
+                              className="ant-form-item-label"
+                            >
+                              <div
+                                className="ant-col ant-form-item-label"
+                                style={Object {}}
+                              >
+                                <label
+                                  className="ant-form-item-required-mark-optional"
+                                  htmlFor="age"
+                                  title="年龄"
+                                >
+                                  年龄
+                                  <span
+                                    className="ant-form-item-optional"
+                                  >
+                                    (optional)
+                                  </span>
+                                </label>
+                              </div>
+                            </Col>
+                          </FormItemLabel>
+                          <FormItemInput
+                            errors={Array []}
+                            label="年龄"
+                            name={
+                              Array [
+                                "age",
+                              ]
+                            }
+                            onDomErrorVisibleChange={[Function]}
+                            prefixCls="ant-form"
+                            rules={
+                              Array [
+                                Object {
+                                  "len": 17,
+                                  "type": "number",
+                                },
+                              ]
+                            }
+                            status=""
+                            touched={false}
+                            validateStatus=""
+                            validating={false}
+                          >
+                            <Col
+                              className="ant-form-item-control"
+                            >
+                              <div
+                                className="ant-col ant-form-item-control"
+                                style={Object {}}
+                              >
+                                <div
+                                  className="ant-form-item-control-input"
+                                >
+                                  <div
+                                    className="ant-form-item-control-input-content"
+                                  >
+                                    <Component
+                                      update={1}
+                                      value={18}
+                                    >
+                                      <input
+                                        id="age"
+                                        onChange={[Function]}
+                                        value={18}
+                                      />
+                                    </Component>
+                                  </div>
+                                </div>
+                                <ErrorList
+                                  errors={Array []}
+                                  onDomErrorVisibleChange={[Function]}
+                                >
+                                  <CSSMotion
+                                    motionAppear={true}
+                                    motionDeadline={500}
+                                    motionName="show-help"
+                                    onLeaveEnd={[Function]}
+                                    removeOnLeave={true}
+                                    visible={false}
+                                  >
+                                    <DomWrapper />
+                                  </CSSMotion>
+                                </ErrorList>
+                              </div>
+                            </Col>
+                          </FormItemInput>
+                        </div>
+                      </Row>
+                    </Field>
+                  </WrapperField>
+                </FormItem>
+              </form>
+            </ForwardRef(Form)>
+          </SizeContextProvider>
+        </ForwardRef(InternalForm)>
+      </LocaleProvider>
+    </SizeContextProvider>
+  </LocaleReceiver>
+</ConfigProvider>
+`;
