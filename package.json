@@ -224,7 +224,6 @@
     "intersection-observer": "^0.11.0",
     "jest": "^26.0.0",
     "jest-image-snapshot": "^4.0.0",
-    "jest-stare": "^2.0.1",
     "jquery": "^3.4.1",
     "jsdom": "^16.0.0",
     "jsonml.js": "^0.1.0",

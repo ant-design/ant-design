@@ -20,5 +20,4 @@ module.exports = {
       tsConfigFile: './tsconfig.test.json',
     },
   },
-  reporters: ['default', 'jest-stare'],
 };
