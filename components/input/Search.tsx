@@ -109,12 +109,12 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
       className,
       size: customizeSize,
       suffix,
+      enterButton,
       ...restProps
     } = props;
 
     delete (restProps as any).onSearch;
     delete (restProps as any).loading;
-    delete (restProps as any).enterButton;
 
     const prefixCls = getPrefixCls('input-search', customizePrefixCls);
     const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
@@ -125,6 +125,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
         {
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-${size}`]: !!size,
+          [`${prefixCls}-with-button`]: !!enterButton,
         },
         className,
       );
