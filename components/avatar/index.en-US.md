@@ -17,7 +17,7 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | gap | Letter type unit distance between left and right sides | number | 4 | 4.3.0 |
 | icon | Custom icon type for an icon avatar | ReactNode | - |  |
 | shape | The shape of avatar | `circle` \| `square` | `circle` |  |
-| size | The size of the avatar | number \| `large` \| `small` \| `default` \| `{ xs: number, sm: number, ...}` | `default` | 4.7.0 |
+| size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.7.0 |
 | src | The address of the image for an image avatar | string | - |  |
 | srcSet | A list of sources to use for different screen resolutions | string | - |  |
 | onError | Handler when img load error, return false to prevent default fallback behavior | () => boolean | - |  |
@@ -31,3 +31,4 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | maxCount | Max avatars to show | number | - |  |
 | maxPopoverPlacement | The placement of excess avatar Popover | `top` \| `bottom` | `top` |  |
 | maxStyle | The style of excess avatar style | CSSProperties | - |  |
+| size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |

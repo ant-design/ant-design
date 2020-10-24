@@ -8,6 +8,8 @@ import { composeRef } from '../_util/ref';
 import { Breakpoint, responsiveArray, ScreenSizeMap } from '../_util/responsiveObserve';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
+export type AvatarSize = 'large' | 'small' | 'default' | number | ScreenSizeMap;
+
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
   shape?: 'circle' | 'square';
@@ -15,7 +17,7 @@ export interface AvatarProps {
    * Size of avatar, options: `large`, `small`, `default`
    * or a custom number size
    * */
-  size?: 'large' | 'small' | 'default' | number | ScreenSizeMap;
+  size?: AvatarSize;
   gap?: number;
   /** Src of image avatar */
   src?: string;

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
-import Avatar from './avatar';
+import Avatar, { AvatarSize } from './avatar';
 import Popover from '../popover';
 
 export interface GroupProps {
@@ -14,12 +14,19 @@ export interface GroupProps {
   maxCount?: number;
   maxStyle?: React.CSSProperties;
   maxPopoverPlacement?: 'top' | 'bottom';
+  /*
+   * Size of avatar, options: `large`, `small`, `default`
+   * or a custom number size
+   * */
+  size?: AvatarSize;
 }
 
 const Group: React.FC<GroupProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle } = props;
+  const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size } = props;
+
   const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
+
   const cls = classNames(
     prefixCls,
     {
@@ -31,6 +38,7 @@ const Group: React.FC<GroupProps> = props => {
   const { children, maxPopoverPlacement = 'top' } = props;
   const childrenWithProps = toArray(children).map((child, index) => {
     return cloneElement(child, {
+      size,
       key: `avatar-key-${index}`,
     });
   });
@@ -47,7 +55,7 @@ const Group: React.FC<GroupProps> = props => {
         placement={maxPopoverPlacement}
         overlayClassName={`${prefixCls}-popover`}
       >
-        <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
+        <Avatar style={maxStyle} size={size}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,
     );
     return (
@@ -58,7 +66,7 @@ const Group: React.FC<GroupProps> = props => {
   }
   return (
     <div className={cls} style={props.style}>
-      {children}
+      {childrenWithProps}
     </div>
   );
 };
