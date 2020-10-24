@@ -31,3 +31,4 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | maxCount | Max avatars to show | number | - |  |
 | maxPopoverPlacement | The placement of excess avatar Popover | `top` \| `bottom` | `top` |  |
 | maxStyle | The style of excess avatar style | CSSProperties | - |  |
+| size | The size of the avatar | number \| `large` \| `small` \| `default` \| `{ xs: number, sm: number, ...}` | `default` | 4.8.0 |

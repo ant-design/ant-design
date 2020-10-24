@@ -36,3 +36,4 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
 | maxCount | 显示的最大头像个数 | number | - |  |
 | maxPopoverPlacement | 多余头像气泡弹出位置 | `top` \| `bottom` | `top` |  |
 | maxStyle | 多余头像样式 | CSSProperties | - |  |
+| size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| `{ xs: number, sm: number, ...}` | `default` | 4.8.0 |
