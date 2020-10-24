@@ -53,6 +53,27 @@ export interface PaginationConfig extends PaginationProps {
 
 export type PaginationLocale = any;
 
+export interface IconProps {
+  prefixCls: string;
+  children: React.ReactNode;
+}
+
+export const DirectionIcon: React.FC<IconProps> = ({ prefixCls, children, ...restProps }) => (
+  <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1} {...restProps}>
+    {children}
+  </button>
+);
+
+export const JumpIcon: React.FC<IconProps> = ({ prefixCls, children }) => (
+  <a className={`${prefixCls}-item-link`}>
+    {/* You can use transition effects in the container :) */}
+    <div className={`${prefixCls}-item-container`}>
+      {children}
+      <span className={`${prefixCls}-item-ellipsis`}>•••</span>
+    </div>
+  </a>
+);
+
 const Pagination: React.FC<PaginationProps> = ({
   prefixCls: customizePrefixCls,
   selectPrefixCls: customizeSelectPrefixCls,
@@ -67,34 +88,26 @@ const Pagination: React.FC<PaginationProps> = ({
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   const getIconsProps = () => {
-    const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
     let prevIcon = (
-      <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
+      <DirectionIcon prefixCls={prefixCls}>
         <LeftOutlined />
-      </button>
+      </DirectionIcon>
     );
     let nextIcon = (
-      <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
+      <DirectionIcon prefixCls={prefixCls}>
         <RightOutlined />
-      </button>
+      </DirectionIcon>
     );
+    const jumpClass = `${prefixCls}-item-link-icon`;
     let jumpPrevIcon = (
-      <a className={`${prefixCls}-item-link`}>
-        {/* You can use transition effects in the container :) */}
-        <div className={`${prefixCls}-item-container`}>
-          <DoubleLeftOutlined className={`${prefixCls}-item-link-icon`} />
-          {ellipsis}
-        </div>
-      </a>
+      <JumpIcon prefixCls={prefixCls}>
+        <DoubleLeftOutlined className={jumpClass} />
+      </JumpIcon>
     );
     let jumpNextIcon = (
-      <a className={`${prefixCls}-item-link`}>
-        {/* You can use transition effects in the container :) */}
-        <div className={`${prefixCls}-item-container`}>
-          <DoubleRightOutlined className={`${prefixCls}-item-link-icon`} />
-          {ellipsis}
-        </div>
-      </a>
+      <JumpIcon prefixCls={prefixCls}>
+        <DoubleRightOutlined className={jumpClass} />
+      </JumpIcon>
     );
     // change arrows direction in right-to-left direction
     if (direction === 'rtl') {
