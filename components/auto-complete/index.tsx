@@ -9,6 +9,7 @@ import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import RcSelect from 'rc-select';
 import Select, { InternalSelectProps, OptionType } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
@@ -34,13 +35,12 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-const AutoComplete: React.ForwardRefRenderFunction<unknown, AutoCompleteProps> = (props, ref) => {
+const AutoComplete: React.ForwardRefRenderFunction<RcSelect<any>, AutoCompleteProps> = (
+  props,
+  ref,
+) => {
   const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
-
-  const selectRef = React.useRef();
-
-  React.useImperativeHandle(ref, () => selectRef.current!);
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
@@ -111,7 +111,7 @@ const AutoComplete: React.ForwardRefRenderFunction<unknown, AutoCompleteProps> =
 
         return (
           <Select
-            ref={selectRef as any}
+            ref={ref}
             {...omit(props, ['dataSource'])}
             prefixCls={prefixCls}
             className={classNames(`${prefixCls}-auto-complete`, className)}
