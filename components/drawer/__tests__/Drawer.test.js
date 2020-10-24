@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Drawer from '..';
+import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -133,5 +134,19 @@ describe('Drawer', () => {
       </Drawer>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('ConfigProvider should not warning', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    mount(
+      <ConfigProvider virtual>
+        <Drawer visible>Bamboo is Light</Drawer>
+      </ConfigProvider>,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
   });
 });
