@@ -25,9 +25,11 @@ timeline: true
 - Typography
   - 🛠 Improve Typography `ellipsis` title display. [#27328](https://github.com/ant-design/ant-design/pull/27328)
   - 💄 Fix Editable Typography in Card title style problems. [#27221](https://github.com/ant-design/ant-design/pull/27221)
+- Input
+  - 🐞 Fix Input.Search duplicated `className` when `allowClear` is `true`. [#27261](https://github.com/ant-design/ant-design/pull/27261)
+  - 🐞 Fix Input.Search border style when enable `allowClear`. [#27261](https://github.com/ant-design/ant-design/pull/27325)
 - 🐞 Fix Upload.List preview image fit size issue. [#27312](https://github.com/ant-design/ant-design/pull/27312) [@JuniorTour](https://github.com/JuniorTour)
 - 🐞 Fix Notification no wrap with long text. [#27285](https://github.com/ant-design/ant-design/pull/27285) [@littleee](https://github.com/littleee)
-- 🐞 Fix Input.Search duplicated `className` when `allowClear` is `true`. [#27261](https://github.com/ant-design/ant-design/pull/27261)
 - 🐞 Fix Menu inside flexable container will not shrink properly. [#27253](https://github.com/ant-design/ant-design/pull/27253)
 - 🌐 Fix en_US, en_GB and ga_IE gramma. [#27259](https://github.com/ant-design/ant-design/pull/27259) [@yasikovsky](https://github.com/yasikovsky)
 - 🐞 Fix Tag with customize `closeIcon` breaks line issue. [#27226](https://github.com/ant-design/ant-design/pull/27226) [@handycode](https://github.com/handycode)
