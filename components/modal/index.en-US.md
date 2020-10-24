@@ -97,6 +97,12 @@ modal.update({
   content: 'Updated content',
 });
 
+// on 4.8.0 or above, you can pass a function to update modal
+modal.update(prevConfig => ({
+  ...prevConfig,
+  title: `${prevConfig.title} (New)`,
+}));
+
 modal.destroy();
 ```
 

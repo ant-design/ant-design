@@ -244,7 +244,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
   });
 
-  it('could be update', () => {
+  it('could be update by new config', () => {
     jest.useFakeTimers();
     ['info', 'success', 'warning', 'error'].forEach(type => {
       const instance = Modal[type]({
@@ -267,6 +267,49 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
       expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('new title');
       expect($$('.ant-modal-confirm-content')[0].innerHTML).toBe('new content');
+      instance.destroy();
+      jest.runAllTimers();
+    });
+    jest.useRealTimers();
+  });
+
+  it('could be update by call function', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      const instance = Modal[type]({
+        title: 'title',
+        okButtonProps: {
+          loading: true,
+          style: {
+            color: 'red',
+          },
+        },
+      });
+      act(() => {
+        jest.runAllTimers();
+      });
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+      expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('title');
+      expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].classList).toContain(
+        'ant-btn-loading',
+      );
+      expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].style.color).toBe('red');
+      instance.update(prevConfig => ({
+        ...prevConfig,
+        okButtonProps: {
+          ...prevConfig.okButtonProps,
+          loading: false,
+        },
+      }));
+      act(() => {
+        jest.runAllTimers();
+      });
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+      expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('title');
+      expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].classList).not.toContain(
+        'ant-btn-loading',
+      );
+      expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].style.color).toBe('red');
       instance.destroy();
       jest.runAllTimers();
     });
