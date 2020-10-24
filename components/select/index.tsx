@@ -63,22 +63,21 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
-  const getMode = () => {
-    const { mode } = props as InternalSelectProps<VT>;
+  const prefixCls = getPrefixCls('select', customizePrefixCls);
 
-    if ((mode as any) === 'combobox') {
+  const mode = React.useMemo(() => {
+    const { mode: m } = props as InternalSelectProps<VT>;
+
+    if ((m as any) === 'combobox') {
       return undefined;
     }
 
-    if (mode === SECRET_COMBOBOX_MODE_DO_NOT_USE) {
+    if (m === SECRET_COMBOBOX_MODE_DO_NOT_USE) {
       return 'combobox';
     }
 
-    return mode;
-  };
-
-  const prefixCls = getPrefixCls('select', customizePrefixCls);
-  const mode = getMode();
+    return m;
+  }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
