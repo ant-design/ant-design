@@ -7,8 +7,6 @@
 
 .@{search-prefix} {
   .@{ant-prefix}-input {
-    border-right: 0;
-
     &:hover,
     &:focus {
       border-color: @input-hover-border-color;
@@ -30,9 +28,6 @@
   }
 
   > .@{ant-prefix}-input-group {
-    // > .@{ant-prefix}-input-affix-wrapper {
-    //   border-right: 0;
-    // }
     > .@{ant-prefix}-input-group-addon {
       left: -1px;
       padding: 0;
@@ -52,6 +47,13 @@
           left: 0;
         }
       }
+    }
+  }
+
+  &-button {
+    &:hover,
+    &:focus {
+      z-index: 1;
     }
   }
 }

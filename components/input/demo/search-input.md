@@ -32,7 +32,13 @@ const onSearch = value => console.log(value);
 
 ReactDOM.render(
   <>
-    <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
+    <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
+    <Search
+      placeholder="input search text"
+      allowClear
+      onSearch={onSearch}
+      style={{ width: 200, margin: '0 10px' }}
+    />
     <br />
     <br />
     <Search placeholder="input search text" onSearch={onSearch} enterButton />

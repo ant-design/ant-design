@@ -84,8 +84,13 @@ const App = () => (
     </Input.Group>
     <br />
     <Input.Group compact>
-      <Input allowClear style={{ width: '20%' }} defaultValue="0571" />
+      <Input.Search style={{ width: '30%' }} defaultValue="0571" />
       <Input.Search allowClear style={{ width: '30%' }} defaultValue="26888888" />
+    </Input.Group>
+    <br />
+    <Input.Group compact>
+      <Input.Search allowClear style={{ width: '40%' }} defaultValue="0571" />
+      <Input.Search allowClear style={{ width: '50%' }} defaultValue="26888888" />
     </Input.Group>
     <br />
     <Input.Group compact>
