@@ -11,6 +11,7 @@ import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from '.
 import { SizeType, SizeContextProvider } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
+import { RequiredMark } from '../form/Form';
 
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
@@ -36,6 +37,7 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
   form?: {
     validateMessages?: ValidateMessages;
+    requiredMark?: RequiredMark;
   };
   input?: {
     autoComplete?: string;
@@ -130,8 +132,11 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       config.input = input;
     }
 
-    let childNode = children;
+    if (form) {
+      config.form = form;
+    }
 
+    let childNode = children;
     // Additional Form provider
     let validateMessages: ValidateMessages = {};
 

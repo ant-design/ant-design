@@ -5,7 +5,7 @@ import ConfigProvider from '..';
 import zhCN from '../../locale/zh_CN';
 import Form from '../../form';
 
-describe('ConfigProvider.Form.Locale', () => {
+describe('ConfigProvider.Form', () => {
   describe('form validateMessages', () => {
     const wrapperComponent = ({ validateMessages }) => {
       const formRef = React.createRef();
@@ -73,6 +73,22 @@ describe('ConfigProvider.Form.Locale', () => {
 
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('必须');
       expect(wrapper.find('.ant-form-item-explain').last().text()).toEqual('年龄必须等于17');
+    });
+  });
+
+  describe('form requiredMark', () => {
+    it('set requiredMark optional', async () => {
+      const wrapper = mount(
+        <ConfigProvider form={{ requiredMark: 'optional' }}>
+          <Form initialValues={{ age: 18 }}>
+            <Form.Item name="age" label="年龄" rules={[{ type: 'number', len: 17 }]}>
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });
