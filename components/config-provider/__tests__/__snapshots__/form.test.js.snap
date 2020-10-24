@@ -94,6 +94,31 @@ exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
                     validateTrigger="onChange"
                   >
                     <Field
+                      fieldContext={
+                        Object {
+                          "__INTERNAL__": Object {
+                            "itemRef": [Function],
+                            "name": undefined,
+                          },
+                          "getFieldError": [Function],
+                          "getFieldInstance": [Function],
+                          "getFieldValue": [Function],
+                          "getFieldsError": [Function],
+                          "getFieldsValue": [Function],
+                          "getInternalHooks": [Function],
+                          "isFieldTouched": [Function],
+                          "isFieldValidating": [Function],
+                          "isFieldsTouched": [Function],
+                          "isFieldsValidating": [Function],
+                          "resetFields": [Function],
+                          "scrollToField": [Function],
+                          "setFields": [Function],
+                          "setFieldsValue": [Function],
+                          "submit": [Function],
+                          "validateFields": [Function],
+                          "validateTrigger": "onChange",
+                        }
+                      }
                       key="_age"
                       label="年龄"
                       messageVariables={

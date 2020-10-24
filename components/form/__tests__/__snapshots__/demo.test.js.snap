@@ -2354,6 +2354,7 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
         >
           <button
             class="ant-btn ant-btn-primary"
+            disabled=""
             type="submit"
           >
             <span>

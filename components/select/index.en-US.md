@@ -56,7 +56,7 @@ Select component to select value from options.
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |
 | showSearch | Whether show search input in single mode | boolean | false |  |
-| size | Size of Select input | `large` \| `middle` \| `small` | - |  |
+| size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | tagRender | Customize tag render | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize on `tag` and `multiple` mode | string\[] | - |  |

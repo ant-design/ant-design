@@ -16,7 +16,7 @@ When requiring users to interact with the application, but without jumping to a 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
-| bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties | {} |  |
+| bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  |  |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
@@ -30,7 +30,7 @@ When requiring users to interact with the application, but without jumping to a 
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
-| maskStyle | Style for modal's mask element | object | {} |  |
+| maskStyle | Style for modal's mask element | CSSProperties |  |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |

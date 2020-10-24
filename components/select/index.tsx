@@ -5,7 +5,7 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
 import { OptionProps } from 'rc-select/lib/Option';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
@@ -35,148 +35,126 @@ export interface SelectProps<VT>
   mode?: 'multiple' | 'tags';
 }
 
-// We still use class here since `forwardRef` not support generic in typescript
-class Select<ValueType extends SelectValue = SelectValue> extends React.Component<
-  SelectProps<ValueType>
-> {
-  static Option = Option;
+const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
-  static OptGroup = OptGroup;
-
-  static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
-
-  static defaultProps = {
-    transitionName: 'slide-up',
-    choiceTransitionName: '',
-    bordered: true,
-  };
-
-  selectRef = React.createRef<RcSelect<ValueType>>();
-
-  public focus = () => {
-    if (this.selectRef.current) {
-      this.selectRef.current.focus();
-    }
-  };
-
-  public blur = () => {
-    if (this.selectRef.current) {
-      this.selectRef.current.blur();
-    }
-  };
-
-  getMode = () => {
-    const { mode } = this.props as InternalSelectProps<ValueType>;
-
-    if ((mode as any) === 'combobox') {
-      return undefined;
-    }
-
-    if (mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE) {
-      return 'combobox';
-    }
-
-    return mode;
-  };
-
-  renderSelect = ({
+const InternalSelect = <VT extends SelectValue = SelectValue>(
+  {
+    prefixCls: customizePrefixCls,
+    bordered = true,
+    className,
+    getPopupContainer,
+    dropdownClassName,
+    listHeight = 256,
+    listItemHeight = 24,
+    size: customizeSize,
+    notFoundContent,
+    transitionName = 'slide-up',
+    ...props
+  }: SelectProps<VT>,
+  ref: React.Ref<RcSelect<VT>>,
+) => {
+  const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
     direction,
     virtual,
     dropdownMatchSelectWidth,
-  }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      notFoundContent,
-      className,
-      size: customizeSize,
-      listHeight = 256,
-      listItemHeight = 24,
-      getPopupContainer,
-      dropdownClassName,
-      bordered,
-    } = this.props as InternalSelectProps<ValueType>;
+  } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
 
-    const prefixCls = getPrefixCls('select', customizePrefixCls);
-    const mode = this.getMode();
+  const prefixCls = getPrefixCls('select', customizePrefixCls);
 
-    const isMultiple = mode === 'multiple' || mode === 'tags';
+  const mode = React.useMemo(() => {
+    const { mode: m } = props as InternalSelectProps<VT>;
 
-    // ===================== Empty =====================
-    let mergedNotFound: React.ReactNode;
-    if (notFoundContent !== undefined) {
-      mergedNotFound = notFoundContent;
-    } else if (mode === 'combobox') {
-      mergedNotFound = null;
-    } else {
-      mergedNotFound = renderEmpty('Select');
+    if ((m as any) === 'combobox') {
+      return undefined;
     }
 
-    // ===================== Icons =====================
-    const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
-      ...this.props,
-      multiple: isMultiple,
-      prefixCls,
-    });
+    if (m === SECRET_COMBOBOX_MODE_DO_NOT_USE) {
+      return 'combobox';
+    }
 
-    const selectProps = omit(this.props, [
-      'prefixCls',
-      'suffixIcon',
-      'itemIcon',
-      'removeIcon',
-      'clearIcon',
-      'size',
-      'bordered',
-    ]);
+    return m;
+  }, [props.mode]);
 
-    const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
-      [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
-    });
-    return (
-      <SizeContext.Consumer>
-        {size => {
-          const mergedSize = customizeSize || size;
-          const mergedClassName = classNames(
-            {
-              [`${prefixCls}-lg`]: mergedSize === 'large',
-              [`${prefixCls}-sm`]: mergedSize === 'small',
-              [`${prefixCls}-rtl`]: direction === 'rtl',
-              [`${prefixCls}-borderless`]: !bordered,
-            },
-            className,
-          );
+  const isMultiple = mode === 'multiple' || mode === 'tags';
 
-          return (
-            <RcSelect<ValueType>
-              ref={this.selectRef}
-              virtual={virtual}
-              dropdownMatchSelectWidth={dropdownMatchSelectWidth}
-              {...selectProps}
-              listHeight={listHeight}
-              listItemHeight={listItemHeight}
-              mode={mode}
-              prefixCls={prefixCls}
-              direction={direction}
-              inputIcon={suffixIcon}
-              menuItemSelectedIcon={itemIcon}
-              removeIcon={removeIcon}
-              clearIcon={clearIcon}
-              notFoundContent={mergedNotFound}
-              className={mergedClassName}
-              getPopupContainer={getPopupContainer || getContextPopupContainer}
-              dropdownClassName={rcSelectRtlDropDownClassName}
-            />
-          );
-        }}
-      </SizeContext.Consumer>
-    );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderSelect}</ConfigConsumer>;
+  // ===================== Empty =====================
+  let mergedNotFound: React.ReactNode;
+  if (notFoundContent !== undefined) {
+    mergedNotFound = notFoundContent;
+  } else if (mode === 'combobox') {
+    mergedNotFound = null;
+  } else {
+    mergedNotFound = renderEmpty('Select');
   }
+
+  // ===================== Icons =====================
+  const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
+    ...props,
+    multiple: isMultiple,
+    prefixCls,
+  });
+
+  const selectProps = omit(props, ['suffixIcon', 'itemIcon']);
+
+  const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+    [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+  });
+
+  const mergedSize = customizeSize || size;
+  const mergedClassName = classNames(
+    {
+      [`${prefixCls}-lg`]: mergedSize === 'large',
+      [`${prefixCls}-sm`]: mergedSize === 'small',
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-borderless`]: !bordered,
+    },
+    className,
+  );
+
+  return (
+    <RcSelect<VT>
+      ref={ref}
+      virtual={virtual}
+      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      {...selectProps}
+      transitionName={transitionName}
+      listHeight={listHeight}
+      listItemHeight={listItemHeight}
+      mode={mode}
+      prefixCls={prefixCls}
+      direction={direction}
+      inputIcon={suffixIcon}
+      menuItemSelectedIcon={itemIcon}
+      removeIcon={removeIcon}
+      clearIcon={clearIcon}
+      notFoundContent={mergedNotFound}
+      className={mergedClassName}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
+      dropdownClassName={rcSelectRtlDropDownClassName}
+    />
+  );
+};
+
+const SelectRef = React.forwardRef(InternalSelect) as <VT extends SelectValue = SelectValue>(
+  props: SelectProps<VT> & { ref?: React.Ref<RcSelect<VT>> },
+) => React.ReactElement;
+
+type InternalSelectType = typeof SelectRef;
+
+interface SelectInterface extends InternalSelectType {
+  SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
+  Option: typeof Option;
+  OptGroup: typeof OptGroup;
 }
+
+const Select = SelectRef as SelectInterface;
+
+Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
+Select.Option = Option;
+Select.OptGroup = OptGroup;
 
 export default Select;

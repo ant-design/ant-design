@@ -174,7 +174,7 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| childrenColumnName | 指定树形结构的列名 | string\[] | children |
+| childrenColumnName | 指定树形结构的列名 | string | children |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
 | expandedRowClassName | 展开行的 className | function(record, index, indent): string | - |

@@ -364,9 +364,9 @@ describe('Upload List', () => {
         // Offset check
         const [, offsetX, offsetY] = onDrawImage.mock.calls[0];
         if (width > height) {
-          expect(offsetX < 0).toBeTruthy();
+          expect(offsetX === 0).toBeTruthy();
         } else {
-          expect(offsetY < 0).toBeTruthy();
+          expect(offsetY === 0).toBeTruthy();
         }
       });
     });
