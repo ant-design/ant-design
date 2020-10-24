@@ -31,6 +31,7 @@ Previewable image.
 {
   visible?: boolean;
   onVisibleChange?: (visible, prevVisible) => void;
+  getContainer?: string | HTMLElement | (() => HTMLElement); // V4.8.0
 }
 ```
 

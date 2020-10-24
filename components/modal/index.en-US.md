@@ -65,6 +65,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoFocusButton | Specify which button to autofocus | null \| `ok` \| `cancel` | `ok` |  |
+| bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  | 4.8.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
@@ -95,6 +96,12 @@ modal.update({
   title: 'Updated title',
   content: 'Updated content',
 });
+
+// on 4.8.0 or above, you can pass a function to update modal
+modal.update(prevConfig => ({
+  ...prevConfig,
+  title: `${prevConfig.title} (New)`,
+}));
 
 modal.destroy();
 ```

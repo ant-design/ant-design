@@ -263,3 +263,9 @@ exports[`TextArea should support maxLength 1`] = `
   maxlength="10"
 />
 `;
+
+exports[`TextArea should support size 1`] = `
+<textarea
+  class="ant-input ant-input-lg"
+/>
+`;
