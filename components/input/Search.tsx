@@ -125,7 +125,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
         {
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-${size}`]: !!size,
-          [`${prefixCls}-button`]: !!enterButton,
+          [`${prefixCls}-with-button`]: !!enterButton,
         },
         className,
       );

@@ -1061,7 +1061,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-button ant-select-selection-search-input"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
       >
         <span
           class="ant-input-wrapper ant-input-group"

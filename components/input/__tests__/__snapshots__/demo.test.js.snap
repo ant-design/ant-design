@@ -1330,7 +1330,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:30%"
+      style="width:40%"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -1373,7 +1373,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     </span>
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:30%"
+      style="width:40%"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -1522,7 +1522,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     </span>
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:50%"
+      style="width:40%"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -2629,7 +2629,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-search ant-input-search-button"
+    class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -2674,7 +2674,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-button"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -2731,13 +2731,13 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-button"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
     >
       <span
-        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-search ant-input-search-large ant-input-search-button"
+        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
       >
         <input
           class="ant-input ant-input-lg"
@@ -2840,7 +2840,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-search ant-input-search-button"
+    class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -2889,7 +2889,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-button"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
