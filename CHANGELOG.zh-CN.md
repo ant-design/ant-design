@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.7.3
+
+`2020-10-24`
+
+- Form
+  - 🐞 修复 Form 在 ConfigProvider 下会警告 `non-boolean attribute 'virtual'` 的问题。[#27343](https://github.com/ant-design/ant-design/pull/27343)
+  - 🛠 调整 Form.Item `initialValue` 的同步时机改由与 `initialValues` 相同。[#27319](https://github.com/ant-design/ant-design/pull/27319)
+- Typography
+  - 🛠 优化 Typography 省略时的 `title` 提示，现在会在 `...` 上展现剩余文本。[#27328](https://github.com/ant-design/ant-design/pull/27328)
+  - 💄 修复 Typography 在 Card title 中编辑样式问题。[#27221](https://github.com/ant-design/ant-design/pull/27221)
+- Input
+  - 🐞 修复 Input.Search 指定 `allowClear` 时 `className` 重复出现的问题。[#27261](https://github.com/ant-design/ant-design/pull/27261)
+  - 🐞 修复 修复 Input.Search 激活 `allowClear` 时边框样式异常的问题。[#27325](https://github.com/ant-design/ant-design/pull/27325)
+- 🐞 修复 Upload.List 图片预览显示不全的问题。[#27312](https://github.com/ant-design/ant-design/pull/27312) [@JuniorTour](https://github.com/JuniorTour)
+- 🐞 修复 Notification 长文本不换行的问题。[#27285](https://github.com/ant-design/ant-design/pull/27285) [@littleee](https://github.com/littleee)
+- 🐞 修复 Menu 在 flex 容器内不会正常收缩省略的问题。[#27253](https://github.com/ant-design/ant-design/pull/27253)
+- 🌐 修复 en_US、en_GB、ga_IE 国际化语法问题。[#27259](https://github.com/ant-design/ant-design/pull/27259) [@yasikovsky](https://github.com/yasikovsky)
+- 🐞 修复 Tag 标签自定义关闭图标会导致换行的问题。[#27226](https://github.com/ant-design/ant-design/pull/27226) [@handycode](https://github.com/handycode)
+
 ## 4.7.2
 
 `2020-10-19`
