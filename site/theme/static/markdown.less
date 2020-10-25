@@ -262,7 +262,7 @@
     font-size: max(@font-size-base - 1px, 12px);
     font-family: @code-family;
     line-height: @line-height-base;
-    border: 1px solid @border-color-split;
+    border: 0;
     -webkit-overflow-scrolling: touch;
 
     th,
@@ -270,11 +270,19 @@
       padding: 12px;
       border-color: @border-color-split;
       border-width: 1px 0;
+
+      &:first-child {
+        border-left: 1px solid @border-color-split;
+      }
+
+      &:last-child {
+        border-right: 1px solid @border-color-split;
+      }
     }
 
     th {
       padding-top: 14px;
-      border-width: 0 0 2px 0;
+      border-width: 1px 0 2px 0;
     }
 
     tbody tr {
