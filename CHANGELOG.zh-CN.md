@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.26.19
+
+`2020-10-25`
+
+- 🐞 修复 webpack 5 兼容问题。[#27314](https://github.com/ant-design/ant-design/pull/27314) [@vnguyen94](https://github.com/vnguyen94)
+
 ## 3.26.18
 
 `2020-06-14`
