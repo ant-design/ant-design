@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile.ui-test
     volumes:
+      - './node_modules:/app/node_modules'
       - './components:/app/components'
       - './tests:/app/tests'
       - './jest-stare:/app/jest-stare'

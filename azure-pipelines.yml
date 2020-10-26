@@ -1,7 +1,5 @@
 name: Ant Design
 
-trigger: none
-
 pr:
   autoCancel: true
   branches:
@@ -13,6 +11,8 @@ pool:
 
 stages:
   - stage: site
+    dependsOn: []
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
     jobs:
       - job: Build_Site
         steps:
@@ -60,7 +60,13 @@ stages:
               node ./scripts/azure-github-comment.js "[<img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Comment on github'
   - stage: ui
+    variables:
+      ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/') }}:
+        branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
+      ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
+        branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
     dependsOn: []
+    condition: and(succeeded(), in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI'))
     jobs:
       - job: UI_Test
         steps:
@@ -76,5 +82,5 @@ stages:
             displayName: 'Install modules'
           - script: npm run test-image
             displayName: 'UI Test'
-          - script: npm run argos -- --token $ARGOS_TOKEN --branch $(Build.SourceBranch) --commit $(Build.SourceVersion)
+          - script: npm run argos -- --token $ARGOS_TOKEN --branch $(branchName) --commit $(Build.SourceVersion)
             displayName: 'Upload to argos-ci'
