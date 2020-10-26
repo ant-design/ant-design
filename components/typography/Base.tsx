@@ -472,7 +472,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       }
 
       // show rest content as title on symbol
-      restContent = restContent?.slice(ellipsisContent.length);
+      restContent = restContent?.slice(String(ellipsisContent || '').length);
 
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
