@@ -104,6 +104,41 @@ describe('Typography', () => {
         wrapper.unmount();
       });
 
+      it('string with parentheses', async () => {
+        const parenthesesStr = `Ant Design, a design language (for background applications, is refined by
+          Ant UED Team. Ant Design, a design language for background applications,
+          is refined by Ant UED Team. Ant Design, a design language for background
+          applications, is refined by Ant UED Team. Ant Design, a design language
+          for background applications, is refined by Ant UED Team. Ant Design, a
+          design language for background applications, is refined by Ant UED Team.
+          Ant Design, a design language for background applications, is refined by
+          Ant UED Team.`;
+        const onEllipsis = jest.fn();
+        const wrapper = mount(
+          <Base ellipsis={{ onEllipsis }} component="p" editable>
+            {parenthesesStr}
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.text()).toEqual('Ant Design, a des...');
+        const ellipsisSpan = wrapper.find('span[title]');
+        expect(ellipsisSpan.text()).toEqual('...');
+        expect(ellipsisSpan.props().title)
+          .toEqual(`ign language (for background applications, is refined by
+          Ant UED Team. Ant Design, a design language for background applications,
+          is refined by Ant UED Team. Ant Design, a design language for background
+          applications, is refined by Ant UED Team. Ant Design, a design language
+          for background applications, is refined by Ant UED Team. Ant Design, a
+          design language for background applications, is refined by Ant UED Team.
+          Ant Design, a design language for background applications, is refined by
+          Ant UED Team.`);
+        onEllipsis.mockReset();
+
+        wrapper.unmount();
+      });
+
       it('should middle ellipsis', async () => {
         const suffix = '--suffix';
         const wrapper = mount(
