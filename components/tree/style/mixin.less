@@ -4,6 +4,7 @@
 @tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
+@tree-node-padding: @padding-xs / 2;
 
 .antTreeSwitcherIcon(@type: 'tree-default-open-icon') {
   .@{tree-prefix-cls}-switcher-icon,
@@ -60,7 +61,7 @@
   .@{custom-tree-node-prefix-cls} {
     display: flex;
     align-items: flex-start;
-    padding: 0 0 (@padding-xs / 2) 0;
+    padding: 0 0 @tree-node-padding 0;
     outline: none;
     // Disabled
     &-disabled {
@@ -98,7 +99,8 @@
     flex: none;
 
     width: @tree-title-height;
-    height: @tree-title-height;
+    align-self: stretch;
+    position: relative;
     margin: 0;
     line-height: @tree-title-height;
     text-align: center;
@@ -120,27 +122,28 @@
       color: @primary-color;
     }
 
-    // &-leaf-line {
-    //   z-index: 1;
-    //   display: inline-block;
-    //   width: 100%;
-    //   height: 100%;
-    //   &::before {
-    //     position: absolute;
-    //     height: @tree-title-height;
-    //     margin-left: -1px;
-    //     border-left: 1px solid @normal-color;
-    //     content: ' ';
-    //   }
-    //   &::after {
-    //     position: absolute;
-    //     width: @tree-title-height - 14px;
-    //     height: @tree-title-height - 10px;
-    //     margin-left: -1px;
-    //     border-bottom: 1px solid @normal-color;
-    //     content: ' ';
-    //   }
-    // }
+    &-leaf-line {
+      z-index: 1;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: -@tree-node-padding;
+        margin-left: -1px;
+        border-left: 1px solid @normal-color;
+        content: ' ';
+      }
+      &::after {
+        position: absolute;
+        width: @tree-title-height - 14px;
+        height: @tree-title-height - 10px;
+        margin-left: -1px;
+        border-bottom: 1px solid @normal-color;
+        content: ' ';
+      }
+    }
   }
 
   // >>> Checkbox
@@ -221,7 +224,7 @@
           position: absolute;
           content: '';
           top: 0;
-          bottom: -@padding-xs / 2;
+          bottom: -@tree-node-padding;
           right: @tree-title-height / 2;
           border-right: 1px solid @border-color-base;
         }
@@ -231,41 +234,8 @@
             display: none;
           }
         }
-
-        // &:first-child::after {
-        //   position: absolute;
-        //   top: calc(100% - @tree-title-height - 4px);
-        //   right: @tree-title-height / 2;
-        //   bottom: -4px;
-        //   border-right: 1px solid @border-color-base;
-        //   content: '';
-        // }
-
-        // &::before {
-        //   position: absolute;
-        //   top: calc(100% - 4px);
-        //   right: -@tree-title-height / 2;
-        //   bottom: -@tree-title-height - 4px;
-        //   border-right: 1px solid @border-color-base;
-        //   content: '';
-        // }
-
-        // &-end::before,
-        // &-end-first-level::after {
-        //   display: none;
-        // }
       }
     }
-
-    /* Motion should hide line of measure */
-    // .@{custom-tree-node-prefix-cls}-motion:not(.@{tree-motion}-leave):not(.@{tree-motion}-appear-active) {
-    //   .@{custom-tree-prefix-cls}-indent-unit {
-    //     &::after,
-    //     &::before {
-    //       display: none;
-    //     }
-    //   }
-    // }
 
     // ============== Cover Background ==============
     .@{custom-tree-prefix-cls}-switcher {
@@ -277,10 +247,12 @@
 
 .@{tree-node-prefix-cls}-leaf-last {
   .@{tree-prefix-cls}-switcher {
-    // &-leaf-line {
-    //   &::before {
-    //     height: @tree-title-height - 10px !important;
-    //   }
-    // }
+    &-leaf-line {
+      &::before {
+        height: @tree-title-height - 10px !important;
+        top: auto !important;
+        bottom: auto !important;
+      }
+    }
   }
 }

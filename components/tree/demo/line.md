@@ -30,7 +30,16 @@ const treeData = [
         icon: <CarryOutOutlined />,
         children: [
           { title: 'leaf', key: '0-0-0-0', icon: <CarryOutOutlined /> },
-          { title: 'leaf', key: '0-0-0-1', icon: <CarryOutOutlined /> },
+          {
+            title: (
+              <>
+                <div>multiple line title</div>
+                <div>multiple line title</div>
+              </>
+            ),
+            key: '0-0-0-1',
+            icon: <CarryOutOutlined />,
+          },
           { title: 'leaf', key: '0-0-0-2', icon: <CarryOutOutlined /> },
         ],
       },
