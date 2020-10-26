@@ -101,8 +101,10 @@
     &-container {
       display: flex;
 
-      .@{descriptions-prefix-cls}-item-label {
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
         display: inline-flex;
+        align-items: baseline;
       }
     }
   }
