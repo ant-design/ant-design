@@ -96,11 +96,11 @@
   // >>> Switcher
   & &-switcher {
     .antTreeSwitcherIcon();
+    position: relative;
     flex: none;
+    align-self: stretch;
 
     width: @tree-title-height;
-    align-self: stretch;
-    position: relative;
     margin: 0;
     line-height: @tree-title-height;
     text-align: center;
@@ -222,11 +222,11 @@
 
         &::before {
           position: absolute;
-          content: '';
           top: 0;
-          bottom: -@tree-node-padding;
           right: @tree-title-height / 2;
+          bottom: -@tree-node-padding;
           border-right: 1px solid @border-color-base;
+          content: '';
         }
 
         &-end {
@@ -249,9 +249,9 @@
   .@{tree-prefix-cls}-switcher {
     &-leaf-line {
       &::before {
-        height: @tree-title-height - 10px !important;
         top: auto !important;
         bottom: auto !important;
+        height: @tree-title-height - 10px !important;
       }
     }
   }
