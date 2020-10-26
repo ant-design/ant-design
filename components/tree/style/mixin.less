@@ -120,27 +120,27 @@
       color: @primary-color;
     }
 
-    &-leaf-line {
-      z-index: 1;
-      display: inline-block;
-      width: 100%;
-      height: 100%;
-      &::before {
-        position: absolute;
-        height: @tree-title-height;
-        margin-left: -1px;
-        border-left: 1px solid @normal-color;
-        content: ' ';
-      }
-      &::after {
-        position: absolute;
-        width: @tree-title-height - 14px;
-        height: @tree-title-height - 10px;
-        margin-left: -1px;
-        border-bottom: 1px solid @normal-color;
-        content: ' ';
-      }
-    }
+    // &-leaf-line {
+    //   z-index: 1;
+    //   display: inline-block;
+    //   width: 100%;
+    //   height: 100%;
+    //   &::before {
+    //     position: absolute;
+    //     height: @tree-title-height;
+    //     margin-left: -1px;
+    //     border-left: 1px solid @normal-color;
+    //     content: ' ';
+    //   }
+    //   &::after {
+    //     position: absolute;
+    //     width: @tree-title-height - 14px;
+    //     height: @tree-title-height - 10px;
+    //     margin-left: -1px;
+    //     border-bottom: 1px solid @normal-color;
+    //     content: ' ';
+    //   }
+    // }
   }
 
   // >>> Checkbox
@@ -217,40 +217,55 @@
         position: relative;
         height: 100%;
 
-        &:first-child::after {
-          position: absolute;
-          top: calc(100% - @tree-title-height - 4px);
-          right: @tree-title-height / 2;
-          bottom: -4px;
-          border-right: 1px solid @border-color-base;
-          content: '';
-        }
-
         &::before {
           position: absolute;
-          top: calc(100% - 4px);
-          right: -@tree-title-height / 2;
-          bottom: -@tree-title-height - 4px;
-          border-right: 1px solid @border-color-base;
           content: '';
+          top: 0;
+          bottom: -@padding-xs / 2;
+          right: @tree-title-height / 2;
+          border-right: 1px solid @border-color-base;
         }
 
-        &-end::before,
-        &-end-first-level::after {
-          display: none;
+        &-end {
+          &::before {
+            display: none;
+          }
         }
+
+        // &:first-child::after {
+        //   position: absolute;
+        //   top: calc(100% - @tree-title-height - 4px);
+        //   right: @tree-title-height / 2;
+        //   bottom: -4px;
+        //   border-right: 1px solid @border-color-base;
+        //   content: '';
+        // }
+
+        // &::before {
+        //   position: absolute;
+        //   top: calc(100% - 4px);
+        //   right: -@tree-title-height / 2;
+        //   bottom: -@tree-title-height - 4px;
+        //   border-right: 1px solid @border-color-base;
+        //   content: '';
+        // }
+
+        // &-end::before,
+        // &-end-first-level::after {
+        //   display: none;
+        // }
       }
     }
 
     /* Motion should hide line of measure */
-    .@{custom-tree-node-prefix-cls}-motion:not(.@{tree-motion}-leave):not(.@{tree-motion}-appear-active) {
-      .@{custom-tree-prefix-cls}-indent-unit {
-        &::after,
-        &::before {
-          display: none;
-        }
-      }
-    }
+    // .@{custom-tree-node-prefix-cls}-motion:not(.@{tree-motion}-leave):not(.@{tree-motion}-appear-active) {
+    //   .@{custom-tree-prefix-cls}-indent-unit {
+    //     &::after,
+    //     &::before {
+    //       display: none;
+    //     }
+    //   }
+    // }
 
     // ============== Cover Background ==============
     .@{custom-tree-prefix-cls}-switcher {
@@ -262,10 +277,10 @@
 
 .@{tree-node-prefix-cls}-leaf-last {
   .@{tree-prefix-cls}-switcher {
-    &-leaf-line {
-      &::before {
-        height: @tree-title-height - 10px !important;
-      }
-    }
+    // &-leaf-line {
+    //   &::before {
+    //     height: @tree-title-height - 10px !important;
+    //   }
+    // }
   }
 }
