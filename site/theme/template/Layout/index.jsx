@@ -11,8 +11,7 @@ import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
 import { browserHistory } from 'bisheng/router';
-// eslint-disable-next-line import/no-unresolved
-import zhCN from 'antd/es/locale/zh_CN';
+import zhCN from 'antd/lib/locale/zh_CN';
 import Header from './Header';
 import SiteContext from './SiteContext';
 import enLocale from '../../en-US';
