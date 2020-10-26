@@ -50,24 +50,25 @@ ReactDOM.render(
 
 ```css
 .site-layout-content {
-  background: #fff;
-  padding: 24px;
   min-height: 280px;
+  padding: 24px;
+  background: #fff;
 }
 #components-layout-demo-top .logo {
+  float: left;
   width: 120px;
   height: 31px;
-  background: rgba(255, 255, 255, 0.2);
   margin: 16px 24px 16px 0;
-  float: left;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl #components-layout-demo-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
 }
 ```
 
 <style>
   [data-theme="dark"] .site-layout-content {
     background: #141414;
-  }
-  [data-theme="dark"] #components-layout-demo-top .logo {
-    background: rgba(255,255,255,0.3);
   }
 </style>
