@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
 import devWarning from '../_util/devWarning';
+import ConfigProvider from '../config-provider';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -96,13 +97,15 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       getContainer={getContainer}
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
-        <div className={`${contentPrefixCls}-body`} style={bodyStyle}>
-          {icon}
-          {props.title === undefined ? null : (
-            <span className={`${contentPrefixCls}-title`}>{props.title}</span>
-          )}
-          <div className={`${contentPrefixCls}-content`}>{props.content}</div>
-        </div>
+        <ConfigProvider prefixCls={rootPrefixCls}>
+          <div className={`${contentPrefixCls}-body`} style={bodyStyle}>
+            {icon}
+            {props.title === undefined ? null : (
+              <span className={`${contentPrefixCls}-title`}>{props.title}</span>
+            )}
+            <div className={`${contentPrefixCls}-content`}>{props.content}</div>
+          </div>
+        </ConfigProvider>
         <div className={`${contentPrefixCls}-btns`}>
           {cancelButton}
           <ActionButton
