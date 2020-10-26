@@ -23,10 +23,10 @@ const LIST_CN: Recommend[] = [
     popularize: true,
   },
   {
-    title: '或许这就是下一代组件库',
-    description: '随着 React hooks、Vue composition API 的推出，或许组件库有了新的突破点。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SU6hQ5jHVEsAAAAAAAAAAAAAARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/252824872',
+    title: '第十五届 D2 前端技术论坛 - 无界',
+    description: '前端热爱，技术无界，第十五届 D2 前端技术论坛，我们云端相聚！',
+    img: 'https://img.alicdn.com/tfs/TB1R39KnSR26e4jSZFEXXbwuXXa-1960-768.png',
+    href: 'http://d2forum.alibaba-inc.com/',
   },
   {
     title: 'Ant Design 4.0 的一些杂事儿 - VirtualList 篇',
