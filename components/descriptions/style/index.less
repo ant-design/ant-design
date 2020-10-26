@@ -93,13 +93,15 @@
   &-item {
     padding-bottom: 0;
     vertical-align: top;
-    > span {
-      display: inline-flex;
-      align-items: baseline;
-    }
 
     &-container {
       display: flex;
+
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
+        display: inline-flex;
+        align-items: baseline;
+      }
     }
   }
 

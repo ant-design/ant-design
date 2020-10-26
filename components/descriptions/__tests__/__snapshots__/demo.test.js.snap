@@ -861,7 +861,11 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                Billing Mode
+                <div
+                  style="display:flex"
+                >
+                  Billing Mode
+                </div>
               </span>
               <span
                 class="ant-descriptions-item-content"
