@@ -144,6 +144,10 @@
       &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
         .active(@warning-color);
       }
+      &-focused,
+      &:focus {
+        .active(@warning-color);
+      }
     }
 
     //input-number, timepicker
@@ -183,6 +187,10 @@
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
       &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
+        .active(@error-color);
+      }
+      &-focused,
+      &:focus {
         .active(@error-color);
       }
     }
