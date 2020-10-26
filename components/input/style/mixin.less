@@ -169,6 +169,9 @@
     &:hover {
       z-index: 1;
       border-right-width: 1px;
+      .@{ant-prefix}-input-search-with-button & {
+        z-index: 0;
+      }
     }
   }
 
@@ -278,6 +281,10 @@
     &:not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+      .@{ant-prefix}-input-search & {
+        border-top-left-radius: @border-radius-base;
+        border-bottom-left-radius: @border-radius-base;
+      }
     }
   }
 
@@ -372,6 +379,25 @@
     // https://github.com/ant-design/ant-design/issues/12493
     & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
       vertical-align: top;
+    }
+
+    .@{ant-prefix}-input-group-wrapper + .@{ant-prefix}-input-group-wrapper {
+      margin-left: -1px;
+      .@{ant-prefix}-input-affix-wrapper {
+        border-radius: 0;
+      }
+    }
+
+    .@{ant-prefix}-input-group-wrapper:not(:last-child) {
+      &.@{ant-prefix}-input-search > .@{ant-prefix}-input-group {
+        & > .@{ant-prefix}-input-group-addon > .@{ant-prefix}-input-search-button {
+          border-radius: 0;
+        }
+
+        & > .@{ant-prefix}-input {
+          border-radius: @border-radius-base 0 0 @border-radius-base;
+        }
+      }
     }
   }
 }

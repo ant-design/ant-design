@@ -95,7 +95,7 @@ exports[`Input.Search should support addonAfter 1`] = `
 
 exports[`Input.Search should support addonAfter 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -202,13 +202,13 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
 
 exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-search"
+      class="ant-input-affix-wrapper ant-input-search ant-input-search-with-button"
     >
       <input
         class="ant-input"
@@ -261,7 +261,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 
 exports[`Input.Search should support custom Button 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -289,7 +289,7 @@ exports[`Input.Search should support custom Button 1`] = `
 
 exports[`Input.Search should support custom button 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -314,7 +314,7 @@ exports[`Input.Search should support custom button 1`] = `
 
 exports[`Input.Search should support invalid addonAfter 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -460,7 +460,7 @@ exports[`Input.Search should support loading 1`] = `
 
 exports[`Input.Search should support loading 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"

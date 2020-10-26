@@ -17,9 +17,9 @@ title: Ant Design of React
   vertical-align: middle;
 }
 .pic-plus span {
-  font-size: 30px;
-  color: #aaa;
   margin: 0 20px;
+  color: #aaa;
+  font-size: 30px;
 }
 </style>
 
@@ -46,9 +46,8 @@ title: Ant Design of React
 
 对于 IE 系列浏览器，需要提供相应的 Polyfill 支持，建议使用 [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) 来解决浏览器兼容问题。如果你在使用 [umi](http://umijs.org/)，可以直接使用 [targets](https://umijs.org/zh/config/#targets) 配置。
 
-`antd@3.x` 对 React 15/16 两个版本提供支持，但是我们强烈建议你升级到 React 16，以便获得更好的性能和遇到更少的问题。
-
-> `antd@2.0` 之后不再支持 IE8，`antd@4.0` 之后不再支持 IE9/10。
+> `antd@2.0` 之后不再支持 IE8。
+> `antd@4.0` 之后不再支持 React 15 和 IE9/10。
 
 ## 版本
 
