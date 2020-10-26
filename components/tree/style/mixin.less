@@ -4,6 +4,7 @@
 @tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
+@tree-node-padding: @padding-xs / 2;
 
 .antTreeSwitcherIcon(@type: 'tree-default-open-icon') {
   .@{tree-prefix-cls}-switcher-icon,
@@ -60,7 +61,7 @@
   .@{custom-tree-node-prefix-cls} {
     display: flex;
     align-items: flex-start;
-    padding: 0 0 (@padding-xs / 2) 0;
+    padding: 0 0 @tree-node-padding 0;
     outline: none;
     // Disabled
     &-disabled {
@@ -95,10 +96,11 @@
   // >>> Switcher
   & &-switcher {
     .antTreeSwitcherIcon();
+    position: relative;
     flex: none;
+    align-self: stretch;
 
     width: @tree-title-height;
-    height: @tree-title-height;
     margin: 0;
     line-height: @tree-title-height;
     text-align: center;
@@ -127,7 +129,8 @@
       height: 100%;
       &::before {
         position: absolute;
-        height: @tree-title-height;
+        top: 0;
+        bottom: -@tree-node-padding;
         margin-left: -1px;
         border-left: 1px solid @normal-color;
         content: ' ';
@@ -217,37 +220,19 @@
         position: relative;
         height: 100%;
 
-        &:first-child::after {
+        &::before {
           position: absolute;
-          top: calc(100% - @tree-title-height - 4px);
+          top: 0;
           right: @tree-title-height / 2;
-          bottom: -4px;
+          bottom: -@tree-node-padding;
           border-right: 1px solid @border-color-base;
           content: '';
         }
 
-        &::before {
-          position: absolute;
-          top: calc(100% - 4px);
-          right: -@tree-title-height / 2;
-          bottom: -@tree-title-height - 4px;
-          border-right: 1px solid @border-color-base;
-          content: '';
-        }
-
-        &-end::before,
-        &-end-first-level::after {
-          display: none;
-        }
-      }
-    }
-
-    /* Motion should hide line of measure */
-    .@{custom-tree-node-prefix-cls}-motion:not(.@{tree-motion}-leave):not(.@{tree-motion}-appear-active) {
-      .@{custom-tree-prefix-cls}-indent-unit {
-        &::after,
-        &::before {
-          display: none;
+        &-end {
+          &::before {
+            display: none;
+          }
         }
       }
     }
@@ -264,6 +249,8 @@
   .@{tree-prefix-cls}-switcher {
     &-leaf-line {
       &::before {
+        top: auto !important;
+        bottom: auto !important;
         height: @tree-title-height - 10px !important;
       }
     }
