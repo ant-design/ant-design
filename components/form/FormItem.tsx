@@ -202,7 +202,8 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${className}`]: !!className,
 
       // Status
-      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
+      [`${prefixCls}-item-has-feedback`]:
+        mergedValidateStatus && (hasFeedback || mergedValidateStatus === 'error'),
       [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
