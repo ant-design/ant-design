@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import useMemo from 'rc-util/lib/hooks/useMemo';
@@ -31,7 +30,7 @@ export interface FormItemInputProps {
 const iconMap: { [key: string]: any } = {
   success: CheckCircleFilled,
   warning: ExclamationCircleFilled,
-  error: CloseCircleFilled,
+  error: ExclamationCircleFilled,
   validating: LoadingOutlined,
 };
 
@@ -90,7 +89,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   // Should provides additional icon if `hasFeedback`
   const IconNode = validateStatus && iconMap[validateStatus];
   const icon =
-    hasFeedback && IconNode ? (
+    (hasFeedback || validateStatus === 'error') && IconNode ? (
       <span className={`${baseClassName}-children-icon`}>
         <IconNode />
       </span>

@@ -196,13 +196,18 @@ function FormItem(props: FormItemProps): React.ReactElement {
       }
     };
 
+    console.log(
+      'This is the merged valid status: ',
+      mergedValidateStatus,
+      mergedValidateStatus && (hasFeedback || mergedValidateStatus === 'error'),
+    );
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: domErrorVisible || help,
       [`${className}`]: !!className,
 
       // Status
-      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
+      [`${prefixCls}-item-has-feedback`]: true,
       [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
