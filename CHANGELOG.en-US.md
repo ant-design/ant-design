@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.26.20
+
+`2020-10-27`
+
+- 🐞 Fix Typescript definition issue with related Typescript version.
+
 ## 3.26.19
 
 `2020-10-25`
@@ -2709,7 +2715,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
   - 🙅 Deprecated `onRowClick`, `onRowDoubleClick`, `onRowContextMenu`, `onRowMouseEnter`, `onRowMouseLeave`, please use `onRow` instead.
     ```javascript
     <Table
-      onRow={(record) => ({
+      onRow={record => ({
         onClick: () => {},
         onDoubleClick: () => {},
         onContextMenu: () => {},

@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.26.20
+
+`2020-10-27`
+
+- 🐞 修复 Typescript 版本导致的定义问题。
+
 ## 3.26.19
 
 `2020-10-25`
@@ -2725,7 +2731,7 @@ timeline: true
   - 🙅 废弃以下属性 `onRowClick`，`onRowDoubleClick`、`onRowContextMenu`、`onRowMouseEnter`、`onRowMouseLeave`，请使用 `onRow` 代替。
     ```javascript
     <Table
-      onRow={(record) => ({
+      onRow={record => ({
         onClick: () => {},
         onDoubleClick: () => {},
         onContextMenu: () => {},
