@@ -4,7 +4,7 @@ import TimePicker from '../time-picker/locale/kmr_IQ';
 import Calendar from '../calendar/locale/kmr_IQ';
 import { Locale } from '../locale-provider';
 
-// please use antd/es/locale/kmr_IQ instead
+// please use antd/lib/locale/kmr_IQ instead
 // keep this file for compatibility
 // https://github.com/ant-design/ant-design/issues/25778
 

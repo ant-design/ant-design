@@ -196,7 +196,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -245,7 +245,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
@@ -277,10 +277,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -309,10 +309,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -341,7 +341,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -390,7 +390,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -490,7 +490,7 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -515,7 +515,7 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -591,7 +591,7 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -640,7 +640,7 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span

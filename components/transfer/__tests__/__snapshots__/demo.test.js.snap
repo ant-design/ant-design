@@ -4406,7 +4406,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                       class="ant-tree-indent"
                     >
                       <span
-                        class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                        class="ant-tree-indent-unit"
                       />
                     </span>
                     <span
@@ -4438,7 +4438,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                       class="ant-tree-indent"
                     >
                       <span
-                        class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                        class="ant-tree-indent-unit"
                       />
                     </span>
                     <span

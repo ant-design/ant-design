@@ -98,14 +98,4 @@ ReactDOM.render(<SiderDemo />, mountNode);
 #components-layout-demo-custom-trigger .trigger:hover {
   color: #1890ff;
 }
-
-#components-layout-demo-custom-trigger .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
-}
-
-.site-layout-background {
-  background: #fff;
-}
 ```
