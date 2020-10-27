@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.26.19",
+  "version": "3.26.20",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -263,5 +263,8 @@
       "maxSize": "60 kB"
     }
   ],
-  "title": "Ant Design"
+  "title": "Ant Design",
+  "resolutions": {
+    "typescript": "3.8.3"
+  }
 }
