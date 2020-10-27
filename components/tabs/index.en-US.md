@@ -31,7 +31,7 @@ Ant Design has 3 types of Tabs for different situations.
 | keyboard | Whether to turn on keyboard navigation | boolean | true |  |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | Preset tab bar size | `large` \| `default` \| `small` | `default` |  |
-| tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - |  |
+| tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | 4.6.0 |
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | object | - |  |
 | tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
