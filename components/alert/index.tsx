@@ -42,6 +42,7 @@ export interface AlertProps {
   className?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -79,6 +80,7 @@ const Alert: AlertInterface = ({
   showIcon,
   closable,
   closeText,
+  action,
   ...props
 }) => {
   const [closed, setClosed] = React.useState(false);
@@ -178,8 +180,13 @@ const Alert: AlertInterface = ({
           {...dataOrAriaProps}
         >
           {isShowIcon ? renderIconNode() : null}
-          <span className={`${prefixCls}-message`}>{message}</span>
-          <span className={`${prefixCls}-description`}>{description}</span>
+          <div className={`${prefixCls}-content`}>
+            <div className={`${prefixCls}-message`}>{message}</div>
+            <div className={`${prefixCls}-description`}>{description}</div>
+          </div>
+
+          {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
+
           {renderCloseIcon()}
         </div>
       )}
