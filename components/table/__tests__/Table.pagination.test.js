@@ -39,7 +39,7 @@ describe('Table.pagination', () => {
 
   it('not crash when pageSize is undefined', () => {
     expect(() => {
-      mount(createTable({ pagination: { pageSIze: undefined } }));
+      mount(createTable({ pagination: { pageSize: undefined } }));
     }).not.toThrow();
   });
 
@@ -408,5 +408,37 @@ describe('Table.pagination', () => {
       pagination: { ...paginationProp, total: total - 1 },
     });
     expect(wrapper.find('.ant-pagination')).toHaveLength(2);
+  });
+
+  it('showTotal should hide when removed', () => {
+    const Demo = () => {
+      const [p, setP] = React.useState({
+        showTotal: t => `>${t}<`,
+        total: 200,
+        current: 1,
+        pageSize: 10,
+      });
+
+      return (
+        <Table
+          data={[]}
+          columns={[]}
+          pagination={p}
+          onChange={pg => {
+            setP({
+              ...pg,
+              total: 23,
+            });
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    expect(wrapper.find('.ant-pagination-total-text').text()).toEqual('>200<');
+
+    // Should hide
+    wrapper.find('.ant-pagination-item-2').simulate('click');
+    expect(wrapper.find('.ant-pagination-total-text')).toHaveLength(0);
   });
 });
