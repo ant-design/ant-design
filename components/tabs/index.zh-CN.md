@@ -34,7 +34,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | keyboard | 开启键盘切换功能 | boolean | true |  |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | 大小，提供 `large` `default` 和 `small` 三种大小 | string | `default` |  |
-| tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | 4.6.0 |
+| tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | tabs 之间的间隙 | number | - |  |
 | tabBarStyle | tab bar 的样式对象 | object | - |  |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left` | string | `top` |  |
