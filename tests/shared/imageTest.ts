@@ -5,6 +5,8 @@ import puppeteer, { Browser, Page } from 'puppeteer';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import ReactDOMServer from 'react-dom/server';
 import glob from 'glob';
+import MockDate from 'mockdate';
+import moment from 'moment';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -20,6 +22,7 @@ export default function imageTest(component: React.ReactElement) {
     let page: Page;
 
     beforeAll(async () => {
+      MockDate.set(moment('2016-11-22').valueOf());
       browser = await puppeteer.launch({
         args: [
           // Required for Docker version of Puppeteer
@@ -37,6 +40,7 @@ export default function imageTest(component: React.ReactElement) {
 
     afterAll(() => {
       browser.close();
+      MockDate.reset();
     });
 
     it('component image screenshot should correct', async () => {
