@@ -174,4 +174,19 @@ describe('CheckboxGroup', () => {
     wrapper.find('.ant-checkbox-input').at(0).simulate('change');
     expect(wrapper.find('.ant-checkbox-checked').length).toBe(0);
   });
+
+  it('should forward ref', () => {
+    let checkboxGroupRef;
+    const wrapper = mount(
+      <Checkbox.Group
+        ref={ref => {
+          checkboxGroupRef = ref;
+        }}
+      >
+        <Checkbox key={1} value={1} />
+      </Checkbox.Group>,
+    );
+
+    expect(checkboxGroupRef).toBe(wrapper.children().getDOMNode());
+  });
 });
