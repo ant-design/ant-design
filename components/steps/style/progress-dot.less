@@ -47,6 +47,9 @@
         }
       }
     }
+    &-content {
+      width: @steps-desciption-max-width;
+    }
     &-process .@{steps-prefix-cls}-item-icon {
       position: relative;
       top: -1px;
@@ -72,6 +75,9 @@
   }
   .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
     left: 0;
+  }
+  .@{steps-prefix-cls}-item-content {
+    width: inherit;
   }
   .@{steps-prefix-cls}-item-process .@{steps-prefix-cls}-icon-dot {
     left: -2px;

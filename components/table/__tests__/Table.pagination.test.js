@@ -39,7 +39,7 @@ describe('Table.pagination', () => {
 
   it('not crash when pageSize is undefined', () => {
     expect(() => {
-      mount(createTable({ pagination: { pageSIze: undefined } }));
+      mount(createTable({ pagination: { pageSize: undefined } }));
     }).not.toThrow();
   });
 
@@ -285,7 +285,7 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
   });
 
-  it('select by checkbox to trigger stopPropagation', () => {
+  it('onShowSizeChange should trigger once', () => {
     jest.useFakeTimers();
     const onShowSizeChange = jest.fn();
     const onChange = jest.fn();
@@ -304,7 +304,8 @@ describe('Table.pagination', () => {
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
     dropdownWrapper.find('.ant-select-item-option').at(3).simulate('click');
-    expect(onShowSizeChange).toHaveBeenCalled();
+    expect(onShowSizeChange).toHaveBeenCalledTimes(1);
+    expect(onShowSizeChange).toHaveBeenLastCalledWith(1, 100);
     expect(onChange).toHaveBeenCalled();
     jest.useRealTimers();
   });
@@ -408,5 +409,37 @@ describe('Table.pagination', () => {
       pagination: { ...paginationProp, total: total - 1 },
     });
     expect(wrapper.find('.ant-pagination')).toHaveLength(2);
+  });
+
+  it('showTotal should hide when removed', () => {
+    const Demo = () => {
+      const [p, setP] = React.useState({
+        showTotal: t => `>${t}<`,
+        total: 200,
+        current: 1,
+        pageSize: 10,
+      });
+
+      return (
+        <Table
+          data={[]}
+          columns={[]}
+          pagination={p}
+          onChange={pg => {
+            setP({
+              ...pg,
+              total: 23,
+            });
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    expect(wrapper.find('.ant-pagination-total-text').text()).toEqual('>200<');
+
+    // Should hide
+    wrapper.find('.ant-pagination-item-2').simulate('click');
+    expect(wrapper.find('.ant-pagination-total-text')).toHaveLength(0);
   });
 });

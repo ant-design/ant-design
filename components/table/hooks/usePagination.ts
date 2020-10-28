@@ -50,7 +50,10 @@ export default function usePagination(
   const { total: paginationTotal = 0, ...paginationObj } =
     pagination && typeof pagination === 'object' ? pagination : {};
 
-  const [innerPagination, setInnerPagination] = useState<TablePaginationConfig>(() => {
+  const [innerPagination, setInnerPagination] = useState<{
+    current?: number;
+    pageSize?: number;
+  }>(() => {
     return {
       current: 'defaultCurrent' in paginationObj ? paginationObj.defaultCurrent : 1,
       pageSize:
@@ -77,7 +80,6 @@ export default function usePagination(
 
   const refreshPagination = (current: number = 1, pageSize?: number) => {
     setInnerPagination({
-      ...mergedPagination,
       current,
       pageSize: pageSize || mergedPagination.pageSize,
     });
@@ -87,7 +89,6 @@ export default function usePagination(
     const paginationPageSize = mergedPagination?.pageSize;
     if (pageSize && pageSize !== paginationPageSize) {
       current = 1;
-      if (pagination && pagination.onShowSizeChange) pagination.onShowSizeChange(current, pageSize);
     }
     if (pagination && pagination.onChange) pagination.onChange(current, pageSize);
 
