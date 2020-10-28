@@ -121,7 +121,11 @@ describe('Layout', () => {
   });
 
   it('renders string width correctly', () => {
-    const wrapper = render(<Sider width="200">Sider</Sider>);
+    const wrapper = render(
+      <Sider width="200" bodyStyle={{ backgroundColor: '#fff' }}>
+        Sider
+      </Sider>,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -233,5 +237,10 @@ describe('Sider', () => {
       </Sider>,
     );
     expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
+  });
+
+  it('triggerStyle', () => {
+    const wrapper = mount(<Sider collapsible triggerStyle={{ backgroundColor: '#fff' }} />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

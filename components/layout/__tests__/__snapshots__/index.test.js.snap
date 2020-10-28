@@ -7,6 +7,7 @@ exports[`Layout renders string width correctly 1`] = `
 >
   <div
     class="ant-layout-sider-children"
+    style="background-color:#fff"
   >
     Sider
   </div>
@@ -34,4 +35,136 @@ exports[`Layout rtl render component should be rendered correctly in RTL directi
     class="ant-layout-sider-children"
   />
 </aside>
+`;
+
+exports[`Sider triggerStyle 1`] = `
+<Sider
+  collapsible={true}
+  triggerStyle={
+    Object {
+      "backgroundColor": "#fff",
+    }
+  }
+>
+  <InternalSider
+    collapsedWidth={80}
+    collapsible={true}
+    defaultCollapsed={false}
+    reverseArrow={false}
+    siderHook={
+      Object {
+        "addSider": [Function],
+        "removeSider": [Function],
+      }
+    }
+    style={Object {}}
+    theme="dark"
+    triggerStyle={
+      Object {
+        "backgroundColor": "#fff",
+      }
+    }
+    width={200}
+  >
+    <aside
+      className="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger"
+      style={
+        Object {
+          "flex": "0 0 200px",
+          "maxWidth": "200px",
+          "minWidth": "200px",
+          "width": "200px",
+        }
+      }
+    >
+      <div
+        className="ant-layout-sider-children"
+      />
+      <div
+        className="ant-layout-sider-trigger"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#fff",
+            "width": "200px",
+          }
+        }
+      >
+        <ForwardRef(LeftOutlined)>
+          <AntdIcon
+            icon={
+              Object {
+                "icon": Object {
+                  "attrs": Object {
+                    "focusable": "false",
+                    "viewBox": "64 64 896 896",
+                  },
+                  "children": Array [
+                    Object {
+                      "attrs": Object {
+                        "d": "M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z",
+                      },
+                      "tag": "path",
+                    },
+                  ],
+                  "tag": "svg",
+                },
+                "name": "left",
+                "theme": "outlined",
+              }
+            }
+          >
+            <span
+              aria-label="left"
+              className="anticon anticon-left"
+              role="img"
+            >
+              <IconReact
+                className=""
+                icon={
+                  Object {
+                    "icon": Object {
+                      "attrs": Object {
+                        "focusable": "false",
+                        "viewBox": "64 64 896 896",
+                      },
+                      "children": Array [
+                        Object {
+                          "attrs": Object {
+                            "d": "M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z",
+                          },
+                          "tag": "path",
+                        },
+                      ],
+                      "tag": "svg",
+                    },
+                    "name": "left",
+                    "theme": "outlined",
+                  }
+                }
+              >
+                <svg
+                  aria-hidden="true"
+                  className=""
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  key="svg-left"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    key="svg-left-svg-0"
+                  />
+                </svg>
+              </IconReact>
+            </span>
+          </AntdIcon>
+        </ForwardRef(LeftOutlined)>
+      </div>
+    </aside>
+  </InternalSider>
+</Sider>
 `;

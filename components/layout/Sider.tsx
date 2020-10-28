@@ -43,6 +43,8 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
+  bodyStyle?: React.CSSProperties;
+  triggerStyle?: React.CSSProperties;
 }
 
 type InternalSideProps = SiderProps & LayoutContextProps;
@@ -169,6 +171,8 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       width,
       collapsedWidth,
       zeroWidthTriggerStyle,
+      bodyStyle,
+      triggerStyle,
       children,
       ...others
     } = this.props;
@@ -212,7 +216,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
             <div
               className={`${prefixCls}-trigger`}
               onClick={this.toggle}
-              style={{ width: siderWidth }}
+              style={{ width: siderWidth, ...(triggerStyle || {}) }}
             >
               {trigger || defaultTrigger}
             </div>
@@ -238,7 +242,9 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     );
     return (
       <aside className={siderCls} {...divProps} style={divStyle}>
-        <div className={`${prefixCls}-children`}>{children}</div>
+        <div className={`${prefixCls}-children`} style={bodyStyle}>
+          {children}
+        </div>
         {collapsible || (below && zeroWidthTrigger) ? triggerDom : null}
       </aside>
     );
