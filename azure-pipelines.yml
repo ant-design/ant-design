@@ -1,5 +1,11 @@
 name: Ant Design
 
+trigger:
+  branches:
+    exclude:
+      - gh-pages
+
+# https://developercommunity.visualstudio.com/comments/949241/view.html
 pr:
   autoCancel: true
   branches:
@@ -63,13 +69,16 @@ stages:
     variables:
       ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/') }}:
         branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
+        commitId: $(Build.SourceVersion)
       ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
-        branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
+        branchName: $[ replace(variables['Build.SourceBranch'], 'refs/', '') ]
+        commitId: $(System.PullRequest.SourceCommitId)
     dependsOn: []
-    condition: and(succeeded(), in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI'))
     jobs:
       - job: UI_Test
         steps:
+          - script: |
+              echo $(commitId)
           - checkout: self
             displayName: 'Checkout'
             clean: true
@@ -82,5 +91,5 @@ stages:
             displayName: 'Install modules'
           - script: npm run test-image
             displayName: 'UI Test'
-          - script: npm run argos -- --token $ARGOS_TOKEN --branch $(branchName) --commit $(Build.SourceVersion)
+          - script: npm run argos -- --token $ARGOS_TOKEN --branch $(branchName) --commit $(commitId)
             displayName: 'Upload to argos-ci'
