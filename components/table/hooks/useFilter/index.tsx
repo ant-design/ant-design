@@ -69,18 +69,20 @@ function injectFilter<RecordType>(
   return columns.map((column, index) => {
     const columnPos = getColumnPos(index, pos);
     const { filterMultiple = true } = column as ColumnType<RecordType>;
+    
+    let newColumn: ColumnsType<RecordType>[number] = column;
 
-    if (column.filters || column.filterDropdown) {
-      const columnKey = getColumnKey(column, columnPos);
+    if (newColumn.filters || newColumn.filterDropdown) {
+      const columnKey = getColumnKey(newColumn, columnPos);
       const filterState = filterStates.find(({ key }) => columnKey === key);
 
-      return {
-        ...column,
+      newColumn = {
+        ...newColumn,
         title: (renderProps: ColumnTitleProps<RecordType>) => (
           <FilterDropdown
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls}
-            column={column}
+            column={newColumn}
             columnKey={columnKey}
             filterState={filterState}
             filterMultiple={filterMultiple}
@@ -94,13 +96,13 @@ function injectFilter<RecordType>(
       };
     }
 
-    if ('children' in column) {
-      return {
-        ...column,
+    if ('children' in newColumn) {
+      newColumn = {
+        ...newColumn,
         children: injectFilter(
           prefixCls,
           dropdownPrefixCls,
-          column.children,
+          newColumn.children,
           filterStates,
           triggerFilter,
           getPopupContainer,
@@ -110,7 +112,7 @@ function injectFilter<RecordType>(
       };
     }
 
-    return column;
+    return newColumn;
   });
 }
 
