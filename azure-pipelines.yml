@@ -68,6 +68,7 @@ stages:
 
   - stage: ui
     variables:
+      ARGOSTOKEN: $(ARGOS_TOKEN)
       ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/') }}:
         branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
         commitId: $(Build.SourceVersion)
@@ -92,5 +93,5 @@ stages:
             displayName: 'Install modules'
           - script: npm run test-image
             displayName: 'UI Test'
-          - script: npm run argos -- --token $(ARGOS_TOKEN) --branch $(branchName) --commit $(commitId)
+          - script: npm run argos -- --token $(ARGOSTOKEN) --branch $(branchName) --commit $(commitId)
             displayName: 'Upload to argos-ci'
