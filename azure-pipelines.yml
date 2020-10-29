@@ -2,8 +2,9 @@ name: Ant Design
 
 trigger:
   branches:
-    exclude:
-      - gh-pages
+    include:
+      - master
+      - feature
 
 # https://developercommunity.visualstudio.com/comments/949241/view.html
 pr:
@@ -91,5 +92,5 @@ stages:
             displayName: 'Install modules'
           - script: npm run test-image
             displayName: 'UI Test'
-          - script: npm run argos -- --token $ARGOS_TOKEN --branch $(branchName) --commit $(commitId)
+          - script: npm run argos -- --token $(ARGOS_TOKEN) --branch $(branchName) --commit $(commitId)
             displayName: 'Upload to argos-ci'
