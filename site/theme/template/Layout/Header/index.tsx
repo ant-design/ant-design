@@ -12,6 +12,7 @@ import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
 import SiteContext from '../SiteContext';
+import { ping } from '../../utils';
 
 import './index.less';
 
@@ -61,15 +62,19 @@ interface HeaderState {
   menuVisible: boolean;
   windowWidth: number;
   searching: boolean;
+  showTechUIButton: boolean;
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   static contextType = SiteContext;
 
+  pingTimer: NodeJS.Timeout;
+
   state = {
     menuVisible: false,
     windowWidth: 1400,
     searching: false,
+    showTechUIButton: false,
   };
 
   componentDidMount() {
@@ -79,10 +84,19 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
     window.addEventListener('resize', this.onWindowResize);
     this.onWindowResize();
+
+    this.pingTimer = ping(status => {
+      if (status !== 'timeout' && status !== 'error') {
+        this.setState({
+          showTechUIButton: true,
+        });
+      }
+    });
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.onWindowResize);
+    clearTimeout(this.pingTimer);
   }
 
   onWindowResize = () => {
@@ -179,7 +193,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <SiteContext.Consumer>
         {({ isMobile }) => {
-          const { menuVisible, windowWidth, searching } = this.state;
+          const { menuVisible, windowWidth, searching, showTechUIButton } = this.state;
           const { direction } = this.context;
           const {
             location,
@@ -268,9 +282,24 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             >
               {this.getNextDirectionText()}
             </Button>,
+          ];
+          if (showTechUIButton) {
+            menu.push(
+              <Button
+                size="small"
+                className="header-button header-direction-button"
+                key="techui-button"
+                href="https://techui.alipay.com"
+                target="__blank"
+              >
+                TechUI
+              </Button>,
+            );
+          }
+          menu.push(
             <More key="more" {...sharedProps} />,
             <Github key="github" responsive={responsive} />,
-          ];
+          );
 
           if (windowWidth < RESPONSIVE_XS) {
             menu = searching ? [] : [navigationNode];
