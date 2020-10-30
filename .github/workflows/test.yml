@@ -228,5 +228,8 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: test
+        run: npm run test-image
+
+      - name: argos-ci
         run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch ${GITHUB_REF##*/} --commit ${GITHUB_SHA}
     needs: setup
