@@ -18,6 +18,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: typeof RowAligns[number];
   justify?: typeof RowJustify[number];
   prefixCls?: string;
+  noWrap?: boolean;
 }
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
@@ -29,6 +30,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     style,
     children,
     gutter = 0,
+    noWrap,
     ...others
   } = props;
 
@@ -83,6 +85,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const classes = classNames(
     prefixCls,
     {
+      [`${prefixCls}-no-wrap`]: noWrap,
       [`${prefixCls}-${justify}`]: justify,
       [`${prefixCls}-${align}`]: align,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -106,7 +109,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   };
 
   return (
-    <RowContext.Provider value={{ gutter: gutters }}>
+    <RowContext.Provider value={{ gutter: gutters, noWrap }}>
       <div {...others} className={classes} style={rowStyle} ref={ref}>
         {children}
       </div>

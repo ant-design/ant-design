@@ -33,6 +33,13 @@ ReactDOM.render(
       <Col flex="1 1 200px">1 1 200px</Col>
       <Col flex="0 1 300px">0 1 300px</Col>
     </Row>
+
+    <Row noWrap>
+      <Col flex="none">
+        <div style={{ padding: '0 16px' }}>none</div>
+      </Col>
+      <Col flex="auto">auto with no-wrap</Col>
+    </Row>
   </>,
   mountNode,
 );
