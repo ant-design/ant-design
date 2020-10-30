@@ -33,7 +33,7 @@ const LIST_CN: Recommend[] = [
     description:
       '前端热爱，技术无界，第十五届 D2 前端技术论坛，我们云端相聚！',
     img: 'https://img.alicdn.com/tfs/TB1R39KnSR26e4jSZFEXXbwuXXa-1960-768.png',
-    href: 'https://zhuanlan.zhihu.com/p/269789439',
+    href: 'http://d2forum.alibaba-inc.com/',
   },
 ];
 
