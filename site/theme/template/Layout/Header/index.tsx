@@ -246,6 +246,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               location={location}
               responsive={responsive}
               isMobile={isMobile}
+              showTechUIButton={showTechUIButton}
               pathname={pathname}
               directionText={this.getNextDirectionText()}
               onLangChange={this.onLangChange}
@@ -282,24 +283,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             >
               {this.getNextDirectionText()}
             </Button>,
-          ];
-          if (showTechUIButton) {
-            menu.push(
-              <Button
-                size="small"
-                className="header-button header-direction-button"
-                key="techui-button"
-                href="https://techui.alipay.com"
-                target="__blank"
-              >
-                TechUI
-              </Button>,
-            );
-          }
-          menu.push(
             <More key="more" {...sharedProps} />,
             <Github key="github" responsive={responsive} />,
-          );
+          ];
 
           if (windowWidth < RESPONSIVE_XS) {
             menu = searching ? [] : [navigationNode];

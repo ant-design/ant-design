@@ -17,6 +17,7 @@ export interface NavigationProps extends SharedProps {
   responsive: null | 'narrow' | 'crowded';
   location: { pathname: string; query: any };
   directionText: string;
+  showTechUIButton: boolean;
   onLangChange: () => void;
   onDirectionChange: () => void;
 }
@@ -29,6 +30,7 @@ export default ({
   responsive,
   location,
   directionText,
+  showTechUIButton,
   onLangChange,
   onDirectionChange,
 }: NavigationProps) => {
@@ -103,6 +105,13 @@ export default ({
       {isZhCN && !isGitee && (
         <Menu.Item key="mirror">
           <a href="https://ant-design.gitee.io">国内镜像</a>
+        </Menu.Item>
+      )}
+      {showTechUIButton && (
+        <Menu.Item key="tech-ui">
+          <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
+            TechUI
+          </a>
         </Menu.Item>
       )}
       {additional}
