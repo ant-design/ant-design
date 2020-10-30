@@ -34,7 +34,7 @@ ReactDOM.render(
       <Col flex="0 1 300px">0 1 300px</Col>
     </Row>
 
-    <Row noWrap>
+    <Row wrap={false}>
       <Col flex="none">
         <div style={{ padding: '0 16px' }}>none</div>
       </Col>

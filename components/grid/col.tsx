@@ -47,7 +47,7 @@ function parseFlex(flex: FlexType): string {
 
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { gutter, noWrap } = React.useContext(RowContext);
+  const { gutter, wrap } = React.useContext(RowContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -125,7 +125,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
     // Hack for Firefox to avoid size issue
     // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
-    if (flex === 'auto' && noWrap && !mergedStyle.minWidth) {
+    if (flex === 'auto' && wrap === false && !mergedStyle.minWidth) {
       mergedStyle.minWidth = 0;
     }
   }
