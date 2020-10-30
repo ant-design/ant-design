@@ -2737,7 +2737,7 @@ Array [
       class="ant-input-wrapper ant-input-group"
     >
       <span
-        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
       >
         <input
           class="ant-input ant-input-lg"

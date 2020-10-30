@@ -22,10 +22,8 @@ describe('Input.Search', () => {
   });
 
   it('should support ReactNode suffix without error', () => {
-    const fn = () => {
-      mount(<Search suffix={<div>ok</div>} />);
-    };
-    expect(fn).not.toThrow();
+    const wrapper = mount(<Search suffix={<div>ok</div>} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should disable enter button when disabled prop is true', () => {
