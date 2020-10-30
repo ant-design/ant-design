@@ -12,6 +12,10 @@ export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
   return !!(props.prefix || props.suffix || props.allowClear);
 }
 
+function hasAddon(props: InputProps | ClearableInputProps) {
+  return !!(props.addonBefore || props.addonAfter);
+}
+
 /**
  * This basic props required for input and textarea.
  */
@@ -121,8 +125,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
       [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
       [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-      // https://github.com/ant-design/ant-design/issues/27258
-      [`${className}`]: !allowClear && className,
+      // className will go to addon wrapper
+      [`${className}`]: !hasAddon(this.props) && className,
     });
     return (
       <span
@@ -145,7 +149,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement) {
     const { addonBefore, addonAfter, style, size, className, direction } = this.props;
     // Not wrap when there is not addons
-    if (!addonBefore && !addonAfter) {
+    if (!hasAddon(this.props)) {
       return labeledElement;
     }
 
@@ -156,8 +160,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     ) : null;
     const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
-    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
-      [wrapperClassName]: addonBefore || addonAfter,
+    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, {
       [`${wrapperClassName}-rtl`]: direction === 'rtl',
     });
 
@@ -197,8 +200,9 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       {
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+        // className will go to addon wrapper
+        [`${className}`]: !hasAddon(this.props) && className,
       },
-      className,
     );
     return (
       <span className={affixWrapperCls} style={style}>
