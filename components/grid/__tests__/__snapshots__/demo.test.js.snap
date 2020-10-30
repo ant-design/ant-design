@@ -523,7 +523,7 @@ Array [
     </div>
     <div
       class="ant-col"
-      style="flex:auto;min-width:0"
+      style="flex:auto"
     >
       Fill Rest
     </div>
