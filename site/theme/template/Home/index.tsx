@@ -77,7 +77,7 @@ const Home = (props: { location: any }) => {
           <BlockContent
             title={<FormattedMessage id="app.home.more" />}
             extra={
-              <Link to={getLink()}>
+              <Link to={getLink()} target="_blank">
                 <FormattedMessage id="app.home.view-more" />
               </Link>
             }
