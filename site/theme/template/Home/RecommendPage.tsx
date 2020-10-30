@@ -16,42 +16,42 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: '这几个 Ant Design 色彩的小知识，我猜你不知道！',
-    description: '今天不说大道理，就给大家科普几个 Ant Design 色彩的小知识——',
-    img: 'https://pic4.zhimg.com/v2-254eebfe6b092b0b9c1f8d17f3c64d3d_1440w.jpg?source=172ae18b',
-    href: 'https://zhuanlan.zhihu.com/p/268168773',
+    title: 'Ant Design 5.0，未来已来，邀你共建！',
+    description: '欢迎加入，Ant Designers！',
+    img: 'https://pic2.zhimg.com/v2-21b2b0e2c2edd128a99fea2cfeaddd51_b.gif',
+    href: 'https://zhuanlan.zhihu.com/p/269789439',
     popularize: true,
   },
   {
-    title: '第十五届 D2 前端技术论坛 - 无界',
-    description: '前端热爱，技术无界，第十五届 D2 前端技术论坛，我们云端相聚！',
-    img: 'https://img.alicdn.com/tfs/TB1R39KnSR26e4jSZFEXXbwuXXa-1960-768.png',
-    href: 'http://d2forum.alibaba-inc.com/',
+    title: '在Ant Design 4.0里，我们如何追求快乐的工作？',
+    description: '蚂蚁集团高级体验设计专家林外在上海外滩大会上分享 Ant Design4.0 背后的设计理念',
+    img: 'https://gw.alipayobjects.com/mdn/rms_b56775/afts/img/A*psuyRqopCIEAAAAAAAAAAAAAARQnAQ',
+    href: 'https://mp.weixin.qq.com/s/QUqy1-g0FElqOs9cQFFWHA',
   },
   {
-    title: 'Ant Design 4.0 的一些杂事儿 - VirtualList 篇',
+    title: '第十五届 D2 前端技术论坛 - 无界',
     description:
-      '在 React 中，我们常说不太需要关注性能问题。然而作为组件库，这些事你就不得不考虑一下。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ULOBQroFRMQAAAAAAAAAAAAAARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/237996796',
+      '前端热爱，技术无界，第十五届 D2 前端技术论坛，我们云端相聚！',
+    img: 'https://pic1.zhimg.com/v2-03ecafd272dc5dc2d60e012f3908b3db_1440w.jpg',
+    href: 'https://zhuanlan.zhihu.com/p/269789439',
   },
 ];
 
 const LIST_EN: Recommend[] = [
   {
-    title: 'These a few color knowledge of Ant Design, I guess you do not know!',
+    title: 'Ant Design 5.0, the future is coming, let us create it together!',
     description:
-      '🎨 This time, we do not talk about theoretical knowledge, just a few color design skills of Ant Design',
-    img: 'https://pic4.zhimg.com/v2-254eebfe6b092b0b9c1f8d17f3c64d3d_1440w.jpg?source=172ae18b',
-    href: 'https://zhuanlan.zhihu.com/p/268168773',
+      'Welcome to join us，Ant Designers！',
+    img: 'https://pic2.zhimg.com/v2-21b2b0e2c2edd128a99fea2cfeaddd51_b.gif',
+    href: 'https://zhuanlan.zhihu.com/p/269789439',
     popularize: true,
   },
   {
-    title: 'Next Generation of Component Library?',
+    title: 'How do we pursue happy work in Ant Design 4.0?',
     description:
-      '😎 With the launch of React hooks and Vue composition API, perhaps we have met a new breakthrough point of component libraries.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SU6hQ5jHVEsAAAAAAAAAAAAAARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/252824872',
+      'Ant group senior experience design expert Lin Wai shares the design concept behind Ant Design 4.0',
+    img: 'https://gw.alipayobjects.com/mdn/rms_b56775/afts/img/A*psuyRqopCIEAAAAAAAAAAAAAARQnAQ',
+    href: 'https://mp.weixin.qq.com/s/QUqy1-g0FElqOs9cQFFWHA',
   },
   {
     title: 'Stories about Ant Design 4.0: VirtualList',
