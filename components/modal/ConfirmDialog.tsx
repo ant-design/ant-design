@@ -31,6 +31,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     direction,
     prefixCls,
     rootPrefixCls,
+    modalRender,
   } = props;
 
   devWarning(
@@ -93,6 +94,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       keyboard={keyboard}
       centered={centered}
       getContainer={getContainer}
+      modalRender={modalRender}
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
         <div className={`${contentPrefixCls}-body`}>
