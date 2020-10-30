@@ -31,7 +31,6 @@ export interface AvatarProps {
   className?: string;
   children?: React.ReactNode;
   alt?: string;
-  image?: React.ReactNode;
   /* callback when img load error */
   /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self */
   onError?: () => boolean;
@@ -94,7 +93,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     icon,
     className,
     alt,
-    image,
     draggable,
     children,
     ...others
@@ -132,12 +130,14 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     [`${prefixCls}-sm`]: size === 'small',
   });
 
+  const hasImageElement = React.isValidElement(src);
+
   const classString = classNames(
     prefixCls,
     sizeCls,
     {
       [`${prefixCls}-${shape}`]: shape,
-      [`${prefixCls}-image`]: (src && isImgExist) || image,
+      [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
       [`${prefixCls}-icon`]: icon,
     },
     className,
@@ -154,12 +154,14 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       : {};
 
   let childrenToRender;
-  if (src && isImgExist) {
+  if (typeof src === 'string' && isImgExist) {
     childrenToRender = (
       <img src={src} draggable={draggable} srcSet={srcSet} onError={handleImgLoadError} alt={alt} />
     );
-  } else if (image || icon) {
-    childrenToRender = image || icon;
+  } else if (hasImageElement) {
+    childrenToRender = src;
+  } else if (icon) {
+    childrenToRender = icon;
   } else if (mounted || scale !== 1) {
     const transformString = `scale(${scale}) translateX(-50%)`;
     const childrenStyle: React.CSSProperties = {
