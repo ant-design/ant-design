@@ -1,6 +1,6 @@
 name: test
 
-on: [push, pull_request_target]
+on: [push, pull_request]
 
 jobs:
   setup:
@@ -208,28 +208,3 @@ jobs:
         env:
           LIB_DIR: es
     needs: compile
-
-  ui:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@master
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v1
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: test
-        run: npm run test-image
-
-      - name: argos-ci
-        run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch ${GITHUB_REF##*/} --commit ${GITHUB_SHA}
-    needs: setup
