@@ -102,16 +102,16 @@ export default ({
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       </Menu.Item>
-      {isZhCN && !isGitee && (
-        <Menu.Item key="mirror">
-          <a href="https://ant-design.gitee.io">国内镜像</a>
-        </Menu.Item>
-      )}
       {showTechUIButton && (
         <Menu.Item key="tech-ui">
           <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
             TechUI
           </a>
+        </Menu.Item>
+      )}
+      {isZhCN && !isGitee && (
+        <Menu.Item key="mirror">
+          <a href="https://ant-design.gitee.io">国内镜像</a>
         </Menu.Item>
       )}
       {additional}
