@@ -132,7 +132,7 @@ toc: false
 
 ### UI/UE 设计师
 
-简历和作品集请投递：lindong.lld#alipay.com
+简历和作品集请投递：lindong.lld#antgroup.com
 
 > 注明简历来自 ant.design 官网
 
@@ -146,13 +146,13 @@ toc: false
   - 有数据驱动的增长设计实践，加分；
   - 深度理解 SAP、Salesforce、Google 等设计体系，能提出自己独到见解并落实到实践中，加加加分。
 - 岗位职责：
-  - 参与[蚂蚁金融科技](https://tech.antfin.com/)、[区块链](https://tech.antfin.com/blockchain)、人工智能等企业级产品的设计工作；
+  - 参与[蚂蚁链](https://blockchain.antgroup.com/)、人工智能、数据平台等企业级产品的设计工作；
   - 参与[语雀](https://www.yuque.com/)、[云凤蝶](https://www.yunfengdie.com/)等创新产品的设计工作；
   - 参与 Ant Design 的打磨，将其建设成全球卓越的设计体系。
   - 参与 AntV 的打磨，将其建设成全球一流的数据可视化体系。
 - One More Thing ❤️ ：
 
-  - 你们总是为世界带去美好，但总是忘却你们也需要美好。我们正在努力打造 [🍳 Kitchen：一款为设计师提效的 Sketch 工具集](https://kitchen.alipay.com/)、[语雀画板](https://yuque.com/) 等专属设计师的产品，让设计真正变成财富。期待志同道合的你，一道给设计行业带来「微小而美好的改变」。
+  - 你们总是为世界带去美好，但总是忘却你们也需要美好。我们正在努力打造 [🍳 Kitchen：一款为设计师提效的 Sketch 工具集](https://kitchen.alipay.com/)等专属设计师的产品，让设计真正变成财富。期待志同道合的你，一道给设计行业带来「微小而美好的改变」。
 
 ### 前端工程师
 
