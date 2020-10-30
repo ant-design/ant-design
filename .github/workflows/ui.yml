@@ -1,6 +1,10 @@
 name: UI
 
-on: [push, pull_request_target]
+on:
+  pull_request_target:
+  push:
+    branches:
+      - master
 
 jobs:
   test:
