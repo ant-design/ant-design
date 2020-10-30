@@ -216,7 +216,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
             <div
               className={`${prefixCls}-trigger`}
               onClick={this.toggle}
-              style={{ width: siderWidth, ...(triggerStyle || {}) }}
+              style={{ width: siderWidth, ...triggerStyle }}
             >
               {trigger || defaultTrigger}
             </div>
