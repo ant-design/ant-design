@@ -523,7 +523,7 @@ Array [
     </div>
     <div
       class="ant-col"
-      style="flex:auto"
+      style="flex:auto;min-width:0"
     >
       Fill Rest
     </div>
@@ -552,6 +552,26 @@ Array [
       style="flex:0 1 300px"
     >
       0 1 300px
+    </div>
+  </div>,
+  <div
+    class="ant-row ant-row-no-wrap"
+  >
+    <div
+      class="ant-col"
+      style="flex:none"
+    >
+      <div
+        style="padding:0 16px"
+      >
+        none
+      </div>
+    </div>
+    <div
+      class="ant-col"
+      style="flex:auto;min-width:0"
+    >
+      auto with no-wrap
     </div>
   </div>,
 ]
