@@ -51,7 +51,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     transitionName = 'slide-up',
     ...props
   }: SelectProps<VT>,
-  ref: React.Ref<RcSelect<VT>>,
+  ref: React.Ref<HTMLInputElement>,
 ) => {
   const {
     getPopupContainer: getContextPopupContainer,
@@ -140,7 +140,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
 };
 
 const SelectRef = React.forwardRef(InternalSelect) as <VT extends SelectValue = SelectValue>(
-  props: SelectProps<VT> & { ref?: React.Ref<RcSelect<VT>> },
+  props: SelectProps<VT> & { ref?: React.Ref<HTMLInputElement> },
 ) => React.ReactElement;
 
 type InternalSelectType = typeof SelectRef;
