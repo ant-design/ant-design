@@ -76,7 +76,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
@@ -427,7 +427,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
@@ -730,7 +730,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
