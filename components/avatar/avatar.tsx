@@ -130,12 +130,14 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     [`${prefixCls}-sm`]: size === 'small',
   });
 
+  const hasImageElement = React.isValidElement(src);
+
   const classString = classNames(
     prefixCls,
     sizeCls,
     {
       [`${prefixCls}-${shape}`]: shape,
-      [`${prefixCls}-image`]: src && isImgExist,
+      [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
       [`${prefixCls}-icon`]: icon,
     },
     className,
@@ -152,10 +154,12 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       : {};
 
   let childrenToRender;
-  if (src && isImgExist) {
+  if (typeof src === 'string' && isImgExist) {
     childrenToRender = (
       <img src={src} draggable={draggable} srcSet={srcSet} onError={handleImgLoadError} alt={alt} />
     );
+  } else if (hasImageElement) {
+    childrenToRender = src;
   } else if (icon) {
     childrenToRender = icon;
   } else if (mounted || scale !== 1) {

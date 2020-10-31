@@ -798,6 +798,18 @@ Array [
     />
   </span>,
   <span
+    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  >
+    <div
+      class="ant-image"
+    >
+      <img
+        class="ant-image-img"
+        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      />
+    </div>
+  </span>,
+  <span
     class="ant-avatar ant-avatar-circle"
     style="color:#f56a00;background-color:#fde3cf"
   >
