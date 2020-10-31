@@ -2596,7 +2596,7 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 
 We provide a [migration tool](https://github.com/ant-design/antd-migration-helper) to help you find deprecated usages in your codebase.
 
-- Card's `noHovering` has been renamed to `hoverable`, and its default value now is `true`.
+- Card's `noHovering` has been renamed to `hoverable`, and its default value now is `false`.
 - Added new Grid breakpoints. [#7230](https://github.com/ant-design/ant-design/pull/7230)
 - Form `getFieldDecorator`'s `exclusive` option has been removed.
 - Added `Form.createFormField`, and you must use it to wrap field data returned in `option.mapPropsToFields`:

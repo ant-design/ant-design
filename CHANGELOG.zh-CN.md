@@ -2599,7 +2599,7 @@ timeline: true
 
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。另外由于人肉查找代码中的废弃用法过于低效，所以我们提供了 [antd-migration-helper](https://github.com/ant-design/antd-migration-helper) 用于扫描代码中的废弃用法。
 
-- Card 的 `noHovering` 属性重命名为 `hoverable`，且默认值改为 `true`。
+- Card 的 `noHovering` 属性重命名为 `hoverable`，且默认值改为 `false`。
 - 调整了 Grid 的响应式断点值。详见 [#7230](https://github.com/ant-design/ant-design/pull/7230)
 - Form `getFieldDecorator` 的 `exclusive` 参数被移除，此类场景应该由 Radio.Group、Checkbox.Group 之类的组件来完成。
 - 新增 `Form.createFormField` 方法，`mapPropsToFields` 返回的字段都需要由该方法创建。
