@@ -50,6 +50,18 @@ describe('PageHeader', () => {
     expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
   });
 
+  it('pageHeader do not has title', () => {
+    const routes = [
+      {
+        path: 'index',
+        breadcrumbName: 'First-level Menu',
+      },
+    ];
+    const wrapper = mount(<PageHeader breadcrumb={{ routes }}>test</PageHeader>);
+    expect(wrapper.find('.ant-page-header-heading-lef').exists()).toBeFalsy();
+    expect(wrapper.find('.ant-page-header-heading').exists()).toBeFalsy();
+  });
+
   it('pageHeader should no contain back', () => {
     const wrapper = mount(<PageHeader title="Page Title" backIcon={false} />);
     expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
