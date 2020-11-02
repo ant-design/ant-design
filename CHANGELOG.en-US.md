@@ -23,7 +23,7 @@ timeline: true
 - 🆕 ConfigProvider add `form.requiredMark`. [#27322](https://github.com/ant-design/ant-design/pull/27322)
 - 🆕 Statistic add `loading` prop. [#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
 - Avatar
-  - 🔥 support Image element as prop for Avatar component. [#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
+  - 🔥 Support Image element as prop for Avatar component. [#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
   - 🆕 Avatar.Group add `size` props. [#27348](https://github.com/ant-design/ant-design/pull/27348)
 - 🆕 Row support `noWrap` to make Col in line. [#27469](https://github.com/ant-design/ant-design/pull/27469)
 - Tree
@@ -44,7 +44,9 @@ timeline: true
   - 🐞 Fix Table `pagination` cache previous config issue. [#27412](https://github.com/ant-design/ant-design/pull/27412)
 - 🐞 Fix the problem that the border style of RangePicker is abnormal when selecting again after selecting the same time. [#27438](https://github.com/ant-design/ant-design/pull/27438)
 - 🐞 Fix the width of the Steps content in the horizontal direction when enabling `progressDot` (#27406). [#27406](https://github.com/ant-design/ant-design/pull/27406) [@yoyo837](https://github.com/yoyo837)
-- 🐞 fix: Invalid regular expression for particular ellipsis content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
+- Typography
+  - 🐞 Fix ellipsis issue with particular content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
+  - 🐞 Fix disabled Typography.Link hover or active color. [@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
 - 💄 Fix Descriptions style when `label` use block element. [#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 Fix the problem that the border style is abnormal when the Select component triggers verification in the Form. [#27378](https://github.com/ant-design/ant-design/pull/27378)
 
