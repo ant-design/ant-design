@@ -17,8 +17,8 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | gap | Letter type unit distance between left and right sides | number | 4 | 4.3.0 |
 | icon | Custom icon type for an icon avatar | ReactNode | - |  |
 | shape | The shape of avatar | `circle` \| `square` | `circle` |  |
-| size | The size of the avatar | number \| `large` \| `small` \| `default` \| `{ xs: number, sm: number, ...}` | `default` | 4.7.0 |
-| src | The address of the image for an image avatar or image element | string \| ReactNode | - |  |
+| size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.7.0 |
+| src | The address of the image for an image avatar or image element | string \| ReactNode | - | ReactNode: 4.8.0 |
 | srcSet | A list of sources to use for different screen resolutions | string | - |  |
 | onError | Handler when img load error, return false to prevent default fallback behavior | () => boolean | - |  |
 
