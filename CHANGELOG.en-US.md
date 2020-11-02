@@ -37,7 +37,7 @@ timeline: true
 - Input
   - 🆕 Input.Textarea support `size` props. [#27110](https://github.com/ant-design/ant-design/pull/27110)
   - 🐞 Fix Input missing `className` when `allowClear` is true. [#27462](https://github.com/ant-design/ant-design/pull/27462)
-  - 💄 Adjust collapse arrow position align with first line (#27363). [#27363](https://github.com/ant-design/ant-design/pull/27363)
+  - 💄 Adjust collapse arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - Table
   - 🆕 Table.Summary.Cell support `align` prop. [#27365](https://github.com/ant-design/ant-design/pull/27365)
   - 🐞 Fix Table `onShowSizeChange` trigger twice. [#27417](https://github.com/ant-design/ant-design/pull/27417)
