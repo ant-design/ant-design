@@ -1262,4 +1262,62 @@ describe('Table.filter', () => {
     onChange.mockReset();
     wrapper.unmount();
   });
+  it('filters in children should render', () => {
+    const columns = [
+      {
+        title: 'English Score',
+        dataIndex: 'english',
+        filters: [{ text: '1', value: 1 }],
+        onFilter: record => String(record.english1).includes(String(1)),
+        children: [
+          {
+            title: 'English Score1',
+            dataIndex: 'english1',
+            filters: [{ text: '2', value: 2 }],
+            onFilter: record => String(record.english2).includes(String(2)),
+          },
+          {
+            title: 'English Score2',
+            dataIndex: 'english2',
+            filters: [{ text: '2', value: 3 }],
+            onFilter: record => String(record.english2).includes(String(3)),
+          },
+        ],
+      },
+    ];
+    const dataSource = [
+      {
+        key: '1',
+        english: 71,
+        english1: 71,
+        english2: 72,
+      },
+      {
+        key: '2',
+        english: 89,
+        english1: 72,
+        english2: 72,
+      },
+      {
+        key: '3',
+        english: 70,
+        english1: 71,
+        english2: 73,
+      },
+      {
+        key: '4',
+        english: 89,
+        english1: 71,
+        english2: 72,
+      },
+    ];
+    const wrapper = mount(
+      createTable({
+        columns,
+        dataSource,
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-column')).toHaveLength(3);
+  });
 });
