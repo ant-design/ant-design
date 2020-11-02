@@ -44,7 +44,7 @@ timeline: true
   - 🆕 Table.Summary.Cell support `align` prop. [#27365](https://github.com/ant-design/ant-design/pull/27365)
   - 🐞 Fix Table `onShowSizeChange` trigger twice. [#27417](https://github.com/ant-design/ant-design/pull/27417)
   - 🐞 Fix Table `pagination` cache previous config issue. [#27412](https://github.com/ant-design/ant-design/pull/27412)
-- 🐞 Fix Slider keep tooltip align with handle when dragging. [#27489](https://github.com/ant-design/ant-design/pull/27489) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🐞 Fix Slider keep tooltip align with handle when dragging. [#27489](https://github.com/ant-design/ant-design/pull/27489)
 - 🐞 Fix the problem that the border style of RangePicker is abnormal when selecting again after selecting the same time. [#27438](https://github.com/ant-design/ant-design/pull/27438)
 - 🐞 Fix the Steps title is not centered when enabling `progressDot`. [#27406](https://github.com/ant-design/ant-design/pull/27406)
 - Typography

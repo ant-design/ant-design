@@ -44,7 +44,7 @@ timeline: true
   - 🆕 Table.Summary.Cell 支持 `align` 配置。[#27365](https://github.com/ant-design/ant-design/pull/27365)
   - 🐞 修复 Table 切换页长时 `onShowSizeChange` 触发两次的问题。[#27417](https://github.com/ant-design/ant-design/pull/27417)
   - 🐞 修复 Table `pagination` 有时候会缓存先前设置的问题。[#27412](https://github.com/ant-design/ant-design/pull/27412)
-- 🐞 修复 Slider 拖拽时提示内容对齐问题。[#27489](https://github.com/ant-design/ant-design/pull/27489) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🐞 修复 Slider 拖拽时提示内容对齐问题。[#27489](https://github.com/ant-design/ant-design/pull/27489)
 - 🐞 修复 RangePicker 选择同一时间后再次选择时边框样式异常的问题。[#27438](https://github.com/ant-design/ant-design/pull/27438)
 - 🐞 修复 Steps 开启 `progressDot` 时标题未居中对齐的问题。[#27406](https://github.com/ant-design/ant-design/pull/27406)
 - Typography
