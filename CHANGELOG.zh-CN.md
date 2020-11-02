@@ -24,6 +24,7 @@ timeline: true
   - 🐞 修复 Image `style` 属性未作用于 img 元素的问题。[#27446](https://github.com/ant-design/ant-design/pull/27446)
 - 🆕 ConfigProvider 增加 `form.requiredMark` 配置。[#27322](https://github.com/ant-design/ant-design/pull/27322)
 - 🆕 Statistic 组件增加 `loading` 属性。[#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
+- 🆕 Collapse 新增 `headerCollapsableOnly` 属性，仅点击面板头可折叠。[#27496](https://github.com/ant-design/ant-design/pull/27496)
 - Avatar
   - 🔥 Avatar 组件支持直接传入 Image 元素。[#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
   - 🆕 Avatar.Group 增加 `size` 属性。[#27348](https://github.com/ant-design/ant-design/pull/27348)
