@@ -19,9 +19,9 @@ timeline: true
 
 `2020-11-02`
 
+- 🔥 Image add `preview.getContainer` property. [#26713](https://github.com/ant-design/ant-design/pull/26713) [@rfreling](https://github.com/rfreling)
 - 🆕 ConfigProvider add `form.requiredMark`. [#27322](https://github.com/ant-design/ant-design/pull/27322)
 - 🆕 Statistic add `loading` prop. [#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
-- 🔥 Add `getContainer` to Image preview property. [#26713](https://github.com/ant-design/ant-design/pull/26713) [@rfreling](https://github.com/rfreling)
 - Avatar
   - 🔥 support Image element as prop for Avatar component. [#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
   - 🆕 Avatar.Group add `size` props. [#27348](https://github.com/ant-design/ant-design/pull/27348)
