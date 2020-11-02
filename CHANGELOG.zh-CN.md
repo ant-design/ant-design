@@ -15,6 +15,40 @@ timeline: true
 
 ---
 
+## 4.8.0
+
+`2020-11-02`
+
+- 🔥 Image 支持 `preview.getContainer` 属性用于指定预览对话框的容器。[#26713](https://github.com/ant-design/ant-design/pull/26713) [@rfreling](https://github.com/rfreling)
+- 🆕 ConfigProvider 增加 `form.requiredMark` 配置。[#27322](https://github.com/ant-design/ant-design/pull/27322)
+- 🆕 Statistic 组件增加 `loading` 属性。[#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
+- Avatar
+  - 🔥 Avatar 组件支持直接传入 Image 元素。[#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
+  - 🆕 Avatar.Group 增加 `size` 属性。[#27348](https://github.com/ant-design/ant-design/pull/27348)
+- 🆕 Row 支持 `noWrap` 属性以使 Col 不错行。[#27469](https://github.com/ant-design/ant-design/pull/27469)
+- Tree
+  - 🐞 修复 Tree 双击折叠图标时会选中文字的问题。[#27476](https://github.com/ant-design/ant-design/pull/27476)
+  - 🐞 修复 Tree 配置 `showLine` 下 `title` 多行的时候，线会截断的问题。[#27386](https://github.com/ant-design/ant-design/pull/27386)
+- Modal
+  - 🐞 Fix Modal missing `modalRender` prop。[#27272](https://github.com/ant-design/ant-design/pull/27272) [@jieny](https://github.com/jieny)
+  - 🐞 `Modal.config` 中设置的 `rootPrefixCls` 可以对`title`和`content`下使用的antd组件生效。[#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
+  - 🆕 `modal.update()` 支持函数式更新。[#27163](https://github.com/ant-design/ant-design/pull/27163) [@Mongkii](https://github.com/Mongkii)
+  - 🆕 Modal method 增加 `bodyStyle` 属性。[#27292](https://github.com/ant-design/ant-design/pull/27292)
+- Input
+  - 🐞 修复 Input `allowClear` 时 `className` 丢失的问题。[#27462](https://github.com/ant-design/ant-design/pull/27462)
+  - 💄 调整 Input 折叠箭头的位置与第一行对齐[#27363](https://github.com/ant-design/ant-design/pull/27363) [@二货机器人](https://github.com/二货机器人)
+  - 🆕 Input.Textarea 支持 `size` 属性。[#27110](https://github.com/ant-design/ant-design/pull/27110)
+- 💄 修复 RangePicker 选择同一时间后再次选择时边框样式异常的问题。[#27438](https://github.com/ant-design/ant-design/pull/27438)
+- Table
+  - 🐞 修复 Table 切换页长时 `onShowSizeChange` 触发两次的问题。[#27417](https://github.com/ant-design/ant-design/pull/27417)
+  - 🐞 修复 Table `pagination` 有时候会缓存先前设置的问题。[#27412](https://github.com/ant-design/ant-design/pull/27412)
+  - 🆕 Table.Summary.Cell 支持 `align` 配置。[#27365](https://github.com/ant-design/ant-design/pull/27365)
+- 🐞 修复水平方向上的 Steps 内容宽度。[#27406](https://github.com/ant-design/ant-design/pull/27406) [@Amumu](https://github.com/Amumu)
+- 🐞 修复 Typography 省略特定内容无效的问题。[#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
+- 💄 修复 Descriptions 在 `label` 自定义为块状元素时的样式问题。[#27375](https://github.com/ant-design/ant-design/pull/27375)
+- 💄 修复 Select 组件在 Form 中触发校验时边框样式异常的问题。[#27378](https://github.com/ant-design/ant-design/pull/27378)
+
+
 ## 4.7.3
 
 `2020-10-24`
