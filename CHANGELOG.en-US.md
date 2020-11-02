@@ -39,17 +39,17 @@ timeline: true
 - Input
   - 🆕 Input.Textarea support `size` props. [#27110](https://github.com/ant-design/ant-design/pull/27110)
   - 🐞 Fix Input missing `className` when `allowClear` is true. [#27462](https://github.com/ant-design/ant-design/pull/27462)
-  - 💄 Adjust collapse arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - Table
   - 🆕 Table.Summary.Cell support `align` prop. [#27365](https://github.com/ant-design/ant-design/pull/27365)
   - 🐞 Fix Table `onShowSizeChange` trigger twice. [#27417](https://github.com/ant-design/ant-design/pull/27417)
   - 🐞 Fix Table `pagination` cache previous config issue. [#27412](https://github.com/ant-design/ant-design/pull/27412)
+- Typography
+  - 🐞 Fix Typography Invalid regular expression issue with particular content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
+  - 💄 Fix disabled Typography.Link hover or active color. [@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
+- 💄 Adjust collapse arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - 🐞 Fix Slider keep tooltip align with handle when dragging. [#27489](https://github.com/ant-design/ant-design/pull/27489)
 - 🐞 Fix the problem that the border style of RangePicker is abnormal when selecting again after selecting the same time. [#27438](https://github.com/ant-design/ant-design/pull/27438)
 - 🐞 Fix the Steps title is not centered when enabling `progressDot`. [#27406](https://github.com/ant-design/ant-design/pull/27406)
-- Typography
-  - 🐞 Fix Typography Invalid regular expression issue with particular content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
-  - 🐞 Fix disabled Typography.Link hover or active color. [@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
 - 💄 Fix Descriptions style when `label` use block element. [#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 Fix the problem that the border style is abnormal when the Select component triggers verification in the Form. [#27378](https://github.com/ant-design/ant-design/pull/27378)
 
