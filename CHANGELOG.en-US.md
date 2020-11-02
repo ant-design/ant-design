@@ -19,7 +19,9 @@ timeline: true
 
 `2020-11-02`
 
-- 🔥 Image add `preview.getContainer` property. [#26713](https://github.com/ant-design/ant-design/pull/26713) [@rfreling](https://github.com/rfreling)
+- Image
+  - 🔥 Image add `preview.getContainer` property. [#26713](https://github.com/ant-design/ant-design/pull/26713) [@rfreling](https://github.com/rfreling)
+  - 🐞 Fix Image `style` prop not acting on img element. [#27446](https://github.com/ant-design/ant-design/pull/27446)
 - 🆕 ConfigProvider add `form.requiredMark`. [#27322](https://github.com/ant-design/ant-design/pull/27322)
 - 🆕 Statistic add `loading` prop. [#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
 - Avatar
