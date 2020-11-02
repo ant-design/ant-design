@@ -23,6 +23,7 @@ export interface CollapseProps {
   prefixCls?: string;
   expandIcon?: (panelProps: PanelProps) => React.ReactNode;
   expandIconPosition?: ExpandIconPosition;
+  headerCollapsableOnly?: boolean;
   ghost?: boolean;
 }
 
