@@ -94,17 +94,17 @@
   }
 
   // >>> Switcher
-  & &-switcher {
+  &-switcher {
     .antTreeSwitcherIcon();
     position: relative;
     flex: none;
     align-self: stretch;
-
     width: @tree-title-height;
     margin: 0;
     line-height: @tree-title-height;
     text-align: center;
     cursor: pointer;
+    user-select: none;
 
     &-noop {
       cursor: default;
@@ -241,6 +241,10 @@
     .@{custom-tree-prefix-cls}-switcher {
       z-index: 1;
       background: @component-background;
+
+      &-line-icon {
+        vertical-align: -.225em;
+      }
     }
   }
 }

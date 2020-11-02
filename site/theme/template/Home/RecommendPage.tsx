@@ -39,7 +39,8 @@ const LIST_CN: Recommend[] = [
 const LIST_EN: Recommend[] = [
   {
     title: 'New generation of Ant Design, the future is coming, let us create it together!',
-    description: 'Welcome to join us，Ant Designers！',
+    description:
+      'Welcome to join us, Ant Designers!',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yGcPRroihLQAAAAAAAAAAAAAARQnAQ',
     href: 'https://zhuanlan.zhihu.com/p/269789439',
     popularize: true,
