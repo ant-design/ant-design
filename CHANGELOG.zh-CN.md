@@ -37,7 +37,7 @@ timeline: true
 - Input
   - 🆕 Input.Textarea 支持 `size` 属性。[#27110](https://github.com/ant-design/ant-design/pull/27110)
   - 🐞 修复 Input `allowClear` 时 `className` 丢失的问题。[#27462](https://github.com/ant-design/ant-design/pull/27462)
-  - 💄 调整 Input 折叠箭头的位置与第一行对齐[#27363](https://github.com/ant-design/ant-design/pull/27363)
+  - 💄 调整 Collapse 折叠箭头的位置与第一行文字对齐。[#27363](https://github.com/ant-design/ant-design/pull/27363)
 - Table
   - 🆕 Table.Summary.Cell 支持 `align` 配置。[#27365](https://github.com/ant-design/ant-design/pull/27365)
   - 🐞 修复 Table 切换页长时 `onShowSizeChange` 触发两次的问题。[#27417](https://github.com/ant-design/ant-design/pull/27417)
