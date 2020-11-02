@@ -43,7 +43,7 @@ timeline: true
   - 🐞 修复 Table 切换页长时 `onShowSizeChange` 触发两次的问题。[#27417](https://github.com/ant-design/ant-design/pull/27417)
   - 🐞 修复 Table `pagination` 有时候会缓存先前设置的问题。[#27412](https://github.com/ant-design/ant-design/pull/27412)
 - 🐞 修复 RangePicker 选择同一时间后再次选择时边框样式异常的问题。[#27438](https://github.com/ant-design/ant-design/pull/27438)
-- 🐞 修复水平方向上的 Steps 内容宽度。[#27406](https://github.com/ant-design/ant-design/pull/27406) [@Amumu](https://github.com/Amumu)
+- 🐞 修复 Steps 开启 `progressDot` 时标题未居中对齐的问题。[#27406](https://github.com/ant-design/ant-design/pull/27406) [@yoyo837](https://github.com/yoyo837)
 - 🐞 修复 Typography 省略特定内容无效的问题。[#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
 - 💄 修复 Descriptions 在 `label` 自定义为块状元素时的样式问题。[#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 修复 Select 组件在 Form 中触发校验时边框样式异常的问题。[#27378](https://github.com/ant-design/ant-design/pull/27378)
