@@ -24,9 +24,6 @@ timeline: true
   - 🐞 Fix Image `style` prop not acting on img element. [#27446](https://github.com/ant-design/ant-design/pull/27446)
 - 🆕 ConfigProvider add `form.requiredMark`. [#27322](https://github.com/ant-design/ant-design/pull/27322)
 - 🆕 Statistic add `loading` prop. [#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
-- Collapse
-  - 🆕 Add `headerCollapsableOnly`, only clicking on header collapsable. [#27496](https://github.com/ant-design/ant-design/pull/27496)
-  - 💄 Adjust arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - Avatar
   - 🔥 Support Image element as prop for Avatar component. [#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
   - 🆕 Avatar.Group add `size` props. [#27348](https://github.com/ant-design/ant-design/pull/27348)
@@ -53,6 +50,7 @@ timeline: true
 - 🐞 Fix Slider keep tooltip align with handle when dragging. [#27489](https://github.com/ant-design/ant-design/pull/27489)
 - 🐞 Fix RangePicker selected range border style. [#27438](https://github.com/ant-design/ant-design/pull/27438)
 - 🐞 Fix Steps title is not centered when enabling `progressDot`. [#27406](https://github.com/ant-design/ant-design/pull/27406)
+- 💄 Adjust Collapse arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - 💄 Fix Descriptions style when `label` use block element. [#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 Fix the problem that the border style is abnormal when the Select component triggers verification in the Form. [#27378](https://github.com/ant-design/ant-design/pull/27378)
 
