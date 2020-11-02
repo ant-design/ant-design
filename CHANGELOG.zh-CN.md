@@ -45,7 +45,7 @@ timeline: true
 - 🐞 修复 RangePicker 选择同一时间后再次选择时边框样式异常的问题。[#27438](https://github.com/ant-design/ant-design/pull/27438)
 - 🐞 修复 Steps 开启 `progressDot` 时标题未居中对齐的问题。[#27406](https://github.com/ant-design/ant-design/pull/27406)
 - Typography
-  - 🐞 修复省略特定内容无效的问题。[#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
+  - 🐞 修复 Typography 特定内容出现非法正则表达式错误的问题。[#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
   - 🐞 修复 Typography.Link 禁用时鼠标悬浮或点击的颜色问题。[@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
 - 💄 修复 Descriptions 在 `label` 自定义为块状元素时的样式问题。[#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 修复 Select 组件在 Form 中触发校验时边框样式异常的问题。[#27378](https://github.com/ant-design/ant-design/pull/27378)
