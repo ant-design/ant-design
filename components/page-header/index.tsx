@@ -69,11 +69,17 @@ const getBackIcon = (props: PageHeaderProps, direction: string = 'ltr') => {
 const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: string = 'ltr') => {
   const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
-  if (title || subTitle || tags || extra) {
-    const backIcon = getBackIcon(props, direction);
-    const backIconDom = renderBack(prefixCls, backIcon, onBack);
-    return (
-      <div className={headingPrefixCls}>
+  const hasHeading = title || subTitle || tags || extra;
+  // 如果 什么都没有，直接返回一个 null
+  if (!hasHeading) {
+    return null;
+  }
+  const backIcon = getBackIcon(props, direction);
+  const backIconDom = renderBack(prefixCls, backIcon, onBack);
+  const hasTitle = backIconDom || avatar || hasHeading;
+  return (
+    <div className={headingPrefixCls}>
+      {hasTitle && (
         <div className={`${headingPrefixCls}-left`}>
           {backIconDom}
           {avatar && <Avatar {...avatar} />}
@@ -95,11 +101,10 @@ const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: strin
           )}
           {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
         </div>
-        {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
-      </div>
-    );
-  }
-  return null;
+      )}
+      {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
+    </div>
+  );
 };
 
 const renderFooter = (prefixCls: string, footer: React.ReactNode) => {

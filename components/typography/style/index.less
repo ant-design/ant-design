@@ -109,6 +109,11 @@
       color: @disabled-color;
       cursor: not-allowed;
       pointer-events: none;
+      
+      &:active,
+      &:hover {
+        color: @disabled-color;
+      }
     }
   }
 

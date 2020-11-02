@@ -22,8 +22,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
 | gap | 字符类型距离左右两侧边界单位像素 | number | 4 | 4.3.0 |
 | icon | 设置头像的自定义图标 | ReactNode | - |  |
 | shape | 指定头像的形状 | `circle` \| `square` | `circle` |  |
-| size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| `{ xs: number, sm: number, ...}` | `default` | 4.7.0 |
-| src | 图片类头像的资源地址或者图片元素 | string \| ReactNode | - |  |
+| size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.7.0 |
+| src | 图片类头像的资源地址或者图片元素 | string \| ReactNode | - | ReactNode: 4.8.0 |
 | srcSet | 设置图片类头像响应式资源地址 | string | - |  |
 | onError | 图片加载失败的事件，返回 false 会关闭组件默认的 fallback 行为 | () => boolean | - |  |
 

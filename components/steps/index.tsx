@@ -47,12 +47,13 @@ export default class Steps extends React.Component<StepsProps, any> {
   renderSteps = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const prefixCls = getPrefixCls('steps', this.props.prefixCls);
     const iconPrefix = getPrefixCls('', this.props.iconPrefix);
-    const { percent, size } = this.props;
-    const className = classNames(
+    const { percent, size, className } = this.props;
+    const stepsClassName = classNames(
       {
         [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-with-progress`]: percent !== undefined,
       },
-      this.props.className,
+      className,
     );
     const icons = {
       finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
@@ -90,11 +91,11 @@ export default class Steps extends React.Component<StepsProps, any> {
     return (
       <RcSteps
         icons={icons}
-        {...omit(this.props, ['progress'])}
+        {...omit(this.props, ['percent'])}
         stepIcon={stepIconRender}
         prefixCls={prefixCls}
         iconPrefix={iconPrefix}
-        className={className}
+        className={stepsClassName}
       />
     );
   };
