@@ -29,6 +29,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | expandIconPosition | 设置图标位置 | `left` \| `right` | - |  |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 | onChange | 切换面板的回调 | function | - |  |
+| headerCollapsableOnly | 仅点击面板头可折叠 | boolean | false | 4.8.0 |
 
 ### Collapse.Panel
 

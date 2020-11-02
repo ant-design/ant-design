@@ -28,6 +28,7 @@ A content area which can be collapsed and expanded.
 | expandIconPosition | Set expand icon position | `left` \| `right` | - |  |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
+| headerCollapsableOnly | Only clicking on header collapsable | boolean | false | 4.8.0 |
 
 ### Collapse.Panel
 
