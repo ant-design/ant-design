@@ -30,21 +30,21 @@ timeline: true
   - 🐞 Fix Tree text selecting when double click switcher icon. [#27476](https://github.com/ant-design/ant-design/pull/27476)
   - 🐞 Fix Tree with `showLine` not connect line when `title` break line. [#27386](https://github.com/ant-design/ant-design/pull/27386)
 - Modal
-  - 🐞 Fix Modal missing `modalRender` prop. [#27272](https://github.com/ant-design/ant-design/pull/27272) [@jieny](https://github.com/jieny)
-  - 🐞 `rootPrefixCls` set in `Modal.config` can be effective for the antd components used in `title` and `content`. [#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
   - 🆕 `modal.update()` supports functional updating. [#27163](https://github.com/ant-design/ant-design/pull/27163) [@Mongkii](https://github.com/Mongkii)
   - 🆕 Modal method add `bodyStyle` props. [#27292](https://github.com/ant-design/ant-design/pull/27292)
+  - 🐞 Fix Modal missing `modalRender` prop. [#27272](https://github.com/ant-design/ant-design/pull/27272) [@jieny](https://github.com/jieny)
+  - 🐞 `rootPrefixCls` set in `Modal.config` can be effective for the antd components used in `title` and `content`. [#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
 - Input
+  - 🆕 Input.Textarea support `size` props. [#27110](https://github.com/ant-design/ant-design/pull/27110)
   - 🐞 Fix Input missing `className` when `allowClear` is true. [#27462](https://github.com/ant-design/ant-design/pull/27462)
   - 💄 Adjust collapse arrow position align with first line (#27363). [#27363](https://github.com/ant-design/ant-design/pull/27363) [@二货机器人](https://github.com/二货机器人)
-  - 🆕 Input.Textarea support `size` props. [#27110](https://github.com/ant-design/ant-design/pull/27110)
-- 💄 Fix the problem that the border style of RangePicker is abnormal when selecting again after selecting the same time. [#27438](https://github.com/ant-design/ant-design/pull/27438)
 - Table
+  - 🆕 Table.Summary.Cell support `align` prop. [#27365](https://github.com/ant-design/ant-design/pull/27365)
   - 🐞 Fix Table `onShowSizeChange` trigger twice. [#27417](https://github.com/ant-design/ant-design/pull/27417)
   - 🐞 Fix Table `pagination` cache previous config issue. [#27412](https://github.com/ant-design/ant-design/pull/27412)
-  - 🆕 Table.Summary.Cell support `align` prop. [#27365](https://github.com/ant-design/ant-design/pull/27365)
+- 🐞 Fix the problem that the border style of RangePicker is abnormal when selecting again after selecting the same time. [#27438](https://github.com/ant-design/ant-design/pull/27438)
 - 🐞 Fix the width of the Steps content in the horizontal direction (#27406). [#27406](https://github.com/ant-design/ant-design/pull/27406) [@Amumu](https://github.com/Amumu)
-- 🐞 fix:  Invalid regular expression for particular ellipsis content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
+- 🐞 fix: Invalid regular expression for particular ellipsis content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
 - 💄 Fix Descriptions style when `label` use block element. [#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 Fix the problem that the border style is abnormal when the Select component triggers verification in the Form. [#27378](https://github.com/ant-design/ant-design/pull/27378)
 
