@@ -50,6 +50,18 @@ describe('Statistic', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('loading with skeleton', async () => {
+    let loading = false;
+    const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);
+    expect(wrapper.find('.ant-skeleton')).toHaveLength(0);
+    expect(wrapper.find('.ant-statistic-content')).toHaveLength(1);
+
+    loading = true;
+    wrapper.setProps({ loading });
+    expect(wrapper.find('.ant-skeleton')).toHaveLength(1);
+    expect(wrapper.find('.ant-statistic-content')).toHaveLength(0);
+  });
+
   describe('Countdown', () => {
     it('render correctly', () => {
       const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');

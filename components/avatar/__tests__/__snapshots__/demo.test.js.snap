@@ -599,6 +599,43 @@ Array [
       </span>
     </span>
   </div>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-avatar-group"
+  >
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+    >
+      <img
+        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      />
+    </span>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      style="background-color:#f56a00"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      >
+        K
+      </span>
+    </span>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      style="color:#f56a00;background-color:#fde3cf"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      >
+        +2
+      </span>
+    </span>
+  </div>,
 ]
 `;
 
@@ -759,6 +796,18 @@ Array [
     <img
       src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     />
+  </span>,
+  <span
+    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  >
+    <div
+      class="ant-image"
+    >
+      <img
+        class="ant-image-img"
+        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      />
+    </div>
   </span>,
   <span
     class="ant-avatar ant-avatar-circle"

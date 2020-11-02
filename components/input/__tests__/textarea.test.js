@@ -155,6 +155,12 @@ describe('TextArea', () => {
       expect(wrapper.find('.ant-input').props().style.background).toBeFalsy();
     });
   });
+
+  it('should support size', async () => {
+    const wrapper = mount(<TextArea size="large" />);
+    expect(wrapper.find('textarea').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
 
 describe('TextArea allowClear', () => {

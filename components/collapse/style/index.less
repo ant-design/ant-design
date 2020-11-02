@@ -35,11 +35,10 @@
         .iconfont-mixin();
 
         position: absolute;
-        top: 50%;
+        top: ceil(@padding-sm + (@font-size-base * @line-height-base - @font-size-base) / 2);
         left: @collapse-header-arrow-left;
         display: inline-block;
         font-size: @font-size-sm;
-        transform: translateY(-50%);
 
         & svg {
           transition: transform 0.24s;

@@ -5,7 +5,7 @@ import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { ColProps } from '../grid/col';
-import { ConfigContext, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { FormContext, FormContextProps } from './context';
 import { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
@@ -32,7 +32,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
 
 const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props, ref) => {
   const contextSize = React.useContext(SizeContext);
-  const { getPrefixCls, direction }: ConfigConsumerProps = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
   const { name } = props;
 
@@ -58,12 +58,16 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       return requiredMark;
     }
 
+    if (contextForm && contextForm.requiredMark !== undefined) {
+      return contextForm.requiredMark;
+    }
+
     if (hideRequiredMark) {
       return false;
     }
 
     return true;
-  }, [hideRequiredMark, requiredMark]);
+  }, [hideRequiredMark, requiredMark, contextForm]);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
