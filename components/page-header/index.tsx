@@ -69,42 +69,41 @@ const getBackIcon = (props: PageHeaderProps, direction: string = 'ltr') => {
 const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: string = 'ltr') => {
   const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
-  if (title || subTitle || tags || extra) {
-    const backIcon = getBackIcon(props, direction);
-    const backIconDom = renderBack(prefixCls, backIcon, onBack);
-    const hasTitle = backIconDom || avatar || title || subTitle || tags || extra;
-    return (
-      hasTitle && (
-        <div className={headingPrefixCls}>
-          {hasTitle && (
-            <div className={`${headingPrefixCls}-left`}>
-              {backIconDom}
-              {avatar && <Avatar {...avatar} />}
-              {title && (
-                <span
-                  className={`${headingPrefixCls}-title`}
-                  title={typeof title === 'string' ? title : undefined}
-                >
-                  {title}
-                </span>
-              )}
-              {subTitle && (
-                <span
-                  className={`${headingPrefixCls}-sub-title`}
-                  title={typeof subTitle === 'string' ? subTitle : undefined}
-                >
-                  {subTitle}
-                </span>
-              )}
-              {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
-            </div>
-          )}
-          {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
-        </div>
-      )
-    );
+  // 如果 什么都没有，直接返回一个 空
+  if (!title && !subTitle && !tags && !extra) {
+    return null;
   }
-  return null;
+  const backIcon = getBackIcon(props, direction);
+  const backIconDom = renderBack(prefixCls, backIcon, onBack);
+  const hasTitle = backIconDom || avatar || title || subTitle || tags || extra;
+  return (
+    <div className={headingPrefixCls}>
+      {hasTitle && (
+        <div className={`${headingPrefixCls}-left`}>
+          {backIconDom}
+          {avatar && <Avatar {...avatar} />}
+          {title && (
+            <span
+              className={`${headingPrefixCls}-title`}
+              title={typeof title === 'string' ? title : undefined}
+            >
+              {title}
+            </span>
+          )}
+          {subTitle && (
+            <span
+              className={`${headingPrefixCls}-sub-title`}
+              title={typeof subTitle === 'string' ? subTitle : undefined}
+            >
+              {subTitle}
+            </span>
+          )}
+          {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
+        </div>
+      )}
+      {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
+    </div>
+  );
 };
 
 const renderFooter = (prefixCls: string, footer: React.ReactNode) => {
