@@ -48,6 +48,7 @@ timeline: true
   - 🐞 Fix Typography Invalid regular expression issue with particular content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
   - 💄 Fix disabled Typography.Link hover or active color. [@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
 - 💄 Adjust collapse arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
+- 🐞 Fix PageHeader that empty dom will be displayed when `title` is empty. [#27485](https://github.com/ant-design/ant-design/pull/27485)
 - 🐞 Fix Slider keep tooltip align with handle when dragging. [#27489](https://github.com/ant-design/ant-design/pull/27489)
 - 🐞 Fix the problem that the border style of RangePicker is abnormal when selecting again after selecting the same time. [#27438](https://github.com/ant-design/ant-design/pull/27438)
 - 🐞 Fix the Steps title is not centered when enabling `progressDot`. [#27406](https://github.com/ant-design/ant-design/pull/27406)
