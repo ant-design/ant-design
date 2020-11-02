@@ -69,13 +69,14 @@ const getBackIcon = (props: PageHeaderProps, direction: string = 'ltr') => {
 const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: string = 'ltr') => {
   const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
-  // 如果 什么都没有，直接返回一个 空
-  if (!title && !subTitle && !tags && !extra) {
+  const hasHeading = title || subTitle || tags || extra;
+  // 如果 什么都没有，直接返回一个 null
+  if (!hasHeading) {
     return null;
   }
   const backIcon = getBackIcon(props, direction);
   const backIconDom = renderBack(prefixCls, backIcon, onBack);
-  const hasTitle = backIconDom || avatar || title || subTitle || tags || extra;
+  const hasTitle = backIconDom || avatar || hasHeading;
   return (
     <div className={headingPrefixCls}>
       {hasTitle && (
