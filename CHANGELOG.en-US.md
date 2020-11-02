@@ -20,20 +20,20 @@ timeline: true
 `2020-11-02`
 
 - Image
-  - 🔥 Image add `preview.getContainer` property. [#26713](https://github.com/ant-design/ant-design/pull/26713) [@rfreling](https://github.com/rfreling)
+  - 🔥 Image support `preview.getContainer` property. [#26713](https://github.com/ant-design/ant-design/pull/26713) [@rfreling](https://github.com/rfreling)
   - 🐞 Fix Image `style` prop not acting on img element. [#27446](https://github.com/ant-design/ant-design/pull/27446)
-- 🆕 ConfigProvider add `form.requiredMark`. [#27322](https://github.com/ant-design/ant-design/pull/27322)
-- 🆕 Statistic add `loading` prop. [#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
+- 🆕 ConfigProvider support `form.requiredMark`. [#27322](https://github.com/ant-design/ant-design/pull/27322)
+- 🆕 Statistic support `loading` prop. [#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
 - Avatar
   - 🔥 Support Image element as prop for Avatar component. [#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
-  - 🆕 Avatar.Group add `size` props. [#27348](https://github.com/ant-design/ant-design/pull/27348)
+  - 🆕 Avatar.Group support `size` props. [#27348](https://github.com/ant-design/ant-design/pull/27348)
 - 🆕 Row support `noWrap` to make Col in line. [#27469](https://github.com/ant-design/ant-design/pull/27469)
 - Tree
   - 🐞 Fix Tree text selecting when double click switcher icon. [#27476](https://github.com/ant-design/ant-design/pull/27476)
   - 🐞 Fix Tree with `showLine` not connect line when `title` break line. [#27386](https://github.com/ant-design/ant-design/pull/27386)
 - Modal
   - 🆕 `modal.update()` supports functional updating. [#27163](https://github.com/ant-design/ant-design/pull/27163) [@Mongkii](https://github.com/Mongkii)
-  - 🆕 Modal method add `bodyStyle` props. [#27292](https://github.com/ant-design/ant-design/pull/27292)
+  - 🆕 Modal method support `bodyStyle` props. [#27292](https://github.com/ant-design/ant-design/pull/27292)
   - 🐞 Fix Modal missing `modalRender` prop. [#27272](https://github.com/ant-design/ant-design/pull/27272) [@jieny](https://github.com/jieny)
   - 🐞 `rootPrefixCls` set in `Modal.config` can be effective for the antd components used in `title` and `content`. [#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
 - Input
@@ -46,10 +46,12 @@ timeline: true
 - Typography
   - 🐞 Fix Typography Invalid regular expression issue with particular content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
   - 💄 Fix disabled Typography.Link hover or active color. [@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
+- Steps
+  - 🐞 Fix title is not centered when enabling `progressDot`. [#27406](https://github.com/ant-design/ant-design/pull/27406)
+  - 🐞 Fix style in small screen. [#27499](https://github.com/ant-design/ant-design/pull/27499)
 - 🐞 Fix PageHeader that empty dom will be displayed when `title` is empty. [#27485](https://github.com/ant-design/ant-design/pull/27485)
 - 🐞 Fix Slider keep tooltip align with handle when dragging. [#27489](https://github.com/ant-design/ant-design/pull/27489)
 - 🐞 Fix RangePicker selected range border style. [#27438](https://github.com/ant-design/ant-design/pull/27438)
-- 🐞 Fix Steps title is not centered when enabling `progressDot`. [#27406](https://github.com/ant-design/ant-design/pull/27406)
 - 💄 Adjust Collapse arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - 💄 Fix Descriptions style when `label` use block element. [#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 Fix Select abnormal border style in Form validation. [#27378](https://github.com/ant-design/ant-design/pull/27378)
