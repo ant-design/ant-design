@@ -43,7 +43,7 @@ timeline: true
   - 🐞 Fix Table `onShowSizeChange` trigger twice. [#27417](https://github.com/ant-design/ant-design/pull/27417)
   - 🐞 Fix Table `pagination` cache previous config issue. [#27412](https://github.com/ant-design/ant-design/pull/27412)
 - 🐞 Fix the problem that the border style of RangePicker is abnormal when selecting again after selecting the same time. [#27438](https://github.com/ant-design/ant-design/pull/27438)
-- 🐞 Fix the width of the Steps content in the horizontal direction when enabling `progressDot`. [#27406](https://github.com/ant-design/ant-design/pull/27406)
+- 🐞 Fix the Steps title is not centered when enabling `progressDot`. [#27406](https://github.com/ant-design/ant-design/pull/27406)
 - Typography
   - 🐞 Fix ellipsis issue with particular content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
   - 🐞 Fix disabled Typography.Link hover or active color. [@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
