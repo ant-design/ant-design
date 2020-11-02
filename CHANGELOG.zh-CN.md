@@ -24,7 +24,9 @@ timeline: true
   - 🐞 修复 Image `style` 属性未作用于 img 元素的问题。[#27446](https://github.com/ant-design/ant-design/pull/27446)
 - 🆕 ConfigProvider 增加 `form.requiredMark` 配置。[#27322](https://github.com/ant-design/ant-design/pull/27322)
 - 🆕 Statistic 组件增加 `loading` 属性。[#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
-- 🆕 Collapse 新增 `headerCollapsableOnly` 属性，仅点击面板头可折叠。[#27496](https://github.com/ant-design/ant-design/pull/27496)
+- Collapse
+  - 🆕 新增 `headerCollapsableOnly` 属性，仅点击面板头可折叠。[#27496](https://github.com/ant-design/ant-design/pull/27496)
+  - 💄 调整折叠箭头的位置与第一行文字对齐。[#27363](https://github.com/ant-design/ant-design/pull/27363)
 - Avatar
   - 🔥 Avatar 组件支持直接传入 Image 元素。[#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
   - 🆕 Avatar.Group 增加 `size` 属性。[#27348](https://github.com/ant-design/ant-design/pull/27348)
@@ -47,7 +49,6 @@ timeline: true
 - Typography
   - 🐞 修复 Typography 特定内容出现非法正则表达式错误的问题。[#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
   - 💄 修复 Typography.Link 禁用时鼠标悬浮或点击的颜色问题。[@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
-- 💄 调整 Collapse 折叠箭头的位置与第一行文字对齐。[#27363](https://github.com/ant-design/ant-design/pull/27363)
 - 🐞 修复 PageHeader `title` 为空时，会展示空 DOM 的问题。[#27485](https://github.com/ant-design/ant-design/pull/27485)
 - 🐞 修复 Slider 拖拽时提示内容对齐问题。[#27489](https://github.com/ant-design/ant-design/pull/27489)
 - 🐞 修复 RangePicker 选择同一时间后再次选择时边框样式异常的问题。[#27438](https://github.com/ant-design/ant-design/pull/27438)

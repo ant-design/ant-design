@@ -24,7 +24,9 @@ timeline: true
   - 🐞 Fix Image `style` prop not acting on img element. [#27446](https://github.com/ant-design/ant-design/pull/27446)
 - 🆕 ConfigProvider add `form.requiredMark`. [#27322](https://github.com/ant-design/ant-design/pull/27322)
 - 🆕 Statistic add `loading` prop. [#26811](https://github.com/ant-design/ant-design/pull/26811) [@appleshell](https://github.com/appleshell)
-- 🆕 Collapse add `headerCollapsableOnly`, only clicking on header collapsable. [#27496](https://github.com/ant-design/ant-design/pull/27496)
+- Collapse
+  - 🆕 Add `headerCollapsableOnly`, only clicking on header collapsable. [#27496](https://github.com/ant-design/ant-design/pull/27496)
+  - 💄 Adjust arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - Avatar
   - 🔥 Support Image element as prop for Avatar component. [#27448](https://github.com/ant-design/ant-design/pull/27448) [@n0ruSh](https://github.com/n0ruSh)
   - 🆕 Avatar.Group add `size` props. [#27348](https://github.com/ant-design/ant-design/pull/27348)
@@ -47,7 +49,6 @@ timeline: true
 - Typography
   - 🐞 Fix Typography Invalid regular expression issue with particular content. [#27383](https://github.com/ant-design/ant-design/pull/27383) [@ttys026](https://github.com/ttys026)
   - 💄 Fix disabled Typography.Link hover or active color. [@27487](https://github.com/ant-design/ant-design/pull/27487) [@Liu-Ya](https://github.com/Liu-Ya)
-- 💄 Adjust collapse arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - 🐞 Fix PageHeader that empty dom will be displayed when `title` is empty. [#27485](https://github.com/ant-design/ant-design/pull/27485)
 - 🐞 Fix Slider keep tooltip align with handle when dragging. [#27489](https://github.com/ant-design/ant-design/pull/27489)
 - 🐞 Fix the problem that the border style of RangePicker is abnormal when selecting again after selecting the same time. [#27438](https://github.com/ant-design/ant-design/pull/27438)
