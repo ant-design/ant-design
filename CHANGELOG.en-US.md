@@ -53,6 +53,7 @@ timeline: true
 - 💄 Adjust Collapse arrow position align with first line. [#27363](https://github.com/ant-design/ant-design/pull/27363)
 - 💄 Fix Descriptions style when `label` use block element. [#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 Fix the problem that the border style is abnormal when the Select component triggers verification in the Form. [#27378](https://github.com/ant-design/ant-design/pull/27378)
+- 🛠 Upgrade `rc-rate` to 2.9.x to reduce bundle size. [#27497](https://github.com/ant-design/ant-design/pull/27497)
 
 ## 4.7.3
 

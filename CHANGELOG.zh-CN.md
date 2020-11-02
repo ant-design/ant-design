@@ -53,6 +53,7 @@ timeline: true
 - 💄 调整 Collapse 折叠箭头的位置与第一行文字对齐。[#27363](https://github.com/ant-design/ant-design/pull/27363)
 - 💄 修复 Descriptions 在 `label` 自定义为块状元素时的样式问题。[#27375](https://github.com/ant-design/ant-design/pull/27375)
 - 💄 修复 Select 组件在 Form 中触发校验时边框样式异常的问题。[#27378](https://github.com/ant-design/ant-design/pull/27378)
+- 🛠 升级 `rc-rate` 到 2.9.x 以降低打包尺寸。[#27497](https://github.com/ant-design/ant-design/pull/27497)
 
 ## 4.7.3
 
