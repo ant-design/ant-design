@@ -9,8 +9,7 @@ import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import RcSelect from 'rc-select';
-import Select, { InternalSelectProps, OptionType } from '../select';
+import Select, { InternalSelectProps, OptionType, RefSelectProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { isValidElement } from '../_util/reactNode';
@@ -35,7 +34,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-const AutoComplete: React.ForwardRefRenderFunction<RcSelect<any>, AutoCompleteProps> = (
+const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteProps> = (
   props,
   ref,
 ) => {
@@ -126,7 +125,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RcSelect<any>, AutoCompletePr
   );
 };
 
-const RefAutoComplete = React.forwardRef<unknown, AutoCompleteProps>(AutoComplete);
+const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(AutoComplete);
 
 type RefAutoCompleteWithOption = typeof RefAutoComplete & {
   Option: OptionType;
