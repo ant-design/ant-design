@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/popconfirm/demo/async.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Popconfirm with async logic
+  </span>
+</button>
+`;
+
 exports[`renders ./components/popconfirm/demo/basic.md correctly 1`] = `
 <a
   href="#"
