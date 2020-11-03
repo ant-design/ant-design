@@ -35,6 +35,11 @@ export interface SelectProps<VT>
   mode?: 'multiple' | 'tags';
 }
 
+export interface RefSelectProps {
+  focus: () => void;
+  blur: () => void;
+}
+
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
 const InternalSelect = <VT extends SelectValue = SelectValue>(
@@ -51,7 +56,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     transitionName = 'slide-up',
     ...props
   }: SelectProps<VT>,
-  ref: React.Ref<HTMLInputElement>,
+  ref: React.Ref<RefSelectProps>,
 ) => {
   const {
     getPopupContainer: getContextPopupContainer,
