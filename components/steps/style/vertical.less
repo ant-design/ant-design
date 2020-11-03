@@ -4,7 +4,7 @@
   .@{steps-prefix-cls}-item {
     display: block;
     flex: 1 0 auto;
-    padding-left: 0 !important;
+    padding-left: 0;
     overflow: visible;
 
     &-icon {
@@ -75,5 +75,9 @@
 @media (max-width: @screen-xs) {
   .@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
     .steps-vertical;
+
+    .@{steps-prefix-cls}-item {
+      padding-left: 0 !important;
+    }
   }
 }
