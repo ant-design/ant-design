@@ -137,10 +137,6 @@
 // vertical
 .steps-vertical() {
   .@{steps-prefix-cls}-item {
-    .@{steps-prefix-cls}-rtl& {
-      padding-right: 0 !important;
-    }
-
     &-icon {
       .@{steps-prefix-cls}-rtl& {
         float: right;
@@ -248,6 +244,15 @@
     .@{steps-prefix-cls}-rtl& {
       right: -2px;
       left: auto;
+    }
+  }
+}
+
+@media (max-width: @screen-xs) {
+  .@{steps-prefix-cls}-rtl.@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
+    // https://github.com/ant-design/ant-design/issues/27498
+    .@{steps-prefix-cls}-item {
+      padding-right: 0 !important;
     }
   }
 }
