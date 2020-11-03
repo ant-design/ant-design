@@ -25,7 +25,7 @@ const colors = [
   'green',
   'blue',
   'purple',
-  'geekblue',
+  'deepblue',
   'magenta',
   'volcano',
   'gold',

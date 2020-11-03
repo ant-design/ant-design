@@ -614,12 +614,12 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-geekblue"
+          class="ant-badge-status-dot ant-badge-status-deepblue"
         />
         <span
           class="ant-badge-status-text"
         >
-          geekblue
+          deepblue
         </span>
       </span>
     </div>

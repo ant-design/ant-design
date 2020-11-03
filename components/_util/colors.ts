@@ -11,7 +11,7 @@ export const PresetColorTypes = tuple(
   'green',
   'blue',
   'purple',
-  'geekblue',
+  'deepblue',
   'magenta',
   'volcano',
   'gold',

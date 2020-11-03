@@ -61,9 +61,9 @@ const ColorPalettes = props => {
       description: '包容、科技、普惠',
     },
     {
-      name: 'geekblue',
-      english: 'Geek Blue',
-      chinese: '极客蓝',
+      name: 'deepblue',
+      english: 'Deep Blue',
+      chinese: '深蓝',
       description: '探索、钻研',
     },
     {

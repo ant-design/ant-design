@@ -29,7 +29,7 @@ ReactDOM.render(
       <Tag color="green">green</Tag>
       <Tag color="cyan">cyan</Tag>
       <Tag color="blue">blue</Tag>
-      <Tag color="geekblue">geekblue</Tag>
+      <Tag color="deepblue">deepblue</Tag>
       <Tag color="purple">purple</Tag>
     </div>
     <Divider orientation="left">Custom</Divider>

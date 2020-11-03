@@ -302,7 +302,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       NICE
                     </span>
                     <span
-                      class="ant-tag ant-tag-geekblue"
+                      class="ant-tag ant-tag-deepblue"
                     >
                       DEVELOPER
                     </span>
@@ -415,7 +415,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       COOL
                     </span>
                     <span
-                      class="ant-tag ant-tag-geekblue"
+                      class="ant-tag ant-tag-deepblue"
                     >
                       TEACHER
                     </span>
@@ -11746,7 +11746,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                           NICE
                         </span>
                         <span
-                          class="ant-tag ant-tag-geekblue"
+                          class="ant-tag ant-tag-deepblue"
                         >
                           DEVELOPER
                         </span>
@@ -11863,7 +11863,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                           COOL
                         </span>
                         <span
-                          class="ant-tag ant-tag-geekblue"
+                          class="ant-tag ant-tag-deepblue"
                         >
                           TEACHER
                         </span>
