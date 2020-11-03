@@ -7,13 +7,26 @@ import { ValidateMessages } from 'rc-field-form/lib/interface';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
+import {
+  ConfigConsumer,
+  ConfigContext,
+  CSPConfig,
+  DirectionType,
+  ConfigConsumerProps,
+} from './context';
 import { SizeType, SizeContextProvider } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
 
-export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
+export {
+  RenderEmptyHandler,
+  ConfigContext,
+  ConfigConsumer,
+  CSPConfig,
+  DirectionType,
+  ConfigConsumerProps,
+};
 
 export const configConsumerProps = [
   'getTargetContainer',
@@ -47,7 +60,7 @@ export interface ConfigProviderProps {
     ghost: boolean;
   };
   componentSize?: SizeType;
-  direction?: 'ltr' | 'rtl';
+  direction?: DirectionType;
   space?: {
     size?: SizeType | number;
   };

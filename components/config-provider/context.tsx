@@ -8,6 +8,8 @@ export interface CSPConfig {
   nonce?: string;
 }
 
+export type DirectionType = 'ltr' | 'rtl' | undefined;
+
 export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
@@ -23,7 +25,7 @@ export interface ConfigConsumerProps {
   pageHeader?: {
     ghost: boolean;
   };
-  direction?: 'ltr' | 'rtl';
+  direction?: DirectionType;
   space?: {
     size?: SizeType | number;
   };

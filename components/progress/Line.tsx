@@ -2,9 +2,11 @@ import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 import { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { validProgress, getSuccessPercent } from './utils';
+import { DirectionType } from '../config-provider';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
+  direction?: DirectionType;
   children: React.ReactNode;
 }
 
@@ -47,11 +49,11 @@ export const sortGradient = (gradients: StringGradients) => {
  * And...
  * Besides women, there is the code.
  */
-export const handleGradient = (strokeColor: ProgressGradient) => {
+export const handleGradient = (strokeColor: ProgressGradient, directionConfig: DirectionType) => {
   const {
     from = presetPrimaryColors.blue,
     to = presetPrimaryColors.blue,
-    direction = 'to right',
+    direction = directionConfig === 'rtl' ? 'to left' : 'to right',
     ...rest
   } = strokeColor;
   if (Object.keys(rest).length !== 0) {
@@ -64,6 +66,7 @@ export const handleGradient = (strokeColor: ProgressGradient) => {
 const Line: React.FC<LineProps> = props => {
   const {
     prefixCls,
+    direction: directionConfig,
     percent,
     strokeWidth,
     size,
@@ -76,7 +79,7 @@ const Line: React.FC<LineProps> = props => {
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
-      ? handleGradient(strokeColor)
+      ? handleGradient(strokeColor, directionConfig)
       : {
           background: strokeColor,
         };
