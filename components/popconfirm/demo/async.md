@@ -16,56 +16,43 @@ Asynchronously close a popconfirm when a the OK button is pressed. For example, 
 ```jsx
 import { Popconfirm, Button } from 'antd';
 
-class App extends React.Component {
-  state = {
-    visible: false,
-    confirmLoading: false,
+const App = () => {
+  const [visible, setVisible] = React.useState(false);
+  const [confirmLoading, setConfirmLoading] = React.useState(false);
+
+  const showPopconfirm = () => {
+    setVisible(true);
   };
 
-  showPopconfirm = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  handleOk = () => {
-    this.setState({
-      confirmLoading: true,
-    });
+  const handleOk = () => {
+    setConfirmLoading(true);
     setTimeout(() => {
-      this.setState({
-        visible: false,
-        confirmLoading: false,
-      });
+      setVisible(false);
+      setConfirmLoading(false);
     }, 2000);
   };
 
-  handleCancel = () => {
+  const handleCancel = () => {
     console.log('Clicked cancel button');
-    this.setState({
-      visible: false,
-    });
+    setVisible(false);
   };
 
-  render() {
-    const { visible, confirmLoading } = this.state;
-    return (
-      <>
-        <Popconfirm
-          title="Title"
-          visible={visible}
-          onConfirm={this.handleOk}
-          okButtonProps={{ loading: confirmLoading }}
-          onCancel={this.handleCancel}
-        >
-          <Button type="primary" onClick={this.showPopconfirm}>
-            Open Popconfirm with async logic
-          </Button>
-        </Popconfirm>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Popconfirm
+        title="Title"
+        visible={visible}
+        onConfirm={handleOk}
+        okButtonProps={{ loading: confirmLoading }}
+        onCancel={handleCancel}
+      >
+        <Button type="primary" onClick={showPopconfirm}>
+          Open Popconfirm with async logic
+        </Button>
+      </Popconfirm>
+    </>
+  );
+};
 
 ReactDOM.render(<App />, mountNode);
 ```
