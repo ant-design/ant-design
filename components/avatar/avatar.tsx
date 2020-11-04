@@ -20,7 +20,7 @@ export interface AvatarProps {
   size?: AvatarSize;
   gap?: number;
   /** Src of image avatar */
-  src?: string;
+  src?: React.ReactNode;
   /** Srcset of image avatar */
   srcSet?: string;
   draggable?: boolean;
