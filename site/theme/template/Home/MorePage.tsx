@@ -22,12 +22,10 @@ const MoreCard = ({ title, description, date, img, source, href, icons }: MorePr
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => {
-          if (window.gtag) {
-            window.gtag('event', '点击', {
-              event_category: '首页文章',
-              event_label: href,
-            });
-          }
+          window?.gtag('event', '点击', {
+            event_category: '首页文章',
+            event_label: href,
+          });
         }}
       >
         <Card hoverable cover={<img alt={title} src={img} />} className="more-card">
