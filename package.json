@@ -89,7 +89,7 @@
     "test-all": "sh -e ./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
-    "site:test": "jest --config .jest.site.js --cache=false",
+    "site:test": "jest --config .jest.site.js --cache=false --force-exit",
     "test-image": "npm run compile:less && docker-compose run tests",
     "version": "node ./scripts/generate-version",
     "argos": "argos upload imageSnapshots"
