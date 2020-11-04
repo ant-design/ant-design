@@ -11,7 +11,12 @@ import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 
 import Input from '../input';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import {
+  ConfigConsumer,
+  ConfigConsumerProps,
+  RenderEmptyHandler,
+  DirectionType,
+} from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
@@ -455,7 +460,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     this.input.blur();
   }
 
-  getPopupPlacement(direction: string = 'ltr') {
+  getPopupPlacement(direction: DirectionType = 'ltr') {
     const { popupPlacement } = this.props;
     if (popupPlacement !== undefined) {
       return popupPlacement;

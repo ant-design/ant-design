@@ -4,7 +4,7 @@ import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, DirectionType } from '../config-provider';
 import { tuple } from '../_util/type';
 
 const DrawerContext = React.createContext<Drawer | null>(null);
@@ -57,7 +57,7 @@ export interface IDrawerState {
 }
 
 interface InternalDrawerProps extends DrawerProps {
-  direction: 'rtl' | 'ltr' | undefined;
+  direction: DirectionType;
 }
 
 const defaultPushState: PushState = { distance: 180 };

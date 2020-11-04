@@ -63,7 +63,7 @@ export interface TransferProps {
   targetKeys?: string[];
   selectedKeys?: string[];
   render?: TransferRender;
-  onChange?: (targetKeys: string[], direction: string, moveKeys: string[]) => void;
+  onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
   listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
