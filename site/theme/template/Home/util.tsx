@@ -18,13 +18,6 @@ const siteData: { [prefix: string]: any } = {};
 export function getSiteData(keys: Array<string | number> = []): any {
   const prefix = keys.shift()!;
 
-  const isBrowser = (): boolean =>
-    typeof window !== 'undefined' &&
-    typeof window.document !== 'undefined' &&
-    typeof window.document.createElement !== 'undefined';
-
-  if (!isBrowser) return null;
-
   const getData = () =>
     keys.reduce((data, key) => {
       return data[key];
@@ -34,10 +27,12 @@ export function getSiteData(keys: Array<string | number> = []): any {
     return Promise.resolve(getData());
   }
 
-  return fetch(`http://my-json-server.typicode.com/ant-design/website-data/${prefix}`)
-    .then(res => res.json())
-    .then((data: any) => {
-      siteData[prefix] = data;
-      return getData();
-    });
+  return typeof fetch !== 'undefined'
+    ? fetch(`http://my-json-server.typicode.com/ant-design/website-data/${prefix}`)
+        .then(res => res.json())
+        .then((data: any) => {
+          siteData[prefix] = data;
+          return getData();
+        })
+    : Promise.resolve(null);
 }
