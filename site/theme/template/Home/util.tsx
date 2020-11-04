@@ -13,3 +13,24 @@ export function preLoad(list: string[]) {
     });
   }
 }
+
+const siteData: { [prefix: string]: any } = {};
+export function getSiteData(keys: Array<string | number> = []): any {
+  const prefix = keys.shift()!;
+
+  const getData = () =>
+    keys.reduce((data, key) => {
+      return data[key];
+    }, siteData[prefix]);
+
+  if (siteData[prefix]) {
+    return Promise.resolve(getData());
+  }
+
+  return fetch(`http://my-json-server.typicode.com/ant-design/website-data/${prefix}`)
+    .then(res => res.json())
+    .then((data: any) => {
+      siteData[prefix] = data;
+      return getData();
+    });
+}
