@@ -1,5 +1,5 @@
 ---
-order: 66
+order: 4
 title:
   zh-CN: 带排序的搜索
   en-US: Search with sort
