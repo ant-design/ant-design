@@ -18,6 +18,13 @@ const siteData: { [prefix: string]: any } = {};
 export function getSiteData(keys: Array<string | number> = []): any {
   const prefix = keys.shift()!;
 
+  const isBrowser = (): boolean =>
+    typeof window !== 'undefined' &&
+    typeof window.document !== 'undefined' &&
+    typeof window.document.createElement !== 'undefined';
+
+  if (!isBrowser) return null;
+
   const getData = () =>
     keys.reduce((data, key) => {
       return data[key];
