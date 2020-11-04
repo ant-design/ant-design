@@ -28,7 +28,7 @@ export function getSiteData(keys: Array<string | number> = []): any {
   }
 
   return typeof fetch !== 'undefined'
-    ? fetch(`http://my-json-server.typicode.com/ant-design/website-data/${prefix}`)
+    ? fetch(`https://my-json-server.typicode.com/ant-design/website-data/${prefix}`)
         .then(res => res.json())
         .then((data: any) => {
           siteData[prefix] = data;
