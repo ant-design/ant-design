@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { tuple } from '../_util/type';
 import { InputProps, getInputClassName } from './Input';
+import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 
@@ -29,7 +30,7 @@ interface BasicProps {
   className?: string;
   style?: object;
   disabled?: boolean;
-  direction?: any;
+  direction?: DirectionType;
   focused?: boolean;
   readOnly?: boolean;
   bordered: boolean;
