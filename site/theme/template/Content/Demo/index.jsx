@@ -163,12 +163,11 @@ class Demo extends React.Component {
     const localizeIntro = content[locale] || content;
     const introChildren = utils.toReactComponent(['div'].concat(localizeIntro));
 
-    const highlightClass = classNames({
-      'highlight-wrapper': true,
+    const highlightClass = classNames('highlight-wrapper', {
       'highlight-wrapper-expand': codeExpand,
     });
 
-    const prefillStyle = `@import 'antd/dist/antd.css';\n\n${style || ''}`.replace(
+    const prefillStyle = `@import '~antd/dist/antd.css';\n\n${style || ''}`.replace(
       new RegExp(`#${meta.id}\\s*`, 'g'),
       '',
     );
@@ -187,8 +186,27 @@ class Demo extends React.Component {
 
     const sourceCode = this.getSourceCode();
 
+    const dependencies = sourceCode.split('\n').reduce(
+      (acc, line) => {
+        const matches = line.match(/import .+? from '(.+)';$/);
+        if (matches && matches[1] && !line.includes('antd')) {
+          const paths = matches[1].split('/');
+
+          if (paths.length) {
+            const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
+            acc[dep] = 'latest';
+          }
+        }
+        return acc;
+      },
+      // eslint-disable-next-line no-undef
+      { antd: antdReproduceVersion },
+    );
+
+    dependencies['@ant-design/icons'] = 'latest';
+
     const codepenPrefillConfig = {
-      title: `${localizedTitle} - Ant Design Demo`,
+      title: `${localizedTitle} - antd@${dependencies.antd}`,
       html,
       js: sourceCode
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
@@ -218,29 +236,20 @@ class Demo extends React.Component {
         .join(';'),
       js_pre_processor: 'typescript',
     };
+
     const riddlePrefillConfig = {
-      title: `${localizedTitle} - Ant Design Demo`,
+      title: `${localizedTitle} - antd@${dependencies.antd}`,
       js: sourceCode,
       css: prefillStyle,
+      json: JSON.stringify(
+        {
+          name: 'antd-demo',
+          dependencies,
+        },
+        null,
+        2,
+      ),
     };
-    const dependencies = sourceCode.split('\n').reduce(
-      (acc, line) => {
-        const matches = line.match(/import .+? from '(.+)';$/);
-        if (matches && matches[1] && !line.includes('antd')) {
-          const paths = matches[1].split('/');
-
-          if (paths.length) {
-            const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
-            acc[dep] = 'latest';
-          }
-        }
-        return acc;
-      },
-      // eslint-disable-next-line no-undef
-      { antd: antdReproduceVersion },
-    );
-
-    dependencies['@ant-design/icons'] = 'latest';
 
     // Reorder source code
     let parsedSourceCode = sourceCode;
@@ -267,17 +276,16 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
       .replace('<style>', '');
 
     const codesandboxPackage = {
-      name: `${localizedTitle} - Ant Design Demo`,
-      version: '1.0.0',
+      title: `${localizedTitle} - antd@${dependencies.antd}`,
       main: 'index.js',
       dependencies: {
         ...dependencies,
-        react: '^16.12.0',
-        'react-dom': '^16.12.0',
-        'react-scripts': '^3.0.1',
+        react: '^16.14.0',
+        'react-dom': '^16.14.0',
+        'react-scripts': '^4.0.0',
       },
       devDependencies: {
-        typescript: '^3.8.2',
+        typescript: '^4.0.5',
       },
       scripts: {
         start: 'react-scripts start',
@@ -298,7 +306,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
       },
     };
     const stackblitzPrefillConfig = {
-      title: `${localizedTitle} - Ant Design Demo`,
+      title: `${localizedTitle} - antd@${dependencies.antd}`,
       template: 'create-react-app',
       dependencies,
       files: {
