@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
-import Avatar, { AvatarSize } from './avatar';
+import Avatar from './avatar';
 import Popover from '../popover';
+import { AvatarSize, SizeContextProvider } from './SizeContext';
 
 export interface GroupProps {
   className?: string;
@@ -38,7 +39,6 @@ const Group: React.FC<GroupProps> = props => {
   const { children, maxPopoverPlacement = 'top' } = props;
   const childrenWithProps = toArray(children).map((child, index) => {
     return cloneElement(child, {
-      size,
       key: `avatar-key-${index}`,
     });
   });
@@ -55,7 +55,7 @@ const Group: React.FC<GroupProps> = props => {
         placement={maxPopoverPlacement}
         overlayClassName={`${prefixCls}-popover`}
       >
-        <Avatar style={maxStyle} size={size}>{`+${numOfChildren - maxCount}`}</Avatar>
+        <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,
     );
     return (
@@ -65,9 +65,11 @@ const Group: React.FC<GroupProps> = props => {
     );
   }
   return (
-    <div className={cls} style={props.style}>
-      {childrenWithProps}
-    </div>
+    <SizeContextProvider size={size}>
+      <div className={cls} style={props.style}>
+        {childrenWithProps}
+      </div>
+    </SizeContextProvider>
   );
 };
 
