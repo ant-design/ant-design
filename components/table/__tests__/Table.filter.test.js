@@ -1262,6 +1262,7 @@ describe('Table.filter', () => {
     onChange.mockReset();
     wrapper.unmount();
   });
+
   it('filters in children should render', () => {
     const columns = [
       {
