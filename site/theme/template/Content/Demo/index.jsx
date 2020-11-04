@@ -426,7 +426,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                   src={
                     theme === 'dark'
                       ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
-                      : 'https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg'
+                      : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
                   }
                   className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
                   onClick={() => this.handleCodeExpand(meta.id)}
@@ -436,7 +436,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                   src={
                     theme === 'dark'
                       ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
-                      : 'https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg'
+                      : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
                   }
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
                   onClick={() => this.handleCodeExpand(meta.id)}
