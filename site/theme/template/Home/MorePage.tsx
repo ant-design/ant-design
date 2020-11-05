@@ -18,31 +18,31 @@ const SourceImages = {
 
 const MORE_LIST: MoreProps[] = [
   {
-    title: '智能组件探索：这个工具栏会自动布局',
+    title: '易用度在企业级中后台产品的探索和实践',
     description:
-      '工程师只需要选择「我要展示哪些元素、每个元素有多少」，而「这些元素怎么摆」、「间距是多少」等细节问题都会根据规则自动生成。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*A_F0SL5shbEAAAAAAAAAAAAAARQnAQ',
-    date: '2020-08-19',
+      '作为产品设计者，经常遇到一个备受灵魂拷问的问题：怎么衡量我们设计的产品，用户体验是过关的？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T2tGQbqfXHUAAAAAAAAAAAAAARQnAQ',
+    date: '2020-10-19',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/188693322',
+    href: 'https://zhuanlan.zhihu.com/p/266728471',
   },
   {
-    title: '一个好用的智能栅格工具是如何诞生的？',
+    title: '通过200+产品设计实践给产品体验探索一个好用标准',
     description:
-      '和大家分享一下整个智能栅格的设计开发过程，并从中感受到设计的「穿透力」，聊聊如何打破界限、从表面到内核、从表象到本质。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*hk19TqWVSDsAAAAAAAAAAAAAARQnAQ',
-    date: '2020-08-09',
+      '“体验”是一个非常抽象的词，我们怎么把一个抽象的概念拆解成可落地执行的策略，作用到企业中后台产品上？怎么衡量策略的有效性？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xougSaGIAXoAAAAAAAAAAAAAARQnAQ',
+    date: '2020-10-19',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/176534657',
+    href: 'https://zhuanlan.zhihu.com/p/266730093',
   },
   {
-    title: '设计体系的响应式设计',
+    title: '树形控件在生产力工具中的设计',
     description:
-      '在蚂蚁内部有着数量繁多且复杂的中后台业务系统，Ant Design 一直以来致力于从设计策略和资产的角度解决这些产品的体验一致性问题。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zk6CQphLepQAAAAAAAAAAAAAARQnAQ',
-    date: '2020-03-24',
+      '惊！半年实践血泪史，3000 字深度好文，一个爱树的设计师手把手教你如何设计「树 」！',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*HeZnTr710lIAAAAAAAAAAAAAARQnAQ',
+    date: '2020-09-29',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/109781992',
+    href: 'https://zhuanlan.zhihu.com/p/260068653',
   },
   {
     title: '我的按钮究竟该放哪儿！？',
