@@ -59,11 +59,14 @@ const Group: React.FC<GroupProps> = props => {
       </Popover>,
     );
     return (
-      <div className={cls} style={props.style}>
-        {childrenShow}
-      </div>
+      <SizeContextProvider size={size}>
+        <div className={cls} style={props.style}>
+          {childrenShow}
+        </div>
+      </SizeContextProvider>
     );
   }
+
   return (
     <SizeContextProvider size={size}>
       <div className={cls} style={props.style}>

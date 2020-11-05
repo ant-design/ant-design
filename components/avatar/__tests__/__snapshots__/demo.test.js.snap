@@ -607,14 +607,14 @@ Array [
     class="ant-avatar-group"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
     >
       <img
         src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
       style="background-color:#f56a00"
     >
       <span
@@ -625,7 +625,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
       style="color:#f56a00;background-color:#fde3cf"
     >
       <span
