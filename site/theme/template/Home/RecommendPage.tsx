@@ -8,11 +8,12 @@ import './RecommendPage.less';
 const { Title, Paragraph } = Typography;
 
 interface Recommend {
-  title: string;
-  img: string;
-  href: string;
+  title?: string;
+  img?: string;
+  href?: string;
   popularize?: boolean;
-  description: string;
+  description?: string;
+  loading?: boolean;
 }
 
 interface RecommendBlockProps extends Recommend {
@@ -26,10 +27,14 @@ const RecommendBlock = ({
   description,
   img,
   href,
+  loading,
 }: RecommendBlockProps) => {
   return (
     <a
-      className={classNames('recommend-block', main && 'recommend-block-main')}
+      className={classNames('recommend-block', {
+        'recommend-block-main': !!main,
+        'recommend-block-loading': loading,
+      })}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
@@ -58,27 +63,23 @@ export default function RecommendPageo() {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
   const list = useSiteData<Recommend[]>('recommendations', isZhCN ? 'cn' : 'en');
+  const isLoading = !list;
+  console.log(list);
   return (
     <Row gutter={[24, 24]} style={{ marginBottom: -36 }}>
-      {list ? (
-        <>
-          <Col xs={24} sm={14}>
-            <RecommendBlock {...list[0]} main />
+      <Col xs={24} sm={14}>
+        <RecommendBlock {...(list ? list[0] : {})} main loading={isLoading} />
+      </Col>
+      <Col xs={24} sm={10}>
+        <Row gutter={[24, 24]}>
+          <Col span={24}>
+            <RecommendBlock {...(list ? list[1] : {})} loading={isLoading} />
           </Col>
-          <Col xs={24} sm={10}>
-            <Row gutter={[24, 24]}>
-              <Col span={24}>
-                <RecommendBlock {...list[1]} />
-              </Col>
-              <Col span={24}>
-                <RecommendBlock {...list[2]} />
-              </Col>
-            </Row>
+          <Col span={24}>
+            <RecommendBlock {...(list ? list[2] : {})} loading={isLoading} />
           </Col>
-        </>
-      ) : (
-        <Spin />
-      )}
+        </Row>
+      </Col>
     </Row>
   );
 }

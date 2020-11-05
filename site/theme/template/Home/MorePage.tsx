@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useIntl } from 'react-intl';
-import { Card, Row, Col, Spin } from 'antd';
+import { Card, Row, Col } from 'antd';
 import { useSiteData } from './util';
 import './MorePage.less';
 
@@ -16,9 +16,10 @@ interface MoreProps {
   source: SourceType;
   href: string;
   icons?: Icons;
+  loading?: boolean;
 }
 
-const MoreCard = ({ title, description, date, img, source, href, icons }: MoreProps) => {
+const MoreCard = ({ title, description, date, img, source, href, icons, loading }: MoreProps) => {
   return (
     <Col xs={24} sm={6}>
       <a
@@ -32,12 +33,17 @@ const MoreCard = ({ title, description, date, img, source, href, icons }: MorePr
           });
         }}
       >
-        <Card hoverable cover={<img alt={title} src={img} />} className="more-card">
+        <Card
+          hoverable
+          cover={loading ? undefined : <img alt={title} src={img} />}
+          loading={loading}
+          className="more-card"
+        >
           <Card.Meta title={title} description={description} />
           <div>
             {date}
             <span className="more-card-source">
-              {icons ? <img src={icons[source]} alt={source} /> : <Spin />}
+              {icons ? <img src={icons[source]} alt={source} /> : null}
             </span>
           </div>
         </Card>
@@ -51,9 +57,12 @@ export default function MorePage() {
   const isZhCN = locale === 'zh-CN';
   const list = useSiteData<MoreProps[]>('extras', isZhCN ? 'cn' : 'en');
   const icons = useSiteData<Icons>('icons');
+  const loadingProps = { loading: true } as MoreProps;
   return (
     <Row gutter={[24, 32]}>
-      {list ? list.map(more => <MoreCard key={more.title} {...more} icons={icons} />) : <Spin />}
+      {(list || [loadingProps, loadingProps, loadingProps, loadingProps]).map(more => (
+        <MoreCard key={more.title} {...more} icons={icons} />
+      ))}
     </Row>
   );
 }
