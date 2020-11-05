@@ -14,37 +14,33 @@ title:
 Tab's position: left, right, top or bottom. Will auto switch to `top` in mobile.
 
 ```jsx
-import { Tabs, Select, Space } from 'antd';
+import { Tabs, Radio, Space } from 'antd';
 
 const { TabPane } = Tabs;
-const { Option } = Select;
 
 class Demo extends React.Component {
   state = {
-    tabPosition: 'top',
+    tabPosition: 'left',
   };
 
-  changeTabPosition = tabPosition => {
-    this.setState({ tabPosition });
+  changeTabPosition = e => {
+    this.setState({ tabPosition: e.target.value });
   };
 
   render() {
+    const { tabPosition } = this.state;
     return (
-      <div>
-        <Space style={{ marginBottom: 16 }}>
-          Tab position：
-          <Select
-            value={this.state.tabPosition}
-            onChange={this.changeTabPosition}
-            dropdownMatchSelectWidth={false}
-          >
-            <Option value="top">top</Option>
-            <Option value="bottom">bottom</Option>
-            <Option value="left">left</Option>
-            <Option value="right">right</Option>
-          </Select>
+      <>
+        <Space style={{ marginBottom: 24 }}>
+          Tab position:
+          <Radio.Group value={tabPosition} onChange={this.changeTabPosition}>
+            <Radio.Button value="top">top</Radio.Button>
+            <Radio.Button value="bottom">bottom</Radio.Button>
+            <Radio.Button value="left">left</Radio.Button>
+            <Radio.Button value="right">right</Radio.Button>
+          </Radio.Group>
         </Space>
-        <Tabs tabPosition={this.state.tabPosition}>
+        <Tabs tabPosition={tabPosition}>
           <TabPane tab="Tab 1" key="1">
             Content of Tab 1
           </TabPane>
@@ -55,7 +51,7 @@ class Demo extends React.Component {
             Content of Tab 3
           </TabPane>
         </Tabs>
-      </div>
+      </>
     );
   }
 }
