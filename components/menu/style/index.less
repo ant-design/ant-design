@@ -253,11 +253,8 @@
       background-color: @menu-popup-bg;
     }
 
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right,
-    &-inline {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+    > .@{menu-prefix-cls}-submenu-title {
+      .@{menu-prefix-cls}-submenu-arrow {
         position: absolute;
         top: 50%;
         right: 16px;
@@ -271,47 +268,39 @@
           height: 1.5px;
           // background + background-image to makes before & after cross have same color.
           // ref: https://github.com/ant-design/ant-design/issues/15910
-          background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
+          background-color: @menu-item-color;
           border-radius: 2px;
-          transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
-            top 0.3s @ease-in-out;
+          transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, top 0.3s ease-in-out,
+            color 0.3s ease-in-out;
           content: '';
         }
         &::before {
-          transform: rotate(45deg) translateY(-2px);
+          transform: rotate(45deg) translateY(-2.5px);
         }
         &::after {
-          transform: rotate(-45deg) translateY(2px);
+          transform: rotate(-45deg) translateY(2.5px);
         }
       }
-      > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
+
+      &:hover .@{menu-prefix-cls}-submenu-arrow {
         &::after,
         &::before {
-          background: linear-gradient(to right, @menu-highlight-color, @menu-highlight-color);
-        }
-      }
-    }
-
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
-        &::before {
-          transform: rotate(45deg) translateY(-2px);
-        }
-        &::after {
-          transform: rotate(-45deg) translateY(2px);
+          background-color: @menu-highlight-color;
         }
       }
     }
 
     &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
       &::before {
-        transform: rotate(-45deg) translateX(2px);
+        transform: rotate(-45deg) translateX(2.5px);
       }
       &::after {
-        transform: rotate(45deg) translateX(-2px);
+        transform: rotate(45deg) translateX(-2.5px);
       }
+    }
+
+    &-horizontal > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+      display: none;
     }
 
     &-open {
@@ -320,10 +309,10 @@
         .@{menu-prefix-cls}-submenu-arrow {
         transform: translateY(-2px);
         &::after {
-          transform: rotate(-45deg) translateX(-2px);
+          transform: rotate(-45deg) translateX(-2.5px);
         }
         &::before {
-          transform: rotate(45deg) translateX(2px);
+          transform: rotate(45deg) translateX(2.5px);
         }
       }
     }
