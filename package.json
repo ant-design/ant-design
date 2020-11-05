@@ -92,7 +92,7 @@
     "site:test": "jest --config .jest.site.js --cache=false --force-exit",
     "test-image": "npm run compile:less && docker-compose run tests",
     "version": "node ./scripts/generate-version",
-    "argos": "argos upload imageSnapshots --batchCount 5"
+    "argos": "argos upload imageSnapshots --batchCount 3"
   },
   "husky": {
     "hooks": {
