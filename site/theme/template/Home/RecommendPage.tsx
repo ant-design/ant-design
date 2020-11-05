@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Row, Col, Typography, Spin } from 'antd';
 import './RecommendPage.less';
-import { getSiteData } from './util';
+import { useSiteData } from './util';
 
 const { Title, Paragraph } = Typography;
 
@@ -57,8 +57,7 @@ const RecommendBlock = ({
 export default function RecommendPageo() {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
-  const [list, setList] = React.useState<Array<any>>(null!);
-  getSiteData(['recommendations', isZhCN ? 'cn' : 'en']).then(setList);
+  const list = useSiteData(['recommendations', isZhCN ? 'cn' : 'en']);
   return (
     <Row gutter={[24, 24]} style={{ marginBottom: -36 }}>
       {list ? (

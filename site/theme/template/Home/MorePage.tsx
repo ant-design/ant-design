@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { Card, Row, Col, Spin } from 'antd';
 import './MorePage.less';
-import { getSiteData } from './util';
+import { useSiteData } from './util';
 
 interface MoreProps {
   title: string;
@@ -45,10 +45,8 @@ const MoreCard = ({ title, description, date, img, source, href, icons }: MorePr
 export default function MorePage() {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
-  const [list, setList] = React.useState<Array<MoreProps>>(null!);
-  const [icons, setIcons] = React.useState<any>(null!);
-  getSiteData(['extras', isZhCN ? 'cn' : 'en']).then(setList);
-  getSiteData(['icons']).then(setIcons);
+  const list: Array<MoreProps> = useSiteData(['extras', isZhCN ? 'cn' : 'en']);
+  const icons = useSiteData(['icons']);
   return (
     <Row gutter={[24, 32]}>
       {list ? list.map(more => <MoreCard key={more.title} {...more} icons={icons} />) : <Spin />}

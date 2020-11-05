@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import * as React from 'react';
 
 export function preLoad(list: string[]) {
   if (typeof window !== 'undefined') {
@@ -15,24 +16,28 @@ export function preLoad(list: string[]) {
 }
 
 const siteData: { [prefix: string]: any } = {};
-export function getSiteData(keys: Array<string | number> = []): any {
+export function useSiteData(keys: Array<string | number> = []): any {
   const prefix = keys.shift()!;
 
-  const getData = () =>
-    keys.reduce((data, key) => {
+  const getData = () => {
+    if (!siteData[prefix]) return null;
+    return keys.reduce((data, key) => {
       return data[key];
     }, siteData[prefix]);
+  };
 
-  if (siteData[prefix]) {
-    return Promise.resolve(getData());
-  }
+  const [data, setData] = React.useState<any>(getData());
 
-  return typeof fetch !== 'undefined'
-    ? fetch(`https://my-json-server.typicode.com/ant-design/website-data/${prefix}`)
+  React.useEffect(() => {
+    if (!data && typeof fetch !== 'undefined') {
+      fetch(`https://my-json-server.typicode.com/ant-design/website-data/${prefix}`)
         .then(res => res.json())
-        .then((data: any) => {
-          siteData[prefix] = data;
-          return getData();
-        })
-    : Promise.resolve(null);
+        .then((res: any) => {
+          siteData[prefix] = res;
+          setData(getData());
+        });
+    }
+  }, []);
+
+  return data;
 }
