@@ -37,7 +37,7 @@ export function useSiteData(keys: Array<string | number> = []): any {
           setData(getData());
         });
     }
-  }, []);
+  }, [prefix]);
 
   return data;
 }
