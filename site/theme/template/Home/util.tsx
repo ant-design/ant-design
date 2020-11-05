@@ -16,28 +16,25 @@ export function preLoad(list: string[]) {
 }
 
 const siteData: Record<string, any> = {};
-export function useSiteData<T>(keys: Array<string | number> = []): T {
-  const prefix = keys.shift()!;
-
+export function useSiteData<T>(endpoint: string, language?: 'cn' | 'en'): T {
   const getData = () => {
-    if (!siteData[prefix]) return null;
-    return keys.reduce((data, key) => {
-      return data[key];
-    }, siteData[prefix]);
+    const endpointData = siteData[endpoint];
+    if (!endpointData) return null;
+    return language ? endpointData[language] : endpointData;
   };
 
   const [data, setData] = React.useState<any>(getData());
 
   React.useEffect(() => {
     if (!data && typeof fetch !== 'undefined') {
-      fetch(`https://my-json-server.typicode.com/ant-design/website-data/${prefix}`)
+      fetch(`https://my-json-server.typicode.com/ant-design/website-data/${endpoint}`)
         .then(res => res.json())
         .then((res: any) => {
-          siteData[prefix] = res;
+          siteData[endpoint] = res;
           setData(getData());
         });
     }
-  }, [prefix]);
+  }, [endpoint]);
 
   return data;
 }

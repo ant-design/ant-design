@@ -57,7 +57,7 @@ const RecommendBlock = ({
 export default function RecommendPageo() {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
-  const list = useSiteData<Recommend[]>(['recommendations', isZhCN ? 'cn' : 'en']);
+  const list = useSiteData<Recommend[]>('recommendations', isZhCN ? 'cn' : 'en');
   return (
     <Row gutter={[24, 24]} style={{ marginBottom: -36 }}>
       {list ? (

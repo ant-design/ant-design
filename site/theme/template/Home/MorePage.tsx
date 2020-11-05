@@ -49,8 +49,8 @@ const MoreCard = ({ title, description, date, img, source, href, icons }: MorePr
 export default function MorePage() {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
-  const list = useSiteData<MoreProps[]>(['extras', isZhCN ? 'cn' : 'en']);
-  const icons = useSiteData<Icons>(['icons']);
+  const list = useSiteData<MoreProps[]>('extras', isZhCN ? 'cn' : 'en');
+  const icons = useSiteData<Icons>('icons');
   return (
     <Row gutter={[24, 32]}>
       {list ? list.map(more => <MoreCard key={more.title} {...more} icons={icons} />) : <Spin />}
