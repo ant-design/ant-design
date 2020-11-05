@@ -1,3 +1,5 @@
+@import '../themes/index';
+
 // Config global less under antd
 [class^=~'@{ant-prefix}-'],
 [class*=~' @{ant-prefix}-'] {
@@ -13,5 +15,16 @@
   *::before,
   *::after {
     box-sizing: border-box; // 1
+  }
+
+  &,
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-variant: @font-variant-base;
+    line-height: @line-height-base;
+    list-style: none;
+    font-feature-settings: @font-feature-settings-base;
   }
 }
