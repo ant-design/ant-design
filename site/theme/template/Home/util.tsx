@@ -15,8 +15,8 @@ export function preLoad(list: string[]) {
   }
 }
 
-const siteData: { [prefix: string]: any } = {};
-export function useSiteData(keys: Array<string | number> = []): any {
+const siteData: Record<string, any> = {};
+export function useSiteData<T>(keys: Array<string | number> = []): T {
   const prefix = keys.shift()!;
 
   const getData = () => {
