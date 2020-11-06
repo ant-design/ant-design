@@ -5,10 +5,9 @@ import ResizeObserver from 'rc-resize-observer';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { composeRef } from '../_util/ref';
-import { Breakpoint, responsiveArray, ScreenSizeMap } from '../_util/responsiveObserve';
+import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-
-export type AvatarSize = 'large' | 'small' | 'default' | number | ScreenSizeMap;
+import SizeContext, { AvatarSize } from './SizeContext';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -20,7 +19,7 @@ export interface AvatarProps {
   size?: AvatarSize;
   gap?: number;
   /** Src of image avatar */
-  src?: string;
+  src?: React.ReactNode;
   /** Srcset of image avatar */
   srcSet?: string;
   draggable?: boolean;
@@ -37,6 +36,8 @@ export interface AvatarProps {
 }
 
 const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (props, ref) => {
+  const groupSize = React.useContext(SizeContext);
+
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
@@ -87,7 +88,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   const {
     prefixCls: customizePrefixCls,
     shape,
-    size,
+    size: customSize,
     src,
     srcSet,
     icon,
@@ -97,6 +98,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     children,
     ...others
   } = props;
+
+  const size = customSize === 'default' ? groupSize : customSize;
 
   const screens = useBreakpoint();
   const responsiveSizeStyle: React.CSSProperties = React.useMemo(() => {

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import ResizeObserver from 'rc-resize-observer';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import { TagType } from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import Avatar, { AvatarProps } from '../avatar';
@@ -59,14 +59,18 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
   return <Breadcrumb {...breadcrumb} />;
 };
 
-const getBackIcon = (props: PageHeaderProps, direction: string = 'ltr') => {
+const getBackIcon = (props: PageHeaderProps, direction: DirectionType = 'ltr') => {
   if (props.backIcon !== undefined) {
     return props.backIcon;
   }
   return direction === 'rtl' ? <ArrowRightOutlined /> : <ArrowLeftOutlined />;
 };
 
-const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: string = 'ltr') => {
+const renderTitle = (
+  prefixCls: string,
+  props: PageHeaderProps,
+  direction: DirectionType = 'ltr',
+) => {
   const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   const hasHeading = title || subTitle || tags || extra;

@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import * as React from 'react';
 
 export function preLoad(list: string[]) {
   if (typeof window !== 'undefined') {
@@ -12,4 +13,28 @@ export function preLoad(list: string[]) {
       div.appendChild(img);
     });
   }
+}
+
+const siteData: Record<string, any> = {};
+export function useSiteData<T>(endpoint: string, language?: 'cn' | 'en'): T {
+  const getData = () => {
+    const endpointData = siteData[endpoint];
+    if (!endpointData) return null;
+    return language ? endpointData[language] : endpointData;
+  };
+
+  const [data, setData] = React.useState<any>(getData());
+
+  React.useEffect(() => {
+    if (!data && typeof fetch !== 'undefined') {
+      fetch(`https://my-json-server.typicode.com/ant-design/website-data/${endpoint}`)
+        .then(res => res.json())
+        .then((res: any) => {
+          siteData[endpoint] = res;
+          setData(getData());
+        });
+    }
+  }, [endpoint]);
+
+  return data;
 }

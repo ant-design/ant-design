@@ -9,7 +9,7 @@ import { getConfirmLocale } from './locale';
 import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, DirectionType } from '../config-provider';
 
 let mousePosition: { x: number; y: number } | null;
 export const destroyFns: Array<() => void> = [];
@@ -114,7 +114,7 @@ export interface ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
   transitionName?: string;
   maskTransitionName?: string;
-  direction?: string;
+  direction?: DirectionType;
   bodyStyle?: React.CSSProperties;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
 }

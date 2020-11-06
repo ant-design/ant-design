@@ -4,6 +4,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import TextArea from '../input/TextArea';
+import { DirectionType } from '../config-provider';
 
 interface EditableProps {
   prefixCls?: string;
@@ -13,7 +14,7 @@ interface EditableProps {
   onCancel: () => void;
   className?: string;
   style?: React.CSSProperties;
-  direction?: 'ltr' | 'rtl';
+  direction?: DirectionType;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
 }

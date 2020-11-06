@@ -41,7 +41,7 @@
   }
 
   &:last-child {
-    flex: none;
+    flex: none !important;
   }
 
   &:last-child > &-container > &-tail,
@@ -123,13 +123,13 @@
   }
   .step-item-status(wait);
   .step-item-status(process);
-  &-process &-icon {
+  &-process > &-container > &-icon {
     background: @process-icon-color;
     .@{steps-prefix-cls}-icon {
       color: @process-icon-text-color;
     }
   }
-  &-process &-title {
+  &-process > &-container > &-title {
     font-weight: 500;
   }
   .step-item-status(finish);

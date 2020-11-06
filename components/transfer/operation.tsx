@@ -2,6 +2,7 @@ import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import Button from '../button';
+import { DirectionType } from '../config-provider';
 
 export interface TransferOperationProps {
   className?: string;
@@ -13,7 +14,7 @@ export interface TransferOperationProps {
   rightActive?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
-  direction?: 'ltr' | 'rtl';
+  direction?: DirectionType;
   oneWay?: boolean;
 }
 

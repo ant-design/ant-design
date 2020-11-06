@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 5
 title:
   zh-CN: 异步关闭
   en-US: Asynchronously close
@@ -7,26 +7,24 @@ title:
 
 ## zh-CN
 
-点击确定后异步关闭对话框，例如提交表单。
+点击确定后异步关闭气泡确认框，例如提交表单。
 
 ## en-US
 
-Asynchronously close a modal dialog when a the OK button is pressed. For example, you can use this pattern when you submit a form.
+Asynchronously close a popconfirm when a the OK button is pressed. For example, you can use this pattern when you submit a form.
 
 ```jsx
-import { Modal, Button } from 'antd';
+import { Popconfirm, Button } from 'antd';
 
 const App = () => {
   const [visible, setVisible] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
-  const [modalText, setModalText] = React.useState('Content of the modal');
 
-  const showModal = () => {
+  const showPopconfirm = () => {
     setVisible(true);
   };
 
   const handleOk = () => {
-    setModalText('The modal will be closed after two seconds');
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible(false);
@@ -41,18 +39,17 @@ const App = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal with async logic
-      </Button>
-      <Modal
+      <Popconfirm
         title="Title"
         visible={visible}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
+        onConfirm={handleOk}
+        okButtonProps={{ loading: confirmLoading }}
         onCancel={handleCancel}
       >
-        <p>{modalText}</p>
-      </Modal>
+        <Button type="primary" onClick={showPopconfirm}>
+          Open Popconfirm with async logic
+        </Button>
+      </Popconfirm>
     </>
   );
 };

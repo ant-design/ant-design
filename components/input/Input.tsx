@@ -7,7 +7,7 @@ import TextArea from './TextArea';
 import Password from './Password';
 import { Omit, LiteralUnion } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 
@@ -88,7 +88,7 @@ export function getInputClassName(
   bordered: boolean,
   size?: SizeType,
   disabled?: boolean,
-  direction?: any,
+  direction?: DirectionType,
 ) {
   return classNames(prefixCls, {
     [`${prefixCls}-sm`]: size === 'small',
@@ -125,7 +125,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   removePasswordTimeout: number;
 
-  direction: any = 'ltr';
+  direction: DirectionType = 'ltr';
 
   constructor(props: InputProps) {
     super(props);

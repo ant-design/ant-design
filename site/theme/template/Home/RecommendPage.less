@@ -17,6 +17,21 @@
     transition: all 0.36s ease-out;
   }
 
+  &-loading {
+    background: linear-gradient(
+      90deg,
+      rgba(207, 216, 220, 0.2),
+      rgba(207, 216, 220, 0.4),
+      rgba(207, 216, 220, 0.2)
+    );
+    border-radius: 4px;
+
+    img,
+    &::before {
+      display: none;
+    }
+  }
+
   &:hover img {
     transform: scale(1.04);
   }

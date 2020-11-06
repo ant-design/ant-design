@@ -19,7 +19,7 @@ const Banner = (props: { location: any }) => {
   let qrNode: React.ReactElement | null = null;
   if (isMobile) {
     qrNode = (
-      <a href="http://antd4.antfin.com/">
+      <a href="https://antd4.antfin.com">
         <img
           alt="mobile"
           src="https://gw.alipayobjects.com/zos/basement_prod/d2fa63a8-3e9d-4f59-80c7-1fd1d0cd9118.svg"
