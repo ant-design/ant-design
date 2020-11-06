@@ -135,7 +135,7 @@
     }
 
     // Select
-    .@{ant-prefix}-select:not(.@{ant-prefix}-select-disabled) {
+    .@{ant-prefix}-select:not(.@{ant-prefix}-select-disabled):not(.@{ant-prefix}-select-customize-input) {
       .@{ant-prefix}-select-selector {
         background-color: @form-warning-input-bg;
         border-color: @warning-color !important;
@@ -175,8 +175,8 @@
       animation-name: diffZoomIn2 !important;
     }
 
-    //select
-    .@{ant-prefix}-select:not(.@{ant-prefix}-select-disabled) {
+    // Select
+    .@{ant-prefix}-select:not(.@{ant-prefix}-select-disabled):not(.@{ant-prefix}-select-customize-input) {
       .@{ant-prefix}-select-selector {
         background-color: @form-error-input-bg;
         border-color: @error-color !important;
@@ -201,7 +201,7 @@
       }
     }
 
-    //input-number, timepicker
+    // InputNumber, TimePicker
     .@{ant-prefix}-input-number,
     .@{ant-prefix}-picker {
       background-color: @form-error-input-bg;
