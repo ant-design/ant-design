@@ -134,8 +134,8 @@
       animation-name: diffZoomIn3 !important;
     }
 
-    //select
-    .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
+    // Select
+    .@{ant-prefix}-select:not(.@{ant-prefix}-select-disabled) {
       .@{ant-prefix}-select-selector {
         background-color: @form-warning-input-bg;
         border-color: @warning-color !important;
@@ -144,13 +144,9 @@
       &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
         .active(@warning-color);
       }
-      &-focused,
-      &:focus {
-        .active(@warning-color);
-      }
     }
 
-    //input-number, timepicker
+    // InputNumber, TimePicker
     .@{ant-prefix}-input-number,
     .@{ant-prefix}-picker {
       background-color: @form-warning-input-bg;
@@ -180,17 +176,13 @@
     }
 
     //select
-    .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
+    .@{ant-prefix}-select:not(.@{ant-prefix}-select-disabled) {
       .@{ant-prefix}-select-selector {
         background-color: @form-error-input-bg;
         border-color: @error-color !important;
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
       &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
-        .active(@error-color);
-      }
-      &-focused,
-      &:focus {
         .active(@error-color);
       }
     }
