@@ -14,7 +14,7 @@ title:
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
 ```jsx
-import { Checkbox } from 'antd';
+import { Checkbox, Divider } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
 
@@ -40,12 +40,10 @@ const App = () => {
 
   return (
     <>
-      <div className="site-checkbox-all-wrapper">
-        <Checkbox indeterminate={indeterminate} onChange={onCheckAllChange} checked={checkAll}>
-          Check all
-        </Checkbox>
-      </div>
-      <br />
+      <Checkbox indeterminate={indeterminate} onChange={onCheckAllChange} checked={checkAll}>
+        Check all
+      </Checkbox>
+      <Divider />
       <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
     </>
   );
@@ -53,15 +51,3 @@ const App = () => {
 
 ReactDOM.render(<App />, mountNode);
 ```
-
-```css
-.site-checkbox-all-wrapper {
-  border-bottom: 1px solid #e9e9e9;
-}
-```
-
-<style>
-[data-theme="dark"] .site-checkbox-all-wrapper {
-  border-bottom: 1px solid #303030;
-}
-</style>
