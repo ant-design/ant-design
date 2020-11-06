@@ -22,10 +22,10 @@ const localeValues: Locale = {
     placeholder: 'Таңдаңыз',
   },
   Table: {
-    filterTitle: 'Сүзгі',
+    filterTitle: 'Фильтр',
     filterConfirm: 'Жарайды',
     filterReset: 'Құлату',
-    filterEmptyText: 'Сүзгі жоқ',
+    filterEmptyText: 'Фильтр жоқ',
     emptyText: 'Деректер жоқ',
     selectAll: 'Барлығын таңдау',
     selectInvert: 'Таңдауды төңкеру',
