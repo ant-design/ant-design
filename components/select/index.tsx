@@ -145,7 +145,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
 };
 
 const SelectRef = React.forwardRef(InternalSelect) as <VT extends SelectValue = SelectValue>(
-  props: SelectProps<VT> & { ref?: React.Ref<HTMLInputElement> },
+  props: SelectProps<VT> & { ref?: React.Ref<RefSelectProps> },
 ) => React.ReactElement;
 
 type InternalSelectType = typeof SelectRef;
