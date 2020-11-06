@@ -21,6 +21,12 @@ describe('Input.Search', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should support enterButton null', () => {
+    expect(() => {
+      mount(<Search enterButton={null} />);
+    }).not.toThrow();
+  });
+
   it('should support ReactNode suffix without error', () => {
     const wrapper = mount(<Search suffix={<div>ok</div>} />);
     expect(wrapper.render()).toMatchSnapshot();
