@@ -113,7 +113,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
-    value = hasMaxLength ? value.slice(0, maxLength) : value;
+    value = hasMaxLength ? Array.from(value).slice(0, maxLength).join('')  : value;
 
     // TextArea
     const textareaNode = (size?: SizeType) => (
