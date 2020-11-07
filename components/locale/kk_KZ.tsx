@@ -1,10 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 
-// import Pagination from 'rc-pagination/lib/locale/kk_KZ';
-// awaiting PR https://github.com/react-component/pagination/pull/309
-// For now, using Russian language as fallback
-import Pagination from 'rc-pagination/lib/locale/ru_RU';
-
+import Pagination from 'rc-pagination/lib/locale/kk_KZ';
 import DatePicker from '../date-picker/locale/kk_KZ';
 import TimePicker from '../time-picker/locale/kk_KZ';
 import Calendar from '../calendar/locale/kk_KZ';
