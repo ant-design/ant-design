@@ -34,6 +34,7 @@ ReactDOM.render(
       placeholder="input search text"
       onSearch={value => console.log(value)}
       style={{ width: 200 }}
+      allowClear
     />
     <br />
     <br />
