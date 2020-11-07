@@ -47,7 +47,7 @@ export default class Steps extends React.Component<StepsProps, any> {
   renderSteps = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const prefixCls = getPrefixCls('steps', this.props.prefixCls);
     const iconPrefix = getPrefixCls('', this.props.iconPrefix);
-    const { percent, size } = this.props;
+    const { percent, size, labelPlacement } = this.props;
     const className = classNames(
       {
         [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -68,6 +68,13 @@ export default class Steps extends React.Component<StepsProps, any> {
       title: string | React.ReactNode;
       description: string | React.ReactNode;
     }) => {
+      if (
+        (status === 'wait' || status === 'process') &&
+        size === 'small' &&
+        labelPlacement === 'vertical'
+      ) {
+        return <div className={`${prefixCls}-circle-icon`} />;
+      }
       if (status === 'process' && percent !== undefined) {
         // currently it's hard-coded, since we can't easily read the actually width of icon
         const progressWidth = size === 'small' ? 32 : 40;

@@ -11,7 +11,7 @@
     width: @steps-small-icon-size;
     height: @steps-small-icon-size;
     margin: @steps-small-icon-margin;
-    font-size: @font-size-sm;
+    font-size: 8px;
     line-height: @steps-small-icon-size;
     text-align: center;
     border-radius: @steps-small-icon-size;
@@ -26,7 +26,7 @@
   }
   .@{steps-prefix-cls}-item-description {
     color: @text-color-secondary;
-    font-size: @font-size-base;
+    font-size: 12px;
   }
   .@{steps-prefix-cls}-item-tail {
     top: 8px;
@@ -42,6 +42,74 @@
       font-size: @steps-small-icon-size;
       line-height: @steps-small-icon-size;
       transform: none;
+    }
+  }
+}
+
+.@{steps-prefix-cls}-label-vertical.@{steps-prefix-cls}-small {
+  .@{steps-prefix-cls}-item {
+    &:first-child {
+      .@{steps-prefix-cls}-item-icon {
+        margin-left: 1px;
+      }
+      .@{steps-prefix-cls}-item-content {
+        text-align: left;
+      }
+      .@{steps-prefix-cls}-item-tail {
+        margin-left: 16px;
+        width: 115%;
+      }
+    }
+    &:last-child {
+      .@{steps-prefix-cls}-item-container {
+        float: right;
+        .@{steps-prefix-cls}-item-icon {
+          float: right;
+          margin-left: auto;
+          margin-right: 0px;
+        }
+        .@{steps-prefix-cls}-item-content {
+          clear: both;
+          text-align: right;
+          margin-top: 26px;
+        }
+      }
+    }
+    &:nth-last-child(2) {
+      .@{steps-prefix-cls}-item-tail {
+        width: 115%;
+      }
+    }
+  }
+
+  .@{steps-prefix-cls}-item-tail {
+    top: 10px;
+    padding: 0;
+    &::after {
+      height: 3px;
+    }
+  }
+
+  .@{steps-prefix-cls}-item.@{steps-prefix-cls}-item-wait {
+    .@{steps-prefix-cls}-item-icon {
+      border-color: #eaf5fb;
+      background-color: #eaf5fb;
+    }
+  }
+
+  .@{steps-prefix-cls}-item-icon {
+    background-color: @blue-crayola;
+    .@{steps-prefix-cls}-icon {
+      color: #fff;
+    }
+    .@{steps-prefix-cls}-circle-icon {
+      margin-top: -6px;
+      margin-left: -1px;
+      &::after {
+        content: '•';
+        font-size: 44px;
+        color: #fff;
+      }
     }
   }
 }
