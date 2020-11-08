@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.8.1
+
+`2020-11-08`
+
+- 🛠 使用 React hooks 重构 TreeSelect。[#27593](https://github.com/ant-design/ant-design/pull/27593)
+- 🛠 使用 React hooks 重构 Layout。[#27595](https://github.com/ant-design/ant-design/pull/27595)
+- 🐞 再次修复 Select 组件在 Form 中触发校验时外边框样式异常的问题。[#27607](https://github.com/ant-design/ant-design/pull/27607)
+- 🐞 修复 Pagination 开启页码切换器时右侧多余的 `margin`。[#27610](https://github.com/ant-design/ant-design/pull/27610)
+- 🐞 修复 Input.Search `enterButton={null}` 报错的问题。[#27591](https://github.com/ant-design/ant-design/pull/27591) [@davidebianchi](https://github.com/davidebianchi)
+- 🐞 修复 Avatar.Group `size` 不生效的问题。[#27531](https://github.com/ant-design/ant-design/pull/27531)
+- 🐞 修复垂直 Tabs 标题文字很长时导致页签宽度跳动的问题。[#27569](https://github.com/ant-design/ant-design/pull/27569)
+- 🐞 修复 Table `column.children` 内的筛选功能不展示的问题。[#27435](https://github.com/ant-design/ant-design/pull/27435) [@JhonXY](https://github.com/JhonXY)
+- 💄 修复 Steps 内嵌 Steps 时的样式。[#27514](https://github.com/ant-design/ant-design/pull/27514)
+- TypeScript
+  - 🤖 修复 Select `ref` 属性 TS 错误。[#27482](https://github.com/ant-design/ant-design/pull/27482)
+  - 🤖 修复 Avatar `src` 类型。[#27524](https://github.com/ant-design/ant-design/pull/27524) [@n0ruSh](https://github.com/n0ruSh)
+- RTL
+  - 💄 修复 Progress.Line `strokeColor` 在 RTL 模式下方向错误。[#27515](https://github.com/ant-design/ant-design/pull/27515)
+
 ## 4.8.0
 
 `2020-11-02`
