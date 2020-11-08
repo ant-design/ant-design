@@ -1,8 +1,4 @@
-// import CalendarLocale from 'rc-picker/lib/locale/kk_KZ';
-// awaiting PR https://github.com/react-component/picker/pull/167
-// For now, using Russian language as fallback
-import CalendarLocale from 'rc-picker/lib/locale/ru_RU';
-
+import CalendarLocale from 'rc-picker/lib/locale/kk_KZ';
 import TimePickerLocale from '../../time-picker/locale/kk_KZ';
 import { PickerLocale } from '../generatePicker';
 
