@@ -284,8 +284,8 @@
       }
     }
 
-    &:hover &-expand-icon,
-    &:hover &-arrow {
+    &:hover > &-title > &-expand-icon,
+    &:hover > &-title > &-arrow {
       color: @menu-highlight-color;
     }
 
@@ -302,7 +302,7 @@
       display: none;
     }
 
-    &-open&-inline &-arrow {
+    &-open&-inline > &-title > &-arrow {
       transform: translateY(-2px);
       &::after {
         transform: rotate(-45deg) translateX(-2.5px);
