@@ -62,7 +62,7 @@ More layouts with navigation: [Layout](/components/layout).
 | key | Unique ID of the menu item | string | - |  |
 | title | Set display title for collapsed item | string | - |  |
 
-> Note: `icon` is a newly added prop in`4.2.0`. For previous versions, please use the following method to define the icon.
+> Note: `icon` is a newly added prop in `4.2.0`. For previous versions, please use the following method to define the icon.
 >
 > ```jsx
 > <Menu.Item>

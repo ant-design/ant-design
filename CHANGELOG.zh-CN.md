@@ -35,7 +35,7 @@ timeline: true
   - 🆕 `modal.update()` 支持函数式更新。[#27163](https://github.com/ant-design/ant-design/pull/27163) [@Mongkii](https://github.com/Mongkii)
   - 🆕 Modal method 增加 `bodyStyle` 属性。[#27292](https://github.com/ant-design/ant-design/pull/27292)
   - 🐞 Fix Modal missing `modalRender` prop。[#27272](https://github.com/ant-design/ant-design/pull/27272) [@jieny](https://github.com/jieny)
-  - 🐞 `Modal.config` 中设置的 `rootPrefixCls` 可以对`title`和`content`下使用的 antd 组件生效。[#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
+  - 🐞 `Modal.config` 中设置的 `rootPrefixCls` 可以对 `title` 和 `content` 下使用的 antd 组件生效。[#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
 - Input
   - 🆕 Input.Textarea 支持 `size` 属性。[#27110](https://github.com/ant-design/ant-design/pull/27110)
   - 🐞 修复 Input `allowClear` 时 `className` 丢失的问题。[#27462](https://github.com/ant-design/ant-design/pull/27462)
@@ -297,7 +297,7 @@ timeline: true
 - Badge
   - 💄 新增 `@badge-color` less 变量。[#26159](https://github.com/ant-design/ant-design/pull/26159)
   - 🆕 Badge 新增 `size` 属性用于设置大小。[#25851](https://github.com/ant-design/ant-design/pull/25851) [@moonrailgun](https://github.com/moonrailgun)
-- 🆕 Tabs 可自定义`tabBarExtraContent` 的渲染位置。[#25138](https://github.com/ant-design/ant-design/pull/25138) [@jesse3mh9a](https://github.com/jesse3mh9a)
+- 🆕 Tabs 可自定义 `tabBarExtraContent` 的渲染位置。[#25138](https://github.com/ant-design/ant-design/pull/25138) [@jesse3mh9a](https://github.com/jesse3mh9a)
 - 💄 优化 Descriptions 在内容比较多时的显示效果。[#25903](https://github.com/ant-design/ant-design/pull/25903)
 - 🆕 message 支持通过 `message.desctroy(key)` 销毁。[#26052](https://github.com/ant-design/ant-design/pull/26052) [@lihqi](https://github.com/lihqi)
 - 💄 调整 InputNumber 操作栏在 `readOnly` 时为隐藏。[#25998](https://github.com/ant-design/ant-design/pull/25998)
