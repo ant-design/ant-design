@@ -1506,7 +1506,7 @@ Ant Design 4.0-rc released! Here is the release [document](https://github.com/an
 
 - 🌟 antd package size optimization, js gzipped dropped from 532.75KB to 289.89 KB. [#20356](https://github.com/ant-design/ant-design/pull/20356)
 - 💄 New dark theme support. [#20281](https://github.com/ant-design/ant-design/pull/20281)
-- 🌟 ConfigProvider supports `direction` internationalization setting`rtl`. [#19380](https://github.com/ant-design/ant-design/pull/19380)
+- 🌟 ConfigProvider supports `direction` internationalization setting `rtl`. [#19380](https://github.com/ant-design/ant-design/pull/19380)
 - 🌟 New Form component. [#17327](https://github.com/ant-design/ant-design/pull/17327)
   - 🌟 Form comes with data binding function.
   - 🌟 Field changes only affect the rendering of related field components and not the entire Form.
@@ -1533,7 +1533,7 @@ Ant Design 4.0-rc released! Here is the release [document](https://github.com/an
   - 💄 Optimized `expand` animation effect.
 - 🌟 New DatePicker, TimePicker and Calendar components. [#20023](https://github.com/ant-design/ant-design/pull/20023)
   - 🌟 Support custom date library.
-  - 🌟 Added `picker` support for setting selectors (no longer need to simulate selectors via controlled`mode`).
+  - 🌟 Added `picker` support for setting selectors (no longer need to simulate selectors via controlled `mode`).
   - 🌟 Full range selector support: time, date, week, month, year.
   - 🌟 Range selector can now select start and end times individually.
   - 🌟 The range selector can be set to `disabled` separately for the start and end time.
@@ -1551,7 +1551,7 @@ Ant Design 4.0-rc released! Here is the release [document](https://github.com/an
   - 🌟 Uncontrolled mode when `value` is `undefined` now.
 - 🌟 TreeSelect uses virtual scrolling and optimizes keyboard support. [#19040](https://github.com/ant-design/ant-design/pull/19040)
   - 🌟 Uncontrolled mode when `value` is `undefined` now.
-- 🌟 Button adds `default` and`link` styles for `danger`. [#19837](https://github.com/ant-design/ant-design/pull/19837)
+- 🌟 Button adds `default` and `link` styles for `danger`. [#19837](https://github.com/ant-design/ant-design/pull/19837)
 - 🌟 Form and ConfigProvider support `size` setting to include component size. [#20570](https://github.com/ant-design/ant-design/pull/20570)
 - 🌟 Typography adds `suffix` attribute. [#20224](https://github.com/ant-design/ant-design/pull/20224)
 - 🌟 Progress adds `steps` subcomponent. [#19613](https://github.com/ant-design/ant-design/pull/19613)
@@ -1560,7 +1560,7 @@ Ant Design 4.0-rc released! Here is the release [document](https://github.com/an
 - 🌟 Upload supports iconRender to customize icons. [#20034](https://github.com/ant-design/ant-design/pull/20034) [@qq645381995](https://github.com/qq645381995)
 - 🌟 Tag component preset status color. [#19399](https://github.com/ant-design/ant-design/pull/19399)
 - 🌟 Grid uses `flex` layout. [#16635](https://github.com/ant-design/ant-design/pull/16635)
-- 🐞 Fix the display error of Carousel component `dotposition` as`left | right`. [#20645](https://github.com/ant-design/ant-design/pull/20645) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 Fix the display error of Carousel component `dotposition` as `left | right`. [#20645](https://github.com/ant-design/ant-design/pull/20645) [@xrkffgg](https://github.com/xrkffgg)
 - 🐞 Fix Alert style text overflow. [#20318](https://github.com/ant-design/ant-design/pull/20318)
 - 🙅 Removed warning messages for deprecated APIs. [#17510](https://github.com/ant-design/ant-design/pull/17510)
 - 🙅 Added warning for Avatar, Button, Modal.method and Result components using v3 strings as icons. [#20226](https://github.com/ant-design/ant-design/pull/20226)

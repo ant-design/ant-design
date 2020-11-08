@@ -36,7 +36,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 - `message[level](content, [duration]).then(afterClose)`
 - `message[level](content, [duration], onClose).then(afterClose)`
 
-其中`message[level]` 是组件已经提供的静态方法。`then` 接口返回值是 Promise。
+其中 `message[level]` 是组件已经提供的静态方法。`then` 接口返回值是 Promise。
 
 也可以对象的形式传递参数：
 
