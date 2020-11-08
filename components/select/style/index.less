@@ -66,7 +66,12 @@
   display: inline-block;
   cursor: pointer;
 
-  &:not(.@{select-prefix-cls}-disabled):hover &-selector {
+  &:not(&-customize-input) &-selector {
+    .select-selector;
+    .select-search-input-without-border;
+  }
+
+  &:not(&-disabled):hover &-selector {
     .hover();
   }
 
