@@ -25,7 +25,7 @@ import {
 
 const { SubMenu } = Menu;
 
-const App = () => {
+const Demo = () => {
   const [mode, setMode] = React.useState('inline');
   const [theme, setTheme] = React.useState('light');
 
@@ -81,5 +81,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<Demo />, mountNode);
 ```
