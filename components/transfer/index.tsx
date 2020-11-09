@@ -24,14 +24,18 @@ export interface RenderResultObject {
 export type RenderResult = React.ReactElement | RenderResultObject | string | null;
 
 export interface TransferItem {
-  key: string;
+  key?: string;
   title?: string;
   description?: string;
   disabled?: boolean;
   [name: string]: any;
 }
 
-type TransferRender = (item: TransferItem) => RenderResult;
+export type KeyWise<T> = T & { key: string };
+
+export type KeyWiseTransferItem = KeyWise<TransferItem>;
+
+type TransferRender<RecordType> = (item: RecordType) => RenderResult;
 
 export interface ListStyle {
   direction: TransferDirection;
@@ -55,14 +59,14 @@ export interface TransferLocale {
   removeCurrent: string;
 }
 
-export interface TransferProps {
+export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
   disabled?: boolean;
-  dataSource: TransferItem[];
+  dataSource: RecordType[];
   targetKeys?: string[];
   selectedKeys?: string[];
-  render?: TransferRender;
+  render?: TransferRender<RecordType>;
   onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
@@ -71,13 +75,13 @@ export interface TransferProps {
   titles?: string[];
   operations?: string[];
   showSearch?: boolean;
-  filterOption?: (inputValue: string, item: TransferItem) => boolean;
+  filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?: (props: TransferListProps) => React.ReactNode;
-  rowKey?: (record: TransferItem) => string;
+  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
+  rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
-  children?: (props: TransferListBodyProps) => React.ReactNode;
+  children?: (props: TransferListBodyProps<RecordType>) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
@@ -89,7 +93,10 @@ interface TransferState {
   targetSelectedKeys: string[];
 }
 
-class Transfer extends React.Component<TransferProps, TransferState> {
+class Transfer<RecordType extends TransferItem = TransferItem> extends React.Component<
+  TransferProps<RecordType>,
+  TransferState
+> {
   // For high-level customized Transfer @dqaria
   static List = List;
 
@@ -104,12 +111,12 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     listStyle: () => {},
   };
 
-  static getDerivedStateFromProps({
+  static getDerivedStateFromProps<T>({
     selectedKeys,
     targetKeys,
     pagination,
     children,
-  }: TransferProps) {
+  }: TransferProps<T>) {
     if (selectedKeys) {
       const mergedTargetKeys = targetKeys || [];
       return {
@@ -128,11 +135,11 @@ class Transfer extends React.Component<TransferProps, TransferState> {
   }
 
   separatedDataSource: {
-    leftDataSource: TransferItem[];
-    rightDataSource: TransferItem[];
+    leftDataSource: RecordType[];
+    rightDataSource: RecordType[];
   } | null = null;
 
-  constructor(props: TransferProps) {
+  constructor(props: TransferProps<RecordType>) {
     super(props);
 
     const { selectedKeys = [], targetKeys = [] } = props;
@@ -318,9 +325,9 @@ class Transfer extends React.Component<TransferProps, TransferState> {
   separateDataSource() {
     const { dataSource, rowKey, targetKeys = [] } = this.props;
 
-    const leftDataSource: TransferItem[] = [];
-    const rightDataSource: TransferItem[] = new Array(targetKeys.length);
-    dataSource.forEach(record => {
+    const leftDataSource: KeyWise<RecordType>[] = [];
+    const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
+    dataSource.forEach((record: KeyWise<RecordType>) => {
       if (rowKey) {
         record.key = rowKey(record);
       }
@@ -385,7 +392,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
         const selectAllLabels = this.props.selectAllLabels || [];
         return (
           <div className={cls} style={style}>
-            <List
+            <List<KeyWise<RecordType>>
               prefixCls={`${prefixCls}-list`}
               titleText={titles[0]}
               dataSource={leftDataSource}
@@ -421,7 +428,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
               direction={direction}
               oneWay={oneWay}
             />
-            <List
+            <List<KeyWise<RecordType>>
               prefixCls={`${prefixCls}-list`}
               titleText={titles[1]}
               dataSource={rightDataSource}

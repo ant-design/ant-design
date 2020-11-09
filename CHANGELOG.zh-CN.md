@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.8.1
+
+`2020-11-08`
+
+- 🛠 使用 React hooks 重构 TreeSelect。[#27593](https://github.com/ant-design/ant-design/pull/27593)
+- 🛠 使用 React hooks 重构 Layout。[#27595](https://github.com/ant-design/ant-design/pull/27595)
+- 🐞 再次修复 Select 组件在 Form 中触发校验时外边框样式异常的问题。[#27607](https://github.com/ant-design/ant-design/pull/27607)
+- 🐞 修复 Pagination 开启页码切换器时右侧多余的 `margin`。[#27610](https://github.com/ant-design/ant-design/pull/27610)
+- 🐞 修复 Input.Search `enterButton={null}` 报错的问题。[#27591](https://github.com/ant-design/ant-design/pull/27591) [@davidebianchi](https://github.com/davidebianchi)
+- 🐞 修复 Avatar.Group `size` 不生效的问题。[#27531](https://github.com/ant-design/ant-design/pull/27531)
+- 🐞 修复垂直 Tabs 标题文字很长时导致页签宽度跳动的问题。[#27569](https://github.com/ant-design/ant-design/pull/27569)
+- 🐞 修复 Table `column.children` 内的筛选功能不展示的问题。[#27435](https://github.com/ant-design/ant-design/pull/27435) [@JhonXY](https://github.com/JhonXY)
+- 💄 修复 Steps 内嵌 Steps 时的样式。[#27514](https://github.com/ant-design/ant-design/pull/27514)
+- TypeScript
+  - 🤖 修复 Select `ref` 属性 TS 错误。[#27482](https://github.com/ant-design/ant-design/pull/27482)
+  - 🤖 修复 Avatar `src` 类型。[#27524](https://github.com/ant-design/ant-design/pull/27524) [@n0ruSh](https://github.com/n0ruSh)
+- RTL
+  - 💄 修复 Progress.Line `strokeColor` 在 RTL 模式下方向错误。[#27515](https://github.com/ant-design/ant-design/pull/27515)
+
 ## 4.8.0
 
 `2020-11-02`
@@ -35,7 +54,7 @@ timeline: true
   - 🆕 `modal.update()` 支持函数式更新。[#27163](https://github.com/ant-design/ant-design/pull/27163) [@Mongkii](https://github.com/Mongkii)
   - 🆕 Modal method 增加 `bodyStyle` 属性。[#27292](https://github.com/ant-design/ant-design/pull/27292)
   - 🐞 Fix Modal missing `modalRender` prop。[#27272](https://github.com/ant-design/ant-design/pull/27272) [@jieny](https://github.com/jieny)
-  - 🐞 `Modal.config` 中设置的 `rootPrefixCls` 可以对`title`和`content`下使用的 antd 组件生效。[#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
+  - 🐞 `Modal.config` 中设置的 `rootPrefixCls` 可以对 `title` 和 `content` 下使用的 antd 组件生效。[#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
 - Input
   - 🆕 Input.Textarea 支持 `size` 属性。[#27110](https://github.com/ant-design/ant-design/pull/27110)
   - 🐞 修复 Input `allowClear` 时 `className` 丢失的问题。[#27462](https://github.com/ant-design/ant-design/pull/27462)
@@ -297,7 +316,7 @@ timeline: true
 - Badge
   - 💄 新增 `@badge-color` less 变量。[#26159](https://github.com/ant-design/ant-design/pull/26159)
   - 🆕 Badge 新增 `size` 属性用于设置大小。[#25851](https://github.com/ant-design/ant-design/pull/25851) [@moonrailgun](https://github.com/moonrailgun)
-- 🆕 Tabs 可自定义`tabBarExtraContent` 的渲染位置。[#25138](https://github.com/ant-design/ant-design/pull/25138) [@jesse3mh9a](https://github.com/jesse3mh9a)
+- 🆕 Tabs 可自定义 `tabBarExtraContent` 的渲染位置。[#25138](https://github.com/ant-design/ant-design/pull/25138) [@jesse3mh9a](https://github.com/jesse3mh9a)
 - 💄 优化 Descriptions 在内容比较多时的显示效果。[#25903](https://github.com/ant-design/ant-design/pull/25903)
 - 🆕 message 支持通过 `message.desctroy(key)` 销毁。[#26052](https://github.com/ant-design/ant-design/pull/26052) [@lihqi](https://github.com/lihqi)
 - 💄 调整 InputNumber 操作栏在 `readOnly` 时为隐藏。[#25998](https://github.com/ant-design/ant-design/pull/25998)

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.8.0",
+  "version": "4.8.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -59,7 +59,7 @@
     "color-less": "node ./scripts/generate-color-less",
     "compile": "antd-tools run compile",
     "compile:less": "antd-tools run compile:less",
-    "changelog": "node ./scripts/print-changelog",
+    "changelog": "git fetch origin && node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && cp -r .circleci _site && npm run site:test",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
