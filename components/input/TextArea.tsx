@@ -22,8 +22,12 @@ export interface TextAreaState {
   prevValue: any;
 }
 
-const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>((props, ref) => {
-  const innerRef = React.useRef<HTMLTextAreaElement>();
+export interface TextAreaRef extends HTMLTextAreaElement {
+  resizableTextArea: any;
+}
+
+const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
+  const innerRef = React.useRef<TextAreaRef>();
   const mergedRef = useCombinedRefs(ref, innerRef);
   const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 

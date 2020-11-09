@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
-import TextArea from '../input/TextArea';
+import TextArea, { TextAreaRef } from '../input/TextArea';
 import { DirectionType } from '../config-provider';
 
 interface EditableProps {
@@ -39,7 +39,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
     return newState;
   }
 
-  textarea?: TextArea;
+  textarea?: TextAreaRef;
 
   lastKeyCode?: number;
 
@@ -113,7 +113,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
     onSave(current.trim());
   };
 
-  setTextarea = (textarea: TextArea) => {
+  setTextarea = (textarea: TextAreaRef) => {
     this.textarea = textarea;
   };
 
