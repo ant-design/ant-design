@@ -16,12 +16,6 @@ export interface TextAreaProps extends RcTextAreaProps {
   size?: SizeType;
 }
 
-export interface TextAreaState {
-  value: any;
-  /** `value` from prev props */
-  prevValue: any;
-}
-
 export interface TextAreaRef extends HTMLTextAreaElement {
   resizableTextArea: any;
 }
