@@ -35,15 +35,11 @@ const Editable: React.FC<EditableProps> = ({
 
   const inComposition = React.useRef(false);
   const lastKeyCode = React.useRef<number>();
-  const prevValue = React.useRef(value);
 
   const [current, setCurrent] = React.useState(value);
 
   React.useEffect(() => {
-    if (prevValue.current !== value) {
-      setCurrent(value);
-      prevValue.current = value;
-    }
+    setCurrent(value);
   }, [value]);
 
   React.useEffect(() => {
