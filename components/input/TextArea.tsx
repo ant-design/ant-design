@@ -111,9 +111,38 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
     const prefixCls = getPrefixCls('input', customizePrefixCls);
 
+    let lock = false;
+    let bufferValue = '';
+    //computed value length
+    const valueLen = (value: string): number => {
+      const regex = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+      return (value).replace(regex, ' ').length;
+    }
+    // handle slice value
+    const sliceValue = (val: string): string => {
+      if (valueLen >= maxLength) {
+        if (!lock) {
+          lock = true;
+          var arrValue = [];
+          for (let i = 0; i < val.length; i++) {
+            if (0xd800 <= val.charCodeAt(i) && val.charCodeAt(i) <= 0xdbff && 0xdc00 <= val.charCodeAt(i + 1) && val.charCodeAt(i + 1) <= 0xdfff) { // 可以通过计算字符是否在代理位置来遍历字符串
+              arrValue.push(val[i] + val[++i]);
+            } else {
+              arrValue.push(val[i]);
+            }
+          }
+          bufferValue = arrValue.slice(0, maxLength).join("");
+        }
+        val = bufferValue;
+      } else {
+        lock = false;
+        bufferValue = '';
+      }
+      return val;
+    }
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
-    value = hasMaxLength ? Array.from(value).slice(0, maxLength).join('') : value;
+    value = hasMaxLength ? sliceValue(value) : value;
 
     // TextArea
     const textareaNode = (size?: SizeType) => (
@@ -133,7 +162,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const valueLength = [...value].length;
+      const valueLength = valueLen(value);
       const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
       return (
