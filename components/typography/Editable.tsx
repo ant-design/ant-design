@@ -19,21 +19,32 @@ interface EditableProps {
   autoSize?: boolean | AutoSizeType;
 }
 
-const Editable: React.FC<EditableProps> = props => {
+const Editable: React.FC<EditableProps> = ({
+  prefixCls,
+  'aria-label': ariaLabel,
+  className,
+  style,
+  direction,
+  maxLength,
+  autoSize,
+  value,
+  onSave,
+  onCancel,
+}) => {
   const ref = React.useRef<any>();
 
   const inComposition = React.useRef(false);
   const lastKeyCode = React.useRef<number>();
-  const prevValue = React.useRef(props.value);
+  const prevValue = React.useRef(value);
 
-  const [current, setCurrent] = React.useState(props.value || '');
+  const [current, setCurrent] = React.useState(value || '');
 
   React.useEffect(() => {
-    if (prevValue.current !== props.value && props.value !== undefined) {
-      setCurrent(props.value);
-      prevValue.current = props.value;
+    if (prevValue.current !== value && value !== undefined) {
+      setCurrent(value);
+      prevValue.current = value;
     }
-  }, [props.value]);
+  }, [value]);
 
   React.useEffect(() => {
     if (ref.current && ref.current.resizableTextArea) {
@@ -44,8 +55,8 @@ const Editable: React.FC<EditableProps> = props => {
     }
   }, [ref.current]);
 
-  const onChange: React.ChangeEventHandler<HTMLTextAreaElement> = ({ target: { value } }) => {
-    setCurrent(value.replace(/[\n\r]/g, ''));
+  const onChange: React.ChangeEventHandler<HTMLTextAreaElement> = ({ target }) => {
+    setCurrent(target.value.replace(/[\n\r]/g, ''));
   };
 
   const onCompositionStart = () => {
@@ -64,8 +75,6 @@ const Editable: React.FC<EditableProps> = props => {
   };
 
   const confirmChange = () => {
-    const { onSave } = props;
-
     onSave(current.trim());
   };
 
@@ -76,7 +85,6 @@ const Editable: React.FC<EditableProps> = props => {
     metaKey,
     shiftKey,
   }) => {
-    const { onCancel } = props;
     // Check if it's a real key
     if (
       lastKeyCode.current === keyCode &&
@@ -98,15 +106,6 @@ const Editable: React.FC<EditableProps> = props => {
     confirmChange();
   };
 
-  const {
-    prefixCls,
-    'aria-label': ariaLabel,
-    className,
-    style,
-    direction,
-    maxLength,
-    autoSize,
-  } = props;
   const textAreaClassName = classNames(
     prefixCls,
     `${prefixCls}-edit-content`,
