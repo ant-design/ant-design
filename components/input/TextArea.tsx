@@ -3,7 +3,7 @@ import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import ClearableLabeledInput from './ClearableLabeledInput';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import useCombinedRefs from '../_util/hooks/useCombinedRefs';
@@ -27,6 +27,9 @@ export interface TextAreaRef extends HTMLTextAreaElement {
 }
 
 const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
+
   const innerRef = React.useRef<TextAreaRef>();
   const mergedRef = useCombinedRefs(ref, innerRef);
   const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
@@ -65,7 +68,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     resolveOnChange(mergedRef.current!, e, props.onChange);
   };
 
-  const renderTextArea = (prefixCls: string, bordered: boolean, size?: SizeType) => {
+  const renderTextArea = (prefixCls: string, bordered: boolean) => {
     const { showCount, className, style, size: customizeSize } = props;
 
     return (
@@ -85,70 +88,62 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     );
   };
 
-  const renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    let val = fixControlledValue(value) as string;
-    const {
-      prefixCls: customizePrefixCls,
-      bordered = true,
-      showCount = false,
-      maxLength,
-      className,
-      style,
-    } = props;
+  let val = fixControlledValue(value) as string;
+  const {
+    prefixCls: customizePrefixCls,
+    bordered = true,
+    showCount = false,
+    maxLength,
+    className,
+    style,
+  } = props;
 
-    const prefixCls = getPrefixCls('input', customizePrefixCls);
+  const prefixCls = getPrefixCls('input', customizePrefixCls);
 
-    // Max length value
-    const hasMaxLength = Number(maxLength) > 0;
-    val = hasMaxLength ? val.slice(0, maxLength) : val;
+  // Max length value
+  const hasMaxLength = Number(maxLength) > 0;
+  val = hasMaxLength ? val.slice(0, maxLength) : val;
 
-    // TextArea
-    const textareaNode = (size?: SizeType) => (
-      <ClearableLabeledInput
-        {...props}
-        prefixCls={prefixCls}
-        direction={direction}
-        inputType="text"
-        value={val}
-        element={renderTextArea(prefixCls, bordered, size)}
-        handleReset={handleReset}
-        ref={clearableInputRef}
-        triggerFocus={focus}
-        bordered={bordered}
-      />
+  // TextArea
+  const textareaNode = (
+    <ClearableLabeledInput
+      {...props}
+      prefixCls={prefixCls}
+      direction={direction}
+      inputType="text"
+      value={val}
+      element={renderTextArea(prefixCls, bordered)}
+      handleReset={handleReset}
+      ref={clearableInputRef}
+      triggerFocus={focus}
+      bordered={bordered}
+    />
+  );
+
+  // Only show text area wrapper when needed
+  if (showCount) {
+    const valueLength = [...val].length;
+    const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+
+    return (
+      <div
+        className={classNames(
+          `${prefixCls}-textarea`,
+          {
+            [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
+          },
+          `${prefixCls}-textarea-show-count`,
+          className,
+        )}
+        style={style}
+        data-count={dataCount}
+      >
+        {textareaNode}
+      </div>
     );
+  }
 
-    // Only show text area wrapper when needed
-    if (showCount) {
-      const valueLength = [...val].length;
-      const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
-
-      return (
-        <SizeContext.Consumer>
-          {(size?: SizeType) => (
-            <div
-              className={classNames(
-                `${prefixCls}-textarea`,
-                {
-                  [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
-                },
-                `${prefixCls}-textarea-show-count`,
-                className,
-              )}
-              style={style}
-              data-count={dataCount}
-            >
-              {textareaNode(size)}
-            </div>
-          )}
-        </SizeContext.Consumer>
-      );
-    }
-
-    return <SizeContext.Consumer>{textareaNode}</SizeContext.Consumer>;
-  };
-
-  return <ConfigConsumer>{renderComponent}</ConfigConsumer>;
+  return textareaNode;
 });
 
 export default TextArea;
