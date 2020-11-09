@@ -120,7 +120,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
     // handle slice value
     const sliceValue = (val: string): string => {
-      if (valueLen >= maxLength) {
+      if (valueLen(val) >= maxLength) {
         if (!lock) {
           lock = true;
           var arrValue = [];
