@@ -37,11 +37,11 @@ const Editable: React.FC<EditableProps> = ({
   const lastKeyCode = React.useRef<number>();
   const prevValue = React.useRef(value);
 
-  const [current, setCurrent] = React.useState<string | undefined>(value || '');
+  const [current, setCurrent] = React.useState(value || '');
 
   React.useEffect(() => {
     if (prevValue.current !== value) {
-      setCurrent(value);
+      setCurrent(value || '');
       prevValue.current = value;
     }
   }, [value]);
