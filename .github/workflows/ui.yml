@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
+        if: github.event_name == 'pull_request_target'
+        uses: actions/checkout@master
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+
+      - name: checkout
+        if: github.event_name == 'push'
         uses: actions/checkout@master
 
       - name: install
