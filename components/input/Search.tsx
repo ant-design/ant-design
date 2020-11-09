@@ -4,8 +4,8 @@ import { composeRef } from 'rc-util/lib/ref';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import Input, { InputProps } from './Input';
 import Button from '../button';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import SizeContext from '../config-provider/SizeContext';
+import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 
 export interface SearchProps extends InputProps {
@@ -22,10 +22,29 @@ export interface SearchProps extends InputProps {
 }
 
 const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    inputPrefixCls: customizeInputPrefixCls,
+    className,
+    size: customizeSize,
+    suffix,
+    enterButton = false,
+    addonAfter,
+    loading,
+    disabled,
+    onSearch: customOnSearch,
+    onChange: customOnChange,
+    ...restProps
+  } = props;
+
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const contextSize = React.useContext(SizeContext);
+
+  const size = customizeSize || contextSize;
+
   const inputRef = React.useRef<Input>(null);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { onChange: customOnChange, onSearch: customOnSearch } = props;
     if (e && e.target && e.type === 'click' && customOnSearch) {
       customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e);
     }
@@ -41,14 +60,15 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
   };
 
   const onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
-    const { onSearch: customOnSearch } = props;
     if (customOnSearch) {
       customOnSearch(inputRef.current?.input.value!, e);
     }
   };
 
-  const renderAddonAfter = (prefixCls: string, size: SizeType) => {
-    const { enterButton, disabled, addonAfter, loading } = props;
+  const prefixCls = getPrefixCls('input-search', customizePrefixCls);
+  const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+
+  const renderAddonAfter = () => {
     const searchIcon =
       typeof enterButton === 'boolean' || typeof enterButton === 'undefined' ? (
         <SearchOutlined />
@@ -102,59 +122,31 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
     return button;
   };
 
-  const renderSearch = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      inputPrefixCls: customizeInputPrefixCls,
-      className,
-      size: customizeSize,
-      suffix,
-      enterButton,
-      ...restProps
-    } = props;
+  const cls = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-${size}`]: !!size,
+      [`${prefixCls}-with-button`]: !!enterButton,
+    },
+    className,
+  );
 
-    delete (restProps as any).onSearch;
-    delete (restProps as any).loading;
-
-    const prefixCls = getPrefixCls('input-search', customizePrefixCls);
-    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
-
-    const getClassName = (size: SizeType) =>
-      classNames(
-        prefixCls,
-        {
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-          [`${prefixCls}-${size}`]: !!size,
-          [`${prefixCls}-with-button`]: !!enterButton,
-        },
-        className,
-      );
-
-    return (
-      <SizeContext.Consumer>
-        {size => (
-          <Input
-            ref={composeRef<Input>(inputRef, ref)}
-            onPressEnter={onSearch}
-            {...restProps}
-            size={customizeSize || size}
-            prefixCls={inputPrefixCls}
-            addonAfter={renderAddonAfter(prefixCls, customizeSize || size)}
-            suffix={suffix}
-            onChange={onChange}
-            className={getClassName(customizeSize || size)}
-          />
-        )}
-      </SizeContext.Consumer>
-    );
-  };
-
-  return <ConfigConsumer>{renderSearch}</ConfigConsumer>;
+  return (
+    <Input
+      ref={composeRef<Input>(inputRef, ref)}
+      onPressEnter={onSearch}
+      {...restProps}
+      size={size}
+      prefixCls={inputPrefixCls}
+      addonAfter={renderAddonAfter()}
+      suffix={suffix}
+      onChange={onChange}
+      className={cls}
+      disabled={disabled}
+    />
+  );
 });
-
-Search.defaultProps = {
-  enterButton: false,
-};
 
 Search.displayName = 'Search';
 
