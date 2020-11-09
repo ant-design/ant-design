@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.8.2
+
+`2020-11-09`
+
+- 🐞 修复 Pagination 快速跳转 margin 丢失的问题。[#27650](https://github.com/ant-design/ant-design/pull/27650)
+- 🐞 修复 Steps `type="navigation"` 最后一项的样式问题。[#27654](https://github.com/ant-design/ant-design/pull/27654)
+
 ## 4.8.1
 
 `2020-11-08`
