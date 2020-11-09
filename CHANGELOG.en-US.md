@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.8.2
+
+`2020-11-09`
+
+- 🐞 Fix Pagination lost jumper margin style. [#27650](https://github.com/ant-design/ant-design/pull/27650)
+- 🐞 Fix Steps `type="navigation"` last item broken style. [#27654](https://github.com/ant-design/ant-design/pull/27654)
+
 ## 4.8.1
 
 `2020-11-08`
