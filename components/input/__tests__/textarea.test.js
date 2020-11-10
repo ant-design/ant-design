@@ -141,6 +141,14 @@ describe('TextArea', () => {
       expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
+    // 修改TextArea value截取规则后新增单测
+    it('slice emoji', () => {
+      const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
+      const textarea = wrapper.find('.ant-input-textarea');
+      expect(wrapper.find('textarea').prop('value')).toBe('1234😂');
+      expect(textarea.prop('data-count')).toBe('5 / 5');
+    });
+
     it('className & style patch to outer', () => {
       const wrapper = mount(
         <TextArea className="bamboo" style={{ background: 'red' }} showCount />,
