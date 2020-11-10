@@ -34,13 +34,15 @@ const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
   const mode = menu.prop('mode') || 'horizontal';
   enter();
   menu.update();
-  let submenu = menu.find('.ant-menu-sub').hostNodes().at(0);
+  let submenu = menu.find('.ant-menu-submenu-popup').hostNodes().at(0);
   expect(submenu.hasClass('ant-menu-hidden') || submenu.hasClass(AnimationClassNames[mode])).toBe(
     false,
   );
   leave();
   menu.update();
-  submenu = menu.find('.ant-menu-sub').hostNodes().at(0);
+
+  submenu = menu.find('.ant-menu-submenu-popup').hostNodes().at(0);
+
   expect(submenu.hasClass('ant-menu-hidden') || submenu.hasClass(AnimationClassNames[mode])).toBe(
     true,
   );
