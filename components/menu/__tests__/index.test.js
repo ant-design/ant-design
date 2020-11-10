@@ -54,6 +54,9 @@ const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
 };
 
 describe('Menu', () => {
+  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
+  window.cancelAnimationFrame = window.clearTimeout;
+
   mountTest(() => (
     <Menu>
       <Menu.Item />
@@ -298,6 +301,11 @@ describe('Menu', () => {
     wrapper.update();
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
 
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+
     expect(wrapper.find('ul.ant-menu-root').at(0).hasClass('ant-menu-vertical')).toBe(true);
     expect(wrapper.find('ul.ant-menu-sub:not(.ant-menu-hidden)').length).toBe(0);
 
@@ -326,6 +334,12 @@ describe('Menu', () => {
     jest.runAllTimers();
     wrapper.update();
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
+
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+
     wrapper.find('.ant-menu-submenu-title').at(0).simulate('mouseEnter');
     jest.runAllTimers();
     wrapper.update();
