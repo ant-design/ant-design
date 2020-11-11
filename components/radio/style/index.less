@@ -78,11 +78,9 @@
 
   &-inner {
     &::after {
-      @radio-dot-size: @radio-size - 8px;
-
       position: absolute;
-      top: (@radio-size - @radio-dot-size) / 2 - 1px;
-      left: (@radio-size - @radio-dot-size) / 2 - 1px;
+      top: (@radio-size - @radio-dot-size) / 2 - @radio-border-width;
+      left: (@radio-size - @radio-dot-size) / 2 - @radio-border-width;
       display: table;
       width: @radio-dot-size;
       height: @radio-dot-size;
@@ -105,8 +103,8 @@
     background-color: @radio-button-bg;
     border-color: @border-color-base;
     border-style: solid;
-    border-width: 1px;
-    border-radius: 100px;
+    border-width: @radio-border-width;
+    border-radius: 50%;
     transition: all @radio-duration;
   }
 
