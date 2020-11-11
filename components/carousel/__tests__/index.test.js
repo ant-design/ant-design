@@ -69,6 +69,19 @@ describe('Carousel', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('cancel resize listener when unmount', async () => {
+    const wrapper = mount(
+      <Carousel autoplay>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
+    const spy = jest.spyOn(window, 'removeEventListener');
+    wrapper.unmount();
+    expect(spy).toHaveBeenCalled();
+  });
+
   describe('should works for dotPosition', () => {
     ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
       // eslint-disable-next-line jest/valid-title

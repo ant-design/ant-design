@@ -23,7 +23,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
 }
 
 const Carousel = React.forwardRef<unknown, CarouselProps>(
-  ({ dots = true, arrows = false, draggable = false, ...props }, ref) => {
+  ({ dots = true, arrows = false, draggable = false, dotPosition = 'bottom', ...props }, ref) => {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const slickRef = React.useRef<any>();
 
@@ -81,11 +81,6 @@ const Carousel = React.forwardRef<unknown, CarouselProps>(
       }
     }, [props.children]);
 
-    const getDotPosition = (): DotPosition => {
-      const { dotPosition = 'bottom' } = props;
-      return dotPosition;
-    };
-
     const newProps = {
       ...props,
     };
@@ -96,13 +91,12 @@ const Carousel = React.forwardRef<unknown, CarouselProps>(
 
     const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
     const dotsClass = 'slick-dots';
-    const dotPosition = getDotPosition();
     newProps.vertical = dotPosition === 'left' || dotPosition === 'right';
 
     const enableDots = !!dots;
     const dsClass = classNames(
       dotsClass,
-      `${dotsClass}-${dotPosition || 'bottom'}`,
+      `${dotsClass}-${dotPosition}`,
       typeof dots === 'boolean' ? false : dots?.className,
     );
 
