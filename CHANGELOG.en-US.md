@@ -15,6 +15,32 @@ timeline: true
 
 ---
 
+## 4.8.2
+
+`2020-11-09`
+
+- 🐞 Fix Pagination lost jumper margin style. [#27650](https://github.com/ant-design/ant-design/pull/27650)
+- 🐞 Fix Steps `type="navigation"` last item broken style. [#27654](https://github.com/ant-design/ant-design/pull/27654)
+
+## 4.8.1
+
+`2020-11-08`
+
+- 🛠 Refactor TreeSelect with React hooks. [#27593](https://github.com/ant-design/ant-design/pull/27593)
+- 🛠 Refactor Layout with React hooks. [#27595](https://github.com/ant-design/ant-design/pull/27595)
+- 🐞 Fix Select abnormal outline style in Form validation. [#27607](https://github.com/ant-design/ant-design/pull/27607)
+- 🐞 Fix Pagination extra `margin-right` when enable size changer. [#27610](https://github.com/ant-design/ant-design/pull/27610)
+- 🐞 Fix Input.Search `enterButton={null}` throw error. [#27591](https://github.com/ant-design/ant-design/pull/27591) [@davidebianchi](https://github.com/davidebianchi)
+- 🐞 fix Avatar.Group `size` not working. [#27531](https://github.com/ant-design/ant-design/pull/27531)
+- 🐞 Fix vertical Tabs long title cause tab width changes. [#27569](https://github.com/ant-design/ant-design/pull/27569)
+- 🐞 Fix Table filters didn't display in `column.children`. [#27435](https://github.com/ant-design/ant-design/pull/27435) [@JhonXY](https://github.com/JhonXY)
+- 💄 Fix Steps style that inside another Steps. [#27514](https://github.com/ant-design/ant-design/pull/27514)
+- TypeScript
+  - 🤖 Fix Select `ref` TS error. [#27482](https://github.com/ant-design/ant-design/pull/27482)
+  - 🤖 Fix Avatar `src` type. [#27524](https://github.com/ant-design/ant-design/pull/27524) [@n0ruSh](https://github.com/n0ruSh)
+- RTL
+  - 💄 Fix Progress.Line `strokeColor` direction error in RTL mode. [#27515](https://github.com/ant-design/ant-design/pull/27515)
+
 ## 4.8.0
 
 `2020-11-02`

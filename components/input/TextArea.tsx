@@ -113,7 +113,8 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
-    value = hasMaxLength ? value.slice(0, maxLength) : value;
+    // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
+    value = hasMaxLength ? [...value].slice(0, maxLength).join('') : value;
 
     // TextArea
     const textareaNode = (size?: SizeType) => (
