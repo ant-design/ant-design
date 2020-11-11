@@ -1,11 +1,12 @@
 import * as React from 'react';
-import RcTextArea, { TextAreaProps as RcTextAreaProps, ResizableTextArea } from 'rc-textarea';
+import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import ClearableLabeledInput from './ClearableLabeledInput';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import useCombinedRefs from '../_util/hooks/useCombinedRefs';
 
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
@@ -15,75 +16,58 @@ export interface TextAreaProps extends RcTextAreaProps {
   size?: SizeType;
 }
 
-export interface TextAreaState {
-  value: any;
-  /** `value` from prev props */
-  prevValue: any;
+export interface TextAreaRef extends HTMLTextAreaElement {
+  resizableTextArea: any;
 }
 
-class TextArea extends React.Component<TextAreaProps, TextAreaState> {
-  resizableTextArea: ResizableTextArea;
+const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
 
-  clearableInput: ClearableLabeledInput;
+  const innerRef = React.useRef<TextAreaRef>();
+  const mergedRef = useCombinedRefs(ref, innerRef);
+  const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
-  constructor(props: TextAreaProps) {
-    super(props);
-    const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
-    this.state = {
-      value,
-      // eslint-disable-next-line react/no-unused-state
-      prevValue: props.value,
-    };
-  }
+  const [value, setValue] = React.useState(
+    typeof props.value === 'undefined' ? props.defaultValue : props.value,
+  );
 
-  static getDerivedStateFromProps(nextProps: TextAreaProps, { prevValue }: TextAreaState) {
-    const newState: Partial<TextAreaState> = { prevValue: nextProps.value };
-    if (nextProps.value !== undefined || prevValue !== nextProps.value) {
-      newState.value = nextProps.value;
+  const prevValue = React.useRef(props.value);
+
+  React.useEffect(() => {
+    if (props.value !== undefined || prevValue.current !== props.value) {
+      setValue(props.value);
+      prevValue.current = props.value;
     }
-    return newState;
-  }
+  }, [props.value, prevValue.current]);
 
-  setValue(value: string, callback?: () => void) {
-    if (this.props.value === undefined) {
-      this.setState({ value }, callback);
+  const handleSetValue = (val: string, callback?: () => void) => {
+    if (props.value === undefined) {
+      setValue(val);
+      if (callback) {
+        callback();
+      }
     }
-  }
-
-  focus = () => {
-    this.resizableTextArea.textArea.focus();
   };
 
-  blur() {
-    this.resizableTextArea.textArea.blur();
-  }
-
-  saveTextArea = (textarea: RcTextArea) => {
-    this.resizableTextArea = textarea?.resizableTextArea;
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    handleSetValue(e.target.value);
+    resolveOnChange(mergedRef.current!, e, props.onChange);
   };
 
-  saveClearableInput = (clearableInput: ClearableLabeledInput) => {
-    this.clearableInput = clearableInput;
-  };
-
-  handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    this.setValue(e.target.value);
-    resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
-  };
-
-  handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    this.setValue('', () => {
-      this.focus();
+  const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    handleSetValue('', () => {
+      mergedRef.current!.focus();
     });
-    resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
+    resolveOnChange(mergedRef.current!, e, props.onChange);
   };
 
-  renderTextArea = (prefixCls: string, bordered: boolean, size?: SizeType) => {
-    const { showCount, className, style, size: customizeSize } = this.props;
+  const renderTextArea = (prefixCls: string, bordered: boolean) => {
+    const { showCount, className, style, size: customizeSize } = props;
 
     return (
       <RcTextArea
-        {...omit(this.props, ['allowClear', 'bordered', 'showCount', 'size'])}
+        {...omit(props, ['allowClear', 'bordered', 'showCount', 'size'])}
         className={classNames({
           [`${prefixCls}-borderless`]: !bordered,
           [className!]: className && !showCount,
@@ -92,79 +76,69 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
         })}
         style={showCount ? null : style}
         prefixCls={prefixCls}
-        onChange={this.handleChange}
-        ref={this.saveTextArea}
+        onChange={handleChange}
+        ref={mergedRef}
       />
     );
   };
 
-  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    let value = fixControlledValue(this.state?.value);
-    const {
-      prefixCls: customizePrefixCls,
-      bordered = true,
-      showCount = false,
-      maxLength,
-      className,
-      style,
-    } = this.props;
+  let val = fixControlledValue(value) as string;
+  const {
+    prefixCls: customizePrefixCls,
+    bordered = true,
+    showCount = false,
+    maxLength,
+    className,
+    style,
+  } = props;
 
-    const prefixCls = getPrefixCls('input', customizePrefixCls);
+  const prefixCls = getPrefixCls('input', customizePrefixCls);
 
-    // Max length value
-    const hasMaxLength = Number(maxLength) > 0;
-    // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
-    value = hasMaxLength ? [...value].slice(0, maxLength).join('') : value;
+  // Max length value
+  const hasMaxLength = Number(maxLength) > 0;
+  // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
+  val = hasMaxLength ? [...val].slice(0, maxLength).join('') : val;
 
-    // TextArea
-    const textareaNode = (size?: SizeType) => (
-      <ClearableLabeledInput
-        {...this.props}
-        prefixCls={prefixCls}
-        direction={direction}
-        inputType="text"
-        value={value}
-        element={this.renderTextArea(prefixCls, bordered, size)}
-        handleReset={this.handleReset}
-        ref={this.saveClearableInput}
-        triggerFocus={this.focus}
-        bordered={bordered}
-      />
+  // TextArea
+  const textareaNode = (
+    <ClearableLabeledInput
+      {...props}
+      prefixCls={prefixCls}
+      direction={direction}
+      inputType="text"
+      value={val}
+      element={renderTextArea(prefixCls, bordered)}
+      handleReset={handleReset}
+      ref={clearableInputRef}
+      triggerFocus={focus}
+      bordered={bordered}
+    />
+  );
+
+  // Only show text area wrapper when needed
+  if (showCount) {
+    const valueLength = [...val].length;
+    const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+
+    return (
+      <div
+        className={classNames(
+          `${prefixCls}-textarea`,
+          {
+            [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
+          },
+          `${prefixCls}-textarea-show-count`,
+          className,
+        )}
+        style={style}
+        data-count={dataCount}
+      >
+        {textareaNode}
+      </div>
     );
-
-    // Only show text area wrapper when needed
-    if (showCount) {
-      const valueLength = [...value].length;
-      const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
-
-      return (
-        <SizeContext.Consumer>
-          {(size?: SizeType) => (
-            <div
-              className={classNames(
-                `${prefixCls}-textarea`,
-                {
-                  [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
-                },
-                `${prefixCls}-textarea-show-count`,
-                className,
-              )}
-              style={style}
-              data-count={dataCount}
-            >
-              {textareaNode(size)}
-            </div>
-          )}
-        </SizeContext.Consumer>
-      );
-    }
-
-    return <SizeContext.Consumer>{textareaNode}</SizeContext.Consumer>;
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
-}
+
+  return textareaNode;
+});
 
 export default TextArea;
