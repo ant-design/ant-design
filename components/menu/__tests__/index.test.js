@@ -34,19 +34,29 @@ const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
   const mode = menu.prop('mode') || 'horizontal';
   enter();
   menu.update();
-  let submenu = menu.find('.ant-menu-sub').hostNodes().at(0);
-  expect(submenu.hasClass('ant-menu-hidden') || submenu.hasClass(AnimationClassNames[mode])).toBe(
-    false,
-  );
+
+  function getSubMenu() {
+    if (mode === 'inline') {
+      return menu.find('.ant-menu-sub.ant-menu-inline').hostNodes().at(0);
+    }
+    return menu.find('.ant-menu-submenu-popup').hostNodes().at(0);
+  }
+
+  expect(
+    getSubMenu().hasClass('ant-menu-hidden') || getSubMenu().hasClass(AnimationClassNames[mode]),
+  ).toBe(false);
   leave();
   menu.update();
-  submenu = menu.find('.ant-menu-sub').hostNodes().at(0);
-  expect(submenu.hasClass('ant-menu-hidden') || submenu.hasClass(AnimationClassNames[mode])).toBe(
-    true,
-  );
+
+  expect(
+    getSubMenu().hasClass('ant-menu-hidden') || getSubMenu().hasClass(AnimationClassNames[mode]),
+  ).toBe(true);
 };
 
 describe('Menu', () => {
+  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
+  window.cancelAnimationFrame = window.clearTimeout;
+
   mountTest(() => (
     <Menu>
       <Menu.Item />
@@ -291,6 +301,11 @@ describe('Menu', () => {
     wrapper.update();
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
 
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+
     expect(wrapper.find('ul.ant-menu-root').at(0).hasClass('ant-menu-vertical')).toBe(true);
     expect(wrapper.find('ul.ant-menu-sub:not(.ant-menu-hidden)').length).toBe(0);
 
@@ -319,6 +334,12 @@ describe('Menu', () => {
     jest.runAllTimers();
     wrapper.update();
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
+
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+
     wrapper.find('.ant-menu-submenu-title').at(0).simulate('mouseEnter');
     jest.runAllTimers();
     wrapper.update();
