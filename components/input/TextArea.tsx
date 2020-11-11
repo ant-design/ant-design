@@ -110,7 +110,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       element={renderTextArea(prefixCls, bordered)}
       handleReset={handleReset}
       ref={clearableInputRef}
-      triggerFocus={focus}
+      triggerFocus={mergedRef.current!.focus}
       bordered={bordered}
     />
   );
