@@ -165,7 +165,6 @@ exports[`Avatar Render should handle onError correctly 1`] = `
       <img
         onError={[Function]}
         src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        style={Object {}}
       />
     </span>
   </Avatar>
@@ -215,7 +214,6 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
     <img
       onError={[Function]}
       src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-      style={Object {}}
     />
   </span>
 </Avatar>
