@@ -24,45 +24,38 @@ const contentStyle = {
   background: '#364d79',
 };
 
-class PositionCarouselDemo extends React.Component {
-  state = {
-    dotPosition: 'top',
+const PositionCarouselDemo = () => {
+  const [dotPosition, setDotPosition] = React.useState('top');
+
+  const handlePositionChange = ({ target: { value } }) => {
+    setDotPosition(value);
   };
 
-  handlePositionChange = ({ target: { value: dotPosition } }) => this.setState({ dotPosition });
-
-  render() {
-    const { dotPosition } = this.state;
-    return (
-      <>
-        <Radio.Group
-          onChange={this.handlePositionChange}
-          value={dotPosition}
-          style={{ marginBottom: 8 }}
-        >
-          <Radio.Button value="top">Top</Radio.Button>
-          <Radio.Button value="bottom">Bottom</Radio.Button>
-          <Radio.Button value="left">Left</Radio.Button>
-          <Radio.Button value="right">Right</Radio.Button>
-        </Radio.Group>
-        <Carousel dotPosition={dotPosition}>
-          <div>
-            <h3 style={contentStyle}>1</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>2</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>3</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>4</h3>
-          </div>
-        </Carousel>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Radio.Group onChange={handlePositionChange} value={dotPosition} style={{ marginBottom: 8 }}>
+        <Radio.Button value="top">Top</Radio.Button>
+        <Radio.Button value="bottom">Bottom</Radio.Button>
+        <Radio.Button value="left">Left</Radio.Button>
+        <Radio.Button value="right">Right</Radio.Button>
+      </Radio.Group>
+      <Carousel dotPosition={dotPosition}>
+        <div>
+          <h3 style={contentStyle}>1</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>2</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>3</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>4</h3>
+        </div>
+      </Carousel>
+    </>
+  );
+};
 
 ReactDOM.render(<PositionCarouselDemo />, mountNode);
 ```
