@@ -105,6 +105,7 @@
     "> 1%",
     "ie >= 11"
   ],
+  
   "dependencies": {
     "@ant-design/colors": "^4.0.5",
     "@ant-design/css-animation": "^1.7.2",
