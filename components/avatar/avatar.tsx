@@ -159,7 +159,14 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   let childrenToRender;
   if (typeof src === 'string' && isImgExist) {
     childrenToRender = (
-      <img src={src} draggable={draggable} srcSet={srcSet} onError={handleImgLoadError} alt={alt} />
+      <img
+        src={src}
+        style={sizeStyle}
+        draggable={draggable}
+        srcSet={srcSet}
+        onError={handleImgLoadError}
+        alt={alt}
+      />
     );
   } else if (hasImageElement) {
     childrenToRender = src;
