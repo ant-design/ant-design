@@ -31,9 +31,17 @@ class Demo extends React.Component {
   formRef = React.createRef<FormInstance>();
 
   onGenderChange = value => {
-    this.formRef.current.setFieldsValue({
-      note: `Hi, ${value === 'male' ? 'man' : value === 'female' ? 'lady' : 'there'}!`,
-    });
+    switch (value) {
+      case 'male':
+        this.formRef.current.setFieldsValue({ note: 'Hi, man!' });
+        return;
+      case 'female':
+        this.formRef.current.setFieldsValue({ note: 'Hi, lady!' });
+        return;
+      case 'other':
+        this.formRef.current.setFieldsValue({ note: 'Hi there!' });
+        return;
+    }
   };
 
   onFinish = values => {
