@@ -59,9 +59,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     handleSetValue('', () => {
       mergedRef.current?.focus();
     });
-    if (mergedRef.current) {
-      resolveOnChange(mergedRef.current, e, props.onChange);
-    }
+    resolveOnChange(mergedRef.current!, e, props.onChange);
   };
 
   const renderTextArea = (prefixCls: string, bordered: boolean) => {
@@ -112,7 +110,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       element={renderTextArea(prefixCls, bordered)}
       handleReset={handleReset}
       ref={clearableInputRef}
-      triggerFocus={() => mergedRef.current?.focus()}
       bordered={bordered}
     />
   );
