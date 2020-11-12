@@ -34,17 +34,9 @@ const Demo = () => {
   const [form] = Form.useForm();
 
   const onGenderChange = value => {
-    switch (value) {
-      case 'male':
-        form.setFieldsValue({ note: 'Hi, man!' });
-        return;
-      case 'female':
-        form.setFieldsValue({ note: 'Hi, lady!' });
-        return;
-      case 'other':
-        form.setFieldsValue({ note: 'Hi there!' });
-        return;
-    }
+    form.setFieldsValue({
+      note: `Hi, ${value === 'male' ? 'man' : value === 'female' ? 'lady' : 'there'}!`,
+    });
   };
 
   const onFinish = values => {
