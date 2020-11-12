@@ -6,7 +6,7 @@ export interface CheckableTagProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  checked: boolean;
+  checked?: boolean;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
