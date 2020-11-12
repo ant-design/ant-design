@@ -32,7 +32,7 @@ class Demo extends React.Component {
 
   onGenderChange = value => {
     this.formRef.current.setFieldsValue({
-      note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,
+      note: `Hi, ${value === 'male' ? 'man' : value === 'female' ? 'lady' : 'there'}!`,
     });
   };
 
