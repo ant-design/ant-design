@@ -330,9 +330,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       ) : (
         <span>{dom}</span>
       );
+
     return (
       <div key={file.uid} className={listContainerNameClass}>
-        {itemRender ? itemRender(item, file, items) : item}
+        {itemRender ? itemRender(item, file, onRemove, items) : item}
       </div>
     );
   });

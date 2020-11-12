@@ -44,6 +44,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     children,
     style,
     itemRender,
+    uploadListWrapperRender,
   } = props;
 
   const [dragState, setDragState] = React.useState<string>('drop');
@@ -244,26 +245,32 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         {(locale: UploadLocale) => {
           const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } =
             typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
+          const fileList = getFileList(true);
+          const uploadList = <UploadList
+            listType={listType}
+            items={fileList}
+            previewFile={previewFile}
+            onPreview={onPreview}
+            onDownload={onDownload}
+            onRemove={handleRemove}
+            showRemoveIcon={!disabled && showRemoveIcon}
+            showPreviewIcon={showPreviewIcon}
+            showDownloadIcon={showDownloadIcon}
+            removeIcon={removeIcon}
+            downloadIcon={downloadIcon}
+            iconRender={iconRender}
+            locale={{ ...locale, ...propLocale }}
+            isImageUrl={isImageUrl}
+            progress={progress}
+            appendAction={button}
+            itemRender={itemRender}
+          />
+
           return (
-            <UploadList
-              listType={listType}
-              items={getFileList(true)}
-              previewFile={previewFile}
-              onPreview={onPreview}
-              onDownload={onDownload}
-              onRemove={handleRemove}
-              showRemoveIcon={!disabled && showRemoveIcon}
-              showPreviewIcon={showPreviewIcon}
-              showDownloadIcon={showDownloadIcon}
-              removeIcon={removeIcon}
-              downloadIcon={downloadIcon}
-              iconRender={iconRender}
-              locale={{ ...locale, ...propLocale }}
-              isImageUrl={isImageUrl}
-              progress={progress}
-              appendAction={button}
-              itemRender={itemRender}
-            />
+            <div>
+
+              {uploadListWrapperRender ? (uploadListWrapperRender(uploadList, fileList)) : uploadList}
+            </div>
           );
         }}
       </LocaleReceiver>
@@ -293,7 +300,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           style={style}
         >
           <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
-            <div className={`${prefixCls}-drag-container`}>{children}</div>
+
+            <div className={`${prefixCls}-drag-container`}>
+              {children}
+            </div>
           </RcUpload>
         </div>
         {renderUploadList()}
