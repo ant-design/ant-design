@@ -58,6 +58,10 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     this.resizableTextArea.textArea.blur();
   }
 
+  setSelectionRange(start: number, end: number, direction?: 'forward' | 'backward' | 'none') {
+    this.resizableTextArea.textArea.setSelectionRange(start, end, direction);
+  }
+
   saveTextArea = (textarea: RcTextArea) => {
     this.resizableTextArea = textarea?.resizableTextArea;
   };

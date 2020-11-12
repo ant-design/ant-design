@@ -169,6 +169,15 @@ describe('TextArea', () => {
     expect(wrapper.find('textarea').hasClass('ant-input-lg')).toBe(true);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('set mouse cursor position', () => {
+    const defaultValue = '11111';
+    const valLength = defaultValue.length;
+    const wrapper = mount(<TextArea autoFocus defaultValue={defaultValue} />);
+    wrapper.instance().setSelectionRange(valLength, valLength);
+    expect(wrapper.instance().resizableTextArea.textArea.selectionStart).toEqual(5);
+    expect(wrapper.instance().resizableTextArea.textArea.selectionEnd).toEqual(5);
+  });
 });
 
 describe('TextArea allowClear', () => {
