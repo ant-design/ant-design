@@ -57,19 +57,6 @@ const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
 
   const siders = React.useRef<string[]>([]);
 
-  const siderHook = React.useMemo(() => {
-    return {
-      addSider: (id: string) => {
-        siders.current = [...siders.current, id];
-        forceUpdate();
-      },
-      removeSider: (id: string) => {
-        siders.current = siders.current.filter(currentId => currentId !== id);
-        forceUpdate();
-      },
-    };
-  }, [siders]);
-
   const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = props;
   const classString = classNames(
     prefixCls,
@@ -82,7 +69,20 @@ const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
   );
 
   return (
-    <LayoutContext.Provider value={{ siderHook }}>
+    <LayoutContext.Provider
+      value={{
+        siderHook: {
+          addSider: (id: string) => {
+            siders.current = [...siders.current, id];
+            forceUpdate();
+          },
+          removeSider: (id: string) => {
+            siders.current = siders.current.filter(currentId => currentId !== id);
+            forceUpdate();
+          },
+        },
+      }}
+    >
       <Tag className={classString} {...others}>
         {children}
       </Tag>
