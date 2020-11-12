@@ -12,8 +12,8 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Hafta seç',
     rangePlaceholder: ['Başlangıç tarihi', 'Bitiş tarihi'],
     rangeYearPlaceholder: ['Başlangıç yılı', 'Bitiş yılı'],
-    rangeMonthPlaceholder: ['Başlangıç ayı', 'Bitiş ayı'],
     rangeWeekPlaceholder: ['Başlangıç haftası', 'Bitiş haftası'],
+    rangeMonthPlaceholder: ['Başlangıç ayı', 'Bitiş ayı'],
     shortMonths: [
       'Oca',
       'Şub',
