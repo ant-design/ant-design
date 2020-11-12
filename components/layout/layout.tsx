@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
+import useForceUpdate from '../_util/hooks/useForceUpdate';
 
 export interface GeneratorProps {
   suffixCls: string;
@@ -52,31 +53,36 @@ const Basic = (props: BasicPropsWithTagName) => {
 const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
   const { direction } = React.useContext(ConfigContext);
 
-  const [siders, setSiders] = React.useState<string[]>([]);
+  const forceUpdate = useForceUpdate();
 
-  const getSiderHook = () => {
+  const siders = React.useRef<string[]>([]);
+
+  const siderHook = React.useMemo(() => {
     return {
       addSider: (id: string) => {
-        setSiders([...siders, id]);
+        siders.current = [...siders.current, id];
+        forceUpdate();
       },
       removeSider: (id: string) => {
-        setSiders(siders.filter(currentId => currentId !== id));
+        siders.current = siders.current.filter(currentId => currentId !== id);
+        forceUpdate();
       },
     };
-  };
+  }, [siders]);
 
   const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = props;
   const classString = classNames(
     prefixCls,
     {
-      [`${prefixCls}-has-sider`]: typeof hasSider === 'boolean' ? hasSider : siders.length > 0,
+      [`${prefixCls}-has-sider`]:
+        typeof hasSider === 'boolean' ? hasSider : siders.current.length > 0,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
   );
 
   return (
-    <LayoutContext.Provider value={{ siderHook: getSiderHook() }}>
+    <LayoutContext.Provider value={{ siderHook }}>
       <Tag className={classString} {...others}>
         {children}
       </Tag>
