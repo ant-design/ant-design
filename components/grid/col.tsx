@@ -44,7 +44,7 @@ function parseFlex(flex: FlexType): string {
 
   return flex;
 }
-
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { gutter, wrap } = React.useContext(RowContext);
@@ -66,7 +66,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const prefixCls = getPrefixCls('col', customizePrefixCls);
 
   let sizeClassObj = {};
-  (['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const).forEach(size => {
+  sizes.forEach(size => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
     if (typeof propSize === 'number') {
