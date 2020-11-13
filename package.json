@@ -106,9 +106,9 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/colors": "^4.0.5",
+    "@ant-design/colors": "^5.0.0",
     "@ant-design/css-animation": "^1.7.2",
-    "@ant-design/icons": "^4.2.1",
+    "@ant-design/icons": "^4.3.0",
     "@ant-design/react-slick": "~0.27.0",
     "@babel/runtime": "^7.11.2",
     "array-tree-filter": "^2.1.0",
