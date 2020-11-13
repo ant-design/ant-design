@@ -33,10 +33,6 @@
   &-vertical&-sub,
   &-vertical-left&-sub,
   &-vertical-right&-sub {
-    .@{menu-prefix-cls}-rtl& {
-      transform-origin: top right;
-    }
-
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
       .@{menu-prefix-cls}-rtl& {
@@ -64,6 +60,10 @@
   }
 
   &-submenu {
+    &-rtl.@{menu-prefix-cls}-submenu-popup {
+      transform-origin: 100% 0;
+    }
+
     &-vertical,
     &-vertical-left,
     &-vertical-right,

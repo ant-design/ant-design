@@ -41,7 +41,7 @@ Cascade selection box.
 | popupClassName | The additional className of popup overlay | string | - |  |
 | popupPlacement | Use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |  |
 | popupVisible | Set visible of cascader popup | boolean | - |  |
-| showSearch | Whether show search input in single mode | boolean \| object | false |  |
+| showSearch | Whether show search input in single mode | boolean \| [Object](#showSearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | style | The additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
@@ -49,7 +49,7 @@ Cascade selection box.
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - |  |
 
-Fields in `showSearch`:
+### showSearch
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
