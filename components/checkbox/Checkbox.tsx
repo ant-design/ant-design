@@ -145,7 +145,7 @@ class Checkbox extends React.PureComponent<CheckboxProps, {}> {
           className={checkboxClass}
           ref={this.saveCheckbox}
         />
-        {children !== undefined && <span>{children}</span>}
+        {!!children && <span>{children}</span>}
       </label>
     );
   };
