@@ -10,7 +10,7 @@ export interface CheckableTagProps {
    * @description       it is an absolute controlled component and has no uncontrolled mode.
    * @description.zh-CN 该组件为完全受控组件，不支持非受控用法。
    */
-  checked?: boolean;
+  checked: boolean;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
