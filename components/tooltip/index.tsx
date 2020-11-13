@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
 import { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
-import { BuildInPlacements } from 'rc-trigger/lib/interface';
+import { placements } from 'rc-tooltip/lib/placements';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
@@ -42,7 +42,7 @@ export interface AbstractTooltipProps extends Partial<Omit<RcTooltipProps, 'chil
   className?: string;
   color?: LiteralUnion<PresetColorType, string>;
   placement?: TooltipPlacement;
-  builtinPlacements?: BuildInPlacements;
+  builtinPlacements?: typeof placements;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
