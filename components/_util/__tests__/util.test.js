@@ -15,7 +15,7 @@ import { sleep } from '../../../tests/utils';
 import focusTest from '../../../tests/shared/focusTest';
 
 describe('Test utils function', () => {
-  focusTest(TransButton);
+  focusTest(TransButton, { refFocus: true });
 
   describe('throttle', () => {
     it('throttle function should work', async () => {
