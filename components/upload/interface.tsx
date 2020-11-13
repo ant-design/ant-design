@@ -71,6 +71,7 @@ export interface UploadLocale {
 export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
+export type UploadMethod = 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type TransformFileHandler = (
@@ -85,7 +86,7 @@ export interface UploadProps<T = any> {
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
   data?: object | ((file: UploadFile<T>) => object);
-  method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
+  method?: UploadMethod;
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
