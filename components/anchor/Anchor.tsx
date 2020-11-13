@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
@@ -99,6 +98,8 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   };
 
   content: ConfigConsumerProps;
+
+  private wrapperRef = React.createRef<HTMLDivElement>();
 
   private inkNode: HTMLSpanElement;
 
@@ -253,9 +254,10 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   };
 
   updateInk = () => {
-    const { prefixCls } = this;
-    const anchorNode = ReactDOM.findDOMNode(this) as Element;
-    const linkNode = anchorNode.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
+    const { prefixCls, wrapperRef } = this;
+    const anchorNode = wrapperRef.current;
+    const linkNode = anchorNode?.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
+
     if (linkNode) {
       this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
@@ -304,7 +306,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     };
 
     const anchorContent = (
-      <div className={wrapperClass} style={wrapperStyle}>
+      <div ref={this.wrapperRef} className={wrapperClass} style={wrapperStyle}>
         <div className={anchorClass}>
           <div className={`${prefixCls}-ink`}>
             <span className={inkClass} ref={this.saveInkNode} />
