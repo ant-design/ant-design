@@ -1,4 +1,5 @@
 import { Ref } from 'react';
+import { fillRef } from './ref';
 
 /**
  * This is a helper function for when a component needs to be able to forward a ref
@@ -43,14 +44,7 @@ function setAndForwardRef({
 
     setLocalRef(ref);
 
-    // Forward to user ref prop (if one has been specified)
-    if (typeof forwardedRef === 'function') {
-      // Handle function-based refs. String-based refs are handled as functions.
-      forwardedRef(ref);
-    } else if (typeof forwardedRef === 'object' && forwardedRef != null) {
-      // Handle createRef-based refs
-      (forwardedRef as any).current = ref;
-    }
+    fillRef(forwardedRef, ref);
   };
 }
 
