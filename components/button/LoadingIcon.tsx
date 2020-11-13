@@ -16,7 +16,7 @@ const getRealWidth = (node: HTMLElement) => ({
   transform: 'scale(1)',
 });
 
-export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIconProps) {
+const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon }) => {
   const visible = !!loading;
 
   if (existIcon) {
@@ -50,3 +50,5 @@ export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIc
     </CSSMotion>
   );
 }
+
+export default LoadingIcon;
