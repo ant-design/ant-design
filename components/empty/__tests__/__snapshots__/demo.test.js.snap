@@ -145,7 +145,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -206,7 +205,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -247,7 +245,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -295,7 +292,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -387,7 +383,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="right"
               fill="currentColor"
               focusable="false"
@@ -413,7 +408,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="left"
               fill="currentColor"
               focusable="false"
@@ -456,7 +450,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"

@@ -53,7 +53,6 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -114,7 +113,6 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -999,7 +997,6 @@ exports[`Calendar Calendar should support locale 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1060,7 +1057,6 @@ exports[`Calendar Calendar should support locale 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1944,7 +1940,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2004,7 +1999,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"

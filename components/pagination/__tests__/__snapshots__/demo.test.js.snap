@@ -28,7 +28,6 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -116,7 +115,6 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="double-right"
             fill="currentColor"
             focusable="false"
@@ -166,7 +164,6 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -229,7 +226,6 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -280,7 +276,6 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -368,7 +363,6 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -410,7 +404,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -498,7 +491,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="double-right"
               fill="currentColor"
               focusable="false"
@@ -548,7 +540,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -611,7 +602,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -651,7 +641,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -739,7 +728,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="double-right"
               fill="currentColor"
               focusable="false"
@@ -789,7 +777,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -854,7 +841,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -897,7 +883,6 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -985,7 +970,6 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -1092,7 +1076,6 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="double-right"
             fill="currentColor"
             focusable="false"
@@ -1182,7 +1165,6 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1225,7 +1207,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -1313,7 +1294,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="double-right"
               fill="currentColor"
               focusable="false"
@@ -1363,7 +1343,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -1426,7 +1405,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -1475,7 +1453,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -1563,7 +1540,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="double-right"
               fill="currentColor"
               focusable="false"
@@ -1613,7 +1589,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -1678,7 +1653,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -1732,7 +1706,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -1820,7 +1793,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -1858,7 +1830,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -1946,7 +1917,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -2009,7 +1979,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -2062,7 +2031,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -2150,7 +2118,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -2193,7 +2160,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -2281,7 +2247,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -2346,7 +2311,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -2399,7 +2363,6 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -2443,7 +2406,6 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="double-left"
             fill="currentColor"
             focusable="false"
@@ -2537,7 +2499,6 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="double-right"
             fill="currentColor"
             focusable="false"
@@ -2587,7 +2548,6 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -2650,7 +2610,6 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2692,7 +2651,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -2741,7 +2699,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -2779,7 +2736,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -2829,7 +2785,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -2877,7 +2832,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -2965,7 +2919,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -3028,7 +2981,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -3073,7 +3025,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -3161,7 +3112,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -3224,7 +3174,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"

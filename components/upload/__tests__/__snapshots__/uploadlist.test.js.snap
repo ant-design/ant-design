@@ -47,7 +47,6 @@ exports[`Upload List handle error 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="paper-clip"
                   fill="currentColor"
                   focusable="false"
@@ -83,7 +82,6 @@ exports[`Upload List handle error 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="delete"
                     fill="currentColor"
                     focusable="false"
@@ -174,12 +172,11 @@ exports[`Upload List should be uploading when upload a file 1`] = `
               >
                 <span
                   aria-label="loading"
-                  class="anticon anticon-loading"
+                  class="anticon anticon-loading anticon-spin"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    class="anticon-spin"
                     data-icon="loading"
                     fill="currentColor"
                     focusable="false"
@@ -215,7 +212,6 @@ exports[`Upload List should be uploading when upload a file 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -307,7 +303,6 @@ exports[`Upload List should be uploading when upload a file 2`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -343,7 +338,6 @@ exports[`Upload List should be uploading when upload a file 2`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -438,7 +432,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -482,7 +475,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -550,7 +542,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -594,7 +585,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -638,7 +628,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -682,7 +671,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -726,7 +714,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -794,7 +781,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -862,7 +848,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -930,7 +915,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -998,7 +982,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -1066,7 +1049,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -1134,7 +1116,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -1201,12 +1182,11 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
               >
                 <span
                   aria-label="loading"
-                  class="anticon anticon-loading"
+                  class="anticon anticon-loading anticon-spin"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    class="anticon-spin"
                     data-icon="loading"
                     fill="currentColor"
                     focusable="false"
@@ -1356,12 +1336,11 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
               >
                 <span
                   aria-label="loading"
-                  class="anticon anticon-loading"
+                  class="anticon anticon-loading anticon-spin"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    class="anticon-spin"
                     data-icon="loading"
                     fill="currentColor"
                     focusable="false"
@@ -1511,12 +1490,11 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
               >
                 <span
                   aria-label="loading"
-                  class="anticon anticon-loading"
+                  class="anticon anticon-loading anticon-spin"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    class="anticon-spin"
                     data-icon="loading"
                     fill="currentColor"
                     focusable="false"

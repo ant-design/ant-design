@@ -269,7 +269,6 @@ exports[`Progress render out-of-range progress 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="check-circle"
         fill="currentColor"
         focusable="false"
@@ -312,7 +311,6 @@ exports[`Progress render out-of-range progress with info 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="check-circle"
         fill="currentColor"
         focusable="false"
