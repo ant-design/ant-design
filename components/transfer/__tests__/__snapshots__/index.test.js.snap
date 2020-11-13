@@ -1266,7 +1266,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                     >
                       <Checkbox
                         checked={false}
-                        indeterminate={false}
                       >
                         <label
                           className="ant-checkbox-wrapper"
