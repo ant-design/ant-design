@@ -21,6 +21,8 @@ const { RangePicker } = DatePicker;
 
 const App = () => {
   const [dates, setDates] = useState([]);
+  const [hackValue, setHackValue] = useState();
+  const [value, setValue] = useState();
   const disabledDate = current => {
     if (!dates || dates.length === 0) {
       return false;
@@ -30,14 +32,22 @@ const App = () => {
     return tooEarly || tooLate;
   };
 
+  const onOpenChange = value => {
+    if (value) {
+      setHackValue([]);
+      setDates([]);
+    } else {
+      setHackValue(undefined);
+    }
+  };
+
   return (
     <RangePicker
+      value = {hackValue || value}
       disabledDate={disabledDate}
-      onCalendarChange={value => {
-        const [start, end] = value;
-        const [oldStart, oldEnd] = dates;
-        setDates([start || oldStart, end || oldEnd]);
-      }}
+      onCalendarChange={value =>setDates(value)}
+      onChange={value=>setValue(value)}
+      onOpenChange={onOpenChange}
     />
   );
 };
