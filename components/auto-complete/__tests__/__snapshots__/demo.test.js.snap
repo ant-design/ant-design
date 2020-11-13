@@ -111,7 +111,6 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="search"
                   fill="currentColor"
                   focusable="false"
@@ -290,7 +289,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -377,7 +375,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -480,7 +477,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="search"
                         fill="currentColor"
                         focusable="false"
@@ -573,7 +569,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -622,7 +617,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="search"
                           fill="currentColor"
                           focusable="false"
@@ -716,7 +710,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -772,7 +765,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -868,7 +860,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -924,7 +915,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -958,7 +948,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="search"
                   fill="currentColor"
                   focusable="false"
@@ -1093,7 +1082,6 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="search"
                   fill="currentColor"
                   focusable="false"
