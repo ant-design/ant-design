@@ -32,8 +32,8 @@ const App = () => {
     return tooEarly || tooLate;
   };
 
-  const onOpenChange = value => {
-    if (value) {
+  const onOpenChange = open => {
+    if (open) {
       setHackValue([]);
       setDates([]);
     } else {
@@ -43,10 +43,10 @@ const App = () => {
 
   return (
     <RangePicker
-      value = {hackValue || value}
+      value={hackValue || value}
       disabledDate={disabledDate}
-      onCalendarChange={value =>setDates(value)}
-      onChange={value=>setValue(value)}
+      onCalendarChange={val => setDates(val)}
+      onChange={val => setValue(val)}
       onOpenChange={onOpenChange}
     />
   );
