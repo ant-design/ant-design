@@ -22,10 +22,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
   closable?: boolean;
   closeIcon?: React.ReactNode;
-  /**
-   * @description       it is an absolute controlled component and has no uncontrolled mode.
-   * @description.zh-CN 该组件为完全受控组件，不支持非受控用法。
-   */
   visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
