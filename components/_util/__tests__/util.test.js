@@ -193,9 +193,10 @@ describe('Test utils function', () => {
 
   describe('TransButton', () => {
     it('can be focus/blur', () => {
-      const wrapper = mount(<TransButton>TransButton</TransButton>);
-      expect(typeof wrapper.instance().focus).toBe('function');
-      expect(typeof wrapper.instance().blur).toBe('function');
+      const ref = React.createRef();
+      mount(<TransButton ref={ref}>TransButton</TransButton>);
+      expect(typeof ref.current.focus).toBe('function');
+      expect(typeof ref.current.blur).toBe('function');
     });
 
     it('should trigger onClick when press enter', () => {
