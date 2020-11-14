@@ -2,6 +2,9 @@ name: UI
 
 on:
   pull_request_target:
+    # fix merge commit trigger
+    branches-ignore:
+      - master
   push:
     branches:
       - master
