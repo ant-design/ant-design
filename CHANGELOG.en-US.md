@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.8.3
+
+`2020-11-14`
+
+- 🆕 Form `isFieldTouched` support aggregation field to get `touched` status like Form.List. [#27664](https://github.com/ant-design/ant-design/pull/27664)
+- 🐞 Fix Menu dropdown animation start twice when appear. [#27663](https://github.com/ant-design/ant-design/pull/27663)
+- 💄 Fix Avatar src Image style. [#27691](https://github.com/ant-design/ant-design/pull/27691)
+- 💄 Fix Select multiple cursor position. [#27689](https://github.com/ant-design/ant-design/pull/27689)
+- 🐞 Fix TextArea emoji cut when enable maxLength. [#27679](https://github.com/ant-design/ant-design/pull/27679) [@372623460jh](https://github.com/372623460jh)
+- 🐞 Fix small size RangePicker active bar align issue. [#27673](https://github.com/ant-design/ant-design/pull/27673) [@Ifeinstein](https://github.com/Ifeinstein)
+- 💄 Add `@radio-border-width`. [#27703](https://github.com/ant-design/ant-design/pull/27703)
+
 ## 4.8.2
 
 `2020-11-09`

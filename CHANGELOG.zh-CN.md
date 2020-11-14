@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.8.3
+
+`2020-11-14`
+
+- 🆕 Form `isFieldTouched` 支持聚合字段，用于获取诸如 Form.List 的整体 `touched` 状态。[#27664](https://github.com/ant-design/ant-design/pull/27664)
+- 🐞 修复 Menu 下拉框显示时动画会播放两次的问题。[#27663](https://github.com/ant-design/ant-design/pull/27663)
+- 💄 修复 Avatar src 为 Image 时的样式。[#27691](https://github.com/ant-design/ant-design/pull/27691)
+- 💄 修复 Select `mode="multiple"` 的光标位置偏左的问题。[#27689](https://github.com/ant-design/ant-design/pull/27689)
+- 🐞 修复 TextArea 使用 emoji 时被裁切的问题。[#27679](https://github.com/ant-design/ant-design/pull/27679) [@372623460jh](https://github.com/372623460jh)
+- 🐞 修复 RangePicker `size="small"` 时高亮线没有对齐的问题。[#27673](https://github.com/ant-design/ant-design/pull/27673) [@Ifeinstein](https://github.com/Ifeinstein)
+- 💄 新增 `@radio-border-width` less 变量。[#27703](https://github.com/ant-design/ant-design/pull/27703)
+
 ## 4.8.2
 
 `2020-11-09`
