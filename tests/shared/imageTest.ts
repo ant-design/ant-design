@@ -16,22 +16,20 @@ expect.extend({ toMatchImageSnapshot });
 
 // eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement) {
-  describe(`Image test`, () => {
-    it('component image screenshot should correct', async () => {
-      MockDate.set(moment('2016-11-22').valueOf());
-      await page.goto(`file://${process.cwd()}/tests/index.html`);
-      await page.addStyleTag({ path: `${process.cwd()}/dist/antd.css` });
-      const html = ReactDOMServer.renderToString(component);
-      await page.evaluate(innerHTML => {
-        document.querySelector('#root')!.innerHTML = innerHTML;
-      }, html);
+  it('component image screenshot should correct', async () => {
+    MockDate.set(moment('2016-11-22').valueOf());
+    await page.goto(`file://${process.cwd()}/tests/index.html`);
+    await page.addStyleTag({ path: `${process.cwd()}/dist/antd.css` });
+    const html = ReactDOMServer.renderToString(component);
+    await page.evaluate(innerHTML => {
+      document.querySelector('#root')!.innerHTML = innerHTML;
+    }, html);
 
-      const image = await page.screenshot();
+    const image = await page.screenshot();
 
-      expect(image).toMatchImageSnapshot();
+    expect(image).toMatchImageSnapshot();
 
-      MockDate.reset();
-    });
+    MockDate.reset();
   });
 }
 

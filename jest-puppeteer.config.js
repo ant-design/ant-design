@@ -10,6 +10,4 @@ module.exports = {
       '--disable-dev-shm-usage',
     ],
   },
-  browser: 'chromium',
-  browserContext: 'default',
 };
