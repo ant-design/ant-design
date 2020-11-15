@@ -17,7 +17,18 @@ expect.extend({ toMatchImageSnapshot });
 // eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement) {
   it('component image screenshot should correct', async () => {
+    await jestPuppeteer.resetPage();
+    await page.setRequestInterception(true);
+    const onRequestHandle = (request: any) => {
+      if (['image'].indexOf(request.resourceType()) !== -1) {
+        request.abort();
+      } else {
+        request.continue();
+      }
+    };
+
     MockDate.set(moment('2016-11-22').valueOf());
+    page.on('request', onRequestHandle);
     await page.goto(`file://${process.cwd()}/tests/index.html`);
     await page.addStyleTag({ path: `${process.cwd()}/dist/antd.css` });
     const html = ReactDOMServer.renderToString(component);
@@ -30,6 +41,7 @@ export default function imageTest(component: React.ReactElement) {
     expect(image).toMatchImageSnapshot();
 
     MockDate.reset();
+    page.removeListener('request', onRequestHandle);
   });
 }
 
