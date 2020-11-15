@@ -20,6 +20,7 @@ timeline: true
 `2020-11-14`
 
 - 🆕 Form `isFieldTouched` 支持聚合字段，用于获取诸如 Form.List 的整体 `touched` 状态。[#27664](https://github.com/ant-design/ant-design/pull/27664)
+- 💄 修复 DateRangePicker 选择已选范围内一行的首尾日期时的悬浮样式位置异常问题。[#27731](https://github.com/ant-design/ant-design/pull/27731) [@AlanCutFlim](https://github.com/AlanCutFlim)
 - 🐞 修复 Select `tags` 模式下无法输入空格的问题。[#27726](https://github.com/ant-design/ant-design/pull/27726) [@baxtergu](https://github.com/baxtergu)
 - 💄 修复 Typography.Link 禁用时鼠标样式问题。[#27734](https://github.com/ant-design/ant-design/pull/27734) [@xrkffgg](https://github.com/xrkffgg)
 - 🐞 修复 Menu 下拉框显示时动画会播放两次的问题。[#27663](https://github.com/ant-design/ant-design/pull/27663)
@@ -28,6 +29,8 @@ timeline: true
 - 🐞 修复 TextArea 使用 emoji 时被裁切的问题。[#27679](https://github.com/ant-design/ant-design/pull/27679) [@372623460jh](https://github.com/372623460jh)
 - 🐞 修复 RangePicker `size="small"` 时高亮线没有对齐的问题。[#27673](https://github.com/ant-design/ant-design/pull/27673) [@Ifeinstein](https://github.com/Ifeinstein)
 - 💄 新增 `@radio-border-width` less 变量。[#27703](https://github.com/ant-design/ant-design/pull/27703)
+- 🛠 使用 React hooks 重构 Carousel。[#27694](https://github.com/ant-design/ant-design/pull/27694)
+- 🛠 使用 React hooks 重构 `<Typography editable />`。[#27655](https://github.com/ant-design/ant-design/pull/27655)
 
 ## 4.8.2
 

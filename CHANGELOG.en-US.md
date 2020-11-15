@@ -20,6 +20,7 @@ timeline: true
 `2020-11-14`
 
 - 🆕 Form `isFieldTouched` support aggregation field to get `touched` status like Form.List. [#27664](https://github.com/ant-design/ant-design/pull/27664)
+- 💄 Fix DateRangePicker hover effect position when hover over start or end cell of in range row. [#27731](https://github.com/ant-design/ant-design/pull/27731) [@AlanCutFlim](https://github.com/AlanCutFlim)
 - 🐞 Fix Select `mode=tags` cannot input whitespace normally. [#27726](https://github.com/ant-design/ant-design/pull/27726) [@baxtergu](https://github.com/baxtergu)
 - 💄 Fix the mouse style when Typography.Link is `disabled`. [#27734](https://github.com/ant-design/ant-design/pull/27734) [@xrkffgg](https://github.com/xrkffgg)
 - 🐞 Fix Menu dropdown animation start twice when appear. [#27663](https://github.com/ant-design/ant-design/pull/27663)
@@ -28,6 +29,8 @@ timeline: true
 - 🐞 Fix TextArea emoji been cut when enable `maxLength`. [#27679](https://github.com/ant-design/ant-design/pull/27679) [@372623460jh](https://github.com/372623460jh)
 - 🐞 Fix small size RangePicker active bar align issue. [#27673](https://github.com/ant-design/ant-design/pull/27673) [@Ifeinstein](https://github.com/Ifeinstein)
 - 💄 Add `@radio-border-width`. [#27703](https://github.com/ant-design/ant-design/pull/27703)
+- 🛠 Refactor Carousel with React hooks. [#27694](https://github.com/ant-design/ant-design/pull/27694)
+- 🛠 Refactor `<Typography editable />` with React hooks. [#27655](https://github.com/ant-design/ant-design/pull/27655)
 
 ## 4.8.2
 
