@@ -20,6 +20,8 @@ timeline: true
 `2020-11-14`
 
 - 🆕 Form `isFieldTouched` support aggregation field to get `touched` status like Form.List. [#27664](https://github.com/ant-design/ant-design/pull/27664)
+- 🐞 Fix Select `mode=tags` cannot input whitespace normally. [#27726](https://github.com/ant-design/ant-design/pull/27726) [@baxtergu](https://github.com/baxtergu)
+- 💄 Fix the mouse style when Typography.Link is `disabled`. [#27734](https://github.com/ant-design/ant-design/pull/27734) [@xrkffgg](https://github.com/xrkffgg)
 - 🐞 Fix Menu dropdown animation start twice when appear. [#27663](https://github.com/ant-design/ant-design/pull/27663)
 - 💄 Fix Avatar style when `src` is Image component. [#27691](https://github.com/ant-design/ant-design/pull/27691)
 - 💄 Fix Select multiple cursor position. [#27689](https://github.com/ant-design/ant-design/pull/27689)
