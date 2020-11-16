@@ -26,7 +26,7 @@ const Editable: React.FC<EditableProps> = ({
   style,
   direction,
   maxLength,
-  autoSize,
+  autoSize = true,
   value,
   onSave,
   onCancel,
@@ -124,7 +124,7 @@ const Editable: React.FC<EditableProps> = ({
         onCompositionEnd={onCompositionEnd}
         onBlur={onBlur}
         aria-label={ariaLabel}
-        autoSize={autoSize === undefined || autoSize}
+        autoSize={autoSize}
       />
       <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
     </div>
