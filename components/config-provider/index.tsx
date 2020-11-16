@@ -164,17 +164,18 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
     }
 
+    const childrenWithLocale =
+      locale === undefined ? (
+        childNode
+      ) : (
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+          {childNode}
+        </LocaleProvider>
+      );
+
     return (
       <SizeContextProvider size={componentSize}>
-        <ConfigContext.Provider value={config}>
-          {locale === undefined ? (
-            childNode
-          ) : (
-            <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-              {childNode}
-            </LocaleProvider>
-          )}
-        </ConfigContext.Provider>
+        <ConfigContext.Provider value={config}>{childrenWithLocale}</ConfigContext.Provider>
       </SizeContextProvider>
     );
   };
