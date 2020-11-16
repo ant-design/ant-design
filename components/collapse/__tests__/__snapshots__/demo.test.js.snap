@@ -157,7 +157,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
   >
     <div
       aria-expanded="false"
-      class="ant-collapse-header"
+      class="ant-collapse-header ant-collapse-header-collapsible-only"
       role="button"
       tabindex="0"
     >
@@ -180,7 +180,11 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           />
         </svg>
       </span>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
