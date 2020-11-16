@@ -68,59 +68,54 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
-  const renderAddonAfter = () => {
-    const searchIcon =
-      typeof enterButton === 'boolean' || typeof enterButton === 'undefined' ? (
-        <SearchOutlined />
-      ) : null;
-    const btnClassName = `${prefixCls}-button`;
+  const searchIcon =
+    typeof enterButton === 'boolean' || typeof enterButton === 'undefined' ? (
+      <SearchOutlined />
+    ) : null;
+  const btnClassName = `${prefixCls}-button`;
 
-    let button: React.ReactNode;
-    const enterButtonAsElement = (enterButton || {}) as React.ReactElement;
-    const isAntdButton =
-      enterButtonAsElement.type &&
-      (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
-    if (isAntdButton || enterButtonAsElement.type === 'button') {
-      button = cloneElement(enterButtonAsElement, {
-        onMouseDown,
-        onClick: onSearch,
-        key: 'enterButton',
-        ...(isAntdButton
-          ? {
-              className: btnClassName,
-              size,
-            }
-          : {}),
-      });
-    } else {
-      button = (
-        <Button
-          className={btnClassName}
-          type={enterButton ? 'primary' : undefined}
-          size={size}
-          disabled={disabled}
-          key="enterButton"
-          onMouseDown={onMouseDown}
-          onClick={onSearch}
-          loading={loading}
-          icon={searchIcon}
-        >
-          {enterButton}
-        </Button>
-      );
-    }
+  let button: React.ReactNode;
+  const enterButtonAsElement = (enterButton || {}) as React.ReactElement;
+  const isAntdButton =
+    enterButtonAsElement.type && (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
+  if (isAntdButton || enterButtonAsElement.type === 'button') {
+    button = cloneElement(enterButtonAsElement, {
+      onMouseDown,
+      onClick: onSearch,
+      key: 'enterButton',
+      ...(isAntdButton
+        ? {
+            className: btnClassName,
+            size,
+          }
+        : {}),
+    });
+  } else {
+    button = (
+      <Button
+        className={btnClassName}
+        type={enterButton ? 'primary' : undefined}
+        size={size}
+        disabled={disabled}
+        key="enterButton"
+        onMouseDown={onMouseDown}
+        onClick={onSearch}
+        loading={loading}
+        icon={searchIcon}
+      >
+        {enterButton}
+      </Button>
+    );
+  }
 
-    if (addonAfter) {
-      return [
-        button,
-        cloneElement(addonAfter, {
-          key: 'addonAfter',
-        }),
-      ];
-    }
-
-    return button;
-  };
+  if (addonAfter) {
+    button = [
+      button,
+      cloneElement(addonAfter, {
+        key: 'addonAfter',
+      }),
+    ];
+  }
 
   const cls = classNames(
     prefixCls,
@@ -139,7 +134,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
       {...restProps}
       size={size}
       prefixCls={inputPrefixCls}
-      addonAfter={renderAddonAfter()}
+      addonAfter={button}
       suffix={suffix}
       onChange={onChange}
       className={cls}
