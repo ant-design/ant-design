@@ -45,7 +45,6 @@ exports[`RangePicker customize separator 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="calendar"
         fill="currentColor"
         focusable="false"
@@ -92,7 +91,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -132,7 +130,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"

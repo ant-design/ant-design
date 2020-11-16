@@ -582,7 +582,6 @@ exports[`ConfigProvider components BackTop configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="vertical-align-top"
             fill="currentColor"
             focusable="false"
@@ -619,7 +618,6 @@ exports[`ConfigProvider components BackTop configProvider componentSize large 1`
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="vertical-align-top"
             fill="currentColor"
             focusable="false"
@@ -656,7 +654,6 @@ exports[`ConfigProvider components BackTop configProvider componentSize middle 1
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="vertical-align-top"
             fill="currentColor"
             focusable="false"
@@ -693,7 +690,6 @@ exports[`ConfigProvider components BackTop configProvider virtual and dropdownMa
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="vertical-align-top"
             fill="currentColor"
             focusable="false"
@@ -730,7 +726,6 @@ exports[`ConfigProvider components BackTop normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="vertical-align-top"
             fill="currentColor"
             focusable="false"
@@ -767,7 +762,6 @@ exports[`ConfigProvider components BackTop prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="vertical-align-top"
             fill="currentColor"
             focusable="false"
@@ -2303,7 +2297,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -2363,7 +2356,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -3244,7 +3236,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -3591,7 +3582,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -3651,7 +3641,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -4532,7 +4521,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -4879,7 +4867,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -4939,7 +4926,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -5820,7 +5806,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -6167,7 +6152,6 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -6227,7 +6211,6 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -7108,7 +7091,6 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -7455,7 +7437,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -7515,7 +7496,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -8396,7 +8376,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -8743,7 +8722,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -8803,7 +8781,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -9684,7 +9661,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -10889,7 +10865,6 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -10928,7 +10903,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -10967,7 +10941,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -11006,7 +10979,6 @@ exports[`ConfigProvider components Cascader configProvider virtual and dropdownM
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -11045,7 +11017,6 @@ exports[`ConfigProvider components Cascader normal 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -11084,7 +11055,6 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -11270,7 +11240,6 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -11309,7 +11278,6 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -11348,7 +11316,6 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -11387,7 +11354,6 @@ exports[`ConfigProvider components Collapse configProvider virtual and dropdownM
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -11426,7 +11392,6 @@ exports[`ConfigProvider components Collapse normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -11465,7 +11430,6 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -11756,7 +11720,6 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -11801,7 +11764,6 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -11846,7 +11808,6 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -11891,7 +11852,6 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider virtual 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -11936,7 +11896,6 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -11981,7 +11940,6 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12026,7 +11984,6 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12071,7 +12028,6 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12116,7 +12072,6 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12161,7 +12116,6 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider virtual
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12206,7 +12160,6 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12251,7 +12204,6 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12300,7 +12252,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -12340,7 +12291,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -12388,7 +12338,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -12428,7 +12377,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -12476,7 +12424,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -12516,7 +12463,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -12564,7 +12510,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider virtual
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -12604,7 +12549,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider virtual
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -12652,7 +12596,6 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -12692,7 +12635,6 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -12740,7 +12682,6 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -12780,7 +12721,6 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -12824,7 +12764,6 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12869,7 +12808,6 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12914,7 +12852,6 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -12959,7 +12896,6 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider virtual 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -13004,7 +12940,6 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -13049,7 +12984,6 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -13147,7 +13081,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -13209,7 +13142,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -13271,7 +13203,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -13333,7 +13264,6 @@ exports[`ConfigProvider components Drawer configProvider virtual and dropdownMat
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -13395,7 +13325,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -13457,7 +13386,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -13505,7 +13433,6 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="ellipsis"
         fill="currentColor"
         focusable="false"
@@ -13545,7 +13472,6 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="ellipsis"
         fill="currentColor"
         focusable="false"
@@ -13585,7 +13511,6 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="ellipsis"
         fill="currentColor"
         focusable="false"
@@ -13625,7 +13550,6 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="ellipsis"
         fill="currentColor"
         focusable="false"
@@ -13665,7 +13589,6 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="ellipsis"
         fill="currentColor"
         focusable="false"
@@ -13705,7 +13628,6 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="ellipsis"
         fill="currentColor"
         focusable="false"
@@ -14489,7 +14411,6 @@ exports[`ConfigProvider components Input configProvider 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="search"
                 fill="currentColor"
                 focusable="false"
@@ -14527,7 +14448,6 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="eye-invisible"
           fill="currentColor"
           focusable="false"
@@ -14586,7 +14506,6 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="search"
                 fill="currentColor"
                 focusable="false"
@@ -14624,7 +14543,6 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="eye-invisible"
           fill="currentColor"
           focusable="false"
@@ -14683,7 +14601,6 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="search"
                 fill="currentColor"
                 focusable="false"
@@ -14721,7 +14638,6 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="eye-invisible"
           fill="currentColor"
           focusable="false"
@@ -14780,7 +14696,6 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="search"
                 fill="currentColor"
                 focusable="false"
@@ -14818,7 +14733,6 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="eye-invisible"
           fill="currentColor"
           focusable="false"
@@ -14877,7 +14791,6 @@ exports[`ConfigProvider components Input normal 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="search"
                 fill="currentColor"
                 focusable="false"
@@ -14915,7 +14828,6 @@ exports[`ConfigProvider components Input normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="eye-invisible"
           fill="currentColor"
           focusable="false"
@@ -14974,7 +14886,6 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="search"
                 fill="currentColor"
                 focusable="false"
@@ -15012,7 +14923,6 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="eye-invisible"
           fill="currentColor"
           focusable="false"
@@ -15056,7 +14966,6 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -15083,7 +14992,6 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -15136,7 +15044,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -15163,7 +15070,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -15216,7 +15122,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -15243,7 +15148,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -15296,7 +15200,6 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -15323,7 +15226,6 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -15376,7 +15278,6 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -15403,7 +15304,6 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -15456,7 +15356,6 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -15483,7 +15382,6 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -16361,7 +16259,6 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -16454,7 +16351,6 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -16547,7 +16443,6 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -16640,7 +16535,6 @@ exports[`ConfigProvider components Modal configProvider virtual and dropdownMatc
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -16733,7 +16627,6 @@ exports[`ConfigProvider components Modal normal 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -16826,7 +16719,6 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -17040,7 +16932,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -17084,7 +16975,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -17147,7 +17037,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -17195,7 +17084,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -17239,7 +17127,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -17302,7 +17189,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -17355,7 +17241,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -17399,7 +17284,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -17462,7 +17346,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -17510,7 +17393,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -17554,7 +17436,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -17617,7 +17498,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -17670,7 +17550,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -17714,7 +17593,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -17777,7 +17655,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -17825,7 +17702,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -17869,7 +17745,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -17932,7 +17807,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -17985,7 +17859,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -18029,7 +17902,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -18092,7 +17964,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -18140,7 +18011,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -18184,7 +18054,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -18247,7 +18116,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -18300,7 +18168,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -18344,7 +18211,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -18407,7 +18273,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -18455,7 +18320,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -18499,7 +18363,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -18562,7 +18425,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -18615,7 +18477,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -18659,7 +18520,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -18722,7 +18582,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -18770,7 +18629,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -18814,7 +18672,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -18877,7 +18734,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -18945,7 +18801,6 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="exclamation-circle"
                   fill="currentColor"
                   focusable="false"
@@ -19029,7 +18884,6 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="exclamation-circle"
                   fill="currentColor"
                   focusable="false"
@@ -19113,7 +18967,6 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="exclamation-circle"
                   fill="currentColor"
                   focusable="false"
@@ -19197,7 +19050,6 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="exclamation-circle"
                   fill="currentColor"
                   focusable="false"
@@ -19281,7 +19133,6 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="exclamation-circle"
                   fill="currentColor"
                   focusable="false"
@@ -19365,7 +19216,6 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="exclamation-circle"
                   fill="currentColor"
                   focusable="false"
@@ -20108,7 +19958,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20132,7 +19981,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20168,7 +20016,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20192,7 +20039,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20228,7 +20074,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20252,7 +20097,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20288,7 +20132,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20312,7 +20155,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20348,7 +20190,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20372,7 +20213,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20417,7 +20257,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20441,7 +20280,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20477,7 +20315,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20501,7 +20338,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20537,7 +20373,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20561,7 +20396,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20597,7 +20431,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20621,7 +20454,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20657,7 +20489,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20681,7 +20512,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20726,7 +20556,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20750,7 +20579,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20786,7 +20614,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20810,7 +20637,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20846,7 +20672,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20870,7 +20695,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20906,7 +20730,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20930,7 +20753,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20966,7 +20788,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -20990,7 +20811,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21035,7 +20855,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21059,7 +20878,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21095,7 +20913,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21119,7 +20936,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21155,7 +20971,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21179,7 +20994,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21215,7 +21029,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21239,7 +21052,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21275,7 +21087,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21299,7 +21110,6 @@ exports[`ConfigProvider components Rate configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21344,7 +21154,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21368,7 +21177,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21404,7 +21212,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21428,7 +21235,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21464,7 +21270,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21488,7 +21293,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21524,7 +21328,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21548,7 +21351,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21584,7 +21386,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21608,7 +21409,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21653,7 +21453,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21677,7 +21476,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21713,7 +21511,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21737,7 +21534,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21773,7 +21569,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21797,7 +21592,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21833,7 +21627,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21857,7 +21650,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21893,7 +21685,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -21917,7 +21708,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -22047,7 +21837,6 @@ exports[`ConfigProvider components Select configProvider 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -22175,7 +21964,6 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -22303,7 +22091,6 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -22431,7 +22218,6 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -22559,7 +22345,6 @@ exports[`ConfigProvider components Select normal 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -22687,7 +22472,6 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -23854,7 +23638,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-up"
                                     fill="currentColor"
                                     focusable="false"
@@ -23874,7 +23657,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -23907,7 +23689,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -24128,7 +23909,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-up"
                                     fill="currentColor"
                                     focusable="false"
@@ -24148,7 +23928,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -24181,7 +23960,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -24402,7 +24180,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-up"
                                     fill="currentColor"
                                     focusable="false"
@@ -24422,7 +24199,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -24455,7 +24231,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -24676,7 +24451,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-up"
                                     fill="currentColor"
                                     focusable="false"
@@ -24696,7 +24470,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -24729,7 +24502,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -24950,7 +24722,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-up"
                                     fill="currentColor"
                                     focusable="false"
@@ -24970,7 +24741,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -25003,7 +24773,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -25224,7 +24993,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-up"
                                     fill="currentColor"
                                     focusable="false"
@@ -25244,7 +25012,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -25277,7 +25044,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -25493,7 +25259,6 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -25579,7 +25344,6 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -25665,7 +25429,6 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -25751,7 +25514,6 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -25837,7 +25599,6 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -25923,7 +25684,6 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -26072,7 +25832,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -27484,7 +27243,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -28896,7 +28654,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -30308,7 +30065,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -31720,7 +31476,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -33132,7 +32887,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -34886,7 +34640,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -34978,7 +34731,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -35004,7 +34756,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -35047,7 +34798,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -35159,7 +34909,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -35251,7 +35000,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -35277,7 +35025,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -35320,7 +35067,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -35432,7 +35178,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -35524,7 +35269,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -35550,7 +35294,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -35593,7 +35336,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -35705,7 +35447,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -35797,7 +35538,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -35823,7 +35563,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -35866,7 +35605,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -35978,7 +35716,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -36070,7 +35807,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -36096,7 +35832,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -36139,7 +35874,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -36251,7 +35985,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -36343,7 +36076,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -36369,7 +36101,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -36412,7 +36143,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -36584,7 +36314,6 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="folder"
                       fill="currentColor"
                       focusable="false"
@@ -36705,7 +36434,6 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="folder"
                       fill="currentColor"
                       focusable="false"
@@ -36826,7 +36554,6 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="folder"
                       fill="currentColor"
                       focusable="false"
@@ -36947,7 +36674,6 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="folder"
                       fill="currentColor"
                       focusable="false"
@@ -37068,7 +36794,6 @@ exports[`ConfigProvider components Tree normal 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="folder"
                       fill="currentColor"
                       focusable="false"
@@ -37189,7 +36914,6 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="folder"
                       fill="currentColor"
                       focusable="false"
@@ -37320,7 +37044,6 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -37439,7 +37162,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -37558,7 +37280,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -37677,7 +37398,6 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -37796,7 +37516,6 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -37915,7 +37634,6 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -37976,7 +37694,6 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -38012,7 +37729,6 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -38080,7 +37796,6 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -38116,7 +37831,6 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -38184,7 +37898,6 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -38220,7 +37933,6 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -38288,7 +38000,6 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -38324,7 +38035,6 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -38392,7 +38102,6 @@ exports[`ConfigProvider components Upload normal 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -38428,7 +38137,6 @@ exports[`ConfigProvider components Upload normal 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -38496,7 +38204,6 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -38532,7 +38239,6 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"

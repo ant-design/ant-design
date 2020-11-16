@@ -29,13 +29,12 @@ exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
 >
   <span
     aria-label="loading"
-    class="anticon anticon-loading ant-spin-dot"
+    class="anticon anticon-loading anticon-spin ant-spin-dot"
     role="img"
     style="font-size:24px"
   >
     <svg
       aria-hidden="true"
-      class="anticon-spin"
       data-icon="loading"
       fill="currentColor"
       focusable="false"

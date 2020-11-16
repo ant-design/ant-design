@@ -51,7 +51,6 @@ exports[`List.pagination renders pagination correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="left"
               fill="currentColor"
               focusable="false"
@@ -106,7 +105,6 @@ exports[`List.pagination renders pagination correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="right"
               fill="currentColor"
               focusable="false"
@@ -149,7 +147,6 @@ exports[`List.pagination should change page size work 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -193,7 +190,6 @@ exports[`List.pagination should change page size work 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -257,7 +253,6 @@ exports[`List.pagination should change page size work 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -299,7 +294,6 @@ exports[`List.pagination should change page size work 2`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -343,7 +337,6 @@ exports[`List.pagination should change page size work 2`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -524,7 +517,6 @@ exports[`List.pagination should change page size work 2`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -581,7 +573,6 @@ exports[`List.pagination should default work 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -636,7 +627,6 @@ exports[`List.pagination should default work 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -700,7 +690,6 @@ exports[`List.pagination should default work 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"

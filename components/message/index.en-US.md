@@ -95,7 +95,7 @@ message.config({
 
 ## FAQ
 
-### Why I can not access context, redux in message?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in message?
 
 antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context.
 

@@ -52,7 +52,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -112,7 +111,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -999,7 +997,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -1059,7 +1056,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -2008,7 +2004,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2073,7 +2068,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2917,7 +2911,6 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2977,7 +2970,6 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -4273,7 +4265,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -4333,7 +4324,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"

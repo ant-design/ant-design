@@ -11,6 +11,7 @@ services:
       - './jest-stare:/app/jest-stare'
       - './dist:/app/dist'
       - '.jest.image.js:/app/.jest.image.js'
+      - './jest-puppeteer.config.js:/app/jest-puppeteer.config.js'
       - './imageSnapshots:/app/imageSnapshots'
       - './imageDiffSnapshots:/app/imageDiffSnapshots'
     entrypoint: "jest --config .jest.image.js --no-cache -i"

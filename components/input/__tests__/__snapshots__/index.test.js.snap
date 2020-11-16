@@ -20,7 +20,6 @@ exports[`Input allowClear should change type when click 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -57,7 +56,6 @@ exports[`Input allowClear should change type when click 2`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -94,7 +92,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -131,7 +128,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -168,7 +164,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -205,7 +200,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -242,7 +236,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -279,7 +272,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"

@@ -16,7 +16,6 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="mail"
         fill="currentColor"
         focusable="false"
@@ -44,7 +43,6 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="mail"
         fill="currentColor"
         focusable="false"
@@ -78,7 +76,6 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="mail"
           fill="currentColor"
           focusable="false"
@@ -116,7 +113,6 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="mail"
           fill="currentColor"
           focusable="false"
@@ -196,7 +192,6 @@ exports[`Menu should controlled collapse work 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="pie-chart"
         fill="currentColor"
         focusable="false"
@@ -233,7 +228,6 @@ exports[`Menu should controlled collapse work 2`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="pie-chart"
         fill="currentColor"
         focusable="false"
