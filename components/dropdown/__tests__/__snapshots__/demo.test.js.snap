@@ -66,7 +66,6 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -117,7 +116,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="ellipsis"
           fill="currentColor"
           focusable="false"
@@ -154,7 +152,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -193,7 +190,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="ellipsis"
           fill="currentColor"
           focusable="false"
@@ -228,12 +224,11 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
             aria-hidden="true"
-            class="anticon-spin"
             data-icon="loading"
             fill="currentColor"
             focusable="false"
@@ -263,7 +258,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -292,7 +286,6 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -320,7 +313,6 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -348,7 +340,6 @@ exports[`renders ./components/dropdown/demo/menu-full.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -376,7 +367,6 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -458,7 +448,6 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -486,7 +475,6 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"

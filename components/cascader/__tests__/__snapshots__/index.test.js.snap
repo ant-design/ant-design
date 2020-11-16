@@ -26,7 +26,6 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -57,7 +56,6 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -92,7 +90,6 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -139,7 +136,6 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -170,7 +166,6 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -205,7 +200,6 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -263,7 +257,6 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -294,7 +287,6 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -329,7 +321,6 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -387,7 +378,6 @@ exports[`Cascader can be selected in RTL direction 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -418,7 +408,6 @@ exports[`Cascader can be selected in RTL direction 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -453,7 +442,6 @@ exports[`Cascader can be selected in RTL direction 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -500,7 +488,6 @@ exports[`Cascader can be selected in RTL direction 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -531,7 +518,6 @@ exports[`Cascader can be selected in RTL direction 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -566,7 +552,6 @@ exports[`Cascader can be selected in RTL direction 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -703,7 +688,6 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -734,7 +718,6 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -781,7 +764,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -812,7 +794,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -847,7 +828,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -905,7 +885,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -936,7 +915,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -971,7 +949,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1027,7 +1004,6 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -1286,7 +1262,6 @@ exports[`Cascader support controlled mode 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -1306,7 +1281,6 @@ exports[`Cascader support controlled mode 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"

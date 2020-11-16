@@ -21,7 +21,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -53,7 +52,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -85,7 +83,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -124,7 +121,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -172,7 +168,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -204,7 +199,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -243,7 +237,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -289,7 +282,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -321,7 +313,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -360,7 +351,6 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="caret-right"
           fill="currentColor"
           focusable="false"
@@ -408,7 +398,6 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="caret-right"
           fill="currentColor"
           focusable="false"
@@ -440,7 +429,6 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="caret-right"
           fill="currentColor"
           focusable="false"
@@ -480,7 +468,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -506,7 +493,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="setting"
               fill="currentColor"
               focusable="false"
@@ -553,7 +539,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -578,7 +563,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="setting"
               fill="currentColor"
               focusable="false"
@@ -610,7 +594,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -635,7 +618,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="setting"
               fill="currentColor"
               focusable="false"
@@ -702,7 +684,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -740,7 +721,6 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -788,7 +768,6 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -820,7 +799,6 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -859,7 +837,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -891,7 +868,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -923,7 +899,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -962,7 +937,6 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"

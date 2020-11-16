@@ -1668,7 +1668,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1707,7 +1706,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="like"
                         fill="currentColor"
                         focusable="false"
@@ -1746,7 +1744,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="message"
                         fill="currentColor"
                         focusable="false"
@@ -1837,7 +1834,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1876,7 +1872,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="like"
                         fill="currentColor"
                         focusable="false"
@@ -1915,7 +1910,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="message"
                         fill="currentColor"
                         focusable="false"
@@ -2006,7 +2000,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -2045,7 +2038,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="like"
                         fill="currentColor"
                         focusable="false"
@@ -2084,7 +2076,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="message"
                         fill="currentColor"
                         focusable="false"
@@ -2155,7 +2146,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="left"
               fill="currentColor"
               focusable="false"
@@ -2243,7 +2233,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="double-right"
                 fill="currentColor"
                 focusable="false"
@@ -2293,7 +2282,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="right"
               fill="currentColor"
               focusable="false"

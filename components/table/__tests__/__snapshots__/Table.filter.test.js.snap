@@ -468,7 +468,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -803,7 +802,6 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -1036,7 +1034,6 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"

@@ -20,7 +20,6 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -47,7 +46,6 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
