@@ -1,12 +1,12 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
+import { CSSMotionProps } from 'rc-motion';
 import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import CollapsePanel from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import { CSSMotionProps } from 'rc-motion';
 
 export type ExpandIconPosition = 'left' | 'right' | undefined;
 
