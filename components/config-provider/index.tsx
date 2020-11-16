@@ -167,9 +167,13 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
     return (
       <SizeContextProvider size={componentSize}>
         <ConfigContext.Provider value={config}>
-          <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-            {childNode}
-          </LocaleProvider>
+          {locale === undefined ? (
+            childNode
+          ) : (
+            <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+              {childNode}
+            </LocaleProvider>
+          )}
         </ConfigContext.Provider>
       </SizeContextProvider>
     );
