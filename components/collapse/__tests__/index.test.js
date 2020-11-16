@@ -57,9 +57,9 @@ describe('Collapse', () => {
     expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
   });
 
-  it('could override default openAnimation', () => {
+  it('could override default openMotion', () => {
     const wrapper = mount(
-      <Collapse openAnimation={{}}>
+      <Collapse openMotion={{}}>
         <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
