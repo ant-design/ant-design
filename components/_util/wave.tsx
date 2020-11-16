@@ -1,10 +1,9 @@
 import * as React from 'react';
 import TransitionEvents from '@ant-design/css-animation/lib/Event';
-import { supportRef } from 'rc-util/lib/ref';
+import { supportRef, composeRef } from 'rc-util/lib/ref';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
 import { cloneElement } from './reactNode';
-import setAndForwardRef from './setAndForwardRef';
 
 let styleForPseudo: HTMLStyleElement | null;
 
@@ -203,12 +202,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
     let ref: React.Ref<any> = this.containerRef;
     if (supportRef(children)) {
-      ref = setAndForwardRef({
-        getForwardedRef: () => (children as any).ref,
-        setLocalRef: _ref => {
-          (this.containerRef as any).current = _ref;
-        },
-      });
+      ref = composeRef((children as any).ref, this.containerRef as any);
     }
 
     return cloneElement(children, { ref });
