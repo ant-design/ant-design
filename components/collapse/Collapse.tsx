@@ -2,11 +2,11 @@ import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-
 import CollapsePanel from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
-import animation from './openAnimation';
+import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
+import { CSSMotionProps } from 'rc-motion';
 
 export type ExpandIconPosition = 'left' | 'right' | undefined;
 
@@ -77,11 +77,15 @@ const Collapse: CollapseInterface = props => {
     },
     className,
   );
-  const openAnimation = { ...animation, appear() {} };
+  const openMotion: CSSMotionProps = {
+    ...collapseMotion,
+    motionAppear: false,
+    leavedClassName: `${prefixCls}-content-hidden`,
+  };
 
   return (
     <RcCollapse
-      openAnimation={openAnimation}
+      openMotion={openMotion}
       {...props}
       expandIcon={(panelProps: PanelProps) => renderExpandIcon(panelProps)}
       prefixCls={prefixCls}
