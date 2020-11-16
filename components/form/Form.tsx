@@ -34,8 +34,6 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   const contextSize = React.useContext(SizeContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
-  const { name } = props;
-
   const {
     prefixCls: customizePrefixCls,
     className = '',
@@ -50,6 +48,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     scrollToFirstError,
     requiredMark,
     onFinishFailed,
+    name,
     ...restFormProps
   } = props;
 
