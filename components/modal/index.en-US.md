@@ -147,7 +147,7 @@ Modal.config({
 
 ## FAQ
 
-### Why I can not access context, redux in Modal.xxx?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?
 
 antd will dynamic create React instance by `ReactDOM.render` when call Modal methods. Whose context is different with origin code located context.
 

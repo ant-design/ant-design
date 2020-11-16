@@ -14,7 +14,7 @@ jobs:
         if: github.event_name == 'pull_request_target'
         uses: actions/checkout@master
         with:
-          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+          ref: refs/pull/${{ github.event.pull_request.number }}/head
 
       - name: checkout
         if: github.event_name == 'push'

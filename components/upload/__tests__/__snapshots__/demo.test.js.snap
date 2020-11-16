@@ -25,7 +25,6 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="plus"
             fill="currentColor"
             focusable="false"
@@ -81,7 +80,6 @@ exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -163,7 +161,6 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye"
                   fill="currentColor"
                   focusable="false"
@@ -190,7 +187,6 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -256,7 +252,6 @@ exports[`renders ./components/upload/demo/customize-progress-bar.md correctly 1`
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -309,7 +304,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -352,7 +346,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -391,7 +384,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -432,7 +424,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -471,7 +462,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -511,7 +501,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="paper-clip"
                   fill="currentColor"
                   focusable="false"
@@ -550,7 +539,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="delete"
                     fill="currentColor"
                     focusable="false"
@@ -603,7 +591,6 @@ exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -657,7 +644,6 @@ exports[`renders ./components/upload/demo/drag.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="inbox"
               fill="currentColor"
               focusable="false"
@@ -718,7 +704,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -765,7 +750,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="paper-clip"
                       fill="currentColor"
                       focusable="false"
@@ -804,7 +788,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="delete"
                         fill="currentColor"
                         focusable="false"
@@ -850,7 +833,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="paper-clip"
                       fill="currentColor"
                       focusable="false"
@@ -889,7 +871,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="delete"
                         fill="currentColor"
                         focusable="false"
@@ -935,7 +916,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="paper-clip"
                       fill="currentColor"
                       focusable="false"
@@ -974,7 +954,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="delete"
                         fill="currentColor"
                         focusable="false"
@@ -1020,7 +999,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="paper-clip"
                       fill="currentColor"
                       focusable="false"
@@ -1059,7 +1037,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="delete"
                         fill="currentColor"
                         focusable="false"
@@ -1104,7 +1081,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -1140,7 +1116,6 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -1195,7 +1170,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file-pdf"
                     fill="currentColor"
                     focusable="false"
@@ -1253,7 +1227,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye"
                   fill="currentColor"
                   focusable="false"
@@ -1280,7 +1253,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -1322,7 +1294,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file-word"
                     fill="currentColor"
                     focusable="false"
@@ -1372,7 +1343,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye"
                   fill="currentColor"
                   focusable="false"
@@ -1399,7 +1369,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -1437,7 +1406,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="picture"
                   fill="currentColor"
                   focusable="false"
@@ -1492,7 +1460,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="eye"
                 fill="currentColor"
                 focusable="false"
@@ -1519,7 +1486,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="delete"
                 fill="currentColor"
                 focusable="false"
@@ -1556,7 +1522,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="file-pdf"
                   fill="currentColor"
                   focusable="false"
@@ -1611,7 +1576,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="eye"
                 fill="currentColor"
                 focusable="false"
@@ -1638,7 +1602,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="delete"
                 fill="currentColor"
                 focusable="false"
@@ -1675,7 +1638,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="file-word"
                   fill="currentColor"
                   focusable="false"
@@ -1722,7 +1684,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="eye"
                 fill="currentColor"
                 focusable="false"
@@ -1749,7 +1710,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="delete"
                 fill="currentColor"
                 focusable="false"
@@ -1787,7 +1747,6 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="plus"
               fill="currentColor"
               focusable="false"
@@ -1845,7 +1804,6 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -1888,7 +1846,6 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -1927,7 +1884,6 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -2008,7 +1964,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye"
                   fill="currentColor"
                   focusable="false"
@@ -2035,7 +1990,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2103,7 +2057,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye"
                   fill="currentColor"
                   focusable="false"
@@ -2130,7 +2083,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2198,7 +2150,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye"
                   fill="currentColor"
                   focusable="false"
@@ -2225,7 +2176,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2293,7 +2243,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye"
                   fill="currentColor"
                   focusable="false"
@@ -2320,7 +2269,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2408,7 +2356,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="picture"
                   fill="currentColor"
                   focusable="false"
@@ -2463,7 +2410,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="eye"
                 fill="currentColor"
                 focusable="false"
@@ -2490,7 +2436,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="delete"
                 fill="currentColor"
                 focusable="false"
@@ -2528,7 +2473,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="plus"
               fill="currentColor"
               focusable="false"
@@ -2586,7 +2530,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -2656,7 +2599,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="delete"
                         fill="currentColor"
                         focusable="false"
@@ -2696,7 +2638,6 @@ Array [
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="picture"
                     fill="currentColor"
                     focusable="false"
@@ -2749,7 +2690,6 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -2799,7 +2739,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -2869,7 +2808,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="delete"
                         fill="currentColor"
                         focusable="false"
@@ -2909,7 +2847,6 @@ Array [
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="picture"
                     fill="currentColor"
                     focusable="false"
@@ -2962,7 +2899,6 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="delete"
                       fill="currentColor"
                       focusable="false"
@@ -3014,7 +2950,6 @@ exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -3067,7 +3002,6 @@ exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -3120,7 +3054,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -3163,7 +3096,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -3211,7 +3143,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -3252,7 +3183,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="paper-clip"
                     fill="currentColor"
                     focusable="false"
@@ -3300,7 +3230,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -3340,7 +3269,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="paper-clip"
                   fill="currentColor"
                   focusable="false"
@@ -3379,7 +3307,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="star"
                     fill="currentColor"
                     focusable="false"
@@ -3431,7 +3358,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -3495,7 +3421,6 @@ exports[`renders ./components/upload/demo/upload-png-only.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="upload"
             fill="currentColor"
             focusable="false"
@@ -3574,7 +3499,6 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="upload"
                       fill="currentColor"
                       focusable="false"

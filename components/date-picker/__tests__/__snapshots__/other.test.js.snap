@@ -811,7 +811,6 @@ exports[`Picker format by locale date 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -835,7 +834,6 @@ exports[`Picker format by locale date 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -878,7 +876,6 @@ exports[`Picker format by locale dateTime 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -902,7 +899,6 @@ exports[`Picker format by locale dateTime 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -945,7 +941,6 @@ exports[`Picker format by locale month 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -969,7 +964,6 @@ exports[`Picker format by locale month 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -1012,7 +1006,6 @@ exports[`Picker format by locale week 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -1036,7 +1029,6 @@ exports[`Picker format by locale week 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"

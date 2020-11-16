@@ -153,7 +153,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -182,7 +181,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="video-camera"
               fill="currentColor"
               focusable="false"
@@ -211,7 +209,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -246,7 +243,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="menu-fold"
           fill="currentColor"
           focusable="false"
@@ -472,7 +468,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -501,7 +496,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="video-camera"
               fill="currentColor"
               focusable="false"
@@ -530,7 +524,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -559,7 +552,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="bar-chart"
               fill="currentColor"
               focusable="false"
@@ -588,7 +580,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="cloud"
               fill="currentColor"
               focusable="false"
@@ -617,7 +608,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="appstore"
               fill="currentColor"
               focusable="false"
@@ -646,7 +636,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="team"
               fill="currentColor"
               focusable="false"
@@ -675,7 +664,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="shop"
               fill="currentColor"
               focusable="false"
@@ -848,7 +836,6 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -877,7 +864,6 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="video-camera"
               fill="currentColor"
               focusable="false"
@@ -906,7 +892,6 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -935,7 +920,6 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -1014,7 +998,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="pie-chart"
               fill="currentColor"
               focusable="false"
@@ -1043,7 +1026,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="desktop"
               fill="currentColor"
               focusable="false"
@@ -1078,7 +1060,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="user"
                 fill="currentColor"
                 focusable="false"
@@ -1118,7 +1099,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="team"
                 fill="currentColor"
                 focusable="false"
@@ -1152,7 +1132,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="file"
               fill="currentColor"
               focusable="false"
@@ -1182,7 +1161,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -1614,7 +1592,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="user"
                     fill="currentColor"
                     focusable="false"
@@ -1687,7 +1664,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="laptop"
                     fill="currentColor"
                     focusable="false"
@@ -1727,7 +1703,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -1913,7 +1888,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="user"
                   fill="currentColor"
                   focusable="false"
@@ -1986,7 +1960,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="laptop"
                   fill="currentColor"
                   focusable="false"
@@ -2026,7 +1999,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="notification"
                   fill="currentColor"
                   focusable="false"
