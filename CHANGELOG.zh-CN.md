@@ -15,10 +15,20 @@ timeline: true
 
 ---
 
+## 4.8.4
+
+`2020-11-16`
+
+- 💄 修复 Button 和 Form 校验 loading 样式错误的问题。[#27794](https://github.com/ant-design/ant-design/pull/27794)
+- 🐞 修复 Modal.confirm 关闭时国际化丢失的问题。[#27797](https://github.com/ant-design/ant-design/pull/27797)
+- 🐞 修复 Button 和 Anchor 等组件在 React 17 下 `findDOMNode is deprecated` 的警告。[#27755](https://github.com/ant-design/ant-design/pull/27755) [@hosseinmd](https://github.com/hosseinmd)
+
 ## 4.8.3
 
 `2020-11-14`
 
+- 🛠 使用 React hooks 重构 Carousel。[#27694](https://github.com/ant-design/ant-design/pull/27694)
+- 🛠 使用 React hooks 重构 `<Typography editable />`。[#27655](https://github.com/ant-design/ant-design/pull/27655)
 - 🐞 修复 Form 在 namePath 为数组的时候表现异常的问题。[#27664](https://github.com/ant-design/ant-design/pull/27664)
 - 💄 修复 DateRangePicker 选择已选范围内一行的首尾日期时的悬浮样式位置异常问题。[#27731](https://github.com/ant-design/ant-design/pull/27731) [@AlanCutFlim](https://github.com/AlanCutFlim)
 - 🐞 修复 Select `tags` 模式下无法输入空格的问题。[#27726](https://github.com/ant-design/ant-design/pull/27726) [@baxtergu](https://github.com/baxtergu)
@@ -29,8 +39,6 @@ timeline: true
 - 🐞 修复 TextArea 使用 emoji 时被裁切的问题。[#27679](https://github.com/ant-design/ant-design/pull/27679) [@372623460jh](https://github.com/372623460jh)
 - 🐞 修复 RangePicker `size="small"` 时高亮线没有对齐的问题。[#27673](https://github.com/ant-design/ant-design/pull/27673) [@Ifeinstein](https://github.com/Ifeinstein)
 - 💄 新增 `@radio-border-width` less 变量。[#27703](https://github.com/ant-design/ant-design/pull/27703)
-- 🛠 使用 React hooks 重构 Carousel。[#27694](https://github.com/ant-design/ant-design/pull/27694)
-- 🛠 使用 React hooks 重构 `<Typography editable />`。[#27655](https://github.com/ant-design/ant-design/pull/27655)
 
 ## 4.8.2
 
