@@ -1,5 +1,5 @@
 import { Ref } from 'react';
-import { fillRef } from './ref';
+import { fillRef } from 'rc-util/lib/ref';
 
 /**
  * This is a helper function for when a component needs to be able to forward a ref
