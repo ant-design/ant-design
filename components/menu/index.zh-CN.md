@@ -91,8 +91,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | disabled | 是否禁用 | boolean | false |  |
 | icon | 菜单图标 | ReactNode | - | 4.2.0 |
 | key | 唯一标志 | string | - |  |
-| popupClassName | 子菜单样式 | string | - |  |
-| popupOffset | 子菜单偏移量 | \[number, number] | - |  |
+| popupClassName | 子菜单样式，`mode="inline"` 时无效 | string | - |  |
+| popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
 | title | 子菜单项值 | ReactNode | - |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
 

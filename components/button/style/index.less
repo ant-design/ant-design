@@ -159,7 +159,12 @@
     transition: all 0.3s @ease-in-out;
 
     .@{iconfont-css-prefix} {
-      padding-right: @margin-xs;
+      padding-right: @padding-xs;
+      animation: none;
+      // for smooth button padding transition
+      svg {
+        animation: loadingCircle 1s infinite linear;
+      }
     }
 
     &:only-child {

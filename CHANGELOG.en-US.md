@@ -15,10 +15,20 @@ timeline: true
 
 ---
 
+## 4.8.4
+
+`2020-11-16`
+
+- 💄 Fix Button and Form loading style. [#27794](https://github.com/ant-design/ant-design/pull/27794)
+- 🐞 Fix Modal.confirm locale missing after close it. [#27797](https://github.com/ant-design/ant-design/pull/27797)
+- 🐞 Fix Button/Anchor throws `findDOMNode is deprecated` in React 17. [#27755](https://github.com/ant-design/ant-design/pull/27755) [@hosseinmd](https://github.com/hosseinmd)
+
 ## 4.8.3
 
 `2020-11-14`
 
+- 🛠 Refactor Carousel with React hooks. [#27694](https://github.com/ant-design/ant-design/pull/27694)
+- 🛠 Refactor `<Typography editable />` with React hooks. [#27655](https://github.com/ant-design/ant-design/pull/27655)
 - 🐞 Fixed the problem that form behaves abnormally when namepath is an array.. [#27664](https://github.com/ant-design/ant-design/pull/27664)
 - 💄 Fix DateRangePicker hover effect position when hover over start or end cell of in range row. [#27731](https://github.com/ant-design/ant-design/pull/27731) [@AlanCutFlim](https://github.com/AlanCutFlim)
 - 🐞 Fix Select `mode=tags` cannot input whitespace normally. [#27726](https://github.com/ant-design/ant-design/pull/27726) [@baxtergu](https://github.com/baxtergu)
@@ -29,8 +39,6 @@ timeline: true
 - 🐞 Fix TextArea emoji been cut when enable `maxLength`. [#27679](https://github.com/ant-design/ant-design/pull/27679) [@372623460jh](https://github.com/372623460jh)
 - 🐞 Fix small size RangePicker active bar align issue. [#27673](https://github.com/ant-design/ant-design/pull/27673) [@Ifeinstein](https://github.com/Ifeinstein)
 - 💄 Add `@radio-border-width`. [#27703](https://github.com/ant-design/ant-design/pull/27703)
-- 🛠 Refactor Carousel with React hooks. [#27694](https://github.com/ant-design/ant-design/pull/27694)
-- 🛠 Refactor `<Typography editable />` with React hooks. [#27655](https://github.com/ant-design/ant-design/pull/27655)
 
 ## 4.8.2
 

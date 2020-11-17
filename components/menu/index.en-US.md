@@ -90,8 +90,8 @@ More layouts with navigation: [Layout](/components/layout).
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - | 4.2.0 |
 | key | Unique ID of the sub-menu | string | - |  |
-| popupClassName | Sub-menu class name | string | - |  |
-| popupOffset | Sub-menu offset | \[number, number] | - |  |
+| popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
+| popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
 | title | Title of sub menu | ReactNode | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
