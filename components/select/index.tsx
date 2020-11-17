@@ -150,7 +150,7 @@ const SelectRef = React.forwardRef(InternalSelect) as <VT extends SelectValue = 
 
 type InternalSelectType = typeof SelectRef;
 
-interface SelectInterface extends InternalSelectType {
+export interface SelectInterface extends InternalSelectType {
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
   Option: typeof Option;
   OptGroup: typeof OptGroup;
