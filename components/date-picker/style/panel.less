@@ -321,6 +321,7 @@
     // Edge start
     tr > &-in-view&-range-hover:first-child::after,
     tr > &-in-view&-range-hover-end:first-child::after,
+    &-selected:not(&-in-view) + &-range-hover-edge-start&-range-hover-edge-start-near-range::after,
     &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
     &-in-view&-range-hover-start::after {
       left: 6px;
