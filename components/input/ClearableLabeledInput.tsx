@@ -55,9 +55,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   onInputMouseUp: React.MouseEventHandler = e => {
     if (this.containerRef.current?.contains(e.target as Element)) {
       const { triggerFocus } = this.props;
-      if (triggerFocus) {
-        triggerFocus();
-      }
+      triggerFocus?.();
     }
   };
 

@@ -2,11 +2,12 @@ import * as React from 'react';
 import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import omit from 'omit.js';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { composeRef } from 'rc-util/lib/ref';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import useCombinedRefs from '../_util/hooks/useCombinedRefs';
 
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
@@ -25,12 +26,11 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const size = React.useContext(SizeContext);
 
   const innerRef = React.useRef<TextAreaRef>();
-  const mergedRef = useCombinedRefs(ref, innerRef);
   const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
-  const [value, setValue] = React.useState(
-    typeof props.value === 'undefined' ? props.defaultValue : props.value,
-  );
+  const [value, setValue] = useMergedState(props.defaultValue, {
+    value: props.value,
+  });
 
   const prevValue = React.useRef(props.value);
 
@@ -44,22 +44,20 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const handleSetValue = (val: string, callback?: () => void) => {
     if (props.value === undefined) {
       setValue(val);
-      if (callback) {
-        callback();
-      }
+      callback?.();
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     handleSetValue(e.target.value);
-    resolveOnChange(mergedRef.current!, e, props.onChange);
+    resolveOnChange(innerRef.current!, e, props.onChange);
   };
 
   const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     handleSetValue('', () => {
-      mergedRef.current?.focus();
+      innerRef.current?.focus();
     });
-    resolveOnChange(mergedRef.current!, e, props.onChange);
+    resolveOnChange(innerRef.current!, e, props.onChange);
   };
 
   const renderTextArea = (prefixCls: string, bordered: boolean) => {
@@ -77,7 +75,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         style={showCount ? null : style}
         prefixCls={prefixCls}
         onChange={handleChange}
-        ref={mergedRef}
+        ref={composeRef(ref, innerRef)}
       />
     );
   };
