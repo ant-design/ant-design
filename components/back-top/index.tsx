@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Animate from 'rc-animate';
+import CSSMotion from 'rc-motion';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
@@ -8,6 +9,7 @@ import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
+import { cloneElement } from '../_util/reactNode';
 
 export interface BackTopProps {
   visibilityHeight?: number;
@@ -22,7 +24,9 @@ export interface BackTopProps {
 }
 
 const BackTop: React.FC<BackTopProps> = props => {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useMergedState(false, {
+    value: props.visible,
+  });
 
   const ref = React.createRef<HTMLDivElement>();
   const scrollEvent = React.useRef<any>();
@@ -61,13 +65,6 @@ const BackTop: React.FC<BackTopProps> = props => {
     };
   }, [props.target]);
 
-  const getVisible = () => {
-    if ('visible' in props) {
-      return props.visible;
-    }
-    return visible;
-  };
-
   const scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
     const { onClick, target, duration = 450 } = props;
     scrollTo(0, {
@@ -89,9 +86,18 @@ const BackTop: React.FC<BackTopProps> = props => {
       </div>
     );
     return (
-      <Animate component="" transitionName="fade">
-        {getVisible() ? <div>{children || defaultElement}</div> : null}
-      </Animate>
+      <CSSMotion visible={visible} motionName="fade" removeOnLeave>
+        {({ className: motionClassName }) => {
+          const childNode = children || defaultElement;
+          return (
+            <div>
+              {cloneElement(childNode, ({ className }) => ({
+                className: classNames(motionClassName, className),
+              }))}
+            </div>
+          );
+        }}
+      </CSSMotion>
     );
   };
 
