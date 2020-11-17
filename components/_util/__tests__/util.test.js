@@ -12,11 +12,8 @@ import Wave from '../wave';
 import TransButton from '../transButton';
 import { isStyleSupport, isFlexSupported } from '../styleChecker';
 import { sleep } from '../../../tests/utils';
-import focusTest from '../../../tests/shared/focusTest';
 
 describe('Test utils function', () => {
-  focusTest(TransButton, { refFocus: true });
-
   describe('throttle', () => {
     it('throttle function should work', async () => {
       const callback = jest.fn();
