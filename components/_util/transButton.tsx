@@ -31,7 +31,7 @@ const TransButton = React.forwardRef<HTMLDivElement, TransButtonProps>((props, r
         mergedRef.current?.focus();
       }
     }
-  }, [props.autoFocus]);
+  }, []);
 
   const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {
     const { keyCode } = event;
