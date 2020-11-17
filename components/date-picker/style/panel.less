@@ -341,6 +341,14 @@
       border-bottom-right-radius: @border-radius-base;
     }
 
+    &-in-view&-range-hover-edge-end&-range-hover-edge-end-near-range
+      + &-selected:not(&-in-view)::before {
+      right: auto;
+      border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-top-right-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
+    }
+
     // >>> Disabled
     &-disabled {
       pointer-events: none;
