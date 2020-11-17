@@ -22,17 +22,6 @@ const inlineStyle: React.CSSProperties = {
 };
 
 const TransButton = React.forwardRef<HTMLDivElement, TransButtonProps>((props, ref) => {
-  const innerRef = React.useRef<HTMLDivElement>();
-  const mergedRef = useCombinedRefs(ref, innerRef);
-
-  React.useEffect(() => {
-    if (props.autoFocus) {
-      if (mergedRef) {
-        mergedRef.current?.focus();
-      }
-    }
-  }, []);
-
   const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {
     const { keyCode } = event;
     if (keyCode === KeyCode.ENTER) {
@@ -71,7 +60,7 @@ const TransButton = React.forwardRef<HTMLDivElement, TransButtonProps>((props, r
     <div
       role="button"
       tabIndex={0}
-      ref={mergedRef as any}
+      ref={ref}
       {...restProps}
       onKeyDown={onKeyDown}
       onKeyUp={onKeyUp}
