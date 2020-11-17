@@ -175,7 +175,7 @@ class Demo extends React.Component {
     const riddlePrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
       js: sourceCode.replace("'antd';", "'antd@3.x';"),
-      css: prefillStyle.replace(" 'antd/", " 'antd@3.x/"),
+      css: prefillStyle.replace(" 'antd/", " '~antd@3.x/"),
     };
     const dependencies = sourceCode.split('\n').reduce(
       (acc, line) => {
