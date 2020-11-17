@@ -35,7 +35,6 @@ A content area which can be collapsed and expanded.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | collapsible | Specify whether the panel be collapsible or the trigger area of collapsible | boolean \| `header` | true | 4.9.0 |
-| disabled | If true, panel cannot be opened or closed | boolean | false |  |
 | extra | The extra element in the corner | ReactNode | - |  |
 | forceRender | Forced render of content on panel, instead of lazy rending after clicking on header | boolean | false |  |
 | header | Title of the panel | ReactNode | - |  |

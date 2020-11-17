@@ -36,7 +36,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | collapsible | 是否可折叠或指定可折叠触发区域 | boolean \| `header` | true | 4.9.0 |
-| disabled | 禁用后的面板展开与否将无法通过用户交互改变 | boolean | false |  |
 | extra | 自定义渲染每个面板右上角的内容 | ReactNode | - |  |
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |  |
 | header | 面板头内容 | ReactNode | - |  |
