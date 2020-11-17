@@ -4,7 +4,6 @@
  */
 import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
-import useCombinedRefs from './hooks/useCombinedRefs';
 
 interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
