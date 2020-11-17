@@ -60,27 +60,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     resolveOnChange(innerRef.current!, e, props.onChange);
   };
 
-  const renderTextArea = (prefixCls: string, bordered: boolean) => {
-    const { showCount, className, style, size: customizeSize } = props;
-
-    return (
-      <RcTextArea
-        {...omit(props, ['allowClear', 'bordered', 'showCount', 'size'])}
-        className={classNames({
-          [`${prefixCls}-borderless`]: !bordered,
-          [className!]: className && !showCount,
-          [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
-          [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
-        })}
-        style={showCount ? null : style}
-        prefixCls={prefixCls}
-        onChange={handleChange}
-        ref={composeRef(ref, innerRef)}
-      />
-    );
-  };
-
-  let val = fixControlledValue(value) as string;
   const {
     prefixCls: customizePrefixCls,
     bordered = true,
@@ -88,9 +67,28 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     maxLength,
     className,
     style,
+    size: customizeSize,
   } = props;
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
+
+  const textArea = (
+    <RcTextArea
+      {...omit(props, ['allowClear', 'bordered', 'showCount', 'size'])}
+      className={classNames({
+        [`${prefixCls}-borderless`]: !bordered,
+        [className!]: className && !showCount,
+        [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
+        [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
+      })}
+      style={showCount ? null : style}
+      prefixCls={prefixCls}
+      onChange={handleChange}
+      ref={composeRef(ref, innerRef)}
+    />
+  );
+
+  let val = fixControlledValue(value) as string;
 
   // Max length value
   const hasMaxLength = Number(maxLength) > 0;
@@ -105,7 +103,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       direction={direction}
       inputType="text"
       value={val}
-      element={renderTextArea(prefixCls, bordered)}
+      element={textArea}
       handleReset={handleReset}
       ref={clearableInputRef}
       bordered={bordered}
