@@ -117,6 +117,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
         <FieldForm
           id={name}
           {...restFormProps}
+          name={name}
           onFinishFailed={onInternalFinishFailed}
           form={wrapForm}
           className={formClassName}
