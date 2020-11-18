@@ -29,19 +29,19 @@ exports[`Badge badge should support float number 2`] = `
 `;
 
 exports[`Badge render Badge size when contains children 1`] = `
-Array [
+<div>
   <span
     class="ant-badge"
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-zoom-appear"
       data-show="true"
       title="5"
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+        style="transition: none; transform: translateY(-1500%);"
       >
         <p
           class="ant-scroll-number-only-unit"
@@ -195,19 +195,19 @@ Array [
         </p>
       </span>
     </sup>
-  </span>,
+  </span>
   <span
     class="ant-badge"
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-count-sm"
+      class="ant-scroll-number ant-badge-count ant-badge-count-sm ant-badge-zoom-appear"
       data-show="true"
       title="5"
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+        style="transition: none; transform: translateY(-1500%);"
       >
         <p
           class="ant-scroll-number-only-unit"
@@ -361,44 +361,44 @@ Array [
         </p>
       </span>
     </sup>
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`Badge render Badge status/color when contains children 1`] = `
-Array [
+<div>
   <span
     class="ant-badge ant-badge-status"
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-success"
+      class="ant-scroll-number ant-badge-dot ant-badge-status-success ant-badge-zoom-appear"
       data-show="true"
       title="5"
     />
-  </span>,
+  </span>
   <span
     class="ant-badge ant-badge-status"
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-blue"
+      class="ant-scroll-number ant-badge-dot ant-badge-status-blue ant-badge-zoom-appear"
       data-show="true"
       title="5"
     />
-  </span>,
+  </span>
   <span
     class="ant-badge ant-badge-status"
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot"
+      class="ant-scroll-number ant-badge-dot ant-badge-zoom-appear"
       data-show="true"
-      style="background:#08c"
+      style="background: rgb(0, 136, 204);"
       title="5"
     />
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`Badge render correct with negative number 1`] = `

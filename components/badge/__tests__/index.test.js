@@ -127,7 +127,7 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/21331
   it('render Badge status/color when contains children', () => {
     const wrapper = mount(
-      <>
+      <div>
         <Badge count={5} status="success">
           <a />
         </Badge>
@@ -137,7 +137,7 @@ describe('Badge', () => {
         <Badge count={5} color="#08c">
           <a />
         </Badge>
-      </>,
+      </div>,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -155,14 +155,14 @@ describe('Badge', () => {
 
   it('render Badge size when contains children', () => {
     const wrapper = mount(
-      <>
+      <div>
         <Badge size="default" count={5}>
           <a />
         </Badge>
         <Badge size="small" count={5}>
           <a />
         </Badge>
-      </>,
+      </div>,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
