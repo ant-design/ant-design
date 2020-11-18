@@ -67,22 +67,22 @@ describe('Badge', () => {
     const wrapper = mount(<Badge count={9} />);
     wrapper.setProps({ count: 10 });
     jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({ count: 11 });
     jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({ count: 11 });
     jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({ count: 111 });
     jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({ count: 10 });
     jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     jest.runAllTimers();
     wrapper.setProps({ count: 9 });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should be compatible with borderColor style', () => {
