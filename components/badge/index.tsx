@@ -66,14 +66,21 @@ const Badge: CompoundedComponent = ({
 
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
 
-  const isDot = (dot && !isZero) || hasStatus;
+  const showAsDot = (dot && !isZero) || hasStatus;
+  console.log('>>>>>>>', dot, isZero, hasStatus);
 
-  const displayCount = isDot ? '' : numberedDisplayCount;
+  const displayCount = showAsDot ? '' : numberedDisplayCount;
 
   const isHidden = React.useMemo(() => {
     const isEmpty = displayCount === null || displayCount === undefined || displayCount === '';
-    return (isEmpty || (isZero && !showZero)) && !isDot;
-  }, [displayCount, isZero, showZero, isDot]);
+    return (isEmpty || (isZero && !showZero)) && !showAsDot;
+  }, [displayCount, isZero, showZero, showAsDot]);
+
+  // We will cache the dot status to avoid shaking on leaved motion
+  const isDotRef = React.useRef(showAsDot);
+  if (!isHidden) {
+    isDotRef.current = showAsDot;
+  }
 
   // =============================== Styles ===============================
   const mergedStyle = React.useMemo<React.CSSProperties>(() => {
@@ -159,6 +166,8 @@ const Badge: CompoundedComponent = ({
             'scroll-number',
             customizeScrollNumberPrefixCls,
           );
+
+          const isDot = isDotRef.current;
 
           const scrollNumberCls = classNames({
             [`${prefixCls}-dot`]: isDot,
