@@ -5,7 +5,7 @@ exports[`Badge badge should support float number 1`] = `
   class="ant-badge ant-badge-not-a-wrapper"
 >
   <sup
-    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
     data-show="true"
     title="3.5"
   >
@@ -19,7 +19,7 @@ exports[`Badge badge should support float number 2`] = `
   class="ant-badge ant-badge-not-a-wrapper"
 >
   <sup
-    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
     data-show="true"
     title="3.5"
   >
@@ -35,7 +35,7 @@ exports[`Badge render Badge size when contains children 1`] = `
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-zoom-appear"
+      class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count"
       data-show="true"
       title="5"
     >
@@ -201,7 +201,7 @@ exports[`Badge render Badge size when contains children 1`] = `
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-count-sm ant-badge-zoom-appear"
+      class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-count-sm"
       data-show="true"
       title="5"
     >
@@ -372,7 +372,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-success ant-badge-zoom-appear"
+      class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-dot ant-badge-status-success"
       data-show="true"
       title="5"
     />
@@ -382,7 +382,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-blue ant-badge-zoom-appear"
+      class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-dot ant-badge-status-blue"
       data-show="true"
       title="5"
     />
@@ -392,7 +392,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-zoom-appear"
+      class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-dot"
       data-show="true"
       style="background: rgb(0, 136, 204);"
       title="5"
@@ -407,7 +407,7 @@ exports[`Badge render correct with negative number 1`] = `
     class="ant-badge ant-badge-not-a-wrapper"
   >
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="-10"
     >
@@ -732,7 +732,7 @@ exports[`Badge render correct with negative number 1`] = `
     class="ant-badge ant-badge-not-a-wrapper"
   >
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="-10"
     >
@@ -1075,7 +1075,7 @@ exports[`Badge rtl render component should be rendered correctly in RTL directio
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="left:10px;margin-top:10px"
+    style="margin-top:10px;left:10px"
     title="5"
   >
     <span
@@ -1242,7 +1242,7 @@ exports[`Badge should be compatible with borderColor style 1`] = `
   class="ant-badge ant-badge-not-a-wrapper"
 >
   <sup
-    class="ant-scroll-number ant-badge-count"
+    class="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count"
     data-show="true"
     style="background-color: rgb(255, 255, 255); color: rgb(153, 153, 153); border-color: #d9d9d9; box-shadow: 0 0 0 1px #d9d9d9 inset;"
     title="4"
@@ -1413,39 +1413,25 @@ exports[`Badge should render when count is changed 1`] = `
   <span
     className="ant-badge ant-badge-not-a-wrapper"
   >
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="data-show"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName=""
+    <CSSMotion
+      motionAppear={true}
+      motionName="ant-badge-zoom"
+      visible={true}
     >
-      <AnimateChild
-        animation={Object {}}
-        key="scrollNumber"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName=""
-      >
+      <DomWrapper>
         <ScrollNumber
-          className="ant-badge-count ant-badge-multiple-words"
+          className="ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
           count={10}
-          data-show={true}
           key="scrollNumber"
           prefixCls="ant-scroll-number"
+          show={true}
+          style={Object {}}
           title={10}
         >
           <sup
-            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            className="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
             data-show={true}
+            style={Object {}}
             title={10}
           >
             <span
@@ -1643,8 +1629,8 @@ exports[`Badge should render when count is changed 1`] = `
             </span>
           </sup>
         </ScrollNumber>
-      </AnimateChild>
-    </Animate>
+      </DomWrapper>
+    </CSSMotion>
   </span>
 </Badge>
 `;
@@ -1656,39 +1642,25 @@ exports[`Badge should render when count is changed 2`] = `
   <span
     className="ant-badge ant-badge-not-a-wrapper"
   >
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="data-show"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName=""
+    <CSSMotion
+      motionAppear={true}
+      motionName="ant-badge-zoom"
+      visible={true}
     >
-      <AnimateChild
-        animation={Object {}}
-        key="scrollNumber"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName=""
-      >
+      <DomWrapper>
         <ScrollNumber
-          className="ant-badge-count ant-badge-multiple-words"
+          className="ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
           count={11}
-          data-show={true}
           key="scrollNumber"
           prefixCls="ant-scroll-number"
+          show={true}
+          style={Object {}}
           title={11}
         >
           <sup
-            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            className="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
             data-show={true}
+            style={Object {}}
             title={11}
           >
             <span
@@ -2079,8 +2051,8 @@ exports[`Badge should render when count is changed 2`] = `
             </span>
           </sup>
         </ScrollNumber>
-      </AnimateChild>
-    </Animate>
+      </DomWrapper>
+    </CSSMotion>
   </span>
 </Badge>
 `;
@@ -2092,39 +2064,25 @@ exports[`Badge should render when count is changed 3`] = `
   <span
     className="ant-badge ant-badge-not-a-wrapper"
   >
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="data-show"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName=""
+    <CSSMotion
+      motionAppear={true}
+      motionName="ant-badge-zoom"
+      visible={true}
     >
-      <AnimateChild
-        animation={Object {}}
-        key="scrollNumber"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName=""
-      >
+      <DomWrapper>
         <ScrollNumber
-          className="ant-badge-count ant-badge-multiple-words"
+          className="ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
           count={11}
-          data-show={true}
           key="scrollNumber"
           prefixCls="ant-scroll-number"
+          show={true}
+          style={Object {}}
           title={11}
         >
           <sup
-            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            className="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
             data-show={true}
+            style={Object {}}
             title={11}
           >
             <span
@@ -2515,8 +2473,8 @@ exports[`Badge should render when count is changed 3`] = `
             </span>
           </sup>
         </ScrollNumber>
-      </AnimateChild>
-    </Animate>
+      </DomWrapper>
+    </CSSMotion>
   </span>
 </Badge>
 `;
@@ -2528,39 +2486,25 @@ exports[`Badge should render when count is changed 4`] = `
   <span
     className="ant-badge ant-badge-not-a-wrapper"
   >
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="data-show"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName=""
+    <CSSMotion
+      motionAppear={true}
+      motionName="ant-badge-zoom"
+      visible={true}
     >
-      <AnimateChild
-        animation={Object {}}
-        key="scrollNumber"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName=""
-      >
+      <DomWrapper>
         <ScrollNumber
-          className="ant-badge-count ant-badge-multiple-words"
+          className="ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
           count="99+"
-          data-show={true}
           key="scrollNumber"
           prefixCls="ant-scroll-number"
+          show={true}
+          style={Object {}}
           title={111}
         >
           <sup
-            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            className="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
             data-show={true}
+            style={Object {}}
             title={111}
           >
             <span
@@ -2951,8 +2895,8 @@ exports[`Badge should render when count is changed 4`] = `
             </span>
           </sup>
         </ScrollNumber>
-      </AnimateChild>
-    </Animate>
+      </DomWrapper>
+    </CSSMotion>
   </span>
 </Badge>
 `;
@@ -2964,46 +2908,32 @@ exports[`Badge should render when count is changed 5`] = `
   <span
     className="ant-badge ant-badge-not-a-wrapper"
   >
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="data-show"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName=""
+    <CSSMotion
+      motionAppear={true}
+      motionName="ant-badge-zoom"
+      visible={true}
     >
-      <AnimateChild
-        animation={Object {}}
-        key="scrollNumber"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName=""
-      >
+      <DomWrapper>
         <ScrollNumber
-          className="ant-badge-count ant-badge-multiple-words"
+          className="ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
           count={10}
-          data-show={true}
           key="scrollNumber"
           prefixCls="ant-scroll-number"
+          show={true}
+          style={Object {}}
           title={10}
         >
           <sup
-            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            className="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count ant-badge-multiple-words"
             data-show={true}
+            style={Object {}}
             title={10}
           >
             99+
           </sup>
         </ScrollNumber>
-      </AnimateChild>
-    </Animate>
+      </DomWrapper>
+    </CSSMotion>
   </span>
 </Badge>
 `;
@@ -3015,39 +2945,25 @@ exports[`Badge should render when count is changed 6`] = `
   <span
     className="ant-badge ant-badge-not-a-wrapper"
   >
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="data-show"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName=""
+    <CSSMotion
+      motionAppear={true}
+      motionName="ant-badge-zoom"
+      visible={true}
     >
-      <AnimateChild
-        animation={Object {}}
-        key="scrollNumber"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName=""
-      >
+      <DomWrapper>
         <ScrollNumber
-          className="ant-badge-count"
+          className="ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count"
           count={9}
-          data-show={true}
           key="scrollNumber"
           prefixCls="ant-scroll-number"
+          show={true}
+          style={Object {}}
           title={9}
         >
           <sup
-            className="ant-scroll-number ant-badge-count"
+            className="ant-scroll-number ant-badge-zoom-appear ant-badge-zoom-appear-start ant-badge-zoom ant-badge-count"
             data-show={true}
+            style={Object {}}
             title={9}
           >
             <span
@@ -3438,8 +3354,8 @@ exports[`Badge should render when count is changed 6`] = `
             </span>
           </sup>
         </ScrollNumber>
-      </AnimateChild>
-    </Animate>
+      </DomWrapper>
+    </CSSMotion>
   </span>
 </Badge>
 `;
@@ -3455,8 +3371,8 @@ exports[`Badge should support offset when count is a ReactNode 1`] = `
     head
   </a>
   <span
-    class="ant-scroll-number-custom-component custom ant-badge-zoom-appear"
-    style="right: -10px; margin-top: 20px; color: rgb(245, 34, 45);"
+    class="ant-scroll-number-custom-component custom"
+    style="margin-top: 20px; right: -10px; color: rgb(245, 34, 45);"
   />
 </span>
 `;
