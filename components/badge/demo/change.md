@@ -3,6 +3,7 @@ order: 4
 title:
   zh-CN: 动态
   en-US: Dynamic
+only: true
 ---
 
 ## zh-CN
@@ -21,7 +22,7 @@ const ButtonGroup = Button.Group;
 
 class Demo extends React.Component {
   state = {
-    count: 5,
+    count: 1,
     show: true,
   };
 
@@ -58,12 +59,12 @@ class Demo extends React.Component {
             </Button>
           </ButtonGroup>
         </div>
-        <div style={{ marginTop: 10 }}>
+        {/*<div style={{ marginTop: 10 }}>
           <Badge dot={this.state.show}>
             <a href="#" className="head-example" />
           </Badge>
           <Switch onChange={this.onChange} checked={this.state.show} />
-        </div>
+        </div>*/}
       </div>
     );
   }
@@ -71,3 +72,24 @@ class Demo extends React.Component {
 
 ReactDOM.render(<Demo />, mountNode);
 ```
+
+<style>
+.ant-badge:not(.ant-badge-not-a-wrapper) {
+  margin-right: 20px;
+}
+.ant-badge.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
+  margin-right: 0;
+  margin-left: 20px;
+}
+.head-example {
+  width: 42px;
+  height: 42px;
+  border-radius: 2px;
+  background: #eee;
+  display: inline-block;
+  vertical-align: middle;
+}
+[data-theme="dark"] .head-example {
+  background: rgba(255,255,255,.12);
+}
+</style>

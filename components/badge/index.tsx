@@ -179,14 +179,15 @@ const Badge: CompoundedComponent = ({
           return (
             <ScrollNumber
               prefixCls={scrollNumberPrefixCls}
-              data-show={!isHidden}
+              show={!isHidden}
               className={classNames(motionClassName, scrollNumberCls)}
               count={displayCount}
-              displayComponent={displayNode}
               title={titleNode}
               style={scrollNumberStyle}
               key="scrollNumber"
-            />
+            >
+              {displayNode}
+            </ScrollNumber>
           );
         }}
       </CSSMotion>
