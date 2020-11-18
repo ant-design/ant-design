@@ -21,7 +21,7 @@ const ButtonGroup = Button.Group;
 
 class Demo extends React.Component {
   state = {
-    count: 1,
+    count: 5,
     show: true,
   };
 
