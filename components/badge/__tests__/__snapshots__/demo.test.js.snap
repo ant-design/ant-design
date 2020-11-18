@@ -1503,7 +1503,7 @@ exports[`renders ./components/badge/demo/offset.md correctly 1`] = `
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="right:-10px;margin-top:10px"
+    style="margin-top:10px;right:-10px"
     title="5"
   >
     <span

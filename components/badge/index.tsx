@@ -67,7 +67,6 @@ const Badge: CompoundedComponent = ({
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
 
   const showAsDot = (dot && !isZero) || hasStatus;
-  console.log('>>>>>>>', dot, isZero, hasStatus);
 
   const displayCount = showAsDot ? '' : numberedDisplayCount;
 
