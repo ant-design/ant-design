@@ -15,54 +15,17 @@ exports[`Badge badge should support float number 1`] = `
 `;
 
 exports[`Badge badge should support float number 2`] = `
-<Badge
-  count="3.5"
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
 >
-  <span
-    className="ant-badge ant-badge-not-a-wrapper"
+  <sup
+    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    data-show="true"
+    title="3.5"
   >
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="data-show"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName=""
-    >
-      <AnimateChild
-        animation={Object {}}
-        key="scrollNumber"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName=""
-      >
-        <ScrollNumber
-          className="ant-badge-count ant-badge-multiple-words"
-          count="3.5"
-          data-show={true}
-          key="scrollNumber"
-          prefixCls="ant-scroll-number"
-          title="3.5"
-        >
-          <sup
-            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
-            data-show={true}
-            title="3.5"
-          >
-            3.5
-          </sup>
-        </ScrollNumber>
-      </AnimateChild>
-    </Animate>
-  </span>
-</Badge>
+    3.5
+  </sup>
+</span>
 `;
 
 exports[`Badge render Badge size when contains children 1`] = `
@@ -455,7 +418,7 @@ exports[`Badge render correct with negative number 1`] = `
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1100%);-webkit-transform:translateY(-1100%);transform:translateY(-1100%)"
+        style="transition: none; transform: translateY(-1100%);"
       >
         <p
           class="ant-scroll-number-only-unit"
@@ -610,7 +573,7 @@ exports[`Badge render correct with negative number 1`] = `
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1000%);-webkit-transform:translateY(-1000%);transform:translateY(-1000%)"
+        style="transition: none; transform: translateY(-1000%);"
       >
         <p
           class="ant-scroll-number-only-unit"
@@ -780,7 +743,7 @@ exports[`Badge render correct with negative number 1`] = `
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1100%);-webkit-transform:translateY(-1100%);transform:translateY(-1100%)"
+        style="transition: none; transform: translateY(-1100%);"
       >
         <p
           class="ant-scroll-number-only-unit"
@@ -935,7 +898,7 @@ exports[`Badge render correct with negative number 1`] = `
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1000%);-webkit-transform:translateY(-1000%);transform:translateY(-1000%)"
+        style="transition: none; transform: translateY(-1000%);"
       >
         <p
           class="ant-scroll-number-only-unit"
@@ -1281,12 +1244,12 @@ exports[`Badge should be compatible with borderColor style 1`] = `
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="background-color:#fff;color:#999;border-color:#d9d9d9;box-shadow:0 0 0 1px #d9d9d9 inset"
+    style="background-color: rgb(255, 255, 255); color: rgb(153, 153, 153); border-color: #d9d9d9; box-shadow: 0 0 0 1px #d9d9d9 inset;"
     title="4"
   >
     <span
       class="ant-scroll-number-only"
-      style="transition:none;-ms-transform:translateY(-1400%);-webkit-transform:translateY(-1400%);transform:translateY(-1400%)"
+      style="transition: none; transform: translateY(-1400%);"
     >
       <p
         class="ant-scroll-number-only-unit"
@@ -3492,8 +3455,8 @@ exports[`Badge should support offset when count is a ReactNode 1`] = `
     head
   </a>
   <span
-    class="ant-scroll-number-custom-component custom"
-    style="right:-10px;margin-top:20px;color:#f5222d"
+    class="ant-scroll-number-custom-component custom ant-badge-zoom-appear"
+    style="right: -10px; margin-top: 20px; color: rgb(245, 34, 45);"
   />
 </span>
 `;

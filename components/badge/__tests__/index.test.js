@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
@@ -30,10 +30,11 @@ describe('Badge', () => {
   });
 
   it('badge should support float number', () => {
-    let wrapper = render(<Badge count={3.5} />);
-    expect(wrapper).toMatchSnapshot();
+    let wrapper = mount(<Badge count={3.5} />);
+    expect(wrapper.render()).toMatchSnapshot();
+
     wrapper = mount(<Badge count="3.5" />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -85,25 +86,25 @@ describe('Badge', () => {
   });
 
   it('should be compatible with borderColor style', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Badge
         count={4}
         style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/13694
   it('should support offset when count is a ReactNode', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Badge count={<span className="custom" style={{ color: '#f5222d' }} />} offset={[10, 20]}>
         <a href="#" className="head-example">
           head
         </a>
       </Badge>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/15349
@@ -114,18 +115,18 @@ describe('Badge', () => {
 
   // https://github.com/ant-design/ant-design/issues/15799
   it('render correct with negative number', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <div>
         <Badge count="-10" />
         <Badge count={-10} />
       </div>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/21331
   it('render Badge status/color when contains children', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <>
         <Badge count={5} status="success">
           <a />
@@ -138,7 +139,7 @@ describe('Badge', () => {
         </Badge>
       </>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('Badge should work when status/color is empty string', () => {
@@ -153,7 +154,7 @@ describe('Badge', () => {
   });
 
   it('render Badge size when contains children', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <>
         <Badge size="default" count={5}>
           <a />
@@ -163,7 +164,7 @@ describe('Badge', () => {
         </Badge>
       </>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
 
