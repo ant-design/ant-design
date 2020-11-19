@@ -21,14 +21,17 @@ interface FormItemInputMiscProps {
    * @name 自定义 FormItem 的 dom 结构
    * @private no use
    */
-  _internalItemRender?: (
-    props: FormItemInputProps & FormItemInputMiscProps,
-    domList: {
-      input: JSX.Element;
-      errorList: JSX.Element;
-      extra: JSX.Element | null;
-    },
-  ) => React.ReactNode;
+  _internalItemRender?: {
+    mark: string;
+    render: (
+      props: FormItemInputProps & FormItemInputMiscProps,
+      domList: {
+        input: JSX.Element;
+        errorList: JSX.Element;
+        extra: JSX.Element | null;
+      },
+    ) => React.ReactNode;
+  };
 }
 
 export interface FormItemInputProps {
@@ -104,15 +107,16 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   // 0&&error -> 0
   const extraDom = extra ? <div className={`${baseClassName}-extra`}>{extra}</div> : null;
 
-  const dom = formItemRender ? (
-    formItemRender(props, { input: inputDom, errorList: errorListDom, extra: extraDom })
-  ) : (
-    <>
-      {inputDom}
-      {errorListDom}
-      {extraDom}
-    </>
-  );
+  const dom =
+    formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (
+      formItemRender.render(props, { input: inputDom, errorList: errorListDom, extra: extraDom })
+    ) : (
+      <>
+        {inputDom}
+        {errorListDom}
+        {extraDom}
+      </>
+    );
   return (
     <FormContext.Provider value={subFormContext}>
       <Col {...mergedWrapperCol} className={className}>
