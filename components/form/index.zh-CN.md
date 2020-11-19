@@ -170,6 +170,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | children | 渲染函数 | (fields: Field\[], operation: { add, remove, move }) => React.ReactNode | - |  |
+| initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | string | - | 4.9.0 |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
 | rules | 校验规则，仅支持自定义规则。需要配合 [ErrorList](#Form.ErrorList) 一同使用。 | { validator, message }\[] | - | 4.7.0 |
 
