@@ -187,6 +187,8 @@ Provides array management for fields.
 </Form.List>
 ```
 
+Note: You should not config Form.Item `initialValue` under Form.List. It always should be configured by Form.List `initialValue` or Form `initialValues`.
+
 ## operation
 
 Some operator functions in render form of Form.List.

@@ -189,6 +189,8 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 </Form.List>
 ```
 
+注意：Form.List 下的字段不应该配置 `initialValue`，你始终应该通过 Form.List 的 `initialValue` 或者 Form 的 `initialValues` 来配置。
+
 ## operation
 
 Form.List 渲染表单相关操作函数。
