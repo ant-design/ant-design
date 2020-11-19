@@ -119,6 +119,7 @@ export interface CascaderProps {
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
   dropdownRender?: (menus: React.ReactNode) => React.ReactNode;
+  flattenOptions?: CascaderOptionType[][] | undefined;
 }
 
 export interface CascaderState {
@@ -254,7 +255,14 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     if ('popupVisible' in nextProps) {
       newState.popupVisible = nextProps.popupVisible;
     }
-    if (nextProps.showSearch && prevProps.options !== nextProps.options) {
+    if ('flattenOptions' in nextProps) {
+      newState.flattenOptions = nextProps.flattenOptions || [];
+    }
+    if (
+      nextProps.showSearch &&
+      nextProps.flattenOptions === undefined &&
+      prevProps.options !== nextProps.options
+    ) {
       newState.flattenOptions = flattenTree(nextProps.options, nextProps);
     }
 
@@ -273,12 +281,16 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
   constructor(props: CascaderProps) {
     super(props);
+    let flattenOptions;
+    if (props.showSearch) {
+      flattenOptions = props.flattenOptions || flattenTree(props.options, props);
+    }
     this.state = {
       value: props.value || props.defaultValue || [],
       inputValue: '',
       inputFocused: false,
       popupVisible: props.popupVisible,
-      flattenOptions: props.showSearch ? flattenTree(props.options, props) : undefined,
+      flattenOptions,
       prevProps: props,
     };
   }
@@ -559,6 +571,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           'notFoundContent',
           'fieldNames',
           'bordered',
+          'flattenOptions',
         ]);
 
         let { options } = props;

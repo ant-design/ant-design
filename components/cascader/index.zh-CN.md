@@ -49,6 +49,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
+| flattenOptions | 打平之后的options，用于搜索功能，构造方法详见[flatenTree](#flattenTree) | [Option](#Option)\[][] | - |  |
 
 ### showSearch
 
@@ -72,6 +73,31 @@ interface Option {
   children?: Option[];
 }
 ```
+
+### flattenTree
+
+```typescript
+function flattenTree(
+  options: CascaderOptionType[],
+  props: CascaderProps,
+  ancestor: CascaderOptionType[] = [],
+) {
+  const names = props.fieldNames || { label: 'label', value: 'value', children: 'children' }
+  let flattenOptions: CascaderOptionType[][] = [];
+  const childrenName = names.children;
+  options.forEach(option => {
+    const path = ancestor.concat(option);
+    if (props.changeOnSelect || !option[childrenName] || !option[childrenName].length) {
+      flattenOptions.push(path);
+    }
+    if (option[childrenName]) {
+      flattenOptions = flattenOptions.concat(flattenTree(option[childrenName], props, path));
+    }
+  });
+  return flattenOptions;
+}
+```
+
 
 ## 方法
 

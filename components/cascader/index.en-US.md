@@ -48,6 +48,7 @@ Cascade selection box.
 | value | The selected value | string\[] \| number\[] | - |  |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - |  |
+| flattenOptions | Flatten options is used for search function, See the [flatenTree](#flattenTree) for the construction method | [Option](#Option)\[][] | - |  |
 
 ### showSearch
 
@@ -67,6 +68,30 @@ interface Option {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Option[];
+}
+```
+
+### flattenTree
+
+```typescript
+function flattenTree(
+  options: CascaderOptionType[],
+  props: CascaderProps,
+  ancestor: CascaderOptionType[] = [],
+) {
+  const names = props.fieldNames || { label: 'label', value: 'value', children: 'children' }
+  let flattenOptions: CascaderOptionType[][] = [];
+  const childrenName = names.children;
+  options.forEach(option => {
+    const path = ancestor.concat(option);
+    if (props.changeOnSelect || !option[childrenName] || !option[childrenName].length) {
+      flattenOptions.push(path);
+    }
+    if (option[childrenName]) {
+      flattenOptions = flattenOptions.concat(flattenTree(option[childrenName], props, path));
+    }
+  });
+  return flattenOptions;
 }
 ```
 
