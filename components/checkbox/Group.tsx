@@ -31,7 +31,7 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
 }
 
 export interface CheckboxGroupContext {
-  name: string | undefined;
+  name?: string;
   toggleOption?: (option: CheckboxOptionType) => void;
   value?: any;
   disabled?: boolean;
