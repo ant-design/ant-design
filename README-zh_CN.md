@@ -132,7 +132,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [常见问题](https://ant.design/docs/react/faq-cn)
 - [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
 - [定制主题](https://ant.design/docs/react/customize-theme-cn)
-- [国际化](https://ant.design/docs//react/i18n-cn)
+- [国际化](https://ant.design/docs/react/i18n-cn)
 - [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ 本地开发
