@@ -190,8 +190,9 @@
     }
 
     // Edge start
-    tr > &-in-view&-range-hover:first-child::after,
+    tr > &-in-view&-range-hover:not(&-selected):first-child::after,
     tr > &-in-view&-range-hover-end:first-child::after,
+    &-in-view&-start&-range-hover-edge-start&-range-hover-edge-start-near-range::after,
     &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
     &-in-view&-range-hover-start::after {
       .@{picker-prefix-cls}-panel-rtl & {
@@ -207,8 +208,9 @@
     }
 
     // Edge end
-    tr > &-in-view&-range-hover:last-child::after,
+    tr > &-in-view&-range-hover:not(&-selected):last-child::after,
     tr > &-in-view&-range-hover-start:last-child::after,
+    &-in-view&-end&-range-hover-edge-end&-range-hover-edge-end-near-range::after,
     &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
     &-in-view&-range-hover-end::after {
       .@{picker-prefix-cls}-panel-rtl & {
@@ -221,6 +223,15 @@
         border-bottom-right-radius: 0;
         border-bottom-left-radius: @border-radius-base;
       }
+    }
+
+    &-in-view&-start&-range-hover-end&-range-hover-edge-start&-range-hover-edge-start-near-range::after,
+    &-in-view&-end&-range-hover-start&-range-hover-edge-end&-range-hover-edge-end-near-range::after {
+      right: 6px;
+      left: 6px;
+      border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-radius: @border-radius-base;
     }
 
     tr > &-in-view&-range-hover-start:last-child::after,
