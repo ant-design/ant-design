@@ -30,9 +30,9 @@ Commonly displayed on the details page.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| contentStyle | Customize label style | ReactNode | - | 4.9.0 |
+| contentStyle | Customize label style | CSSProperties | - | 4.9.0 |
 | label | The description of the content | ReactNode | - |  |
-| labelStyle | Customize label style | ReactNode | - | 4.9.0 |
+| labelStyle | Customize label style | CSSProperties | - | 4.9.0 |
 | span | The number of columns included | number | 1 |  |
 
 > The number of span Description.Item. Span={2} takes up the width of two DescriptionItems.
