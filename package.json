@@ -175,7 +175,7 @@
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "antd-img-crop": "^3.1.1",
-    "antd-pro-merge-less": "^3.0.9",
+    "antd-pro-merge-less": "^3.0.11",
     "antd-theme-generator": "^1.2.3",
     "argos-cli": "^0.3.0",
     "array-move": "^3.0.0",

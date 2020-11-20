@@ -275,11 +275,13 @@
 @radio-wrapper-margin-right: 8px;
 
 // Media queries breakpoints
-// Extra small screen / phone
+// @screen-xs and @screen-xs-min is not used in Grid
+// smallest break point is @screen-md
 @screen-xs: 480px;
 @screen-xs-min: @screen-xs;
+// 👆 Extra small screen / phone
 
-// Small screen / tablet
+// 👇 Small screen / tablet
 @screen-sm: 576px;
 @screen-sm-min: @screen-sm;
 
@@ -858,7 +860,7 @@
 
 // Skeleton
 // ---
-@skeleton-color: #f2f2f2;
+@skeleton-color: rgba(190, 190, 190, .2);
 @skeleton-to-color: shade(@skeleton-color, 5%);
 @skeleton-paragraph-margin-top: 28px;
 @skeleton-paragraph-li-margin-top: @margin-md;

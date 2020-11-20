@@ -115,6 +115,7 @@ const Demo = () => (
 - Form rewrite.
   - No need to use `Form.create`.
   - Nest fields definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
+  - `validateTrigger` no long collect field value.
   - See [here](/components/form/v3) for migration documentation.
 - DatePicker rewrite
   - Provide the `picker` property for selector switching.
@@ -124,6 +125,7 @@ const Demo = () => (
 - Tree, Select, TreeSelect, AutoComplete rewrite
   - use virtual scrolling.
   - `onBlur` no longer trigger value change and return React origin `event` object instead.
+    - If config `validateTrigger` as `onBlur` with compatible Form, please change to `onChange` instead.
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
   - AutoComplete options definition align with Select. Please use `options` instead of `dataSource`.
   - Select remove `dropdownMenuStyle` prop.

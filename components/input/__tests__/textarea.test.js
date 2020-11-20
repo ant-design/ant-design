@@ -7,7 +7,7 @@ import { sleep } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
-focusTest(TextArea);
+focusTest(TextArea, { refFocus: true });
 
 describe('TextArea', () => {
   const originalGetComputedStyle = window.getComputedStyle;
@@ -33,10 +33,12 @@ describe('TextArea', () => {
   it('should auto calculate height according to content length', async () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
+    const ref = React.createRef();
+
     const wrapper = mount(
-      <TextArea value="" readOnly autoSize={{ minRows: 2, maxRows: 6 }} wrap="off" />,
+      <TextArea value="" readOnly autoSize={{ minRows: 2, maxRows: 6 }} wrap="off" ref={ref} />,
     );
-    const mockFunc = jest.spyOn(wrapper.instance().resizableTextArea, 'resizeTextarea');
+    const mockFunc = jest.spyOn(ref.current.resizableTextArea, 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
     await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(1);
@@ -78,8 +80,9 @@ describe('TextArea', () => {
   });
 
   it('when prop value not in this.props, resizeTextarea should be called', async () => {
-    const wrapper = mount(<TextArea aria-label="textarea" />);
-    const resizeTextarea = jest.spyOn(wrapper.instance().resizableTextArea, 'resizeTextarea');
+    const ref = React.createRef();
+    const wrapper = mount(<TextArea aria-label="textarea" ref={ref} />);
+    const resizeTextarea = jest.spyOn(ref.current.resizableTextArea, 'resizeTextarea');
     wrapper.find('textarea').simulate('change', {
       target: {
         value: 'test',
@@ -130,7 +133,7 @@ describe('TextArea', () => {
     const textarea = mount(<TextArea value="111" />);
     input.setProps({ value: undefined });
     textarea.setProps({ value: undefined });
-    expect(textarea.find('textarea').prop('value')).toBe(input.getDOMNode().value);
+    expect(textarea.find('textarea').at(0).getDOMNode().value).toBe(input.getDOMNode().value);
   });
 
   describe('should support showCount', () => {
@@ -173,10 +176,11 @@ describe('TextArea', () => {
   it('set mouse cursor position', () => {
     const defaultValue = '11111';
     const valLength = defaultValue.length;
-    const wrapper = mount(<TextArea autoFocus defaultValue={defaultValue} />);
-    wrapper.instance().setSelectionRange(valLength, valLength);
-    expect(wrapper.instance().resizableTextArea.textArea.selectionStart).toEqual(5);
-    expect(wrapper.instance().resizableTextArea.textArea.selectionEnd).toEqual(5);
+    const ref = React.createRef();
+    mount(<TextArea autoFocus ref={ref} defaultValue={defaultValue} />);
+    ref.current.resizableTextArea.textArea.setSelectionRange(valLength, valLength);
+    expect(ref.current.resizableTextArea.textArea.selectionStart).toEqual(5);
+    expect(ref.current.resizableTextArea.textArea.selectionEnd).toEqual(5);
   });
 });
 
