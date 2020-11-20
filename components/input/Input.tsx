@@ -150,6 +150,10 @@ class Input extends React.Component<InputProps, InputState> {
     this.clearPasswordValueAttribute();
   }
 
+  // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
+  // We keep an empty function here.
+  componentDidUpdate() {}
+
   getSnapshotBeforeUpdate(prevProps: InputProps) {
     if (hasPrefixSuffix(prevProps) !== hasPrefixSuffix(this.props)) {
       devWarning(
