@@ -18,8 +18,7 @@ interface FormItemInputMiscProps {
   validateStatus?: ValidateStatus;
   onDomErrorVisibleChange: (visible: boolean) => void;
   /**
-   * @name 自定义 FormItem 的 dom 结构
-   * @private no use
+   * @private Internal usage, do not use in any of your production.
    */
   _internalItemRender?: {
     mark: string;
