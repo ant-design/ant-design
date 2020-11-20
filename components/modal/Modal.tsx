@@ -116,6 +116,7 @@ export interface ModalFuncProps {
   maskTransitionName?: string;
   direction?: DirectionType;
   bodyStyle?: React.CSSProperties;
+  closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
 }
 
