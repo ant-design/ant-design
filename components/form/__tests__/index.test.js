@@ -772,6 +772,31 @@ describe('Form', () => {
     expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
   });
 
+  it('_internalItemRender api test', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item
+          name="light"
+          _internalItemRender={{
+            mark: 'pro_table_render',
+            render: (_, doms) => {
+              return (
+                <div id="test">
+                  {doms.input}
+                  {doms.errorList}
+                  {doms.extra}
+                </div>
+              );
+            },
+          }}
+        >
+          <input defaultValue="should warning" />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('#test').exists()).toBeTruthy();
+  });
+
   describe('tooltip', () => {
     it('ReactNode', () => {
       const wrapper = mount(
