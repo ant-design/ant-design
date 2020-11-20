@@ -3,16 +3,17 @@
 exports[`Space should render correct with children 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     text1
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <span>
       text1
@@ -20,6 +21,7 @@ exports[`Space should render correct with children 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom:8px"
   >
     text3
   </div>
@@ -30,10 +32,11 @@ exports[`Space should render width ConfigProvider 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap:wrap;margin-bottom:-24px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:24px"
+      style="margin-right:24px;padding-bottom:24px"
     >
       <span>
         1
@@ -41,6 +44,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom:24px"
     >
       <span>
         2
@@ -49,10 +53,11 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap:wrap;margin-bottom:-16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:16px"
+      style="margin-right:16px;padding-bottom:16px"
     >
       <span>
         1
@@ -60,6 +65,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom:16px"
     >
       <span>
         2
@@ -68,10 +74,11 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap:wrap;margin-bottom:-24px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:24px"
+      style="margin-right:24px;padding-bottom:24px"
     >
       <span>
         1
@@ -79,6 +86,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom:24px"
     >
       <span>
         2
@@ -91,22 +99,23 @@ Array [
 exports[`Space split 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:4px"
+    style="margin-right:4px;padding-bottom:8px"
   >
     text1
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px"
+    style="margin-right:4px;padding-bottom:8px"
   >
     -
   </span>
   <div
     class="ant-space-item"
-    style="margin-right:4px"
+    style="margin-right:4px;padding-bottom:8px"
   >
     <span>
       text1
@@ -114,12 +123,13 @@ exports[`Space split 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px"
+    style="margin-right:4px;padding-bottom:8px"
   >
     -
   </span>
   <div
     class="ant-space-item"
+    style="padding-bottom:8px"
   >
     text3
   </div>

@@ -7,15 +7,28 @@ import Item from './Item';
 
 export const LastIndexContext = React.createContext(0);
 
+export type Size = SizeType | number;
+
 export interface SpaceProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  size?: SizeType | number;
+  size?: Size | [Size, Size];
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
+  wrap?: boolean;
+}
+
+const spaceSize = {
+  small: 8,
+  middle: 16,
+  large: 24,
+};
+
+export function getNumberSize(size: Size) {
+  return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
 const Space: React.FC<SpaceProps> = props => {
@@ -29,6 +42,8 @@ const Space: React.FC<SpaceProps> = props => {
     direction = 'horizontal',
     prefixCls: customizePrefixCls,
     split,
+    style,
+    wrap = true,
     ...otherProps
   } = props;
 
@@ -71,6 +86,7 @@ const Space: React.FC<SpaceProps> = props => {
         index={i}
         marginDirection={marginDirection}
         split={split}
+        wrap={wrap}
       >
         {child}
       </Item>
@@ -78,8 +94,18 @@ const Space: React.FC<SpaceProps> = props => {
     /* eslint-enable */
   });
 
+  const verticalSize = Array.isArray(size) ? size[0] : size;
+
   return (
-    <div className={cn} {...otherProps}>
+    <div
+      className={cn}
+      style={{
+        ...style,
+        flexWrap: wrap ? 'wrap' : 'nowrap',
+        ...(wrap && { marginBottom: -getNumberSize(verticalSize) }),
+      }}
+      {...otherProps}
+    >
       <LastIndexContext.Provider value={latestIndex}>{nodes}</LastIndexContext.Provider>
     </div>
   );

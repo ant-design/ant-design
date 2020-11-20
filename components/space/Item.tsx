@@ -1,21 +1,15 @@
 import * as React from 'react';
-import { LastIndexContext } from '.';
-import { SizeType } from '../config-provider/SizeContext';
-
-const spaceSize = {
-  small: 8,
-  middle: 16,
-  large: 24,
-};
+import { getNumberSize, LastIndexContext, Size } from '.';
 
 export interface ItemProps {
   className: string;
   children: React.ReactNode;
   index: number;
   direction?: 'horizontal' | 'vertical';
-  size?: SizeType | number;
+  size?: Size | [Size, Size];
   marginDirection: 'marginLeft' | 'marginRight';
   split?: string | React.ReactNode;
+  wrap?: boolean;
 }
 
 export default function Item({
@@ -26,6 +20,7 @@ export default function Item({
   marginDirection,
   children,
   split,
+  wrap,
 }: ItemProps) {
   const latestIndex = React.useContext(LastIndexContext);
 
@@ -33,12 +28,18 @@ export default function Item({
     return null;
   }
 
+  const [horizontalSize, verticalSize] = Array.isArray(size) ? size : [size, size];
+
+  const verticalStyle =
+    wrap && direction === 'horizontal' ? { paddingBottom: getNumberSize(verticalSize) } : undefined;
+
   const style =
     index >= latestIndex
-      ? {}
+      ? { ...verticalStyle }
       : {
           [direction === 'vertical' ? 'marginBottom' : marginDirection]:
-            ((typeof size === 'string' ? spaceSize[size] : size) ?? 0) / (split ? 2 : 1),
+            (getNumberSize(horizontalSize) ?? 0) / (split ? 2 : 1),
+          ...verticalStyle,
         };
 
   return (
