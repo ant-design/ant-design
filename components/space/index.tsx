@@ -100,8 +100,8 @@ const Space: React.FC<SpaceProps> = props => {
     <div
       className={cn}
       style={{
-        ...style,
         ...(wrap && { flexWrap: 'wrap', marginBottom: -getNumberSize(verticalSize) }),
+        ...style,
       }}
       {...otherProps}
     >
