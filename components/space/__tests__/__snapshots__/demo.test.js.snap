@@ -9,17 +9,16 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:8px"
       >
         center
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:8px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -32,7 +31,6 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
       >
         <span
           class="mock-block"
@@ -47,17 +45,16 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-start"
-      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:8px"
       >
         start
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:8px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -70,7 +67,6 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
       >
         <span
           class="mock-block"
@@ -85,17 +81,16 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-end"
-      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:8px"
       >
         end
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:8px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -108,7 +103,6 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
       >
         <span
           class="mock-block"
@@ -123,17 +117,16 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-baseline"
-      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:8px"
       >
         baseline
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:8px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -146,7 +139,6 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
       >
         <span
           class="mock-block"
@@ -162,17 +154,16 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
 exports[`renders ./components/space/demo/base.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     Space
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -185,7 +176,7 @@ exports[`renders ./components/space/demo/base.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     <span
       class=""
@@ -239,7 +230,6 @@ exports[`renders ./components/space/demo/base.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <button
       class="ant-btn"
@@ -286,11 +276,10 @@ Array [
   <br />,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -303,7 +292,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn"
@@ -316,7 +305,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-dashed"
@@ -329,7 +318,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-link"
@@ -347,17 +335,16 @@ Array [
 exports[`renders ./components/space/demo/debug.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     Button
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     <button
       class="ant-btn"
@@ -370,13 +357,13 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     Button
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     <button
       class="ant-btn"
@@ -389,7 +376,7 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     <span
       class="ant-popover-disabled-compatible-wrapper"
@@ -409,13 +396,12 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:8px"
   >
     1
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     Button
   </div>
@@ -490,11 +476,10 @@ Array [
   <br />,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -507,7 +492,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn"
@@ -520,7 +505,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-dashed"
@@ -533,7 +518,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-link"
@@ -551,11 +535,10 @@ Array [
 exports[`renders ./components/space/demo/split.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:4px;padding-bottom:8px"
+    style="margin-right:4px"
   >
     <a
       class="ant-typography"
@@ -565,7 +548,7 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px;padding-bottom:8px"
+    style="margin-right:4px"
   >
     <div
       class="ant-divider ant-divider-vertical"
@@ -574,7 +557,7 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
   </span>
   <div
     class="ant-space-item"
-    style="margin-right:4px;padding-bottom:8px"
+    style="margin-right:4px"
   >
     <a
       class="ant-typography"
@@ -584,7 +567,7 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px;padding-bottom:8px"
+    style="margin-right:4px"
   >
     <div
       class="ant-divider ant-divider-vertical"
@@ -593,7 +576,6 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
   </span>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <a
       class="ant-typography"
@@ -607,7 +589,6 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
 exports[`renders ./components/space/demo/vertical.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"

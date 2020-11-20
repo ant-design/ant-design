@@ -43,7 +43,7 @@ const Space: React.FC<SpaceProps> = props => {
     prefixCls: customizePrefixCls,
     split,
     style,
-    wrap = true,
+    wrap = false,
     ...otherProps
   } = props;
 
@@ -101,8 +101,7 @@ const Space: React.FC<SpaceProps> = props => {
       className={cn}
       style={{
         ...style,
-        flexWrap: wrap ? 'wrap' : 'nowrap',
-        ...(wrap && { marginBottom: -getNumberSize(verticalSize) }),
+        ...(wrap && { flexWrap: 'wrap', marginBottom: -getNumberSize(verticalSize) }),
       }}
       {...otherProps}
     >
