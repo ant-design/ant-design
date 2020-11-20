@@ -3,6 +3,7 @@ order: 0
 title:
   zh-CN: 点击上传
   en-US: Upload by clicking
+only: true
 ---
 
 ## zh-CN

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
+import { CSSMotionList, CSSMotionListProps } from 'rc-motion';
 import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
@@ -8,6 +9,7 @@ import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import { UploadListProps, UploadFile, UploadListType } from '../interface';
 import { previewImage, isImageUrl } from '../utils';
+import collapseMotion from '../../_util/motion';
 import { ConfigContext } from '../../config-provider';
 import Button, { ButtonProps } from '../../button';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
@@ -147,45 +149,78 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 
   // ============================= Render =============================
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
-  const list = items.map(file => (
-    <ListItem
-      key={file.uid}
-      locale={locale}
-      prefixCls={prefixCls}
-      file={file}
-      items={items}
-      progress={progress}
-      listType={listType}
-      isImgUrl={isImgUrl}
-      showPreviewIcon={showPreviewIcon}
-      showRemoveIcon={showRemoveIcon}
-      showDownloadIcon={showDownloadIcon}
-      removeIcon={removeIcon}
-      downloadIcon={downloadIcon}
-      iconRender={internalIconRender}
-      actionIconRender={actionIconRender}
-      itemRender={itemRender}
-      onPreview={onInternalPreview}
-      onDownload={onInternalDownload}
-      onClose={onInternalClose}
-    />
-  ));
+
   const listClassNames = classNames({
     [`${prefixCls}-list`]: true,
     [`${prefixCls}-list-${listType}`]: true,
     [`${prefixCls}-list-rtl`]: direction === 'rtl',
   });
+
+  // >>> Motion config
+  const motionKeyList = [
+    ...items.map(file => ({
+      key: file.uid,
+      file,
+    })),
+  ];
+
   const animationDirection = listType === 'picture-card' ? 'animate-inline' : 'animate';
-  const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
+  // const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
+
+  let motionConfig: CSSMotionListProps = {
+    motionName: `${prefixCls}-${animationDirection}`,
+    keys: motionKeyList,
+  };
+
+  if (listType !== 'picture-card') {
+    motionConfig = {
+      ...collapseMotion,
+      ...motionConfig,
+    };
+  }
 
   return (
-    <Animate transitionName={transitionName} component="div" className={listClassNames}>
-      {list}
-      {React.isValidElement(appendAction)
-        ? React.cloneElement(appendAction, { key: 'appendAction' })
-        : appendAction}
-    </Animate>
+    <div className={listClassNames}>
+      <CSSMotionList {...motionConfig} component={false}>
+        {({ key, file, className: motionClassName, style: motionStyle }) => {
+          return (
+            <ListItem
+              key={key}
+              locale={locale}
+              prefixCls={prefixCls}
+              className={motionClassName}
+              style={motionStyle}
+              file={file}
+              items={items}
+              progress={progress}
+              listType={listType}
+              isImgUrl={isImgUrl}
+              showPreviewIcon={showPreviewIcon}
+              showRemoveIcon={showRemoveIcon}
+              showDownloadIcon={showDownloadIcon}
+              removeIcon={removeIcon}
+              downloadIcon={downloadIcon}
+              iconRender={internalIconRender}
+              actionIconRender={actionIconRender}
+              itemRender={itemRender}
+              onPreview={onInternalPreview}
+              onDownload={onInternalDownload}
+              onClose={onInternalClose}
+            />
+          );
+        }}
+      </CSSMotionList>
+    </div>
   );
+
+  // return (
+  //   <Animate transitionName={transitionName} component="div" className={listClassNames}>
+  //     {list}
+  //     {React.isValidElement(appendAction)
+  //       ? React.cloneElement(appendAction, { key: 'appendAction' })
+  //       : appendAction}
+  //   </Animate>
+  // );
 };
 
 const UploadList = React.forwardRef<unknown, UploadListProps>(InternalUploadList);

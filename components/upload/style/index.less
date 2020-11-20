@@ -142,6 +142,8 @@
   .reset-component;
   .clearfix;
   line-height: @line-height-base;
+
+  // ============================ Item ============================
   &-item-list-type-text {
     &:hover {
       .@{upload-prefix-cls}-list-item-name-icon-count-1 {
@@ -273,6 +275,7 @@
     }
   }
 
+  // =================== Picture & Picture Card ===================
   &-picture,
   &-picture-card {
     .@{upload-item} {
@@ -398,17 +401,18 @@
     }
   }
 
+  // ======================== Picture Card ========================
   &-picture-card {
-    &.@{upload-prefix-cls}-list::after {
-      display: none;
-    }
-
     &-container {
       display: inline-block;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
       margin: 0 @margin-xs @margin-xs 0;
       vertical-align: top;
+    }
+
+    &.@{upload-prefix-cls}-list::after {
+      display: none;
     }
 
     .@{upload-item} {
@@ -515,27 +519,42 @@
     }
   }
 
-  .@{upload-prefix-cls}-success-icon {
-    color: @success-color;
-    font-weight: bold;
+  // ======================= Picture & Text =======================
+  &-text,
+  &-picture {
+    &-container {
+      display: flex;
+      transition: all @animation-duration-slow;
+
+      // Don't know why span here, just stretch it
+      .@{upload-prefix-cls}-span {
+        flex: auto;
+        display: block;
+      }
+    }
   }
 
-  .@{upload-prefix-cls}-animate-enter,
-  .@{upload-prefix-cls}-animate-leave,
+  // =========================== Motion ===========================
+  // .@{upload-prefix-cls}-animate-appear,
+  // .@{upload-prefix-cls}-animate-enter,
+  // .@{upload-prefix-cls}-animate-leave,
+  .@{upload-prefix-cls}-animate-inline-appear,
   .@{upload-prefix-cls}-animate-inline-enter,
   .@{upload-prefix-cls}-animate-inline-leave {
-    animation-duration: 0.3s;
+    animation-duration: @animation-duration-slow;
     animation-fill-mode: @ease-in-out-circ;
   }
 
-  .@{upload-prefix-cls}-animate-enter {
-    animation-name: uploadAnimateIn;
-  }
+  // .@{upload-prefix-cls}-animate-appear,
+  // .@{upload-prefix-cls}-animate-enter {
+  //   animation-name: uploadAnimateIn;
+  // }
 
-  .@{upload-prefix-cls}-animate-leave {
-    animation-name: uploadAnimateOut;
-  }
+  // .@{upload-prefix-cls}-animate-leave {
+  //   animation-name: uploadAnimateOut;
+  // }
 
+  .@{upload-prefix-cls}-animate-inline-appear,
   .@{upload-prefix-cls}-animate-inline-enter {
     animation-name: uploadAnimateInlineIn;
   }
@@ -545,23 +564,23 @@
   }
 }
 
-@keyframes uploadAnimateIn {
-  from {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-  }
-}
+// @keyframes uploadAnimateIn {
+//   from {
+//     height: 0;
+//     margin: 0;
+//     padding: 0;
+//     opacity: 0;
+//   }
+// }
 
-@keyframes uploadAnimateOut {
-  to {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-  }
-}
+// @keyframes uploadAnimateOut {
+//   to {
+//     height: 0;
+//     margin: 0;
+//     padding: 0;
+//     opacity: 0;
+//   }
+// }
 
 @keyframes uploadAnimateInlineIn {
   from {
