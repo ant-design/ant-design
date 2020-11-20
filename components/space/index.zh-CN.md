@@ -22,10 +22,10 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 | --- | --- | --- | --- | --- |
 | align | 对齐方式 | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
 | direction | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
-| size | 间距大小 | [Size](space#size) \| [Size](space#size)[]| `small` | 4.1.0 \| Array:4.9.0 |
+| size | 间距大小 | [Size](space#size) \| [Size](space#size)\[] | `small` | 4.1.0 \| Array:4.9.0 |
 | split | 设置拆分 | ReactNode | - | 4.7.0 |
-| wrap | 	是否自动换行 | boolean | true | 4.9.0 |
+| wrap | 是否自动换行 | boolean | true | 4.9.0 |
 
 ### Size
 
-`small | middle | large | number`
+`'small' | 'middle' | 'large' | number`

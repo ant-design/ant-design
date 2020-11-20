@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { getNumberSize, LastIndexContext, Size } from '.';
+import { getNumberSize, LastIndexContext, SpaceSize } from '.';
 
 export interface ItemProps {
   className: string;
   children: React.ReactNode;
   index: number;
   direction?: 'horizontal' | 'vertical';
-  size?: Size | [Size, Size];
+  size?: SpaceSize | [SpaceSize, SpaceSize];
   marginDirection: 'marginLeft' | 'marginRight';
   split?: string | React.ReactNode;
   wrap?: boolean;

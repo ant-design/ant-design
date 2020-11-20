@@ -7,13 +7,13 @@ import Item from './Item';
 
 export const LastIndexContext = React.createContext(0);
 
-export type Size = SizeType | number;
+export type SpaceSize = SizeType | number;
 
 export interface SpaceProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  size?: Size | [Size, Size];
+  size?: SpaceSize | [SpaceSize, SpaceSize];
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
@@ -27,7 +27,7 @@ const spaceSize = {
   large: 24,
 };
 
-export function getNumberSize(size: Size) {
+export function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
