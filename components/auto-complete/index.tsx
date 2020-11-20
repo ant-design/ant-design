@@ -20,7 +20,7 @@ export interface DataSourceItemObject {
   value: string;
   text: string;
 }
-export type DataSourceItemType = string | DataSourceItemObject | React.ReactNode;
+export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
 export interface AutoCompleteProps
   extends Omit<
