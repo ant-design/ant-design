@@ -38,6 +38,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 ) => {
   const forceUpdate = useForceUpdate();
 
+  // ============================= Effect =============================
   React.useEffect(() => {
     if (listType !== 'picture' && listType !== 'picture-card') {
       return;
@@ -64,6 +65,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     });
   }, [listType, items, previewFile]);
 
+  // ============================= Events =============================
   const onInternalPreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
     if (!onPreview) {
       return;
@@ -134,6 +136,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     );
   };
 
+  // ============================== Ref ===============================
   // Test needs
   React.useImperativeHandle(ref, () => ({
     handlePreview: onInternalPreview,
@@ -142,6 +145,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
+  // ============================= Render =============================
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
   const list = items.map(file => (
     <ListItem
@@ -149,6 +153,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       locale={locale}
       prefixCls={prefixCls}
       file={file}
+      items={items}
       progress={progress}
       listType={listType}
       isImgUrl={isImgUrl}

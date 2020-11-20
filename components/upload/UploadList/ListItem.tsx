@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
+import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
@@ -18,6 +19,7 @@ export interface ListItemProps {
   prefixCls: string;
   locale: UploadLocale;
   file: UploadFile;
+  items: UploadFile[];
   listType?: UploadListType;
   isImgUrl?: (file: UploadFile) => boolean;
   showRemoveIcon?: boolean;
@@ -44,6 +46,7 @@ function ListItem({
   locale,
   listType,
   file,
+  items,
   progress: progressProps,
   iconRender,
   actionIconRender,
@@ -58,7 +61,6 @@ function ListItem({
   onDownload,
   onClose,
 }: ListItemProps) {
-  let progress;
   const iconNode = iconRender(file);
   let icon = <div className={`${prefixCls}-text-icon`}>{iconNode}</div>;
   if (listType === 'picture' || listType === 'picture-card') {
@@ -96,17 +98,6 @@ function ListItem({
     }
   }
 
-  if (file.status === 'uploading') {
-    // show loading icon if upload progress listener is disabled
-    const loadingProgress =
-      'percent' in file ? <Progress {...progressProps} type="line" percent={file.percent} /> : null;
-
-    progress = (
-      <div className={`${prefixCls}-list-item-progress`} key="progress">
-        {loadingProgress}
-      </div>
-    );
-  }
   const infoUploadingClass = classNames({
     [`${prefixCls}-list-item`]: true,
     [`${prefixCls}-list-item-${file.status}`]: true,
@@ -216,13 +207,26 @@ function ListItem({
       {preview}
     </span>
   );
+
   const dom = (
     <div className={infoUploadingClass}>
       <div className={`${prefixCls}-list-item-info`}>{iconAndPreview}</div>
       {actions}
-      <Animate transitionName="fade" component="">
-        {progress}
-      </Animate>
+      <CSSMotion motionName="fade" visible={file.status === 'uploading'}>
+        {({ className: motionClassName }) => {
+          // show loading icon if upload progress listener is disabled
+          const loadingProgress =
+            'percent' in file ? (
+              <Progress {...progressProps} type="line" percent={file.percent} />
+            ) : null;
+
+          return (
+            <div className={classNames(`${prefixCls}-list-item-progress`, motionClassName)}>
+              {loadingProgress}
+            </div>
+          );
+        }}
+      </CSSMotion>
     </div>
   );
   const listContainerNameClass = classNames({
