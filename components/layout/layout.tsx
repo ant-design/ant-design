@@ -54,17 +54,6 @@ const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
 
   const [siders, setSiders] = React.useState<string[]>([]);
 
-  const getSiderHook = () => {
-    return {
-      addSider: (id: string) => {
-        setSiders([...siders, id]);
-      },
-      removeSider: (id: string) => {
-        setSiders(siders.filter(currentId => currentId !== id));
-      },
-    };
-  };
-
   const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = props;
   const classString = classNames(
     prefixCls,
@@ -76,7 +65,18 @@ const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
   );
 
   return (
-    <LayoutContext.Provider value={{ siderHook: getSiderHook() }}>
+    <LayoutContext.Provider
+      value={{
+        siderHook: {
+          addSider: (id: string) => {
+            setSiders(prev => [...prev, id]);
+          },
+          removeSider: (id: string) => {
+            setSiders(prev => prev.filter(currentId => currentId !== id));
+          },
+        },
+      }}
+    >
       <Tag className={classString} {...others}>
         {children}
       </Tag>
