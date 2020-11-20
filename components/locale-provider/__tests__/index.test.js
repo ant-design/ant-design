@@ -44,6 +44,7 @@ import idID from '../id_ID';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
 import jaJP from '../ja_JP';
+import kkKZ from '../kk_KZ';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
 import kmrIQ from '../kmr_IQ';
@@ -103,6 +104,7 @@ const locales = [
   isIS,
   itIT,
   jaJP,
+  kkKZ,
   knIN,
   koKR,
   kmrIQ,

@@ -49,6 +49,6 @@ const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon
       }}
     </CSSMotion>
   );
-}
+};
 
 export default LoadingIcon;
