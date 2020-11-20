@@ -176,10 +176,11 @@ describe('TextArea', () => {
   it('set mouse cursor position', () => {
     const defaultValue = '11111';
     const valLength = defaultValue.length;
-    const wrapper = mount(<TextArea autoFocus defaultValue={defaultValue} />);
-    wrapper.instance().setSelectionRange(valLength, valLength);
-    expect(wrapper.instance().resizableTextArea.textArea.selectionStart).toEqual(5);
-    expect(wrapper.instance().resizableTextArea.textArea.selectionEnd).toEqual(5);
+    const ref = React.createRef();
+    mount(<TextArea autoFocus ref={ref} defaultValue={defaultValue} />);
+    ref.current.resizableTextArea.textArea.setSelectionRange(valLength, valLength);
+    expect(ref.current.resizableTextArea.textArea.selectionStart).toEqual(5);
+    expect(ref.current.resizableTextArea.textArea.selectionEnd).toEqual(5);
   });
 });
 
