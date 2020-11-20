@@ -361,7 +361,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-picker-cell"
+                    class="ant-picker-cell ant-picker-cell-end"
                     title="1999-12-31"
                   >
                     <div
@@ -371,7 +371,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
+                    class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view ant-picker-cell-selected"
                     title="2000-01-01"
                   >
                     <div
@@ -716,7 +716,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-picker-cell ant-picker-cell-in-view"
+                    class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                     title="2000-01-31"
                   >
                     <div
@@ -726,7 +726,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-picker-cell"
+                    class="ant-picker-cell ant-picker-cell-start"
                     title="2000-02-01"
                   >
                     <div
