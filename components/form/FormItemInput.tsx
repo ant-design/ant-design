@@ -102,7 +102,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     </FormItemPrefixContext.Provider>
   );
 
-  // && 如果 extra=0，就会出问题
+  // If extra = 0, && will goes wrong
   // 0&&error -> 0
   const extraDom = extra ? <div className={`${baseClassName}-extra`}>{extra}</div> : null;
 
