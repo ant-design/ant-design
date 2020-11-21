@@ -144,16 +144,6 @@
   line-height: @line-height-base;
 
   // ============================ Item ============================
-  &-item-list-type-text {
-    &:hover {
-      .@{upload-prefix-cls}-list-item-name-icon-count-1 {
-        padding-right: 14px;
-      }
-      .@{upload-prefix-cls}-list-item-name-icon-count-2 {
-        padding-right: 28px;
-      }
-    }
-  }
   &-item {
     position: relative;
     height: @line-height-base * @font-size-base;
@@ -167,10 +157,6 @@
       line-height: @line-height-base;
       white-space: nowrap;
       text-overflow: ellipsis;
-    }
-
-    &-name-icon-count-1 {
-      padding-right: 14px;
     }
 
     &-card-actions {
@@ -370,14 +356,6 @@
       transition: all 0.3s;
     }
 
-    .@{upload-item}-name-icon-count-1 {
-      padding-right: 18px;
-    }
-
-    .@{upload-item}-name-icon-count-2 {
-      padding-right: 36px;
-    }
-
     .@{upload-item}-uploading .@{upload-item}-name {
       line-height: 28px;
     }
@@ -539,6 +517,7 @@
     // But it used for picture-card, let's keep it.
     .@{upload-prefix-cls}-span {
       display: flex;
+      align-items: center;
 
       > * {
         flex: none;

@@ -150,12 +150,7 @@ const ListItem = React.forwardRef(
         {removeIcon}
       </span>
     );
-    const listItemNameClass = classNames({
-      [`${prefixCls}-list-item-name`]: true,
-      [`${prefixCls}-list-item-name-icon-count-${
-        [downloadIcon, removeIcon].filter(x => x).length
-      }`]: true,
-    });
+    const listItemNameClass = classNames(`${prefixCls}-list-item-name`);
     const preview = file.url
       ? [
           <a
