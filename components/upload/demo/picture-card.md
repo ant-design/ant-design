@@ -3,7 +3,6 @@ order: 3
 title:
   zh-CN: 照片墙
   en-US: Pictures Wall
-only: true
 ---
 
 ## zh-CN

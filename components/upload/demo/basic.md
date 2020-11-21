@@ -3,7 +3,6 @@ order: 0
 title:
   zh-CN: 点击上传
   en-US: Upload by clicking
-only: true
 ---
 
 ## zh-CN
@@ -33,10 +32,6 @@ const props = {
     } else if (info.file.status === 'error') {
       message.error(`${info.file.name} file upload failed.`);
     }
-  },
-  showUploadList: {
-    showDownloadIcon: true,
-    showRemoveIcon: true,
   },
 };
 
