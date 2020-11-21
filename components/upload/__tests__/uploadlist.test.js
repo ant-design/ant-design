@@ -233,6 +233,10 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
+
+    // Has error item className
+    wrapper.find('.ant-upload-list-item-error').simulate('mouseenter');
+
     expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
   });
 
