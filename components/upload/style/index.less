@@ -202,7 +202,7 @@
 
     &-info {
       height: 100%;
-      padding: 0 12px 0 4px;
+      padding: 0 4px;
       transition: background-color 0.3s;
 
       > span {
@@ -307,9 +307,6 @@
     }
 
     .@{upload-item}-thumbnail {
-      position: absolute;
-      top: 8px;
-      left: 8px;
       width: 48px;
       height: 48px;
       line-height: 54px;
@@ -496,6 +493,12 @@
       display: block;
     }
 
+    // .@{upload-item}-thumbnail {
+    //   position: absolute;
+    //   top: 8px;
+    //   left: 8px;
+    // }
+
     .@{upload-item}-uploading {
       &.@{upload-item} {
         background-color: @background-color-light;
@@ -523,13 +526,40 @@
   &-text,
   &-picture {
     &-container {
-      display: flex;
       transition: all @animation-duration-slow;
 
       // Don't know why span here, just stretch it
       .@{upload-prefix-cls}-span {
         flex: auto;
         display: block;
+      }
+    }
+
+    // text & picture no need this additional element.
+    // But it used for picture-card, let's keep it.
+    .@{upload-prefix-cls}-span {
+      display: flex;
+
+      > * {
+        flex: none;
+      }
+    }
+
+    .@{upload-item}-name {
+      padding: 0 @padding-xs;
+      flex: auto;
+    }
+
+    .@{upload-item}-card-actions {
+      position: static;
+    }
+  }
+
+  // ============================ Text ============================
+  &-text {
+    .@{upload-prefix-cls}-text-icon {
+      .@{iconfont-css-prefix} {
+        position: static;
       }
     }
   }

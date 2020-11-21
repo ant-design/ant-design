@@ -249,7 +249,7 @@ const ListItem = React.forwardRef(
           {dom}
         </Tooltip>
       ) : (
-        <span className={spanClassName}>{dom}</span>
+        dom
       );
 
     return (
