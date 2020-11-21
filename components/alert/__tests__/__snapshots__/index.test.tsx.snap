@@ -6,20 +6,24 @@ exports[`Alert ErrorBoundary 1`] = `
   data-show="true"
   role="alert"
 >
-  <span
-    class="ant-alert-message"
+  <div
+    class="ant-alert-content"
   >
-    ReferenceError: NotExisted is not defined
-  </span>
-  <span
-    class="ant-alert-description"
-  >
-    <pre>
-          in ThrowError
+    <div
+      class="ant-alert-message"
+    >
+      ReferenceError: NotExisted is not defined
+    </div>
+    <div
+      class="ant-alert-description"
+    >
+      <pre>
+            in ThrowError
     in ErrorBoundary (created by WrapperComponent)
     in WrapperComponent
-    </pre>
-  </span>
+      </pre>
+    </div>
+  </div>
 </div>
 `;
 
@@ -34,14 +38,18 @@ exports[`Alert could accept none react element icon 1`] = `
   >
     icon
   </span>
-  <span
-    class="ant-alert-message"
+  <div
+    class="ant-alert-content"
   >
-    Success Tips
-  </span>
-  <span
-    class="ant-alert-description"
-  />
+    <div
+      class="ant-alert-message"
+    >
+      Success Tips
+    </div>
+    <div
+      class="ant-alert-description"
+    />
+  </div>
 </div>
 `;
 
@@ -51,11 +59,15 @@ exports[`Alert rtl render component should be rendered correctly in RTL directio
   data-show="true"
   role="alert"
 >
-  <span
-    class="ant-alert-message"
-  />
-  <span
-    class="ant-alert-description"
-  />
+  <div
+    class="ant-alert-content"
+  >
+    <div
+      class="ant-alert-message"
+    />
+    <div
+      class="ant-alert-description"
+    />
+  </div>
 </div>
 `;

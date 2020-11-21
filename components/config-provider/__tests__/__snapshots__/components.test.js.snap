@@ -6,14 +6,18 @@ exports[`ConfigProvider components Alert configProvider 1`] = `
   data-show="true"
   role="alert"
 >
-  <span
-    class="config-alert-message"
+  <div
+    class="config-alert-content"
   >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="config-alert-description"
-  />
+    <div
+      class="config-alert-message"
+    >
+      Bamboo is Little Light
+    </div>
+    <div
+      class="config-alert-description"
+    />
+  </div>
 </div>
 `;
 
@@ -23,14 +27,18 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
   data-show="true"
   role="alert"
 >
-  <span
-    class="config-alert-message"
+  <div
+    class="config-alert-content"
   >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="config-alert-description"
-  />
+    <div
+      class="config-alert-message"
+    >
+      Bamboo is Little Light
+    </div>
+    <div
+      class="config-alert-description"
+    />
+  </div>
 </div>
 `;
 
@@ -40,14 +48,18 @@ exports[`ConfigProvider components Alert configProvider componentSize middle 1`]
   data-show="true"
   role="alert"
 >
-  <span
-    class="config-alert-message"
+  <div
+    class="config-alert-content"
   >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="config-alert-description"
-  />
+    <div
+      class="config-alert-message"
+    >
+      Bamboo is Little Light
+    </div>
+    <div
+      class="config-alert-description"
+    />
+  </div>
 </div>
 `;
 
@@ -57,14 +69,18 @@ exports[`ConfigProvider components Alert configProvider virtual and dropdownMatc
   data-show="true"
   role="alert"
 >
-  <span
-    class="ant-alert-message"
+  <div
+    class="ant-alert-content"
   >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="ant-alert-description"
-  />
+    <div
+      class="ant-alert-message"
+    >
+      Bamboo is Little Light
+    </div>
+    <div
+      class="ant-alert-description"
+    />
+  </div>
 </div>
 `;
 
@@ -74,14 +90,18 @@ exports[`ConfigProvider components Alert normal 1`] = `
   data-show="true"
   role="alert"
 >
-  <span
-    class="ant-alert-message"
+  <div
+    class="ant-alert-content"
   >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="ant-alert-description"
-  />
+    <div
+      class="ant-alert-message"
+    >
+      Bamboo is Little Light
+    </div>
+    <div
+      class="ant-alert-description"
+    />
+  </div>
 </div>
 `;
 
@@ -91,14 +111,18 @@ exports[`ConfigProvider components Alert prefixCls 1`] = `
   data-show="true"
   role="alert"
 >
-  <span
-    class="prefix-Alert-message"
+  <div
+    class="prefix-Alert-content"
   >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="prefix-Alert-description"
-  />
+    <div
+      class="prefix-Alert-message"
+    >
+      Bamboo is Little Light
+    </div>
+    <div
+      class="prefix-Alert-description"
+    />
+  </div>
 </div>
 `;
 

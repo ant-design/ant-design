@@ -63,16 +63,20 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
         data-show="true"
         role="alert"
       >
-        <span
-          class="ant-alert-message"
+        <div
+          class="ant-alert-content"
         >
-          Alert message title
-        </span>
-        <span
-          class="ant-alert-description"
-        >
-          Further details about the context of this alert.
-        </span>
+          <div
+            class="ant-alert-message"
+          >
+            Alert message title
+          </div>
+          <div
+            class="ant-alert-description"
+          >
+            Further details about the context of this alert.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -137,16 +141,20 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
         data-show="true"
         role="alert"
       >
-        <span
-          class="ant-alert-message"
+        <div
+          class="ant-alert-content"
         >
-          Alert message title
-        </span>
-        <span
-          class="ant-alert-description"
-        >
-          Further details about the context of this alert.
-        </span>
+          <div
+            class="ant-alert-message"
+          >
+            Alert message title
+          </div>
+          <div
+            class="ant-alert-description"
+          >
+            Further details about the context of this alert.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -291,16 +299,20 @@ exports[`renders ./components/spin/demo/tip.md correctly 1`] = `
       data-show="true"
       role="alert"
     >
-      <span
-        class="ant-alert-message"
+      <div
+        class="ant-alert-content"
       >
-        Alert message title
-      </span>
-      <span
-        class="ant-alert-description"
-      >
-        Further details about the context of this alert.
-      </span>
+        <div
+          class="ant-alert-message"
+        >
+          Alert message title
+        </div>
+        <div
+          class="ant-alert-description"
+        >
+          Further details about the context of this alert.
+        </div>
+      </div>
     </div>
   </div>
 </div>
