@@ -33,7 +33,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     prefixCls,
     rootPrefixCls,
     bodyStyle,
-    closable,
+    closable = false,
     closeIcon,
     modalRender,
   } = props;
@@ -128,10 +128,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       </div>
     </Dialog>
   );
-};
-
-ConfirmDialog.defaultProps = {
-  closable: false,
 };
 
 export default ConfirmDialog;
