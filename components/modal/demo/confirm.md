@@ -15,7 +15,7 @@ Use `confirm()` to show a confirmation modal dialog. Let onCancel/onOk function 
 
 ```jsx
 import { Modal, Button, Space } from 'antd';
-import { CloseOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 const { confirm } = Modal;
 
@@ -23,7 +23,6 @@ function showConfirm() {
   confirm({
     title: 'Do you Want to delete these items?',
     icon: <ExclamationCircleOutlined />,
-    closeIcon: <CloseOutlined />,
     content: 'Some descriptions',
     onOk() {
       console.log('OK');
