@@ -506,6 +506,13 @@
     &-container {
       transition: opacity @animation-duration-slow, height @animation-duration-slow;
 
+      &::before {
+        content: '';
+        display: table;
+        width: 0;
+        height: 0;
+      }
+
       // Don't know why span here, just stretch it
       .@{upload-prefix-cls}-span {
         flex: auto;
