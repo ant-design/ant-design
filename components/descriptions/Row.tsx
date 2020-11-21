@@ -23,6 +23,8 @@ function renderCells(
           prefixCls: itemPrefixCls = prefixCls,
           className,
           style,
+          labelStyle,
+          contentStyle,
           span = 1,
         },
         key,
@@ -35,6 +37,8 @@ function renderCells(
             key={`${type}-${key || index}`}
             className={className}
             style={style}
+            labelStyle={labelStyle}
+            contentStyle={contentStyle}
             span={span}
             colon={colon}
             component={component}
@@ -50,7 +54,7 @@ function renderCells(
         <Cell
           key={`label-${key || index}`}
           className={className}
-          style={style}
+          style={{ ...style, ...labelStyle }}
           span={1}
           colon={colon}
           component={component[0]}
@@ -61,7 +65,7 @@ function renderCells(
         <Cell
           key={`content-${key || index}`}
           className={className}
-          style={style}
+          style={{ ...style, ...contentStyle }}
           span={span * 2 - 1}
           component={component[1]}
           itemPrefixCls={itemPrefixCls}

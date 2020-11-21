@@ -179,6 +179,10 @@ class Input extends React.Component<InputProps, InputState> {
     this.input.blur();
   }
 
+  setSelectionRange(start: number, end: number, direction?: 'forward' | 'backward' | 'none') {
+    this.input.setSelectionRange(start, end, direction);
+  }
+
   select() {
     this.input.select();
   }

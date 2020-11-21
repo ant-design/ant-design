@@ -11,6 +11,8 @@ export interface CellProps {
   className?: string;
   component: string;
   style?: React.CSSProperties;
+  labelStyle?: React.CSSProperties;
+  contentStyle?: React.CSSProperties;
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;
@@ -23,6 +25,8 @@ const Cell: React.FC<CellProps> = ({
   span,
   className,
   style,
+  labelStyle,
+  contentStyle,
   bordered,
   label,
   content,
@@ -60,11 +64,16 @@ const Cell: React.FC<CellProps> = ({
             className={classNames(`${itemPrefixCls}-item-label`, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
+            style={labelStyle}
           >
             {label}
           </span>
         )}
-        {content && <span className={classNames(`${itemPrefixCls}-item-content`)}>{content}</span>}
+        {content && (
+          <span className={classNames(`${itemPrefixCls}-item-content`)} style={contentStyle}>
+            {content}
+          </span>
+        )}
       </div>
     </Component>
   );
