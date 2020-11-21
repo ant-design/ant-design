@@ -73,6 +73,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
+| closable | 是否显示右上角的关闭按钮 | boolean | false | 4.9.0 |
+| closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> | 3.12.0 |
