@@ -49,7 +49,7 @@ const ListItem = React.forwardRef(
       className,
       style,
       locale,
-      listType = 'text',
+      listType,
       file,
       items,
       progress: progressProps,
