@@ -33,6 +33,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     prefixCls,
     rootPrefixCls,
     bodyStyle,
+    closable,
     closeIcon,
     modalRender,
   } = props;
@@ -76,14 +77,12 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
-  const closeModal = () => close({ triggerCancel: true });
-
   return (
     <Dialog
       prefixCls={prefixCls}
       className={classString}
       wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={closeModal}
+      onCancel={() => close({ triggerCancel: true })}
       visible={visible}
       title=""
       transitionName={transitionName}
@@ -99,7 +98,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       keyboard={keyboard}
       centered={centered}
       getContainer={getContainer}
-      closable={!!closeIcon}
+      closable={closable}
       closeIcon={closeIcon}
       modalRender={modalRender}
     >
@@ -129,6 +128,10 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       </div>
     </Dialog>
   );
+};
+
+ConfirmDialog.defaultProps = {
+  closable: false,
 };
 
 export default ConfirmDialog;

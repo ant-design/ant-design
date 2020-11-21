@@ -229,6 +229,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     Modal.confirm({
       title: 'title',
       content: 'content',
+      closable: true,
       closeIcon: 'X',
       onCancel,
     });

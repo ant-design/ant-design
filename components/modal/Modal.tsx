@@ -90,6 +90,7 @@ export interface ModalFuncProps {
   className?: string;
   visible?: boolean;
   title?: React.ReactNode;
+  closable?: boolean;
   content?: React.ReactNode;
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;
