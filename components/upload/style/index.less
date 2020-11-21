@@ -471,12 +471,6 @@
       display: block;
     }
 
-    // .@{upload-item}-thumbnail {
-    //   position: absolute;
-    //   top: 8px;
-    //   left: 8px;
-    // }
-
     .@{upload-item}-uploading {
       &.@{upload-item} {
         background-color: @background-color-light;
@@ -551,24 +545,12 @@
   }
 
   // =========================== Motion ===========================
-  // .@{upload-prefix-cls}-animate-appear,
-  // .@{upload-prefix-cls}-animate-enter,
-  // .@{upload-prefix-cls}-animate-leave,
   .@{upload-prefix-cls}-animate-inline-appear,
   .@{upload-prefix-cls}-animate-inline-enter,
   .@{upload-prefix-cls}-animate-inline-leave {
     animation-duration: @animation-duration-slow;
     animation-fill-mode: @ease-in-out-circ;
   }
-
-  // .@{upload-prefix-cls}-animate-appear,
-  // .@{upload-prefix-cls}-animate-enter {
-  //   animation-name: uploadAnimateIn;
-  // }
-
-  // .@{upload-prefix-cls}-animate-leave {
-  //   animation-name: uploadAnimateOut;
-  // }
 
   .@{upload-prefix-cls}-animate-inline-appear,
   .@{upload-prefix-cls}-animate-inline-enter {
@@ -579,24 +561,6 @@
     animation-name: uploadAnimateInlineOut;
   }
 }
-
-// @keyframes uploadAnimateIn {
-//   from {
-//     height: 0;
-//     margin: 0;
-//     padding: 0;
-//     opacity: 0;
-//   }
-// }
-
-// @keyframes uploadAnimateOut {
-//   to {
-//     height: 0;
-//     margin: 0;
-//     padding: 0;
-//     opacity: 0;
-//   }
-// }
 
 @keyframes uploadAnimateInlineIn {
   from {
