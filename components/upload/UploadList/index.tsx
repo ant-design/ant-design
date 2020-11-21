@@ -21,11 +21,6 @@ const listItemMotion: Partial<CSSMotionListProps> = {
 delete listItemMotion.onAppearEnd;
 delete listItemMotion.onEnterEnd;
 delete listItemMotion.onLeaveEnd;
-delete listItemMotion.motionDeadline;
-
-// listItemMotion.onAppearEnd = (node, event) => {
-//   console.log('~~~>', node, event);
-// };
 
 const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
   {
