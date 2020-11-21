@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Animate from 'rc-animate';
-import { CSSMotionList, CSSMotionListProps } from 'rc-motion';
+import CSSMotion, { CSSMotionList, CSSMotionListProps } from 'rc-motion';
 import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
@@ -14,6 +13,15 @@ import { ConfigContext } from '../../config-provider';
 import Button, { ButtonProps } from '../../button';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import ListItem from './ListItem';
+
+const listItemMotion: Partial<CSSMotionListProps> = {
+  ...collapseMotion,
+};
+
+delete listItemMotion.onAppearEnd;
+delete listItemMotion.onEnterEnd;
+delete listItemMotion.onLeaveEnd;
+delete listItemMotion.motionDeadline;
 
 const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
   {
@@ -39,6 +47,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   ref,
 ) => {
   const forceUpdate = useForceUpdate();
+  const [motionAppear, setMotionAppear] = React.useState(false);
 
   // ============================= Effect =============================
   React.useEffect(() => {
@@ -66,6 +75,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       }
     });
   }, [listType, items, previewFile]);
+
+  React.useEffect(() => {
+    setMotionAppear(true);
+  }, []);
 
   // ============================= Events =============================
   const onInternalPreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
@@ -167,14 +180,15 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   const animationDirection = listType === 'picture-card' ? 'animate-inline' : 'animate';
   // const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
 
-  let motionConfig: CSSMotionListProps = {
+  let motionConfig: Omit<CSSMotionListProps, 'onVisibleChanged'> = {
     motionName: `${prefixCls}-${animationDirection}`,
     keys: motionKeyList,
+    motionAppear,
   };
 
   if (listType !== 'picture-card') {
     motionConfig = {
-      ...collapseMotion,
+      ...listItemMotion,
       ...motionConfig,
     };
   }
@@ -210,17 +224,23 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
           );
         }}
       </CSSMotionList>
+
+      {/* Append action */}
+      {appendAction && (
+        <CSSMotion {...motionConfig}>
+          {({ className: motionClassName, style: motionStyle }) => {
+            return cloneElement(appendAction, oriProps => ({
+              className: classNames(oriProps.className, motionClassName),
+              style: {
+                ...motionStyle,
+                ...oriProps.style,
+              },
+            }));
+          }}
+        </CSSMotion>
+      )}
     </div>
   );
-
-  // return (
-  //   <Animate transitionName={transitionName} component="div" className={listClassNames}>
-  //     {list}
-  //     {React.isValidElement(appendAction)
-  //       ? React.cloneElement(appendAction, { key: 'appendAction' })
-  //       : appendAction}
-  //   </Animate>
-  // );
 };
 
 const UploadList = React.forwardRef<unknown, UploadListProps>(InternalUploadList);

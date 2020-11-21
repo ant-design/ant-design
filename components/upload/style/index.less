@@ -504,7 +504,7 @@
   &-text,
   &-picture {
     &-container {
-      transition: all @animation-duration-slow;
+      transition: opacity @animation-duration-slow, height @animation-duration-slow;
 
       // Don't know why span here, just stretch it
       .@{upload-prefix-cls}-span {
