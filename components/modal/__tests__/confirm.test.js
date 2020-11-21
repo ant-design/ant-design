@@ -235,12 +235,12 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect($$(`.ant-modal-confirm-close`)).toHaveLength(1);
+    expect($$(`.ant-modal-close`)).toHaveLength(1);
     $$('.ant-btn')[0].click();
     act(() => {
       jest.runAllTimers();
     });
-    expect($$(`.ant-modal-confirm-close`)).toHaveLength(0);
+    expect($$(`.ant-modal-close`)).toHaveLength(0);
     expect(onCancel).toHaveBeenCalledTimes(1);
     jest.useRealTimers();
   });
