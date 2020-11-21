@@ -1,4 +1,4 @@
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 
 export function throttleByAnimationFrame(fn: (...args: any[]) => void) {
   let requestId: number | null;

@@ -1,10 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-
+import { composeRef } from 'rc-util/lib/ref';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import { composeRef } from '../_util/ref';
 import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import SizeContext, { AvatarSize } from './SizeContext';

@@ -1,4 +1,4 @@
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 import getScroll, { isWindow } from './getScroll';
 import { easeInOutCubic } from './easings';
 
