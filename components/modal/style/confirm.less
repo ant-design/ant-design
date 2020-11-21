@@ -31,7 +31,7 @@
       line-height: 1.4;
     }
 
-    .@{confirm-prefix-cls}-close-x {
+    .@{confirm-prefix-cls}-close {
       position: absolute;
       top: 0;
       right: 0;
@@ -44,17 +44,20 @@
       background: transparent;
       border: 0;
       outline: 0;
-      transition: color 0.3s;
-      display: block;
-      width: @modal-conform-close-size;
-      height: @modal-conform-close-size;
-      font-size: @font-size-lg;
-      font-style: normal;
-      line-height: @modal-conform-close-size;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
       cursor: pointer;
+      transition: color 0.3s;
+
+      &-x {
+        display: block;
+        width: @modal-conform-close-size;
+        height: @modal-conform-close-size;
+        font-size: @font-size-lg;
+        font-style: normal;
+        line-height: @modal-conform-close-size;
+        text-align: center;
+        text-transform: none;
+        text-rendering: auto;
+      }
 
       &:focus,
       &:hover {

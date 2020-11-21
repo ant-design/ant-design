@@ -223,6 +223,28 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
   });
 
+  it('should close confirm modal when click close button', () => {
+    jest.useFakeTimers();
+    const onCancel = jest.fn();
+    Modal.confirm({
+      title: 'title',
+      content: 'content',
+      closeIcon: 'X',
+      onCancel,
+    });
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect($$(`.ant-modal-confirm-close`)).toHaveLength(1);
+    $$('.ant-btn')[0].click();
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect($$(`.ant-modal-confirm-close`)).toHaveLength(0);
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    jest.useRealTimers();
+  });
+
   it('should not close modals when click confirm button when onOk has argument', () => {
     jest.useFakeTimers();
     ['info', 'success', 'warning', 'error'].forEach(type => {

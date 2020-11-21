@@ -4,6 +4,7 @@ import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
 import devWarning from '../_util/devWarning';
 import ConfigProvider from '../config-provider';
+import Button from '../button';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -108,9 +109,13 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
               <span className={`${contentPrefixCls}-title`}>{props.title}</span>
             )}
             {props.closeIcon === undefined ? null : (
-              <span className={`${contentPrefixCls}-close-x`} onClick={closeModal}>
-                {props.closeIcon}
-              </span>
+              <Button
+                className={`${contentPrefixCls}-close`}
+                onClick={closeModal}
+                aria-label="Close"
+              >
+                <span className={`${contentPrefixCls}-close-x`}>{props.closeIcon}</span>
+              </Button>
             )}
             <div className={`${contentPrefixCls}-content`}>{props.content}</div>
           </div>
