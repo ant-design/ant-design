@@ -507,16 +507,16 @@
       transition: opacity @animation-duration-slow, height @animation-duration-slow;
 
       &::before {
-        content: '';
         display: table;
         width: 0;
         height: 0;
+        content: '';
       }
 
       // Don't know why span here, just stretch it
       .@{upload-prefix-cls}-span {
-        flex: auto;
         display: block;
+        flex: auto;
       }
     }
 
@@ -532,8 +532,8 @@
     }
 
     .@{upload-item}-name {
-      padding: 0 @padding-xs;
       flex: auto;
+      padding: 0 @padding-xs;
     }
 
     .@{upload-item}-card-actions {
