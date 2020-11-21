@@ -68,6 +68,19 @@ const ListItem = React.forwardRef(
     }: ListItemProps,
     ref: React.Ref<HTMLDivElement>,
   ) => {
+    // Delay to show the progress bar
+    const [showProgress, setShowProgress] = React.useState(false);
+    const progressRafRef = React.useRef<any>();
+    React.useEffect(() => {
+      progressRafRef.current = setTimeout(() => {
+        setShowProgress(true);
+      }, 300);
+
+      return () => {
+        window.clearTimeout(progressRafRef.current);
+      };
+    }, []);
+
     // This is used for legacy span make scrollHeight the wrong value.
     // We will force these to be `display: block` with non `picture-card`
     const spanClassName = `${prefixCls}-span`;
@@ -220,21 +233,23 @@ const ListItem = React.forwardRef(
       <div className={infoUploadingClass}>
         <div className={`${prefixCls}-list-item-info`}>{iconAndPreview}</div>
         {actions}
-        <CSSMotion motionName="fade" visible={file.status === 'uploading'}>
-          {({ className: motionClassName }) => {
-            // show loading icon if upload progress listener is disabled
-            const loadingProgress =
-              'percent' in file ? (
-                <Progress {...progressProps} type="line" percent={file.percent} />
-              ) : null;
+        {showProgress && (
+          <CSSMotion motionName="fade" visible={file.status === 'uploading'}>
+            {({ className: motionClassName }) => {
+              // show loading icon if upload progress listener is disabled
+              const loadingProgress =
+                'percent' in file ? (
+                  <Progress {...progressProps} type="line" percent={file.percent} />
+                ) : null;
 
-            return (
-              <div className={classNames(`${prefixCls}-list-item-progress`, motionClassName)}>
-                {loadingProgress}
-              </div>
-            );
-          }}
-        </CSSMotion>
+              return (
+                <div className={classNames(`${prefixCls}-list-item-progress`, motionClassName)}>
+                  {loadingProgress}
+                </div>
+              );
+            }}
+          </CSSMotion>
+        )}
       </div>
     );
     const listContainerNameClass = classNames(`${prefixCls}-list-${listType}-container`, className);
