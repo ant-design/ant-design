@@ -33,7 +33,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     prefixCls,
     rootPrefixCls,
     bodyStyle,
-    closeIcon,
     modalRender,
   } = props;
 
@@ -76,12 +75,14 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
+  const closeModal = () => close({ triggerCancel: true });
+
   return (
     <Dialog
       prefixCls={prefixCls}
       className={classString}
       wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={() => close({ triggerCancel: true })}
+      onCancel={closeModal}
       visible={visible}
       title=""
       transitionName={transitionName}
@@ -97,7 +98,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       keyboard={keyboard}
       centered={centered}
       getContainer={getContainer}
-      closeIcon={closeIcon}
       modalRender={modalRender}
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
@@ -106,6 +106,11 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
             {icon}
             {props.title === undefined ? null : (
               <span className={`${contentPrefixCls}-title`}>{props.title}</span>
+            )}
+            {props.closeIcon === undefined ? null : (
+              <span className={`${contentPrefixCls}-close-x`} onClick={closeModal}>
+                {props.closeIcon}
+              </span>
             )}
             <div className={`${contentPrefixCls}-content`}>{props.content}</div>
           </div>

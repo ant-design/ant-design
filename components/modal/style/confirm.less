@@ -31,6 +31,38 @@
       line-height: 1.4;
     }
 
+    .@{confirm-prefix-cls}-close-x {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: @zindex-popup-close;
+      padding: 0;
+      color: @modal-confirm-close-color;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      transition: color 0.3s;
+      display: block;
+      width: @modal-conform-close-size;
+      height: @modal-conform-close-size;
+      font-size: @font-size-lg;
+      font-style: normal;
+      line-height: @modal-conform-close-size;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      cursor: pointer;
+
+      &:focus,
+      &:hover {
+        color: @icon-color-hover;
+        text-decoration: none;
+      }
+    }
+
     .@{confirm-prefix-cls}-content {
       margin-top: 8px;
       color: @text-color;
