@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.8.5
+
+`2020-11-22`
+
+- 🐞 修复 Spin 组件不能渲染 `0` 的问题。[#27839](https://github.com/ant-design/ant-design/pull/27839) [@liuchao233](https://github.com/liuchao233)
+- 💄 修复 RangePicker 面板的交互样式。[#27894](https://github.com/ant-design/ant-design/pull/27894)
+- 💄 修复 Switch `loading` 的样式问题。[#27860](https://github.com/ant-design/ant-design/pull/27860)
+- 💄 优化 Skeleton 默认色彩使其能放置在暗色背景中。[#27836](https://github.com/ant-design/ant-design/pull/27836)
+- 💄 调整 Statistic 小数的字体大小。[#27884](https://github.com/ant-design/ant-design/pull/27884)
+- 🛠 使用 React hooks 重构 Checkbox、Layout.Sider 和 TextArea。[#27739](https://github.com/ant-design/ant-design/pull/27739) [#27719](https://github.com/ant-design/ant-design/pull/27719) [#27693](https://github.com/ant-design/ant-design/pull/27693)
+- 🛠 使用 `rc-motion` 动画库代替 `rc-animate` 重构 BackTop、Badge、UploadList。[#27840](https://github.com/ant-design/ant-design/pull/27840) [#27848](https://github.com/ant-design/ant-design/pull/27848) [#27923](https://github.com/ant-design/ant-design/pull/27923)
+- RTL
+  - 💄 修复 Tree 切换按钮在 RTL 模式下的样式问题。[#27876](https://github.com/ant-design/ant-design/pull/27876)
+- TypeScript
+  - 🤖 修复 AutoComplete `DataSourceItemType` 的类型定义。[#27892](https://github.com/ant-design/ant-design/pull/27892)
+  - 🤖 导出 Image 的 `ImageProps` 接口。[#27846](https://github.com/ant-design/ant-design/pull/27846) [@wangcch](https://github.com/wangcch)
+
 ## 4.8.4
 
 `2020-11-16`
