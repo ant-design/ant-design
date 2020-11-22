@@ -18,14 +18,17 @@
     &.@{alert-prefix-cls}-with-description .@{alert-prefix-cls}-close-icon {
       top: @alert-with-description-padding-vertical - @font-size-base * @line-height-base / 2 -
         @font-size-base / 2;
-      left: @alert-closable-with-description-no-icon - @padding-md;
+      left: @alert-with-description-no-icon-closable-padding-right - @padding-md;
     }
   }
 
   &&-closable {
     padding-right: @alert-closable-padding-right;
     &.@{alert-prefix-cls}-with-description.@{alert-prefix-cls}-no-icon {
-      padding-right: @alert-closable-with-description-no-icon;
+      padding-right: @alert-with-description-no-icon-closable-padding-right;
+    }
+    &.@{alert-prefix-cls}-with-description {
+      padding-right: @alert-with-description-closable-padding-right;
     }
   }
 
@@ -138,6 +141,7 @@
 
   &-with-description &-close-icon {
     top: 1px;
+    left: @alert-with-description-closable-padding-right - @padding-md;
     font-size: @font-size-base;
     cursor: pointer;
   }
