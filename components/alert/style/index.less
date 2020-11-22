@@ -15,12 +15,7 @@
 
   &&-no-icon {
     padding: @alert-no-icon-padding-vertical 15px;
-    .@{alert-prefix-cls}-close-icon {
-      top: @font-size-base * @line-height-base / 2 - @font-size-base / 2;
-    }
     &.@{alert-prefix-cls}-with-description .@{alert-prefix-cls}-close-icon {
-      top: @alert-no-icon-padding-vertical + @font-size-base * @line-height-base / 2 -
-        @font-size-base / 2 - @alert-with-description-no-icon-padding-vertical;
       left: @alert-closable-with-description-no-icon - @padding-md;
     }
   }
@@ -140,7 +135,8 @@
   }
 
   &-with-description &-close-icon {
-    top: 1px;
+    top: @alert-with-description-padding-vertical - @font-size-base * @line-height-base / 2 -
+      @font-size-base / 2;
     font-size: @font-size-base;
     cursor: pointer;
   }
