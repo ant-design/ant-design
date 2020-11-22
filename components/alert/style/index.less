@@ -21,11 +21,15 @@
     &.@{alert-prefix-cls}-with-description .@{alert-prefix-cls}-close-icon {
       top: @alert-no-icon-padding-vertical + @font-size-base * @line-height-base / 2 -
         @font-size-base / 2 - @alert-with-description-no-icon-padding-vertical;
+      left: @alert-closable-with-description-no-icon - @padding-md;
     }
   }
 
   &&-closable {
-    padding-right: 30px - @font-size-sm;
+    padding-right: @alert-closable-padding-right;
+    &.@{alert-prefix-cls}-with-description.@{alert-prefix-cls}-no-icon {
+      padding-right: @alert-closable-with-description-no-icon;
+    }
   }
 
   &-content {
@@ -90,7 +94,7 @@
   &-close-icon {
     position: relative;
     top: @font-size-base * @line-height-base / 2 - @font-size-base / 2;
-    left: 30px - @padding-md - @font-size-sm;
+    left: @alert-closable-padding-right - @padding-md;
     padding: 0;
     overflow: hidden;
     font-size: @font-size-sm;
@@ -139,10 +143,6 @@
     top: 1px;
     font-size: @font-size-base;
     cursor: pointer;
-  }
-
-  &-with-description&-no-icon &-close-icon {
-    left: @font-size-base - 15px;
   }
 
   &-with-description &-message {
