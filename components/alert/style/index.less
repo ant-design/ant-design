@@ -25,7 +25,7 @@
   }
 
   &&-closable {
-    padding-right: 30px;
+    padding-right: 30px - @font-size-sm;
   }
 
   &-content {
@@ -90,7 +90,7 @@
   &-close-icon {
     position: relative;
     top: @font-size-base * @line-height-base / 2 - @font-size-base / 2;
-    left: 30px - @padding-md;
+    left: 30px - @padding-md - @font-size-sm;
     padding: 0;
     overflow: hidden;
     font-size: @font-size-sm;
