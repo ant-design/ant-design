@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.8.5
+
+`2020-11-22`
+
+- 🐞 Fix that Spin can't render children `0`. [#27839](https://github.com/ant-design/ant-design/pull/27839) [@liuchao233](https://github.com/liuchao233)
+- 💄 Fix the RangePicker panel interaction style. [#27894](https://github.com/ant-design/ant-design/pull/27894)
+- 💄 Fix Switch `loading` style. [#27860](https://github.com/ant-design/ant-design/pull/27860)
+- 💄 Optimize Skeleton color to fit dark background. [#27836](https://github.com/ant-design/ant-design/pull/27836)
+- 💄 Adjust Statistic `deciaml` font size. [#27884](https://github.com/ant-design/ant-design/pull/27884)
+- 🛠 Refactor Checkbox、Layout.Sider and TextArea with React hooks. [#27739](https://github.com/ant-design/ant-design/pull/27739) [#27719](https://github.com/ant-design/ant-design/pull/27719) [#27693](https://github.com/ant-design/ant-design/pull/27693)
+- 🛠 Refactor BackTop、Badge、UploadList with `rc-motion` instead of `rc-animate`. [#27840](https://github.com/ant-design/ant-design/pull/27840) [#27848](https://github.com/ant-design/ant-design/pull/27848) [#27923](https://github.com/ant-design/ant-design/pull/27923)
+- RTL
+  - 💄 Fix the style of the Tree switch icon in RTL mode. [#27876](https://github.com/ant-design/ant-design/pull/27876)
+- TypeScript
+  - 🤖 Fix AutoComplete `DataSourceItemType` type definition. [#27892](https://github.com/ant-design/ant-design/pull/27892)
+  - 🤖 Export Image `ImageProps` interface. [#27846](https://github.com/ant-design/ant-design/pull/27846) [@wangcch](https://github.com/wangcch)
+
 ## 4.8.4
 
 `2020-11-16`
