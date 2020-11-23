@@ -28,7 +28,8 @@ exports[`Upload List handle error 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-animate-enter ant-upload-animate-enter-active"
+      class="ant-upload-list-text-container ant-upload-animate-appear ant-upload-animate-appear-start ant-upload-animate"
+      style="height: 0px; opacity: 0;"
     >
       <div
         class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-text"
@@ -36,7 +37,9 @@ exports[`Upload List handle error 1`] = `
         <div
           class="ant-upload-list-item-info"
         >
-          <span>
+          <span
+            class="ant-upload-span"
+          >
             <div
               class="ant-upload-text-icon"
             >
@@ -47,7 +50,6 @@ exports[`Upload List handle error 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="paper-clip"
                   fill="currentColor"
                   focusable="false"
@@ -62,13 +64,13 @@ exports[`Upload List handle error 1`] = `
               </span>
             </div>
             <span
-              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+              class="ant-upload-list-item-name"
               title="foo.png"
             >
               foo.png
             </span>
             <span
-              class="ant-upload-list-item-card-actions "
+              class="ant-upload-list-item-card-actions"
             >
               <button
                 class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
@@ -83,7 +85,6 @@ exports[`Upload List handle error 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="delete"
                     fill="currentColor"
                     focusable="false"
@@ -111,7 +112,7 @@ exports[`Upload List itemRender 1`] = `
   class="ant-upload-list ant-upload-list-text"
 >
   <div
-    class=""
+    class="ant-upload-list-text-container"
   >
     <span
       class="custom-item-render"
@@ -120,7 +121,7 @@ exports[`Upload List itemRender 1`] = `
     </span>
   </div>
   <div
-    class=""
+    class="ant-upload-list-text-container"
   >
     <span
       class="custom-item-render"
@@ -159,101 +160,80 @@ exports[`Upload List should be uploading when upload a file 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-animate-enter"
+      class="ant-upload-list-text-container ant-upload-animate-appear ant-upload-animate-appear-start ant-upload-animate"
+      style="height: 0px; opacity: 0;"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-text"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-text"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <div
-                class="ant-upload-text-icon"
+            <div
+              class="ant-upload-text-icon"
+            >
+              <span
+                aria-label="loading"
+                class="anticon anticon-loading anticon-spin"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="loading"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <span
+              class="ant-upload-list-item-name"
+              title="foo.png"
+            >
+              foo.png
+            </span>
+            <span
+              class="ant-upload-list-item-card-actions"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
                 <span
-                  aria-label="loading"
-                  class="anticon anticon-loading"
+                  aria-label="delete"
+                  class="anticon anticon-delete"
                   role="img"
+                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    class="anticon-spin"
-                    data-icon="loading"
+                    data-icon="delete"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="0 0 1024 1024"
+                    viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
                     />
                   </svg>
                 </span>
-              </div>
-              <span
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                title="foo.png"
-              >
-                foo.png
-              </span>
-              <span
-                class="ant-upload-list-item-card-actions "
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
-                >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+              </button>
             </span>
-          </div>
-          <div
-            class="ant-upload-list-item-progress"
-          >
-            <div
-              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
-            >
-              <div
-                class="ant-progress-outer"
-              >
-                <div
-                  class="ant-progress-inner"
-                >
-                  <div
-                    class="ant-progress-bg"
-                    style="width: 0%; height: 2px;"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
   </div>
 </span>
@@ -287,28 +267,64 @@ exports[`Upload List should be uploading when upload a file 2`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-animate-enter ant-upload-animate-enter-active"
+      class="ant-upload-list-text-container ant-upload-animate-appear ant-upload-animate-appear-start ant-upload-animate"
+      style="height: 0px; opacity: 0;"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <div
-                class="ant-upload-text-icon"
+            <div
+              class="ant-upload-text-icon"
+            >
+              <span
+                aria-label="paper-clip"
+                class="anticon anticon-paper-clip"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="paper-clip"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <span
+              class="ant-upload-list-item-name"
+              title="foo.png"
+            >
+              foo.png
+            </span>
+            <span
+              class="ant-upload-list-item-card-actions"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
                 <span
-                  aria-label="paper-clip"
-                  class="anticon anticon-paper-clip"
+                  aria-label="delete"
+                  class="anticon anticon-delete"
                   role="img"
+                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
-                    data-icon="paper-clip"
+                    data-icon="delete"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -316,72 +332,15 @@ exports[`Upload List should be uploading when upload a file 2`] = `
                     width="1em"
                   >
                     <path
-                      d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
                     />
                   </svg>
                 </span>
-              </div>
-              <span
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                title="foo.png"
-              >
-                foo.png
-              </span>
-              <span
-                class="ant-upload-list-item-card-actions "
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
-                >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+              </button>
             </span>
-          </div>
-          <div
-            class="ant-upload-list-item-progress fade-leave"
-          >
-            <div
-              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
-            >
-              <div
-                class="ant-progress-outer"
-              >
-                <div
-                  class="ant-progress-inner"
-                >
-                  <div
-                    class="ant-progress-bg"
-                    style="width: 0%; height: 2px;"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
   </div>
 </span>
@@ -415,31 +374,74 @@ exports[`Upload List should non-image format file preview 1`] = `
     class="ant-upload-list ant-upload-list-picture"
   >
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
-                href="https://cdn.xxx.com/aaa.zip"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+              href="https://cdn.xxx.com/aaa.zip"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                aria-label="file"
+                class="anticon anticon-file"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="file"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
+                    fill="#1890ff"
+                  />
+                </svg>
+              </span>
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa.zip"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="not-image"
+            >
+              not-image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
                 <span
-                  aria-label="file"
-                  class="anticon anticon-file"
+                  aria-label="delete"
+                  class="anticon anticon-delete"
                   role="img"
+                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
-                    data-icon="file"
+                    data-icon="delete"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -447,155 +449,66 @@ exports[`Upload List should non-image format file preview 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
-                      fill="#1890ff"
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
                     />
                   </svg>
                 </span>
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/aaa.zip"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="not-image"
-              >
-                not-image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
-                >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://cdn.xxx.com/aaa"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
-                >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
-            </span>
-          </div>
-        </div>
-      </span>
-    </div>
-    <div
-      class=""
-    >
-      <span>
-        <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
-        >
-          <div
-            class="ant-upload-list-item-info"
-          >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
-                href="https://cdn.xxx.com/aaa.xx"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://cdn.xxx.com/aaa"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
                 <span
-                  aria-label="file"
-                  class="anticon anticon-file"
+                  aria-label="delete"
+                  class="anticon anticon-delete"
                   role="img"
+                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
-                    data-icon="file"
+                    data-icon="delete"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -603,87 +516,85 @@ exports[`Upload List should non-image format file preview 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
-                      fill="#1890ff"
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
                     />
                   </svg>
                 </span>
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/aaa.xx"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="not-image"
-              >
-                not-image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
-                >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
-                href="https://cdn.xxx.com/aaa.png/xx.xx"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+              href="https://cdn.xxx.com/aaa.xx"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                aria-label="file"
+                class="anticon anticon-file"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="file"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
+                    fill="#1890ff"
+                  />
+                </svg>
+              </span>
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa.xx"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="not-image"
+            >
+              not-image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
                 <span
-                  aria-label="file"
-                  class="anticon anticon-file"
+                  aria-label="delete"
+                  class="anticon anticon-delete"
                   role="img"
+                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
-                    data-icon="file"
+                    data-icon="delete"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -691,468 +602,503 @@ exports[`Upload List should non-image format file preview 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
-                      fill="#1890ff"
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
                     />
                   </svg>
                 </span>
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/aaa.png/xx.xx"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="not-image"
-              >
-                not-image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
-                >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/xx.xx/aaa.png"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://cdn.xxx.com/xx.xx/aaa.png"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/xx.xx/aaa.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
+            <a
+              class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+              href="https://cdn.xxx.com/aaa.png/xx.xx"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <span
-                class="ant-upload-list-item-card-actions picture"
+                aria-label="file"
+                class="anticon anticon-file"
+                role="img"
               >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
+                <svg
+                  aria-hidden="true"
+                  data-icon="file"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                  <path
+                    d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
+                    fill="#1890ff"
+                  />
+                </svg>
               </span>
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa.png/xx.xx"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="not-image"
+            >
+              not-image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
+              >
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/xx.xx/aaa.png"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/xx.xx/aaa.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://cdn.xxx.com/xx.xx/aaa.png"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/xx.xx/aaa.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/xx.xx/aaa.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/xx.xx/aaa.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/xx.xx/aaa.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
+    </div>
+    <div
+      class="ant-upload-list-picture-container"
+    >
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span
+            class="ant-upload-span"
+          >
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
+              >
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </span>
@@ -1186,128 +1132,124 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
     class="ant-upload-list ant-upload-list-picture"
   >
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <div
-                class="ant-upload-list-item-thumbnail"
-              >
-                <span
-                  aria-label="loading"
-                  class="anticon anticon-loading"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="anticon-spin"
-                    data-icon="loading"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="0 0 1024 1024"
-                    width="1em"
-                  >
-                    <path
-                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
+            <div
+              class="ant-upload-list-item-thumbnail"
+            >
               <span
-                class="ant-upload-list-item-card-actions picture"
+                aria-label="loading"
+                class="anticon anticon-loading anticon-spin"
+                role="img"
               >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
+                <svg
+                  aria-hidden="true"
+                  data-icon="loading"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
                 >
-                  <i>
-                    RM
-                  </i>
-                </button>
+                  <path
+                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                  />
+                </svg>
               </span>
+            </div>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
+              >
+                <i>
+                  RM
+                </i>
+              </button>
             </span>
-          </div>
-          <div
-            class="ant-upload-list-item-progress"
-          />
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://cdn.xxx.com/aaa"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Download file"
+                type="button"
               >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://cdn.xxx.com/aaa"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
+                <i>
+                  DL
+                </i>
+              </button>
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Download file"
-                  type="button"
-                >
-                  <i>
-                    DL
-                  </i>
-                </button>
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
-                >
-                  <i>
-                    RM
-                  </i>
-                </button>
-              </span>
+                <i>
+                  RM
+                </i>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
   </div>
 </span>
@@ -1341,128 +1283,124 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
     class="ant-upload-list ant-upload-list-picture"
   >
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <div
-                class="ant-upload-list-item-thumbnail"
-              >
-                <span
-                  aria-label="loading"
-                  class="anticon anticon-loading"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="anticon-spin"
-                    data-icon="loading"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="0 0 1024 1024"
-                    width="1em"
-                  >
-                    <path
-                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
+            <div
+              class="ant-upload-list-item-thumbnail"
+            >
               <span
-                class="ant-upload-list-item-card-actions picture"
+                aria-label="loading"
+                class="anticon anticon-loading anticon-spin"
+                role="img"
               >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
+                <svg
+                  aria-hidden="true"
+                  data-icon="loading"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
                 >
-                  <i>
-                    RM
-                  </i>
-                </button>
+                  <path
+                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                  />
+                </svg>
               </span>
+            </div>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
+              >
+                <i>
+                  RM
+                </i>
+              </button>
             </span>
-          </div>
-          <div
-            class="ant-upload-list-item-progress"
-          />
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://cdn.xxx.com/aaa"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            >
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Download file"
+                type="button"
               >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://cdn.xxx.com/aaa"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
+                <i>
+                  DL
+                </i>
+              </button>
+              <button
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                title="Remove file"
+                type="button"
               >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
-              >
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Download file"
-                  type="button"
-                >
-                  <i>
-                    DL
-                  </i>
-                </button>
-                <button
-                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                  title="Remove file"
-                  type="button"
-                >
-                  <i>
-                    RM
-                  </i>
-                </button>
-              </span>
+                <i>
+                  RM
+                </i>
+              </button>
             </span>
-          </div>
+          </span>
         </div>
-      </span>
+      </div>
     </div>
   </div>
 </span>
@@ -1496,99 +1434,95 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
     class="ant-upload-list ant-upload-list-picture"
   >
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <div
-                class="ant-upload-list-item-thumbnail"
-              >
-                <span
-                  aria-label="loading"
-                  class="anticon anticon-loading"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="anticon-spin"
-                    data-icon="loading"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="0 0 1024 1024"
-                    width="1em"
-                  >
-                    <path
-                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-0"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
+            <div
+              class="ant-upload-list-item-thumbnail"
+            >
               <span
-                class="ant-upload-list-item-card-actions picture"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-upload-list-item-progress"
-          />
+                aria-label="loading"
+                class="anticon anticon-loading anticon-spin"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="loading"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            />
+          </span>
         </div>
-      </span>
+      </div>
     </div>
     <div
-      class=""
+      class="ant-upload-list-picture-container"
     >
-      <span>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+          class="ant-upload-list-item-info"
         >
-          <div
-            class="ant-upload-list-item-info"
+          <span
+            class="ant-upload-span"
           >
-            <span>
-              <a
-                class="ant-upload-list-item-thumbnail"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  alt="image"
-                  class="ant-upload-list-item-image"
-                  src="https://cdn.xxx.com/aaa"
-                />
-              </a>
-              <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-0"
-                href="https://cdn.xxx.com/aaa"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image"
-              >
-                image
-              </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="ant-upload-list-item-image"
+                src="https://cdn.xxx.com/aaa"
               />
-            </span>
-          </div>
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://cdn.xxx.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
+            />
+          </span>
         </div>
-      </span>
+      </div>
     </div>
   </div>
 </span>

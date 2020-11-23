@@ -141,7 +141,6 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="arrow-up"
                     fill="currentColor"
                     focusable="false"
@@ -211,7 +210,6 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="arrow-down"
                     fill="currentColor"
                     focusable="false"
@@ -360,7 +358,6 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="like"
               fill="currentColor"
               focusable="false"

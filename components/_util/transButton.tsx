@@ -20,81 +20,52 @@ const inlineStyle: React.CSSProperties = {
   display: 'inline-block',
 };
 
-class TransButton extends React.Component<TransButtonProps> {
-  div?: HTMLDivElement;
-
-  lastKeyCode?: number;
-
-  componentDidMount() {
-    const { autoFocus } = this.props;
-    if (autoFocus) {
-      this.focus();
-    }
-  }
-
-  onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {
+const TransButton = React.forwardRef<HTMLDivElement, TransButtonProps>((props, ref) => {
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {
     const { keyCode } = event;
     if (keyCode === KeyCode.ENTER) {
       event.preventDefault();
     }
   };
 
-  onKeyUp: React.KeyboardEventHandler<HTMLDivElement> = event => {
+  const onKeyUp: React.KeyboardEventHandler<HTMLDivElement> = event => {
     const { keyCode } = event;
-    const { onClick } = this.props;
+    const { onClick } = props;
     if (keyCode === KeyCode.ENTER && onClick) {
       onClick();
     }
   };
 
-  setRef = (btn: HTMLDivElement) => {
-    this.div = btn;
+  const { style, noStyle, disabled, ...restProps } = props;
+
+  let mergedStyle: React.CSSProperties = {};
+
+  if (!noStyle) {
+    mergedStyle = {
+      ...inlineStyle,
+    };
+  }
+
+  if (disabled) {
+    mergedStyle.pointerEvents = 'none';
+  }
+
+  mergedStyle = {
+    ...mergedStyle,
+    ...style,
   };
 
-  focus() {
-    if (this.div) {
-      this.div.focus();
-    }
-  }
-
-  blur() {
-    if (this.div) {
-      this.div.blur();
-    }
-  }
-
-  render() {
-    const { style, noStyle, disabled, ...restProps } = this.props;
-
-    let mergedStyle: React.CSSProperties = {};
-
-    if (!noStyle) {
-      mergedStyle = {
-        ...inlineStyle,
-      };
-    }
-
-    if (disabled) {
-      mergedStyle.pointerEvents = 'none';
-    }
-
-    mergedStyle = {
-      ...mergedStyle,
-      ...style,
-    };
-
-    return (
-      <div
-        role="button"
-        tabIndex={0}
-        ref={this.setRef}
-        {...restProps}
-        onKeyDown={this.onKeyDown}
-        onKeyUp={this.onKeyUp}
-        style={mergedStyle}
-      />
-    );
-  }
-}
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      ref={ref}
+      {...restProps}
+      onKeyDown={onKeyDown}
+      onKeyUp={onKeyUp}
+      style={mergedStyle}
+    />
+  );
+});
 
 export default TransButton;

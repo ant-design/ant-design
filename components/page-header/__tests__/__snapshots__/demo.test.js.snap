@@ -28,7 +28,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="arrow-left"
                 fill="currentColor"
                 focusable="false"
@@ -234,7 +233,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="arrow-left"
                 fill="currentColor"
                 focusable="false"
@@ -422,7 +420,6 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="arrow-left"
               fill="currentColor"
               focusable="false"
@@ -660,7 +657,6 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -772,7 +768,6 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="arrow-left"
                 fill="currentColor"
                 focusable="false"
@@ -981,7 +976,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="arrow-left"
               fill="currentColor"
               focusable="false"
@@ -1297,7 +1291,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="ellipsis"
                 fill="currentColor"
                 focusable="false"

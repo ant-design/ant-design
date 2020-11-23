@@ -132,7 +132,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   context: ConfigConsumerProps;
 
-  editIcon?: TransButton;
+  editIcon?: HTMLDivElement;
 
   contentRef = React.createRef<HTMLElement>();
 
@@ -257,7 +257,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     };
   }
 
-  setEditRef = (node: TransButton) => {
+  setEditRef = (node: HTMLDivElement) => {
     this.editIcon = node;
   };
 

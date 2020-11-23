@@ -30,7 +30,6 @@ exports[`Transfer.List should render correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"

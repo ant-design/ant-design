@@ -69,7 +69,7 @@ export default function ErrorList({
       motionAppear
       removeOnLeave
     >
-      {({ className: motionClassName }: { className: string }) => {
+      {({ className: motionClassName }: { className?: string }) => {
         return (
           <div
             className={classNames(

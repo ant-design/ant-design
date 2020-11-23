@@ -127,7 +127,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
   }
 
   isNestedPattern() {
-    return !!(this.props && this.props.children);
+    return !!(this.props && typeof this.props.children !== 'undefined');
   }
 
   renderSpin = ({ getPrefixCls, direction }: ConfigConsumerProps) => {

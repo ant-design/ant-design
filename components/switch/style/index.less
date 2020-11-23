@@ -107,11 +107,10 @@
 
   // ======================== Loading =========================
   &-loading-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: relative;
+    top: (@switch-pin-size - @font-size-base) / 2;
     color: rgba(0, 0, 0, 0.65);
-    transform: translate(-50%, -50%);
+    vertical-align: top;
   }
 
   &-checked &-loading-icon {
@@ -135,7 +134,8 @@
     }
 
     .@{switch-prefix-cls}-loading-icon {
-      transform: translate(-50%, -50%) scale(0.66667);
+      top: (@switch-sm-pin-size - 9px) / 2;
+      font-size: 9px;
     }
 
     &.@{switch-prefix-cls}-checked {

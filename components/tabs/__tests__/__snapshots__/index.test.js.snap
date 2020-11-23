@@ -79,7 +79,6 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -165,7 +164,6 @@ exports[`Tabs tabPosition remove card 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"

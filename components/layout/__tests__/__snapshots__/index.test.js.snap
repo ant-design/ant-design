@@ -35,3 +35,49 @@ exports[`Layout rtl render component should be rendered correctly in RTL directi
   />
 </aside>
 `;
+
+exports[`Layout should be controlled by collapsed 1`] = `
+<Sider>
+  <aside
+    className="ant-layout-sider ant-layout-sider-dark"
+    style={
+      Object {
+        "flex": "0 0 200px",
+        "maxWidth": "200px",
+        "minWidth": "200px",
+        "width": "200px",
+      }
+    }
+  >
+    <div
+      className="ant-layout-sider-children"
+    >
+      Sider
+    </div>
+  </aside>
+</Sider>
+`;
+
+exports[`Layout should be controlled by collapsed 2`] = `
+<Sider
+  collapsed={true}
+>
+  <aside
+    className="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+    style={
+      Object {
+        "flex": "0 0 80px",
+        "maxWidth": "80px",
+        "minWidth": "80px",
+        "width": "80px",
+      }
+    }
+  >
+    <div
+      className="ant-layout-sider-children"
+    >
+      Sider
+    </div>
+  </aside>
+</Sider>
+`;

@@ -59,7 +59,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -79,7 +78,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -123,7 +121,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -471,7 +468,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -515,7 +511,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -690,7 +685,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -734,7 +728,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -972,7 +965,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1016,7 +1008,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -1097,7 +1088,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -1140,7 +1130,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -1183,7 +1172,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -1312,7 +1300,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1356,7 +1343,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -1514,7 +1500,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1558,7 +1543,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -1649,7 +1633,6 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="menu"
                         fill="currentColor"
                         focusable="false"
@@ -1693,7 +1676,6 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="menu"
                         fill="currentColor"
                         focusable="false"
@@ -1737,7 +1719,6 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="menu"
                         fill="currentColor"
                         focusable="false"
@@ -2720,7 +2701,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-up"
                                   fill="currentColor"
                                   focusable="false"
@@ -2740,7 +2720,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-down"
                                   fill="currentColor"
                                   focusable="false"
@@ -2784,7 +2763,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="filter"
                                 fill="currentColor"
                                 focusable="false"
@@ -2826,7 +2804,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-up"
                                   fill="currentColor"
                                   focusable="false"
@@ -2846,7 +2823,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-down"
                                   fill="currentColor"
                                   focusable="false"
@@ -2944,7 +2920,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3037,7 +3012,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3130,7 +3104,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3223,7 +3196,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3316,7 +3288,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3409,7 +3380,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3502,7 +3472,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3595,7 +3564,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3688,7 +3656,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3781,7 +3748,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="down"
                                 fill="currentColor"
                                 focusable="false"
@@ -3831,7 +3797,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -3875,7 +3840,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -4054,7 +4018,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -4098,7 +4061,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -4479,7 +4441,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -4567,7 +4528,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   focusable="false"
@@ -4617,7 +4577,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -4680,7 +4639,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -4925,7 +4883,6 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -4969,7 +4926,6 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -5225,7 +5181,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -5269,7 +5224,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -5520,7 +5474,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -5564,7 +5517,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -5956,7 +5908,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -6000,7 +5951,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -6936,7 +6886,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -7024,7 +6973,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   focusable="false"
@@ -7074,7 +7022,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -7137,7 +7084,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -8284,7 +8230,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -8339,7 +8284,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -8402,7 +8346,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -8480,7 +8423,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -8544,7 +8486,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -8564,7 +8505,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -9239,7 +9179,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -9327,7 +9266,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   focusable="false"
@@ -9377,7 +9315,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -9440,7 +9377,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -9520,7 +9456,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -9553,7 +9488,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -9595,7 +9529,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -9615,7 +9548,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -9664,7 +9596,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-up"
                                     fill="currentColor"
                                     focusable="false"
@@ -9684,7 +9615,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -9717,7 +9647,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -9846,7 +9775,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -9890,7 +9818,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -10193,7 +10120,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -10237,7 +10163,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -10315,7 +10240,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -10335,7 +10259,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -10378,7 +10301,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -10398,7 +10320,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -10441,7 +10362,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -10461,7 +10381,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -10611,7 +10530,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -10655,7 +10573,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -11024,7 +10941,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -11068,7 +10984,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -11344,7 +11259,6 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -11388,7 +11302,6 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -11608,7 +11521,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -11652,7 +11564,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -11920,7 +11831,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -11964,7 +11874,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -12088,7 +11997,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="caret-up"
                                       fill="currentColor"
                                       focusable="false"
@@ -12108,7 +12016,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="caret-down"
                                       fill="currentColor"
                                       focusable="false"
@@ -12141,7 +12048,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="filter"
                                 fill="currentColor"
                                 focusable="false"
@@ -12183,7 +12089,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-up"
                                   fill="currentColor"
                                   focusable="false"
@@ -12203,7 +12108,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-down"
                                   fill="currentColor"
                                   focusable="false"
@@ -12252,7 +12156,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="caret-up"
                                       fill="currentColor"
                                       focusable="false"
@@ -12272,7 +12175,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="caret-down"
                                       fill="currentColor"
                                       focusable="false"
@@ -12305,7 +12207,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="filter"
                                 fill="currentColor"
                                 focusable="false"
@@ -12446,7 +12347,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -12490,7 +12390,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -12585,7 +12484,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -12605,7 +12503,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -12775,7 +12672,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -12819,7 +12715,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -12916,7 +12811,6 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -12960,7 +12854,6 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -13299,7 +13192,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -13343,7 +13235,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -13873,7 +13764,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -13961,7 +13851,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -14048,7 +13937,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="down"
                               fill="currentColor"
                               focusable="false"
@@ -14502,7 +14390,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -14590,7 +14477,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -14907,7 +14793,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -14995,7 +14880,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -15154,7 +15038,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -15198,7 +15081,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -15353,7 +15235,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -15397,7 +15278,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -16334,7 +16214,6 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -16422,7 +16301,6 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   focusable="false"
@@ -16472,7 +16350,6 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -16535,7 +16412,6 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -17168,7 +17044,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -17212,7 +17087,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"

@@ -131,9 +131,20 @@ describe('Upload List', () => {
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
     wrapper.find('.ant-upload-list-item').at(0).find('.anticon-delete').simulate('click');
-    await sleep(1000);
-    wrapper.update();
-    expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
+
+    await act(async () => {
+      await sleep(1000);
+      wrapper.update();
+
+      const domNode = wrapper.find('.ant-upload-list-text-container').at(0).hostNodes().instance();
+      const transitionEndEvent = new Event('transitionend');
+      domNode.dispatchEvent(transitionEndEvent);
+      wrapper.update();
+    });
+
+    // console.log(wrapper.html());
+
+    expect(wrapper.find('.ant-upload-list-text-container').hostNodes().length).toBe(1);
   });
 
   it('should be uploading when upload a file', done => {
@@ -222,6 +233,10 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
+
+    // Has error item className
+    wrapper.find('.ant-upload-list-item-error').simulate('mouseenter');
+
     expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
   });
 

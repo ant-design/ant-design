@@ -72,6 +72,12 @@ export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 
+export type ItemRender<T = any> = (
+  originNode: React.ReactElement,
+  file: UploadFile,
+  fileList?: Array<UploadFile<T>>,
+) => React.ReactNode;
+
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type TransformFileHandler = (
   file: RcFile,
@@ -90,7 +96,7 @@ export interface UploadProps<T = any> {
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<void>;
+  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<void | Blob | File>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;
@@ -111,11 +117,7 @@ export interface UploadProps<T = any> {
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   progress?: UploadListProgressProps;
-  itemRender?: (
-    originNode: React.ReactElement,
-    file: UploadFile,
-    fileList?: Array<UploadFile<T>>,
-  ) => React.ReactNode;
+  itemRender?: ItemRender<T>;
 }
 
 export interface UploadState<T = any> {
@@ -141,9 +143,5 @@ export interface UploadListProps<T = any> {
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   appendAction?: React.ReactNode;
-  itemRender?: (
-    originNode: React.ReactElement,
-    file: UploadFile,
-    fileList?: Array<UploadFile<T>>,
-  ) => React.ReactNode;
+  itemRender?: ItemRender<T>;
 }

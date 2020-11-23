@@ -77,7 +77,6 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -203,7 +202,6 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -332,7 +330,6 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -467,7 +464,6 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -568,7 +564,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -607,7 +602,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -648,7 +642,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -771,7 +764,6 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="ellipsis"
                 fill="currentColor"
                 focusable="false"
@@ -900,7 +892,6 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -1026,7 +1017,6 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -1114,7 +1104,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="close"
                 fill="currentColor"
                 focusable="false"
@@ -1153,7 +1142,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="close"
                 fill="currentColor"
                 focusable="false"
@@ -1192,7 +1180,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="plus"
               fill="currentColor"
               focusable="false"
@@ -1236,7 +1223,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -1262,7 +1248,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="plus"
             fill="currentColor"
             focusable="false"
@@ -1393,7 +1378,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -1596,7 +1580,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -1690,7 +1673,6 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="apple"
                   fill="currentColor"
                   focusable="false"
@@ -1724,7 +1706,6 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="android"
                   fill="currentColor"
                   focusable="false"
@@ -1767,7 +1748,6 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -1854,7 +1834,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1912,7 +1891,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1970,7 +1948,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -2028,7 +2005,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -2107,7 +2083,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -2416,7 +2391,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="ellipsis"
                       fill="currentColor"
                       focusable="false"
@@ -2770,7 +2744,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -2962,7 +2935,6 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -3085,7 +3057,6 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -3611,7 +3582,6 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"

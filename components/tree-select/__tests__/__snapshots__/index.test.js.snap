@@ -110,7 +110,6 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -256,7 +255,6 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"

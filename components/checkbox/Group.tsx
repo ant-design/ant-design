@@ -31,9 +31,12 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
 }
 
 export interface CheckboxGroupContext {
+  name?: string;
   toggleOption?: (option: CheckboxOptionType) => void;
   value?: any;
   disabled?: boolean;
+  registerValue: (val: string) => void;
+  cancelValue: (val: string) => void;
 }
 
 export const GroupContext = React.createContext<CheckboxGroupContext | null>(null);

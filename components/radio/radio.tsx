@@ -1,10 +1,10 @@
 import * as React from 'react';
 import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
+import { composeRef } from 'rc-util/lib/ref';
 import { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
 import RadioGroupContext from './context';
-import { composeRef } from '../_util/ref';
 import devWarning from '../_util/devWarning';
 
 const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {

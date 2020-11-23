@@ -1,7 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
-@import './panel';
 
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 
@@ -209,7 +208,7 @@
       .@{picker-prefix-cls}-clear {
         right: @input-padding-horizontal-sm;
       }
-      
+
       .@{picker-prefix-cls}-active-bar {
         margin-left: @input-padding-horizontal-sm;
       }
@@ -360,4 +359,5 @@
   }
 }
 
+@import './panel';
 @import './rtl';
