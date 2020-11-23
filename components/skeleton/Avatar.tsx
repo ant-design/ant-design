@@ -10,7 +10,7 @@ export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
 
 const SkeletonAvatar = (props: AvatarProps) => {
   const renderSkeletonAvatar = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className, active } = props;
+    const { prefixCls: customizePrefixCls, className, active, size = 'default', shape = 'circle' } = props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
     const otherProps = omit(props, ['prefixCls']);
     const cls = classNames(
@@ -28,11 +28,6 @@ const SkeletonAvatar = (props: AvatarProps) => {
     );
   };
   return <ConfigConsumer>{renderSkeletonAvatar}</ConfigConsumer>;
-};
-
-SkeletonAvatar.defaultProps = {
-  size: 'default',
-  shape: 'circle',
 };
 
 export default SkeletonAvatar;
