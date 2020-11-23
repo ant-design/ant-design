@@ -83,7 +83,7 @@ const Collapse: CollapseInterface = props => {
     <RcCollapse
       openAnimation={openAnimation}
       {...props}
-      expandIcon={(panelProps: PanelProps) => renderExpandIcon(panelProps)}
+      expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
     />
