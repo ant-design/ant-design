@@ -216,7 +216,7 @@
     "http-server": "^0.12.0",
     "husky": "^4.0.3",
     "identity-obj-proxy": "^3.0.0",
-    "ignore-emit-webpack-plugin": "2.0.3",
+    "ignore-emit-webpack-plugin": "^2.0.6",
     "immutability-helper": "^3.0.0",
     "inquirer": "^7.1.0",
     "intersection-observer": "^0.11.0",
