@@ -115,6 +115,7 @@ const Demo = () => (
 - Form 重写
   - 不再需要 `Form.create`。
   - 嵌套字段支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+  - `validateTrigger` 不再收集字段值。
   - 迁移文档请查看[此处](/components/form/v3)。
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
@@ -124,6 +125,7 @@ const Demo = () => (
 - Tree、Select、TreeSelect、AutoComplete 重新写
   - 使用虚拟滚动。
   - `onBlur` 时不再修改选中值，且返回 React 原生的 `event` 对象。
+    - 如果你在使用兼容包的 Form 且配置了 `validateTrigger` 为 `onBlur`，请改至 `onChange` 以做兼容。
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
   - AutoComplete 选项与 Select 对齐，请使用 `options` 代替 `dataSource`。
   - Select 移除 `dropdownMenuStyle` 属性。

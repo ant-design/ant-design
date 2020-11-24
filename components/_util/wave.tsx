@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
 import TransitionEvents from '@ant-design/css-animation/lib/Event';
+import { supportRef, composeRef } from 'rc-util/lib/ref';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
+import { cloneElement } from './reactNode';
 
 let styleForPseudo: HTMLStyleElement | null;
 
@@ -30,6 +31,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     cancel: () => void;
   };
 
+  private containerRef = React.createRef<HTMLDivElement>();
+
   private extraNode: HTMLDivElement;
 
   private clickWaveTimeoutId: number;
@@ -45,7 +48,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   context: ConfigConsumerProps;
 
   componentDidMount() {
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.containerRef.current as HTMLDivElement;
     if (!node || node.nodeType !== 1) {
       return;
     }
@@ -112,7 +115,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       return;
     }
 
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.containerRef.current as HTMLDivElement;
     if (!e || e.target !== node || this.animationStart) {
       return;
     }
@@ -195,7 +198,14 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     const { children } = this.props;
     this.csp = csp;
 
-    return children;
+    if (!React.isValidElement(children)) return children;
+
+    let ref: React.Ref<any> = this.containerRef;
+    if (supportRef(children)) {
+      ref = composeRef((children as any).ref, this.containerRef as any);
+    }
+
+    return cloneElement(children, { ref });
   };
 
   render() {

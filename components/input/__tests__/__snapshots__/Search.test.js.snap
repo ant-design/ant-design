@@ -26,7 +26,6 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="search"
             fill="currentColor"
             focusable="false"
@@ -82,7 +81,6 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="search"
             fill="currentColor"
             focusable="false"
@@ -127,7 +125,6 @@ exports[`Input.Search should support addonAfter 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="search"
             fill="currentColor"
             focusable="false"
@@ -175,7 +172,6 @@ exports[`Input.Search should support addonAfter 2`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="search"
             fill="currentColor"
             focusable="false"
@@ -230,12 +226,11 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class="anticon-spin"
               data-icon="loading"
               fill="currentColor"
               focusable="false"
@@ -289,12 +284,11 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class="anticon-spin"
               data-icon="loading"
               fill="currentColor"
               focusable="false"
@@ -394,7 +388,6 @@ exports[`Input.Search should support invalid addonAfter 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="search"
             fill="currentColor"
             focusable="false"
@@ -446,7 +439,6 @@ exports[`Input.Search should support invalid suffix 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="search"
             fill="currentColor"
             focusable="false"
@@ -489,12 +481,11 @@ exports[`Input.Search should support loading 1`] = `
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class="anticon-spin"
               data-icon="loading"
               fill="currentColor"
               focusable="false"
@@ -538,12 +529,11 @@ exports[`Input.Search should support loading 2`] = `
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class="anticon-spin"
               data-icon="loading"
               fill="currentColor"
               focusable="false"

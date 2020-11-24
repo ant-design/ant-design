@@ -22,7 +22,15 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
       };
 }
 
-const Carousel = React.forwardRef<unknown, CarouselProps>(
+export interface CarouselRef {
+  goTo: (slide: number, dontAnimate: boolean) => void;
+  next: () => void;
+  prev: () => void;
+  autoPlay: boolean;
+  innerSlider: any;
+}
+
+const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
   ({ dots = true, arrows = false, draggable = false, dotPosition = 'bottom', ...props }, ref) => {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const slickRef = React.useRef<any>();

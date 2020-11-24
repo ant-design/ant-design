@@ -44,7 +44,6 @@ exports[`Select Deprecated should ignore mode="combobox" 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -106,7 +105,6 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -166,7 +164,6 @@ exports[`Select rtl render component should be rendered correctly in RTL directi
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"

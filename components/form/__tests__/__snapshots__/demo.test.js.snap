@@ -279,7 +279,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -387,7 +386,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye-invisible"
                   fill="currentColor"
                   focusable="false"
@@ -578,7 +576,6 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -746,7 +743,6 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -889,7 +885,6 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -1573,7 +1568,6 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="plus"
                 fill="currentColor"
                 focusable="false"
@@ -1606,7 +1600,6 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="plus"
                 fill="currentColor"
                 focusable="false"
@@ -1687,7 +1680,6 @@ exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="plus"
                 fill="currentColor"
                 focusable="false"
@@ -1811,7 +1803,6 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -1853,7 +1844,6 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="plus"
                 fill="currentColor"
                 focusable="false"
@@ -2110,7 +2100,6 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="smile"
                 fill="currentColor"
                 focusable="false"
@@ -2263,7 +2252,6 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="user"
                   fill="currentColor"
                   focusable="false"
@@ -2314,7 +2302,6 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="lock"
                   fill="currentColor"
                   focusable="false"
@@ -2354,7 +2341,6 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
         >
           <button
             class="ant-btn ant-btn-primary"
-            disabled=""
             type="submit"
           >
             <span>
@@ -2666,7 +2652,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="up"
                     fill="currentColor"
                     focusable="false"
@@ -2693,7 +2678,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -2850,7 +2834,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="user"
                   fill="currentColor"
                   focusable="false"
@@ -2901,7 +2884,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="lock"
                   fill="currentColor"
                   focusable="false"
@@ -3162,7 +3144,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye-invisible"
                   fill="currentColor"
                   focusable="false"
@@ -3228,7 +3209,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye-invisible"
                   fill="currentColor"
                   focusable="false"
@@ -3270,7 +3250,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="question-circle"
               fill="currentColor"
               focusable="false"
@@ -3357,7 +3336,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="close-circle"
                 fill="currentColor"
                 focusable="false"
@@ -3377,7 +3355,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="down"
                 fill="currentColor"
                 focusable="false"
@@ -3475,7 +3452,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -3804,7 +3780,6 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="question-circle"
             fill="currentColor"
             focusable="false"
@@ -3859,7 +3834,6 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="info-circle"
             fill="currentColor"
             focusable="false"
@@ -4117,7 +4091,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -4200,7 +4173,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -4264,7 +4236,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="down"
                 fill="currentColor"
                 focusable="false"
@@ -4328,7 +4299,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="calendar"
                     fill="currentColor"
                     focusable="false"
@@ -4389,7 +4359,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="up"
                     fill="currentColor"
                     focusable="false"
@@ -4416,7 +4385,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -4580,7 +4548,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="calendar"
                     fill="currentColor"
                     focusable="false"
@@ -4648,7 +4615,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="calendar"
                     fill="currentColor"
                     focusable="false"
@@ -4716,7 +4682,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="calendar"
                     fill="currentColor"
                     focusable="false"
@@ -4788,7 +4753,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="swap-right"
                     fill="currentColor"
                     focusable="false"
@@ -4828,7 +4792,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="calendar"
                   fill="currentColor"
                   focusable="false"
@@ -4899,7 +4862,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="swap-right"
                     fill="currentColor"
                     focusable="false"
@@ -4939,7 +4901,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="calendar"
                   fill="currentColor"
                   focusable="false"
@@ -5006,7 +4967,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="clock-circle"
                     fill="currentColor"
                     focusable="false"
@@ -5160,7 +5120,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -5287,7 +5246,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="up"
                     fill="currentColor"
                     focusable="false"
@@ -5314,7 +5272,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -5922,7 +5879,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -5946,7 +5902,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -5982,7 +5937,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -6006,7 +5960,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -6042,7 +5995,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -6066,7 +6018,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -6102,7 +6053,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -6126,7 +6076,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -6162,7 +6111,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -6186,7 +6134,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="star"
                       fill="currentColor"
                       focusable="false"
@@ -6258,7 +6205,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="upload"
                       fill="currentColor"
                       focusable="false"
@@ -6340,7 +6286,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="inbox"
                         fill="currentColor"
                         focusable="false"
@@ -6483,7 +6428,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="smile"
                   fill="currentColor"
                   focusable="false"
@@ -6544,12 +6488,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class="anticon-spin"
               data-icon="loading"
               fill="currentColor"
               focusable="false"
@@ -6615,7 +6558,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check-circle"
               fill="currentColor"
               focusable="false"
@@ -6672,7 +6614,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="exclamation-circle"
               fill="currentColor"
               focusable="false"
@@ -6729,7 +6670,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close-circle"
               fill="currentColor"
               focusable="false"
@@ -6802,7 +6742,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="calendar"
                     fill="currentColor"
                     focusable="false"
@@ -6829,7 +6768,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check-circle"
               fill="currentColor"
               focusable="false"
@@ -6893,7 +6831,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="clock-circle"
                     fill="currentColor"
                     focusable="false"
@@ -6923,7 +6860,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="exclamation-circle"
               fill="currentColor"
               focusable="false"
@@ -7004,7 +6940,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -7030,7 +6965,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close-circle"
               fill="currentColor"
               focusable="false"
@@ -7092,7 +7026,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="down"
                 fill="currentColor"
                 focusable="false"
@@ -7112,12 +7045,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class="anticon-spin"
               data-icon="loading"
               fill="currentColor"
               focusable="false"
@@ -7203,7 +7135,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -7274,7 +7205,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -7340,7 +7270,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="up"
                     fill="currentColor"
                     focusable="false"
@@ -7367,7 +7296,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -7409,7 +7337,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check-circle"
               fill="currentColor"
               focusable="false"
@@ -7468,7 +7395,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close-circle"
                   fill="currentColor"
                   focusable="false"
@@ -7494,7 +7420,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check-circle"
               fill="currentColor"
               focusable="false"
@@ -7554,7 +7479,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye-invisible"
                   fill="currentColor"
                   focusable="false"
@@ -7583,7 +7507,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="exclamation-circle"
               fill="currentColor"
               focusable="false"
@@ -7643,7 +7566,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close-circle"
                   fill="currentColor"
                   focusable="false"
@@ -7664,7 +7586,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye-invisible"
                   fill="currentColor"
                   focusable="false"
@@ -7693,7 +7614,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close-circle"
               fill="currentColor"
               focusable="false"
@@ -7758,7 +7678,6 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="up"
                     fill="currentColor"
                     focusable="false"
@@ -7785,7 +7704,6 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"

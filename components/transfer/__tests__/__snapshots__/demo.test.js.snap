@@ -33,7 +33,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -77,7 +76,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="search"
               fill="currentColor"
               focusable="false"
@@ -172,7 +170,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -201,7 +198,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -248,7 +244,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -292,7 +287,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="search"
               fill="currentColor"
               focusable="false"
@@ -409,7 +403,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -814,7 +807,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -840,7 +832,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -883,7 +874,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1118,7 +1108,6 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1210,7 +1199,6 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -1236,7 +1224,6 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -1280,7 +1267,6 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1392,7 +1378,6 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1613,7 +1598,6 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -1639,7 +1623,6 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -1682,7 +1665,6 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1809,7 +1791,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1901,7 +1882,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -1927,7 +1907,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -1955,7 +1934,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2086,7 +2064,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2491,7 +2468,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -2519,7 +2495,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2572,7 +2547,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2610,7 +2584,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2648,7 +2621,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2686,7 +2658,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2724,7 +2695,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2762,7 +2732,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="delete"
                   fill="currentColor"
                   focusable="false"
@@ -2831,7 +2800,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -2875,7 +2843,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="search"
               fill="currentColor"
               focusable="false"
@@ -2957,7 +2924,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -2983,7 +2949,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -3026,7 +2991,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -3070,7 +3034,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="search"
               fill="currentColor"
               focusable="false"
@@ -3158,7 +3121,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -3719,7 +3681,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="left"
                           fill="currentColor"
                           focusable="false"
@@ -3774,7 +3735,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="right"
                           fill="currentColor"
                           focusable="false"
@@ -3811,7 +3771,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -3837,7 +3796,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="left"
             fill="currentColor"
             focusable="false"
@@ -3865,7 +3823,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -4158,7 +4115,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="left"
                           fill="currentColor"
                           focusable="false"
@@ -4202,7 +4158,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="right"
                           fill="currentColor"
                           focusable="false"
@@ -4277,7 +4232,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -4366,7 +4320,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="caret-down"
                           fill="currentColor"
                           focusable="false"
@@ -4509,7 +4462,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -4535,7 +4487,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -4563,7 +4514,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"

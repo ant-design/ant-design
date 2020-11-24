@@ -20,7 +20,6 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -47,7 +46,6 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -101,7 +99,6 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -128,7 +125,6 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -183,7 +179,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="up"
             fill="currentColor"
             focusable="false"
@@ -211,7 +206,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -280,7 +274,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="up"
             fill="currentColor"
             focusable="false"
@@ -307,7 +300,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -359,7 +351,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="up"
             fill="currentColor"
             focusable="false"
@@ -386,7 +377,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -444,7 +434,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="up"
             fill="currentColor"
             focusable="false"
@@ -471,7 +460,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -522,7 +510,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="up"
             fill="currentColor"
             focusable="false"
@@ -549,7 +536,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -600,7 +586,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="up"
             fill="currentColor"
             focusable="false"
@@ -627,7 +612,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"

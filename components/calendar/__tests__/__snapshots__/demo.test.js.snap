@@ -52,7 +52,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -112,7 +111,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -229,7 +227,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell"
+                class="ant-picker-cell ant-picker-cell-end"
                 title="2016-10-31"
               >
                 <div
@@ -246,7 +244,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                 title="2016-11-01"
               >
                 <div
@@ -747,7 +745,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                 title="2016-11-30"
               >
                 <div
@@ -764,7 +762,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell"
+                class="ant-picker-cell ant-picker-cell-start"
                 title="2016-12-01"
               >
                 <div
@@ -999,7 +997,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -1059,7 +1056,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -1176,7 +1172,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell"
+                  class="ant-picker-cell ant-picker-cell-end"
                   title="2016-10-31"
                 >
                   <div
@@ -1193,7 +1189,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -1694,7 +1690,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -1711,7 +1707,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell"
+                  class="ant-picker-cell ant-picker-cell-start"
                   title="2016-12-01"
                 >
                   <div
@@ -2008,7 +2004,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2073,7 +2068,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2149,7 +2143,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell"
+                  class="ant-picker-cell ant-picker-cell-end"
                   title="2016-10-31"
                 >
                   <div
@@ -2166,7 +2160,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -2667,7 +2661,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -2684,7 +2678,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell"
+                  class="ant-picker-cell ant-picker-cell-start"
                   title="2016-12-01"
                 >
                   <div
@@ -2917,7 +2911,6 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2977,7 +2970,6 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -3098,7 +3090,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell"
+                class="ant-picker-cell ant-picker-cell-end"
                 title="2016-10-31"
               >
                 <div
@@ -3119,7 +3111,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                 title="2016-11-01"
               >
                 <div
@@ -3893,7 +3885,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                 title="2016-11-30"
               >
                 <div
@@ -3914,7 +3906,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell"
+                class="ant-picker-cell ant-picker-cell-start"
                 title="2016-12-01"
               >
                 <div
@@ -4273,7 +4265,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -4333,7 +4324,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -4433,7 +4423,7 @@ Array [
             <tbody>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                   title="2017-01-01"
                 >
                   <div
@@ -4951,7 +4941,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                   title="2017-01-31"
                 >
                   <div
@@ -4968,7 +4958,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell"
+                  class="ant-picker-cell ant-picker-cell-start"
                   title="2017-02-01"
                 >
                   <div

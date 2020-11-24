@@ -16,7 +16,7 @@ const getRealWidth = (node: HTMLElement) => ({
   transform: 'scale(1)',
 });
 
-export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIconProps) {
+const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon }) => {
   const visible = !!loading;
 
   if (existIcon) {
@@ -40,7 +40,7 @@ export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIc
       onLeaveStart={getRealWidth}
       onLeaveActive={getCollapsedWidth}
     >
-      {({ className, style }: { className: string; style: React.CSSProperties }, ref: any) => {
+      {({ className, style }: { className?: string; style?: React.CSSProperties }, ref: any) => {
         return (
           <span className={`${prefixCls}-loading-icon`} style={style} ref={ref}>
             <LoadingOutlined className={classNames(className)} />
@@ -49,4 +49,6 @@ export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIc
       }}
     </CSSMotion>
   );
-}
+};
+
+export default LoadingIcon;

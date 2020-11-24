@@ -12,7 +12,6 @@ module.exports = {
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },
   testRegex: 'image\\.test\\.(j|t)s$',
-  testEnvironment: 'node',
   transformIgnorePatterns,
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
@@ -20,4 +19,6 @@ module.exports = {
       tsConfigFile: './tsconfig.test.json',
     },
   },
+  preset: 'jest-puppeteer',
+  testTimeout: 10000,
 };

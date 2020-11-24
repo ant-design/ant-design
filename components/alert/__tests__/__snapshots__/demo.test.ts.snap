@@ -14,7 +14,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="exclamation-circle"
         fill="currentColor"
         focusable="false"
@@ -49,7 +48,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="exclamation-circle"
         fill="currentColor"
         focusable="false"
@@ -82,7 +80,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close"
           fill="currentColor"
           focusable="false"
@@ -125,7 +122,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -194,7 +190,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close"
           fill="currentColor"
           focusable="false"
@@ -236,7 +231,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close"
           fill="currentColor"
           focusable="false"
@@ -310,7 +304,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -344,7 +337,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -378,7 +370,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -412,7 +403,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -446,7 +436,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -482,7 +471,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -518,7 +506,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -554,7 +541,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -675,7 +661,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="check-circle"
         fill="currentColor"
         focusable="false"
@@ -709,7 +694,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="info-circle"
         fill="currentColor"
         focusable="false"
@@ -743,7 +727,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="exclamation-circle"
         fill="currentColor"
         focusable="false"
@@ -776,7 +759,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close"
           fill="currentColor"
           focusable="false"
@@ -803,7 +785,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -837,7 +818,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="check-circle"
         fill="currentColor"
         focusable="false"
@@ -876,7 +856,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="info-circle"
         fill="currentColor"
         focusable="false"
@@ -915,7 +894,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="exclamation-circle"
         fill="currentColor"
         focusable="false"
@@ -953,7 +931,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close"
           fill="currentColor"
           focusable="false"
@@ -980,7 +957,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -1023,7 +999,6 @@ exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="exclamation-circle"
       fill="currentColor"
       focusable="false"
@@ -1089,7 +1064,6 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close"
           fill="currentColor"
           focusable="false"

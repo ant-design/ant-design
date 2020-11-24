@@ -222,6 +222,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'validateStatus',
           'valuePropName',
           'wrapperCol',
+          '_internalItemRender',
         ])}
       >
         {/* Label */}

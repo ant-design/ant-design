@@ -33,7 +33,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       className = '',
       options,
       optionType,
-      buttonStyle,
+      buttonStyle = 'outline' as RadioGroupButtonStyle,
       disabled,
       children,
       size: customizeSize,
@@ -116,9 +116,5 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     </RadioGroupContextProvider>
   );
 });
-
-RadioGroup.defaultProps = {
-  buttonStyle: 'outline' as RadioGroupButtonStyle,
-};
 
 export default React.memo(RadioGroup);

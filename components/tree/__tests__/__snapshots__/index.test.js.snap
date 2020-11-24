@@ -84,7 +84,6 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="plus-square"
                   fill="currentColor"
                   focusable="false"
@@ -160,7 +159,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="minus-square"
                   fill="currentColor"
                   focusable="false"
@@ -209,7 +207,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="minus-square"
                   fill="currentColor"
                   focusable="false"
@@ -354,7 +351,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="plus-square"
                   fill="currentColor"
                   focusable="false"
@@ -403,7 +399,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="plus-square"
                   fill="currentColor"
                   focusable="false"
@@ -599,12 +594,11 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
             >
               <span
                 aria-label="loading"
-                class="anticon anticon-loading ant-tree-switcher-loading-icon"
+                class="anticon anticon-loading anticon-spin ant-tree-switcher-loading-icon"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  class="anticon-spin"
                   data-icon="loading"
                   fill="currentColor"
                   focusable="false"
@@ -648,12 +642,11 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
             >
               <span
                 aria-label="loading"
-                class="anticon anticon-loading ant-tree-switcher-loading-icon"
+                class="anticon anticon-loading anticon-spin ant-tree-switcher-loading-icon"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  class="anticon-spin"
                   data-icon="loading"
                   fill="currentColor"
                   focusable="false"
