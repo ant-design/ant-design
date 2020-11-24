@@ -83,7 +83,7 @@ const Collapse: CollapseInterface = props => {
     <RcCollapse
       openAnimation={openAnimation}
       {...props}
-      bordered={bordered}        
+      bordered={bordered}
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
