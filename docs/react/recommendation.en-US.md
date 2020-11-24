@@ -25,7 +25,7 @@ title: Third-Party Libraries
 | Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress) |
 | i18n | [react-intl](https://github.com/yahoo/react-intl) |
 | Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
-| Markdown renderer | [react-markdown](http://rexxars.github.io/react-markdown/) |
+| Markdown renderer | [react-markdown](https://remarkjs.github.io/react-markdown/) |
 | Infinite Scroll | [react-virtualized](https://github.com/bvaughn/react-virtualized) [antd-table-infinity](https://github.com/Leonard-Li777/antd-table-infinity) |
 | Map | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap](https://github.com/ElemeFE/react-amap) |
 | Video | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
