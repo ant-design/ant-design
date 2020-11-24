@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
-import { isValidElement } from '../_util/reactNode';
+import { isValidElement, cloneElement } from '../_util/reactNode';
 
 export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   icon?: React.ReactNode;
@@ -73,7 +73,12 @@ export default class MenuItem extends React.Component<MenuItemProps> {
                 )}
                 title={title}
               >
-                {icon}
+                {cloneElement(icon, {
+                  className: classNames(
+                    isValidElement(icon) ? icon.props?.className : '',
+                    `${rootPrefixCls}-item-icon`,
+                  ),
+                })}
                 {this.renderItemChildren(inlineCollapsed)}
               </Item>
             </Tooltip>
