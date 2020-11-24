@@ -213,7 +213,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   // ================ Copy ================
-  onCopyClick = () => {
+  onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
     const { children, copyable } = this.props;
     const copyConfig: CopyConfig = {
       ...(typeof copyable === 'object' ? copyable : null),
