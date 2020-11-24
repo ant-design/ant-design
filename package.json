@@ -272,7 +272,7 @@
     "rimraf": "^3.0.0",
     "scrollama": "^2.0.0",
     "simple-git": "^2.23.0",
-    "string-replace-loader": "^2.3.0",
+    "string-replace-loader": "^3.0.1",
     "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-config-rational-order": "^0.1.2",
