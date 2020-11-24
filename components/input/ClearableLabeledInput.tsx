@@ -45,7 +45,7 @@ interface ClearableInputProps extends BasicProps {
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
-  triggerFocus: () => void;
+  triggerFocus?: () => void;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -55,7 +55,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   onInputMouseUp: React.MouseEventHandler = e => {
     if (this.containerRef.current?.contains(e.target as Element)) {
       const { triggerFocus } = this.props;
-      triggerFocus();
+      triggerFocus?.();
     }
   };
 

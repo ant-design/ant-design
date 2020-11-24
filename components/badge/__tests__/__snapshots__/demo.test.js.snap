@@ -201,7 +201,6 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="clock-circle"
         fill="currentColor"
         focusable="false"
@@ -407,7 +406,6 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="minus"
             fill="currentColor"
             focusable="false"
@@ -432,7 +430,6 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="plus"
             fill="currentColor"
             focusable="false"
@@ -762,7 +759,6 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="notification"
         fill="currentColor"
         focusable="false"
@@ -790,7 +786,6 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="notification"
         fill="currentColor"
         focusable="false"
@@ -1508,7 +1503,7 @@ exports[`renders ./components/badge/demo/offset.md correctly 1`] = `
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="right:-10px;margin-top:10px"
+    style="margin-top:10px;right:-10px"
     title="5"
   >
     <span

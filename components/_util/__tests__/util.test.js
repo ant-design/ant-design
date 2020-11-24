@@ -1,4 +1,4 @@
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 import React from 'react';
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -12,11 +12,8 @@ import Wave from '../wave';
 import TransButton from '../transButton';
 import { isStyleSupport, isFlexSupported } from '../styleChecker';
 import { sleep } from '../../../tests/utils';
-import focusTest from '../../../tests/shared/focusTest';
 
 describe('Test utils function', () => {
-  focusTest(TransButton);
-
   describe('throttle', () => {
     it('throttle function should work', async () => {
       const callback = jest.fn();
@@ -193,9 +190,10 @@ describe('Test utils function', () => {
 
   describe('TransButton', () => {
     it('can be focus/blur', () => {
-      const wrapper = mount(<TransButton>TransButton</TransButton>);
-      expect(typeof wrapper.instance().focus).toBe('function');
-      expect(typeof wrapper.instance().blur).toBe('function');
+      const ref = React.createRef();
+      mount(<TransButton ref={ref}>TransButton</TransButton>);
+      expect(typeof ref.current.focus).toBe('function');
+      expect(typeof ref.current.blur).toBe('function');
     });
 
     it('should trigger onClick when press enter', () => {

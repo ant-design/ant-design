@@ -19,7 +19,6 @@ exports[`DropdownButton rtl render component should be rendered correctly in RTL
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="ellipsis"
         fill="currentColor"
         focusable="false"
@@ -55,7 +54,6 @@ exports[`DropdownButton should support href like Button 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="ellipsis"
         fill="currentColor"
         focusable="false"

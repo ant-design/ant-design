@@ -42,4 +42,11 @@ describe('Spin', () => {
     expect(wrapper).toMatchSnapshot();
     Spin.setDefaultIndicator(null);
   });
+
+  it('should render 0', () => {
+    const wrapper = mount(
+      <Spin>{0}</Spin>,
+    );
+    expect(wrapper.find('.ant-spin-container').at(0).text()).toBe('0');
+  });
 });

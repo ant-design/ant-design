@@ -362,7 +362,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="edit"
           fill="currentColor"
           focusable="false"
@@ -395,7 +394,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="highlight"
           fill="currentColor"
           focusable="false"
@@ -428,7 +426,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="edit"
           fill="currentColor"
           focusable="false"
@@ -461,7 +458,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="edit"
           fill="currentColor"
           focusable="false"
@@ -494,7 +490,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="copy"
           fill="currentColor"
           focusable="false"
@@ -527,7 +522,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="copy"
           fill="currentColor"
           focusable="false"
@@ -560,7 +554,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="smile"
           fill="currentColor"
           focusable="false"
@@ -593,7 +586,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="copy"
           fill="currentColor"
           focusable="false"

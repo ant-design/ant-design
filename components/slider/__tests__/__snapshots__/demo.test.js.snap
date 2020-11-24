@@ -163,7 +163,6 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="frown"
       fill="currentColor"
       focusable="false"
@@ -210,7 +209,6 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="smile"
       fill="currentColor"
       focusable="false"
@@ -285,7 +283,6 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="up"
                 fill="currentColor"
                 focusable="false"
@@ -313,7 +310,6 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="down"
                 fill="currentColor"
                 focusable="false"
@@ -404,7 +400,6 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="up"
                 fill="currentColor"
                 focusable="false"
@@ -432,7 +427,6 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="down"
                 fill="currentColor"
                 focusable="false"

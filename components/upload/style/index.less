@@ -142,16 +142,8 @@
   .reset-component;
   .clearfix;
   line-height: @line-height-base;
-  &-item-list-type-text {
-    &:hover {
-      .@{upload-prefix-cls}-list-item-name-icon-count-1 {
-        padding-right: 14px;
-      }
-      .@{upload-prefix-cls}-list-item-name-icon-count-2 {
-        padding-right: 28px;
-      }
-    }
-  }
+
+  // ============================ Item ============================
   &-item {
     position: relative;
     height: @line-height-base * @font-size-base;
@@ -165,10 +157,6 @@
       line-height: @line-height-base;
       white-space: nowrap;
       text-overflow: ellipsis;
-    }
-
-    &-name-icon-count-1 {
-      padding-right: 14px;
     }
 
     &-card-actions {
@@ -200,7 +188,7 @@
 
     &-info {
       height: 100%;
-      padding: 0 12px 0 4px;
+      padding: 0 4px;
       transition: background-color 0.3s;
 
       > span {
@@ -273,6 +261,7 @@
     }
   }
 
+  // =================== Picture & Picture Card ===================
   &-picture,
   &-picture-card {
     .@{upload-item} {
@@ -304,9 +293,6 @@
     }
 
     .@{upload-item}-thumbnail {
-      position: absolute;
-      top: 8px;
-      left: 8px;
       width: 48px;
       height: 48px;
       line-height: 54px;
@@ -370,14 +356,6 @@
       transition: all 0.3s;
     }
 
-    .@{upload-item}-name-icon-count-1 {
-      padding-right: 18px;
-    }
-
-    .@{upload-item}-name-icon-count-2 {
-      padding-right: 36px;
-    }
-
     .@{upload-item}-uploading .@{upload-item}-name {
       line-height: 28px;
     }
@@ -398,17 +376,18 @@
     }
   }
 
+  // ======================== Picture Card ========================
   &-picture-card {
-    &.@{upload-prefix-cls}-list::after {
-      display: none;
-    }
-
     &-container {
       display: inline-block;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
       margin: 0 @margin-xs @margin-xs 0;
       vertical-align: top;
+    }
+
+    &.@{upload-prefix-cls}-list::after {
+      display: none;
     }
 
     .@{upload-item} {
@@ -515,51 +494,71 @@
     }
   }
 
-  .@{upload-prefix-cls}-success-icon {
-    color: @success-color;
-    font-weight: bold;
+  // ======================= Picture & Text =======================
+  &-text,
+  &-picture {
+    &-container {
+      transition: opacity @animation-duration-slow, height @animation-duration-slow;
+
+      &::before {
+        display: table;
+        width: 0;
+        height: 0;
+        content: '';
+      }
+
+      // Don't know why span here, just stretch it
+      .@{upload-prefix-cls}-span {
+        display: block;
+        flex: auto;
+      }
+    }
+
+    // text & picture no need this additional element.
+    // But it used for picture-card, let's keep it.
+    .@{upload-prefix-cls}-span {
+      display: flex;
+      align-items: center;
+
+      > * {
+        flex: none;
+      }
+    }
+
+    .@{upload-item}-name {
+      flex: auto;
+      padding: 0 @padding-xs;
+    }
+
+    .@{upload-item}-card-actions {
+      position: static;
+    }
   }
 
-  .@{upload-prefix-cls}-animate-enter,
-  .@{upload-prefix-cls}-animate-leave,
+  // ============================ Text ============================
+  &-text {
+    .@{upload-prefix-cls}-text-icon {
+      .@{iconfont-css-prefix} {
+        position: static;
+      }
+    }
+  }
+
+  // =========================== Motion ===========================
+  .@{upload-prefix-cls}-animate-inline-appear,
   .@{upload-prefix-cls}-animate-inline-enter,
   .@{upload-prefix-cls}-animate-inline-leave {
-    animation-duration: 0.3s;
+    animation-duration: @animation-duration-slow;
     animation-fill-mode: @ease-in-out-circ;
   }
 
-  .@{upload-prefix-cls}-animate-enter {
-    animation-name: uploadAnimateIn;
-  }
-
-  .@{upload-prefix-cls}-animate-leave {
-    animation-name: uploadAnimateOut;
-  }
-
+  .@{upload-prefix-cls}-animate-inline-appear,
   .@{upload-prefix-cls}-animate-inline-enter {
     animation-name: uploadAnimateInlineIn;
   }
 
   .@{upload-prefix-cls}-animate-inline-leave {
     animation-name: uploadAnimateInlineOut;
-  }
-}
-
-@keyframes uploadAnimateIn {
-  from {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-  }
-}
-
-@keyframes uploadAnimateOut {
-  to {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
   }
 }
 
