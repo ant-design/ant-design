@@ -37,7 +37,7 @@ interface PanelProps {
   style?: React.CSSProperties;
   showArrow?: boolean;
   forceRender?: boolean;
-  /** @deprecated Use `collapsible=false` instead */
+  /** @deprecated Use `collapsible="disabled"` instead */
   disabled?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;

@@ -9,7 +9,7 @@ export type CollapsibleType = 'header' | 'disabled';
 export interface CollapsePanelProps {
   key: string | number;
   header: React.ReactNode;
-  /** @deprecated Use `collapsible=false` instead */
+  /** @deprecated Use `collapsible="disabled"` instead */
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
