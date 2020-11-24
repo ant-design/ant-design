@@ -36,7 +36,7 @@ ReactDOM.render(
     <Panel header="This is panel header 2" key="2" collapsible="header">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 3" key="3" collapsible={false}>
+    <Panel header="This is panel header 3" key="3" collapsible="disabled">
       <p>{text}</p>
     </Panel>
   </Collapse>,

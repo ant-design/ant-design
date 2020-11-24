@@ -98,7 +98,7 @@ const Collapse: CollapseInterface = props => {
         const childProps: CollapseProps = {
           ...omit(child.props, 'disabled'),
           key,
-          collapsible: collapsible ?? (disabled ? false : undefined),
+          collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
         };
         return cloneElement(child, childProps);
       }

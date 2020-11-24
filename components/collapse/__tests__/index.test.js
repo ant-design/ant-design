@@ -91,7 +91,7 @@ describe('Collapse', () => {
     );
 
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Collapse.Panel] `disabled` is deprecated. Please use `collapsible=false` instead.',
+      'Warning: [antd: Collapse.Panel] `disabled` is deprecated. Please use `collapsible="disabled"` instead.',
     );
 
     expect(wrapper.find('.ant-collapse-header-text').exists()).toBeFalsy();

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 
-export type CollapsibleType = boolean | 'header';
+export type CollapsibleType = 'header' | 'disabled';
 
 export interface CollapsePanelProps {
   key: string | number;
@@ -25,7 +25,7 @@ const CollapsePanel: React.FC<CollapsePanelProps> = props => {
   devWarning(
     !('disabled' in props),
     'Collapse.Panel',
-    '`disabled` is deprecated. Please use `collapsible=false` instead.',
+    '`disabled` is deprecated. Please use `collapsible="disabled"` instead.',
   );
 
   const { getPrefixCls } = React.useContext(ConfigContext);
