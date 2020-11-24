@@ -24,7 +24,7 @@ title: 介绍
 - [插画](/docs/spec/illustration)
 - [设计资源](/docs/resources)
 - [Sketch 工具集](http://kitchen.alipay.com/)
-- [文章](/docs/spec/article)
+- [文章](https://ant-design.gitee.io/docs/resources-cn#%E6%96%87%E7%AB%A0)
 
 ## 前端实现
 
