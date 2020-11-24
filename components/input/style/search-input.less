@@ -34,6 +34,8 @@
       border: 0;
 
       .@{search-prefix}-button {
+        padding-top: 0;
+        padding-bottom: 0;
         border-radius: 0 @border-radius-base @border-radius-base 0;
       }
 
@@ -51,9 +53,19 @@
   }
 
   &-button {
+    height: @input-height-base;
+
     &:hover,
     &:focus {
       z-index: 1;
     }
+  }
+
+  &-large &-button {
+    height: @input-height-lg;
+  }
+
+  &-small &-button {
+    height: @input-height-sm;
   }
 }
