@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-自定义操作除了关闭操作外
+自定义操作项
 
 ## en-US
 
-Custom action in addition to the close.
+Custom action.
 
 ```tsx
 import React from 'react';
