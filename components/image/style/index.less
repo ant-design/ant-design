@@ -1,12 +1,12 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 
+.modal-mask();
+
 @image-prefix-cls: ~'@{ant-prefix}-image';
 @image-preview-prefix-cls: ~'@{image-prefix-cls}-preview';
 
 .@{image-prefix-cls} {
-  .modal-mask();
-
   position: relative;
   display: inline-block;
   &-img {
