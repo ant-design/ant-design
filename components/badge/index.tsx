@@ -159,7 +159,7 @@ const Badge: CompoundedComponent = ({
   return (
     <span {...restProps} className={badgeClassName}>
       {children}
-      <CSSMotion visible={!isHidden} motionName={`${prefixCls}-zoom`} motionAppear>
+      <CSSMotion visible={!isHidden} motionName={`${prefixCls}-zoom`} motionAppear={false}>
         {({ className: motionClassName }) => {
           const scrollNumberPrefixCls = getPrefixCls(
             'scroll-number',
