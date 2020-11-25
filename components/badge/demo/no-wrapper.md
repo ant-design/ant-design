@@ -20,25 +20,9 @@ import { Badge, Space } from 'antd';
 
 const Demo = () => (
   <Space>
-    <button
-      type="button"
-      onClick={() => {
-        setVisible(!visible);
-      }}
-    >
-      Trigger
-    </button>
-    {visible && (
-      <>
-        <Badge count={25} />
-        <Badge count={4} className="site-badge-count-4" />
-        <Badge
-          className="site-badge-count-109"
-          count={109}
-          style={{ backgroundColor: '#52c41a' }}
-        />
-      </>
-    )}
+    <Badge count={25} />
+    <Badge count={4} className="site-badge-count-4" />
+    <Badge className="site-badge-count-109" count={109} style={{ backgroundColor: '#52c41a' }} />
   </Space>
 );
 
