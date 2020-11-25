@@ -15,20 +15,6 @@
 
   &&-no-icon {
     padding: @alert-no-icon-padding-vertical 15px;
-    &.@{alert-prefix-cls}-with-description .@{alert-prefix-cls}-close-icon {
-      top: @alert-with-description-no-icon-close-icon-top;
-      right: @padding-md - @alert-with-description-no-icon-closable-padding-right;
-    }
-  }
-
-  &&-closable {
-    padding-right: @alert-closable-padding-right;
-    &.@{alert-prefix-cls}-with-description.@{alert-prefix-cls}-no-icon {
-      padding-right: @alert-with-description-no-icon-closable-padding-right;
-    }
-    &.@{alert-prefix-cls}-with-description {
-      padding-right: @alert-with-description-closable-padding-right;
-    }
   }
 
   &-content {
@@ -92,22 +78,12 @@
     .@{alert-prefix-cls}-closable & {
       margin-right: @margin-xs;
     }
-
-    .@{alert-prefix-cls}-closable.@{alert-prefix-cls}-with-description & {
-      margin-right: @margin-xs + @padding-md - @alert-with-description-closable-padding-right;
-    }
-
-    .@{alert-prefix-cls}-closable.@{alert-prefix-cls}-with-description.@{alert-prefix-cls}-no-icon
-      & {
-      margin-right: @margin-xs + @padding-md -
-        @alert-with-description-no-icon-closable-padding-right;
-    }
   }
 
   &-close-icon {
     position: relative;
-    top: @font-size-base * @line-height-base / 2 - @font-size-base / 2;
-    right: @padding-md - @alert-closable-padding-right;
+    top: @font-size-base * @line-height-base / 2 - @font-size-sm / 2;
+    margin-left: @margin-xs;
     padding: 0;
     overflow: hidden;
     font-size: @font-size-sm;
@@ -153,8 +129,7 @@
   }
 
   &-with-description &-close-icon {
-    top: @padding-md - @alert-with-description-padding-vertical;
-    right: @padding-md - @alert-with-description-closable-padding-right;
+    top: 0;
     font-size: @font-size-base;
     cursor: pointer;
   }

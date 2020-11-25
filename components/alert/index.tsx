@@ -148,7 +148,6 @@ const Alert: AlertInterface = ({
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,
-      [`${prefixCls}-closable`]: isClosable,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
