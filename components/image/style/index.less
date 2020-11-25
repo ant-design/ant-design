@@ -4,8 +4,6 @@
 @image-prefix-cls: ~'@{ant-prefix}-image';
 @image-preview-prefix-cls: ~'@{image-prefix-cls}-preview';
 
-.modal-mask(@image-preview-prefix-cls);
-
 .@{image-prefix-cls} {
   position: relative;
   display: inline-block;
@@ -26,6 +24,8 @@
   }
 
   &-preview {
+    .modal-mask;
+
     height: 100%;
     text-align: center;
 
