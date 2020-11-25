@@ -98,7 +98,7 @@ describe('Layout', () => {
     expect(wrapper.find('.ant-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
   });
 
-  describe.only('zeroWidth', () => {
+  describe('zeroWidth', () => {
     it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
       const wrapper = mount(
         <Layout>
@@ -111,20 +111,51 @@ describe('Layout', () => {
       expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-zero-width')).toBe(true);
     });
 
-    it.only('should collapsible', () => {
-      const onCollapse = jest.fn();
+    describe('should collapsible', () => {
+      it('uncontrolled', () => {
+        const onCollapse = jest.fn();
 
-      const wrapper = mount(
-        <Layout>
-          <Sider collapsible breakpoint="lg" collapsedWidth="0" onCollapse={onCollapse}>
-            Sider
-          </Sider>
-          <Content>Content</Content>
-        </Layout>,
-      );
+        const wrapper = mount(
+          <Layout>
+            <Sider collapsible breakpoint="lg" collapsedWidth="0" onCollapse={onCollapse}>
+              Sider
+            </Sider>
+            <Content>Content</Content>
+          </Layout>,
+        );
 
-      wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
-      expect(onCollapse).toHaveBeenCalledTimes(1);
+        onCollapse.mockReset();
+
+        wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
+        expect(onCollapse).toHaveBeenCalledTimes(1);
+      });
+
+      it('controlled', () => {
+        const Demo = () => {
+          const [collapsed, setCollapsed] = React.useState(true);
+
+          return (
+            <Layout>
+              <Sider
+                collapsed={collapsed}
+                collapsible
+                breakpoint="lg"
+                collapsedWidth="0"
+                onCollapse={setCollapsed}
+              >
+                Sider
+              </Sider>
+              <Content>Content</Content>
+            </Layout>
+          );
+        };
+
+        const wrapper = mount(<Demo />);
+        expect(wrapper.find(Sider).prop('collapsed')).toBeTruthy();
+
+        wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
+        expect(wrapper.find(Sider).prop('collapsed')).toBeFalsy();
+      });
     });
   });
 
