@@ -84,7 +84,7 @@ const Collapse: CollapseInterface = props => {
       openAnimation={openAnimation}
       {...props}
       bordered={bordered}
-      expandIcon={(panelProps: PanelProps) => renderExpandIcon(panelProps)}
+      expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
     />
