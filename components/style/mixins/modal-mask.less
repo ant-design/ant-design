@@ -3,24 +3,20 @@
 @dialog-mask-modal-prefix-cls: ~'@{ant-prefix}-modal';
 @dialog-mask-image-prefix-cls: ~'@{ant-prefix}-image-preview';
 
-.modal-mask() {
-  .@{dialog-mask-modal-prefix-cls},
-  .@{dialog-mask-image-prefix-cls} {
+.modal-mask(@className) {
+  .@{className} {
     pointer-events: none;
   }
 
-  .@{dialog-mask-modal-prefix-cls}.zoom-enter,
-  .@{dialog-mask-modal-prefix-cls}.zoom-appear,
-  .@{dialog-mask-image-prefix-cls}.zoom-enter,
-  .@{dialog-mask-image-prefix-cls}.zoom-appear {
+  .@{className}.zoom-enter,
+  .@{className}.zoom-appear {
     transform: none; // reset scale avoid mousePosition bug
     opacity: 0;
     animation-duration: @animation-duration-slow;
     user-select: none; // https://github.com/ant-design/ant-design/issues/11777
   }
 
-  .@{dialog-mask-modal-prefix-cls}-mask,
-  .@{dialog-mask-image-prefix-cls}-mask {
+  .@{className}-mask {
     .box(fixed);
     z-index: @zindex-modal-mask;
     height: 100%;
@@ -32,8 +28,7 @@
     }
   }
 
-  .@{dialog-mask-modal-prefix-cls}-wrap,
-  .@{dialog-mask-image-prefix-cls}-wrap {
+  .@{className}-wrap {
     .box(fixed);
     overflow: auto;
     outline: 0;
