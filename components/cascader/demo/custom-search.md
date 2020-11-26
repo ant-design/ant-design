@@ -133,27 +133,30 @@ const CustomSearchCascaders = () => {
         <Cascader
           options={options1}
           onChange={onChange}
-          onSearch={onSearch1}
           placeholder="Please select"
-          showSearch
+          showSearch={{
+            onSearch: onSearch1,
+          }}
         />
       </Col>
       <Col span={24}>
         <Cascader
           options={options2}
           onChange={onChange}
-          onSearch={onSearch2}
           placeholder="Please select"
-          showSearch
+          showSearch={{
+            onSearch: onSearch2,
+          }}
         />
       </Col>
       <Col span={24}>
         <Cascader
           options={options3}
           onChange={onChange}
-          onSearch={onSearch3}
           placeholder="Please select"
-          showSearch
+          showSearch={{
+            onSearch: onSearch3,
+          }}
         />
       </Col>
     </Row>

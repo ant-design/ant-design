@@ -49,7 +49,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
-| onSearch | 文本框值变化时的回调，需要设置`showSearch`为`true` | function(value: string) | - |  |
 
 ### showSearch
 
@@ -62,6 +61,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | matchInputWidth | 搜索结果列表是否与输入框同宽（[效果](https://github.com/ant-design/ant-design/issues/25779)） | boolean | true |  |
 | render | 用于渲染 filter 后的选项 | function(inputValue, path): ReactNode | - |  |
 | sort | 用于排序 filter 后的选项 | function(a, b, inputValue) | - |  |
+| onSearch | 文本框值变化时的回调 | function(value: string) | - |  |
 
 ### Option
 
