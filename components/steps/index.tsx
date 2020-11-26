@@ -73,7 +73,11 @@ export default class Steps extends React.Component<StepsProps, any> {
         size === 'small' &&
         labelPlacement === 'vertical'
       ) {
-        return <div className={`${prefixCls}-circle-icon`} />;
+        return (
+          <div className={`${prefixCls}-circle-icon`}>
+            <div className={`${prefixCls}-circle`} />
+          </div>
+        );
       }
       if (status === 'process' && percent !== undefined) {
         // currently it's hard-coded, since we can't easily read the actually width of icon
