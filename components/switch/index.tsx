@@ -38,7 +38,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
   (
     {
       prefixCls: customizePrefixCls,
-      size: customizeSize,
+      size: customizeSize = 'small',
       loading,
       className = '',
       disabled,
