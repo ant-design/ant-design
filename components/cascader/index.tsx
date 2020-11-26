@@ -64,7 +64,7 @@ export interface ShowSearchType {
   ) => number;
   matchInputWidth?: boolean;
   limit?: number | false;
-  onSearch?: (val: string) => void;
+  onChange?: (val: string) => void;
 }
 
 export interface CascaderProps {
@@ -257,7 +257,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
     if (
       nextProps.showSearch &&
-      (nextProps.showSearch as ShowSearchType).onSearch === undefined &&
+      (nextProps.showSearch as ShowSearchType).onChange === undefined &&
       prevProps.options !== nextProps.options
     ) {
       newState.flattenOptions = flattenTree(nextProps.options, nextProps);
@@ -284,7 +284,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       inputFocused: false,
       popupVisible: props.popupVisible,
       flattenOptions:
-        props.showSearch && (props.showSearch as ShowSearchType).onSearch === undefined
+        props.showSearch && (props.showSearch as ShowSearchType).onChange === undefined
           ? flattenTree(props.options, props)
           : undefined,
       prevProps: props,
@@ -383,9 +383,9 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       this.handlePopupVisibleChange(true);
     }
     if (showSearch) {
-      const { onSearch } = showSearch as ShowSearchType;
-      if (onSearch) {
-        onSearch(inputValue);
+      const { onChange } = showSearch as ShowSearchType;
+      if (onChange) {
+        onChange(inputValue);
       }
     }
     this.setState({ inputValue });
@@ -579,7 +579,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         let { options } = props;
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
-          if (state.inputValue && (showSearch as ShowSearchType).onSearch === undefined) {
+          if (state.inputValue && (showSearch as ShowSearchType).onChange === undefined) {
             options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
