@@ -29,7 +29,7 @@ exports[`Alert ErrorBoundary 1`] = `
 
 exports[`Alert action of Alert custom action 1`] = `
 <div
-  class="ant-alert ant-alert-success ant-alert-closable"
+  class="ant-alert ant-alert-success"
   data-show="true"
   role="alert"
 >

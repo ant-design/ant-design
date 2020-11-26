@@ -3,7 +3,7 @@
 exports[`renders ./components/alert/demo/action.md correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-closable"
+    class="ant-alert ant-alert-success"
     data-show="true"
     role="alert"
   >
@@ -131,7 +131,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-closable"
+    class="ant-alert ant-alert-warning ant-alert-no-icon"
     data-show="true"
     role="alert"
   >
@@ -194,7 +194,7 @@ Array [
     </button>
   </div>,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon ant-alert-closable"
+    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
     data-show="true"
     role="alert"
   >
@@ -315,7 +315,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-banner ant-alert-closable"
+    class="ant-alert ant-alert-warning ant-alert-banner"
     data-show="true"
     role="alert"
   >
@@ -460,7 +460,7 @@ exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
 exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-closable"
+    class="ant-alert ant-alert-warning ant-alert-no-icon"
     data-show="true"
     role="alert"
   >
@@ -503,7 +503,7 @@ Array [
     </button>
   </div>,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon ant-alert-closable"
+    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
     data-show="true"
     role="alert"
   >
@@ -552,7 +552,7 @@ Array [
 
 exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
 <div
-  class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-closable"
+  class="ant-alert ant-alert-info ant-alert-no-icon"
   data-show="true"
   role="alert"
 >
@@ -1082,7 +1082,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-alert ant-alert-warning ant-alert-closable"
+    class="ant-alert ant-alert-warning"
     data-show="true"
     role="alert"
   >
@@ -1265,7 +1265,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-closable"
+    class="ant-alert ant-alert-warning ant-alert-with-description"
     data-show="true"
     role="alert"
   >
@@ -1434,7 +1434,7 @@ exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
 exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
 <div>
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon ant-alert-closable"
+    class="ant-alert ant-alert-success ant-alert-no-icon"
     data-show="true"
     role="alert"
   >
