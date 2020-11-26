@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-可以直接监听`onSearch`事件，自己实现搜索逻辑
+可以直接监听`showSearch.onChange`事件，自己实现搜索逻辑
 
 ## en-US
 
-You can directly listen `onSearch` events and implement search logic yourself
+You can directly listen `showSearch.onChange` events and implement search logic yourself
 
 ```jsx
 import { Cascader, Row, Col } from 'antd';
@@ -115,15 +115,15 @@ const CustomSearchCascaders = () => {
     }));
     return result;
   }
-  function onSearch1(val) {
+  function onChange1(val) {
     const result = search(val);
     setOptions1(result);
   }
-  function onSearch2(val) {
+  function onChange2(val) {
     const result = search(val);
     setOptions2(result);
   }
-  function onSearch3(val) {
+  function onChange3(val) {
     const result = search(val);
     setOptions3(result);
   }
@@ -135,7 +135,7 @@ const CustomSearchCascaders = () => {
           onChange={onChange}
           placeholder="Please select"
           showSearch={{
-            onSearch: onSearch1,
+            onChange: onChange1,
           }}
         />
       </Col>
@@ -145,7 +145,7 @@ const CustomSearchCascaders = () => {
           onChange={onChange}
           placeholder="Please select"
           showSearch={{
-            onSearch: onSearch2,
+            onChange: onChange2,
           }}
         />
       </Col>
@@ -155,7 +155,7 @@ const CustomSearchCascaders = () => {
           onChange={onChange}
           placeholder="Please select"
           showSearch={{
-            onSearch: onSearch3,
+            onChange: onChange3,
           }}
         />
       </Col>
