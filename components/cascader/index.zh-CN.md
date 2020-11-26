@@ -49,6 +49,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
+| onSearch | 文本框值变化时的回调，需要设置`showSearch`为`true` | function(value: string) | - |  |
 
 ### showSearch
 

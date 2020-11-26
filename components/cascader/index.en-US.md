@@ -48,6 +48,7 @@ Cascade selection box.
 | value | The selected value | string\[] \| number\[] | - |  |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - |  |
+| onSearch | A callback function, can be executed when the search input changes. You need to set `showSearch` to `true` | function(value: string) | - |  |
 
 ### showSearch
 

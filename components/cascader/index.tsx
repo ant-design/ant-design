@@ -119,6 +119,7 @@ export interface CascaderProps {
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
   dropdownRender?: (menus: React.ReactNode) => React.ReactNode;
+  onSearch?: (val: string) => void;
 }
 
 export interface CascaderState {
@@ -254,7 +255,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     if ('popupVisible' in nextProps) {
       newState.popupVisible = nextProps.popupVisible;
     }
-    if (nextProps.showSearch && prevProps.options !== nextProps.options) {
+    if (
+      nextProps.showSearch &&
+      nextProps.onSearch === undefined &&
+      prevProps.options !== nextProps.options
+    ) {
       newState.flattenOptions = flattenTree(nextProps.options, nextProps);
     }
 
@@ -278,7 +283,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       inputValue: '',
       inputFocused: false,
       popupVisible: props.popupVisible,
-      flattenOptions: props.showSearch ? flattenTree(props.options, props) : undefined,
+      flattenOptions:
+        props.showSearch && props.onSearch === undefined
+          ? flattenTree(props.options, props)
+          : undefined,
       prevProps: props,
     };
   }
@@ -370,8 +378,12 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { popupVisible } = this.state;
     const inputValue = e.target.value;
+    const { onSearch } = this.props;
     if (!popupVisible) {
       this.handlePopupVisibleChange(true);
+    }
+    if (onSearch) {
+      onSearch(inputValue);
     }
     this.setState({ inputValue });
   };
@@ -497,6 +509,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           popupClassName,
           bordered,
           dropdownRender,
+          onSearch,
           ...otherProps
         } = props;
 
@@ -559,12 +572,13 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           'notFoundContent',
           'fieldNames',
           'bordered',
+          'onSearch',
         ]);
 
         let { options } = props;
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
-          if (state.inputValue) {
+          if (state.inputValue && onSearch === undefined) {
             options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
