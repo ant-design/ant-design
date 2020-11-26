@@ -10,7 +10,7 @@ import { cloneElement } from '../_util/reactNode';
 import UpArrowSVG from './customIcons/UpArrow';
 
 const UpArrowFilled = (props: any): JSX.Element => (
-  <Icon component={UpArrowSVG} aria-label="Right Arrow" {...props} />
+  <Icon component={UpArrowSVG} aria-label="Collapse Icon" {...props} />
 );
 
 export type ExpandIconPosition = 'left' | 'right' | undefined;
