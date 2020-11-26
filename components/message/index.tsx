@@ -10,7 +10,13 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import Icon from '@ant-design/icons';
+import CrossSVG from './customIcons/CrossSVG';
 import createUseMessage from './hooks/useMessage';
+
+const CloseIconFilled = (props: any): JSX.Element => (
+  <Icon component={CrossSVG} aria-label="Close Message" {...props} />
+);
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
@@ -21,7 +27,7 @@ let key = 1;
 let localPrefixCls = 'ant-message';
 let transitionName = 'move-down';
 let getContainer: () => HTMLElement;
-let maxCount: number;
+let maxCount = 2;
 let rtl = false;
 
 export function getKeyThenIncreaseKey() {
@@ -138,6 +144,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
     [`${prefixCls}-${args.type}`]: args.type,
     [`${prefixCls}-rtl`]: rtl === true,
   });
+
   return {
     key: args.key,
     duration,
@@ -147,6 +154,14 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
       <div className={messageClass}>
         {args.icon || (IconComponent && <IconComponent />)}
         <span>{args.content}</span>
+        <div
+          className={`${prefixCls}-custom-content-close`}
+          onClick={() => {
+            if (args.key && messageInstance) messageInstance.removeNotice(args.key);
+          }}
+        >
+          <CloseIconFilled style={{ fontSize: '12px' }} />
+        </div>
       </div>
     ),
     onClose: args.onClose,

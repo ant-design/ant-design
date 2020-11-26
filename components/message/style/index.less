@@ -33,7 +33,15 @@
 
   &-custom-content {
     padding: @message-notice-text-padding;
+    position: relative;
     text-align: left;
+    & > &-close {
+      position: absolute;
+      right: 21px;
+      top: 21px;
+      font-size: 12px;
+      cursor: pointer;
+    }
   }
 
   .@{message-prefix-cls}-success {

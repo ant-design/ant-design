@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import Icon from '@ant-design/icons';
 import CollapsePanel from './CollapsePanel';
