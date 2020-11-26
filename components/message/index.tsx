@@ -157,7 +157,9 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
         <div
           className={`${prefixCls}-custom-content-close`}
           onClick={() => {
-            if (args.key && messageInstance) messageInstance.removeNotice(args.key);
+            if (args.key && messageInstance) {
+              messageInstance.removeNotice(args.key);
+            }
           }}
         >
           <CloseIconFilled style={{ fontSize: '12px' }} />
