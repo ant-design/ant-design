@@ -329,9 +329,9 @@
 @radio-solid-checked-color: @component-background;
 
 // Radio buttons
-@radio-button-bg: @btn-default-bg;
+@radio-button-bg: #fff;
 @radio-button-checked-bg: @btn-default-bg;
-@radio-button-color: @btn-default-color;
+@radio-button-color: @blue-crayola;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
 @radio-disabled-button-checked-bg: tint(@black, 90%);
@@ -839,14 +839,18 @@
 // Switch
 // ---
 @switch-height: 22px;
-@switch-sm-height: 16px;
+@switch-sm-height: 14px;
 @switch-min-width: 44px;
-@switch-sm-min-width: 28px;
+@switch-sm-min-width: 20px;
+@switch-sm-max-width: 22px;
 @switch-disabled-opacity: 0.4;
-@switch-color: @primary-color;
+@switch-color: @blue-crayola;
 @switch-bg: @component-background;
+@switch-small-border: @cadet-grey;
+@switch-small-handle-color: @cadet-grey;
 @switch-shadow-color: fade(#00230b, 20%);
 @switch-padding: 2px;
+@switch-small-padding: 2px;
 @switch-inner-margin-min: ceil(@switch-height * 0.3);
 @switch-inner-margin-max: ceil(@switch-height * 1.1);
 @switch-sm-inner-margin-min: ceil(@switch-sm-height * 0.3);
@@ -895,19 +899,19 @@
 @slider-rail-background-color: @background-color-base;
 @slider-rail-background-color-hover: #e1e1e1;
 @slider-track-background-color: @primary-3;
-@slider-track-background-color-hover: @primary-4;
+@slider-track-background-color-hover: #2f80ed;
 @slider-handle-border-width: 2px;
 @slider-handle-background-color: @component-background;
-@slider-handle-color: @primary-3;
-@slider-handle-color-hover: @primary-4;
+@slider-handle-color: #2f80ed;
+@slider-handle-color-hover: #2f80ed;
 @slider-handle-color-focus: tint(@primary-color, 20%);
 @slider-handle-color-focus-shadow: fade(@primary-color, 12%);
 @slider-handle-color-tooltip-open: @primary-color;
 @slider-handle-size: 14px;
 @slider-handle-margin-top: -5px;
 @slider-handle-shadow: 0;
-@slider-dot-border-color: @border-color-split;
-@slider-dot-border-color-active: tint(@primary-color, 50%);
+@slider-dot-border-color: #2f80ed;
+@slider-dot-border-color-active: #2f80ed;
 @slider-disabled-color: @disabled-color;
 @slider-disabled-background-color: @component-background;
 

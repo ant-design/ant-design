@@ -28,11 +28,21 @@ const warning = () => {
   message.warning('This is a warning message');
 };
 
+const successWithClose = () => {
+  // const instance =
+  message.success({ content: 'This is a success message 90 second waiting', duration: 90 });
+  // console.log(setTimeout(() => instance(), 4000));
+};
+
 ReactDOM.render(
   <Space>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
+    <br />
+    ---
+    <br />
+    <Button onClick={successWithClose}>Success 90s waiting</Button>
   </Space>,
   mountNode,
 );

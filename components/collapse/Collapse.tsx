@@ -1,12 +1,17 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 
+import Icon from '@ant-design/icons';
 import CollapsePanel from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
 import animation from '../_util/openAnimation';
 import { cloneElement } from '../_util/reactNode';
+import UpArrowSVG from './customIcons/UpArrow';
+
+const UpArrowFilled = (props: any): JSX.Element => (
+  <Icon component={UpArrowSVG} aria-label="Right Arrow" {...props} />
+);
 
 export type ExpandIconPosition = 'left' | 'right' | undefined;
 
@@ -51,7 +56,7 @@ const Collapse: CollapseInterface = props => {
     if (expandIconPosition !== undefined) {
       return expandIconPosition;
     }
-    return direction === 'rtl' ? 'right' : 'left';
+    return 'right';
   };
 
   const renderExpandIcon = (panelProps: PanelProps = {}) => {
@@ -59,7 +64,7 @@ const Collapse: CollapseInterface = props => {
     const icon = (expandIcon ? (
       expandIcon(panelProps)
     ) : (
-      <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+      <UpArrowFilled rotate={!panelProps.isActive ? 180 : undefined} />
     )) as React.ReactNode;
 
     return cloneElement(icon, () => ({

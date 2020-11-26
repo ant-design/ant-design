@@ -31,7 +31,7 @@
   &-track {
     position: absolute;
     height: 4px;
-    background-color: @slider-track-background-color;
+    background-color: @slider-dot-border-color-active;
     border-radius: @border-radius-base;
     transition: background-color 0.3s;
   }
@@ -107,6 +107,7 @@
   }
 
   &-dot {
+    display: none;
     position: absolute;
     top: -2px;
     width: 8px;

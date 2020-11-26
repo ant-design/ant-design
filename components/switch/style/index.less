@@ -5,7 +5,7 @@
 @switch-duration: 0.2s;
 
 @switch-pin-size: @switch-height - 4px;
-@switch-sm-pin-size: @switch-sm-height - 4px;
+@switch-sm-pin-size: @switch-sm-height - 8px;
 
 .@{switch-prefix-cls} {
   .reset-component;
@@ -121,8 +121,11 @@
   // ========================== Size ==========================
   &-small {
     min-width: @switch-sm-min-width;
+    max-width: @switch-sm-max-width;
     height: @switch-sm-height;
     line-height: @switch-sm-height;
+    background-color: @switch-bg;
+    border: 2px solid @switch-small-border;
 
     .@{switch-prefix-cls}-inner {
       margin: 0 @switch-sm-inner-margin-min 0 @switch-sm-inner-margin-max;
@@ -132,6 +135,12 @@
     .@{switch-prefix-cls}-handle {
       width: @switch-sm-pin-size;
       height: @switch-sm-pin-size;
+      top: @switch-small-padding;
+      left: @switch-small-padding;
+
+      &:before {
+        background-color: @switch-small-handle-color;
+      }
     }
 
     .@{switch-prefix-cls}-loading-icon {
@@ -139,12 +148,18 @@
     }
 
     &.@{switch-prefix-cls}-checked {
+      background-color: @switch-color;
+      border: 2px solid @switch-color;
+
       .@{switch-prefix-cls}-inner {
         margin: 0 @switch-sm-inner-margin-max 0 @switch-sm-inner-margin-min;
       }
 
       .@{switch-prefix-cls}-handle {
-        left: calc(100% - @switch-sm-pin-size - @switch-padding);
+        left: calc(100% - @switch-sm-pin-size - @switch-small-padding);
+        &:before {
+          background-color: @switch-bg;
+        }
       }
     }
   }
