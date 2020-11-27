@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 4.8.6
+
+`2020-11-27`
+
+- 🐞 Fix Badge style blink when mounted. [#28003](https://github.com/ant-design/ant-design/pull/28003)
+- 💄 Reduce Modal style size. [#27998](https://github.com/ant-design/ant-design/pull/27998)
+- 🐞 Fix Layout.Sider can not collapse when `width='0'`. [#28000](https://github.com/ant-design/ant-design/pull/28000)
+- 🐞 Fix Menu style when using none Ant Design icons. [#27983](https://github.com/ant-design/ant-design/pull/27983)
+- Input
+  - 🐞 Fix Input.Search button height when customize less variables. [#27986](https://github.com/ant-design/ant-design/pull/27986)
+  - 🐞 Fix Input.Search `addonBefore` abnormal style. [#27960](https://github.com/ant-design/ant-design/pull/27960)
+- 🐞 Fix Typography.Link clicking copy button will redirect. [#27982](https://github.com/ant-design/ant-design/pull/27982)
+- 🐞 Fix Carousel throws error `Unable to preventDefault inside passive event listener`. [#27957](https://github.com/ant-design/ant-design/pull/27957)
+- 🌐 Improve data picker locale for `en_GB` and `zh_TW`. [#28016](https://github.com/ant-design/ant-design/pull/28016) [@abz53378](https://github.com/abz53378)
+- RTL
+  - 💄 Optimize the border style of Descriptions in RTL model. [#28010](https://github.com/ant-design/ant-design/pull/28010)
+  - 💄 Fix the vertical style of Steps in RTL mode. [#27996](https://github.com/ant-design/ant-design/pull/27996)
+- TypeScript
+  - 🤖 Fix Upload `beforeUpload` definition. [#27946](https://github.com/ant-design/ant-design/pull/27946) [@bingling0084](https://github.com/bingling0084)
+  - 🤖 Provided a separate type definition for Carousel reference. [#27935](https://github.com/ant-design/ant-design/pull/27935) [@ocassio](https://github.com/ocassio)
+
 ## 4.8.5
 
 `2020-11-22`
