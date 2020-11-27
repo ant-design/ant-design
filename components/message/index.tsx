@@ -86,13 +86,6 @@ function getRCNotificationInstance(
       maxCount,
     },
     (instance: any) => {
-      if (messageInstance) {
-        callback({
-          prefixCls,
-          instance: messageInstance,
-        });
-        return;
-      }
       messageInstance = instance;
       callback({
         prefixCls,
