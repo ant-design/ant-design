@@ -9,6 +9,14 @@
 .@{tree-prefix-cls} {
   &-rtl {
     direction: rtl;
+    .@{tree-prefix-cls}-node-content-wrapper[draggable='true'] {
+      .@{tree-prefix-cls}-drop-indicator {
+        &::after {
+          right: -6px;
+          left: unset;
+        }
+      }
+    }
   }
 
   // ===================== TreeNode =====================

@@ -14,6 +14,19 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -28,6 +41,10 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -225,6 +242,19 @@ exports[`Directory Tree defaultExpandAll 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -239,6 +269,10 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -395,6 +429,10 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -569,6 +607,19 @@ exports[`Directory Tree defaultExpandParent 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -583,6 +634,10 @@ exports[`Directory Tree defaultExpandParent 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -643,6 +698,10 @@ exports[`Directory Tree defaultExpandParent 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -721,6 +780,19 @@ exports[`Directory Tree expand click 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -735,6 +807,10 @@ exports[`Directory Tree expand click 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -897,6 +973,10 @@ exports[`Directory Tree expand click 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
               <span
@@ -974,6 +1054,19 @@ exports[`Directory Tree expand click 2`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -988,6 +1081,10 @@ exports[`Directory Tree expand click 2`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -1052,6 +1149,10 @@ exports[`Directory Tree expand click 2`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -1130,6 +1231,19 @@ exports[`Directory Tree expand double click 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -1144,6 +1258,10 @@ exports[`Directory Tree expand double click 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -1306,6 +1424,10 @@ exports[`Directory Tree expand double click 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
               <span
@@ -1383,6 +1505,19 @@ exports[`Directory Tree expand double click 2`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -1397,6 +1532,10 @@ exports[`Directory Tree expand double click 2`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -1461,6 +1600,10 @@ exports[`Directory Tree expand double click 2`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -1539,6 +1682,19 @@ exports[`Directory Tree expand with state control click 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -1553,6 +1709,10 @@ exports[`Directory Tree expand with state control click 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -1684,6 +1844,19 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -1698,6 +1871,10 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -1829,6 +2006,19 @@ exports[`Directory Tree expandedKeys update 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -1843,6 +2033,10 @@ exports[`Directory Tree expandedKeys update 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -1903,6 +2097,10 @@ exports[`Directory Tree expandedKeys update 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -2082,6 +2280,19 @@ exports[`Directory Tree group select 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -2096,6 +2307,10 @@ exports[`Directory Tree group select 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -2252,6 +2467,10 @@ exports[`Directory Tree group select 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -2426,6 +2645,19 @@ exports[`Directory Tree group select 2`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -2440,6 +2672,10 @@ exports[`Directory Tree group select 2`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -2596,6 +2832,10 @@ exports[`Directory Tree group select 2`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -2770,6 +3010,19 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -2799,6 +3052,19 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
       tabindex="0"
       value=""
     />
+  </div>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
   </div>
   <div
     class="ant-tree-list"
@@ -2832,6 +3098,19 @@ exports[`Directory Tree selectedKeys update 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -2846,6 +3125,10 @@ exports[`Directory Tree selectedKeys update 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -3002,6 +3285,10 @@ exports[`Directory Tree selectedKeys update 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
