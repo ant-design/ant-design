@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LastIndexContext, SpaceSizeContext } from '.';
+import { SpaceContext } from '.';
 
 export interface ItemProps {
   className: string;
@@ -20,8 +20,7 @@ export default function Item({
   split,
   wrap,
 }: ItemProps) {
-  const latestIndex = React.useContext(LastIndexContext);
-  const { horizontalSize, verticalSize } = React.useContext(SpaceSizeContext);
+  const { horizontalSize, verticalSize, latestIndex } = React.useContext(SpaceContext);
 
   if (children === null || children === undefined) {
     return null;

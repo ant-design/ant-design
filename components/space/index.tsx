@@ -5,9 +5,8 @@ import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
 
-export const LastIndexContext = React.createContext(0);
-
-export const SpaceSizeContext = React.createContext({
+export const SpaceContext = React.createContext({
+  latestIndex: 0,
   horizontalSize: 0,
   verticalSize: 0,
 });
@@ -115,9 +114,9 @@ const Space: React.FC<SpaceProps> = props => {
       }}
       {...otherProps}
     >
-      <SpaceSizeContext.Provider value={{ horizontalSize, verticalSize }}>
-        <LastIndexContext.Provider value={latestIndex}>{nodes}</LastIndexContext.Provider>
-      </SpaceSizeContext.Provider>
+      <SpaceContext.Provider value={{ horizontalSize, verticalSize, latestIndex }}>
+        {nodes}
+      </SpaceContext.Provider>
     </div>
   );
 };
