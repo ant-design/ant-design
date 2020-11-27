@@ -22,21 +22,22 @@ export default function Item({
 }: ItemProps) {
   const { horizontalSize, verticalSize, latestIndex } = React.useContext(SpaceContext);
 
+  let style: React.CSSProperties = {};
+
+  if (direction === 'vertical') {
+    if (index < latestIndex) {
+      style = { marginBottom: horizontalSize / (split ? 2 : 1) };
+    }
+  } else {
+    style = {
+      ...(index < latestIndex && { [marginDirection]: horizontalSize / (split ? 2 : 1) }),
+      ...(wrap && { paddingBottom: verticalSize }),
+    };
+  }
+
   if (children === null || children === undefined) {
     return null;
   }
-
-  const verticalStyle =
-    wrap && direction === 'horizontal' ? { paddingBottom: verticalSize } : undefined;
-
-  const style =
-    index >= latestIndex
-      ? { ...verticalStyle }
-      : {
-          [direction === 'vertical' ? 'marginBottom' : marginDirection]:
-            (horizontalSize ?? 0) / (split ? 2 : 1),
-          ...verticalStyle,
-        };
 
   return (
     <>
