@@ -280,7 +280,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^4.0.0",
     "theme-switcher": "^1.0.2",
-    "typescript": "~4.0.0",
+    "typescript": "~4.1.2",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.2.0",
