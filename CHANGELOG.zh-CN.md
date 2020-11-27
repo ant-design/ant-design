@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 4.8.6
+
+`2020-11-27`
+
+- 🐞 修复 Badge 在初始化时样式抖动的问题。[#28003](https://github.com/ant-design/ant-design/pull/28003)
+- 💄 优化 Modal 相关样式的冗余。[#27998](https://github.com/ant-design/ant-design/pull/27998)
+- 🐞 修复 Layout.Sider 在 `width='0'` 时不能展开的问题。[#28000](https://github.com/ant-design/ant-design/pull/28000)
+- 🐞 修复 Menu 使用非 Ant Design 图标时的样式问题。[#27983](https://github.com/ant-design/ant-design/pull/27983)
+- Input
+  - 🐞 修复 Input.Search 自定义 less 变量时的按钮高度问题。[#27986](https://github.com/ant-design/ant-design/pull/27986)
+  - 🐞 修复 Input.Search `addonBefore` 样式异常。[#27960](https://github.com/ant-design/ant-design/pull/27960)
+- 🐞 修复 Typography.Link 点击复制按钮会触发链接跳转的问题。[#27982](https://github.com/ant-design/ant-design/pull/27982)
+- 🐞 修复 Carousel `Unable to preventDefault inside passive event listener` 报错问题。[#27957](https://github.com/ant-design/ant-design/pull/27957)
+- 🌐 改进 DatePicker 的 `en_GB` 与 `zh_TW` 本地化支持。[#28016](https://github.com/ant-design/ant-design/pull/28016) [@abz53378](https://github.com/abz53378)
+- RTL
+  - 💄 优化 Descriptions 在 RTL 模型下的边框样式。[#28010](https://github.com/ant-design/ant-design/pull/28010)
+  - 💄 修复 Steps 垂直方向在 RTL 模式下的样式。[#27996](https://github.com/ant-design/ant-design/pull/27996)
+- TypeScript
+  - 🤖 修复 Upload 的 `beforeUpload` 定义问题。[#27946](https://github.com/ant-design/ant-design/pull/27946) [@bingling0084](https://github.com/bingling0084)
+  - 🤖 为 Carousel 提供单独的 ref 定义。[#27935](https://github.com/ant-design/ant-design/pull/27935) [@ocassio](https://github.com/ocassio)
+
 ## 4.8.5
 
 `2020-11-22`
