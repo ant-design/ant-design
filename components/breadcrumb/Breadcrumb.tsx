@@ -11,6 +11,7 @@ import { cloneElement } from '../_util/reactNode';
 
 export interface Route {
   path: string;
+  disabled?: boolean;
   breadcrumbName: string;
   children?: Omit<Route, 'children'>[];
 }
@@ -45,7 +46,16 @@ function getBreadcrumbName(route: Route, params: any) {
 function defaultItemRender(route: Route, params: any, routes: Route[], paths: string[]) {
   const isLastItem = routes.indexOf(route) === routes.length - 1;
   const name = getBreadcrumbName(route, params);
-  return isLastItem ? <span>{name}</span> : <a href={`#/${paths.join('/')}`}>{name}</a>;
+  let item = <span>{name}</span>;
+  if(!isLastItem && !route.disabled){
+    const href = `#/${paths.join('/')}`;
+    if(href){
+      item = <a>{name}</a>;
+    } else {
+      item = <a href={`#/${paths.join('/')}`}>{name}</a>;
+    }
+  }
+  return item;
 }
 
 const getPath = (path: string, params: any) => {
