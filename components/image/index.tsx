@@ -9,4 +9,6 @@ const Image: React.FC<ImageProps> = ({ prefixCls: customizePrefixCls, ...otherPr
   return <RcImage prefixCls={prefixCls} {...otherProps} />;
 };
 
+export { ImageProps };
+
 export default Image;

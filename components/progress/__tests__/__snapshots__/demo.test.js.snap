@@ -88,7 +88,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -148,7 +147,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="check"
             fill="currentColor"
             focusable="false"
@@ -225,7 +223,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="minus"
           fill="currentColor"
           focusable="false"
@@ -250,7 +247,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="plus"
           fill="currentColor"
           focusable="false"
@@ -360,7 +356,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -420,7 +415,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="check"
             fill="currentColor"
             focusable="false"
@@ -566,7 +560,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="minus"
           fill="currentColor"
           focusable="false"
@@ -591,7 +584,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="plus"
           fill="currentColor"
           focusable="false"
@@ -870,7 +862,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="check"
             fill="currentColor"
             focusable="false"
@@ -960,7 +951,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -1000,7 +990,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="check-circle"
           fill="currentColor"
           focusable="false"
@@ -1107,7 +1096,6 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -1147,7 +1135,6 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="check-circle"
           fill="currentColor"
           focusable="false"
@@ -1515,7 +1502,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="check-circle"
             fill="currentColor"
             focusable="false"

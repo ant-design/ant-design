@@ -115,7 +115,6 @@ exports[`renders ./components/breadcrumb/demo/overlay.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -275,7 +274,6 @@ exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="home"
           fill="currentColor"
           focusable="false"
@@ -307,7 +305,6 @@ exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"

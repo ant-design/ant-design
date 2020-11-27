@@ -132,7 +132,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   context: ConfigConsumerProps;
 
-  editIcon?: TransButton;
+  editIcon?: HTMLDivElement;
 
   contentRef = React.createRef<HTMLElement>();
 
@@ -213,7 +213,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   // ================ Copy ================
-  onCopyClick = () => {
+  onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
     const { children, copyable } = this.props;
     const copyConfig: CopyConfig = {
       ...(typeof copyable === 'object' ? copyable : null),
@@ -257,7 +258,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     };
   }
 
-  setEditRef = (node: TransButton) => {
+  setEditRef = (node: HTMLDivElement) => {
     this.editIcon = node;
   };
 

@@ -11,7 +11,22 @@
   &-item-label {
     &::after {
       .@{descriptions-prefix-cls}-rtl & {
-        margin: 0 2px 0 8px;
+        margin: 0 @descriptions-item-label-colon-margin-left 0
+          @descriptions-item-label-colon-margin-right;
+      }
+    }
+  }
+
+  &-bordered {
+    .@{descriptions-prefix-cls}-item-label,
+    .@{descriptions-prefix-cls}-item-content {
+      .@{descriptions-prefix-cls}-rtl& {
+        border-right: none;
+        border-left: 1px solid @border-color-split;
+
+        &:last-child {
+          border-left: none;
+        }
       }
     }
   }

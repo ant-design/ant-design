@@ -17,7 +17,6 @@ exports[`TextArea allowClear should change type when click 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -48,7 +47,6 @@ exports[`TextArea allowClear should change type when click 2`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -79,7 +77,6 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -110,7 +107,6 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -141,7 +137,6 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -172,7 +167,6 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -203,7 +197,6 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -234,7 +227,6 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"

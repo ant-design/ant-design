@@ -38,7 +38,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -91,7 +90,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -214,7 +212,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -330,7 +327,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -383,7 +379,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -541,7 +536,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -723,7 +717,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -824,7 +817,6 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -852,7 +844,6 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="smile"
                     fill="currentColor"
                     focusable="false"
@@ -901,7 +892,6 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="meh"
                     fill="currentColor"
                     focusable="false"
@@ -950,7 +940,6 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="frown"
                     fill="currentColor"
                     focusable="false"
@@ -1016,7 +1005,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1044,7 +1032,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="folder-open"
                     fill="currentColor"
                     focusable="false"
@@ -1093,7 +1080,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -1142,7 +1128,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -1176,7 +1161,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1204,7 +1188,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="folder-open"
                     fill="currentColor"
                     focusable="false"
@@ -1253,7 +1236,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -1302,7 +1284,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -1368,7 +1349,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1416,7 +1396,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1554,7 +1533,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1621,7 +1599,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1712,7 +1689,6 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1750,7 +1726,6 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1888,7 +1863,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="minus-square"
                     fill="currentColor"
                     focusable="false"
@@ -1937,7 +1911,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="minus-square"
                     fill="currentColor"
                     focusable="false"
@@ -1989,7 +1962,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -2038,7 +2010,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -2092,7 +2063,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -2138,7 +2108,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="plus-square"
                     fill="currentColor"
                     focusable="false"
@@ -2187,7 +2156,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="plus-square"
                     fill="currentColor"
                     focusable="false"
@@ -2228,7 +2196,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="plus-square"
                     fill="currentColor"
                     focusable="false"
@@ -2293,7 +2260,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="search"
               fill="currentColor"
               focusable="false"
@@ -2347,7 +2313,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="caret-down"
                     fill="currentColor"
                     focusable="false"
@@ -2390,7 +2355,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="caret-down"
                     fill="currentColor"
                     focusable="false"
@@ -2488,7 +2452,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2534,7 +2497,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2583,7 +2545,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="file"
                   fill="currentColor"
                   focusable="false"
@@ -2632,7 +2593,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="file"
                   fill="currentColor"
                   focusable="false"
@@ -2681,7 +2641,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="file"
                   fill="currentColor"
                   focusable="false"
@@ -2727,7 +2686,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2773,7 +2731,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"

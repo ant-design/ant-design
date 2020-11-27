@@ -17,6 +17,20 @@ interface FormItemInputMiscProps {
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   onDomErrorVisibleChange: (visible: boolean) => void;
+  /**
+   * @private Internal usage, do not use in any of your production.
+   */
+  _internalItemRender?: {
+    mark: string;
+    render: (
+      props: FormItemInputProps & FormItemInputMiscProps,
+      domList: {
+        input: JSX.Element;
+        errorList: JSX.Element;
+        extra: JSX.Element | null;
+      },
+    ) => React.ReactNode;
+  };
 }
 
 export interface FormItemInputProps {
@@ -33,18 +47,20 @@ const iconMap: { [key: string]: any } = {
   validating: LoadingOutlined,
 };
 
-const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
-  prefixCls,
-  status,
-  wrapperCol,
-  children,
-  help,
-  errors,
-  onDomErrorVisibleChange,
-  hasFeedback,
-  validateStatus,
-  extra,
-}) => {
+const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {
+  const {
+    prefixCls,
+    status,
+    wrapperCol,
+    children,
+    help,
+    errors,
+    onDomErrorVisibleChange,
+    hasFeedback,
+    _internalItemRender: formItemRender,
+    validateStatus,
+    extra,
+  } = props;
   const baseClassName = `${prefixCls}-item`;
 
   const formContext = React.useContext(FormContext);
@@ -74,21 +90,36 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   delete subFormContext.labelCol;
   delete subFormContext.wrapperCol;
 
+  const inputDom = (
+    <div className={`${baseClassName}-control-input`}>
+      <div className={`${baseClassName}-control-input-content`}>{children}</div>
+      {icon}
+    </div>
+  );
+  const errorListDom = (
+    <FormItemPrefixContext.Provider value={{ prefixCls, status }}>
+      <ErrorList errors={errors} help={help} onDomErrorVisibleChange={onDomErrorVisibleChange} />
+    </FormItemPrefixContext.Provider>
+  );
+
+  // If extra = 0, && will goes wrong
+  // 0&&error -> 0
+  const extraDom = extra ? <div className={`${baseClassName}-extra`}>{extra}</div> : null;
+
+  const dom =
+    formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (
+      formItemRender.render(props, { input: inputDom, errorList: errorListDom, extra: extraDom })
+    ) : (
+      <>
+        {inputDom}
+        {errorListDom}
+        {extraDom}
+      </>
+    );
   return (
     <FormContext.Provider value={subFormContext}>
       <Col {...mergedWrapperCol} className={className}>
-        <div className={`${baseClassName}-control-input`}>
-          <div className={`${baseClassName}-control-input-content`}>{children}</div>
-          {icon}
-        </div>
-        <FormItemPrefixContext.Provider value={{ prefixCls, status }}>
-          <ErrorList
-            errors={errors}
-            help={help}
-            onDomErrorVisibleChange={onDomErrorVisibleChange}
-          />
-        </FormItemPrefixContext.Provider>
-        {extra && <div className={`${baseClassName}-extra`}>{extra}</div>}
+        {dom}
       </Col>
     </FormContext.Provider>
   );

@@ -43,6 +43,7 @@
 
   &-item,
   &-submenu-title {
+    .@{menu-prefix-cls}-item-icon,
     .@{iconfont-css-prefix} {
       .@{menu-prefix-cls}-rtl & {
         margin-right: auto;
@@ -51,6 +52,7 @@
     }
 
     &.@{menu-prefix-cls}-item-only-child {
+      > .@{menu-prefix-cls}-item-icon,
       > .@{iconfont-css-prefix} {
         .@{menu-prefix-cls}-rtl & {
           margin-left: 0;

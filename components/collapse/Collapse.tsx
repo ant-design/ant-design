@@ -43,7 +43,7 @@ interface CollapseInterface extends React.FC<CollapseProps> {
 
 const Collapse: CollapseInterface = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', bordered, ghost } = props;
+  const { prefixCls: customizePrefixCls, className = '', bordered = true, ghost } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
 
   const getIconPosition = () => {
@@ -83,7 +83,8 @@ const Collapse: CollapseInterface = props => {
     <RcCollapse
       openAnimation={openAnimation}
       {...props}
-      expandIcon={(panelProps: PanelProps) => renderExpandIcon(panelProps)}
+      bordered={bordered}
+      expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
     />
@@ -91,9 +92,5 @@ const Collapse: CollapseInterface = props => {
 };
 
 Collapse.Panel = CollapsePanel;
-
-Collapse.defaultProps = {
-  bordered: true,
-};
 
 export default Collapse;

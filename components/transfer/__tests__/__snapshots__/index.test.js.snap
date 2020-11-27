@@ -32,7 +32,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -124,7 +123,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -150,7 +148,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -193,7 +190,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -306,7 +302,6 @@ exports[`Transfer should render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -397,7 +392,6 @@ exports[`Transfer should render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -423,7 +417,6 @@ exports[`Transfer should render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -466,7 +459,6 @@ exports[`Transfer should render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -554,7 +546,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -625,7 +616,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -651,7 +641,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -694,7 +683,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1115,7 +1103,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                         role="img"
                       >
                         <IconReact
-                          className=""
                           icon={
                             Object {
                               "icon": Object {
@@ -1140,7 +1127,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            className=""
                             data-icon="down"
                             fill="currentColor"
                             focusable="false"
@@ -1280,7 +1266,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                     >
                       <Checkbox
                         checked={false}
-                        indeterminate={false}
                       >
                         <label
                           className="ant-checkbox-wrapper"
@@ -1386,7 +1371,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                       role="img"
                     >
                       <IconReact
-                        className=""
                         icon={
                           Object {
                             "icon": Object {
@@ -1411,7 +1395,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          className=""
                           data-icon="right"
                           fill="currentColor"
                           focusable="false"
@@ -1480,7 +1463,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                       role="img"
                     >
                       <IconReact
-                        className=""
                         icon={
                           Object {
                             "icon": Object {
@@ -1505,7 +1487,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          className=""
                           data-icon="left"
                           fill="currentColor"
                           focusable="false"
@@ -1821,7 +1802,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                         role="img"
                       >
                         <IconReact
-                          className=""
                           icon={
                             Object {
                               "icon": Object {
@@ -1846,7 +1826,6 @@ exports[`Transfer should support render value and label in item 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            className=""
                             data-icon="down"
                             fill="currentColor"
                             focusable="false"

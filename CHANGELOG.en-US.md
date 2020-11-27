@@ -15,6 +15,69 @@ timeline: true
 
 ---
 
+## 4.8.6
+
+`2020-11-27`
+
+- 🐞 Fix Badge style blink when mounted. [#28003](https://github.com/ant-design/ant-design/pull/28003)
+- 💄 Reduce Modal style size. [#27998](https://github.com/ant-design/ant-design/pull/27998)
+- 🐞 Fix Layout.Sider can not collapse when `width='0'`. [#28000](https://github.com/ant-design/ant-design/pull/28000)
+- 🐞 Fix Menu style when using none Ant Design icons. [#27983](https://github.com/ant-design/ant-design/pull/27983)
+- Input
+  - 🐞 Fix Input.Search button height when customize less variables. [#27986](https://github.com/ant-design/ant-design/pull/27986)
+  - 🐞 Fix Input.Search `addonBefore` abnormal style. [#27960](https://github.com/ant-design/ant-design/pull/27960)
+- 🐞 Fix Typography.Link clicking copy button will redirect. [#27982](https://github.com/ant-design/ant-design/pull/27982)
+- 🐞 Fix Carousel throws error `Unable to preventDefault inside passive event listener`. [#27957](https://github.com/ant-design/ant-design/pull/27957)
+- 🌐 Improve data picker locale for `en_GB` and `zh_TW`. [#28016](https://github.com/ant-design/ant-design/pull/28016) [@abz53378](https://github.com/abz53378)
+- RTL
+  - 💄 Optimize the border style of Descriptions in RTL model. [#28010](https://github.com/ant-design/ant-design/pull/28010)
+  - 💄 Fix the vertical style of Steps in RTL mode. [#27996](https://github.com/ant-design/ant-design/pull/27996)
+- TypeScript
+  - 🤖 Fix Upload `beforeUpload` definition. [#27946](https://github.com/ant-design/ant-design/pull/27946) [@bingling0084](https://github.com/bingling0084)
+  - 🤖 Provided a separate type definition for Carousel reference. [#27935](https://github.com/ant-design/ant-design/pull/27935) [@ocassio](https://github.com/ocassio)
+
+## 4.8.5
+
+`2020-11-22`
+
+- 🐞 Fix that Spin can't render children `0`. [#27839](https://github.com/ant-design/ant-design/pull/27839) [@liuchao233](https://github.com/liuchao233)
+- 💄 Fix the RangePicker panel interaction style. [#27894](https://github.com/ant-design/ant-design/pull/27894)
+- 💄 Fix Switch `loading` style. [#27860](https://github.com/ant-design/ant-design/pull/27860)
+- 💄 Optimize Skeleton color to fit dark background. [#27836](https://github.com/ant-design/ant-design/pull/27836)
+- 💄 Adjust Statistic `deciaml` font size. [#27884](https://github.com/ant-design/ant-design/pull/27884)
+- 🛠 Refactor Checkbox、Layout.Sider and TextArea with React hooks. [#27739](https://github.com/ant-design/ant-design/pull/27739) [#27719](https://github.com/ant-design/ant-design/pull/27719) [#27693](https://github.com/ant-design/ant-design/pull/27693)
+- 🛠 Refactor BackTop、Badge、UploadList with `rc-motion` instead of `rc-animate`. [#27840](https://github.com/ant-design/ant-design/pull/27840) [#27848](https://github.com/ant-design/ant-design/pull/27848) [#27923](https://github.com/ant-design/ant-design/pull/27923)
+- RTL
+  - 💄 Fix the style of the Tree switch icon in RTL mode. [#27876](https://github.com/ant-design/ant-design/pull/27876)
+- TypeScript
+  - 🤖 Fix AutoComplete `DataSourceItemType` type definition. [#27892](https://github.com/ant-design/ant-design/pull/27892)
+  - 🤖 Export Image `ImageProps` interface. [#27846](https://github.com/ant-design/ant-design/pull/27846) [@wangcch](https://github.com/wangcch)
+
+## 4.8.4
+
+`2020-11-16`
+
+- 💄 Fix Button and Form loading style. [#27794](https://github.com/ant-design/ant-design/pull/27794)
+- 🐞 Fix Modal.confirm locale missing after close it. [#27797](https://github.com/ant-design/ant-design/pull/27797)
+- 🐞 Fix Button/Anchor throws `findDOMNode is deprecated` in React 17. [#27755](https://github.com/ant-design/ant-design/pull/27755) [@hosseinmd](https://github.com/hosseinmd)
+
+## 4.8.3
+
+`2020-11-14`
+
+- 🛠 Refactor Carousel with React hooks. [#27694](https://github.com/ant-design/ant-design/pull/27694)
+- 🛠 Refactor `<Typography editable />` with React hooks. [#27655](https://github.com/ant-design/ant-design/pull/27655)
+- 🐞 Fixed the problem that form behaves abnormally when namepath is an array.. [#27664](https://github.com/ant-design/ant-design/pull/27664)
+- 💄 Fix DateRangePicker hover effect position when hover over start or end cell of in range row. [#27731](https://github.com/ant-design/ant-design/pull/27731) [@AlanCutFlim](https://github.com/AlanCutFlim)
+- 🐞 Fix Select `mode=tags` cannot input whitespace normally. [#27726](https://github.com/ant-design/ant-design/pull/27726) [@baxtergu](https://github.com/baxtergu)
+- 💄 Fix the mouse style when Typography.Link is `disabled`. [#27734](https://github.com/ant-design/ant-design/pull/27734)
+- 🐞 Fix Menu dropdown animation start twice when appear. [#27663](https://github.com/ant-design/ant-design/pull/27663)
+- 💄 Fix Avatar style when `src` is Image component. [#27691](https://github.com/ant-design/ant-design/pull/27691)
+- 💄 Fix Select multiple cursor position. [#27689](https://github.com/ant-design/ant-design/pull/27689)
+- 🐞 Fix TextArea emoji been cut when enable `maxLength`. [#27679](https://github.com/ant-design/ant-design/pull/27679) [@372623460jh](https://github.com/372623460jh)
+- 🐞 Fix small size RangePicker active bar align issue. [#27673](https://github.com/ant-design/ant-design/pull/27673) [@Ifeinstein](https://github.com/Ifeinstein)
+- 💄 Add `@radio-border-width`. [#27703](https://github.com/ant-design/ant-design/pull/27703)
+
 ## 4.8.2
 
 `2020-11-09`

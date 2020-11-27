@@ -46,7 +46,6 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -106,7 +105,6 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -152,7 +150,6 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -284,7 +281,6 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -347,7 +343,6 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"

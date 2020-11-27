@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.8.2",
+  "version": "4.8.6",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -59,7 +59,7 @@
     "color-less": "node ./scripts/generate-color-less",
     "compile": "antd-tools run compile",
     "compile:less": "antd-tools run compile:less",
-    "changelog": "git fetch origin && node ./scripts/print-changelog",
+    "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && cp -r .circleci _site && npm run site:test",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
@@ -106,9 +106,9 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/colors": "^4.0.5",
+    "@ant-design/colors": "^5.0.0",
     "@ant-design/css-animation": "^1.7.2",
-    "@ant-design/icons": "^4.2.1",
+    "@ant-design/icons": "^4.3.0",
     "@ant-design/react-slick": "~0.27.0",
     "@babel/runtime": "^7.11.2",
     "array-tree-filter": "^2.1.0",
@@ -117,7 +117,6 @@
     "lodash": "^4.17.20",
     "moment": "^2.25.3",
     "omit.js": "^2.0.2",
-    "raf": "^3.4.1",
     "rc-animate": "~3.1.0",
     "rc-cascader": "~1.4.0",
     "rc-checkbox": "~2.3.0",
@@ -125,15 +124,15 @@
     "rc-dialog": "~8.4.0",
     "rc-drawer": "~4.1.0",
     "rc-dropdown": "~3.2.0",
-    "rc-field-form": "~1.15.0",
+    "rc-field-form": "~1.17.0",
     "rc-image": "~4.0.0",
     "rc-input-number": "~6.1.0",
     "rc-mentions": "~1.5.0",
     "rc-menu": "~8.10.0",
-    "rc-motion": "^2.2.0",
+    "rc-motion": "^2.4.0",
     "rc-notification": "~4.5.2",
     "rc-pagination": "~3.1.0",
-    "rc-picker": "~2.3.0",
+    "rc-picker": "~2.4.1",
     "rc-progress": "~3.1.0",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^0.2.3",
@@ -147,7 +146,6 @@
     "rc-tooltip": "~5.0.0",
     "rc-tree": "~3.11.0",
     "rc-tree-select": "~4.1.1",
-    "rc-trigger": "~5.0.3",
     "rc-upload": "~3.3.1",
     "rc-util": "^5.1.0",
     "scroll-into-view-if-needed": "^2.2.25",
@@ -163,10 +161,10 @@
     "@types/enzyme": "^3.10.5",
     "@types/gtag.js": "^0.0.3",
     "@types/jest": "^26.0.0",
+    "@types/jest-environment-puppeteer": "^4.4.0",
     "@types/jest-image-snapshot": "^4.1.0",
     "@types/lodash": "^4.14.139",
     "@types/puppeteer": "^5.4.0",
-    "@types/raf": "^3.4.0",
     "@types/react": "^16.9.21",
     "@types/react-color": "^3.0.1",
     "@types/react-copy-to-clipboard": "^4.3.0",
@@ -175,7 +173,7 @@
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "antd-img-crop": "^3.1.1",
-    "antd-pro-merge-less": "^3.0.9",
+    "antd-pro-merge-less": "^3.0.11",
     "antd-theme-generator": "^1.2.3",
     "argos-cli": "^0.3.0",
     "array-move": "^3.0.0",
@@ -218,12 +216,13 @@
     "http-server": "^0.12.0",
     "husky": "^4.0.3",
     "identity-obj-proxy": "^3.0.0",
-    "ignore-emit-webpack-plugin": "2.0.3",
+    "ignore-emit-webpack-plugin": "^2.0.6",
     "immutability-helper": "^3.0.0",
     "inquirer": "^7.1.0",
     "intersection-observer": "^0.11.0",
     "jest": "^26.0.0",
     "jest-image-snapshot": "^4.0.0",
+    "jest-puppeteer": "^4.4.0",
     "jquery": "^3.4.1",
     "jsdom": "^16.0.0",
     "jsonml.js": "^0.1.0",
@@ -236,12 +235,13 @@
     "open": "^7.0.3",
     "preact": "^10.0.0",
     "preact-compat": "^3.18.5",
-    "prettier": "^2.0.1",
+    "prettier": "^2.2.0",
     "pretty-quick": "^3.0.0",
     "querystring": "^0.2.0",
     "rc-footer": "^0.6.3",
     "rc-queue-anim": "^1.6.12",
     "rc-scroll-anim": "^2.5.8",
+    "rc-trigger": "^5.1.2",
     "rc-tween-one": "^2.4.1",
     "rc-virtual-list": "^3.0.3",
     "react": "^16.9.0",
@@ -271,8 +271,8 @@
     "reqwest": "^2.0.5",
     "rimraf": "^3.0.0",
     "scrollama": "^2.0.0",
-    "simple-git": "^2.0.0",
-    "string-replace-loader": "^2.3.0",
+    "simple-git": "^2.23.0",
+    "string-replace-loader": "^3.0.1",
     "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-config-rational-order": "^0.1.2",
@@ -280,7 +280,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^4.0.0",
     "theme-switcher": "^1.0.2",
-    "typescript": "~4.0.0",
+    "typescript": "~4.1.2",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.2.0",
@@ -296,19 +296,19 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "280 kB"
+      "maxSize": "270 kB"
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "67 kB"
+      "maxSize": "72 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "70 kB"
     }
   ],
   "tnpm": {

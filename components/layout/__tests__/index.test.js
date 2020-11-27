@@ -98,16 +98,65 @@ describe('Layout', () => {
     expect(wrapper.find('.ant-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
   });
 
-  it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
-    const wrapper = mount(
-      <Layout>
-        <div>
-          <Sider width="0%">Sider</Sider>
-        </div>
-        <Content>Content</Content>
-      </Layout>,
-    );
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-zero-width')).toBe(true);
+  describe('zeroWidth', () => {
+    it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
+      const wrapper = mount(
+        <Layout>
+          <div>
+            <Sider width="0%">Sider</Sider>
+          </div>
+          <Content>Content</Content>
+        </Layout>,
+      );
+      expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-zero-width')).toBe(true);
+    });
+
+    describe('should collapsible', () => {
+      it('uncontrolled', () => {
+        const onCollapse = jest.fn();
+
+        const wrapper = mount(
+          <Layout>
+            <Sider collapsible breakpoint="lg" collapsedWidth="0" onCollapse={onCollapse}>
+              Sider
+            </Sider>
+            <Content>Content</Content>
+          </Layout>,
+        );
+
+        onCollapse.mockReset();
+
+        wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
+        expect(onCollapse).toHaveBeenCalledTimes(1);
+      });
+
+      it('controlled', () => {
+        const Demo = () => {
+          const [collapsed, setCollapsed] = React.useState(true);
+
+          return (
+            <Layout>
+              <Sider
+                collapsed={collapsed}
+                collapsible
+                breakpoint="lg"
+                collapsedWidth="0"
+                onCollapse={setCollapsed}
+              >
+                Sider
+              </Sider>
+              <Content>Content</Content>
+            </Layout>
+          );
+        };
+
+        const wrapper = mount(<Demo />);
+        expect(wrapper.find(Sider).prop('collapsed')).toBeTruthy();
+
+        wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
+        expect(wrapper.find(Sider).prop('collapsed')).toBeFalsy();
+      });
+    });
   });
 
   it('detect ant-layout-sider-dark as default theme', async () => {
@@ -127,9 +176,10 @@ describe('Layout', () => {
 
   it('should be controlled by collapsed', () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper.find('InternalSider').instance().state.collapsed).toBe(false);
+    expect(wrapper).toMatchSnapshot();
     wrapper.setProps({ collapsed: true });
-    expect(wrapper.find('InternalSider').instance().state.collapsed).toBe(true);
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {

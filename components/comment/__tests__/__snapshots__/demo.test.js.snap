@@ -59,7 +59,6 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="like"
                 fill="currentColor"
                 focusable="false"
@@ -88,7 +87,6 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="dislike"
                 fill="currentColor"
                 focusable="false"

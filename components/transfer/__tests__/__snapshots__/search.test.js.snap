@@ -80,7 +80,6 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
           role="img"
         >
           <IconReact
-            className=""
             icon={
               Object {
                 "icon": Object {
@@ -105,7 +104,6 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
           >
             <svg
               aria-hidden="true"
-              className=""
               data-icon="search"
               fill="currentColor"
               focusable="false"
@@ -208,7 +206,6 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
           role="img"
         >
           <IconReact
-            className=""
             icon={
               Object {
                 "icon": Object {
@@ -233,7 +230,6 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
           >
             <svg
               aria-hidden="true"
-              className=""
               data-icon="close-circle"
               fill="currentColor"
               focusable="false"

@@ -23,6 +23,8 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](https://ant.design/components/select-cn/#Select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](https://ant.design/components/config-provider-cn/#API))
 
+And make sure that parentElement is `position: relative` or `position: absolute`.
+
 Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
 ### How do I modify the default theme of Ant Design?

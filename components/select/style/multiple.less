@@ -78,7 +78,7 @@
         display: inline-block;
         margin-right: @padding-xs / 2;
         overflow: hidden;
-        white-space: nowrap;
+        white-space: pre; // fix whitespace wrapping. custom tags display all whitespace within.
         text-overflow: ellipsis;
       }
 
@@ -123,7 +123,7 @@
         top: 0;
         left: 0;
         z-index: 999;
-        white-space: nowrap;
+        white-space: pre; // fix whitespace wrapping caused width calculation bug
         visibility: hidden;
       }
 

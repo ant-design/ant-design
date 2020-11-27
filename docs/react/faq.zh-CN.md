@@ -23,6 +23,8 @@ https://ant.design/components/select/#Select-props
 
 使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/select-cn/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/config-provider-cn/#API)）
 
+并且保证 parentElement 是 `position: relative` 或 `position: absolute`。
+
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
 ### 如何修改 Ant Design 的默认主题？

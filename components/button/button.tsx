@@ -188,9 +188,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     }
   }, [loadingOrDelay]);
 
-  React.useEffect(() => {
-    fixTwoCNChar();
-  }, [buttonRef]);
+  React.useEffect(fixTwoCNChar, [buttonRef]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
     const { onClick } = props;

@@ -15,6 +15,69 @@ timeline: true
 
 ---
 
+## 4.8.6
+
+`2020-11-27`
+
+- 🐞 修复 Badge 在初始化时样式抖动的问题。[#28003](https://github.com/ant-design/ant-design/pull/28003)
+- 💄 优化 Modal 相关样式的冗余。[#27998](https://github.com/ant-design/ant-design/pull/27998)
+- 🐞 修复 Layout.Sider 在 `width='0'` 时不能展开的问题。[#28000](https://github.com/ant-design/ant-design/pull/28000)
+- 🐞 修复 Menu 使用非 Ant Design 图标时的样式问题。[#27983](https://github.com/ant-design/ant-design/pull/27983)
+- Input
+  - 🐞 修复 Input.Search 自定义 less 变量时的按钮高度问题。[#27986](https://github.com/ant-design/ant-design/pull/27986)
+  - 🐞 修复 Input.Search `addonBefore` 样式异常。[#27960](https://github.com/ant-design/ant-design/pull/27960)
+- 🐞 修复 Typography.Link 点击复制按钮会触发链接跳转的问题。[#27982](https://github.com/ant-design/ant-design/pull/27982)
+- 🐞 修复 Carousel `Unable to preventDefault inside passive event listener` 报错问题。[#27957](https://github.com/ant-design/ant-design/pull/27957)
+- 🌐 改进 DatePicker 的 `en_GB` 与 `zh_TW` 本地化支持。[#28016](https://github.com/ant-design/ant-design/pull/28016) [@abz53378](https://github.com/abz53378)
+- RTL
+  - 💄 优化 Descriptions 在 RTL 模型下的边框样式。[#28010](https://github.com/ant-design/ant-design/pull/28010)
+  - 💄 修复 Steps 垂直方向在 RTL 模式下的样式。[#27996](https://github.com/ant-design/ant-design/pull/27996)
+- TypeScript
+  - 🤖 修复 Upload 的 `beforeUpload` 定义问题。[#27946](https://github.com/ant-design/ant-design/pull/27946) [@bingling0084](https://github.com/bingling0084)
+  - 🤖 为 Carousel 提供单独的 ref 定义。[#27935](https://github.com/ant-design/ant-design/pull/27935) [@ocassio](https://github.com/ocassio)
+
+## 4.8.5
+
+`2020-11-22`
+
+- 🐞 修复 Spin 组件不能渲染 `0` 的问题。[#27839](https://github.com/ant-design/ant-design/pull/27839) [@liuchao233](https://github.com/liuchao233)
+- 💄 修复 RangePicker 面板的交互样式。[#27894](https://github.com/ant-design/ant-design/pull/27894)
+- 💄 修复 Switch `loading` 的样式问题。[#27860](https://github.com/ant-design/ant-design/pull/27860)
+- 💄 优化 Skeleton 默认色彩使其能放置在暗色背景中。[#27836](https://github.com/ant-design/ant-design/pull/27836)
+- 💄 调整 Statistic 小数的字体大小。[#27884](https://github.com/ant-design/ant-design/pull/27884)
+- 🛠 使用 React hooks 重构 Checkbox、Layout.Sider 和 TextArea。[#27739](https://github.com/ant-design/ant-design/pull/27739) [#27719](https://github.com/ant-design/ant-design/pull/27719) [#27693](https://github.com/ant-design/ant-design/pull/27693)
+- 🛠 使用 `rc-motion` 动画库代替 `rc-animate` 重构 BackTop、Badge、UploadList。[#27840](https://github.com/ant-design/ant-design/pull/27840) [#27848](https://github.com/ant-design/ant-design/pull/27848) [#27923](https://github.com/ant-design/ant-design/pull/27923)
+- RTL
+  - 💄 修复 Tree 切换按钮在 RTL 模式下的样式问题。[#27876](https://github.com/ant-design/ant-design/pull/27876)
+- TypeScript
+  - 🤖 修复 AutoComplete `DataSourceItemType` 的类型定义。[#27892](https://github.com/ant-design/ant-design/pull/27892)
+  - 🤖 导出 Image 的 `ImageProps` 接口。[#27846](https://github.com/ant-design/ant-design/pull/27846) [@wangcch](https://github.com/wangcch)
+
+## 4.8.4
+
+`2020-11-16`
+
+- 💄 修复 Button 和 Form 校验 loading 样式错误的问题。[#27794](https://github.com/ant-design/ant-design/pull/27794)
+- 🐞 修复 Modal.confirm 关闭时国际化丢失的问题。[#27797](https://github.com/ant-design/ant-design/pull/27797)
+- 🐞 修复 Button 和 Anchor 等组件在 React 17 下 `findDOMNode is deprecated` 的警告。[#27755](https://github.com/ant-design/ant-design/pull/27755) [@hosseinmd](https://github.com/hosseinmd)
+
+## 4.8.3
+
+`2020-11-14`
+
+- 🛠 使用 React hooks 重构 Carousel。[#27694](https://github.com/ant-design/ant-design/pull/27694)
+- 🛠 使用 React hooks 重构 `<Typography editable />`。[#27655](https://github.com/ant-design/ant-design/pull/27655)
+- 🐞 修复 Form 在 namePath 为数组的时候表现异常的问题。[#27664](https://github.com/ant-design/ant-design/pull/27664)
+- 💄 修复 DateRangePicker 选择已选范围内一行的首尾日期时的悬浮样式位置异常问题。[#27731](https://github.com/ant-design/ant-design/pull/27731) [@AlanCutFlim](https://github.com/AlanCutFlim)
+- 🐞 修复 Select `tags` 模式下无法输入空格的问题。[#27726](https://github.com/ant-design/ant-design/pull/27726) [@baxtergu](https://github.com/baxtergu)
+- 💄 修复 Typography.Link 禁用时鼠标样式问题。[#27734](https://github.com/ant-design/ant-design/pull/27734)
+- 🐞 修复 Menu 下拉框显示时动画会播放两次的问题。[#27663](https://github.com/ant-design/ant-design/pull/27663)
+- 💄 修复 Avatar src 为 Image 时的样式问题。[#27691](https://github.com/ant-design/ant-design/pull/27691)
+- 💄 修复 Select `mode="multiple"` 的光标位置偏左的问题。[#27689](https://github.com/ant-design/ant-design/pull/27689)
+- 🐞 修复 TextArea 使用 emoji 时被裁切的问题。[#27679](https://github.com/ant-design/ant-design/pull/27679) [@372623460jh](https://github.com/372623460jh)
+- 🐞 修复 RangePicker `size="small"` 时高亮线没有对齐的问题。[#27673](https://github.com/ant-design/ant-design/pull/27673) [@Ifeinstein](https://github.com/Ifeinstein)
+- 💄 新增 `@radio-border-width` less 变量。[#27703](https://github.com/ant-design/ant-design/pull/27703)
+
 ## 4.8.2
 
 `2020-11-09`

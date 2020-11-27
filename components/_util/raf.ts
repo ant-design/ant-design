@@ -1,4 +1,4 @@
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 
 interface RafMap {
   [id: number]: number;
