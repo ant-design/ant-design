@@ -20,7 +20,7 @@ Avoid components clinging together and set a unified space.
 | direction | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | size | The space size | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |
-| wrap | Auto wrap line | boolean | false | 4.9.0 |
+| wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 
 ### Size
 
