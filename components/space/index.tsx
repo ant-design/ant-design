@@ -7,6 +7,11 @@ import Item from './Item';
 
 export const LastIndexContext = React.createContext(0);
 
+export const SpaceSizeContext = React.createContext({
+  horizontalSize: 0,
+  verticalSize: 0,
+});
+
 export type SpaceSize = SizeType | number;
 
 export interface SpaceProps {
@@ -27,7 +32,7 @@ const spaceSize = {
   large: 24,
 };
 
-export function getNumberSize(size: SpaceSize) {
+function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
@@ -46,6 +51,14 @@ const Space: React.FC<SpaceProps> = props => {
     wrap = false,
     ...otherProps
   } = props;
+
+  const [horizontalSize, verticalSize] = React.useMemo(
+    () =>
+      ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map(item =>
+        getNumberSize(item),
+      ),
+    [size],
+  );
 
   const childNodes = toArray(children, { keepEmpty: true });
 
@@ -82,7 +95,6 @@ const Space: React.FC<SpaceProps> = props => {
         className={itemClassName}
         key={`${itemClassName}-${i}`}
         direction={direction}
-        size={size}
         index={i}
         marginDirection={marginDirection}
         split={split}
@@ -94,18 +106,18 @@ const Space: React.FC<SpaceProps> = props => {
     /* eslint-enable */
   });
 
-  const verticalSize = Array.isArray(size) ? size[0] : size;
-
   return (
     <div
       className={cn}
       style={{
-        ...(wrap && { flexWrap: 'wrap', marginBottom: -getNumberSize(verticalSize) }),
+        ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
         ...style,
       }}
       {...otherProps}
     >
-      <LastIndexContext.Provider value={latestIndex}>{nodes}</LastIndexContext.Provider>
+      <SpaceSizeContext.Provider value={{ horizontalSize, verticalSize }}>
+        <LastIndexContext.Provider value={latestIndex}>{nodes}</LastIndexContext.Provider>
+      </SpaceSizeContext.Provider>
     </div>
   );
 };
