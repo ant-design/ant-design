@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import useModal from './useModal';
@@ -30,7 +29,7 @@ const getClickPosition = (e: MouseEvent) => {
 
 // 只有点击事件支持从鼠标位置动画展开
 if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
-  addEventListener(document.documentElement, 'click', getClickPosition);
+  document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
 export interface ModalProps {
