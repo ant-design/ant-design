@@ -23,11 +23,10 @@ export default function dropIndicatorRender(props: {
     case 1:
       style.bottom = -3;
       break;
-    case 0:
+    default:
+      // dropPosition === 0
       style.bottom = -3;
       style[startPosition] = indent + offset;
-      break;
-    default:
       break;
   }
   return <div style={style} className={`${prefixCls}-drop-indicator`} />;
