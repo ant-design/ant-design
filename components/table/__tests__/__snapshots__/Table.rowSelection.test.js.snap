@@ -984,6 +984,12 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
       >
         Invert current page
       </li>
+      <li
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+        role="menuitem"
+      >
+        Clear all data
+      </li>
     </ul>
   </div>
 </div>
@@ -1092,6 +1098,12 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                                 role="menuitem"
                               >
                                 Invert current page
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                role="menuitem"
+                              >
+                                Clear all data
                               </li>
                             </ul>
                           </div>
@@ -1419,6 +1431,12 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                                 role="menuitem"
                               >
                                 Invert current page
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                role="menuitem"
+                              >
+                                Clear all data
                               </li>
                             </ul>
                           </div>
