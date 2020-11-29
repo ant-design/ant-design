@@ -4272,6 +4272,19 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
             />
           </div>
           <div
+            aria-hidden="true"
+            class="ant-tree-treenode"
+            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+          >
+            <div
+              class="ant-tree-indent"
+            >
+              <div
+                class="ant-tree-indent-unit"
+              />
+            </div>
+          </div>
+          <div
             class="ant-tree-list"
             style="position:relative"
           >
@@ -4286,6 +4299,10 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                   <div
                     class="ant-tree-treenode ant-tree-treenode-switcher-open"
                   >
+                    <span
+                      aria-hidden="true"
+                      class="ant-tree-indent"
+                    />
                     <span
                       class="ant-tree-switcher ant-tree-switcher-noop"
                     />
@@ -4310,6 +4327,10 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                   <div
                     class="ant-tree-treenode ant-tree-treenode-switcher-open"
                   >
+                    <span
+                      aria-hidden="true"
+                      class="ant-tree-indent"
+                    />
                     <span
                       class="ant-tree-switcher ant-tree-switcher_open"
                     >
@@ -4418,6 +4439,10 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                   <div
                     class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
                   >
+                    <span
+                      aria-hidden="true"
+                      class="ant-tree-indent"
+                    />
                     <span
                       class="ant-tree-switcher ant-tree-switcher-noop"
                     />

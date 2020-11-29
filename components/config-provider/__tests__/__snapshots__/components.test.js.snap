@@ -36237,6 +36237,19 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
+      class="config-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="config-tree-indent"
+      >
+        <div
+          class="config-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="config-tree-list"
       style="position:relative"
     >
@@ -36251,6 +36264,10 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
             <div
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="config-tree-indent"
+              />
               <span
                 class="config-tree-switcher config-tree-switcher-noop"
               />
@@ -36283,6 +36300,19 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
+      class="config-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="config-tree-indent"
+      >
+        <div
+          class="config-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="config-tree-list"
       style="position:relative"
     >
@@ -36297,6 +36327,10 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
             <div
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="config-tree-indent"
+              />
               <span
                 class="config-tree-switcher config-tree-switcher-noop"
               />
@@ -36357,6 +36391,19 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
       />
     </div>
     <div
+      aria-hidden="true"
+      class="config-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="config-tree-indent"
+      >
+        <div
+          class="config-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="config-tree-list"
       style="position:relative"
     >
@@ -36371,6 +36418,10 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
             <div
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="config-tree-indent"
+              />
               <span
                 class="config-tree-switcher config-tree-switcher-noop"
               />
@@ -36403,6 +36454,19 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
       />
     </div>
     <div
+      aria-hidden="true"
+      class="config-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="config-tree-indent"
+      >
+        <div
+          class="config-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="config-tree-list"
       style="position:relative"
     >
@@ -36417,6 +36481,10 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
             <div
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="config-tree-indent"
+              />
               <span
                 class="config-tree-switcher config-tree-switcher-noop"
               />
@@ -36477,6 +36545,19 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
       />
     </div>
     <div
+      aria-hidden="true"
+      class="config-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="config-tree-indent"
+      >
+        <div
+          class="config-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="config-tree-list"
       style="position:relative"
     >
@@ -36491,6 +36572,10 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
             <div
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="config-tree-indent"
+              />
               <span
                 class="config-tree-switcher config-tree-switcher-noop"
               />
@@ -36523,6 +36608,19 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
       />
     </div>
     <div
+      aria-hidden="true"
+      class="config-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="config-tree-indent"
+      >
+        <div
+          class="config-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="config-tree-list"
       style="position:relative"
     >
@@ -36537,6 +36635,10 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
             <div
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="config-tree-indent"
+              />
               <span
                 class="config-tree-switcher config-tree-switcher-noop"
               />
@@ -36597,6 +36699,19 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
       />
     </div>
     <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="ant-tree-list"
       style="position:relative"
     >
@@ -36611,6 +36726,10 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
               />
@@ -36643,6 +36762,19 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
       />
     </div>
     <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="ant-tree-list"
       style="position:relative"
     >
@@ -36657,6 +36789,10 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
               />
@@ -36717,6 +36853,19 @@ exports[`ConfigProvider components Tree normal 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="ant-tree-list"
       style="position:relative"
     >
@@ -36731,6 +36880,10 @@ exports[`ConfigProvider components Tree normal 1`] = `
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
               />
@@ -36763,6 +36916,19 @@ exports[`ConfigProvider components Tree normal 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="ant-tree-list"
       style="position:relative"
     >
@@ -36777,6 +36943,10 @@ exports[`ConfigProvider components Tree normal 1`] = `
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
               />
@@ -36837,6 +37007,19 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
+      class="prefix-Tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="prefix-Tree-indent"
+      >
+        <div
+          class="prefix-Tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="prefix-Tree-list"
       style="position:relative"
     >
@@ -36851,6 +37034,10 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
             <div
               class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="prefix-Tree-indent"
+              />
               <span
                 class="prefix-Tree-switcher prefix-Tree-switcher-noop"
               />
@@ -36883,6 +37070,19 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
+      class="prefix-Tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="prefix-Tree-indent"
+      >
+        <div
+          class="prefix-Tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="prefix-Tree-list"
       style="position:relative"
     >
@@ -36897,6 +37097,10 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
             <div
               class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="prefix-Tree-indent"
+              />
               <span
                 class="prefix-Tree-switcher prefix-Tree-switcher-noop"
               />
