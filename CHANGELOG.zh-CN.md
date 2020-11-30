@@ -15,6 +15,33 @@ timeline: true
 
 ---
 
+## 4.9.0
+
+`2020-11-30`
+
+- Modal
+  - 🆕 Modal 支持 `focusTriggerAfterClose` 以关闭自动恢复焦点的功能。[#27985](https://github.com/ant-design/ant-design/pull/27985) [@molokovev](https://github.com/molokovev)
+  - 🐞 修复 Modal hooks 没有触发 `onCancel` 的问题。[#28063](https://github.com/ant-design/ant-design/pull/28063) [@JuniorTour](https://github.com/JuniorTour)
+  - 🐞 修复 Modal 有时不在点击位置弹出的问题。[#28037](https://github.com/ant-design/ant-design/pull/28037)
+  - 🆕 Modal.method 支持 `closable` 和 `closeIcon`。[#27909](https://github.com/ant-design/ant-design/pull/27909) [@MrHeer](https://github.com/MrHeer)
+- 💄 减少 Table 选中列宽度至 `32px`。[#28073](https://github.com/ant-design/ant-design/pull/28073)
+- Image
+  - 🔥 Image 增加 PreviewGroup 组件支持多张图片预览。[#28069](https://github.com/ant-design/ant-design/pull/28069)
+  - 🐞 修复 Image style 属性未作用于 img 元素的问题。[#27446](https://github.com/ant-design/ant-design/pull/27446)
+- Collapse
+  - 🔥 Collapse 添加 `collapsible` 以支持指定可折叠触发区域并废弃 Panel 的 `disabled` 属性。[#27790](https://github.com/ant-design/ant-design/pull/27790)
+  - 🐞 修复 Collapse 内使用 `<Table sticky />` 时不生效的问题。[#28039](https://github.com/ant-design/ant-design/pull/28039)
+- 🐞 修复 Cascader 空数据可以被选择的问题。[#28062](https://github.com/ant-design/ant-design/pull/28062) [@n0ruSh](https://github.com/n0ruSh)
+- 🆕 Alert 支持 `action` 属性。[#25892](https://github.com/ant-design/ant-design/pull/25892) [@jesse3mh9a](https://github.com/jesse3mh9a)
+- 🔥 Tree 重构拖拽行为，增加 `dropIndicatorRender` 和 `allowDrop` 属性。[#26462](https://github.com/ant-design/ant-design/pull/26462) [@07akioni](https://github.com/07akioni)
+- 🆕 Space 增加 `wrap` 属性以配置自动换行。[#27910](https://github.com/ant-design/ant-design/pull/27910)
+- 🆕 Descriptions.Item 支持 `labelStyle` 和 `contentStyle` 属性。[#27897](https://github.com/ant-design/ant-design/pull/27897)
+- 🆕 Form.List 支持 `initialValue`。[#27872](https://github.com/ant-design/ant-design/pull/27872)
+- 🆕 Menu 新增 `expandIcon` 属性以支持自定义展开图标，同时优化了默认图标的样式。[#27565](https://github.com/ant-design/ant-design/pull/27565)
+- 🆕 Input 和 TextArea 组件的 `ref` 属性增加`setSelectionRange`方法。[#27584](https://github.com/ant-design/ant-design/pull/27584) [@appleshell](https://github.com/appleshell)
+- 🆕 Select 组件新增 `filterSort` 属性以支持筛选模式下选项排序功能。[#27523](https://github.com/ant-design/ant-design/pull/27523) [@n0ruSh](https://github.com/n0ruSh)
+- 🇰🇿 新增哈萨克语。[#27589](https://github.com/ant-design/ant-design/pull/27589) [@nodkz](https://github.com/nodkz)
+
 ## 4.8.6
 
 `2020-11-27`
