@@ -8,14 +8,10 @@
 
   position: relative;
   display: flex;
-  align-items: flex-start;
-  padding: 8px 15px 8px 16px;
+  align-items: center;
+  padding: 8px 15px;
   word-wrap: break-word;
   border-radius: @border-radius-base;
-
-  &&-no-icon {
-    padding: @alert-no-icon-padding-vertical 15px;
-  }
 
   &-content {
     flex: 1;
@@ -23,9 +19,6 @@
   }
 
   &-icon {
-    position: relative;
-    top: @alert-icon-top - 8;
-    height: @font-size-base * @line-height-base;
     margin-right: 37px - 16 - @font-size-base;
   }
 
@@ -81,8 +74,6 @@
   }
 
   &-close-icon {
-    position: relative;
-    top: @font-size-base * @line-height-base / 2 - @font-size-sm / 2;
     margin-left: @margin-xs;
     padding: 0;
     overflow: hidden;
@@ -111,11 +102,8 @@
   }
 
   &-with-description {
-    position: relative;
+    align-items: flex-start;
     padding: @alert-with-description-padding;
-    color: @alert-text-color;
-    line-height: @line-height-base;
-    border-radius: @border-radius-base;
   }
 
   &-with-description&-no-icon {
@@ -123,16 +111,9 @@
   }
 
   &-with-description &-icon {
-    top: 0;
     margin-right: @alert-with-description-padding-vertical;
     font-size: @alert-with-description-icon-size;
   }
-
-  &-with-description &-close-icon {
-    top: 0;
-    cursor: pointer;
-  }
-
   &-with-description &-message {
     display: block;
     margin-bottom: 4px;
