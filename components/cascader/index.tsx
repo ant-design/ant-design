@@ -64,6 +64,7 @@ export interface ShowSearchType {
   ) => number;
   matchInputWidth?: boolean;
   limit?: number | false;
+  onChange?: (val: string) => void;
 }
 
 export interface CascaderProps {
@@ -254,7 +255,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     if ('popupVisible' in nextProps) {
       newState.popupVisible = nextProps.popupVisible;
     }
-    if (nextProps.showSearch && prevProps.options !== nextProps.options) {
+    if (
+      nextProps.showSearch &&
+      (nextProps.showSearch as ShowSearchType).onChange === undefined &&
+      prevProps.options !== nextProps.options
+    ) {
       newState.flattenOptions = flattenTree(nextProps.options, nextProps);
     }
 
@@ -278,7 +283,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       inputValue: '',
       inputFocused: false,
       popupVisible: props.popupVisible,
-      flattenOptions: props.showSearch ? flattenTree(props.options, props) : undefined,
+      flattenOptions:
+        props.showSearch && (props.showSearch as ShowSearchType).onChange === undefined
+          ? flattenTree(props.options, props)
+          : undefined,
       prevProps: props,
     };
   }
@@ -370,8 +378,15 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { popupVisible } = this.state;
     const inputValue = e.target.value;
+    const { showSearch } = this.props;
     if (!popupVisible) {
       this.handlePopupVisibleChange(true);
+    }
+    if (showSearch) {
+      const { onChange } = showSearch as ShowSearchType;
+      if (onChange) {
+        onChange(inputValue);
+      }
     }
     this.setState({ inputValue });
   };
@@ -564,7 +579,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         let { options } = props;
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
-          if (state.inputValue) {
+          if (state.inputValue && (showSearch as ShowSearchType).onChange === undefined) {
             options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {

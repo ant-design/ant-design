@@ -542,4 +542,11 @@ describe('Cascader', () => {
       .simulate('click');
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
+
+  it('showSearch.onChange should work correctly', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<Cascader options={options} showSearch={{ onChange }} />);
+    wrapper.find('input').simulate('change', { target: { value: '123' } });
+    expect(onChange).toHaveBeenCalledWith('123');
+  });
 });
