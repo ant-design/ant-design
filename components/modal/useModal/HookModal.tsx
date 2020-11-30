@@ -32,8 +32,12 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
   const prefixCls = getPrefixCls('modal');
   const rootPrefixCls = getPrefixCls();
 
-  function close() {
+  function close(...args: any[]) {
     setVisible(false);
+    const triggerCancel = args.some(param => param && param.triggerCancel);
+    if (innerConfig.onCancel && triggerCancel) {
+      innerConfig.onCancel();
+    }
   }
 
   React.useImperativeHandle(ref, () => ({
