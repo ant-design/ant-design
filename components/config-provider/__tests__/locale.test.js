@@ -13,10 +13,6 @@ describe('ConfigProvider.Locale', () => {
   }
 
   it('not throw', () => {
-    if (process.env.REACT === '15') {
-      return;
-    }
-
     mount(
       <ConfigProvider locale={{}}>
         <span />
