@@ -75,8 +75,7 @@ describe('Alert', () => {
     });
   });
 
-  const testIt = process.env.REACT === '15' ? it.skip : it;
-  testIt('ErrorBoundary', () => {
+  fit('ErrorBoundary', () => {
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
@@ -86,7 +85,7 @@ describe('Alert', () => {
       </ErrorBoundary>,
     );
     // eslint-disable-next-line jest/no-standalone-expect
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.text()).toContain('ReferenceError: NotExisted is not defined');
   });
 
   it('could be used with Tooltip', async () => {
