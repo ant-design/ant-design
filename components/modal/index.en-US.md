@@ -26,6 +26,7 @@ When requiring users to interact with the application, but without jumping to a 
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode | (OK and Cancel buttons) |  |
 | forceRender | Force render Modal | boolean | false |  |
+| focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not | boolean | true |  |
@@ -70,6 +71,8 @@ The items listed above are all functions, expecting a settings object as paramet
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | className | The className of container | string | - |  |
+| closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
+| closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;QuestionCircle /> | 3.12.0 |

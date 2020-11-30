@@ -612,8 +612,7 @@
 @table-filter-btns-bg: inherit;
 @table-filter-dropdown-bg: @component-background;
 @table-expand-icon-bg: @component-background;
-@table-selection-column-width: 60px;
-@table-selection-extra-right: 0;
+@table-selection-column-width: 32px;
 // Sticky
 @table-sticky-scroll-bar-bg: fade(#000, 35%);
 @table-sticky-scroll-bar-radius: 4px;
@@ -908,11 +907,9 @@
 @alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
-  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size * 2 +
-  @alert-with-description-padding-vertical;
+  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size;
 @alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
 @alert-with-description-icon-size: 24px;
-@alert-with-description-icon-top: @alert-with-description-padding-vertical;
 
 // List
 // ---
@@ -1008,4 +1005,4 @@
 @image-color: #fff;
 @image-preview-operation-size: 18px;
 @image-preview-operation-color: @text-color-dark;
-@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 45%);
+@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);

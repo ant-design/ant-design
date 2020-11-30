@@ -33,7 +33,10 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     prefixCls,
     rootPrefixCls,
     bodyStyle,
+    closable = false,
+    closeIcon,
     modalRender,
+    focusTriggerAfterClose,
   } = props;
 
   devWarning(
@@ -96,7 +99,10 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       keyboard={keyboard}
       centered={centered}
       getContainer={getContainer}
+      closable={closable}
+      closeIcon={closeIcon}
       modalRender={modalRender}
+      focusTriggerAfterClose={focusTriggerAfterClose}
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
         <ConfigProvider prefixCls={rootPrefixCls}>

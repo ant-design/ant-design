@@ -71,3 +71,26 @@ exports[`renders ./components/image/demo/placeholder.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/image/demo/previewGroup.md correctly 1`] = `
+Array [
+  <div
+    class="ant-image"
+    style="width:200px"
+  >
+    <img
+      class="ant-image-img"
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    />
+  </div>,
+  <div
+    class="ant-image"
+    style="width:200px"
+  >
+    <img
+      class="ant-image-img"
+      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+    />
+  </div>,
+]
+`;

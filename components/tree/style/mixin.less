@@ -18,6 +18,29 @@
   }
 }
 
+.drop-indicator() {
+  .@{tree-prefix-cls}-drop-indicator {
+    position: absolute;
+    // it should displayed over the following node
+    z-index: 1;
+    height: 2px;
+    background-color: @primary-color;
+    border-radius: 1px;
+    pointer-events: none;
+    &::after {
+      position: absolute;
+      top: -3px;
+      left: -6px;
+      width: 8px;
+      height: 8px;
+      background-color: transparent;
+      border: 2px solid @primary-color;
+      border-radius: 50%;
+      content: '';
+    }
+  }
+}
+
 .antTreeShowLineIcon(@type) {
   .@{tree-prefix-cls}-switcher-icon,
   .@{tree-select-prefix-cls}-switcher-icon {
@@ -154,6 +177,8 @@
 
   // >>> Title
   & &-node-content-wrapper {
+    position: relative;
+    z-index: auto;
     min-height: @tree-title-height;
     margin: 0;
     padding: 0 4px;
@@ -162,7 +187,7 @@
     background: transparent;
     border-radius: @border-radius-base;
     cursor: pointer;
-    transition: all 0.3s, border 0s, line-height 0s;
+    transition: all 0.3s, border 0s, line-height 0s, box-shadow 0s;
 
     &:hover {
       background-color: @tree-node-hover-bg;
@@ -188,27 +213,15 @@
 
   // ==================== Draggable =====================
   &-node-content-wrapper[draggable='true'] {
-    line-height: @tree-title-height - 4px;
-    border-top: 2px transparent solid;
-    border-bottom: 2px transparent solid;
+    line-height: @tree-title-height;
     user-select: none;
+
+    .drop-indicator();
   }
 
-  .@{custom-tree-node-prefix-cls}.drag-over {
+  .@{custom-tree-node-prefix-cls}.drop-container {
     > [draggable] {
-      color: white;
-      background-color: @primary-color;
-      opacity: 0.8;
-    }
-  }
-  .@{custom-tree-node-prefix-cls}.drag-over-gap-top {
-    > [draggable] {
-      border-top-color: @primary-color;
-    }
-  }
-  .@{custom-tree-node-prefix-cls}.drag-over-gap-bottom {
-    > [draggable] {
-      border-bottom-color: @primary-color;
+      box-shadow: 0 0 0 2px @primary-color;
     }
   }
 
@@ -239,11 +252,10 @@
 
     // ============== Cover Background ==============
     .@{custom-tree-prefix-cls}-switcher {
-      z-index: 1;
       background: @component-background;
 
       &-line-icon {
-        vertical-align: -.225em;
+        vertical-align: -0.225em;
       }
     }
   }

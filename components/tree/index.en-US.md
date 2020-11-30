@@ -17,6 +17,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| allowDrop | Whether to allow dropping on the node | ({ dropNode, dropPosition }) => boolean | - |
 | autoExpandParent | Whether to automatically expand a parent treeNode | boolean | false |  |
 | blockNode | Whether treeNode fill remaining horizontal space | boolean | false |  |
 | checkable | Add a Checkbox before the treeNodes | boolean | false |  |

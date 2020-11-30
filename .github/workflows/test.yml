@@ -99,6 +99,9 @@ jobs:
       - name: check
         run: node ./tests/dekko/dist.test.js
 
+      - name: bundlesize
+        run: npm run bundlesize
+
       - name: test
         run: npm test
         env:
@@ -127,6 +130,31 @@ jobs:
         run: npm run lint
     needs: setup
 
+  dom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: test
+        run: npm test -- -w 1 --coverage
+
+      - name: coverage
+        run: bash <(curl -s https://codecov.io/bash)
+    needs: setup
+
   node:
     runs-on: ubuntu-latest
     steps:
@@ -146,7 +174,29 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: test
-        run: npm test
+        run: npm run test-node
+    needs: setup
+
+  check_metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: check demo
+        run: node ./scripts/check-demo.js
     needs: setup
 
   lib:

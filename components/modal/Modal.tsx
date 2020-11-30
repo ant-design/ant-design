@@ -80,6 +80,7 @@ export interface ModalProps {
   prefixCls?: string;
   closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
+  focusTriggerAfterClose?: boolean;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -89,6 +90,7 @@ export interface ModalFuncProps {
   className?: string;
   visible?: boolean;
   title?: React.ReactNode;
+  closable?: boolean;
   content?: React.ReactNode;
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;
@@ -115,7 +117,9 @@ export interface ModalFuncProps {
   maskTransitionName?: string;
   direction?: DirectionType;
   bodyStyle?: React.CSSProperties;
+  closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
+  focusTriggerAfterClose?: boolean;
 }
 
 export interface ModalLocale {
@@ -174,6 +178,7 @@ const Modal: ModalInterface = props => {
     centered,
     getContainer,
     closeIcon,
+    focusTriggerAfterClose = true,
     ...restProps
   } = props;
 
@@ -205,6 +210,7 @@ const Modal: ModalInterface = props => {
       mousePosition={mousePosition}
       onClose={handleCancel}
       closeIcon={closeIconToRender}
+      focusTriggerAfterClose={focusTriggerAfterClose}
     />
   );
 };

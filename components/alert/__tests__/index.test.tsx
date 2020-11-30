@@ -1,6 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Alert from '..';
+import Button from '../../button';
 import Tooltip from '../../tooltip';
 import Popconfirm from '../../popconfirm';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -32,6 +33,25 @@ describe('Alert', () => {
     wrapper.find('.ant-alert-close-icon').simulate('click');
     jest.runAllTimers();
     expect(onClose).toHaveBeenCalled();
+  });
+
+  describe('action of Alert', () => {
+    it('custom action', () => {
+      const wrapper = render(
+        <Alert
+          message="Success Tips"
+          type="success"
+          showIcon
+          action={
+            <Button size="small" type="text">
+              UNDO
+            </Button>
+          }
+          closable
+        />,
+      );
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   describe('data and aria props', () => {

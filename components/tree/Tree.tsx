@@ -7,6 +7,7 @@ import DirectoryTree from './DirectoryTree';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import renderSwitcherIcon from './utils/iconUtil';
+import dropIndicatorRender from './utils/dropIndicator';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -91,7 +92,7 @@ export interface AntTreeNodeDropEvent {
 // [Legacy] Compatible for v3
 export type TreeNodeNormal = DataNode;
 
-export interface TreeProps extends Omit<RcTreeProps, 'prefixCls' | 'showLine'> {
+export interface TreeProps extends Omit<RcTreeProps, 'prefixCls' | 'showLine' | 'direction'> {
   showLine?: boolean | { showLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
@@ -153,11 +154,12 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     children,
     checkable,
   } = props;
+  const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const newProps = {
     ...props,
     showLine: Boolean(showLine),
+    dropIndicatorRender,
   };
-  const prefixCls = getPrefixCls('tree', customizePrefixCls);
   return (
     <RcTree
       itemHeight={20}
@@ -173,6 +175,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         },
         className,
       )}
+      direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
         renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)

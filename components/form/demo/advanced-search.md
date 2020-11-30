@@ -11,6 +11,8 @@ title:
 
 有部分定制的样式代码，由于输入标签长度不确定，需要根据具体情况自行调整。
 
+> 🛎️ 想要 3 分钟实现？ 试试 ProFrom 的[查询表单](https://procomponents.ant.design/components/form#%E6%9F%A5%E8%AF%A2%E7%AD%9B%E9%80%89)！
+
 ## en-US
 
 Three columns layout is often used for advanced searching of data table.

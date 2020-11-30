@@ -175,6 +175,7 @@
     transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
       background 0.3s @ease-in-out;
   }
+
   &-item,
   &-submenu-title {
     position: relative;
@@ -191,10 +192,10 @@
       min-width: 14px;
       margin-right: @menu-icon-margin-right;
       font-size: @menu-icon-size;
-      transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
+      transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out, color 0.3s @ease-in-out;
       + span {
         opacity: 1;
-        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
+        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out, color 0.3s @ease-in-out;
       }
     }
 
@@ -257,78 +258,62 @@
       background-color: @menu-popup-bg;
     }
 
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right,
-    &-inline {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+    &-expand-icon,
+    &-arrow {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      width: 10px;
+      color: @menu-item-color;
+      transform: translateY(-50%);
+      transition: transform 0.3s @ease-in-out;
+    }
+
+    &-arrow {
+      &::before,
+      &::after {
         position: absolute;
-        top: 50%;
-        right: 16px;
-        width: 10px;
-        transition: transform 0.3s @ease-in-out;
-
-        &::before,
-        &::after {
-          position: absolute;
-          width: 6px;
-          height: 1.5px;
-          // background + background-image to makes before & after cross have same color.
-          // ref: https://github.com/ant-design/ant-design/issues/15910
-          background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
-          border-radius: 2px;
-          transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
-            top 0.3s @ease-in-out;
-          content: '';
-        }
-        &::before {
-          transform: rotate(45deg) translateY(-2px);
-        }
-        &::after {
-          transform: rotate(-45deg) translateY(2px);
-        }
+        width: 6px;
+        height: 1.5px;
+        background-color: currentColor;
+        border-radius: 2px;
+        transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out, top 0.3s @ease-in-out,
+          color 0.3s @ease-in-out;
+        content: '';
       }
-      > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
-        &::after,
-        &::before {
-          background: linear-gradient(to right, @menu-highlight-color, @menu-highlight-color);
-        }
-      }
-    }
-
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
-        &::before {
-          transform: rotate(45deg) translateY(-2px);
-        }
-        &::after {
-          transform: rotate(-45deg) translateY(2px);
-        }
-      }
-    }
-
-    &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
       &::before {
-        transform: rotate(-45deg) translateX(2px);
+        transform: rotate(45deg) translateY(-2.5px);
       }
       &::after {
-        transform: rotate(45deg) translateX(-2px);
+        transform: rotate(-45deg) translateY(2.5px);
       }
     }
 
-    &-open {
-      &.@{menu-prefix-cls}-submenu-inline
-        > .@{menu-prefix-cls}-submenu-title
-        .@{menu-prefix-cls}-submenu-arrow {
-        transform: translateY(-2px);
-        &::after {
-          transform: rotate(-45deg) translateX(-2px);
-        }
-        &::before {
-          transform: rotate(45deg) translateX(2px);
-        }
+    &:hover > &-title > &-expand-icon,
+    &:hover > &-title > &-arrow {
+      color: @menu-highlight-color;
+    }
+
+    &-inline &-arrow {
+      &::before {
+        transform: rotate(-45deg) translateX(2.5px);
+      }
+      &::after {
+        transform: rotate(45deg) translateX(-2.5px);
+      }
+    }
+
+    &-horizontal &-arrow {
+      display: none;
+    }
+
+    &-open&-inline > &-title > &-arrow {
+      transform: translateY(-2px);
+      &::after {
+        transform: rotate(-45deg) translateX(-2.5px);
+      }
+      &::before {
+        transform: rotate(45deg) translateX(2.5px);
       }
     }
   }
