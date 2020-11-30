@@ -60,8 +60,8 @@ export default function MorePage() {
   const loadingProps = { loading: true } as MoreProps;
   return (
     <Row gutter={[24, 32]}>
-      {(list || [loadingProps, loadingProps, loadingProps, loadingProps]).map(more => (
-        <MoreCard key={more.title} {...more} icons={icons} />
+      {(list || [loadingProps, loadingProps, loadingProps, loadingProps]).map((more, i) => (
+        <MoreCard key={more.title || i} {...more} icons={icons} />
       ))}
     </Row>
   );
