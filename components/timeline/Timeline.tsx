@@ -42,9 +42,10 @@ const Timeline: TimelineType = props => {
     </TimelineItem>
   ) : null;
 
-  const timeLineItems = reverse
-    ? [pendingItem, ...React.Children.toArray(children).reverse()]
-    : [...React.Children.toArray(children), pendingItem];
+  const timeLineItems = React.Children.toArray(children).push(pendingItem);
+  if(reverse) {
+    timeLineItems.reverse();
+  }
 
   const getPositionCls = (ele: React.ReactElement<any>, idx: number) => {
     if (mode === 'alternate') {
