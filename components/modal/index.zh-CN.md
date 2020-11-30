@@ -67,7 +67,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| afterClose | Modal 完全关闭后的回调 | function | - |  |
+| afterClose | Modal 完全关闭后的回调 | function | - | 4.9.0 |
 | autoFocusButton | 指定自动获得焦点的按钮 | null \| `ok` \| `cancel` | `ok` |  |
 | bodyStyle | Modal body 样式 | CSSProperties |  | 4.8.0 |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
