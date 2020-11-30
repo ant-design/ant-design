@@ -7,26 +7,26 @@
   .reset-component;
 
   position: relative;
-  padding: 8px 15px 8px 37px;
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 15px 8px 16px;
   word-wrap: break-word;
   border-radius: @border-radius-base;
 
   &&-no-icon {
     padding: @alert-no-icon-padding-vertical 15px;
-    .@{alert-prefix-cls}-close-icon {
-      top: @alert-no-icon-padding-vertical + @font-size-base * @line-height-base / 2 -
-        @font-size-base / 2;
-    }
   }
 
-  &&-closable {
-    padding-right: 30px;
+  &-content {
+    flex: 1;
+    min-width: 0;
   }
 
   &-icon {
-    position: absolute;
-    top: @alert-icon-top;
-    left: 16px;
+    position: relative;
+    top: @alert-icon-top - 8;
+    height: @font-size-base * @line-height-base;
+    margin-right: 37px - 16 - @font-size-base;
   }
 
   &-description {
@@ -73,10 +73,17 @@
     }
   }
 
+  &-action {
+    margin-left: @margin-xs;
+    .@{alert-prefix-cls}-closable & {
+      margin-right: @margin-xs;
+    }
+  }
+
   &-close-icon {
-    position: absolute;
-    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
-    right: @padding-md;
+    position: relative;
+    top: @font-size-base * @line-height-base / 2 - @font-size-sm / 2;
+    margin-left: @margin-xs;
     padding: 0;
     overflow: hidden;
     font-size: @font-size-sm;
@@ -116,17 +123,13 @@
   }
 
   &-with-description &-icon {
-    position: absolute;
-    top: @alert-with-description-icon-top;
-    left: @alert-with-description-icon-size;
+    top: 0;
+    margin-right: @alert-with-description-padding-vertical;
     font-size: @alert-with-description-icon-size;
   }
 
   &-with-description &-close-icon {
-    position: absolute;
-    top: @padding-md;
-    right: @padding-md;
-    font-size: @font-size-base;
+    top: 0;
     cursor: pointer;
   }
 
