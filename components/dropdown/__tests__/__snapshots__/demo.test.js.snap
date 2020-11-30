@@ -383,57 +383,107 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 `;
 
 exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
-Array [
-  <button
-    class="ant-btn ant-dropdown-trigger"
-    type="button"
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <span>
-      bottomLeft
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-dropdown-trigger"
-    type="button"
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap:wrap;margin-bottom:-8px"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <button
+          class="ant-btn ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomLeft
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <button
+          class="ant-btn ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomCenter
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom:8px"
+      >
+        <button
+          class="ant-btn ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
   >
-    <span>
-      bottomCenter
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-dropdown-trigger"
-    type="button"
-  >
-    <span>
-      bottomRight
-    </span>
-  </button>,
-  <br />,
-  <button
-    class="ant-btn ant-dropdown-trigger"
-    type="button"
-  >
-    <span>
-      topLeft
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-dropdown-trigger"
-    type="button"
-  >
-    <span>
-      topCenter
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-dropdown-trigger"
-    type="button"
-  >
-    <span>
-      topRight
-    </span>
-  </button>,
-]
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap:wrap;margin-bottom:-8px"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <button
+          class="ant-btn ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topLeft
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <button
+          class="ant-btn ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topCenter
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom:8px"
+      >
+        <button
+          class="ant-btn ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `

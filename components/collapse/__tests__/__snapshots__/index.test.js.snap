@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collapse could override default openAnimation 1`] = `
+exports[`Collapse could override default openMotion 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-left"
 >

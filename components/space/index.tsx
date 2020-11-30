@@ -5,17 +5,34 @@ import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
 
-export const LastIndexContext = React.createContext(0);
+export const SpaceContext = React.createContext({
+  latestIndex: 0,
+  horizontalSize: 0,
+  verticalSize: 0,
+});
+
+export type SpaceSize = SizeType | number;
 
 export interface SpaceProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  size?: SizeType | number;
+  size?: SpaceSize | [SpaceSize, SpaceSize];
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
+  wrap?: boolean;
+}
+
+const spaceSize = {
+  small: 8,
+  middle: 16,
+  large: 24,
+};
+
+function getNumberSize(size: SpaceSize) {
+  return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
 const Space: React.FC<SpaceProps> = props => {
@@ -29,8 +46,18 @@ const Space: React.FC<SpaceProps> = props => {
     direction = 'horizontal',
     prefixCls: customizePrefixCls,
     split,
+    style,
+    wrap = false,
     ...otherProps
   } = props;
+
+  const [horizontalSize, verticalSize] = React.useMemo(
+    () =>
+      ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map(item =>
+        getNumberSize(item),
+      ),
+    [size],
+  );
 
   const childNodes = toArray(children, { keepEmpty: true });
 
@@ -67,10 +94,10 @@ const Space: React.FC<SpaceProps> = props => {
         className={itemClassName}
         key={`${itemClassName}-${i}`}
         direction={direction}
-        size={size}
         index={i}
         marginDirection={marginDirection}
         split={split}
+        wrap={wrap}
       >
         {child}
       </Item>
@@ -79,8 +106,17 @@ const Space: React.FC<SpaceProps> = props => {
   });
 
   return (
-    <div className={cn} {...otherProps}>
-      <LastIndexContext.Provider value={latestIndex}>{nodes}</LastIndexContext.Provider>
+    <div
+      className={cn}
+      style={{
+        ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
+        ...style,
+      }}
+      {...otherProps}
+    >
+      <SpaceContext.Provider value={{ horizontalSize, verticalSize, latestIndex }}>
+        {nodes}
+      </SpaceContext.Provider>
     </div>
   );
 };

@@ -4205,14 +4205,18 @@ Array [
     data-show="true"
     role="alert"
   >
-    <span
-      class="ant-alert-message"
+    <div
+      class="ant-alert-content"
     >
-      You selected date: 2017-01-25
-    </span>
-    <span
-      class="ant-alert-description"
-    />
+      <div
+        class="ant-alert-message"
+      >
+        You selected date: 2017-01-25
+      </div>
+      <div
+        class="ant-alert-description"
+      />
+    </div>
   </div>,
   <div
     class="ant-picker-calendar ant-picker-calendar-full"

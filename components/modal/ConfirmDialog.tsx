@@ -33,6 +33,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     prefixCls,
     rootPrefixCls,
     bodyStyle,
+    closable = false,
+    closeIcon,
     modalRender,
   } = props;
 
@@ -96,6 +98,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       keyboard={keyboard}
       centered={centered}
       getContainer={getContainer}
+      closable={closable}
+      closeIcon={closeIcon}
       modalRender={modalRender}
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>

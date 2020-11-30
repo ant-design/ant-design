@@ -88,8 +88,8 @@ class Demo extends React.Component {
       // Drop on the content
       loop(data, dropKey, item => {
         item.children = item.children || [];
-        // where to insert 示例添加到尾部，可以是随意位置
-        item.children.push(dragObj);
+        // where to insert 示例添加到头部，可以是随意位置
+        item.children.unshift(dragObj);
       });
     } else if (
       (info.node.props.children || []).length > 0 && // Has children
@@ -100,6 +100,8 @@ class Demo extends React.Component {
         item.children = item.children || [];
         // where to insert 示例添加到头部，可以是随意位置
         item.children.unshift(dragObj);
+        // in previous version, we use item.children.push(dragObj) to insert the
+        // item to the tail of the children
       });
     } else {
       let ar;

@@ -58,6 +58,7 @@ Cascade selection box.
 | matchInputWidth | Whether the width of list matches input, ([how it looks](https://github.com/ant-design/ant-design/issues/25779)) | boolean | true |  |
 | render | Used to render filtered options | function(inputValue, path): ReactNode | - |  |
 | sort | Used to sort filtered options | function(a, b, inputValue) | - |  |
+| onChange | A callback function, can be executed when the search input changes | function(value: string) | - | 4.9.0 |
 
 ### Option
 

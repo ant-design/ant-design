@@ -31,6 +31,7 @@ More layouts with navigation: [Layout](/components/layout).
 | --- | --- | --- | --- | --- |
 | defaultOpenKeys | Array with the keys of default opened sub menus | string\[] | - |  |
 | defaultSelectedKeys | Array with the keys of default selected menu items | string\[] | - |  |
+| expandIcon | custom expand icon of submenu | ReactNode \| `(props: SubMenuProps & { isSubMenu: boolean }) => ReactNode` | - | 4.9.0 |
 | forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  |
 | inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  |
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |

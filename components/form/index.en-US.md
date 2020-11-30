@@ -169,6 +169,7 @@ Provides array management for fields.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | children | Render function | (fields: Field\[], operation: { add, remove, move }) => React.ReactNode | - |  |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.9.0 |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | rules | Validate rules, only support customize validator. Should work with [ErrorList](#Form.ErrorList) | { validator, message }\[] | - | 4.7.0 |
 
@@ -185,6 +186,8 @@ Provides array management for fields.
   )}
 </Form.List>
 ```
+
+Note: You should not config Form.Item `initialValue` under Form.List. It always should be configured by Form.List `initialValue` or Form `initialValues`.
 
 ## operation
 
