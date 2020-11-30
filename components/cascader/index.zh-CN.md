@@ -61,7 +61,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | matchInputWidth | 搜索结果列表是否与输入框同宽（[效果](https://github.com/ant-design/ant-design/issues/25779)） | boolean | true |  |
 | render | 用于渲染 filter 后的选项 | function(inputValue, path): ReactNode | - |  |
 | sort | 用于排序 filter 后的选项 | function(a, b, inputValue) | - |  |
-| onChange | 文本框值变化时的回调 | function(value: string) | - | 4.9.0 |
 
 ### Option
 
