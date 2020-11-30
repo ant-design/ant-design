@@ -52,6 +52,19 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
               />
             </div>
             <div
+              aria-hidden="true"
+              class="ant-select-tree-treenode"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+            >
+              <div
+                class="ant-select-tree-indent"
+              >
+                <div
+                  class="ant-select-tree-indent-unit"
+                />
+              </div>
+            </div>
+            <div
               class="ant-select-tree-list"
               style="position: relative;"
             >
@@ -67,6 +80,10 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
                     <div
                       class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     >
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-tree-indent"
+                      />
                       <span
                         class="ant-select-tree-switcher ant-select-tree-switcher-noop"
                       />
