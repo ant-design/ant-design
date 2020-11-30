@@ -144,11 +144,10 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   } = props;
 
   const size = React.useContext(SizeContext);
-  const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
+  const [innerLoading, setLoading] = React.useState<boolean>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
-  const delayTimeoutRef = React.useRef<number>();
 
   const isNeedInserted = () => {
     return React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
@@ -178,14 +177,13 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   }
 
   React.useEffect(() => {
-    clearTimeout(delayTimeoutRef.current);
     if (typeof loadingOrDelay === 'number') {
-      delayTimeoutRef.current = window.setTimeout(() => {
-        setLoading(loadingOrDelay);
+      const delayTimeout = window.setTimeout(() => {
+        setLoading(true);
       }, loadingOrDelay);
-    } else {
-      setLoading(loadingOrDelay);
+      return () => clearTimeout(delayTimeout);
     }
+    setLoading(!!loadingOrDelay);
   }, [loadingOrDelay]);
 
   React.useEffect(fixTwoCNChar, [buttonRef]);
