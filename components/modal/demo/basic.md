@@ -16,8 +16,6 @@ Basic modal.
 ```jsx
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import './index.css';
 import { Modal, Button } from 'antd';
 
 const App = () => {
