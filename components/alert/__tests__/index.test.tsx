@@ -75,7 +75,7 @@ describe('Alert', () => {
     });
   });
 
-  fit('ErrorBoundary', () => {
+  it('ErrorBoundary', () => {
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
