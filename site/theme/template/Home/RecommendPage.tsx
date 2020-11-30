@@ -59,7 +59,7 @@ const RecommendBlock = ({
   );
 };
 
-export default function RecommendPageo() {
+export default function RecommendPage() {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
   const list = useSiteData<Recommend[]>('recommendations', isZhCN ? 'cn' : 'en');

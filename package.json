@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.8.5",
+  "version": "4.9.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -60,7 +60,7 @@
     "compile": "antd-tools run compile",
     "compile:less": "antd-tools run compile:less",
     "changelog": "node ./scripts/print-changelog",
-    "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && cp -r .circleci _site && npm run site:test",
+    "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && cp -r _site && npm run site:test",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "dist": "antd-tools run dist",
@@ -135,7 +135,7 @@
     "rc-progress": "~3.1.0",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^0.2.3",
-    "rc-select": "~11.5.0",
+    "rc-select": "~11.5.3",
     "rc-slider": "~9.6.1",
     "rc-steps": "~4.1.0",
     "rc-switch": "~3.2.0",
@@ -215,7 +215,7 @@
     "http-server": "^0.12.0",
     "husky": "^4.0.3",
     "identity-obj-proxy": "^3.0.0",
-    "ignore-emit-webpack-plugin": "2.0.3",
+    "ignore-emit-webpack-plugin": "^2.0.6",
     "immutability-helper": "^3.0.0",
     "inquirer": "^7.1.0",
     "intersection-observer": "^0.11.0",
@@ -271,7 +271,7 @@
     "rimraf": "^3.0.0",
     "scrollama": "^2.0.0",
     "simple-git": "^2.23.0",
-    "string-replace-loader": "^2.3.0",
+    "string-replace-loader": "^3.0.1",
     "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-config-rational-order": "^0.1.2",
@@ -279,7 +279,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^4.0.0",
     "theme-switcher": "^1.0.2",
-    "typescript": "~4.0.0",
+    "typescript": "~4.1.2",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.2.0",
@@ -295,19 +295,19 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "280 kB"
+      "maxSize": "270 kB"
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "67 kB"
+      "maxSize": "72 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "70 kB"
     }
   ],
   "tnpm": {

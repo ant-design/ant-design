@@ -15,6 +15,54 @@ timeline: true
 
 ---
 
+## 4.9.0
+
+`2020-11-30`
+
+- Modal
+  - 🆕 Modal 支持 `focusTriggerAfterClose` 以关闭自动恢复焦点的功能。[#27985](https://github.com/ant-design/ant-design/pull/27985) [@molokovev](https://github.com/molokovev)
+  - 🐞 修复 Modal hooks 没有触发 `onCancel` 的问题。[#28063](https://github.com/ant-design/ant-design/pull/28063) [@JuniorTour](https://github.com/JuniorTour)
+  - 🐞 修复 Modal 有时不在点击位置弹出的问题。[#28037](https://github.com/ant-design/ant-design/pull/28037)
+  - 🆕 Modal.method 支持 `closable` 和 `closeIcon`。[#27909](https://github.com/ant-design/ant-design/pull/27909) [@MrHeer](https://github.com/MrHeer)
+- 💄 减少 Table 选中列宽度至 `32px`。[#28073](https://github.com/ant-design/ant-design/pull/28073)
+- Image
+  - 🔥 Image 增加 PreviewGroup 组件支持多张图片预览。[#28069](https://github.com/ant-design/ant-design/pull/28069)
+  - 🐞 修复 Image style 属性未作用于 img 元素的问题。[#27446](https://github.com/ant-design/ant-design/pull/27446)
+- Collapse
+  - 🔥 Collapse 添加 `collapsible` 以支持指定可折叠触发区域并废弃 Panel 的 `disabled` 属性。[#27790](https://github.com/ant-design/ant-design/pull/27790)
+  - 🐞 修复 Collapse 内使用 `<Table sticky />` 时不生效的问题。[#28039](https://github.com/ant-design/ant-design/pull/28039)
+- 🐞 修复 Cascader 空数据可以被选择的问题。[#28062](https://github.com/ant-design/ant-design/pull/28062) [@n0ruSh](https://github.com/n0ruSh)
+- 🆕 Alert 支持 `action` 属性。[#25892](https://github.com/ant-design/ant-design/pull/25892) [@jesse3mh9a](https://github.com/jesse3mh9a)
+- 🔥 Tree 重构拖拽行为，增加 `dropIndicatorRender` 和 `allowDrop` 属性。[#26462](https://github.com/ant-design/ant-design/pull/26462) [@07akioni](https://github.com/07akioni)
+- 🆕 Space 增加 `wrap` 属性以配置自动换行。[#27910](https://github.com/ant-design/ant-design/pull/27910)
+- 🆕 Descriptions.Item 支持 `labelStyle` 和 `contentStyle` 属性。[#27897](https://github.com/ant-design/ant-design/pull/27897)
+- 🆕 Form.List 支持 `initialValue`。[#27872](https://github.com/ant-design/ant-design/pull/27872)
+- 🆕 Menu 新增 `expandIcon` 属性以支持自定义展开图标，同时优化了默认图标的样式。[#27565](https://github.com/ant-design/ant-design/pull/27565)
+- 🆕 Input 和 TextArea 组件的 `ref` 属性增加`setSelectionRange`方法。[#27584](https://github.com/ant-design/ant-design/pull/27584) [@appleshell](https://github.com/appleshell)
+- 🆕 Select 组件新增 `filterSort` 属性以支持筛选模式下选项排序功能。[#27523](https://github.com/ant-design/ant-design/pull/27523) [@n0ruSh](https://github.com/n0ruSh)
+- 🇰🇿 新增哈萨克语。[#27589](https://github.com/ant-design/ant-design/pull/27589) [@nodkz](https://github.com/nodkz)
+
+## 4.8.6
+
+`2020-11-27`
+
+- 🐞 修复 Badge 在初始化时样式抖动的问题。[#28003](https://github.com/ant-design/ant-design/pull/28003)
+- 💄 优化 Modal 相关样式的冗余。[#27998](https://github.com/ant-design/ant-design/pull/27998)
+- 🐞 修复 Layout.Sider 在 `width='0'` 时不能展开的问题。[#28000](https://github.com/ant-design/ant-design/pull/28000)
+- 🐞 修复 Menu 使用非 Ant Design 图标时的样式问题。[#27983](https://github.com/ant-design/ant-design/pull/27983)
+- Input
+  - 🐞 修复 Input.Search 自定义 less 变量时的按钮高度问题。[#27986](https://github.com/ant-design/ant-design/pull/27986)
+  - 🐞 修复 Input.Search `addonBefore` 样式异常。[#27960](https://github.com/ant-design/ant-design/pull/27960)
+- 🐞 修复 Typography.Link 点击复制按钮会触发链接跳转的问题。[#27982](https://github.com/ant-design/ant-design/pull/27982)
+- 🐞 修复 Carousel `Unable to preventDefault inside passive event listener` 报错问题。[#27957](https://github.com/ant-design/ant-design/pull/27957)
+- 🌐 改进 DatePicker 的 `en_GB` 与 `zh_TW` 本地化支持。[#28016](https://github.com/ant-design/ant-design/pull/28016) [@abz53378](https://github.com/abz53378)
+- RTL
+  - 💄 优化 Descriptions 在 RTL 模型下的边框样式。[#28010](https://github.com/ant-design/ant-design/pull/28010)
+  - 💄 修复 Steps 垂直方向在 RTL 模式下的样式。[#27996](https://github.com/ant-design/ant-design/pull/27996)
+- TypeScript
+  - 🤖 修复 Upload 的 `beforeUpload` 定义问题。[#27946](https://github.com/ant-design/ant-design/pull/27946) [@bingling0084](https://github.com/bingling0084)
+  - 🤖 为 Carousel 提供单独的 ref 定义。[#27935](https://github.com/ant-design/ant-design/pull/27935) [@ocassio](https://github.com/ocassio)
+
 ## 4.8.5
 
 `2020-11-22`

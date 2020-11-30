@@ -186,6 +186,8 @@
     cursor: pointer;
     transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
       background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
+
+    .@{menu-prefix-cls}-item-icon,
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: @menu-icon-margin-right;
@@ -198,7 +200,8 @@
     }
 
     &.@{menu-prefix-cls}-item-only-child {
-      > .@{iconfont-css-prefix} {
+      > .@{iconfont-css-prefix},
+      > .@{menu-prefix-cls}-item-icon {
         margin-right: 0;
       }
     }
@@ -473,6 +476,8 @@
       .@{menu-prefix-cls}-submenu-arrow {
         display: none;
       }
+
+      .@{menu-prefix-cls}-item-icon,
       .@{iconfont-css-prefix} {
         margin: 0;
         font-size: @menu-icon-size-lg;
@@ -485,12 +490,15 @@
       }
     }
 
+    .@{menu-prefix-cls}-item-icon,
     .@{iconfont-css-prefix} {
       display: inline-block;
     }
 
     &-tooltip {
       pointer-events: none;
+
+      .@{menu-prefix-cls}-item-icon,
       .@{iconfont-css-prefix} {
         display: none;
       }

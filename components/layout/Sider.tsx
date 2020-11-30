@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext, useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
@@ -76,14 +77,14 @@ const Sider: React.FC<SiderProps> = ({
   onBreakpoint,
   ...props
 }) => {
-  const { siderHook } = React.useContext(LayoutContext);
+  const { siderHook } = useContext(LayoutContext);
 
-  const [collapsed, setCollapsed] = React.useState(
+  const [collapsed, setCollapsed] = useState(
     'collapsed' in props ? props.collapsed : defaultCollapsed,
   );
-  const [below, setBelow] = React.useState(false);
+  const [below, setBelow] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if ('collapsed' in props) {
       setCollapsed(props.collapsed);
     }
@@ -98,16 +99,23 @@ const Sider: React.FC<SiderProps> = ({
     }
   };
 
-  React.useEffect(() => {
-    const responsiveHandler = (mql: MediaQueryListEvent | MediaQueryList) => {
-      setBelow(mql.matches);
-      if (onBreakpoint) {
-        onBreakpoint(mql.matches);
-      }
-      if (collapsed !== mql.matches) {
-        handleSetCollapsed(mql.matches, 'responsive');
-      }
-    };
+  // ========================= Responsive =========================
+  const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>();
+  responsiveHandlerRef.current = (mql: MediaQueryListEvent | MediaQueryList) => {
+    setBelow(mql.matches);
+    if (onBreakpoint) {
+      onBreakpoint(mql.matches);
+    }
+
+    if (collapsed !== mql.matches) {
+      handleSetCollapsed(mql.matches, 'responsive');
+    }
+  };
+
+  useEffect(() => {
+    function responsiveHandler(mql: MediaQueryListEvent | MediaQueryList) {
+      return responsiveHandlerRef.current!(mql);
+    }
 
     let mql: MediaQueryList;
     if (typeof window !== 'undefined') {
@@ -129,9 +137,9 @@ const Sider: React.FC<SiderProps> = ({
         mql?.removeListener(responsiveHandler);
       }
     };
-  }, [onBreakpoint, collapsed]);
+  }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const uniqueId = generateId('ant-sider-');
     siderHook.addSider(uniqueId);
     return () => siderHook.removeSider(uniqueId);
@@ -141,7 +149,7 @@ const Sider: React.FC<SiderProps> = ({
     handleSetCollapsed(!collapsed, 'clickTrigger');
   };
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
 
   const renderSider = () => {
     const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);

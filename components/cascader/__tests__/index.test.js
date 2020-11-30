@@ -321,6 +321,12 @@ describe('Cascader', () => {
     expect(popupWrapper.render()).toMatchSnapshot();
   });
 
+  it('not found content shoule be disabled', () => {
+    const wrapper = mount(<Cascader options={[]} />);
+    wrapper.find('input').simulate('click');
+    expect(wrapper.find('.ant-cascader-menu-item-disabled').length).toBe(1);
+  });
+
   describe('limit filtered item count', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -541,12 +547,5 @@ describe('Cascader', () => {
       .at(0)
       .simulate('click');
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
-  });
-
-  it('showSearch.onChange should work correctly', () => {
-    const onChange = jest.fn();
-    const wrapper = mount(<Cascader options={options} showSearch={{ onChange }} />);
-    wrapper.find('input').simulate('change', { target: { value: '123' } });
-    expect(onChange).toHaveBeenCalledWith('123');
   });
 });

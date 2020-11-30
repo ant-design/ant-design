@@ -10,7 +10,7 @@
 
 Uma solução empresarial de design e biblioteca UI para React.
 
-[![CircleCI status][circleci-image]][circleci-url] [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
 [![david deps][david-image]][david-url] [![david devDeps][david-dev-image]][david-dev-url] [![Total alerts][lgtm-image]][lgtm-url] [![FOSSA Status][fossa-image]][fossa-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
@@ -18,8 +18,6 @@ Uma solução empresarial de design e biblioteca UI para React.
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
-[circleci-image]: https://img.shields.io/travis/com/ant-design/ant-design.svg?style=flat-square
-[circleci-url]: https://travis-ci.com/ant-design/ant-design
 [github-action-image]: https://github.com/ant-design/ant-design/workflows/test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3Atest
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square

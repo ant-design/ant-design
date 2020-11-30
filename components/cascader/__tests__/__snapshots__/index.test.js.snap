@@ -592,9 +592,10 @@ exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
     <div>
       <ul
         class="ant-cascader-menu"
+        style="height: auto;"
       >
         <li
-          class="ant-cascader-menu-item"
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
           role="menuitem"
           title=""
         >
@@ -1177,9 +1178,10 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
     <div>
       <ul
         class="ant-cascader-menu"
+        style="height: auto; width: 0px;"
       >
         <li
-          class="ant-cascader-menu-item"
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
           role="menuitem"
           title=""
         >

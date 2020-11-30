@@ -64,7 +64,6 @@ export interface ShowSearchType {
   ) => number;
   matchInputWidth?: boolean;
   limit?: number | false;
-  onChange?: (val: string) => void;
 }
 
 export interface CascaderProps {
@@ -235,6 +234,19 @@ function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNames
   });
 }
 
+function getEmptyNode(
+  renderEmpty: RenderEmptyHandler,
+  names: FilledFieldNamesType,
+  notFoundContent?: React.ReactNode,
+) {
+  return {
+    [names.value]: 'ANT_CASCADER_NOT_FOUND',
+    [names.label]: notFoundContent || renderEmpty('Cascader'),
+    disabled: true,
+    isEmptyNode: true,
+  };
+}
+
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     transitionName: 'slide-up',
@@ -255,11 +267,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     if ('popupVisible' in nextProps) {
       newState.popupVisible = nextProps.popupVisible;
     }
-    if (
-      nextProps.showSearch &&
-      (nextProps.showSearch as ShowSearchType).onChange === undefined &&
-      prevProps.options !== nextProps.options
-    ) {
+    if (nextProps.showSearch && prevProps.options !== nextProps.options) {
       newState.flattenOptions = flattenTree(nextProps.options, nextProps);
     }
 
@@ -283,10 +291,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       inputValue: '',
       inputFocused: false,
       popupVisible: props.popupVisible,
-      flattenOptions:
-        props.showSearch && (props.showSearch as ShowSearchType).onChange === undefined
-          ? flattenTree(props.options, props)
-          : undefined,
+      flattenOptions: props.showSearch ? flattenTree(props.options, props) : undefined,
       prevProps: props,
     };
   }
@@ -378,15 +383,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { popupVisible } = this.state;
     const inputValue = e.target.value;
-    const { showSearch } = this.props;
     if (!popupVisible) {
       this.handlePopupVisibleChange(true);
-    }
-    if (showSearch) {
-      const { onChange } = showSearch as ShowSearchType;
-      if (onChange) {
-        onChange(inputValue);
-      }
     }
     this.setState({ inputValue });
   };
@@ -457,14 +455,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         } as CascaderOptionType;
       });
     }
-    return [
-      {
-        [names.value]: 'ANT_CASCADER_NOT_FOUND',
-        [names.label]: notFoundContent || renderEmpty('Cascader'),
-        disabled: true,
-        isEmptyNode: true,
-      },
-    ];
+    return [getEmptyNode(renderEmpty, names, notFoundContent)];
   }
 
   focus() {
@@ -579,16 +570,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         let { options } = props;
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
-          if (state.inputValue && (showSearch as ShowSearchType).onChange === undefined) {
+          if (state.inputValue) {
             options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
-          options = [
-            {
-              [names.label]: notFoundContent || renderEmpty('Cascader'),
-              [names.value]: 'ANT_CASCADER_NOT_FOUND',
-            },
-          ];
+          options = [getEmptyNode(renderEmpty, names, notFoundContent)];
         }
         // Dropdown menu should keep previous status until it is fully closed.
         if (!state.popupVisible) {

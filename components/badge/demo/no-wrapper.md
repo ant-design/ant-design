@@ -16,16 +16,17 @@ title:
 Used in standalone when children is empty.
 
 ```jsx
-import { Badge } from 'antd';
+import { Badge, Space } from 'antd';
 
-ReactDOM.render(
-  <div>
+const Demo = () => (
+  <Space>
     <Badge count={25} />
     <Badge count={4} className="site-badge-count-4" />
     <Badge className="site-badge-count-109" count={109} style={{ backgroundColor: '#52c41a' }} />
-  </div>,
-  mountNode,
+  </Space>
 );
+
+ReactDOM.render(<Demo />, mountNode);
 ```
 
 ```css
@@ -37,13 +38,6 @@ ReactDOM.render(
 ```
 
 <style>
-.ant-badge-not-a-wrapper:not(.ant-badge-status) {
-  margin-right: 8px;
-}
-.ant-badge.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
-  margin-right: 0;
-  margin-left: 20px;
-}
 [data-theme="dark"] .site-badge-count-4 .ant-badge-count {
   background-color: #141414;
   box-shadow: 0 0 0 1px #434343 inset;
