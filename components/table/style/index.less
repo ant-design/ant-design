@@ -373,12 +373,10 @@
   }
 
   &-selection {
-    position: relative;
+    display: flex;
 
     &-extra {
-      position: absolute;
-      top: 0;
-      right: @table-selection-extra-right;
+      margin-inline-start: @margin-xss;
       cursor: pointer;
       transition: all 0.3s;
 
