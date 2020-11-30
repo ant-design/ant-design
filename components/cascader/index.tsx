@@ -234,6 +234,19 @@ function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNames
   });
 }
 
+function getEmptyNode(
+  renderEmpty: RenderEmptyHandler,
+  names: FilledFieldNamesType,
+  notFoundContent?: React.ReactNode,
+) {
+  return {
+    [names.value]: 'ANT_CASCADER_NOT_FOUND',
+    [names.label]: notFoundContent || renderEmpty('Cascader'),
+    disabled: true,
+    isEmptyNode: true,
+  };
+}
+
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     transitionName: 'slide-up',
@@ -442,14 +455,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         } as CascaderOptionType;
       });
     }
-    return [
-      {
-        [names.value]: 'ANT_CASCADER_NOT_FOUND',
-        [names.label]: notFoundContent || renderEmpty('Cascader'),
-        disabled: true,
-        isEmptyNode: true,
-      },
-    ];
+    return [getEmptyNode(renderEmpty, names, notFoundContent)];
   }
 
   focus() {
@@ -568,12 +574,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
-          options = [
-            {
-              [names.label]: notFoundContent || renderEmpty('Cascader'),
-              [names.value]: 'ANT_CASCADER_NOT_FOUND',
-            },
-          ];
+          options = [getEmptyNode(renderEmpty, names, notFoundContent)];
         }
         // Dropdown menu should keep previous status until it is fully closed.
         if (!state.popupVisible) {
