@@ -19,8 +19,8 @@ exports[`Switch rtl render component should be rendered correctly in RTL directi
 exports[`Switch should has click wave effect 1`] = `
 <button
   ant-click-animating="true"
-  aria-checked="false"
-  class="ant-switch"
+  aria-checked="true"
+  class="ant-switch ant-switch-checked"
   role="switch"
   type="button"
 >
