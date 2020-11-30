@@ -18,7 +18,7 @@ export interface CollapsePanelProps {
   forceRender?: boolean;
   id?: string;
   extra?: React.ReactNode;
-  collapsible: CollapsibleType;
+  collapsible?: CollapsibleType;
 }
 
 const CollapsePanel: React.FC<CollapsePanelProps> = props => {
