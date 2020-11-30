@@ -22,6 +22,7 @@ A content area which can be collapsed and expanded.
 | accordion | If true, Collapse renders as Accordion | boolean | false |  |
 | activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In `accordion` mode, it's the key of the first panel |  |
 | bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
+| collapsible | Specify whether the panels of children be collapsible or the trigger area of collapsible | `header` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
@@ -33,7 +34,7 @@ A content area which can be collapsed and expanded.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| disabled | If true, panel cannot be opened or closed | boolean | false |  |
+| collapsible | Specify whether the panel be collapsible or the trigger area of collapsible | `header` \| `disabled` | - | 4.9.0 |
 | extra | The extra element in the corner | ReactNode | - |  |
 | forceRender | Forced render of content on panel, instead of lazy rending after clicking on header | boolean | false |  |
 | header | Title of the panel | ReactNode | - |  |
