@@ -117,7 +117,8 @@ jobs:
         run: node ./scripts/check-demo.js
     needs: setup
 
-  react@17.x / dom:
+  react-17-dom:
+    name: react@17.x / dom
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -142,7 +143,8 @@ jobs:
         run: bash <(curl -s https://codecov.io/bash)
     needs: setup
 
-  react@17.x / node:
+  react-17-node:
+    name: react@17.x / node
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -164,7 +166,8 @@ jobs:
         run: npm run test-node
     needs: setup
 
-  react@17.x / lib:
+  react-17-lib:
+    name: react@17.x / lib
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -194,7 +197,8 @@ jobs:
           LIB_DIR: lib
     needs: compile
 
-  react@17.x / es:
+  react-17-es:
+    name: react@17.x / es
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -224,7 +228,8 @@ jobs:
           LIB_DIR: es
     needs: compile
 
-  react@17.x / dist:
+  react-17-dist:
+    name: react@17.x / dist
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -259,7 +264,8 @@ jobs:
           LIB_DIR: dist
     needs: setup
 
-  react@16.x / dom:
+  react-16-dom:
+    name: react@16.x / dom
     runs-on: ubuntu-latest
     env:
       REACT: 16
@@ -286,7 +292,8 @@ jobs:
         run: npm test -- -w 1 --coverage
     needs: setup
 
-  react@16.x / node:
+  react-16-node:
+    name: react@16.x / node
     runs-on: ubuntu-latest
     env:
       REACT: 16
@@ -313,7 +320,8 @@ jobs:
         run: npm run test-node
     needs: setup
 
-  react@16.x / lib:
+  react-16-lib:
+    name: react@16.x / lib
     runs-on: ubuntu-latest
     env:
       REACT: 16
@@ -348,7 +356,8 @@ jobs:
           LIB_DIR: lib
     needs: compile
 
-  react@16.x / es:
+  react-16-es:
+    name: react@16.x / es
     runs-on: ubuntu-latest
     env:
       REACT: 16
@@ -383,7 +392,8 @@ jobs:
           LIB_DIR: es
     needs: compile
 
-  react@16.x / dist:
+  react-16-dist:
+    name: react@16.x / dist
     runs-on: ubuntu-latest
     env:
       REACT: 16
