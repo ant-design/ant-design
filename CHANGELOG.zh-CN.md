@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.9.1
+
+`2020-12-01`
+
+- TypeScript
+  - 🤖 修复 Collapse.Panel 可折叠属性 `collapsible` 为可选。[#28092](https://github.com/ant-design/ant-design/pull/28092) [@sammarks](https://github.com/sammarks)
+
 ## 4.9.0
 
 `2020-11-30`
