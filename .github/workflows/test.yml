@@ -18,7 +18,7 @@ jobs:
       - name: create package-lock.json
         run: |
           npm i --package-lock-only
-          ./scripts/install-react.sh
+          bash ./scripts/install-react.sh
 
       - name: hack for single file
         run: |
@@ -38,7 +38,7 @@ jobs:
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: |
           npm ci
-          ./scripts/install-react.sh
+          bash ./scripts/install-react.sh
 
   compile:
     runs-on: ubuntu-latest
