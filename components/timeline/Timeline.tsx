@@ -29,8 +29,8 @@ const Timeline: TimelineType = props => {
     pendingDot,
     children,
     className,
-    reverse,
-    mode,
+    reverse = false,
+    mode = '' as TimelineProps['mode'],
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
@@ -98,10 +98,5 @@ const Timeline: TimelineType = props => {
 };
 
 Timeline.Item = TimelineItem;
-
-Timeline.defaultProps = {
-  reverse: false,
-  mode: '' as TimelineProps['mode'],
-};
 
 export default Timeline;
