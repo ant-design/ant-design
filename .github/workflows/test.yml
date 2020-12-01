@@ -1,6 +1,6 @@
 name: test
 
-on: [push, pull_request]
+on: push
 
 jobs:
   setup:
@@ -285,3 +285,100 @@ jobs:
       - name: test
         run: npm test -- -w 1 --coverage
     needs: setup
+
+  node-react-16:
+    runs-on: ubuntu-latest
+    env:
+      REACT: 16
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install react 16
+        run: npm run install-react-16
+
+      - name: test
+        run: npm run test-node
+    needs: setup
+
+  lib-react-16:
+    runs-on: ubuntu-latest
+    env:
+      REACT: 16
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: restore cache from lib
+        uses: actions/cache@v2
+        with:
+          path: lib
+          key: lib-${{ github.sha }}
+
+      - name: install react 16
+        run: npm run install-react-16
+
+      - name: test
+        run: npm test
+        env:
+          LIB_DIR: lib
+    needs: compile
+
+  es-react-16:
+    runs-on: ubuntu-latest
+    env:
+      REACT: 16
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: restore cache from es
+        uses: actions/cache@v2
+        with:
+          path: es
+          key: es-${{ github.sha }}
+
+      - name: install react 16
+        run: npm run install-react-16
+
+      - name: test
+        run: npm test
+        env:
+          LIB_DIR: es
+    needs: compile
