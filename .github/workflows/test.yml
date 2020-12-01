@@ -16,9 +16,11 @@ jobs:
           key: lock-${{ github.sha }}
 
       - name: create package-lock.json
-        run: npm i --package-lock-only
+        run: |
+          npm i --package-lock-only
+          ./scripts/install-react.sh
 
-      - name: hack for singe file
+      - name: hack for single file
         run: |
           if [ ! -d "package-temp-dir" ]; then
             mkdir package-temp-dir
