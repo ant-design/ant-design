@@ -31,7 +31,10 @@ if (typeof window !== 'undefined') {
 
 const Enzyme = require('enzyme');
 
-const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
+const Adapter =
+  process.env.REACT === '16'
+    ? require('enzyme-adapter-react-16') // eslint-disable-line import/no-extraneous-dependencies
+    : require('@wojtekmaj/enzyme-adapter-react-17');
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -34,7 +34,9 @@ jobs:
 
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+          npm ci
+          ./scripts/install-react.sh
 
   compile:
     runs-on: ubuntu-latest
@@ -258,3 +260,30 @@ jobs:
         env:
           LIB_DIR: es
     needs: compile
+
+  dom-react-16:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: test
+        run: npm test -- -w 1 --coverage
+
+      - name: coverage
+        run: bash <(curl -s https://codecov.io/bash)
+    needs: setup
+    environment:
+      REACT: 16
