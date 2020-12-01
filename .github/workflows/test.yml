@@ -36,16 +36,6 @@ jobs:
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
 
-  setup_react_16:
-    runs-on: ubuntu-latest
-    env:
-      REACT: 16
-    steps:
-      - name: install react 16
-        run: |
-          npm i --no-save react@16 react-dom@16 react-test-renderer@16 enzyme-adapter-react-16
-    needs: setup
-
   compile:
     runs-on: ubuntu-latest
     steps:
@@ -271,6 +261,8 @@ jobs:
 
   dom-react-16:
     runs-on: ubuntu-latest
+    env:
+      REACT: 16
     steps:
       - name: checkout
         uses: actions/checkout@master
@@ -287,6 +279,9 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
+      - name: install react 16
+        run: npm run install-react-16
+
       - name: test
         run: npm test -- -w 1 --coverage
-    needs: setup_react_16
+    needs: setup
