@@ -1,6 +1,5 @@
 .@{alert-prefix-cls} {
   &&-rtl {
-    padding: 8px 37px 8px 15px;
     direction: rtl;
   }
 
@@ -10,60 +9,24 @@
     }
   }
 
-  &&-closable {
-    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
-      padding-right: 37px;
-      padding-left: 30px;
-    }
-  }
-
-  &&-no-icon&-closable {
-    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
-      padding-right: 15px;
-      padding-left: 30px;
-    }
-  }
-
   &-icon {
     .@{alert-prefix-cls}-rtl & {
-      right: @padding-md;
-      left: auto;
+      margin-right: auto;
+      margin-left: 37px - 16 - @font-size-base;
     }
   }
 
   &-close-icon {
     .@{alert-prefix-cls}-rtl & {
-      right: auto;
-      left: @padding-md;
-    }
-  }
-
-  &-with-description,
-  &-with-description&-closable {
-    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
-      padding: @alert-with-description-padding-vertical @alert-with-description-icon-size * 2 +
-        @alert-with-description-padding-vertical @alert-with-description-no-icon-padding-vertical
-        15px;
-    }
-  }
-
-  &-with-description&-no-icon {
-    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
-      padding: 15px;
+      margin-right: @margin-xs;
+      margin-left: auto;
     }
   }
 
   &-with-description &-icon {
     .@{alert-prefix-cls}-rtl& {
-      right: @alert-with-description-icon-size;
-      left: auto;
-    }
-  }
-
-  &-with-description &-close-icon {
-    .@{alert-prefix-cls}-rtl& {
-      right: auto;
-      left: @padding-md;
+      margin-right: auto;
+      margin-left: @alert-with-description-padding-vertical;
     }
   }
 }
