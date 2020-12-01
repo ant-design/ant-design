@@ -283,7 +283,4 @@ jobs:
 
       - name: test
         run: npm test -- -w 1 --coverage
-
-      - name: coverage
-        run: bash <(curl -s https://codecov.io/bash)
     needs: setup
