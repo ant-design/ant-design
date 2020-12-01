@@ -263,6 +263,8 @@ jobs:
 
   dom-react-16:
     runs-on: ubuntu-latest
+    env:
+      REACT: 16
     steps:
       - name: checkout
         uses: actions/checkout@master
@@ -285,5 +287,3 @@ jobs:
       - name: coverage
         run: bash <(curl -s https://codecov.io/bash)
     needs: setup
-    environment:
-      REACT: 16
