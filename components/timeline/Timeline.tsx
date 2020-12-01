@@ -44,7 +44,7 @@ const Timeline: TimelineType = props => {
 
   const timeLineItems = React.Children.toArray(children);
   timeLineItems.push(pendingItem as any);
-  if(reverse) {
+  if (reverse) {
     timeLineItems.reverse();
   }
 
