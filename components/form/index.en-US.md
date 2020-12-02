@@ -169,7 +169,7 @@ Provides array management for fields.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | children | Render function | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
-| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.9.0 |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | any[] | - | 4.9.0 |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | rules | Validate rules, only support customize validator. Should work with [ErrorList](#Form.ErrorList) | { validator, message }\[] | - | 4.7.0 |
 
