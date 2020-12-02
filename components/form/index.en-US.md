@@ -168,8 +168,8 @@ Provides array management for fields.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| children | Render function | (fields: Field\[], operation: { add, remove, move }) => React.ReactNode | - |  |
-| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.9.0 |
+| children | Render function | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | any[] | - | 4.9.0 |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | rules | Validate rules, only support customize validator. Should work with [ErrorList](#Form.ErrorList) | { validator, message }\[] | - | 4.7.0 |
 
@@ -201,7 +201,7 @@ Some operator functions in render form of Form.List.
 
 ## Form.ErrorList
 
-New in 4.7.0. Show error messages, should only work with `rules` of Form.List.
+New in 4.7.0. Show error messages, should only work with `rules` of Form.List. See [example](#components-form-demo-dynamic-form-item).
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |

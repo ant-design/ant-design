@@ -1,5 +1,7 @@
-name: CI
+name: lighthouse ci
+
 on: [push]
+
 jobs:
   lighthouseci:
     runs-on: ubuntu-latest

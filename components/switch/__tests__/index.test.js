@@ -15,7 +15,7 @@ describe('Switch', () => {
     const wrapper = mount(<Switch />);
     wrapper.find('.ant-switch').getDOMNode().click();
     await new Promise(resolve => setTimeout(resolve, 0));
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find('button').getDOMNode().getAttribute('ant-click-animating')).toBe('true');
   });
 
   it('warning if set `value`', () => {

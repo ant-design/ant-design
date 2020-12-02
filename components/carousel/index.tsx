@@ -23,7 +23,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
 }
 
 export interface CarouselRef {
-  goTo: (slide: number, dontAnimate: boolean) => void;
+  goTo: (slide: number, dontAnimate?: boolean) => void;
   next: () => void;
   prev: () => void;
   autoPlay: boolean;

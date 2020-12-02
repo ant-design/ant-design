@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -75,10 +76,12 @@ describe('Grid', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('when component has been unmounted, componentWillUnmount should be called', () => {
+  it('ResponsiveObserve.unsubscribe should be called when unmounted', () => {
     const Unmount = jest.spyOn(ResponsiveObserve, 'unsubscribe');
     const wrapper = mount(<Row gutter={{ xs: 20 }} />);
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
     expect(Unmount).toHaveBeenCalled();
   });
 
