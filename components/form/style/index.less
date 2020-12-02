@@ -188,6 +188,13 @@
     line-height: @line-height-base;
     transition: color 0.3s @ease-out; // sync input color transition
   }
+
+  .@{ant-prefix}-input-textarea-show-count {
+    &::after {
+      position: absolute;
+      bottom: -22px;
+    }
+  }
 }
 
 .show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
