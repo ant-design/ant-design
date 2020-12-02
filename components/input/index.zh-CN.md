@@ -46,6 +46,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | allowClear | 可以点击清除图标删除内容 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| countFormatter | 指定字数展示的格式 | (count: number, maxLength?: number) => string | - | 4.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | maxLength | 内容最大长度 | number | - | 4.7.0 |
 | showCount | 是否展示字数 | boolean | false | 4.7.0 |

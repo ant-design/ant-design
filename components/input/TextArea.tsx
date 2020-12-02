@@ -13,6 +13,7 @@ export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
   showCount?: boolean;
+  countFormatter?: (count: number, maxLength?: number) => string;
   maxLength?: number;
   size?: SizeType;
 }
@@ -27,6 +28,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       prefixCls: customizePrefixCls,
       bordered = true,
       showCount = false,
+      countFormatter,
       maxLength,
       className,
       style,
@@ -117,7 +119,10 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     // Only show text area wrapper when needed
     if (showCount) {
       const valueLength = [...val].length;
-      const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+
+      const dataCount = countFormatter
+        ? countFormatter(valueLength, maxLength)
+        : `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
       return (
         <div
