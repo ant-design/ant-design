@@ -67,7 +67,11 @@ describe('message', () => {
 
   it('trigger onClick method', () => {
     const onClick = jest.fn();
-    message.info('message content', 2, () => {}, onClick)
+    message.info({
+      onClick: onClick,
+      duration: 2,
+      content: 'message info'
+    })
     setTimeout(onClick(), 1000)
     expect(onClick).toHaveBeenCalled();
   })

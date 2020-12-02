@@ -17,25 +17,23 @@ Display global messages as feedback in response to user operations.
 
 This components provides some static methods, with usage and arguments as following:
 
-- `message.success(content, [duration], onClose, onClick)`
-- `message.error(content, [duration], onClose, onClick)`
-- `message.info(content, [duration], onClose, onClick)`
-- `message.warning(content, [duration], onClose, onClick)`
-- `message.warn(content, [duration], onClose, onClick)` // alias of warning
-- `message.loading(content, [duration], onClose, onClick)`
+- `message.success(content, [duration], onClose)`
+- `message.error(content, [duration], onClose)`
+- `message.info(content, [duration], onClose)`
+- `message.warning(content, [duration], onClose)`
+- `message.warn(content, [duration], onClose)` // alias of warning
+- `message.loading(content, [duration], onClose)`
 
 | Argument | Description | Type | Default |
 | --- | --- | --- | --- |
 | content | The content of the message | ReactNode \| config | - |
 | duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |
 | onClose | Specify a function that will be called when the message is closed | function | - |
-| onClick | Specify a function that will be called when the message is clicked | function | - |
 
 `afterClose` can be called in thenable interface:
 
 - `message[level](content, [duration]).then(afterClose)`
 - `message[level](content, [duration], onClose).then(afterClose)`
-- `message[level](content, [duration], onClose, onClick).then(afterClose)`
 
 where `level` refers one static methods of `message`. The result of `then` method will be a Promise.
 

@@ -166,7 +166,7 @@ function notice(args: ArgsProps): MessageType {
     };
 
     getRCNotificationInstance(args, ({ prefixCls, instance }) => {
-      instance.notice(getRCNoticeProps({ ...args, key: target, onClose: callback}, prefixCls));
+      instance.notice(getRCNoticeProps({ ...args, key: target, onClose: callback}, prefixCls ));
     });
   });
   const result: any = () => {
@@ -184,7 +184,6 @@ type ConfigContent = React.ReactNode | string;
 type ConfigDuration = number | (() => void);
 type JointContent = ConfigContent | ArgsProps;
 export type ConfigOnClose = () => void;
-type ConfigOnClick = () => void;
 
 function isArgsProps(content: JointContent): content is ArgsProps {
   return (
@@ -215,7 +214,6 @@ export function attachTypeApi(originalApi: any, type: string) {
     content: JointContent,
     duration?: ConfigDuration,
     onClose?: ConfigOnClose,
-    onClick?: ConfigOnClick,
   ) => {
     if (isArgsProps(content)) {
       return originalApi.open({ ...content, type });
@@ -226,7 +224,7 @@ export function attachTypeApi(originalApi: any, type: string) {
       duration = undefined;
     }
 
-    return originalApi.open({ content, duration, type, onClose, onClick });
+    return originalApi.open({ content, duration, type, onClose });
   };
 }
 
@@ -236,16 +234,16 @@ api.warn = api.warning;
 api.useMessage = createUseMessage(getRCNotificationInstance, getRCNoticeProps);
 
 export interface MessageInstance {
-  info(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose, onClick?: ConfigOnClick): MessageType;
-  success(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose, onClick?: ConfigOnClick): MessageType;
-  error(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose, onClick?: ConfigOnClick): MessageType;
-  warning(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose, onClick?: ConfigOnClick): MessageType;
-  loading(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose, onClick?: ConfigOnClick): MessageType;
+  info(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  success(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  error(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  warning(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  loading(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
   open(args: ArgsProps): MessageType;
 }
 
 export interface MessageApi extends MessageInstance {
-  warn(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose, onClick?: ConfigOnClick): MessageType;
+  warn(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
   config(options: ConfigOptions): void;
   destroy(messageKey?: React.Key): void;
   useMessage(): [MessageInstance, React.ReactElement];
