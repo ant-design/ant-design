@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('List image', () => {
-  imageDemoTest('list');
+  imageDemoTest('list', { skip: ['loadmore.md'] });
 });
