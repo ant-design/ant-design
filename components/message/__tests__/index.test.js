@@ -65,6 +65,13 @@ describe('message', () => {
     });
   });
 
+  it('trigger onClick method', () => {
+    const onClick = jest.fn();
+    message.info('message content', 2, () => {}, onClick)
+    setTimeout(onClick(), 1000)
+    expect(onClick).toHaveBeenCalled();
+  })
+
   it('should be called like promise', done => {
     jest.useRealTimers();
     const defaultDuration = 3;
