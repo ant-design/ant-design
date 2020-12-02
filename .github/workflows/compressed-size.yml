@@ -1,6 +1,6 @@
 name: 📦 Compressed Size
 
-on: [pull_request]
+on: [pull_request_target]
 
 jobs:
   build:
@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: refs/pull/${{ github.event.pull_request.number }}/merge
     - uses: preactjs/compressed-size-action@v2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"

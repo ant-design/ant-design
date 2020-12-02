@@ -1,32 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert ErrorBoundary 1`] = `
-<div
-  class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
-  data-show="true"
-  role="alert"
->
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      ReferenceError: NotExisted is not defined
-    </div>
-    <div
-      class="ant-alert-description"
-    >
-      <pre>
-            in ThrowError
-    in ErrorBoundary (created by WrapperComponent)
-    in WrapperComponent
-      </pre>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Alert action of Alert custom action 1`] = `
 <div
   class="ant-alert ant-alert-success"

@@ -9,7 +9,6 @@ const themeConfig = require('./themeConfig');
 const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
-const usePreact = process.env.REACT_ENV === 'preact';
 
 function alertBabelConfig(rules) {
   rules.forEach(rule => {
@@ -72,16 +71,6 @@ module.exports = {
       'react-router-dom': 'ReactRouterDOM',
     };
 
-    if (usePreact) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        react: 'preact-compat',
-        'react-dom': 'preact-compat',
-        'create-react-class': 'preact-compat/lib/create-react-class',
-        'react-router': 'react-router',
-      };
-    }
-
     if (isDev) {
       config.devtool = 'source-map';
 
@@ -124,6 +113,5 @@ module.exports = {
 
   htmlTemplateExtraData: {
     isDev,
-    usePreact,
   },
 };
