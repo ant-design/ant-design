@@ -373,12 +373,18 @@
   }
 
   &-selection {
-    display: flex;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
 
     &-extra {
-      margin-inline-start: @margin-xss;
+      position: absolute;
+      top: 0;
+      z-index: 1;
       cursor: pointer;
       transition: all 0.3s;
+      margin-inline-start: 100%;
+      padding-inline-start: @padding-xss;
 
       .@{iconfont-css-prefix} {
         color: @table-header-icon-color;
