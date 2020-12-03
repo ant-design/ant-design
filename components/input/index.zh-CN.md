@@ -49,7 +49,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | countFormatter | 指定字数展示的格式 | (count: number, maxLength?: number) => string | - | 4.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | maxLength | 内容最大长度 | number | - | 4.7.0 |
-| showCount | 是否展示字数 | boolean | false | 4.7.0 |
+| showCount | 是否展示字数 | boolean \| { formatter: ({ count: number, maxLength?: number }) => string } | false | 4.7.0 (formatter: 4.10.0) |
 | value | 输入框内容 | string | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 | onResize | resize 回调 | function({ width, height }) | - |  |

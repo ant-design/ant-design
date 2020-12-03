@@ -166,12 +166,11 @@ describe('TextArea', () => {
       expect(wrapper.find('.ant-input').props().style.background).toBeFalsy();
     });
 
-    it('countFormatter', () => {
+    it('count formatter', () => {
       const wrapper = mount(
         <TextArea
           maxLength={5}
-          showCount
-          countFormatter={(count, maxLength) => `${count}, ${maxLength}`}
+          showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
           value="12345678"
         />,
       );

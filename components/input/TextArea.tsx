@@ -9,11 +9,14 @@ import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
+interface ShowCountProps {
+  formatter: (args: { count: number; maxLength?: number }) => string;
+}
+
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
-  showCount?: boolean;
-  countFormatter?: (count: number, maxLength?: number) => string;
+  showCount?: boolean | ShowCountProps;
   maxLength?: number;
   size?: SizeType;
 }
@@ -28,7 +31,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       prefixCls: customizePrefixCls,
       bordered = true,
       showCount = false,
-      countFormatter,
       maxLength,
       className,
       style,
@@ -120,9 +122,12 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     if (showCount) {
       const valueLength = [...val].length;
 
-      const dataCount = countFormatter
-        ? countFormatter(valueLength, maxLength)
-        : `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      let dataCount = '';
+      if (typeof showCount === 'object') {
+        dataCount = showCount.formatter({ count: valueLength, maxLength });
+      } else {
+        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      }
 
       return (
         <div
