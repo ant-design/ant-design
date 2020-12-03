@@ -8,7 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.head.repo.full_name == 'ant-design/ant-design' && (github.event.pull_request.head.ref == 'master' || github.event.pull_request.head.ref == 'feature')
     steps:
-      - name: automerge
+      - name: Auto Approve
+        uses: hmarr/auto-approve-action@v2.0.0
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Auto Merge
         uses: "pascalgn/automerge-action@v0.12.0"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
