@@ -3,6 +3,9 @@ on:
   pull_request:
     types:
       - labeled
+  check_suite:
+    types:
+      - completed
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
