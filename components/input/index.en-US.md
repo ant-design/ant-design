@@ -44,10 +44,10 @@ The rest of the props of Input are exactly the same as the original [input](http
 | --- | --- | --- | --- | --- |
 | allowClear | If allow to remove input content with clear icon | boolean | false |  |
 | autoSize | Height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
-| bordered | Whether has border style | boolean \| { formatter: ({ count: number, maxLength?: number }) => string } | true | 4.5.0 (formatter: 4.10.0) |
+| bordered | Whether has border style | boolean | true | 4.5.0 |
 | defaultValue | The initial input content | string | - |  |
 | maxLength | The max length | number | - | 4.7.0 |
-| showCount | Whether show text count | boolean | false | 4.7.0 |
+| showCount | Whether show text count | boolean \| { formatter: ({ count: number, maxLength?: number }) => string } | false | 4.7.0 (formatter: 4.10.0) |
 | value | The input content value | string | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 | onResize | The callback function that is triggered when resize | function({ width, height }) | - |  |
