@@ -6,10 +6,10 @@ on:
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.head.repo.full_name == 'ant-design/ant-design' && (github.event.pull_request.head.ref == 'master' || github.event.pull_request.head.ref == 'feature')
+    if: github.event.label.name == 'BranchAutoMerge' && github.event.pull_request.head.repo.full_name == 'ant-design/ant-design' && (github.event.pull_request.head.ref == 'master' || github.event.pull_request.head.ref == 'feature')
     steps:
       - name: Auto Approve
-        uses: hmarr/auto-approve-action@v2.0.0
+        uses: zombieJ/automerge-action@0.0.2
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Auto Merge
