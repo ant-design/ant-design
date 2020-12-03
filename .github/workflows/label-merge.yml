@@ -2,7 +2,12 @@ name: Automatic Merge by label
 on:
   pull_request:
     types:
-      - labeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
   check_suite:
     types:
       - completed
@@ -15,5 +20,3 @@ jobs:
         uses: "pascalgn/automerge-action@v0.12.0"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "BranchAutoMerge"
-          MERGE_REMOVE_LABELS: "BranchAutoMerge"
