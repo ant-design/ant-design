@@ -18,6 +18,12 @@
 
   &&-has-sider {
     flex-direction: row;
+    
+    
+    > .@{layout-prefix-cls},
+    > .@{layout-prefix-cls}-content {
+      width: 0; // https://segmentfault.com/a/1190000019498300
+    }
   }
 
   &-header,
