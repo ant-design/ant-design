@@ -105,8 +105,10 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    node.addEventListener('transitionstart', this.onTransitionStart);
-    node.addEventListener('transitionend', this.onTransitionEnd);
+    ['transition', 'animation'].forEach(name => {
+      node.addEventListener(`${name}start`, this.onTransitionStart);
+      node.addEventListener(`${name}end`, this.onTransitionEnd);
+    });
   };
 
   onTransitionStart = (e: AnimationEvent) => {
@@ -189,8 +191,10 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
-    node.removeEventListener('transitionstart', this.onTransitionStart);
-    node.removeEventListener('transitionend', this.onTransitionEnd);
+    ['transition', 'animation'].forEach(name => {
+      node.removeEventListener(`${name}start`, this.onTransitionStart);
+      node.removeEventListener(`${name}end`, this.onTransitionEnd);
+    });
   }
 
   renderWave = ({ csp }: ConfigConsumerProps) => {
