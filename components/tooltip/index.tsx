@@ -235,7 +235,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
   });
 
-  let formattedOverlayInnerStyle;
+  let formattedOverlayInnerStyle = overlayInnerStyle;
   let arrowContentStyle;
   if (color && !PresetColorRegex.test(color)) {
     formattedOverlayInnerStyle = { ...overlayInnerStyle, background: color };

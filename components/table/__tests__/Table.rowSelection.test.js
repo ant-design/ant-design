@@ -1131,5 +1131,43 @@ describe('Table.rowSelection', () => {
         [{ name: 'light' }, { name: 'bamboo' }],
       );
     });
+
+    it('works with receive selectedRowKeys fron [] to undefined', () => {
+      const onChange = jest.fn();
+      const dataSource = [{ name: 'Jack' }];
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: [0] }}
+          rowKey="name"
+        />,
+      );
+
+      wrapper.setProps({ rowSelection: { onChange, selectedRowKeys: undefined } });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+    });
+
+    it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
+      const onChange = jest.fn();
+      const dataSource = [{ name: 'Jack' }];
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: [0], type: 'radio' }}
+          rowKey="name"
+        />,
+      );
+
+      wrapper.setProps({ rowSelection: { onChange, selectedRowKeys: undefined, type: 'radio' } });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+    });
   });
 });

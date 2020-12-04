@@ -9,7 +9,7 @@ export default function dropIndicatorRender(props: {
   prefixCls: string;
   direction: 'ltr' | 'rtl';
 }) {
-  const { dropPosition, dropLevelOffset, prefixCls, indent, direction } = props;
+  const { dropPosition, dropLevelOffset, prefixCls, indent, direction = 'ltr' } = props;
   const startPosition = direction === 'ltr' ? 'left' : 'right';
   const endPosition = direction === 'ltr' ? 'right' : 'left';
   const style: React.CSSProperties = {

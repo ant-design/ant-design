@@ -104,7 +104,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
 
 1. You shouldn't use `onChange` on each form control to **collect data**(use `onValuesChange` of Form), but you can still listen to `onChange`.
-2. You cannot set value for each form control via `value` or `defaultValue` prop, you should set default value with `initialValues` of Form. Note that `initialValues` cannot be updated by `setState` dynamiclly, you should use `setFieldsValue` in that situation.
+2. You cannot set value for each form control via `value` or `defaultValue` prop, you should set default value with `initialValues` of Form. Note that `initialValues` cannot be updated by `setState` dynamically, you should use `setFieldsValue` in that situation.
 3. You shouldn't call `setState` manually, please use `form.setFieldsValue` to change value programmatically.
 
 ### dependencies
@@ -168,8 +168,8 @@ Provides array management for fields.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| children | Render function | (fields: Field\[], operation: { add, remove, move }) => React.ReactNode | - |  |
-| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.9.0 |
+| children | Render function | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | any[] | - | 4.9.0 |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | rules | Validate rules, only support customize validator. Should work with [ErrorList](#Form.ErrorList) | { validator, message }\[] | - | 4.7.0 |
 
@@ -201,7 +201,7 @@ Some operator functions in render form of Form.List.
 
 ## Form.ErrorList
 
-New in 4.7.0. Show error messages, should only work with `rules` of Form.List.
+New in 4.7.0. Show error messages, should only work with `rules` of Form.List. See [example](#components-form-demo-dynamic-form-item).
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |

@@ -21,6 +21,7 @@ export interface FormListProps {
   prefixCls?: string;
   name: string | number | (string | number)[];
   rules?: ValidatorRule[];
+  initialValue?: any[];
   children: (
     fields: FormListFieldData[],
     operation: FormListOperation,

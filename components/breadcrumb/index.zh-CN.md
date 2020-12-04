@@ -33,6 +33,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 | href | 链接的目的地 | string | - |  |
 | overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | - |  |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
+| className | 自定义类名 | string | - |  |
 
 ### Breadcrumb.Separator
 
