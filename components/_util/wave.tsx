@@ -1,5 +1,4 @@
 import * as React from 'react';
-import TransitionEvents from '@ant-design/css-animation/lib/Event';
 import { supportRef, composeRef } from 'rc-util/lib/ref';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
@@ -106,8 +105,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    TransitionEvents.addStartEventListener(node, this.onTransitionStart);
-    TransitionEvents.addEndEventListener(node, this.onTransitionEnd);
+    node.addEventListener('transitionstart', this.onTransitionStart);
+    node.addEventListener('transitionend', this.onTransitionEnd);
   };
 
   onTransitionStart = (e: AnimationEvent) => {
@@ -190,8 +189,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
-    TransitionEvents.removeStartEventListener(node, this.onTransitionStart);
-    TransitionEvents.removeEndEventListener(node, this.onTransitionEnd);
+    node.removeEventListener('transitionstart', this.onTransitionStart);
+    node.removeEventListener('transitionend', this.onTransitionEnd);
   }
 
   renderWave = ({ csp }: ConfigConsumerProps) => {
