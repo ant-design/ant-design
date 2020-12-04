@@ -158,7 +158,7 @@ export default function useSelection<RecordType>(
 
   const [derivedSelectedKeys, derivedHalfSelectedKeys] = useMemo(() => {
     if (checkStrictly) {
-      return [mergedSelectedKeys, []];
+      return [mergedSelectedKeys || [], []];
     }
     const { checkedKeys, halfCheckedKeys } = conductCheck(
       mergedSelectedKeys,
@@ -166,7 +166,7 @@ export default function useSelection<RecordType>(
       keyEntities as any,
       isCheckboxDisabled as any,
     );
-    return [checkedKeys, halfCheckedKeys];
+    return [checkedKeys || [], halfCheckedKeys];
   }, [mergedSelectedKeys, checkStrictly, keyEntities, isCheckboxDisabled]);
 
   const derivedSelectedKeySet: Set<Key> = useMemo(() => {
