@@ -1151,7 +1151,7 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
     });
 
-    it('works with selectionType radio receive selectedRowKeys fron [] to undefined', () => {
+    it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];
       const wrapper = mount(
