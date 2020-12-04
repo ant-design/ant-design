@@ -53,7 +53,10 @@ function renderFilterItems({
     );
   }
   return filters.map((filter, index) => {
-    const key = filter.value;
+    let key = filter.value;
+    if (typeof key !== 'string' || typeof key !== 'number') {
+      key = String(key);
+    }
 
     if (filter.children) {
       return (
