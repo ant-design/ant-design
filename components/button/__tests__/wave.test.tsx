@@ -81,7 +81,7 @@ describe('click wave effect', () => {
     const event = new Event('animationend');
     Object.assign(event, { animationName: 'fadeEffect' });
     wrapper.find('.ant-btn').getDOMNode().dispatchEvent(event);
-    expect(resetEffect).toHaveBeenCalledTimes(2);
+    expect(resetEffect).toHaveBeenCalledTimes(1);
     resetEffect.mockRestore();
   });
 
