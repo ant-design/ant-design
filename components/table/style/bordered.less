@@ -13,6 +13,7 @@
   > .@{table-prefix-cls}-container {
     // ============================ Content ============================
     border: @table-border;
+    border-top: 0;
     border-right: 0;
     border-bottom: 0;
 
@@ -29,8 +30,14 @@
         }
         // ============================ Header ============================
         > thead {
-          > tr:not(:last-child) > th {
-            border-bottom: @border-width-base @border-style-base @border-color-split;
+          > tr {
+            &:first-child > th {
+              border-top: @border-width-base @border-style-base @border-color-split;
+            }
+
+            &:not(:last-child) > th {
+              border-bottom: @border-width-base @border-style-base @border-color-split;
+            }
           }
         }
 
