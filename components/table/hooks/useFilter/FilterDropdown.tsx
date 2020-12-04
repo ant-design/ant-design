@@ -54,7 +54,7 @@ function renderFilterItems({
   }
   return filters.map((filter, index) => {
     let key = filter.value;
-    if (typeof key !== 'string' || typeof key !== 'number') {
+    if (typeof key !== 'string' && typeof key !== 'number') {
       key = String(key);
     }
 
