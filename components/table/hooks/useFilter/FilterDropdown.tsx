@@ -53,7 +53,7 @@ function renderFilterItems({
     );
   }
   return filters.map((filter, index) => {
-    const key = String(filter.value);
+    const key = filter.value;
 
     if (filter.children) {
       return (
