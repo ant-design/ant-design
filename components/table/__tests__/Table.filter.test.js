@@ -328,6 +328,41 @@ describe('Table.filter', () => {
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 
+  it('render checked of checkbox correctly controlled by filteredValue', () => {
+    ['Lucy', 23, false].forEach(val => {
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filters: [{ text: val, value: val }],
+              filteredValue: [val],
+            },
+          ],
+        }),
+      );
+
+      wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+
+      expect(wrapper.find('FilterDropdown').find('Checkbox').at(0).props().checked).toEqual(true);
+    });
+
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [{ text: 'ant', value: 'ant' }],
+            filteredValue: ['any-value-not-exists-in-filters'],
+          },
+        ],
+      }),
+    );
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+
+    expect(wrapper.find('FilterDropdown').find('Checkbox').at(0).props().checked).toEqual(false);
+  });
+
   it('can read defaults from defaultFilteredValue', () => {
     const wrapper = mount(
       createTable({

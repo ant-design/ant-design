@@ -34,10 +34,11 @@ function collectFilterStates<RecordType>(
     } else if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
+        const filteredValues = (column.filteredValue || []).map(String);
         filterStates.push({
           column,
           key: getColumnKey(column, columnPos),
-          filteredKeys: column.filteredValue,
+          filteredKeys: filteredValues,
           forceFiltered: column.filtered,
         });
       } else {
