@@ -64,7 +64,11 @@ The items listed above are all functions, expecting a settings object as paramet
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+<<<<<<< HEAD
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
+=======
+| afterClose | Specify a function that will be called when modal is closed completely | function | - | 4.9.0 |
+>>>>>>> a8c9b571edd85b6609a8771ed150f456556bd620
 | autoFocusButton | Specify which button to autofocus | null \| `ok` \| `cancel` | `ok` |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  | 4.8.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
