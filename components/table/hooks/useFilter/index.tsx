@@ -69,7 +69,7 @@ function injectFilter<RecordType>(
   return columns.map((column, index) => {
     const columnPos = getColumnPos(index, pos);
     const { filterMultiple = true } = column as ColumnType<RecordType>;
-    
+
     let newColumn: ColumnsType<RecordType>[number] = column;
 
     if (newColumn.filters || newColumn.filterDropdown) {
@@ -117,10 +117,21 @@ function injectFilter<RecordType>(
 }
 
 function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
-  const currentFilters: Record<string, Key[] | null> = {};
+  const currentFilters: Record<string, (Key | boolean)[] | null> = {};
 
-  filterStates.forEach(({ key, filteredKeys }) => {
-    currentFilters[key] = filteredKeys || null;
+  filterStates.forEach(({ key, filteredKeys, column }) => {
+    const { filters } = column;
+    const originKeys: ColumnFilterItem['value'][] = [];
+    if (Array.isArray(filteredKeys)) {
+      filters?.forEach((filter: ColumnFilterItem) => {
+        if (filteredKeys.includes(String(filter.value))) {
+          originKeys.push(filter.value);
+        }
+      });
+      currentFilters[key] = originKeys;
+    } else {
+      currentFilters[key] = null;
+    }
   });
 
   return currentFilters;

@@ -501,6 +501,7 @@ describe('Table.filter', () => {
     ].forEach(([text, value]) => {
       it(`${typeof value} type`, () => {
         const onFilter = jest.fn();
+        const onChange = jest.fn();
         const filters = [{ text, value }];
         const wrapper = mount(
           createTable({
@@ -511,6 +512,7 @@ describe('Table.filter', () => {
                 onFilter,
               },
             ],
+            onChange,
           }),
         );
 
@@ -531,6 +533,10 @@ describe('Table.filter', () => {
 
         onFilter.mock.calls.forEach(([val]) => {
           expect(val).toBe(value);
+        });
+        onChange.mock.calls.forEach(([, currentFilters]) => {
+          const [, val] = Object.entries(currentFilters)[0];
+          expect(val).toEqual([value]);
         });
         // Another time of Filter show
         // https://github.com/ant-design/ant-design/issues/15593
