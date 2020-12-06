@@ -17,8 +17,10 @@
   }
 
   &-action {
-    margin-right: @margin-xs;
-    margin-left: auto;
+    .@{alert-prefix-cls}-rtl & {
+      margin-right: @margin-xs;
+      margin-left: auto;
+    }
   }
 
   &-close-icon {
