@@ -15,6 +15,34 @@ timeline: true
 
 ---
 
+## 4.9.2
+
+`2020-12-06`
+
+- Tree
+  - 💄 Fix Tag cursor style in Tree node. [#28219](https://github.com/ant-design/ant-design/pull/28219)
+  - 🐞 set `Tree` `dropIndicator` default `direction` as `ltr`. [#28150](https://github.com/ant-design/ant-design/pull/28150) [@kagawagao](https://github.com/kagawagao)
+- Table
+  - 🐞 Fix crash when `selectedRowKeys` is undefined and `derivedSelectedKeys` is undefined. [#28193](https://github.com/ant-design/ant-design/pull/28193) [@yanguoyu](https://github.com/yanguoyu)
+  - 💄 Fix Table selection column header align issue. [#28173](https://github.com/ant-design/ant-design/pull/28173)
+- Dropdown
+  - 💄 Fix Dropdown subMenu arrow style. [#28181](https://github.com/ant-design/ant-design/pull/28181)
+  - 🐞 Fix Dropdown click area not matched. [#28180](https://github.com/ant-design/ant-design/pull/28180)
+- 🐞 Fix `overlayInnerStyle` not work in Tooltip. [#27682](https://github.com/ant-design/ant-design/pull/27682) [@jasepellerin](https://github.com/jasepellerin)
+- 💄 Fix Layout overflow style for Table `sticky`. [#28176](https://github.com/ant-design/ant-design/pull/28176)
+- 💄 Fix Steps `progressDot` broken style of first step. [#28126](https://github.com/ant-design/ant-design/pull/28126) [@ZeroTo0ne](https://github.com/ZeroTo0ne)
+- 💄 Optimize useModal performance by isolating elements render to avoid the component to rerender. [#28122](https://github.com/ant-design/ant-design/pull/28122) [@TotooriaHyperion](https://github.com/TotooriaHyperion)
+- 💄 Fix TextArea showCount style while using with Form. [#28130](https://github.com/ant-design/ant-design/pull/28130) [@AlanCutFlim](https://github.com/AlanCutFlim)
+- 🛠 Remove `@ant-design/css-animation` for better bundle size. [#28201](https://github.com/ant-design/ant-design/pull/28201)
+- Button
+  - 🛠 Refactor Button `defaultsProps` in a way to use destructuring default value. [#28211](https://github.com/ant-design/ant-design/pull/28211) [@eugene-matvejev](https://github.com/eugene-matvejev)
+  - 🛠 Refactor cleanup <LoadingIcon /> and reduce bundle size on ~1.25kb. [#28207](https://github.com/ant-design/ant-design/pull/28207) [@eugene-matvejev](https://github.com/eugene-matvejev)
+- TypeScript
+  - 🤖 Fix Table `selectedRows` in `SelectionSelectFn` return generic type. [#28206](https://github.com/ant-design/ant-design/pull/28206) [@weiyuc](https://github.com/weiyuc)
+  - 🤖 Add `className` in `BreadcrumbItemProps`. [#28182](https://github.com/ant-design/ant-design/pull/28182) [@ccloveak](https://github.com/ccloveak)
+  - 🤖 Form.List `initialValue` types are supported. [#28153](https://github.com/ant-design/ant-design/pull/28153) [@Debiancc](https://github.com/Debiancc)
+  - 🤖 Fix `dontAnimate` optional in Carousel. [#28090](https://github.com/ant-design/ant-design/pull/28090) [@jarretmoses](https://github.com/jarretmoses)
+
 ## 4.9.1
 
 `2020-12-01`

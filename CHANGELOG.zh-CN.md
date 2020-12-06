@@ -15,6 +15,34 @@ timeline: true
 
 ---
 
+## 4.9.2
+
+`2020-12-06`
+
+- Tree
+  - 💄 修复 Tree 里使用 Tag 时鼠标手型样式问题。[#28219](https://github.com/ant-design/ant-design/pull/28219)
+  - 🐞 设置 Tree `dropIndicator` 默认 `direction` 为 `ltr`。[#28150](https://github.com/ant-design/ant-design/pull/28150) [@kagawagao](https://github.com/kagawagao)
+- Table
+  - 🐞 防止手动设置 `selectedRowKeys` 为 undefined 时，`derivedSelectedKeys` 为 undefined，导致 js crash。[#28193](https://github.com/ant-design/ant-design/pull/28193) [@yanguoyu](https://github.com/yanguoyu)
+  - 💄 修复 Table 选择列标题的对齐样式问题。[#28173](https://github.com/ant-design/ant-design/pull/28173)
+- Dropdown
+  - 💄 修复 Dropdown 下拉菜单箭头样式。[#28181](https://github.com/ant-design/ant-design/pull/28181)
+  - 🐞 修复 Dropdown 点击触发区域不匹配的问题。[#28180](https://github.com/ant-design/ant-design/pull/28180)
+- 🐞 修复 Tooltip `overlayInnerStyle` 属性无效。[#27682](https://github.com/ant-design/ant-design/pull/27682) [@jasepellerin](https://github.com/jasepellerin)
+- 💄 修复 Layout 内部使用 Table `sticky` 属性失效的问题。[#28176](https://github.com/ant-design/ant-design/pull/28176)
+- 💄 修复 Steps `progressDot` 第一个步骤点错位的问题。[#28126](https://github.com/ant-design/ant-design/pull/28126) [@ZeroTo0ne](https://github.com/ZeroTo0ne)
+- 💄 优化 useModal 性能，避免 elements 渲染导致组件渲染。[#28122](https://github.com/ant-design/ant-design/pull/28122) [@TotooriaHyperion](https://github.com/TotooriaHyperion)
+- 💄 修复 TextArea 结合 Form 使用时的字数提示样式问题。[#28130](https://github.com/ant-design/ant-design/pull/28130) [@AlanCutFlim](https://github.com/AlanCutFlim)
+- 🛠 移除对 `@ant-design/css-animation` 的依赖以优化包体积。[#28201](https://github.com/ant-design/ant-design/pull/28201)
+- Button
+  - 🛠 重构 Button `defaultsProps` 使用对象解构作为默认值[#28211](https://github.com/ant-design/ant-design/pull/28211) [@eugene-matvejev](https://github.com/eugene-matvejev)
+  - 🛠 重构 <LoadingIcon /> 减少包大小 ~1.25kb。[#28207](https://github.com/ant-design/ant-design/pull/28207) [@eugene-matvejev](https://github.com/eugene-matvejev)
+- TypeScript
+  - 🤖 修复 Table `SelectionSelectFn` 类型定义中 `selectedRows` 属性改为 T 范型。[#28206](https://github.com/ant-design/ant-design/pull/28206) [@weiyuc](https://github.com/weiyuc)
+  - 🤖 在 `BreadcrumbItemProps` 中增加 `className` 类型[#28182](https://github.com/ant-design/ant-design/pull/28182) [@ccloveak](https://github.com/ccloveak)
+  - 🤖 Form.List `initialValue` 增加类型支持。[#28153](https://github.com/ant-design/ant-design/pull/28153) [@Debiancc](https://github.com/Debiancc)
+  - 🤖 修复 Carousel 中 `dontAnimate` 参数为可选类型[#28090](https://github.com/ant-design/ant-design/pull/28090) [@jarretmoses](https://github.com/jarretmoses)
+
 ## 4.9.1
 
 `2020-12-01`
