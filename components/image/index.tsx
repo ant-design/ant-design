@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage, { ImageProps } from 'rc-image';
+import defaultLocale from '../locale/en_US';
 import PreviewGroup from './PreviewGroup';
 import { ConfigContext } from '../config-provider';
 
@@ -13,8 +15,11 @@ const Image: CompositionImage<ImageProps> = ({
   preview,
   ...otherProps
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('image', customizePrefixCls);
+
+  const { locale: contextLocale = defaultLocale } = useContext(ConfigContext);
+  const imageLocale = contextLocale.Image || defaultLocale.Image;
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
@@ -25,12 +30,12 @@ const Image: CompositionImage<ImageProps> = ({
       mask: (
         <div className={`${prefixCls}-mask-info`}>
           <EyeOutlined />
-          Preview
+          {imageLocale?.preview}
         </div>
       ),
       ...(typeof preview === 'object' ? preview : null),
     };
-  }, [preview]);
+  }, [preview, imageLocale]);
 
   return <RcImage prefixCls={prefixCls} preview={mergedPreview} {...otherProps} />;
 };
