@@ -1,8 +1,6 @@
 name: ✅ test
 
-on:
-  pull_request_target:
-  push:
+on: [push, pull_request_target]
 
 jobs:
   setup:
