@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useMemo, useRef } from 'react';
 import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
 import ScrollNumber from './ScrollNumber';
@@ -68,21 +69,28 @@ const Badge: CompoundedComponent = ({
 
   const showAsDot = (dot && !isZero) || hasStatus;
 
-  const displayCount = showAsDot ? '' : numberedDisplayCount;
+  const mergedCount = showAsDot ? '' : numberedDisplayCount;
 
-  const isHidden = React.useMemo(() => {
-    const isEmpty = displayCount === null || displayCount === undefined || displayCount === '';
+  const isHidden = useMemo(() => {
+    const isEmpty = mergedCount === null || mergedCount === undefined || mergedCount === '';
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
-  }, [displayCount, isZero, showZero, showAsDot]);
+  }, [mergedCount, isZero, showZero, showAsDot]);
+
+  // We need cache count since remove motion should not change count display
+  const displayCountRef = useRef(mergedCount);
+  if (!isHidden) {
+    displayCountRef.current = mergedCount;
+  }
+  const displayCount = displayCountRef.current;
 
   // We will cache the dot status to avoid shaking on leaved motion
-  const isDotRef = React.useRef(showAsDot);
+  const isDotRef = useRef(showAsDot);
   if (!isHidden) {
     isDotRef.current = showAsDot;
   }
 
   // =============================== Styles ===============================
-  const mergedStyle = React.useMemo<React.CSSProperties>(() => {
+  const mergedStyle = useMemo<React.CSSProperties>(() => {
     if (!offset) {
       return { ...style };
     }
@@ -173,7 +181,7 @@ const Badge: CompoundedComponent = ({
             [`${prefixCls}-count`]: !isDot,
             [`${prefixCls}-count-sm`]: size === 'small',
             [`${prefixCls}-multiple-words`]:
-              !isDot && count && count.toString && count.toString().length > 1,
+              !isDot && displayCount && displayCount?.toString().length > 1,
             [`${prefixCls}-status-${status}`]: !!status,
             [`${prefixCls}-status-${color}`]: isPresetColor(color),
           });
