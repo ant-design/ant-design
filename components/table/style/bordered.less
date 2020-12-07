@@ -17,6 +17,15 @@
     border-right: 0;
     border-bottom: 0;
 
+    .@{table-prefix-cls}-content {
+      > table > tbody:nth-child(2) {
+        > tr:first-child td {
+          // add top border when Table doesn't show header
+          border-top: @table-border;
+        }
+      }
+    }
+
     > .@{table-prefix-cls}-content,
     > .@{table-prefix-cls}-header,
     > .@{table-prefix-cls}-body {
