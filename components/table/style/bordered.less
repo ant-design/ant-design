@@ -19,8 +19,12 @@
 
     .@{table-prefix-cls}-content {
       > table > tbody:nth-child(2) {
-        > tr:first-child td {
+        > tr:first-child > td {
           // add top border when Table doesn't show header
+          border-top: @table-border;
+        }
+
+        > tr.@{table-prefix-cls}-measure-row:first-child + tr > td {
           border-top: @table-border;
         }
       }
