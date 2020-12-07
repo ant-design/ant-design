@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
@@ -42,7 +43,6 @@ export interface ScrollNumberProps {
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
-  title?: string | number | null;
   show: boolean;
 }
 
@@ -56,17 +56,16 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   count: customizeCount,
   className,
   style,
-  title,
   show,
   component = 'sup',
   children,
   onAnimated = () => {},
   ...restProps
 }) => {
-  const [animateStarted, setAnimateStarted] = React.useState(true);
-  const [count, setCount] = React.useState(customizeCount);
-  const [prevCount, setPrevCount] = React.useState(customizeCount);
-  const [lastCount, setLastCount] = React.useState(customizeCount);
+  const [animateStarted, setAnimateStarted] = useState(true);
+  const [count, setCount] = useState(customizeCount);
+  const [prevCount, setPrevCount] = useState(customizeCount);
+  const [lastCount, setLastCount] = useState(customizeCount);
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
 
@@ -124,7 +123,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     'data-show': show,
     style,
     className: classNames(prefixCls, className),
-    title: title as string,
+    title: typeof count !== 'object' ? count : null,
   };
 
   const renderCurrentNumber = (num: number | string, i: number) => {
@@ -154,15 +153,12 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     );
   };
 
-  const numberNodeRef = React.useRef<React.ReactNode>(null);
-  if (show) {
-    numberNodeRef.current =
-      count && Number(count) % 1 === 0
-        ? getNumberArray(count)
-            .map((num, i) => renderCurrentNumber(num, i))
-            .reverse()
-        : count;
-  }
+  const numberNode =
+    count && Number(count) % 1 === 0
+      ? getNumberArray(count)
+          .map((num, i) => renderCurrentNumber(num, i))
+          .reverse()
+      : count;
 
   // allow specify the border
   // mock border-color by box-shadow for compatible with old usage:
@@ -178,7 +174,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
       className: classNames(`${prefixCls}-custom-component`, oriProps?.className),
     }));
   }
-  return React.createElement(component as any, newProps, numberNodeRef.current);
+  return React.createElement(component as any, newProps, numberNode);
 };
 
 export default ScrollNumber;
