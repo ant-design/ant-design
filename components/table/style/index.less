@@ -25,6 +25,7 @@
   font-size: @table-font-size;
   background: @table-bg;
   border-radius: @border-radius-base;
+  box-shadow: @new-card-shadow;
 
   // https://github.com/ant-design/ant-design/issues/17611
   table {
@@ -67,6 +68,7 @@
   // ============================ Title =============================
   &-title {
     padding: @table-padding-vertical @table-padding-horizontal;
+    border-bottom: @table-border;
   }
 
   // ============================ Footer ============================
@@ -81,10 +83,9 @@
     > tr {
       > th {
         color: @table-header-color;
-        font-weight: 500;
+        font-weight: 600;
         text-align: left;
-        background: @table-header-bg;
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @table-border;
         transition: background 0.3s ease;
 
         &[colspan]:not([colspan='1']) {
@@ -104,7 +105,7 @@
   &-tbody {
     > tr {
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @table-border;
         transition: background 0.3s;
 
         // ========================= Nest Table ===========================
@@ -151,9 +152,19 @@
     > tr {
       > th,
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        font-weight: 600;
+        background: @table-footer-bg;
+        border-bottom: @table-border;
       }
     }
+  }
+
+  &:not(&-bordered):not(&-has-footer) tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+
+  &:not(&-bordered):not(&-has-footer):not(&-has-summary) &-tbody > tr:last-child > td {
+    border-bottom: 0;
   }
 
   // ========================== Pagination ==========================
@@ -376,9 +387,9 @@
     display: flex;
 
     &-extra {
-      margin-inline-start: @margin-xss;
       cursor: pointer;
       transition: all 0.3s;
+      margin-inline-start: @margin-xss;
 
       .@{iconfont-css-prefix} {
         color: @table-header-icon-color;

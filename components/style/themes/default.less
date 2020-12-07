@@ -1,5 +1,6 @@
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
 @import '../color/colors';
+@import './newColor.less';
 
 @theme: default;
 
@@ -10,7 +11,7 @@
 @html-selector: html;
 
 // -------- Colors -----------
-@primary-color: @blue-6;
+@primary-color: @new-action-primary;
 @info-color: @primary-color;
 @success-color: @green-6;
 @processing-color: @blue-6;
@@ -71,7 +72,7 @@
 @heading-5-size: ceil(@font-size-base * 1.14);
 // https://github.com/ant-design/ant-design/issues/20210
 @line-height-base: 1.5715;
-@border-radius-base: 2px;
+@border-radius-base: 4px;
 @border-radius-sm: @border-radius-base;
 
 // vertical paddings
@@ -110,7 +111,7 @@
 @link-hover-color: color(~`colorPalette('@{link-color}', 5) `);
 @link-active-color: color(~`colorPalette('@{link-color}', 7) `);
 @link-decoration: none;
-@link-hover-decoration: none;
+@link-hover-decoration: underline;
 @link-focus-decoration: none;
 @link-focus-outline: 0;
 
@@ -224,11 +225,11 @@
 @btn-text-hover-bg: rgba(0, 0, 0, 0.018);
 
 // Checkbox
-@checkbox-size: 16px;
-@checkbox-color: @primary-color;
+@checkbox-size: 18px;
+@checkbox-color: @new-interactive;
 @checkbox-check-color: #fff;
 @checkbox-check-bg: @checkbox-check-color;
-@checkbox-border-width: @border-width-base;
+@checkbox-border-width: @new-control-border-width;
 @checkbox-group-item-margin-right: 8px;
 
 // Descriptions
@@ -256,11 +257,11 @@
 @empty-font-size: @font-size-base;
 
 // Radio
-@radio-size: 16px;
+@radio-size: 18px;
 @radio-top: 0px;
-@radio-border-width: 1px;
+@radio-border-width: @new-control-border-width;
 @radio-dot-size: @radio-size - 8px;
-@radio-dot-color: @primary-color;
+@radio-dot-color: @new-interactive;
 @radio-dot-disabled-color: fade(@black, 20%);
 @radio-solid-checked-color: @component-background;
 
@@ -537,16 +538,16 @@
 @progress-circle-text-font-size: 1em;
 // Menu
 // ---
-@menu-inline-toplevel-item-height: 40px;
-@menu-item-height: 40px;
+@menu-inline-toplevel-item-height: 32px;
+@menu-item-height: 32px;
 @menu-item-group-height: @line-height-base;
 @menu-collapsed-width: 80px;
-@menu-bg: @component-background;
-@menu-popup-bg: @component-background;
-@menu-item-color: @text-color;
+@menu-bg: @new-background;
+@menu-popup-bg: @new-background;
+@menu-item-color: @new-text;
 @menu-highlight-color: @primary-color;
 @menu-highlight-danger-color: @error-color;
-@menu-item-active-bg: @primary-1;
+@menu-item-active-bg: @new-background-selected;
 @menu-item-active-danger-bg: @red-1;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
@@ -585,12 +586,12 @@
 @table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: #fafafa;
-@table-row-hover-bg: @background-color-light;
+@table-row-hover-bg: @new-surface-hovered;
 @table-selected-row-color: inherit;
-@table-selected-row-bg: @primary-1;
+@table-selected-row-bg: @new-surface-selected;
 @table-body-selected-sort-bg: @table-selected-row-bg;
-@table-selected-row-hover-bg: darken(@table-selected-row-bg, 2%);
-@table-expanded-row-bg: #fbfbfb;
+@table-selected-row-hover-bg: @new-surface-selected-hovered;
+@table-expanded-row-bg: @new-surface-hovered;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
 @table-padding-vertical-md: @table-padding-vertical * 3 / 4;
@@ -598,20 +599,20 @@
 @table-padding-vertical-sm: @table-padding-vertical / 2;
 @table-padding-horizontal-sm: @table-padding-horizontal / 2;
 @table-border-radius-base: @border-radius-base;
-@table-footer-bg: @background-color-light;
-@table-footer-color: @heading-color;
+@table-footer-bg: @new-surface-subdued;
+@table-footer-color: @new-text-subdued;
 @table-header-bg-sm: @table-header-bg;
 @table-font-size: @font-size-base;
 @table-font-size-md: @table-font-size;
 @table-font-size-sm: @table-font-size;
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
-@table-header-sort-active-bg: darken(@table-header-bg, 3%);
+@table-header-sort-active-bg: @new-surface-hovered;
 // Filter
-@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
+@table-header-filter-active-bg: @new-surface-hovered;
 @table-filter-btns-bg: inherit;
-@table-filter-dropdown-bg: @component-background;
-@table-expand-icon-bg: @component-background;
+@table-filter-dropdown-bg: @new-surface-subdued;
+@table-expand-icon-bg: @new-surface-subdued;
 @table-selection-column-width: 32px;
 // Sticky
 @table-sticky-scroll-bar-bg: fade(#000, 35%);
@@ -1006,3 +1007,5 @@
 @image-preview-operation-size: 18px;
 @image-preview-operation-color: @text-color-dark;
 @image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+
+@new-primary-hover: #006e52;

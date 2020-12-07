@@ -1,9 +1,11 @@
 @import './index';
 @import './size';
 
-@table-border: @border-width-base @border-style-base @border-color-split;
+@table-border: @border-width-base @border-style-base @new-divider;
 
 .@{table-prefix-cls}.@{table-prefix-cls}-bordered {
+  box-shadow: inset @new-card-shadow;
+
   // ============================ Title =============================
   > .@{table-prefix-cls}-title {
     border: @table-border;

@@ -55,11 +55,11 @@ class InternalMenu extends React.Component<InternalMenuProps> {
 
   renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, theme, expandIcon } = this.props;
-    const defaultMotions = {
-      horizontal: { motionName: 'slide-up' },
-      inline: collapseMotion,
-      other: { motionName: 'zoom-big' },
-    };
+    // const defaultMotions = {
+    //   horizontal: { motionName: 'slide-up' },
+    //   inline: collapseMotion,
+    //   other: { motionName: 'zoom-big' },
+    // };
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(
@@ -84,7 +84,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
           className={menuClassName}
           prefixCls={prefixCls}
           direction={direction}
-          defaultMotions={defaultMotions}
+          // defaultMotions={defaultMotions}
           expandIcon={cloneElement(expandIcon, {
             className: `${prefixCls}-submenu-expand-icon`,
           })}

@@ -18,7 +18,7 @@
     .@{checkbox-prefix-cls}-wrapper:hover &-inner,
     &:hover &-inner,
     &-input:focus + &-inner {
-      border-color: @checkbox-color;
+      border-color: @new-border-hovered;
     }
 
     &-checked::after {
@@ -49,7 +49,7 @@
       height: @checkbox-size;
       direction: ltr;
       background-color: @checkbox-check-bg;
-      border: @checkbox-border-width @border-style-base @border-color-base;
+      border: @checkbox-border-width @border-style-base @new-border;
       border-radius: @border-radius-base;
       // Fix IE checked style
       // https://github.com/ant-design/ant-design/issues/12597
@@ -108,6 +108,12 @@
       background-color: @checkbox-color;
       border-color: @checkbox-color;
     }
+  }
+
+  .@{checkbox-prefix-cls}-wrapper-checked:hover .@{checkbox-prefix-cls}-inner,
+  .@{checkbox-prefix-cls}-checked:hover .@{checkbox-prefix-cls}-inner,
+  .@{checkbox-prefix-cls}-input:focus + .@{checkbox-prefix-cls}-inner {
+    border-color: @checkbox-color;
   }
 
   .@{checkbox-prefix-cls}-disabled {
@@ -188,8 +194,8 @@
       border-color: @border-color-base;
     }
     .@{checkbox-inner-prefix-cls}::after {
-      @indeterminate-width: @checkbox-size - 8px;
-      @indeterminate-height: @checkbox-size - 8px;
+      @indeterminate-width: @checkbox-size - 10px;
+      @indeterminate-height: @checkbox-size - 10px;
 
       top: 50%;
       left: 50%;

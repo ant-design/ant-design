@@ -56,7 +56,7 @@ input::-ms-reveal {
 
 body {
   margin: 0; // 1
-  color: @text-color;
+  color: @new-text;
   font-size: @font-size-base;
   font-family: @font-family;
   font-variant: @font-variant-base;
@@ -208,7 +208,7 @@ sup {
 //
 
 a {
-  color: @link-color;
+  color: @new-interactive;
   text-decoration: @link-decoration;
   background-color: transparent; // remove the gray background on active links in IE 10.
   outline: none;
@@ -217,11 +217,13 @@ a {
   -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
 
   &:hover {
-    color: @link-hover-color;
+    color: @new-interactive-hovered;
+    text-decoration: @link-hover-decoration;
   }
 
   &:active {
-    color: @link-active-color;
+    color: @new-interactive-pressed;
+    text-decoration: @link-hover-decoration;
   }
 
   &:active,
@@ -492,7 +494,7 @@ mark {
 
 ::selection {
   color: @text-color-inverse;
-  background: @text-selection-bg;
+  background: @blue-6;
 }
 
 // Utility classes

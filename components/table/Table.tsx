@@ -489,6 +489,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
             [`${prefixCls}-small`]: mergedSize === 'small',
             [`${prefixCls}-bordered`]: bordered,
             [`${prefixCls}-empty`]: rawData.length === 0,
+            [`${prefixCls}-has-footer`]: tableProps.footer,
+            [`${prefixCls}-has-summary`]: tableProps.summary,
           })}
           data={pageData}
           rowKey={getRowKey}
