@@ -124,16 +124,25 @@
 
   &-zoom-appear,
   &-zoom-enter {
-    animation: antZoomBadgeIn 0.3s @ease-out-back;
+    animation: antZoomBadgeIn @animation-duration-slow @ease-out-back;
     animation-fill-mode: both;
   }
 
   &-zoom-leave {
-    animation: antZoomBadgeOut 0.3s @ease-in-back;
+    animation: antZoomBadgeOut @animation-duration-slow @ease-in-back;
     animation-fill-mode: both;
   }
 
   &-not-a-wrapper {
+    .@{badge-prefix-cls}-zoom-appear,
+    .@{badge-prefix-cls}-zoom-enter {
+      animation: antNoWrapperZoomBadgeIn @animation-duration-slow @ease-out-back;
+    }
+
+    .@{badge-prefix-cls}-zoom-leave {
+      animation: antNoWrapperZoomBadgeOut @animation-duration-slow @ease-in-back;
+    }
+
     &:not(.@{badge-prefix-cls}-status) {
       vertical-align: middle;
     }
@@ -142,6 +151,7 @@
       position: relative;
       top: auto;
       display: block;
+      transform-origin: 50% 50%;
     }
 
     .@{badge-prefix-cls}-count {
@@ -166,7 +176,7 @@
   &-only {
     display: inline-block;
     height: @badge-height;
-    transition: all 0.3s @ease-in-out;
+    transition: all @animation-duration-slow @ease-in-out;
     > p.@{number-prefix-cls}-only-unit {
       height: @badge-height;
       margin: 0;
@@ -194,6 +204,26 @@
   }
   100% {
     transform: scale(0) translate(50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes antNoWrapperZoomBadgeIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes antNoWrapperZoomBadgeOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
     opacity: 0;
   }
 }
