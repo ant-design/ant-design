@@ -42,7 +42,7 @@ const menu = (
 );
 
 ReactDOM.render(
-  <Space>
+  <Space wrap>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
     </Dropdown.Button>
