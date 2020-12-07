@@ -19,6 +19,32 @@
     }
   }
 
+  &-mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: fade(@black, 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: @text-color-inverse;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity @animation-duration-slow;
+
+    &-info {
+      .@{iconfont-css-prefix} {
+        margin-inline-end: @margin-xss;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   &-placeholder {
     .box;
   }
