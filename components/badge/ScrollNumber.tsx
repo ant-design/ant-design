@@ -43,6 +43,7 @@ export interface ScrollNumberProps {
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
+  title?: string | number | null;
   show: boolean;
 }
 
@@ -56,6 +57,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   count: customizeCount,
   className,
   style,
+  title,
   show,
   component = 'sup',
   children,
@@ -123,7 +125,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     'data-show': show,
     style,
     className: classNames(prefixCls, className),
-    title: typeof count !== 'object' ? count : null,
+    title: title as string,
   };
 
   const renderCurrentNumber = (num: number | string, i: number) => {

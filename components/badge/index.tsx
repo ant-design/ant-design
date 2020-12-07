@@ -109,6 +109,10 @@ const Badge: CompoundedComponent = ({
   }, [direction, offset, style]);
 
   // =============================== Render ===============================
+  // >>> Title
+  const titleNode =
+    title ?? (typeof count === 'string' || typeof count === 'number' ? count : undefined);
+
   // >>> Status Text
   const statusTextNode =
     isHidden || !text ? null : <span className={`${prefixCls}-status-text`}>{text}</span>;
@@ -194,6 +198,7 @@ const Badge: CompoundedComponent = ({
               show={!isHidden}
               className={classNames(motionClassName, scrollNumberCls)}
               count={displayCount}
+              title={titleNode}
               style={scrollNumberStyle}
               key="scrollNumber"
             >
