@@ -70,7 +70,7 @@ describe('message', () => {
     class Test extends React.Component {
       componentDidMount() {
         message.info({
-          onClick: onClick,
+          onClick,
           duration: 0,
           content: 'message info',
         });
