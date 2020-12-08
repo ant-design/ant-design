@@ -1,11 +1,3 @@
-import {
-  addObserveTarget,
-  removeObserveTarget,
-  getTargetRect,
-  getFixedTop,
-  getFixedBottom,
-} from './utils';
-
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;
 }
