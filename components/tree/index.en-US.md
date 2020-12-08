@@ -29,7 +29,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | defaultExpandParent | If auto expand parent treeNodes when init | boolean | true |  |
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |  |
 | disabled | Whether disabled the tree | boolean | false |  |
-| draggable | Specifies whether this Tree is draggable (IE > 8) | boolean | false |  |
+| draggable | Specifies whether this Tree or the node is draggable (IE > 8) | boolean \| ((node: DataNode) => boolean) | false |  |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  |
 | height | Config virtual scroll height. Will not support horizontal scroll when enable this | number | - |  |
