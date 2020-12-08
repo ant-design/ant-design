@@ -21,6 +21,9 @@ function ariaConvert(wrapper: CheerIO) {
   const matches = new Map();
 
   function process(entry: CheerIOElement) {
+    if (entry.type === 'text') {
+      return;
+    }
     const { attribs, children } = entry;
     if (matches.has(entry)) return;
     matches.set(entry, true);
@@ -31,7 +34,9 @@ function ariaConvert(wrapper: CheerIO) {
     }
 
     // Loop children
-    if (!children) return;
+    if (!children) {
+      return;
+    }
     (Array.isArray(children) ? children : [children]).forEach(process);
   }
 
