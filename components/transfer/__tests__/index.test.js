@@ -1,6 +1,6 @@
 /* eslint @typescript-eslint/no-use-before-define: "off" */
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Transfer from '..';
 import TransferList from '../list';
 import TransferOperation from '../operation';
@@ -97,8 +97,8 @@ describe('Transfer', () => {
   rtlTest(Transfer);
 
   it('should render correctly', () => {
-    const wrapper = render(<Transfer {...listCommonProps} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Transfer {...listCommonProps} />);
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('should move selected keys to corresponding list', () => {
@@ -400,8 +400,8 @@ describe('Transfer', () => {
       targetKeys: ['c', 'b'],
       lazy: false,
     };
-    const wrapper = render(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('should add custom styles when their props are provided', () => {
@@ -475,7 +475,7 @@ describe('Transfer', () => {
         render={record => ({ value: `${record.title} value`, label: 'label' })}
       />,
     );
-    expect(component).toMatchSnapshot();
+    expect(component).toMatchRenderedSnapshot();
   });
 
   it('should render correct checkbox label when checkboxLabel is defined', () => {

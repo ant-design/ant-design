@@ -16,15 +16,29 @@ title:
 Used in standalone when children is empty.
 
 ```jsx
-import { Badge, Space } from 'antd';
+import { Badge, Space, Switch } from 'antd';
 
-const Demo = () => (
-  <Space>
-    <Badge count={25} />
-    <Badge count={4} className="site-badge-count-4" />
-    <Badge className="site-badge-count-109" count={109} style={{ backgroundColor: '#52c41a' }} />
-  </Space>
-);
+const Demo = () => {
+  const [show, setShow] = React.useState(true);
+
+  return (
+    <Space>
+      <Switch
+        checked={show}
+        onChange={() => {
+          setShow(!show);
+        }}
+      />
+      <Badge count={show ? 25 : 0} />
+      <Badge count={show ? 4 : 0} className="site-badge-count-4" />
+      <Badge
+        className="site-badge-count-109"
+        count={show ? 109 : 0}
+        style={{ backgroundColor: '#52c41a' }}
+      />
+    </Space>
+  );
+};
 
 ReactDOM.render(<Demo />, mountNode);
 ```

@@ -126,7 +126,7 @@ export interface SelectionItem {
 export type SelectionSelectFn<T> = (
   record: T,
   selected: boolean,
-  selectedRows: Object[],
+  selectedRows: T[],
   nativeEvent: Event,
 ) => void;
 

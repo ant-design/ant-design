@@ -998,6 +998,24 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     class="ant-space-item"
     style="margin-right:8px"
   >
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      />
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
     >

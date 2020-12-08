@@ -15,9 +15,9 @@
 
   &::before {
     position: absolute;
-    top: -7px;
+    top: -@popover-distance + @popover-arrow-width;
     right: 0;
-    bottom: -7px;
+    bottom: -@popover-distance + @popover-arrow-width;
     left: -7px;
     z-index: -9999;
     opacity: 0.0001;
@@ -235,11 +235,11 @@
         background-color: @border-color-split;
       }
 
-      .@{dropdown-prefix-cls}-menu-submenu-arrow {
+      .@{dropdown-prefix-cls}-menu-submenu-expand-icon {
         position: absolute;
         right: @padding-xs;
 
-        &-icon {
+        .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
           margin-right: 0 !important;
           color: @text-color-secondary;
           font-size: 10px;
