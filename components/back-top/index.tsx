@@ -31,9 +31,8 @@ const BackTop: React.FC<BackTopProps> = props => {
   const ref = React.createRef<HTMLDivElement>();
   const scrollEvent = React.useRef<any>();
 
-  const getDefaultTarget = () => {
-    return ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
-  };
+  const getDefaultTarget = () =>
+    ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement> | { target: any }) => {

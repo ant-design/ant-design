@@ -138,9 +138,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
     return offsetTop;
   };
 
-  getOffsetBottom = () => {
-    return this.props.offsetBottom;
-  };
+  getOffsetBottom = () => this.props.offsetBottom;
 
   savePlaceholderNode = (node: HTMLDivElement) => {
     this.placeholderNode = node;

@@ -53,13 +53,11 @@ export default function usePagination(
   const [innerPagination, setInnerPagination] = useState<{
     current?: number;
     pageSize?: number;
-  }>(() => {
-    return {
-      current: 'defaultCurrent' in paginationObj ? paginationObj.defaultCurrent : 1,
-      pageSize:
-        'defaultPageSize' in paginationObj ? paginationObj.defaultPageSize : DEFAULT_PAGE_SIZE,
-    };
-  });
+  }>(() => ({
+    current: 'defaultCurrent' in paginationObj ? paginationObj.defaultCurrent : 1,
+    pageSize:
+      'defaultPageSize' in paginationObj ? paginationObj.defaultPageSize : DEFAULT_PAGE_SIZE,
+  }));
 
   // ============ Basic Pagination Config ============
   const mergedPagination = extendsObject<Partial<TablePaginationConfig>>(

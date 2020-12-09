@@ -444,16 +444,17 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       // Fix issue: https://github.com/ant-design/ant-design/issues/26554
       const field = names.value === names.label ? keepFilteredValueField : names.value;
 
-      return filtered.map((path: CascaderOptionType[]) => {
-        return {
-          __IS_FILTERED_OPTION: true,
-          path,
-          [field]: path.map((o: CascaderOptionType) => o[names.value]),
-          [names.label]: render(inputValue, path, prefixCls, names),
-          disabled: path.some((o: CascaderOptionType) => !!o.disabled),
-          isEmptyNode: true,
-        } as CascaderOptionType;
-      });
+      return filtered.map(
+        (path: CascaderOptionType[]) =>
+          ({
+            __IS_FILTERED_OPTION: true,
+            path,
+            [field]: path.map((o: CascaderOptionType) => o[names.value]),
+            [names.label]: render(inputValue, path, prefixCls, names),
+            disabled: path.some((o: CascaderOptionType) => !!o.disabled),
+            isEmptyNode: true,
+          } as CascaderOptionType),
+      );
     }
     return [getEmptyNode(renderEmpty, names, notFoundContent)];
   }

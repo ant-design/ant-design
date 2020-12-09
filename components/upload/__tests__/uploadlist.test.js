@@ -762,9 +762,7 @@ describe('Upload List', () => {
     function test(name, renderInstance) {
       it(name, async () => {
         const mockThumbnail = 'mock-image';
-        const previewFile = jest.fn(() => {
-          return Promise.resolve(mockThumbnail);
-        });
+        const previewFile = jest.fn(() => Promise.resolve(mockThumbnail));
         const file = {
           ...fileList[0],
           originFileObj: renderInstance(),
@@ -811,9 +809,7 @@ describe('Upload List', () => {
       expect(imgNode.length).toBe(2);
     });
     it('should render <img /> when custom imageUrl return true', () => {
-      const isImageUrl = jest.fn(() => {
-        return true;
-      });
+      const isImageUrl = jest.fn(() => true);
       const wrapper = mount(
         <Upload listType="picture-card" fileList={list} isImageUrl={isImageUrl}>
           <button type="button">button</button>
@@ -824,9 +820,7 @@ describe('Upload List', () => {
       expect(imgNode.length).toBe(3);
     });
     it('should not render <img /> when custom imageUrl return false', () => {
-      const isImageUrl = jest.fn(() => {
-        return false;
-      });
+      const isImageUrl = jest.fn(() => false);
       const wrapper = mount(
         <Upload listType="picture-card" fileList={list} isImageUrl={isImageUrl}>
           <button type="button">button</button>

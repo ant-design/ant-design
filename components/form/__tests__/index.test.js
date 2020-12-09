@@ -779,15 +779,13 @@ describe('Form', () => {
           name="light"
           _internalItemRender={{
             mark: 'pro_table_render',
-            render: (_, doms) => {
-              return (
-                <div id="test">
-                  {doms.input}
-                  {doms.errorList}
-                  {doms.extra}
-                </div>
-              );
-            },
+            render: (_, doms) => (
+              <div id="test">
+                {doms.input}
+                {doms.errorList}
+                {doms.extra}
+              </div>
+            ),
           }}
         >
           <input defaultValue="should warning" />

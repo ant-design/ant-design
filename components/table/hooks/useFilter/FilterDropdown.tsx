@@ -151,11 +151,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const onMenuClick = () => {
     window.clearTimeout(openRef.current);
   };
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(
+    () => () => {
       window.clearTimeout(openRef.current);
-    };
-  }, []);
+    },
+    [],
+  );
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[] | undefined | null) => {
