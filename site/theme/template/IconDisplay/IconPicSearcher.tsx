@@ -95,8 +95,8 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     reader.readAsDataURL(file);
   };
 
-  toImage = (url: any) => {
-    return new Promise(resolve => {
+  toImage = (url: any) =>
+    new Promise(resolve => {
       const img = new Image();
       img.setAttribute('crossOrigin', 'anonymous');
       img.src = url;
@@ -104,7 +104,6 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
         resolve(img);
       };
     });
-  };
 
   predict = (imgEl: any) => {
     try {

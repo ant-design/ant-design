@@ -151,6 +151,6 @@ If you'd like to help us improve antd, just create a [Pull Request](https://gith
 
 ## Need Help?
 
-For questions on how to use antd, please post questions to [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag. If you're not finding what you need on stackoverflow, you can find us on [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) as well.
+For questions on how to use antd, please post questions to [GitHub Discussions](https://github.com/ant-design/ant-design/discussions) using the `Q&A` tag or [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag.
 
 As always, we encourage experienced users to help those who are not familiar with `antd`!

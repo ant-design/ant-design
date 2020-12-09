@@ -35,9 +35,7 @@ interface MemoInputProps {
 
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
-  (prev, next) => {
-    return prev.value === next.value && prev.update === next.update;
-  },
+  (prev, next) => prev.value === next.value && prev.update === next.update,
 );
 
 export interface FormItemProps<Values = any>
@@ -114,12 +112,13 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const nameRef = useRef<(string | number)[]>([]);
 
   // Should clean up if Field removed
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(
+    () => () => {
       destroyRef.current = true;
       updateItemErrors(nameRef.current.join('__SPLIT__'), []);
-    };
-  }, []);
+    },
+    [],
+  );
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 

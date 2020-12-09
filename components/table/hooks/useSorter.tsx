@@ -254,9 +254,9 @@ export function getSortData<RecordType>(
 
   const cloneData = data.slice();
 
-  const runningSorters = innerSorterStates.filter(({ column: { sorter }, sortOrder }) => {
-    return getSortFunction(sorter) && sortOrder;
-  });
+  const runningSorters = innerSorterStates.filter(
+    ({ column: { sorter }, sortOrder }) => getSortFunction(sorter) && sortOrder,
+  );
 
   // Skip if no sorter needed
   if (!runningSorters.length) {
@@ -417,9 +417,7 @@ export default function useFilterSorter<RecordType>({
       showSorterTooltip,
     );
 
-  const getSorters = () => {
-    return generateSorterInfo(mergedSorterStates);
-  };
+  const getSorters = () => generateSorterInfo(mergedSorterStates);
 
   return [transformColumns, mergedSorterStates, columnTitleSorterProps, getSorters];
 }

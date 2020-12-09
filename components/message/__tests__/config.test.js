@@ -3,9 +3,7 @@ import message, { getInstance } from '..';
 
 describe('message.config', () => {
   // Mock for rc-util raf
-  window.requestAnimationFrame = callback => {
-    return window.setTimeout(callback, 16);
-  };
+  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = id => {
     window.clearTimeout(id);
   };

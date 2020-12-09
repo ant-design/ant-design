@@ -24,9 +24,9 @@ When requiring users to interact with the application, but without jumping to a 
 | closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
+| focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode | (OK and Cancel buttons) |  |
 | forceRender | Force render Modal | boolean | false |  |
-| focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not | boolean | true |  |

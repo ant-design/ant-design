@@ -197,7 +197,7 @@
     "esbuild-webpack-plugin": "^1.0.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.0.0",
-    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-jest": "^24.0.1",

@@ -129,9 +129,8 @@ class Page extends React.Component {
   );
 
   // ==== Cascader ====
-  cascaderFilter = (inputValue, path) => {
-    return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
-  };
+  cascaderFilter = (inputValue, path) =>
+    path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
 
   onCascaderChange = value => {
     console.log(value);

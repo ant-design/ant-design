@@ -18,9 +18,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   // Mock for rc-util raf
-  window.requestAnimationFrame = callback => {
-    return window.setTimeout(callback, 16);
-  };
+  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = id => {
     window.clearTimeout(id);
   };
@@ -145,9 +143,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should emit error when onOk return Promise.reject', async () => {
     const error = new Error('something wrong');
     open({
-      onOk: () => {
-        return Promise.reject(error);
-      },
+      onOk: () => Promise.reject(error),
     });
     $$('.ant-btn-primary')[0].click();
 

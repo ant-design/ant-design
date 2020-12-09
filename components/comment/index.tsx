@@ -36,9 +36,9 @@ const Comment: React.FC<CommentProps> = ({
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const renderNested = (prefixCls: string, nestedChildren: any) => {
-    return <div className={classNames(`${prefixCls}-nested`)}>{nestedChildren}</div>;
-  };
+  const renderNested = (prefixCls: string, nestedChildren: any) => (
+    <div className={classNames(`${prefixCls}-nested`)}>{nestedChildren}</div>
+  );
 
   const prefixCls = getPrefixCls('comment', customizePrefixCls);
 

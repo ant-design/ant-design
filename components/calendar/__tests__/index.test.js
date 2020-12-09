@@ -363,14 +363,12 @@ describe('Calendar', () => {
     expect(onMonthChange).toHaveBeenCalled();
 
     // Type
-    const headerRenderWithTypeChange = jest.fn(({ type }) => {
-      return (
-        <Group size="small" onChange={onTypeChange} value={type}>
-          <Button value="month">Month</Button>
-          <Button value="year">Year</Button>
-        </Group>
-      );
-    });
+    const headerRenderWithTypeChange = jest.fn(({ type }) => (
+      <Group size="small" onChange={onTypeChange} value={type}>
+        <Button value="month">Month</Button>
+        <Button value="year">Year</Button>
+      </Group>
+    ));
 
     const wrapperWithTypeChange = mount(
       <Calendar fullscreen={false} headerRender={headerRenderWithTypeChange} />,
