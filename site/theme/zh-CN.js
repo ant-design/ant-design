@@ -91,7 +91,7 @@ module.exports = {
     'app.footer.feedback': '反馈和建议',
     'app.footer.stackoverflow': 'StackOverflow',
     'app.footer.segmentfault': 'SegmentFault',
-    'app.footer.discussions': 'Discussions',
+    'app.footer.discussions': '讨论区',
     'app.footer.bug-report': '报告 Bug',
     'app.footer.issues': '讨论列表',
     'app.footer.version': '文档版本：',

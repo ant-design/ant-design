@@ -12,9 +12,9 @@
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![david deps][david-image]][david-url] [![david devDeps][david-dev-image]][david-dev-url] [![Total alerts][lgtm-image]][lgtm-url] [![FOSSA Status][fossa-image]][fossa-url] [![Issues need help][help-wanted-image]][help-wanted-url]
+[![david deps][david-image]][david-url] [![david devDeps][david-dev-image]][david-dev-url] [![Total alerts][lgtm-image]][lgtm-url] [![FOSSA Status][fossa-image]][fossa-url]
 
-[![Follow Twitter][twitter-image]][twitter-url] [![Discussions][discussions-image]][discussions-url] [![[SemVer stability]][semver-stability-image]][semver-stability-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![Discussions][discussions-image]][discussions-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
@@ -38,8 +38,6 @@
 [twitter-url]: https://twitter.com/AntDesignUI
 [discussions-image]: https://img.shields.io/badge/discussions-on%20github-blue?style=flat-square
 [discussions-url]: https://github.com/ant-design/ant-design/discussions
-[semver-stability-url]: https://dependabot.com/compatibility-score.html/?dependency-name=antd&package-manager=npm_and_yarn
-[semver-stability-image]: https://api.dependabot.com/badges/compatibility_score?dependency-name=antd&package-manager=npm_and_yarn&version-scheme=semver
 
 </div>
 
