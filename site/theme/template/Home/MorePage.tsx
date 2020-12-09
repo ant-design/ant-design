@@ -19,38 +19,36 @@ interface MoreProps {
   loading?: boolean;
 }
 
-const MoreCard = ({ title, description, date, img, source, href, icons, loading }: MoreProps) => {
-  return (
-    <Col xs={24} sm={6}>
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => {
-          window?.gtag('event', '点击', {
-            event_category: '首页文章',
-            event_label: href,
-          });
-        }}
+const MoreCard = ({ title, description, date, img, source, href, icons, loading }: MoreProps) => (
+  <Col xs={24} sm={6}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => {
+        window?.gtag('event', '点击', {
+          event_category: '首页文章',
+          event_label: href,
+        });
+      }}
+    >
+      <Card
+        hoverable
+        cover={loading ? undefined : <img alt={title} src={img} />}
+        loading={loading}
+        className="more-card"
       >
-        <Card
-          hoverable
-          cover={loading ? undefined : <img alt={title} src={img} />}
-          loading={loading}
-          className="more-card"
-        >
-          <Card.Meta title={title} description={description} />
-          <div>
-            {date}
-            <span className="more-card-source">
-              {icons ? <img src={icons[source]} alt={source} /> : null}
-            </span>
-          </div>
-        </Card>
-      </a>
-    </Col>
-  );
-};
+        <Card.Meta title={title} description={description} />
+        <div>
+          {date}
+          <span className="more-card-source">
+            {icons ? <img src={icons[source]} alt={source} /> : null}
+          </span>
+        </div>
+      </Card>
+    </a>
+  </Col>
+);
 
 export default function MorePage() {
   const { locale } = useIntl();

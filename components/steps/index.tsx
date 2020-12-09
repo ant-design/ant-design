@@ -46,9 +46,7 @@ const Steps: StepsType = props => {
   const { xs } = useBreakpoint();
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
-  const getDirection = React.useCallback(() => {
-    return xs ? 'vertical' : direction;
-  }, [xs, direction]);
+  const getDirection = React.useCallback(() => (xs ? 'vertical' : direction), [xs, direction]);
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
   const iconPrefix = getPrefixCls('', props.iconPrefix);

@@ -49,18 +49,16 @@ class Category extends React.Component<CategoryProps, CategoryState> {
       theme,
       intl: { messages },
     } = this.props;
-    const items = icons.map(name => {
-      return (
-        <CopyableIcon
-          key={name}
-          name={name}
-          theme={theme}
-          isNew={newIcons.indexOf(name) >= 0}
-          justCopied={this.state.justCopied}
-          onCopied={this.onCopied}
-        />
-      );
-    });
+    const items = icons.map(name => (
+      <CopyableIcon
+        key={name}
+        name={name}
+        theme={theme}
+        isNew={newIcons.indexOf(name) >= 0}
+        justCopied={this.state.justCopied}
+        onCopied={this.onCopied}
+      />
+    ));
 
     return (
       <div>

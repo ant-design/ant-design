@@ -28,36 +28,34 @@ const RecommendBlock = ({
   img,
   href,
   loading,
-}: RecommendBlockProps) => {
-  return (
-    <a
-      className={classNames('recommend-block', {
-        'recommend-block-main': !!main,
-        'recommend-block-loading': loading,
-      })}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => {
-        window?.gtag('event', '点击', {
-          event_category: '首页推广',
-          event_label: href,
-        });
-      }}
-    >
-      <img src={img} alt={title} />
-      {popularize && (
-        <span className="recommend-popularize">
-          <FormattedMessage id="app.home.popularize" />
-        </span>
-      )}
-      <div className="recommend-content">
-        <Title level={4}>{title}</Title>
-        <Paragraph style={{ fontSize: 13 }}>{description}</Paragraph>
-      </div>
-    </a>
-  );
-};
+}: RecommendBlockProps) => (
+  <a
+    className={classNames('recommend-block', {
+      'recommend-block-main': !!main,
+      'recommend-block-loading': loading,
+    })}
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={() => {
+      window?.gtag('event', '点击', {
+        event_category: '首页推广',
+        event_label: href,
+      });
+    }}
+  >
+    <img src={img} alt={title} />
+    {popularize && (
+      <span className="recommend-popularize">
+        <FormattedMessage id="app.home.popularize" />
+      </span>
+    )}
+    <div className="recommend-content">
+      <Title level={4}>{title}</Title>
+      <Paragraph style={{ fontSize: 13 }}>{description}</Paragraph>
+    </div>
+  </a>
+);
 
 export default function RecommendPage() {
   const { locale } = useIntl();

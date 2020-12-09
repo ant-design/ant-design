@@ -25,7 +25,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   color = 'blue',
   dot,
   pending = false,
-  position, /** dead, but do not pass in <li {...omit()} */
+  position /** dead, but do not pass in <li {...omit()} */,
   label,
   children,
   ...restProps

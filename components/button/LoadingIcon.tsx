@@ -38,13 +38,11 @@ const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon
       onLeaveStart={getRealWidth}
       onLeaveActive={getCollapsedWidth}
     >
-      {({ className, style }: { className?: string; style?: React.CSSProperties }, ref: any) => {
-        return (
-          <span className={`${prefixCls}-loading-icon`} style={style} ref={ref}>
-            <LoadingOutlined className={className} />
-          </span>
-        );
-      }}
+      {({ className, style }: { className?: string; style?: React.CSSProperties }, ref: any) => (
+        <span className={`${prefixCls}-loading-icon`} style={style} ref={ref}>
+          <LoadingOutlined className={className} />
+        </span>
+      )}
     </CSSMotion>
   );
 };

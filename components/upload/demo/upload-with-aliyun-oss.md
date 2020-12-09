@@ -40,16 +40,14 @@ class AliyunOSSUpload extends React.Component {
 
   // Mock get OSS api
   // https://help.aliyun.com/document_detail/31988.html
-  mockGetOSSData = () => {
-    return {
-      dir: 'user-dir/',
-      expire: '1577811661',
-      host: '//www.mocky.io/v2/5cc8019d300000980a055e76',
-      accessId: 'c2hhb2RhaG9uZw==',
-      policy: 'eGl4aWhhaGFrdWt1ZGFkYQ==',
-      signature: 'ZGFob25nc2hhbw==',
-    };
-  };
+  mockGetOSSData = () => ({
+    dir: 'user-dir/',
+    expire: '1577811661',
+    host: '//www.mocky.io/v2/5cc8019d300000980a055e76',
+    accessId: 'c2hhb2RhaG9uZw==',
+    policy: 'eGl4aWhhaGFrdWt1ZGFkYQ==',
+    signature: 'ZGFob25nc2hhbw==',
+  });
 
   onChange = ({ fileList }) => {
     const { onChange } = this.props;
