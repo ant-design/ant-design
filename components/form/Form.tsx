@@ -24,7 +24,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
   size?: SizeType;
-  scrollToFirstError?: boolean;
+  scrollToFirstError?: { block?: ScrollLogicalPosition };
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
@@ -107,7 +107,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     }
 
     if (scrollToFirstError && errorInfo.errorFields.length) {
-      wrapForm.scrollToField(errorInfo.errorFields[0].name);
+      wrapForm.scrollToField(errorInfo.errorFields[0].name, { ...scrollToFirstError });
     }
   };
 
