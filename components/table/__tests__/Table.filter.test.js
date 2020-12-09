@@ -855,9 +855,7 @@ describe('Table.filter', () => {
             title: 'Name',
             dataIndex: 'name',
             filters,
-            onFilter: (value, record) => {
-              return record.name.indexOf(value) === 0;
-            },
+            onFilter: (value, record) => record.name.indexOf(value) === 0,
             sorter: (a, b) => a.name.length - b.name.length,
             sortDirections: ['descend'],
           },
@@ -940,25 +938,23 @@ describe('Table.filter', () => {
     const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
     const filterDropdown = (...args) => filterDropdownMock(...args);
 
-    const Test = () => {
-      return (
-        <Table
-          rowKey="name"
-          columns={[
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              filterDropdown,
-            },
-          ]}
-          dataSource={[
-            {
-              name: 'Jack',
-            },
-          ]}
-        />
-      );
-    };
+    const Test = () => (
+      <Table
+        rowKey="name"
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filterDropdown,
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'Jack',
+          },
+        ]}
+      />
+    );
 
     mount(<Test />);
     expect(filterDropdownMock).toHaveBeenCalledWith(
@@ -972,25 +968,23 @@ describe('Table.filter', () => {
     const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
     const filterDropdown = (...args) => filterDropdownMock(...args);
 
-    const Test = () => {
-      return (
-        <Table
-          rowKey="name"
-          columns={[
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              filterDropdown,
-            },
-          ]}
-          dataSource={[
-            {
-              name: 'Jack',
-            },
-          ]}
-        />
-      );
-    };
+    const Test = () => (
+      <Table
+        rowKey="name"
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filterDropdown,
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'Jack',
+          },
+        ]}
+      />
+    );
 
     const wrapper = mount(<Test />);
 

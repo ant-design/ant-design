@@ -14,9 +14,9 @@ export interface TimePickerLocale {
 
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {}
 
-const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => {
-  return <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />;
-});
+const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
+  <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
+));
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
   addon?: () => React.ReactNode;

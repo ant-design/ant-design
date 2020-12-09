@@ -64,8 +64,8 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
     }
   }, [restProps.value]);
 
-  const getOptions = () => {
-    return options.map(option => {
+  const getOptions = () =>
+    options.map(option => {
       if (typeof option === 'string') {
         return {
           label: option,
@@ -74,7 +74,6 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
       }
       return option;
     });
-  };
 
   const cancelValue = (val: string) => {
     setRegisteredValues(prevValues => prevValues.filter(v => v !== val));

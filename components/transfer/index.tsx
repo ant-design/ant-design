@@ -172,9 +172,11 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     return transferLocale.titles;
   }
 
-  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
-    return { ...transferLocale, notFoundContent: renderEmpty('Transfer'), ...this.props.locale };
-  };
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
+    ...transferLocale,
+    notFoundContent: renderEmpty('Transfer'),
+    ...this.props.locale,
+  });
 
   moveTo = (direction: TransferDirection) => {
     const { targetKeys = [], dataSource = [], onChange } = this.props;
