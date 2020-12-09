@@ -162,11 +162,14 @@ $ npm start
 
 如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。
 
+通过 GitHub Discussions 提问时，建议使用 `Q&A` 标签。
+
 通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd` 标签。
 
-1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（英文）
-2. [Segment Fault](https://segmentfault.com/t/antd)（中文）
-3. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+1. [GitHub Discussions](https://github.com/ant-design/ant-design/discussions)
+2. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（英文）
+3. [Segment Fault](https://segmentfault.com/t/antd)（中文）
+4. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## ❤️ 赞助者 ![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen) ![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)
 
