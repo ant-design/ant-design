@@ -270,7 +270,7 @@ validateFields()
           password: 'password',
         },
         errorFields: [
-          { password: ['username'], errors: ['Please input your Password!'] },
+          { name: ['password'], errors: ['Please input your Password!'] },
         ],
         outOfDate: false,
       }
