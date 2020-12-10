@@ -165,7 +165,7 @@
     "@types/puppeteer": "^5.4.0",
     "@types/react": "^17.0.0",
     "@types/react-color": "^3.0.1",
-    "@types/react-copy-to-clipboard": "^4.3.0",
+    "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
