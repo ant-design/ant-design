@@ -46,7 +46,7 @@ export type SelectAllLabel =
   | ((info: { selectedCount: number; totalCount: number }) => React.ReactNode);
 
 export interface TransferLocale {
-  titles: string[];
+  titles: RenderResult[];
   notFoundContent?: React.ReactNode;
   searchPlaceholder: string;
   itemUnit: string;
@@ -72,7 +72,7 @@ export interface TransferProps<RecordType> {
   style?: React.CSSProperties;
   listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
   operationStyle?: React.CSSProperties;
-  titles?: string[];
+  titles?: RenderResult[];
   operations?: string[];
   showSearch?: boolean;
   filterOption?: (inputValue: string, item: RecordType) => boolean;
