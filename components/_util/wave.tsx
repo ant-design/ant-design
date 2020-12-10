@@ -11,7 +11,7 @@ function isHidden(element: HTMLElement) {
   if (process.env.NODE_ENV === 'test') {
     return false;
   }
-  return !element || element.offsetParent === null;
+  return !element || element.offsetParent === null || element.hidden;
 }
 
 function isNotGrey(color: string) {
