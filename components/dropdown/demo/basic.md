@@ -34,7 +34,11 @@ const menu = (
         3rd menu item
       </a>
     </Menu.Item>
-    <Menu.Item danger>a danger item</Menu.Item>
+    <Menu.Item danger>
+      <a target="_blank" rel="noopener noreferrer" href="http://110.alibaba.com/">
+        a danger item
+      </a>
+    </Menu.Item>
   </Menu>
 );
 
