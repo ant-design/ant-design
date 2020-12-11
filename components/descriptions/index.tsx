@@ -46,6 +46,8 @@ function getFilledItem(
 ): React.ReactElement {
   let clone = node;
 
+  console.log(span, rowRestCol);
+
   if (span === undefined || span > rowRestCol) {
     clone = cloneElement(node, {
       span: rowRestCol,
@@ -67,25 +69,45 @@ function getRows(children: React.ReactNode, column: number) {
   let tmpRow: React.ReactElement[] = [];
   let rowRestCol = column;
 
+  const rowsHandle: (merged: number, rowRest: number, item: any) => void = (merged, rowRest, item) => {
+    if (merged < rowRest) {
+      rowRestCol -= merged;
+      tmpRow.push(item);
+    } else {
+      tmpRow.push(getFilledItem(item, merged, rowRest));
+      rows.push(tmpRow);
+      rowRestCol = column;
+      tmpRow = [];
+    }
+  };
+
   childNodes.forEach((node, index) => {
     const span: number | undefined = node.props?.span;
     const mergedSpan = span || 1;
 
-    // Additional handle last one
-    if (index === childNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, span, rowRestCol));
-      rows.push(tmpRow);
-      return;
-    }
-
-    if (mergedSpan < rowRestCol) {
-      rowRestCol -= mergedSpan;
-      tmpRow.push(node);
+    let elementFunc: any;
+    let elementChild: React.ReactElement<any>;
+    let elementChildNodes: any[];
+    let funcName: string;
+    funcName = node.type.toString();
+    funcName = funcName.substr('function '.length);
+    funcName = funcName.substr(0, funcName.indexOf('('));
+    if (funcName !== 'DescriptionsItem') {
+      elementFunc = node.type;
+      elementChild = elementFunc(node.props);
+      elementChildNodes = toArray(elementChild).filter(n => n);
+      elementChildNodes.forEach(item => {
+        rowsHandle(mergedSpan, rowRestCol, item);
+      })
     } else {
-      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
-      rows.push(tmpRow);
-      rowRestCol = column;
-      tmpRow = [];
+      // Additional handle last one
+      if (index === childNodes.length - 1) {
+        tmpRow.push(getFilledItem(node, span, rowRestCol));
+        rows.push(tmpRow);
+        return;
+      }
+
+      rowsHandle(mergedSpan, rowRestCol, node);
     }
   });
 
