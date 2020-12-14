@@ -21,8 +21,6 @@ yarn-error.log
 *.snap
 components/*/*.js
 components/*/*.jsx
-components/*/*.md
-docs/**/*.md
 .gitignore
 .npmignore
 .prettierignore
