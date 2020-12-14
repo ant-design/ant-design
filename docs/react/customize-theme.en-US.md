@@ -202,8 +202,8 @@ module.exports = {
 +     options: {
 +       lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
 +         modifyVars: getThemeVariables({
-+           dark: true, // enable dark mode
-+           compact: true, // enable compact mode
++           dark: true, // Enable dark mode
++           compact: true, // Enable compact mode
 +         }),
 +         javascriptEnabled: true,
 +       },
