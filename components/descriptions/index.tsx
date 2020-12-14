@@ -67,7 +67,6 @@ function getRows(children: React.ReactNode, column: number) {
   let tmpRow: React.ReactElement[] = [];
   let rowRestCol = column;
 
-  //push handle
   const rowsHandle: (merged: number, item: any) => void = (merged, item) => {
     if (merged < rowRestCol) {
       rowRestCol -= merged;
