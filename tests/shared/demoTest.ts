@@ -21,7 +21,7 @@ function ariaConvert(wrapper: CheerIO) {
   const matches = new Map();
 
   function process(entry: CheerIOElement) {
-    const { attribs, children } = entry;
+    const { attribs, children } = entry as cheerio.TagElement;
     if (matches.has(entry)) return;
     matches.set(entry, true);
 
