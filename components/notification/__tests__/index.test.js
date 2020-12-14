@@ -127,9 +127,9 @@ describe('notification', () => {
       expect(document.querySelectorAll(`${iconPrefix}-${type}`).length).toBe(1);
     };
 
-    const promises = ['success', 'info', 'warning', 'error'].map(type => {
-      return openNotificationWithIcon(type);
-    });
+    const promises = ['success', 'info', 'warning', 'error'].map(type =>
+      openNotificationWithIcon(type),
+    );
 
     await Promise.all(promises);
   });

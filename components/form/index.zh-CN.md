@@ -95,7 +95,7 @@ const validateMessages = {
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)\[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
 | tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | - | 4.7.0 |
-| trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
+| trigger | 设置收集字段值变更的时机。点击[此处](#components-form-demo-customized-form-controls)查看示例 | string | `onChange` |  |
 | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 | validateTrigger | 设置字段校验的时机 | string \| string\[] | `onChange` |  |
@@ -170,7 +170,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | children | 渲染函数 | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
-| initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | any[] | - | 4.9.0 |
+| initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | any\[] | - | 4.9.0 |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
 | rules | 校验规则，仅支持自定义规则。需要配合 [ErrorList](#Form.ErrorList) 一同使用。 | { validator, message }\[] | - | 4.7.0 |
 
@@ -195,19 +195,19 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 Form.List 渲染表单相关操作函数。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| add | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
-| move | 移动表单项 | (from: number, to: number) => void | - |
-| remove | 删除表单项 | (index: number \| number\[]) => void | number\[]: 4.5.0 |
+| 参数   | 说明       | 类型                                               | 默认值             |
+| ------ | ---------- | -------------------------------------------------- | ------------------ |
+| add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
+| move   | 移动表单项 | (from: number, to: number) => void                 | -                  |
+| remove | 删除表单项 | (index: number \| number\[]) => void               | number\[]: 4.5.0   |
 
 ## Form.ErrorList
 
 4.7.0 新增。错误展示组件，仅限配合 Form.List 的 rules 一同使用。参考[示例](#components-form-demo-dynamic-form-item)。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| errors | 错误列表 | ReactNode\[] | - |
+| 参数   | 说明     | 类型         | 默认值 |
+| ------ | -------- | ------------ | ------ |
+| errors | 错误列表 | ReactNode\[] | -      |
 
 ## Form.Provider
 
@@ -272,7 +272,7 @@ validateFields()
           password: 'password',
         },
         errorFields: [
-          { password: ['username'], errors: ['Please input your Password!'] },
+          { name: ['password'], errors: ['Please input your Password!'] },
         ],
         outOfDate: false,
       }
@@ -288,13 +288,13 @@ validateFields()
 
 #### FieldData
 
-| 名称 | 说明 | 类型 |
-| --- | --- | --- |
-| errors | 错误信息 | string\[] |
-| name | 字段名称 | [NamePath](#NamePath)\[] |
-| touched | 是否被用户操作过 | boolean |
-| validating | 是否正在校验 | boolean |
-| value | 字段对应值 | any |
+| 名称       | 说明             | 类型                     |
+| ---------- | ---------------- | ------------------------ |
+| errors     | 错误信息         | string\[]                |
+| name       | 字段名称         | [NamePath](#NamePath)\[] |
+| touched    | 是否被用户操作过 | boolean                  |
+| validating | 是否正在校验     | boolean                  |
+| value      | 字段对应值       | any                      |
 
 #### Rule
 

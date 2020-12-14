@@ -121,8 +121,8 @@ const Alert: AlertInterface = ({
     return React.createElement(iconType, { className: `${prefixCls}-icon` });
   };
 
-  const renderCloseIcon = () => {
-    return isClosable ? (
+  const renderCloseIcon = () =>
+    isClosable ? (
       <button
         type="button"
         onClick={handleClose}
@@ -136,7 +136,6 @@ const Alert: AlertInterface = ({
         )}
       </button>
     ) : null;
-  };
 
   // banner 模式默认有 Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;

@@ -17,7 +17,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowDrop | Whether to allow dropping on the node | ({ dropNode, dropPosition }) => boolean | - |
+| allowDrop | Whether to allow dropping on the node | ({ dropNode, dropPosition }) => boolean | - |  |
 | autoExpandParent | Whether to automatically expand a parent treeNode | boolean | false |  |
 | blockNode | Whether treeNode fill remaining horizontal space | boolean | false |  |
 | checkable | Add a Checkbox before the treeNodes | boolean | false |  |
@@ -29,7 +29,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | defaultExpandParent | If auto expand parent treeNodes when init | boolean | true |  |
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |  |
 | disabled | Whether disabled the tree | boolean | false |  |
-| draggable | Specifies whether this Tree is draggable (IE > 8) | boolean | false |  |
+| draggable | Specifies whether this Tree or the node is draggable (IE > 8) | boolean \| ((node: DataNode) => boolean) | false |  |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  |
 | height | Config virtual scroll height. Will not support horizontal scroll when enable this | number | - |  |
@@ -96,8 +96,8 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ### Tree Methods
 
-| Name | Description |
-| --- | --- |
+| Name              | Description                          |
+| ----------------- | ------------------------------------ |
 | scrollTo({ key }) | Scroll to key item in virtual scroll |
 
 ## FAQ

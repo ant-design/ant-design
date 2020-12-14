@@ -41,18 +41,6 @@
   }
 }
 
-.antTreeShowLineIcon(@type) {
-  .@{tree-prefix-cls}-switcher-icon,
-  .@{tree-select-prefix-cls}-switcher-icon {
-    display: inline-block;
-    font-weight: normal;
-    font-size: 12px;
-    svg {
-      transition: transform 0.3s;
-    }
-  }
-}
-
 .antTreeFn(@custom-tree-prefix-cls) {
   @custom-tree-node-prefix-cls: ~'@{custom-tree-prefix-cls}-treenode';
   .reset-component;
@@ -170,7 +158,7 @@
   }
 
   // >>> Checkbox
-  & &-checkbox {
+  &-checkbox {
     top: initial;
     margin: ((@tree-title-height - @checkbox-size) / 2) 8px 0 0;
   }
@@ -209,6 +197,11 @@
         display: none;
       }
     }
+  }
+
+  // https://github.com/ant-design/ant-design/issues/28217
+  &-unselectable &-node-content-wrapper:hover {
+    background-color: transparent;
   }
 
   // ==================== Draggable =====================

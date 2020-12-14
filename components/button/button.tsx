@@ -153,9 +153,8 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
   const delayTimeoutRef = React.useRef<number>();
 
-  const isNeedInserted = () => {
-    return React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
-  };
+  const isNeedInserted = () =>
+    React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
 
   const fixTwoCNChar = () => {
     // Fix for HOC usage like <FormatMessage />
@@ -275,7 +274,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const buttonNode = (
     <button
-      {...rest as NativeButtonProps}
+      {...(rest as NativeButtonProps)}
       type={htmlType}
       className={classes}
       onClick={handleClick}

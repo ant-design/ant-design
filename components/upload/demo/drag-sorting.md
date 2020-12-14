@@ -127,16 +127,14 @@ const DragSortingUpload: React.FC = () => {
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         fileList={fileList}
         onChange={onChange}
-        itemRender={(originNode, file, currFileList) => {
-          return (
-            <DragableUploadListItem
-              originNode={originNode}
-              file={file}
-              fileList={currFileList}
-              moveRow={moveRow}
-            />
-          );
-        }}
+        itemRender={(originNode, file, currFileList) => (
+          <DragableUploadListItem
+            originNode={originNode}
+            file={file}
+            fileList={currFileList}
+            moveRow={moveRow}
+          />
+        )}
       >
         <Button>
           <UploadOutlined /> Click to Upload

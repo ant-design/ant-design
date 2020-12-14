@@ -55,9 +55,7 @@ const renderBack = (
   );
 };
 
-const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
-  return <Breadcrumb {...breadcrumb} />;
-};
+const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => <Breadcrumb {...breadcrumb} />;
 
 const getBackIcon = (props: PageHeaderProps, direction: DirectionType = 'ltr') => {
   if (props.backIcon !== undefined) {
@@ -118,9 +116,9 @@ const renderFooter = (prefixCls: string, footer: React.ReactNode) => {
   return null;
 };
 
-const renderChildren = (prefixCls: string, children: React.ReactNode) => {
-  return <div className={`${prefixCls}-content`}>{children}</div>;
-};
+const renderChildren = (prefixCls: string, children: React.ReactNode) => (
+  <div className={`${prefixCls}-content`}>{children}</div>
+);
 
 const PageHeader: React.FC<PageHeaderProps> = props => {
   const [compact, updateCompact] = React.useState(false);

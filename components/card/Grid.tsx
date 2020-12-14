@@ -13,13 +13,9 @@ const Grid: React.FC<CardGridProps> = ({ prefixCls, className, hoverable = true,
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const prefix = getPrefixCls('card', prefixCls);
-      const classString = classNames(
-        `${prefix}-grid`,
-        className,
-        {
-          [`${prefix}-grid-hoverable`]: hoverable,
-        },
-      );
+      const classString = classNames(`${prefix}-grid`, className, {
+        [`${prefix}-grid-hoverable`]: hoverable,
+      });
 
       return <div {...props} className={classString} />;
     }}

@@ -5,15 +5,13 @@ import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-const DrawerTest = ({ getContainer }) => {
-  return (
-    <div>
-      <Drawer visible width={400} getContainer={getContainer}>
-        Here is content of Drawer
-      </Drawer>
-    </div>
-  );
-};
+const DrawerTest = ({ getContainer }) => (
+  <div>
+    <Drawer visible width={400} getContainer={getContainer}>
+      Here is content of Drawer
+    </Drawer>
+  </div>
+);
 
 describe('Drawer', () => {
   mountTest(Drawer);
