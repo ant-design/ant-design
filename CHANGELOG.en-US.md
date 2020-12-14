@@ -20,14 +20,14 @@ timeline: true
 `2020-12-14`
 
 - 💄 Fix Badge standalone motion blink when show/hide. [#28240](https://github.com/ant-design/ant-design/pull/28240)
-- 🐞 Fix Table `filters` not support number and boolean type. [#28220](https://github.com/ant-design/ant-design/pull/28220)
+- 🐞 Fix Table `filters` not support number and boolean type. [#28220](https://github.com/ant-design/ant-design/pull/28220) [@Meowu](https://github.com/Meowu)
 - 💄 Remove Tree hover background color when `selectable={false}`. [#28269](https://github.com/ant-design/ant-design/pull/28269)
 - 💄 Fix Statistics decimal font size. [#28223](https://github.com/ant-design/ant-design/pull/28223)
 - TypeScript
-  - 🤖 Fix Tree `draggable` TS definition. [#28262](https://github.com/ant-design/ant-design/pull/28262)
-  - 🤖 Fix Image.PreviewGroup TS definition. [#28263](https://github.com/ant-design/ant-design/pull/28263)
+  - 🤖 Fix Tree `draggable` TS definition. [#28262](https://github.com/ant-design/ant-design/pull/28262) [@DavidSichau](https://github.com/DavidSichau)
+  - 🤖 Fix Image.PreviewGroup TS definition. [#28263](https://github.com/ant-design/ant-design/pull/28263) [@liuchao233](https://github.com/liuchao233)
   - 🤖 Improve `message().then` TS definition. [#28304](https://github.com/ant-design/ant-design/pull/28304)
-  - 🤖 Fix TransferProps `titles` to ReactNode. [#28326](https://github.com/ant-design/ant-design/pull/28326)
+  - 🤖 Fix TransferProps `titles` to ReactNode. [#28326](https://github.com/ant-design/ant-design/pull/28326) [@jacklee814](https://github.com/jacklee814)
 
 ## 4.9.2
 
