@@ -46,8 +46,6 @@ function getFilledItem(
 ): React.ReactElement {
   let clone = node;
 
-  console.log(span, rowRestCol);
-
   if (span === undefined || span > rowRestCol) {
     clone = cloneElement(node, {
       span: rowRestCol,
@@ -69,12 +67,12 @@ function getRows(children: React.ReactNode, column: number) {
   let tmpRow: React.ReactElement[] = [];
   let rowRestCol = column;
 
-  const rowsHandle: (merged: number, rowRest: number, item: any) => void = (merged, rowRest, item) => {
-    if (merged < rowRest) {
+  const rowsHandle: (merged: number, item: any) => void = (merged, item) => {
+    if (merged < rowRestCol) {
       rowRestCol -= merged;
       tmpRow.push(item);
     } else {
-      tmpRow.push(getFilledItem(item, merged, rowRest));
+      tmpRow.push(getFilledItem(item, merged, rowRestCol));
       rows.push(tmpRow);
       rowRestCol = column;
       tmpRow = [];
@@ -97,7 +95,7 @@ function getRows(children: React.ReactNode, column: number) {
       elementChild = elementFunc(node.props);
       elementChildNodes = toArray(elementChild).filter(n => n);
       elementChildNodes.forEach(item => {
-        rowsHandle(mergedSpan, rowRestCol, item);
+        rowsHandle(mergedSpan, item);
       })
     } else {
       // Additional handle last one
@@ -107,7 +105,7 @@ function getRows(children: React.ReactNode, column: number) {
         return;
       }
 
-      rowsHandle(mergedSpan, rowRestCol, node);
+      rowsHandle(mergedSpan, node);
     }
   });
 
