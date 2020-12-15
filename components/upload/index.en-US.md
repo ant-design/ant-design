@@ -20,8 +20,8 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
-| action | Uploading URL | string \| (file) => Promise | - |  |
-| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported in IE9** | (file, fileList) => boolean \| Promise | - |  |
+| action | Uploading URL | string \| (file) => Promise&lt;string> | - |  |
+| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported in IE9** | (file, fileList) => boolean \| Promise&lt;File> | - |  |
 | customRequest | Override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | function | - |  |
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
@@ -40,7 +40,6 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
 | progress | Custom progress bar | [ProgressProps](/components/progress/#API) (support `type="line"` only) | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
-| transformFile   | Customize transform file before request | Function(file): string \| Blob \| File \| Promise&lt;string \| Blob \| File> | - |  |
 | withCredentials | The ajax upload with cookie sent | boolean | false |  |
 | onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | function | - |  |
 | onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |  |
