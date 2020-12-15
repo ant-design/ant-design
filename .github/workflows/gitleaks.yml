@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: '1'
+        fetch-depth: '2'
     - name: wget
       uses: wei/wget@v1
       with:
