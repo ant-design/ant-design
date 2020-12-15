@@ -429,3 +429,9 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
     color: rgba(255,255,255,.3);
   }
 </style>
+
+### 自定义表单控件 `scrollToFirstError` 和 `scrollToField` 失效？
+
+类似问题：[#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
+
+滚动依赖于表单控件元素上绑定的 `id` 字段，如果自定义控件没有将 `id` 赋到正确的元素上，这个功能将失效。你可以参考这个 [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js)。
