@@ -9,6 +9,7 @@ import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Upload', () => {
   mountTest(Upload);
@@ -627,6 +628,98 @@ describe('Upload', () => {
           files: [{ file: 'foo.png' }],
         },
       });
+    });
+  });
+
+  describe('maxCount', () => {
+    it('replace when only 1', async () => {
+      const onChange = jest.fn();
+      const fileList = [
+        {
+          uid: 'bar',
+          name: 'bar.png',
+        },
+      ];
+
+      const props = {
+        action: 'http://upload.com',
+        fileList,
+        onChange,
+        maxCount: 1,
+      };
+
+      const wrapper = mount(
+        <Upload {...props}>
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [
+            new File(['foo'], 'foo.png', {
+              type: 'image/png',
+            }),
+          ],
+        },
+      });
+
+      await sleep(20);
+
+      expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
+      expect(onChange.mock.calls[0][0].fileList[0]).toEqual(
+        expect.objectContaining({
+          name: 'foo.png',
+        }),
+      );
+    });
+
+    it('maxCount > 1', async () => {
+      const onChange = jest.fn();
+      const fileList = [
+        {
+          uid: 'bar',
+          name: 'bar.png',
+        },
+      ];
+
+      const props = {
+        action: 'http://upload.com',
+        fileList,
+        onChange,
+        maxCount: 2,
+      };
+
+      const wrapper = mount(
+        <Upload {...props}>
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [
+            new File(['foo'], 'foo.png', {
+              type: 'image/png',
+            }),
+            new File(['invisible'], 'invisible.png', {
+              type: 'image/png',
+            }),
+          ],
+        },
+      });
+
+      await sleep(20);
+
+      expect(onChange.mock.calls[0][0].fileList).toHaveLength(2);
+      expect(onChange.mock.calls[0][0].fileList).toEqual([
+        expect.objectContaining({
+          name: 'bar.png',
+        }),
+        expect.objectContaining({
+          name: 'foo.png',
+        }),
+      ]);
     });
   });
 });
