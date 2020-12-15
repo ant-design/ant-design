@@ -410,11 +410,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(
-    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
-      return transformTitleColumns(
+    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
+      transformTitleColumns(
         transformSelectionColumns(transformFilterColumns(transformSorterColumns(innerColumns))),
-      );
-    },
+      ),
     [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
   );
 

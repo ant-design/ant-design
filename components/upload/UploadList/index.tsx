@@ -195,47 +195,45 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   return (
     <div className={listClassNames}>
       <CSSMotionList {...motionConfig} component={false}>
-        {({ key, file, className: motionClassName, style: motionStyle }) => {
-          return (
-            <ListItem
-              key={key}
-              locale={locale}
-              prefixCls={prefixCls}
-              className={motionClassName}
-              style={motionStyle}
-              file={file}
-              items={items}
-              progress={progress}
-              listType={listType}
-              isImgUrl={isImgUrl}
-              showPreviewIcon={showPreviewIcon}
-              showRemoveIcon={showRemoveIcon}
-              showDownloadIcon={showDownloadIcon}
-              removeIcon={removeIcon}
-              downloadIcon={downloadIcon}
-              iconRender={internalIconRender}
-              actionIconRender={actionIconRender}
-              itemRender={itemRender}
-              onPreview={onInternalPreview}
-              onDownload={onInternalDownload}
-              onClose={onInternalClose}
-            />
-          );
-        }}
+        {({ key, file, className: motionClassName, style: motionStyle }) => (
+          <ListItem
+            key={key}
+            locale={locale}
+            prefixCls={prefixCls}
+            className={motionClassName}
+            style={motionStyle}
+            file={file}
+            items={items}
+            progress={progress}
+            listType={listType}
+            isImgUrl={isImgUrl}
+            showPreviewIcon={showPreviewIcon}
+            showRemoveIcon={showRemoveIcon}
+            showDownloadIcon={showDownloadIcon}
+            removeIcon={removeIcon}
+            downloadIcon={downloadIcon}
+            iconRender={internalIconRender}
+            actionIconRender={actionIconRender}
+            itemRender={itemRender}
+            onPreview={onInternalPreview}
+            onDownload={onInternalDownload}
+            onClose={onInternalClose}
+          />
+        )}
       </CSSMotionList>
 
       {/* Append action */}
       {appendAction && (
         <CSSMotion {...motionConfig}>
-          {({ className: motionClassName, style: motionStyle }) => {
-            return cloneElement(appendAction, oriProps => ({
+          {({ className: motionClassName, style: motionStyle }) =>
+            cloneElement(appendAction, oriProps => ({
               className: classNames(oriProps.className, motionClassName),
               style: {
                 ...motionStyle,
                 ...oriProps.style,
               },
-            }));
-          }}
+            }))
+          }
         </CSSMotion>
       )}
     </div>

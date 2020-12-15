@@ -147,9 +147,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 ### ColumnGroup
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| title | Title of the column group | ReactNode | - |
+| Property | Description               | Type      | Default |
+| -------- | ------------------------- | --------- | ------- |
+| title    | Title of the column group | ReactNode | -       |
 
 ### pagination
 
@@ -300,3 +300,7 @@ In order to improve user experience, Pagination show size changer by default whe
 ### Why Table fully render when state change?
 
 Table can not tell what state used in `columns.render`, so it always need fully render to avoid sync issue. You can use `column.shouldCellUpdate` to control render.
+
+### How to handle fixed column display over the mask layout?
+
+Fixed column use `z-index` to make it over other columns. You will find sometime fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.

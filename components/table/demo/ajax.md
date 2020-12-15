@@ -52,13 +52,11 @@ const columns = [
   },
 ];
 
-const getRandomuserParams = params => {
-  return {
-    results: params.pagination.pageSize,
-    page: params.pagination.current,
-    ...params,
-  };
-};
+const getRandomuserParams = params => ({
+  results: params.pagination.pageSize,
+  page: params.pagination.current,
+  ...params,
+});
 
 class App extends React.Component {
   state = {

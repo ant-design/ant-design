@@ -22,11 +22,9 @@ const ElementsHolder = React.memo(
     const [elements, patchElement] = usePatchElement();
     React.useImperativeHandle(
       ref,
-      () => {
-        return {
-          patchElement,
-        };
-      },
+      () => ({
+        patchElement,
+      }),
       [],
     );
     return <>{elements}</>;
@@ -37,8 +35,8 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
   const holderRef = React.useRef<ElementsHolderRef>(null as any);
 
   const getConfirmFunc = React.useCallback(
-    (withFunc: (config: ModalFuncProps) => ModalFuncProps) => {
-      return function hookConfirm(config: ModalFuncProps) {
+    (withFunc: (config: ModalFuncProps) => ModalFuncProps) =>
+      function hookConfirm(config: ModalFuncProps) {
         uuid += 1;
 
         const modalRef = React.createRef<HookModalRef>();
@@ -69,8 +67,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
             }
           },
         };
-      };
-    },
+      },
     [],
   );
 
