@@ -172,8 +172,7 @@
 
   &-horizontal &-item,
   &-horizontal &-submenu-title {
-    transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
-      background 0.3s @ease-in-out;
+    transition: border-color 0.3s, background 0.3s;
   }
 
   &-item,
@@ -184,18 +183,17 @@
     padding: @menu-item-padding;
     white-space: nowrap;
     cursor: pointer;
-    transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
-      background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
+    transition: border-color 0.3s, background 0.3s, padding 0.15s @ease-in-out;
 
     .@{menu-prefix-cls}-item-icon,
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: @menu-icon-margin-right;
       font-size: @menu-icon-size;
-      transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out, color 0.3s @ease-in-out;
+      transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out, color 0.3s;
       + span {
         opacity: 1;
-        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out, color 0.3s @ease-in-out;
+        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out, color 0.3s;
       }
     }
 
