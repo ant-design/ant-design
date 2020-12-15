@@ -46,7 +46,7 @@ export type SelectAllLabel =
   | ((info: { selectedCount: number; totalCount: number }) => React.ReactNode);
 
 export interface TransferLocale {
-  titles: string[];
+  titles: React.ReactNode[];
   notFoundContent?: React.ReactNode;
   searchPlaceholder: string;
   itemUnit: string;
@@ -72,7 +72,7 @@ export interface TransferProps<RecordType> {
   style?: React.CSSProperties;
   listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
   operationStyle?: React.CSSProperties;
-  titles?: string[];
+  titles?: React.ReactNode[];
   operations?: string[];
   showSearch?: boolean;
   filterOption?: (inputValue: string, item: RecordType) => boolean;
@@ -164,7 +164,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     }
   };
 
-  getTitles(transferLocale: TransferLocale): string[] {
+  getTitles(transferLocale: TransferLocale): React.ReactNode[] {
     const { titles } = this.props;
     if (titles) {
       return titles;
@@ -172,9 +172,11 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     return transferLocale.titles;
   }
 
-  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
-    return { ...transferLocale, notFoundContent: renderEmpty('Transfer'), ...this.props.locale };
-  };
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
+    ...transferLocale,
+    notFoundContent: renderEmpty('Transfer'),
+    ...this.props.locale,
+  });
 
   moveTo = (direction: TransferDirection) => {
     const { targetKeys = [], dataSource = [], onChange } = this.props;

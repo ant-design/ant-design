@@ -82,16 +82,17 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
     }
   }, [props.direction]);
 
-  const getPrefixClsWrapper = (context: ConfigConsumerProps) => {
-    return (suffixCls: string, customizePrefixCls?: string) => {
-      const { prefixCls } = props;
+  const getPrefixClsWrapper = (context: ConfigConsumerProps) => (
+    suffixCls: string,
+    customizePrefixCls?: string,
+  ) => {
+    const { prefixCls } = props;
 
-      if (customizePrefixCls) return customizePrefixCls;
+    if (customizePrefixCls) return customizePrefixCls;
 
-      const mergedPrefixCls = prefixCls || context.getPrefixCls('');
+    const mergedPrefixCls = prefixCls || context.getPrefixCls('');
 
-      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
-    };
+    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
   };
 
   const renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {

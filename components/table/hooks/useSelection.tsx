@@ -150,9 +150,7 @@ export default function useSelection<RecordType>(
   }, [flattedData, getRowKey, getCheckboxProps]);
 
   const isCheckboxDisabled: GetCheckDisabled<RecordType> = useCallback(
-    (r: RecordType) => {
-      return !!checkboxPropsMap.get(getRowKey(r))?.disabled;
-    },
+    (r: RecordType) => !!checkboxPropsMap.get(getRowKey(r))?.disabled,
     [checkboxPropsMap, getRowKey],
   );
 
@@ -173,9 +171,10 @@ export default function useSelection<RecordType>(
     const keys = selectionType === 'radio' ? derivedSelectedKeys.slice(0, 1) : derivedSelectedKeys;
     return new Set(keys);
   }, [derivedSelectedKeys, selectionType]);
-  const derivedHalfSelectedKeySet = useMemo(() => {
-    return selectionType === 'radio' ? new Set() : new Set(derivedHalfSelectedKeys);
-  }, [derivedHalfSelectedKeys, selectionType]);
+  const derivedHalfSelectedKeySet = useMemo(
+    () => (selectionType === 'radio' ? new Set() : new Set(derivedHalfSelectedKeys)),
+    [derivedHalfSelectedKeys, selectionType],
+  );
 
   // Save last selected key to enable range selection
   const [lastSelectedKey, setLastSelectedKey] = useState<Key | null>(null);

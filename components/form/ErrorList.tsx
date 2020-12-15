@@ -69,27 +69,25 @@ export default function ErrorList({
       motionAppear
       removeOnLeave
     >
-      {({ className: motionClassName }: { className?: string }) => {
-        return (
-          <div
-            className={classNames(
-              baseClassName,
-              {
-                [`${baseClassName}-${innerStatus}`]: innerStatus,
-              },
-              motionClassName,
-            )}
-            key="help"
-          >
-            {memoErrors.map((error, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <div key={index} role="alert">
-                {error}
-              </div>
-            ))}
-          </div>
-        );
-      }}
+      {({ className: motionClassName }: { className?: string }) => (
+        <div
+          className={classNames(
+            baseClassName,
+            {
+              [`${baseClassName}-${innerStatus}`]: innerStatus,
+            },
+            motionClassName,
+          )}
+          key="help"
+        >
+          {memoErrors.map((error, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={index} role="alert">
+              {error}
+            </div>
+          ))}
+        </div>
+      )}
     </CSSMotion>
   );
 }

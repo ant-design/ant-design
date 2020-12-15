@@ -39,25 +39,23 @@ const menu = (
   </Menu>
 );
 
-const DropdownMenu = () => {
-  return (
-    <Dropdown key="more" overlay={menu}>
-      <Button
+const DropdownMenu = () => (
+  <Dropdown key="more" overlay={menu}>
+    <Button
+      style={{
+        border: 'none',
+        padding: 0,
+      }}
+    >
+      <EllipsisOutlined
         style={{
-          border: 'none',
-          padding: 0,
+          fontSize: 20,
+          verticalAlign: 'top',
         }}
-      >
-        <EllipsisOutlined
-          style={{
-            fontSize: 20,
-            verticalAlign: 'top',
-          }}
-        />
-      </Button>
-    </Dropdown>
-  );
-};
+      />
+    </Button>
+  </Dropdown>
+);
 
 const routes = [
   {
@@ -109,14 +107,12 @@ const content = (
   </>
 );
 
-const Content = ({ children, extraContent }) => {
-  return (
-    <Row>
-      <div style={{ flex: 1 }}>{children}</div>
-      <div className="image">{extraContent}</div>
-    </Row>
-  );
-};
+const Content = ({ children, extraContent }) => (
+  <Row>
+    <div style={{ flex: 1 }}>{children}</div>
+    <div className="image">{extraContent}</div>
+  </Row>
+);
 
 ReactDOM.render(
   <PageHeader

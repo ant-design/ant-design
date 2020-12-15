@@ -153,6 +153,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     blockNode,
     children,
     checkable,
+    selectable,
   } = props;
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const newProps = {
@@ -171,12 +172,14 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         {
           [`${prefixCls}-icon-hide`]: !showIcon,
           [`${prefixCls}-block-node`]: blockNode,
+          [`${prefixCls}-unselectable`]: !selectable,
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
       )}
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
+      selectable={selectable}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
         renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
       }
@@ -192,6 +195,7 @@ Tree.DirectoryTree = DirectoryTree;
 
 Tree.defaultProps = {
   checkable: false,
+  selectable: true,
   showIcon: false,
   motion: {
     ...collapseMotion,
