@@ -106,7 +106,9 @@ export interface ThenableArgument {
   (val: any): void;
 }
 
-export interface MessageType extends PromiseLike<any> {}
+export interface MessageType extends PromiseLike<any> {
+  (): void;
+}
 
 const typeToIcon = {
   info: InfoCircleFilled,
