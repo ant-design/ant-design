@@ -63,6 +63,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       'Upload',
       '`value` is not a valid prop, do you mean `fileList`?',
     );
+
+    devWarning(
+      'transformFile' in props,
+      'Upload',
+      '`transformFile` is deprecated. Please use `beforeUpload` directly.',
+    );
   }, []);
 
   const onChange = (info: UploadChangeParam) => {

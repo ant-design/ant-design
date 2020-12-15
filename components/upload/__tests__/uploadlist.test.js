@@ -925,7 +925,7 @@ describe('Upload List', () => {
     });
   });
 
-  it('should support transformFile', done => {
+  it('[deprecated] should support transformFile', done => {
     const handleTransformFile = jest.fn();
     const onChange = ({ file }) => {
       if (file.status === 'done') {

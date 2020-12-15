@@ -113,11 +113,14 @@ export interface UploadProps<T = any> {
   locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
+  /** @deprecated Please use `beforeUpload` directly */
   transformFile?: TransformFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   progress?: UploadListProgressProps;
   itemRender?: ItemRender<T>;
+  /** Set max count of `fileList` */
+  maxCount?: number;
 }
 
 export interface UploadState<T = any> {
