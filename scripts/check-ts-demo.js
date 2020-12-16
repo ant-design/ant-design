@@ -3,17 +3,19 @@
 const path = require('path');
 const glob = require('glob');
 const fs = require('fs-extra');
-const ts = require('typescript');
 const chalk = require('chalk');
+const { spawn } = require('child_process');
 
 (async () => {
   console.time('Execution...');
 
   const demoFiles = glob.sync(path.join(process.cwd(), 'components/**/demo/*.md'));
 
-  const tmpFile = path.resolve('~tmp-ts-demo.tsx');
+  const tmpFolder = path.resolve('components', '~tmp');
+  await fs.remove(tmpFolder);
+  await fs.ensureDir(tmpFolder);
 
-  function getTypescriptDemo(content) {
+  function getTypescriptDemo(content, demoPath) {
     const lines = content.split(/[\n\r]/);
 
     const tsxStartLine = lines.findIndex(line =>
@@ -40,7 +42,10 @@ const chalk = require('chalk');
     script = script.replace('mountNode', `document.getElementById('#root')`);
 
     // Replace antd
-    script = script.replace(`from 'antd'`, `from './components'`);
+    script = script.replace(`from 'antd'`, `from '..'`);
+
+    // Add path
+    script = `// ${demoPath}\n${script}`;
 
     return script;
   }
@@ -49,54 +54,29 @@ const chalk = require('chalk');
     const demoPath = demoFiles[i];
 
     const content = await fs.readFile(demoPath, 'utf8');
-    const script = getTypescriptDemo(content);
+    const script = getTypescriptDemo(content, demoPath);
 
     // Parse TSX
     if (script) {
+      const tmpFile = path.join(tmpFolder, `demo-${i}.tsx`);
       await fs.writeFile(tmpFile, script, 'utf8');
-
-      const program = ts.createProgram([tmpFile], {
-        noEmitOnError: true,
-        noImplicitAny: true,
-        strictNullChecks: true,
-        skipLibCheck: true,
-        esModuleInterop: true,
-        jsx: 'preserve',
-        target: ts.ScriptTarget.ES5,
-        module: ts.ModuleKind.CommonJS,
-      });
-      const emitResult = program.emit();
-
-      const allDiagnostics = ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics);
-
-      allDiagnostics.forEach(diagnostic => {
-        let message = '';
-
-        if (diagnostic.file) {
-          const { line, character } = diagnostic.file.getLineAndCharacterOfPosition(
-            diagnostic.start,
-          );
-          message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
-          console.log(chalk.cyan(`📚 ${diagnostic.file.fileName} (${line + 1},${character + 1}):`));
-        } else {
-          message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
-        }
-
-        console.log(`${message}\n`);
-      });
-
-      const exitCode = emitResult.emitSkipped ? 1 : 0;
-
-      if (exitCode) {
-        await fs.remove(tmpFile);
-        console.timeEnd('Execution...');
-        console.log(chalk.red('👺 Some tsx demo parsed failed. Please check...'));
-        process.exit(exitCode);
-      }
     }
   }
 
-  await fs.remove(tmpFile);
-  console.timeEnd('Execution...');
-  console.log(chalk.green('🤪 All tsx demo passed. Congratulations!'));
+  const child = spawn('npm', ['run', 'tsc']);
+
+  child.stdout.pipe(process.stdout);
+  child.stderr.pipe(process.stderr);
+
+  child.on('exit', code => {
+    console.timeEnd('Execution...');
+
+    if (code) {
+      console.log(chalk.red('💥 OPS! Seems some tsx demo not pass tsc...'));
+    } else {
+      console.log(chalk.green('🤪 All tsx demo passed. Congratulations!'));
+    }
+
+    process.exit(code);
+  });
 })();
