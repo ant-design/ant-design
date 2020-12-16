@@ -56,9 +56,14 @@ const { spawn } = require('child_process');
     const content = await fs.readFile(demoPath, 'utf8');
     const script = getTypescriptDemo(content, demoPath);
 
+    const dirs = path.dirname(demoPath).split(path.sep);
+
     // Parse TSX
     if (script) {
-      const tmpFile = path.join(tmpFolder, `~demo-${i}.tsx`);
+      const tmpFile = path.join(
+        tmpFolder,
+        `${dirs[dirs.length - 2]}-${path.basename(demoPath).replace(/\..*/, '')}.tsx`,
+      );
       await fs.writeFile(tmpFile, script, 'utf8');
     }
   }
