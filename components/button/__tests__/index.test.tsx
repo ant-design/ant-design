@@ -300,4 +300,27 @@ describe('Button', () => {
       },
     });
   });
+
+  it("", () => {
+    class IntervalButton extends Component {
+      state = {
+        loading: false,
+      };
+
+      previewClick = () => {
+          console.log("timeout 500ms later")
+      }
+
+      render() {
+        return (
+          <Button interval={500} onClick={this.previewClick}>
+            Button
+          </Button>
+        );
+      }
+    }
+    const wrapper = mount(<IntervalButton />);
+    wrapper.simulate('click');
+    expect(wrapper.find("button").text()).toBe('Button');;
+  })
 });

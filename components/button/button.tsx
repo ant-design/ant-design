@@ -203,20 +203,20 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     }
     if (onClick && !interval) {
       (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
-      return
+      return;
     }
     if (onClick && interval) {
-      if (!canRun) return
+      if (!canRun) return;
       if (timer) {
           clearTimeout(timer as number)
       }
       setCanRun(false)
-      setTimer(() => {
-          return setTimeout(()=>{
-            (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e)
-              setCanRun(true)
-          }, interval)
-      })
+      setTimer(() => (
+        setTimeout(()=>{
+          (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e)
+            setCanRun(true)
+        }, interval)
+      ))
     }
   }, [interval, timer, canRun])
 
