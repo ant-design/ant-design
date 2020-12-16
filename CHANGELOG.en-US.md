@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 4.9.4
+
+- 🐞 Fix Menu delayed hover color transition in Chrome. [#28372](https://github.com/ant-design/ant-design/pull/28372)
+- 🐞 Fix the problem that the node connection line of Tree is set to relative position.ion. [#28354](https://github.com/ant-design/ant-design/pull/28354) [@maksnester](https://github.com/maksnester)
+- 💄 Fix Table fixed column `z-index` which makes Dropdown not showing on top. [#28346](https://github.com/ant-design/ant-design/pull/28346)
+- TypeScript
+  - 🤖 Fix `message.loading()` return type. [#28362](https://github.com/ant-design/ant-design/pull/28362)
+
 ## 4.9.3
 
 `2020-12-14`
