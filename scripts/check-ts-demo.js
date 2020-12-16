@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop, no-console */
+
 const path = require('path');
 const glob = require('glob');
 const fs = require('fs-extra');
@@ -9,7 +11,7 @@ const chalk = require('chalk');
 
   const demoFiles = glob.sync(path.join(process.cwd(), 'components/**/demo/*.md'));
 
-  const tmpFile = path.resolve('~tmp.tsx');
+  const tmpFile = path.resolve('~tmp-ts-demo.tsx');
 
   function getTypescriptDemo(content) {
     const lines = content.split(/[\n\r]/);
@@ -86,6 +88,7 @@ const chalk = require('chalk');
       const exitCode = emitResult.emitSkipped ? 1 : 0;
 
       if (exitCode) {
+        await fs.remove(tmpFile);
         console.timeEnd('Execution...');
         console.log(chalk.red('👺 Some tsx demo parsed failed. Please check...'));
         process.exit(exitCode);
@@ -93,6 +96,7 @@ const chalk = require('chalk');
     }
   }
 
+  await fs.remove(tmpFile);
   console.timeEnd('Execution...');
   console.log(chalk.green('🤪 All tsx demo passed. Congratulations!'));
 })();
