@@ -13,7 +13,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
   prefixCls?: string;
-  title: React.ReactNode;
+  title?: React.ReactNode;
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
   breadcrumb?: BreadcrumbProps;

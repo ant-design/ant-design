@@ -427,3 +427,9 @@ React can not get correct interaction of controlled component with async value u
     color: rgba(255,255,255,.3);
   }
 </style>
+
+### `scrollToFirstError` and `scrollToField` not working on custom form control?
+
+See similar issues: [#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
+
+`scrollToFirstError` and `scrollToField` deps on `id` attribute passed to form control, please mark sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for solution.
