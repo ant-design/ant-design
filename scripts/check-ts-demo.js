@@ -45,7 +45,7 @@ const { spawn } = require('child_process');
     script = script.replace(`from 'antd'`, `from '..'`);
 
     // Add path
-    script = `// ${demoPath}\n${script}`;
+    script = `/* eslint-disabled */\n// ${demoPath}\n${script}`;
 
     return script;
   }
@@ -58,7 +58,7 @@ const { spawn } = require('child_process');
 
     // Parse TSX
     if (script) {
-      const tmpFile = path.join(tmpFolder, `demo-${i}.tsx`);
+      const tmpFile = path.join(tmpFolder, `~demo-${i}.tsx`);
       await fs.writeFile(tmpFile, script, 'utf8');
     }
   }
