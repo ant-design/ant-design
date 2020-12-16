@@ -2975,7 +2975,7 @@ exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
   class=""
 >
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
+    class="ant-upload ant-upload-select ant-upload-select-picture"
   >
     <span
       class="ant-upload"
@@ -3017,7 +3017,7 @@ exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text"
+    class="ant-upload-list ant-upload-list-picture"
   />
 </span>
 `;
