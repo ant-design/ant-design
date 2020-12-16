@@ -301,7 +301,7 @@ describe('Button', () => {
     });
   });
 
-  it("", () => {
+  it("The 500ms button click event is triggered only once", () => {
     class IntervalButton extends Component {
       state = {
         loading: false,
