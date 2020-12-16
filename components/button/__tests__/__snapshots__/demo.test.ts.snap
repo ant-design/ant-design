@@ -546,6 +546,17 @@ Array [
 ]
 `;
 
+exports[`renders ./components/button/demo/interval.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
 exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
 Array [
   <div>

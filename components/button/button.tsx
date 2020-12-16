@@ -99,6 +99,7 @@ export interface BaseButtonProps {
   danger?: boolean;
   block?: boolean;
   children?: React.ReactNode;
+  interval?: number
 }
 
 // Typescript will make optional not optional if use Pick with union.
@@ -140,6 +141,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     icon,
     ghost = false,
     block = false,
+    interval = 0,
     /** if we extract items here, we dont need use omit.js */
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button' as ButtonProps['htmlType'],
@@ -152,6 +154,8 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
   const delayTimeoutRef = React.useRef<number>();
+  const [canRun, setCanRun] = React.useState<boolean>(true)
+  const [timer, setTimer] = React.useState<TimerHandler| number | null>(null)
 
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
@@ -192,15 +196,29 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   React.useEffect(fixTwoCNChar, [buttonRef]);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+  const handleClick = React.useCallback((e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
     const { onClick } = props;
     if (innerLoading) {
       return;
     }
-    if (onClick) {
+    if (onClick && !interval) {
       (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
+      return
     }
-  };
+    if (onClick && interval) {
+      if (!canRun) return
+      if (timer) {
+          clearTimeout(timer as number)
+      }
+      setCanRun(false)
+      setTimer(() => {
+          return setTimeout(()=>{
+            (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e)
+              setCanRun(true)
+          }, interval)
+      })
+    }
+  }, [interval, timer, canRun])
 
   devWarning(
     !(typeof icon === 'string' && icon.length > 2),

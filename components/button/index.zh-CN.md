@@ -48,6 +48,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event) => void | - |  |
+| interval | 多少毫秒内执行一次 | `number` | 0 |  |
 
 支持原生 button 的其他所有属性。
 
