@@ -50,8 +50,6 @@ declare module 'rc-steps';
 
 declare module 'rc-switch';
 
-declare module 'rc-upload';
-
 declare module '*.json' {
   const value: any;
   export const version: string;

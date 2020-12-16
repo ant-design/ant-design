@@ -231,6 +231,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     ...props,
     prefixCls,
     beforeUpload,
+    onChange: undefined,
   };
 
   delete rcUploadProps.className;
