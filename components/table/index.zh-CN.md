@@ -154,9 +154,9 @@ const columns = [
 
 ### ColumnGroup
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 列头显示文字 | ReactNode | - |
+| 参数  | 说明         | 类型      | 默认值 |
+| ----- | ------------ | --------- | ------ |
+| title | 列头显示文字 | ReactNode | -      |
 
 ### pagination
 
@@ -221,11 +221,11 @@ const columns = [
 
 ### selection
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| key | React 需要的 key，建议设置 | string | - |
-| text | 选择项显示的文字 | ReactNode | - |
-| onSelect | 选择项点击回调 | function(changeableRowKeys) | - |
+| 参数     | 说明                       | 类型                        | 默认值 |
+| -------- | -------------------------- | --------------------------- | ------ |
+| key      | React 需要的 key，建议设置 | string                      | -      |
+| text     | 选择项显示的文字           | ReactNode                   | -      |
+| onSelect | 选择项点击回调             | function(changeableRowKeys) | -      |
 
 ## 在 TypeScript 中使用
 
@@ -306,3 +306,7 @@ Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMou
 ### 为什么 更新 state 会导致全表渲染？
 
 由于 `columns` 支持 `render` 方法，因而 Table 无法知道哪些单元会受到影响。你可以通过 `column.shouldCellUpdate` 来控制单元格的渲染。
+
+### 固定列穿透到最上层该怎么办？
+
+固定列通过 `z-index` 属性将其悬浮于非固定列之上，这使得有时候你会发现在 Table 上放置遮罩层时固定列会被透过的情况。为遮罩层设置更高的 `z-index` 覆盖住固定列即可。

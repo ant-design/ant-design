@@ -15,6 +15,28 @@ timeline: true
 
 ---
 
+## 4.9.4
+
+- 🐞 Fix Menu delayed hover color transition in Chrome. [#28372](https://github.com/ant-design/ant-design/pull/28372)
+- 🐞 Fix Tree node connection line position problem. [#28354](https://github.com/ant-design/ant-design/pull/28354) [@maksnester](https://github.com/maksnester)
+- 💄 Fix Table fixed column `z-index` which makes Dropdown not showing on top. [#28346](https://github.com/ant-design/ant-design/pull/28346)
+- TypeScript
+  - 🤖 Fix `message.loading()` return type. [#28362](https://github.com/ant-design/ant-design/pull/28362)
+
+## 4.9.3
+
+`2020-12-14`
+
+- 💄 Fix Badge standalone motion blink when show/hide. [#28240](https://github.com/ant-design/ant-design/pull/28240)
+- 🐞 Fix Table `filters` not support number and boolean type. [#28220](https://github.com/ant-design/ant-design/pull/28220) [@Meowu](https://github.com/Meowu)
+- 💄 Remove Tree hover background color when `selectable={false}`. [#28269](https://github.com/ant-design/ant-design/pull/28269)
+- 💄 Fix Statistics decimal font size. [#28223](https://github.com/ant-design/ant-design/pull/28223)
+- TypeScript
+  - 🤖 Fix Tree `draggable` TS definition. [#28262](https://github.com/ant-design/ant-design/pull/28262) [@DavidSichau](https://github.com/DavidSichau)
+  - 🤖 Fix Image.PreviewGroup TS definition. [#28263](https://github.com/ant-design/ant-design/pull/28263) [@liuchao233](https://github.com/liuchao233)
+  - 🤖 Improve `message().then` TS definition. [#28304](https://github.com/ant-design/ant-design/pull/28304)
+  - 🤖 Fix TransferProps `titles` to ReactNode. [#28326](https://github.com/ant-design/ant-design/pull/28326) [@jacklee814](https://github.com/jacklee814)
+
 ## 4.9.2
 
 `2020-12-06`

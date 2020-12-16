@@ -113,6 +113,7 @@ export interface UploadProps<T = any> {
   locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
+  /** @deprecated Please use `beforeUpload` directly */
   transformFile?: TransformFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
