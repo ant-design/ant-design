@@ -18,7 +18,7 @@ timeline: true
 ## 4.9.4
 
 - 🐞 修复 Menu 在 Chrome 下 hover 色延迟变化的问题。[#28372](https://github.com/ant-design/ant-design/pull/28372)
-- 🐞 修复 Tree 的节点连接线设定为相对位置的问题。[#28354](https://github.com/ant-design/ant-design/pull/28354) [@maksnester](https://github.com/maksnester)
+- 🐞 修复 Tree 的节点连接线在滚动时位置偏移的问题。[#28354](https://github.com/ant-design/ant-design/pull/28354) [@maksnester](https://github.com/maksnester)
 - 💄 修复 Table 固定列 `z-index` 样式让 Dropdown 无法展示在最顶层的问题。[#28346](https://github.com/ant-design/ant-design/pull/28346)
 - TypeScript
   - 🤖 修复 `message.loading()` 返回函数的定义。[#28362](https://github.com/ant-design/ant-design/pull/28362)
