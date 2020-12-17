@@ -18,11 +18,13 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Radio } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 
+type RequiredMark = boolean | 'optional';
+
 const FormLayoutDemo = () => {
   const [form] = Form.useForm();
-  const [requiredMark, setRequiredMarkType] = useState<boolean | 'optional'>('optional');
+  const [requiredMark, setRequiredMarkType] = useState<RequiredMark>('optional');
 
-  const onRequiredTypeChange = ({ requiredMark }) => {
+  const onRequiredTypeChange = ({ requiredMark }: { requiredMark: RequiredMark }) => {
     setRequiredMarkType(requiredMark);
   };
 

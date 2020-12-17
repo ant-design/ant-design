@@ -27,9 +27,12 @@ import {
   TreeSelect,
   Switch,
 } from 'antd';
+
+type SizeType = Parameters<typeof Form>[0]['size'];
+
 const FormSizeDemo = () => {
-  const [componentSize, setComponentSize] = useState('default');
-  const onFormLayoutChange = ({ size }) => {
+  const [componentSize, setComponentSize] = useState<SizeType>();
+  const onFormLayoutChange = ({ size }: { size: SizeType }) => {
     setComponentSize(size);
   };
   return (
@@ -96,5 +99,6 @@ const FormSizeDemo = () => {
     </>
   );
 };
+
 ReactDOM.render(<FormSizeDemo />, mountNode);
 ```
