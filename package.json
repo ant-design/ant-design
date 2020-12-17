@@ -168,6 +168,7 @@
     "@types/react-color": "^3.0.1",
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-window": "^1.8.2",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
