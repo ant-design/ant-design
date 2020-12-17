@@ -166,7 +166,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 Properties for expandable.
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | columnWidth | Set the width of the expand column | string \| number | - |  |
 | childrenColumnName | The column contains children to display | string | children |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |

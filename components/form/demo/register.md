@@ -30,7 +30,6 @@ import {
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
 
 const residences = [
   {
@@ -93,7 +92,7 @@ const tailFormItemLayout = {
 const RegistrationForm = () => {
   const [form] = Form.useForm();
 
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
 
@@ -106,9 +105,9 @@ const RegistrationForm = () => {
     </Form.Item>
   );
 
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+  const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
 
-  const onWebsiteChange = value => {
+  const onWebsiteChange = (value: string) => {
     if (!value) {
       setAutoCompleteResult([]);
     } else {
@@ -175,7 +174,7 @@ const RegistrationForm = () => {
             message: 'Please confirm your password!',
           },
           ({ getFieldValue }) => ({
-            validator(rule, value) {
+            validator(_, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }

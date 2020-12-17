@@ -33,7 +33,7 @@ const validateMessages = {
 };
 
 const Demo = () => {
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log(values);
   };
 

@@ -51,7 +51,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U5L-RKWlmJcAAAAAAAAAAABkARQnAQ" />
 
-基于 Adobe Color 的三元取色工具，和 3D 立体马赛克球，结合我们自己的海兔色板。可以轻松得到了我们 Dedult 版本的基础色板。
+基于 Adobe Color 的三元取色工具，和 3D 立体马赛克球，结合我们自己的海兔色板。可以轻松得到了我们默认版本的基础色板。
 
 <br />
 

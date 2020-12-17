@@ -34,7 +34,7 @@ const DynamicRule = () => {
     form.validateFields(['nickname']);
   }, [checkNick]);
 
-  const onCheckboxChange = e => {
+  const onCheckboxChange = (e: { target: { checked: boolean } }) => {
     setCheckNick(e.target.checked);
   };
 

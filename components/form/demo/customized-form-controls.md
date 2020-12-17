@@ -25,9 +25,11 @@ import { Form, Input, Select, Button } from 'antd';
 
 const { Option } = Select;
 
+type Currency = 'rmb' | 'dollar';
+
 interface PriceValue {
   number?: number;
-  currency?: 'rmb' | 'dollar';
+  currency?: Currency;
 }
 
 interface PriceInputProps {
@@ -37,16 +39,16 @@ interface PriceInputProps {
 
 const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
   const [number, setNumber] = useState(0);
-  const [currency, setCurrency] = useState('rmb');
+  const [currency, setCurrency] = useState<Currency>('rmb');
 
-  const triggerChange = changedValue => {
+  const triggerChange = (changedValue: { number?: number; currency?: Currency }) => {
     if (onChange) {
       onChange({ number, currency, ...value, ...changedValue });
     }
   };
 
-  const onNumberChange = e => {
-    const newNumber = parseInt(e.target.value || 0, 10);
+  const onNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newNumber = parseInt(e.target.value || '0', 10);
     if (Number.isNaN(number)) {
       return;
     }
@@ -56,7 +58,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
     triggerChange({ number: newNumber });
   };
 
-  const onCurrencyChange = newCurrency => {
+  const onCurrencyChange = (newCurrency: Currency) => {
     if (!('currency' in value)) {
       setCurrency(newCurrency);
     }
@@ -84,11 +86,11 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
 };
 
 const Demo = () => {
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log('Received values from form: ', values);
   };
 
-  const checkPrice = (rule, value) => {
+  const checkPrice = (_: any, value: { number: number }) => {
     if (value.number > 0) {
       return Promise.resolve();
     }
