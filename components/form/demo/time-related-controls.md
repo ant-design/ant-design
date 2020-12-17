@@ -29,14 +29,14 @@ const formItemLayout = {
   },
 };
 const config = {
-  rules: [{ type: 'object', required: true, message: 'Please select time!' }],
+  rules: [{ type: 'object' as const, required: true, message: 'Please select time!' }],
 };
 const rangeConfig = {
-  rules: [{ type: 'array', required: true, message: 'Please select time!' }],
+  rules: [{ type: 'array' as const, required: true, message: 'Please select time!' }],
 };
 
 const TimeRelatedForm = () => {
-  const onFinish = fieldsValue => {
+  const onFinish = (fieldsValue: any) => {
     // Should format date value before submit.
     const rangeValue = fieldsValue['range-picker'];
     const rangeTimeValue = fieldsValue['range-time-picker'];

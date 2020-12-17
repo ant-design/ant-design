@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { UploadRequestOption as RcCustomRequestOptions } from 'rc-upload/lib/interface';
 import { ProgressProps } from '../progress';
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
@@ -11,18 +12,6 @@ export interface RcFile extends File {
   uid: string;
   readonly lastModifiedDate: Date;
   readonly webkitRelativePath: string;
-}
-
-export interface RcCustomRequestOptions {
-  onProgress: (event: { percent: number }, file: RcFile) => void;
-  onError: (error: Error, response?: any, file?: RcFile) => void;
-  onSuccess: (response: object, file: RcFile) => void;
-  data: object;
-  filename: string;
-  file: RcFile;
-  withCredentials: boolean;
-  action: string;
-  headers: object;
 }
 
 export interface UploadFile<T = any> {
@@ -96,7 +85,7 @@ export interface UploadProps<T = any> {
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<void | Blob | File>;
+  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | Promise<void | Blob | File>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;

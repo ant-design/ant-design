@@ -86,7 +86,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
 const CollectionsPage = () => {
   const [visible, setVisible] = useState(false);
 
-  const onCreate = values => {
+  const onCreate = (values: any) => {
     console.log('Received values of form: ', values);
     setVisible(false);
   };

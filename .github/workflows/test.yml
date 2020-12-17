@@ -95,6 +95,28 @@ jobs:
         run: npm run lint
     needs: setup
 
+  tsx-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: tsx-demo
+        run: npm run check-ts-demo
+    needs: setup
+
   check_metadata:
     runs-on: ubuntu-latest
     steps:

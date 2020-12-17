@@ -4166,7 +4166,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4193,7 +4195,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4220,7 +4224,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4247,7 +4253,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4274,7 +4282,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4301,7 +4311,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4328,7 +4340,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4355,7 +4369,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4382,7 +4398,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4409,7 +4427,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
