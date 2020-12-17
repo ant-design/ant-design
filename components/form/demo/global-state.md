@@ -40,7 +40,7 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => 
       name="global_state"
       layout="inline"
       fields={fields}
-      onFieldsChange={(changedFields, allFields) => {
+      onFieldsChange={(_, allFields) => {
         onChange(allFields);
       }}
     >

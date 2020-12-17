@@ -16,8 +16,9 @@ Table with editable cells.
 ```tsx
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
+import { FormInstance } from 'antd/lib/form';
 
-const EditableContext = React.createContext<ReturnType<typeof Form.useForm>[0] | null>(null);
+const EditableContext = React.createContext<FormInstance<any> | null>(null);
 
 interface Item {
   key: string;
