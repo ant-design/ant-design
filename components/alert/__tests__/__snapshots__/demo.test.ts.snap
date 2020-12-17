@@ -996,7 +996,7 @@ Array [
 
 exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
 <button
-  class="ant-btn ant-btn-danger"
+  class="ant-btn ant-btn-dangerous"
   type="button"
 >
   <span>
