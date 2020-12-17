@@ -498,23 +498,27 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
   });
 
-  it('trigger afterClose once when click on cancel button', () => {
+  it('trigger afterClose once when click on cancel button', async () => {
     const afterClose = jest.fn();
     open({
       afterClose,
     });
     // first Modal
     $$('.ant-btn')[0].click();
-    expect(afterClose.mock.calls.length).toBe(0);
+    expect(afterClose).not.toHaveBeenCalled();
+    await sleep(500);
+    expect(afterClose).toHaveBeenCalled();
   });
 
-  it('trigger afterClose once when click on ok button', () => {
+  it('trigger afterClose once when click on ok button', async () => {
     const afterClose = jest.fn();
     open({
       afterClose,
     });
     // second Modal
     $$('.ant-btn-primary')[0].click();
-    expect(afterClose.mock.calls.length).toBe(0);
+    expect(afterClose).not.toHaveBeenCalled();
+    await sleep(500);
+    expect(afterClose).toHaveBeenCalled();
   });
 });
