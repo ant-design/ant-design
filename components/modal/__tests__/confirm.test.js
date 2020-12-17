@@ -497,4 +497,24 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
     jest.useRealTimers();
   });
+
+  it('trigger afterClose once when click on cancel button', () => {
+    const afterClose = jest.fn();
+    open({
+      afterClose,
+    });
+    // first Modal
+    $$('.ant-btn')[0].click();
+    expect(afterClose.mock.calls.length).toBe(0);
+  });
+
+  it('trigger afterClose once when click on ok button', () => {
+    const afterClose = jest.fn();
+    open({
+      afterClose,
+    });
+    // second Modal
+    $$('.ant-btn-primary')[0].click();
+    expect(afterClose.mock.calls.length).toBe(0);
+  });
 });

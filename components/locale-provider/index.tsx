@@ -35,6 +35,9 @@ export interface Locale {
     optional?: string;
     defaultValidateMessages: ValidateMessages;
   };
+  Image?: {
+    preview: string;
+  };
 }
 
 export interface LocaleProviderProps {

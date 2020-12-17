@@ -25,11 +25,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| content | 提示内容 | ReactNode \| config | - |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
-| onClose | 关闭时触发的回调函数 | function | - |
+| 参数     | 说明                                        | 类型                | 默认值 |
+| -------- | ------------------------------------------- | ------------------- | ------ |
+| content  | 提示内容                                    | ReactNode \| config | -      |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number              | 3      |
+| onClose  | 关闭时触发的回调函数                        | function            | -      |
 
 组件同时提供 promise 接口。
 
@@ -59,6 +59,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 | key | 当前提示的唯一标志 | string \| number | - |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | onClose | 关闭时触发的回调函数 | function | - |
+| onClick | 点击 message 时触发的回调函数 | function | - |
 
 ### 全局方法
 

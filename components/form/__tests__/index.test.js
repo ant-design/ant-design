@@ -227,7 +227,7 @@ describe('Form', () => {
     const onFinishFailed = jest.fn();
 
     const wrapper = mount(
-      <Form scrollToFirstError onFinishFailed={onFinishFailed}>
+      <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
@@ -238,7 +238,11 @@ describe('Form', () => {
     expect(scrollIntoView).not.toHaveBeenCalled();
     wrapper.find('form').simulate('submit');
     await sleep(50);
-    expect(scrollIntoView).toHaveBeenCalled();
+    const inputNode = document.getElementById('test');
+    expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+      block: 'center',
+      scrollMode: 'if-needed',
+    });
     expect(onFinishFailed).toHaveBeenCalled();
 
     wrapper.unmount();

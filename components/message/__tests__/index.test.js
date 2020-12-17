@@ -65,6 +65,27 @@ describe('message', () => {
     });
   });
 
+  it('trigger onClick method', () => {
+    const onClick = jest.fn();
+    class Test extends React.Component {
+      componentDidMount() {
+        message.info({
+          onClick,
+          duration: 0,
+          content: 'message info',
+        });
+      }
+
+      render() {
+        return <div>test message onClick method</div>;
+      }
+    }
+    mount(<Test />);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    document.querySelectorAll('.ant-message-notice')[0].click();
+    expect(onClick).toHaveBeenCalled();
+  });
+
   it('should be called like promise', done => {
     jest.useRealTimers();
     const defaultDuration = 3;
