@@ -73,9 +73,9 @@ function VirtualTable(props: Parameters<typeof Table>[0]) {
           const { width } = mergedColumns[index];
           return totalHeight > scroll!.y! && index === mergedColumns.length - 1
             ? (width as number) - scrollbarSize - 1
-            : width;
+            : (width as number);
         }}
-        height={scroll!.y}
+        height={scroll!.y as number}
         rowCount={rawData.length}
         rowHeight={() => 54}
         width={tableWidth}
