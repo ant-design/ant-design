@@ -30,30 +30,30 @@ const tailLayout = {
 class Demo extends React.Component {
   formRef = React.createRef<FormInstance>();
 
-  onGenderChange = value => {
+  onGenderChange = (value: string) => {
     switch (value) {
       case 'male':
-        this.formRef.current.setFieldsValue({ note: 'Hi, man!' });
+        this.formRef.current!.setFieldsValue({ note: 'Hi, man!' });
         return;
       case 'female':
-        this.formRef.current.setFieldsValue({ note: 'Hi, lady!' });
+        this.formRef.current!.setFieldsValue({ note: 'Hi, lady!' });
         return;
       case 'other':
-        this.formRef.current.setFieldsValue({ note: 'Hi there!' });
+        this.formRef.current!.setFieldsValue({ note: 'Hi there!' });
         return;
     }
   };
 
-  onFinish = values => {
+  onFinish = (values: any) => {
     console.log(values);
   };
 
   onReset = () => {
-    this.formRef.current.resetFields();
+    this.formRef.current!.resetFields();
   };
 
   onFill = () => {
-    this.formRef.current.setFieldsValue({
+    this.formRef.current!.setFieldsValue({
       note: 'Hello world!',
       gender: 'male',
     });
