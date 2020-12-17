@@ -174,7 +174,7 @@ const RegistrationForm = () => {
             message: 'Please confirm your password!',
           },
           ({ getFieldValue }) => ({
-            validator(rule, value) {
+            validator(_, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
