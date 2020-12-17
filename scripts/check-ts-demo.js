@@ -73,12 +73,13 @@ const { spawn } = require('child_process');
   child.stdout.pipe(process.stdout);
   child.stderr.pipe(process.stderr);
 
-  child.on('exit', code => {
+  child.on('exit', async code => {
     console.timeEnd('Execution...');
 
     if (code) {
       console.log(chalk.red('💥 OPS! Seems some tsx demo not pass tsc...'));
     } else {
+      await fs.remove(tmpFolder);
       console.log(chalk.green('🤪 All tsx demo passed. Congratulations!'));
     }
 
