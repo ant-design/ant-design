@@ -369,6 +369,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
           showSelectAll,
           oneWay,
           pagination,
+          onChange,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -439,6 +440,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               checkedKeys={targetSelectedKeys}
               handleFilter={this.handleRightFilter}
               handleClear={this.handleRightClear}
+              onChange={onChange}
               onItemSelect={this.onRightItemSelect}
               onItemSelectAll={this.onRightItemSelectAll}
               onItemRemove={this.onRightItemRemove}
