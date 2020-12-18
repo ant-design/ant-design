@@ -5,6 +5,15 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
   class="ant-descriptions"
 >
   <div
+    class="ant-descriptions-header"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
+  </div>
+  <div
     class="ant-descriptions-view"
   >
     <table>
@@ -22,12 +31,12 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                Product
+                UserName
               </span>
               <span
                 class="ant-descriptions-item-content"
               >
-                Cloud Database
+                Zhou Maomao
               </span>
             </div>
           </td>
@@ -41,12 +50,12 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                Billing
+                Telephone
               </span>
               <span
                 class="ant-descriptions-item-content"
               >
-                Prepaid
+                1810000000
               </span>
             </div>
           </td>
@@ -60,12 +69,12 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                time
+                Live
               </span>
               <span
                 class="ant-descriptions-item-content"
               >
-                18:00:00
+                Hangzhou, Zhejiang
               </span>
             </div>
           </td>
@@ -83,12 +92,31 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                Amount
+                Remark
               </span>
               <span
                 class="ant-descriptions-item-content"
               >
-                $80.00
+                empty
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Address
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
               </span>
             </div>
           </td>
