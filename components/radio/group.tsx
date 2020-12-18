@@ -96,6 +96,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         id={id}
+        aria-labelledby={id}
         ref={ref}
       >
         {childrenToRender}
