@@ -64,14 +64,14 @@ describe('Descriptions', () => {
 
   it('when typeof column is object', () => {
     const wrapper = mount(
-      <Descriptions column={{ xs: 8, sm: 16, md: 24 }}>
+      <Descriptions column={{ xs: 1, sm: 2, md: 4 }}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
         <Descriptions.Item label="time">18:00:00</Descriptions.Item>
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.find('td').reduce((total, td) => total + td.props().colSpan, 0)).toBe(8);
+    expect(wrapper.find('td').reduce((total, td) => total + td.props().colSpan, 0)).toBe(4);
     wrapper.unmount();
   });
 

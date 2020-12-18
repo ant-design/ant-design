@@ -63,9 +63,15 @@ function getFilledItem(
 function getRows(children: React.ReactNode, column: number) {
   const childNodes = toArray(children).filter(n => n);
   const rows: React.ReactElement[][] = [];
+  const itemNodes: any[] = [];
 
   let tmpRow: React.ReactElement[] = [];
   let rowRestCol = column;
+
+  let elementFunc: any;
+  let elementChild: React.ReactElement<any>;
+  let funcName: string;
+  let elementChildNodes: any[];
 
   const rowsHandle: (merged: number, item: any) => void = (merged, item) => {
     if (merged < rowRestCol) {
@@ -79,35 +85,38 @@ function getRows(children: React.ReactNode, column: number) {
     }
   };
 
-  childNodes.forEach((node, index) => {
-    const span: number | undefined = node.props?.span;
-    const mergedSpan = span || 1;
-
-    let elementFunc: any;
-    let elementChild: React.ReactElement<any>;
-    let elementChildNodes: any[];
-    let funcName: string;
+  const nodesHandle: (node: any) => void = (node) => {
     funcName = node.type.toString();
     funcName = funcName.substr('function '.length);
     funcName = funcName.substr(0, funcName.indexOf('('));
+
     if (funcName !== 'DescriptionsItem') {
       elementFunc = node.type;
       elementChild = elementFunc(node.props);
       elementChildNodes = toArray(elementChild).filter(n => n);
-      elementChildNodes.forEach(item => {
-        rowsHandle(mergedSpan, item);
+      elementChildNodes.forEach((item) => {
+        nodesHandle(item);
       })
     } else {
-      // Additional handle last one
-      if (index === childNodes.length - 1) {
-        tmpRow.push(getFilledItem(node, span, rowRestCol));
-        rows.push(tmpRow);
-        return;
-      }
-
-      rowsHandle(mergedSpan, node);
+      itemNodes.push(node);
     }
-  });
+  }
+  
+  childNodes.forEach(node => nodesHandle(node));
+
+  itemNodes.forEach((node, index) => {
+    const span: number | undefined = node.props?.span;
+    const mergedSpan = span || 1;
+
+    // Additional handle last one
+    if (index === itemNodes.length - 1) {
+      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
+      rows.push(tmpRow);
+      return;
+    }
+
+    rowsHandle(mergedSpan, node);
+  })
 
   return rows;
 }

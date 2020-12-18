@@ -17,15 +17,12 @@ Simplest Usage.
 import { Descriptions } from 'antd';
 
 ReactDOM.render(
-  <Descriptions title="User Info">
-    <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
-    <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
-    <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
-    <Descriptions.Item label="Remark">empty</Descriptions.Item>
-    <Descriptions.Item label="Address">
-      No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-    </Descriptions.Item>
-  </Descriptions>,
+  <Descriptions column={{ xs: 1, sm: 2, md: 4 }}>
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+      </Descriptions>,
   mountNode,
 );
 ```

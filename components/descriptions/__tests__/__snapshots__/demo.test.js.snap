@@ -5,15 +5,6 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
   class="ant-descriptions"
 >
   <div
-    class="ant-descriptions-header"
-  >
-    <div
-      class="ant-descriptions-title"
-    >
-      User Info
-    </div>
-  </div>
-  <div
     class="ant-descriptions-view"
   >
     <table>
@@ -31,12 +22,12 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                UserName
+                Product
               </span>
               <span
                 class="ant-descriptions-item-content"
               >
-                Zhou Maomao
+                Cloud Database
               </span>
             </div>
           </td>
@@ -50,12 +41,12 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                Telephone
+                Billing
               </span>
               <span
                 class="ant-descriptions-item-content"
               >
-                1810000000
+                Prepaid
               </span>
             </div>
           </td>
@@ -69,12 +60,12 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                Live
+                time
               </span>
               <span
                 class="ant-descriptions-item-content"
               >
-                Hangzhou, Zhejiang
+                18:00:00
               </span>
             </div>
           </td>
@@ -92,31 +83,12 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               <span
                 class="ant-descriptions-item-label"
               >
-                Remark
+                Amount
               </span>
               <span
                 class="ant-descriptions-item-content"
               >
-                empty
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="2"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Address
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+                $80.00
               </span>
             </div>
           </td>
@@ -291,7 +263,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="5"
+            colspan="1"
           >
             Data disk type: MongoDB
             <br />
@@ -423,7 +395,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
             </th>
             <td
               class="ant-descriptions-item-content"
-              colspan="5"
+              colspan="1"
             >
               Data disk type: MongoDB
               <br />
@@ -631,7 +603,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
             </th>
             <td
               class="ant-descriptions-item-content"
-              colspan="5"
+              colspan="1"
             >
               Data disk type: MongoDB
               <br />
@@ -1716,7 +1688,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <th
             class="ant-descriptions-item-label"
-            colspan="3"
+            colspan="1"
           >
             Config Info
           </th>
@@ -1726,7 +1698,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-content"
-            colspan="3"
+            colspan="1"
           >
             Data disk type: MongoDB
             <br />
