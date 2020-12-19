@@ -238,4 +238,38 @@ describe('Descriptions', () => {
     wrapper.setProps({ extra: undefined });
     expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(false);
   });
+
+  // https://github.com/ant-design/ant-design/issues/28254
+  it('Descriptions support function component', () => {
+    const TestItem = () => (<Descriptions.Item label="Test4">Test Data4</Descriptions.Item>);
+    const Test = ({ type }) => {
+      switch(type) {
+        case 'more':
+          return (
+            <>
+              <Descriptions.Item label="Test1">Test Data1</Descriptions.Item>
+              <Descriptions.Item label="Test2">Test Data2</Descriptions.Item>
+              <TestItem />
+            </>
+          );
+        default:
+          return(<Descriptions.Item label="Test3">Test Data3</Descriptions.Item>);
+      }
+    }
+    const wrapper = mount(
+      <Descriptions title="User Info">
+        <Test type="more" />
+        <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
+        <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
+        <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
+        <Descriptions.Item label="Remark">empty</Descriptions.Item>
+        <Descriptions.Item label="Address">
+          No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+        </Descriptions.Item>
+        <Test />
+      </Descriptions>,
+    );
+    expect(wrapper.find('td').reduce((total, td) => total + td.props().colSpan, 0)).toBe(9);
+    wrapper.unmount();
+  })
 });

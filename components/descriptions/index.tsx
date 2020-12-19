@@ -112,7 +112,7 @@ function getRows(children: React.ReactNode, column: number) {
       rowRestCol = column;
       tmpRow = [];
     }
-  })
+  });
 
   return rows;
 }
