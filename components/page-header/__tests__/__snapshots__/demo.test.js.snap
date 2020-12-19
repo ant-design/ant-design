@@ -182,7 +182,7 @@ Array [
                 </td>
                 <td
                   class="ant-descriptions-item"
-                  colspan="1"
+                  colspan="2"
                 >
                   <div
                     class="ant-descriptions-item-container"
@@ -922,7 +922,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                 </td>
                 <td
                   class="ant-descriptions-item"
-                  colspan="1"
+                  colspan="2"
                 >
                   <div
                     class="ant-descriptions-item-container"
@@ -1140,7 +1140,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                 >
                   <td
                     class="ant-descriptions-item"
-                    colspan="1"
+                    colspan="2"
                   >
                     <div
                       class="ant-descriptions-item-container"

@@ -185,7 +185,7 @@ exports[`Descriptions column is number 1`] = `
         >
           <td
             class="ant-descriptions-item"
-            colspan="1"
+            colspan="3"
           >
             <div
               class="ant-descriptions-item-container"

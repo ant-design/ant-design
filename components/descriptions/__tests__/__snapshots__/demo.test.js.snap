@@ -103,7 +103,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
           </td>
           <td
             class="ant-descriptions-item"
-            colspan="1"
+            colspan="2"
           >
             <div
               class="ant-descriptions-item-container"
@@ -291,7 +291,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="5"
           >
             Data disk type: MongoDB
             <br />
@@ -423,7 +423,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
             </th>
             <td
               class="ant-descriptions-item-content"
-              colspan="1"
+              colspan="5"
             >
               Data disk type: MongoDB
               <br />
@@ -631,7 +631,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
             </th>
             <td
               class="ant-descriptions-item-content"
-              colspan="1"
+              colspan="5"
             >
               Data disk type: MongoDB
               <br />
@@ -1716,7 +1716,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <th
             class="ant-descriptions-item-label"
-            colspan="1"
+            colspan="3"
           >
             Config Info
           </th>
@@ -1726,7 +1726,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="3"
           >
             Data disk type: MongoDB
             <br />

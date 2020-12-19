@@ -73,18 +73,6 @@ function getRows(children: React.ReactNode, column: number) {
   let funcName: string;
   let elementChildNodes: any[];
 
-  const rowsHandle: (merged: number, item: any) => void = (merged, item) => {
-    if (merged < rowRestCol) {
-      rowRestCol -= merged;
-      tmpRow.push(item);
-    } else {
-      tmpRow.push(getFilledItem(item, merged, rowRestCol));
-      rows.push(tmpRow);
-      rowRestCol = column;
-      tmpRow = [];
-    }
-  };
-
   const nodesHandle: (node: any) => void = (node) => {
     funcName = node.type.toString();
     funcName = funcName.substr('function '.length);
@@ -110,12 +98,20 @@ function getRows(children: React.ReactNode, column: number) {
 
     // Additional handle last one
     if (index === itemNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
+      tmpRow.push(getFilledItem(node, span, rowRestCol));
       rows.push(tmpRow);
       return;
     }
 
-    rowsHandle(mergedSpan, node);
+    if (mergedSpan < rowRestCol) {
+      rowRestCol -= mergedSpan;
+      tmpRow.push(node);
+    } else {
+      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
+      rows.push(tmpRow);
+      rowRestCol = column;
+      tmpRow = [];
+    }
   })
 
   return rows;
