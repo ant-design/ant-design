@@ -75,8 +75,8 @@ function getRows(children: React.ReactNode, column: number) {
 
   const nodesHandle: (node: any) => void = (node) => {
     funcName = node.type?.toString();
-    funcName = funcName.substr('function '.length);
-    funcName = funcName.substr(0, funcName.indexOf('('));
+    funcName = funcName?.substr('function '.length);
+    funcName = funcName?.substr(0, funcName.indexOf('('));
 
     if (funcName !== 'DescriptionsItem') {
       elementFunc = node.type;
