@@ -20,8 +20,8 @@
   // It is a render problem of chrome, which is only happened in the codesandbox demo
   // 0.001px solution works and I don't why
   line-height: @btn-line-height;
-  .btn;
-  .btn-default;
+  .btn();
+  .btn-default();
 
   // Fix loading button animation
   // https://github.com/ant-design/ant-design/issues/24323
@@ -30,7 +30,7 @@
   }
 
   &-primary {
-    .btn-primary;
+    .btn-primary();
 
     .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
       border-right-color: @btn-group-border;
@@ -62,41 +62,41 @@
   }
 
   &-ghost {
-    .btn-ghost;
+    .btn-ghost();
   }
 
   &-dashed {
-    .btn-dashed;
+    .btn-dashed();
   }
 
   // type="danger" will deprecated
   // use danger instead
   &-danger {
-    .btn-danger;
+    .btn-danger();
   }
 
   &-link {
-    .btn-link;
+    .btn-link();
   }
 
   &-text {
-    .btn-text;
+    .btn-text();
   }
 
   &-dangerous {
-    .btn-danger-default;
+    .btn-danger-default();
   }
 
   &-dangerous&-primary {
-    .btn-danger;
+    .btn-danger();
   }
 
   &-dangerous&-link {
-    .btn-danger-link;
+    .btn-danger-link();
   }
 
   &-dangerous&-text {
-    .btn-danger-text;
+    .btn-danger-text();
   }
 
   &-icon-only {

@@ -15,11 +15,11 @@
 .@{table-prefix-cls}-wrapper {
   clear: both;
   max-width: 100%;
-  .clearfix;
+  .clearfix();
 }
 
 .@{table-prefix-cls} {
-  .reset-component;
+  .reset-component();
   position: relative;
   font-size: @table-font-size;
   background: @table-bg;
@@ -312,7 +312,7 @@
 
   // Dropdown
   &-filter-dropdown {
-    .reset-component;
+    .reset-component();
 
     // Reset menu
     .@{dropdown-prefix-cls}-menu {

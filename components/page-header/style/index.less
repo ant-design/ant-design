@@ -4,7 +4,7 @@
 @pageheader-prefix-cls: ~'@{ant-prefix}-page-header';
 
 .@{pageheader-prefix-cls} {
-  .reset-component;
+  .reset-component();
   position: relative;
   padding: @page-header-padding-vertical @page-header-padding;
   background-color: @component-background;
@@ -67,7 +67,7 @@
       font-weight: 600;
       font-size: @page-header-heading-title;
       line-height: 32px;
-      .text-overflow-ellipsis;
+      .text-overflow-ellipsis();
     }
 
     .@{ant-prefix}-avatar {
@@ -79,7 +79,7 @@
       color: @text-color-secondary;
       font-size: @page-header-heading-sub-title;
       line-height: @line-height-base;
-      .text-overflow-ellipsis;
+      .text-overflow-ellipsis();
     }
 
     &-extra {
