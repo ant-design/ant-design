@@ -18,6 +18,7 @@ export interface StepsProps {
   labelPlacement?: 'horizontal' | 'vertical';
   prefixCls?: string;
   progressDot?: boolean | Function;
+  responsive?: boolean;
   size?: 'default' | 'small';
   status?: 'wait' | 'process' | 'finish' | 'error';
   style?: React.CSSProperties;
@@ -42,11 +43,14 @@ interface StepsType extends React.FC<StepsProps> {
 }
 
 const Steps: StepsType = props => {
-  const { percent, size, className, direction } = props;
+  const { percent, size, className, direction, responsive } = props;
   const { xs } = useBreakpoint();
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
-  const getDirection = React.useCallback(() => (xs ? 'vertical' : direction), [xs, direction]);
+  const getDirection = React.useCallback(() => (responsive && xs ? 'vertical' : direction), [
+    xs,
+    direction,
+  ]);
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
   const iconPrefix = getPrefixCls('', props.iconPrefix);
