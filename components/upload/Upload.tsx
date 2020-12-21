@@ -65,7 +65,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     );
 
     devWarning(
-      'transformFile' in props,
+      !('transformFile' in props),
       'Upload',
       '`transformFile` is deprecated. Please use `beforeUpload` directly.',
     );
