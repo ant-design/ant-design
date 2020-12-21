@@ -92,12 +92,10 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       />
     );
 
-    let val = fixControlledValue(value) as string;
+    const val = fixControlledValue(value) as string;
 
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
-    // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
-    val = hasMaxLength ? [...val].slice(0, maxLength).join('') : val;
 
     // TextArea
     const textareaNode = (
@@ -116,7 +114,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const valueLength = [...val].length;
+      const valueLength = hasMaxLength ? Math.min(Number(maxLength), [...val].length) : [...val].length;
       const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
       return (
