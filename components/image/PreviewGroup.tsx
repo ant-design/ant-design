@@ -1,5 +1,6 @@
 import * as React from 'react';
-import PreviewGroup, { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
+import RcImage from 'rc-image';
+import { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 import { ConfigContext } from '../config-provider';
 
 const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
@@ -8,7 +9,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image-preview', customizePrefixCls);
-  return <PreviewGroup previewPrefixCls={prefixCls} {...props} />;
+  return <RcImage.PreviewGroup previewPrefixCls={prefixCls} {...props} />;
 };
 
 export default InternalPreviewGroup;
