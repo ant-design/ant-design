@@ -240,7 +240,35 @@ describe('Descriptions', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/28254
-  it('Descriptions support function component', () => {
+  it('Descriptions support function component & class component', () => {
+    class TestComponentItem extends React.Component {
+      render() {
+        return (
+          <Descriptions.Item label="Test8">Test Data8</Descriptions.Item>
+        )
+      }
+    }
+    
+    class TestComponent extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+    
+        render() {
+            switch (this.props.type) {
+            case 'more':
+                return(
+                <>
+                    <Descriptions.Item label="Test6">Test Data6</Descriptions.Item>
+                    <Descriptions.Item label="Test7">Test Data7</Descriptions.Item>
+                    <TestComponentItem />
+                </>
+                );
+            default:
+                return(<Descriptions.Item label="Test5">Test Data5</Descriptions.Item>);
+            }
+        }
+    }
     const TestItem = () => (<Descriptions.Item label="Test4">Test Data4</Descriptions.Item>);
     const Test = ({ type }) => {
       switch(type) {
@@ -267,9 +295,11 @@ describe('Descriptions', () => {
           No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
         </Descriptions.Item>
         <Test />
+        <TestComponent type="more" />
+        <TestComponent />
       </Descriptions>,
     );
-    expect(wrapper.find('td').reduce((total, td) => total + td.props().colSpan, 0)).toBe(9);
+    expect(wrapper.find('td').reduce((total, td) => total + td.props().colSpan, 0)).toBe(13);
     wrapper.unmount();
   })
 });

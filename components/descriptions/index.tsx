@@ -81,7 +81,12 @@ function getRows(children: React.ReactNode, column: number) {
     if (funcName !== 'DescriptionsItem') {
       elementFunc = node.type;
       if (typeof elementFunc === 'function') {
-        elementChild = elementFunc(node.props);
+        if (typeof elementFunc.prototype.isReactComponent !== 'undefined') {
+          let elementChildClass = new elementFunc(node.props);
+          elementChild = elementChildClass.render();
+        } else {
+          elementChild = elementFunc(node.props);
+        }
         elementChildNodes = toArray(elementChild).filter(n => n);
         elementChildNodes.forEach((item) => {
           nodesHandle(item);
