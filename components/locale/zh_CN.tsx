@@ -13,7 +13,7 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
-  // locales for all comoponents
+  // locales for all components
   global: {
     placeholder: '请选择',
   },
@@ -123,6 +123,9 @@ const localeValues: Locale = {
         mismatch: '${label}与模式不匹配${pattern}',
       },
     },
+  },
+  Image: {
+    preview: '预览',
   },
 };
 
