@@ -89,7 +89,7 @@
     > .@{iconfont-css-prefix} {
       position: absolute;
       top: (
-        4px + (@line-height-base * @font-size-base - @font-size-base) / 2
+        4px + ((@line-height-base * @font-size-base - @font-size-base) / 2)
       ); // 4px for padding-top, 4px for vertical middle
       color: @warning-color;
       font-size: @font-size-base;
@@ -118,7 +118,7 @@
     height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
     background: transparent;
     border-style: solid;
-    border-width: sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2;
+    border-width: (sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2);
     transform: rotate(45deg);
   }
 

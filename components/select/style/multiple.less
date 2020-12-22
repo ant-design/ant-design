@@ -76,7 +76,7 @@
       // It's ok not to do this, but 24px makes bottom narrow in view should adjust
       &-content {
         display: inline-block;
-        margin-right: @padding-xs / 2;
+        margin-right: (@padding-xs / 2);
         overflow: hidden;
         white-space: pre; // fix whitespace wrapping. custom tags display all whitespace within.
         text-overflow: ellipsis;
@@ -104,7 +104,7 @@
     // ========================== Input ==========================
     .@{select-prefix-cls}-selection-search {
       position: relative;
-      margin-left: @select-multiple-padding / 2;
+      margin-left: (@select-multiple-padding / 2);
 
       &-input,
       &-mirror {

@@ -463,8 +463,8 @@
   &-quarter-panel,
   &-month-panel {
     @hover-cell-fixed-distance: (
-        (@picker-panel-width - @padding-xs * 2) / 3 - @picker-year-month-cell-width
-      ) / 2;
+      (((@picker-panel-width - @padding-xs * 2) / 3) - @picker-year-month-cell-width) / 2
+    );
 
     .@{picker-prefix-cls}-body {
       padding: 0 @padding-xs;
