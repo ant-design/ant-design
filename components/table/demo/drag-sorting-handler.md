@@ -87,6 +87,15 @@ class SortableTable extends React.Component {
     }
   };
 
+  DraggableContainer = props => (
+    <SortableContainer
+      useDragHandle
+      helperClass="row-dragging"
+      onSortEnd={this.onSortEnd}
+      {...props}
+    />
+  );
+
   DraggableBodyRow = ({ className, style, ...restProps }) => {
     const { dataSource } = this.state;
     // function findIndex base on Table rowKey props and should always be a right array index
@@ -96,14 +105,7 @@ class SortableTable extends React.Component {
 
   render() {
     const { dataSource } = this.state;
-    const DraggableContainer = props => (
-      <SortableContainer
-        useDragHandle
-        helperClass="row-dragging"
-        onSortEnd={this.onSortEnd}
-        {...props}
-      />
-    );
+
     return (
       <Table
         pagination={false}
@@ -112,7 +114,7 @@ class SortableTable extends React.Component {
         rowKey="index"
         components={{
           body: {
-            wrapper: DraggableContainer,
+            wrapper: this.DraggableContainer,
             row: this.DraggableBodyRow,
           },
         }}
