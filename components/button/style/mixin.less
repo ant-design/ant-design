@@ -2,7 +2,7 @@
 // ------------------------
 .button-size(@height; @padding-horizontal; @font-size; @border-radius) {
   @padding-vertical: max(
-    round(((@height - @font-size * @line-height-base) / 2) * 10) / 10 - @border-width-base,
+    (round(((@height - @font-size * @line-height-base) / 2) * 10) / 10) - @border-width-base,
     0
   );
   height: @height;
