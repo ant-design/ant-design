@@ -242,6 +242,11 @@ describe('Descriptions', () => {
   // https://github.com/ant-design/ant-design/issues/28254
   it('Descriptions support function component & class component', () => {
     class TestComponentItem extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {};
+      }
+
       render() {
         return (
           <Descriptions.Item label="Test8">Test Data8</Descriptions.Item>
@@ -252,6 +257,7 @@ describe('Descriptions', () => {
     class TestComponent extends React.Component {
         constructor(props) {
             super(props);
+            this.state = {};
         }
     
         render() {

@@ -82,7 +82,8 @@ function getRows(children: React.ReactNode, column: number) {
       elementFunc = node.type;
       if (typeof elementFunc === 'function') {
         if (typeof elementFunc.prototype.isReactComponent !== 'undefined') {
-          let elementChildClass = new elementFunc(node.props);
+          const ElementFunc = elementFunc;
+          const elementChildClass = new ElementFunc(node.props);
           elementChild = elementChildClass.render();
         } else {
           elementChild = elementFunc(node.props);
