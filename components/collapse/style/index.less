@@ -4,7 +4,7 @@
 @collapse-prefix-cls: ~'@{ant-prefix}-collapse';
 
 .@{collapse-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   background-color: @collapse-header-bg;
   border: @border-width-base @border-style-base @border-color-base;
@@ -29,7 +29,7 @@
       line-height: @line-height-base;
       cursor: pointer;
       transition: all 0.3s;
-      .clearfix;
+      .clearfix();
 
       .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();

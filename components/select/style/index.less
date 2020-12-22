@@ -61,14 +61,14 @@
 }
 
 .@{select-prefix-cls} {
-  .reset-component;
+  .reset-component();
   position: relative;
   display: inline-block;
   cursor: pointer;
 
   &:not(&-customize-input) &-selector {
-    .select-selector;
-    .select-search-input-without-border;
+    .select-selector();
+    .select-search-input-without-border();
   }
 
   &:not(&-disabled):hover &-selector {
@@ -176,7 +176,7 @@
 
   // ========================== Popup ==========================
   &-dropdown {
-    .reset-component;
+    .reset-component();
     position: absolute;
     top: -9999px;
     left: -9999px;
