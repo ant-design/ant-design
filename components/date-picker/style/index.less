@@ -13,12 +13,6 @@
 }
 
 .@{picker-prefix-cls} {
-  @vertical-fix-base: @input-height-base - ceil(@font-size-base * @line-height-base) - 2 *
-    @input-padding-vertical-base - 2 * @border-width-base;
-  @vertical-fix-lg: @input-height-lg - ceil(@font-size-lg * @line-height-base) - 2 *
-    @input-padding-vertical-lg - 2 * @border-width-base;
-  @vertical-fix-sm: @input-height-sm - ceil(@font-size-base * @line-height-base) - 2 *
-    @input-padding-vertical-sm - 2 * @border-width-base;
   @arrow-size: 10px;
 
   .reset-component();
@@ -284,7 +278,7 @@
     margin-bottom: 0;
     padding: @padding-xs / 2 @padding-sm;
     overflow: hidden;
-    line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
+    line-height: (@picker-text-height - 2 * @border-width-base - @padding-xs / 2);
     text-align: left;
     list-style: none;
 

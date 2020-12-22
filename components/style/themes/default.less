@@ -388,15 +388,16 @@
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
 @input-padding-vertical-base: max(
-  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+  round(((@input-height-base - @font-size-base * @line-height-base) / 2 * 10)) / 10 -
     @border-width-base,
   3px
 );
 @input-padding-vertical-sm: max(
-  round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+  round(((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10)) / 10 -
+    @border-width-base,
   0
 );
-@input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
+@input-padding-vertical-lg: ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10)) /
   10 - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
@@ -439,7 +440,7 @@
 @select-single-item-height-lg: 40px;
 @select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
 @select-multiple-item-height-lg: 32px;
-@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
+@select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
 @select-multiple-disabled-background: @input-disabled-bg;
 @select-multiple-item-disabled-color: #bfbfbf;
 @select-multiple-item-disabled-border-color: @select-border-color;
@@ -593,10 +594,10 @@
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
-@table-padding-vertical-md: @table-padding-vertical * 3 / 4;
-@table-padding-horizontal-md: @table-padding-horizontal / 2;
-@table-padding-vertical-sm: @table-padding-vertical / 2;
-@table-padding-horizontal-sm: @table-padding-horizontal / 2;
+@table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
+@table-padding-horizontal-md: (@table-padding-horizontal / 2);
+@table-padding-vertical-sm: (@table-padding-vertical / 2);
+@table-padding-horizontal-sm: (@table-padding-horizontal / 2);
 @table-border-radius-base: @border-radius-base;
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
@@ -908,7 +909,7 @@
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
   @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size;
-@alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
+@alert-icon-top: (8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2);
 @alert-with-description-icon-size: 24px;
 
 // List

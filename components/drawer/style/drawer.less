@@ -4,7 +4,7 @@
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 
 .@{drawer-prefix-cls} {
-  @drawer-header-close-padding: ceil((@drawer-header-close-size - @font-size-lg) / 2);
+  @drawer-header-close-padding: ceil(((@drawer-header-close-size - @font-size-lg) / 2));
 
   position: fixed;
   z-index: @zindex-modal;
@@ -178,7 +178,7 @@
     .@{drawer-prefix-cls}-header-no-title & {
       margin-right: var(--scroll-bar);
       /* stylelint-disable-next-line function-calc-no-invalid */
-      padding-right: calc(@drawer-header-close-padding - var(--scroll-bar));
+      padding-right: ~'calc(@{drawer-header-close-padding} - var(--scroll-bar))';
     }
   }
 

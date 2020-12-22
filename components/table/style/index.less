@@ -417,13 +417,12 @@
     float: left;
     box-sizing: border-box;
 
-    width: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base * 3;
-    height: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base * 3;
+    width: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3;
+    height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3;
     padding: 0;
     color: inherit;
-    line-height: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base *
+    line-height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base *
       3;
-    // vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
     background: @table-expand-icon-bg;
     border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base;
@@ -446,7 +445,7 @@
     }
 
     &::before {
-      top: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
+      top: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       right: 3px;
       left: 3px;
       height: @border-width-base;
@@ -455,7 +454,7 @@
     &::after {
       top: 3px;
       bottom: 3px;
-      left: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
+      left: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       width: @border-width-base;
       transform: rotate(90deg);
     }
@@ -481,7 +480,7 @@
 
     .@{table-prefix-cls}-row-indent + & {
       margin-top: (@font-size-base * @line-height-base - @border-width-base * 3) / 2 -
-        ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
+        ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       margin-right: @padding-xs;
     }
   }
