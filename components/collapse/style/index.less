@@ -35,9 +35,13 @@
         .iconfont-mixin();
 
         position: absolute;
-        top: ceil(@padding-sm + (@font-size-base * @line-height-base - @font-size-base) / 2);
+        top: (@font-size-base * @line-height-base - @font-size-sm) / 2;
         left: @collapse-header-arrow-left;
         display: inline-block;
+        padding: @collapse-header-padding;
+        padding-right: 0;
+        padding-bottom: 0;
+        padding-left: 0;
         font-size: @font-size-sm;
 
         & svg {
