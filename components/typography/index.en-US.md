@@ -113,14 +113,14 @@ Basic text writing, including headings, body text, lists, and more.
       onEllipsis: function(ellipsis),
     }
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| expandable | Whether to be expandable | boolean | - |  |
-| rows | Max rows of content | number | - |  |
-| suffix | Suffix of ellipsis content | ReactNode | - |  |
-| symbol | Custom `...` symbol of ellipsis | ReactNode | `...` |  |
-| onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
-| onExpand | Called when expand content | function(event) | - |  |
+| Property   | Description                               | Type               | Default | Version |
+| ---------- | ----------------------------------------- | ------------------ | ------- | ------- |
+| expandable | Whether to be expandable                  | boolean            | -       |         |
+| rows       | Max rows of content                       | number             | -       |         |
+| suffix     | Suffix of ellipsis content                | ReactNode          | -       |         |
+| symbol     | Custom `...` symbol of ellipsis           | ReactNode          | `...`   |         |
+| onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | -       | 4.2.0   |
+| onExpand   | Called when expand content                | function(event)    | -       |         |
 
 ## FAQ
 

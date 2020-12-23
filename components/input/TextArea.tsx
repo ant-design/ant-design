@@ -114,7 +114,9 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const valueLength = hasMaxLength ? Math.min(Number(maxLength), [...val].length) : [...val].length;
+      const valueLength = hasMaxLength
+        ? Math.min(Number(maxLength), [...val].length)
+        : [...val].length;
       const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
       return (

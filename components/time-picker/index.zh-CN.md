@@ -57,18 +57,18 @@ import moment from 'moment';
 
 ## 方法
 
-| 名称 | 描述 | 版本 |
-| --- | --- | --- |
-| blur() | 移除焦点 |  |
-| focus() | 获取焦点 |  |
+| 名称    | 描述     | 版本 |
+| ------- | -------- | ---- |
+| blur()  | 移除焦点 |      |
+| focus() | 获取焦点 |      |
 
 ### RangePicker
 
 属性与 DatePicker 的 [RangePicker](/components/date-picker/#RangePicker) 相同。还包含以下属性：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| order | 始末时间是否自动排序 | boolean | true | 4.1.0 |
+| 参数  | 说明                 | 类型    | 默认值 | 版本  |
+| ----- | -------------------- | ------- | ------ | ----- |
+| order | 始末时间是否自动排序 | boolean | true   | 4.1.0 |
 
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }

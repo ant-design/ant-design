@@ -34,10 +34,10 @@ When a numeric value needs to be provided.
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |
 
 ## Notes
 
