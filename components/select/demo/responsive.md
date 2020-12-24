@@ -1,26 +1,27 @@
 ---
-order: 99
+order: 24
 title:
-  zh-CN: 响应式
-  en-US: Responsive
-only: true
+  zh-CN: 响应式 maxTagCount
+  en-US: Responsive maxTagCount
 ---
 
 ## zh-CN
 
-多选下的响应式布局。
+多选下通过响应式布局让选项自动收缩。该功能对性能有所消耗，不推荐在大表单场景下使用。
 
 ## en-US
 
-Responsive for multiple.
+Auto collapse to tag with responsive case. Not recommend use in large form case since responsive calculation has a perf cost.
 
 ```tsx
-import { Select } from 'antd';
+import { Select, Space } from 'antd';
 
-const options: {
+interface ItemProps {
   label: string;
   value: string;
-}[] = [];
+}
+
+const options: ItemProps[] = [];
 
 for (let i = 10; i < 36; i++) {
   const value = i.toString(36) + i;
@@ -30,29 +31,28 @@ for (let i = 10; i < 36; i++) {
   });
 }
 
-ReactDOM.render(
-  <>
-    {/*<Select
-      mode="multiple"
-      style={{ width: '100%' }}
-      defaultValue={['a10', 'c12']}
-      options={options}
-      placeholder="Select Item..."
-      maxTagCount="responsive"
-    />*/}
+const Demo = () => {
+  const [value, setValue] = React.useState(['a10', 'c12', 'h17', 'j19', 'k20']);
 
-    <br />
+  const selectProps = {
+    mode: 'multiple' as const,
+    style: { width: '100%' },
+    value,
+    options,
+    onChange: (newValue: string[]) => {
+      setValue(newValue);
+    },
+    placeholder: 'Select Item...',
+    maxTagCount: 'responsive' as const,
+  };
 
-    <Select
-      open
-      mode="multiple"
-      style={{ width: '100%' }}
-      defaultValue={['a10']}
-      options={options}
-      placeholder="Select Item..."
-      maxTagCount="responsive"
-    />
-  </>,
-  mountNode,
-);
+  return (
+    <Space direction="vertical" style={{ width: '100%' }}>
+      <Select {...selectProps} />
+      <Select {...selectProps} disabled />
+    </Space>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```

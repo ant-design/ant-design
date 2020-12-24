@@ -1,5 +1,6 @@
 @import './index';
 
+@select-overflow-prefix-cls: ~'@{select-prefix-cls}-selection-overflow';
 @select-multiple-item-border-width: 1px;
 
 @select-multiple-padding: max(
@@ -13,21 +14,21 @@
  * since chrome may update to redesign with its align logic.
  */
 
-.@{select-prefix-cls} {
-  // ========================== Oversize ==========================
-  &-selection-overflow {
-    display: flex;
-    flex: auto;
-    flex-wrap: wrap;
+// =========================== Overflow ===========================
+.@{select-overflow-prefix-cls} {
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  max-width: 100%;
+  position: relative;
+
+  &-item {
+    flex: none;
     max-width: 100%;
-    position: relative;
-
-    &-item {
-      flex: none;
-      max-width: 100%;
-    }
   }
+}
 
+.@{select-prefix-cls} {
   &-multiple {
     // ========================= Selector =========================
     .@{select-prefix-cls}-selector {
@@ -117,14 +118,23 @@
     }
 
     // ========================== Input ==========================
+    .@{select-overflow-prefix-cls}-item + .@{select-overflow-prefix-cls}-item {
+      .@{select-prefix-cls}-selection-search {
+        margin-inline-start: 0;
+      }
+    }
+
     .@{select-prefix-cls}-selection-search {
       position: relative;
-      margin-left: @select-multiple-padding / 2;
+      margin-inline-start: @input-padding-horizontal-base - @input-padding-vertical-base;
+      margin-top: @select-multiple-item-spacing-half;
+      margin-bottom: @select-multiple-item-spacing-half;
 
       &-input,
       &-mirror {
         font-family: @font-family;
-        line-height: @line-height-base;
+        line-height: @select-multiple-item-height;
+        height: @select-multiple-item-height;
         transition: all 0.3s;
       }
 
@@ -140,11 +150,6 @@
         z-index: 999;
         white-space: pre; // fix whitespace wrapping caused width calculation bug
         visibility: hidden;
-      }
-
-      // https://github.com/ant-design/ant-design/issues/22906
-      &:first-child > .@{select-prefix-cls}-selection-search-input {
-        margin-left: 6.5px !important;
       }
     }
 
