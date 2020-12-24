@@ -1,4 +1,4 @@
-name: Issue Close Need Reproduce
+name: Issue Close Require
 
 on:
   schedule:
