@@ -43,7 +43,6 @@ jobs:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          inactive-day: 3
           body: |
             Hello @${{ github.event.issue.user.login }}, we use GitHub issues to trace bugs or discuss plans of Ant Design. So, please [don't ask usage questions](https://github.com/ant-design/ant-design/issues/2320) here. You can try to open a new discussion in [antd discussions](https://github.com/ant-design/ant-design/discussions), select `Q&A` to ask questions, also can ask questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) or [Segment Fault](https://segmentfault.com/t/antd), then apply tag `antd` and `react` to your question.
 
