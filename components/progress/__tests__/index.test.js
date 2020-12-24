@@ -175,6 +175,13 @@ describe('Progress', () => {
     );
   });
 
+  it('should display correct step', () => {
+    const wrapper = mount(<Progress steps={9} percent={33.33} trailColor="#1890ee" />);
+    expect(wrapper.find('.ant-progress-steps-item').at(3).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 238)',
+    );
+  });
+
   it('steps should have default percent 0', () => {
     const wrapper = mount(<ProgressSteps />);
     expect(wrapper.render()).toMatchSnapshot();
