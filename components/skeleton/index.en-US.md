@@ -38,9 +38,9 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ### SkeletonTitleProps
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| width | Set the width of title | number \| string | - |
+| Property | Description            | Type             | Default |
+| -------- | ---------------------- | ---------------- | ------- |
+| width    | Set the width of title | number \| string | -       |
 
 ### SkeletonParagraphProps
 
@@ -51,15 +51,15 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ### SkeletonButtonProps
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| active | Show animation effect | boolean | false |
-| shape | Set the shape of button | `circle` \| `round` \| `default` | - |
-| size | Set the size of button | `large` \| `small` \| `default` | - |
+| Property | Description             | Type                             | Default |
+| -------- | ----------------------- | -------------------------------- | ------- |
+| active   | Show animation effect   | boolean                          | false   |
+| shape    | Set the shape of button | `circle` \| `round` \| `default` | -       |
+| size     | Set the size of button  | `large` \| `small` \| `default`  | -       |
 
 ### SkeletonInputProps
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| active | Show animation effect | boolean | false |
-| size | Set the size of input | `large` \| `small` \| `default` | - |
+| Property | Description           | Type                            | Default |
+| -------- | --------------------- | ------------------------------- | ------- |
+| active   | Show animation effect | boolean                         | false   |
+| size     | Set the size of input | `large` \| `small` \| `default` | -       |

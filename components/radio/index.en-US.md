@@ -44,7 +44,7 @@ Radio group can wrap a group of `Radio`。
 
 ### Radio
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |
