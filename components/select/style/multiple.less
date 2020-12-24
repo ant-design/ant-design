@@ -14,6 +14,20 @@
  */
 
 .@{select-prefix-cls} {
+  // ========================== Oversize ==========================
+  &-selection-overflow {
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+    max-width: 100%;
+    position: relative;
+
+    &-item {
+      flex: none;
+      max-width: 100%;
+    }
+  }
+
   &-multiple {
     // ========================= Selector =========================
     .@{select-prefix-cls}-selector {
