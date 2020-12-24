@@ -47,7 +47,7 @@ ReactDOM.render(
       open
       mode="multiple"
       style={{ width: '100%' }}
-      defaultValue={[]}
+      defaultValue={['a10']}
       options={options}
       placeholder="Select Item..."
       maxTagCount="responsive"
