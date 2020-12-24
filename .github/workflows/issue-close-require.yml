@@ -14,4 +14,4 @@ jobs:
           actions: 'close-issues'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           labels: '🤔 Need Reproduce'
-          inactive-day: 7
+          inactive-day: 3
