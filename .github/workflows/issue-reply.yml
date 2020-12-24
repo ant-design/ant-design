@@ -37,7 +37,7 @@ jobs:
             ![](https://gw.alipayobjects.com/zos/antfincdn/y9kwg7DVCd/reproduce.gif)
       
       - name: Usage
-        if: github.event.label.name == 'Usage'
+        if: github.event.label.name == 'Usage' || github.event.label.name == 'Question'
         uses: actions-cool/issues-helper@v1
         with:
           actions: 'create-comment,close-issue'
