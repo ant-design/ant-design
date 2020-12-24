@@ -16,11 +16,11 @@
 
 // =========================== Overflow ===========================
 .@{select-overflow-prefix-cls} {
+  position: relative;
   display: flex;
   flex: auto;
   flex-wrap: wrap;
   max-width: 100%;
-  position: relative;
 
   &-item {
     flex: none;
@@ -132,9 +132,9 @@
 
       &-input,
       &-mirror {
+        height: @select-multiple-item-height;
         font-family: @font-family;
         line-height: @select-multiple-item-height;
-        height: @select-multiple-item-height;
         transition: all 0.3s;
       }
 
