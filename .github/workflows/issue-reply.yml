@@ -13,7 +13,7 @@ jobs:
         uses: actions-cool/issues-helper@v1
         with:
           actions: 'create-comment'
-          token: ${{ secrets.GITHUB_BOT_NAME }}
+          token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hello @${{ github.event.issue.user.login }}. We totally like your proposal/feedback, welcome to [send us a Pull Request](https://help.github.com/en/articles/creating-a-pull-request) for it. Please send your Pull Request to proper branch (feature branch for the new feature, master for bugfix and other changes), fill the [Pull Request Template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE.md) here, provide changelog/TypeScript/documentation/test cases if needed and make sure CI passed, we will review it soon. We appreciate your effort in advance and looking forward to your contribution!
@@ -27,7 +27,7 @@ jobs:
         uses: actions-cool/issues-helper@v1
         with:
           actions: 'create-comment'
-          token: ${{ secrets.GITHUB_BOT_NAME }}
+          token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hello @${{ github.event.issue.user.login }}. Please provide a online reproduction by forking this link https://u.ant.design/codesandbox-repro or a minimal GitHub repository. Issues labeled by \`Need Reproduce\` will be closed if no activities in 7 days.
@@ -41,7 +41,7 @@ jobs:
         uses: actions-cool/issues-helper@v1
         with:
           actions: 'create-comment,close-issue'
-          token: ${{ secrets.GITHUB_BOT_NAME }}
+          token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hello @${{ github.event.issue.user.login }}, we use GitHub issues to trace bugs or discuss plans of Ant Design. So, please [don't ask usage questions](https://github.com/ant-design/ant-design/issues/2320) here. You can try to open a new discussion in [antd discussions](https://github.com/ant-design/ant-design/discussions), select `Q&A` to ask questions, also can ask questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) or [Segment Fault](https://segmentfault.com/t/antd), then apply tag `antd` and `react` to your question.
