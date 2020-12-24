@@ -30,9 +30,9 @@ jobs:
           token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hello @${{ github.event.issue.user.login }}. Please provide a online reproduction by forking this link https://u.ant.design/codesandbox-repro or a minimal GitHub repository. Issues labeled by \`Need Reproduce\` will be closed if no activities in 7 days.
+            Hello @${{ github.event.issue.user.login }}. Please provide a online reproduction by forking this link https://u.ant.design/codesandbox-repro or a minimal GitHub repository. Issues labeled by `Need Reproduce` will be closed if no activities in 3 days.
 
-            你好 @${{ github.event.issue.user.login }}, 我们需要你提供一个在线的重现实例以便于我们帮你排查问题。你可以通过点击 [此处](https://u.ant.design/codesandbox-repro) 创建一个 codesandbox 或者提供一个最小化的 GitHub 仓库。7 天内未跟进的 issue 将会被自动关闭。
+            你好 @${{ github.event.issue.user.login }}, 我们需要你提供一个在线的重现实例以便于我们帮你排查问题。你可以通过点击 [此处](https://u.ant.design/codesandbox-repro) 创建一个 codesandbox 或者提供一个最小化的 GitHub 仓库。3 天内未跟进此 issue 将会被自动关闭。
 
             ![](https://gw.alipayobjects.com/zos/antfincdn/y9kwg7DVCd/reproduce.gif)
       
@@ -43,6 +43,7 @@ jobs:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
+          inactive-day: 3
           body: |
             Hello @${{ github.event.issue.user.login }}, we use GitHub issues to trace bugs or discuss plans of Ant Design. So, please [don't ask usage questions](https://github.com/ant-design/ant-design/issues/2320) here. You can try to open a new discussion in [antd discussions](https://github.com/ant-design/ant-design/discussions), select `Q&A` to ask questions, also can ask questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) or [Segment Fault](https://segmentfault.com/t/antd), then apply tag `antd` and `react` to your question.
 
