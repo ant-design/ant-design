@@ -52,7 +52,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
-  /** render item */
+  /** Render item */
   render?: (item: RecordType) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;

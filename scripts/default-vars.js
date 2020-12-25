@@ -1,7 +1,8 @@
 /**
- * convert default.less into js vars
+ * Convert default.less into js vars
  *
- * const darkVars = require('./default-vars');
+ * @example
+ *   const darkVars = require('./default-vars');
  */
 const fs = require('fs');
 const path = require('path');

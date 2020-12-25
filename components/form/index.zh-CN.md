@@ -176,11 +176,13 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ```tsx
 <Form.List>
-  {fields => fields.map(field => (
-    <Form.Item {...field}>
-      <Input />
-    </Form.Item>
-  ))}
+  {fields =>
+    fields.map(field => (
+      <Form.Item {...field}>
+        <Input />
+      </Form.Item>
+    ))
+  }
 </Form.List>
 ```
 

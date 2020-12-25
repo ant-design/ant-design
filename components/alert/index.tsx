@@ -17,9 +17,7 @@ import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
 
 export interface AlertProps {
-  /**
-   * Type of Alert styles, options:`success`, `info`, `warning`, `error`
-   */
+  /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
   closable?: boolean;
