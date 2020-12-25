@@ -31,7 +31,7 @@ Tree selection control.
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to {value: string, label: ReactNode, halfChecked: string\[]} | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
 | loadData | Load data asynchronously | function(node) | - |  |
-| maxTagCount | Max tag count to show | number | - |  |
+| maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
 | placeholder | Placeholder of the select input | string | - |  |
@@ -62,10 +62,10 @@ Tree selection control.
 
 ### Tree Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### TreeNode props
 

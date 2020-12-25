@@ -43,7 +43,7 @@ Select component to select value from options.
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to { value: string, label: ReactNode } | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
 | loading | Indicate loading state | boolean | false |  |
-| maxTagCount | Max tag count to show | number | - |  |
+| maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | Max tag text length to show | number | - |  |
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - |  |
@@ -81,26 +81,26 @@ Select component to select value from options.
 
 ### Select Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### Option props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| className | The additional class to option | string | - |  |
-| disabled | Disable this option | boolean | false |  |
-| title | `title` of Select after select this Option | string | - |  |
-| value | Default to filter with this property | string \| number | - |  |
+| Property  | Description                                | Type             | Default | Version |
+| --------- | ------------------------------------------ | ---------------- | ------- | ------- |
+| className | The additional class to option             | string           | -       |         |
+| disabled  | Disable this option                        | boolean          | false   |         |
+| title     | `title` of Select after select this Option | string           | -       |         |
+| value     | Default to filter with this property       | string \| number | -       |         |
 
 ### OptGroup props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| key | Group key | string | - |  |
-| label | Group label | string \| React.Element | - |  |
+| Property | Description | Type                    | Default | Version |
+| -------- | ----------- | ----------------------- | ------- | ------- |
+| key      | Group key   | string                  | -       |         |
+| label    | Group label | string \| React.Element | -       |         |
 
 ## FAQ
 

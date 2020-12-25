@@ -66,9 +66,6 @@
   // ======================== Selections ========================
   .@{select-prefix-cls}-selection-item {
     .@{select-prefix-cls}-rtl& {
-      margin-right: 0;
-      margin-left: @input-padding-vertical-base;
-      padding: 0 @padding-xs 0 (@padding-xs / 2);
       text-align: right;
     }
     // It's ok not to do this, but 24px makes bottom narrow in view should adjust
@@ -83,11 +80,6 @@
 
   // ========================== Input ==========================
   .@{select-prefix-cls}-selection-search {
-    .@{select-prefix-cls}-rtl& {
-      margin-right: @select-multiple-padding / 2;
-      margin-left: @input-padding-vertical-base;
-    }
-
     &-mirror {
       .@{select-prefix-cls}-rtl& {
         right: 0;
