@@ -4,7 +4,7 @@
 @tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
-@tree-node-padding: @padding-xs / 2;
+@tree-node-padding: (@padding-xs / 2);
 
 .antTreeSwitcherIcon(@type: 'tree-default-open-icon') {
   .@{tree-prefix-cls}-switcher-icon,
@@ -230,7 +230,7 @@
         &::before {
           position: absolute;
           top: 0;
-          right: @tree-title-height / 2;
+          right: (@tree-title-height / 2);
           bottom: -@tree-node-padding;
           border-right: 1px solid @border-color-base;
           content: '';

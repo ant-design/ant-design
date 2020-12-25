@@ -153,7 +153,7 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/tools": "^11.0.4",
+    "@ant-design/tools": "^13.0.0",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@stackblitz/sdk": "^1.3.0",
     "@types/classnames": "^2.2.8",
@@ -180,7 +180,7 @@
     "array-move": "^3.0.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bisheng": "^2.0.0",
+    "bisheng": "^3.0.0",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.1.2",
     "bisheng-plugin-toc": "^0.4.4",
