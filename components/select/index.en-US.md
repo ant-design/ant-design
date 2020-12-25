@@ -43,7 +43,7 @@ Select component to select value from options.
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to { value: string, label: ReactNode } | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
 | loading | Indicate loading state | boolean | false |  |
-| maxTagCount | Max tag count to show | number \| `responsive` | - | responsive: 4.10 |
+| maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | Max tag text length to show | number | - |  |
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - |  |
