@@ -27,14 +27,9 @@ class App extends React.Component {
   draggleRef = React.createRef();
 
   showModal = () => {
-    this.setState(
-      {
-        visible: true,
-      },
-      () => {
-        this.setBounds();
-      },
-    );
+    this.setState({
+      visible: true,
+    });
   };
 
   handleOk = e => {
@@ -45,21 +40,21 @@ class App extends React.Component {
   };
 
   handleCancel = e => {
-    console.log(e);
     this.setState({
       visible: false,
     });
   };
 
-  setBounds = () => {
+  onStart = (event, uiData) => {
     const { clientWidth, clientHeight } = window?.document?.documentElement;
-    const targetRect = this.draggleRef?.current.getBoundingClientRect();
+    const targetRect = this.draggleRef?.current?.getBoundingClientRect();
+    console.log(uiData);
     this.setState({
       bounds: {
-        left: -targetRect.left,
-        right: clientWidth - targetRect?.right,
-        top: -targetRect.top,
-        bottom: clientHeight - targetRect?.bottom,
+        left: -targetRect?.left + uiData?.x,
+        right: clientWidth - (targetRect?.right - uiData?.x),
+        top: -targetRect?.top + uiData?.y,
+        bottom: clientHeight - (targetRect?.bottom - uiData?.y),
       },
     });
   };
@@ -101,7 +96,11 @@ class App extends React.Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           modalRender={modal => (
-            <Draggable disabled={disabled} bounds={bounds}>
+            <Draggable
+              disabled={disabled}
+              bounds={bounds}
+              onStart={(event, uiData) => this.onStart(event, uiData)}
+            >
               <div ref={this.draggleRef}>{modal}</div>
             </Draggable>
           )}
