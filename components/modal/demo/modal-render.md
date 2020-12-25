@@ -40,6 +40,7 @@ class App extends React.Component {
   };
 
   handleCancel = e => {
+    console.log(e);
     this.setState({
       visible: false,
     });
@@ -48,7 +49,6 @@ class App extends React.Component {
   onStart = (event, uiData) => {
     const { clientWidth, clientHeight } = window?.document?.documentElement;
     const targetRect = this.draggleRef?.current?.getBoundingClientRect();
-    console.log(uiData);
     this.setState({
       bounds: {
         left: -targetRect?.left + uiData?.x,
