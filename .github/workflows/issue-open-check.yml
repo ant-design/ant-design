@@ -13,10 +13,47 @@ jobs:
         uses: actions-cool/issues-helper@v1
         with:
           actions: 'create-comment,add-labels,close-issue'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           labels: 'Invalid'
           body: |
             Hello @${{ github.event.issue.user.login }}, your issue has been closed because it does not conform to our issue requirements. Please use the [Issue Helper](http://new-issue.ant.design) to create an issue, thank you!
 
             你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。你可以通过 [issue 助手](http://new-issue.ant.design) 来创建 issue 以方便我们定位错误。谢谢配合！
+
+      - name: check-website
+        uses: actions-cool/issues-helper@v1.2
+        id: checkid
+        with:
+          actions: 'check-issue'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          # 格式如：'x1,x2/y1,y2' 只支持 2 个数组           
+          title-includes: '官网,网站,国内,镜像,mobile ant design,mobile.ant.design,ant design,ant.design,pro/挂了,无法访问,不能访问,访问不了,出问题,打不开,登不上,can not open,can not be reached'
+
+      - name: deal-website
+        if: steps.checkid.outputs.check-result == true
+        uses: actions-cool/issues-helper@v1.2
+        with:
+          actions: 'create-comment,close-issue'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Ant Design 系列官网由于某些众所周知的原因无法访问，建议翻墙或访问国内镜像站点。
+
+            ## 官网
+            * Ant Design: https://ant.design
+            * Ant Design Pro: https://pro.ant.design
+            * Ant Design Pro Preview : https://preview.pro.ant.design
+            * Ant Design Mobile: https://mobile.ant.design
+            * Ant Motion: https://motion.ant.design
+
+            ## 国内镜像
+            * Ant Design: http://ant-design.gitee.io
+            * Ant Design 3.x: http://ant-design-3x.gitee.io
+            * Ant Design 2.x: http://ant-design-2x.gitee.io
+            * Ant Design 1.x: http://ant-design-1x.gitee.io
+            * Ant Design Pro: http://ant-design-pro.gitee.io
+            * Ant Design Mobile: http://antd-mobile.gitee.io
+            * Ant Motion: http://ant-motion.gitee.io
+            * Ant Design Pro Preview : https://prosite.z23.web.core.windows.net
