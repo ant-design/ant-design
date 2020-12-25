@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined, LikeOutlined, HighlightOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Link from '../Link';
@@ -441,6 +442,26 @@ describe('Typography', () => {
       testStep({ name: 'customize edit show tooltip', tooltip: true });
       testStep({ name: 'customize edit hide tooltip', tooltip: false });
       testStep({ name: 'customize edit tooltip text', tooltip: 'click to edit text' });
+
+      it('should only trigger focus on the first time', () => {
+        let triggerTimes = 0;
+        const mockFocus = spyElementPrototype(HTMLElement, 'focus', () => {
+          triggerTimes += 1;
+        });
+
+        const wrapper = mount(<Paragraph editable>Bamboo</Paragraph>);
+
+        wrapper.find('.ant-typography-edit').first().simulate('click');
+        expect(triggerTimes).toEqual(1);
+
+        wrapper.find('textarea').simulate('change', {
+          target: { value: 'good' },
+        });
+
+        expect(triggerTimes).toEqual(1);
+
+        mockFocus.mockRestore();
+      });
     });
 
     it('should focus at the end of textarea', () => {
