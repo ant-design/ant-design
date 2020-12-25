@@ -123,7 +123,7 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   filterStates.forEach(({ key, filteredKeys, column }) => {
     const { filters } = column;
     const originKeys: ColumnFilterItem['value'][] = [];
-    if (Array.isArray(filteredKeys)) {
+    if (Array.isArray(filteredKeys) && filteredKeys.length > 0) {
       filters?.forEach((filter: ColumnFilterItem) => {
         if (filteredKeys.includes(String(filter.value))) {
           originKeys.push(filter.value);
