@@ -22,6 +22,7 @@ jobs:
             你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。你可以通过 [issue 助手](http://new-issue.ant.design) 来创建 issue 以方便我们定位错误。谢谢配合！
 
       - name: check-website
+        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true
         uses: actions-cool/issues-helper@v1.2
         id: checkid
         with:
