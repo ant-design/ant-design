@@ -1415,7 +1415,7 @@ Array [
         style="width:14px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
         style="width:14px;height:8px"
       />
       <div
@@ -1442,7 +1442,7 @@ Array [
         style="width:14px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
         style="width:14px;height:8px"
       />
       <div
