@@ -29,7 +29,7 @@ jobs:
           actions: 'check-issue'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          # 格式如：'x1,x2/y1,y2' 只支持 2 个数组           
+          # 格式如：'x1,x2' or  'x1,x2/y1,y2' 最多支持 2 个数组           
           title-includes: '官网,网站,国内,镜像,mobile ant design,mobile.ant.design,ant design,ant.design,pro/挂了,无法访问,不能访问,访问不了,出问题,打不开,登不上,can not open,can not be reached'
 
       - name: deal-website
