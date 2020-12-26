@@ -199,14 +199,14 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
 
   renderFilterIcon = () => {
     const { column, locale, prefixCls, selectedKeys } = this.props;
-    const filtered = selectedKeys && selectedKeys.length > 0;
+    const filtered = column.filtered || (selectedKeys && selectedKeys.length > 0);
     let filterIcon = column.filterIcon;
     if (typeof filterIcon === 'function') {
       filterIcon = filterIcon(filtered);
     }
 
     const dropdownIconClass = classNames({
-      [`${prefixCls}-selected`]: 'filtered' in column ? column.filtered : filtered,
+      [`${prefixCls}-selected`]: filtered,
       [`${prefixCls}-open`]: this.getDropdownVisible(),
     });
 
