@@ -31,8 +31,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
 
 ### Link Props
 
-| 成员 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| href | 锚点链接 | string | - |  |
-| target | 该属性指定在何处显示链接的资源。 | string | - |  |
-| title | 文字内容 | ReactNode | - |  |
+| 成员   | 说明                             | 类型      | 默认值 | 版本 |
+| ------ | -------------------------------- | --------- | ------ | ---- |
+| href   | 锚点链接                         | string    | -      |      |
+| target | 该属性指定在何处显示链接的资源。 | string    | -      |      |
+| title  | 文字内容                         | ReactNode | -      |      |

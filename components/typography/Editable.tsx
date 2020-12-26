@@ -49,7 +49,7 @@ const Editable: React.FC<EditableProps> = ({
       const { length } = textArea.value;
       textArea.setSelectionRange(length, length);
     }
-  }, [ref.current]);
+  }, []);
 
   const onChange: React.ChangeEventHandler<HTMLTextAreaElement> = ({ target }) => {
     setCurrent(target.value.replace(/[\n\r]/g, ''));

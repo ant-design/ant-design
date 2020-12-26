@@ -30,8 +30,8 @@ For displaying anchor hyperlinks on page and jumping between them.
 
 ### Link Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| href | The target of hyperlink | string |  |  |
-| target | Specifies where to display the linked URL | string |  |  |
-| title | The content of hyperlink | ReactNode |  |  |
+| Property | Description                               | Type      | Default | Version |
+| -------- | ----------------------------------------- | --------- | ------- | ------- |
+| href     | The target of hyperlink                   | string    |         |         |
+| target   | Specifies where to display the linked URL | string    |         |         |
+| title    | The content of hyperlink                  | ReactNode |         |         |

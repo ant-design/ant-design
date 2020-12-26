@@ -27,5 +27,6 @@ components/*/*.jsx
 .DS_Store
 .editorconfig
 .eslintignore
+.history
 **/*.yml
 components/style/color/*.less

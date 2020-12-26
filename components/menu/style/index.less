@@ -6,7 +6,7 @@
 
 // default theme
 .@{menu-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
@@ -19,7 +19,7 @@
   outline: none;
   box-shadow: @box-shadow-base;
   transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
-  .clearfix;
+  .clearfix();
 
   ul,
   ol {

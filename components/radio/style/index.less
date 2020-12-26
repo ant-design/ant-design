@@ -9,7 +9,7 @@
 @radio-button-focus-shadow: @radio-focus-shadow;
 
 .@{radio-group-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   display: inline-block;
   font-size: 0;
@@ -26,7 +26,7 @@
 
 // 一般状态
 .@{radio-prefix-cls}-wrapper {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   display: inline-block;
@@ -36,7 +36,7 @@
 }
 
 .@{radio-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   top: @radio-top;
@@ -79,8 +79,8 @@
   &-inner {
     &::after {
       position: absolute;
-      top: (@radio-size - @radio-dot-size) / 2 - @radio-border-width;
-      left: (@radio-size - @radio-dot-size) / 2 - @radio-border-width;
+      top: ((@radio-size - @radio-dot-size) / 2) - @radio-border-width;
+      left: ((@radio-size - @radio-dot-size) / 2) - @radio-border-width;
       display: table;
       width: @radio-dot-size;
       height: @radio-dot-size;

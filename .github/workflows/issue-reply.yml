@@ -1,0 +1,49 @@
+name: Issue Reply
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  reply-helper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: help wanted
+        if: github.event.label.name == 'help wanted'
+        uses: actions-cool/issues-helper@v1.2
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}. We totally like your proposal/feedback, welcome to [send us a Pull Request](https://help.github.com/en/articles/creating-a-pull-request) for it. Please send your Pull Request to proper branch (feature branch for the new feature, master for bugfix and other changes), fill the [Pull Request Template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE.md) here, provide changelog/TypeScript/documentation/test cases if needed and make sure CI passed, we will review it soon. We appreciate your effort in advance and looking forward to your contribution!
+
+            你好 @${{ github.event.issue.user.login }}，我们完全同意你的提议/反馈，欢迎直接在此仓库 [创建一个 Pull Request](https://help.github.com/en/articles/creating-a-pull-request) 来解决这个问题。请将 Pull Request 发到正确的分支（新特性发到 feature 分支，其他发到 master 分支），务必填写 Pull Request 内的[预设模板](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE.md)，提供改动所需相应的 changelog、TypeScript 定义、测试用例、文档等，并确保 CI 通过，我们会尽快进行 Review，提前感谢和期待您的贡献。
+
+            ![giphy](https://user-images.githubusercontent.com/507615/62342668-4735dc00-b51a-11e9-92a7-d46fbb1cc0c7.gif)
+
+      - name: 🤔 Need Reproduce
+        if: github.event.label.name == '🤔 Need Reproduce'
+        uses: actions-cool/issues-helper@v1.2
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}. Please provide a online reproduction by forking this link https://u.ant.design/codesandbox-repro or a minimal GitHub repository. Issues labeled by `Need Reproduce` will be closed if no activities in 3 days.
+
+            你好 @${{ github.event.issue.user.login }}, 我们需要你提供一个在线的重现实例以便于我们帮你排查问题。你可以通过点击 [此处](https://u.ant.design/codesandbox-repro) 创建一个 codesandbox 或者提供一个最小化的 GitHub 仓库。3 天内未跟进此 issue 将会被自动关闭。
+
+            ![](https://gw.alipayobjects.com/zos/antfincdn/y9kwg7DVCd/reproduce.gif)
+      
+      - name: Usage
+        if: github.event.label.name == 'Usage' || github.event.label.name == 'Question'
+        uses: actions-cool/issues-helper@v1.2
+        with:
+          actions: 'create-comment,close-issue'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}, we use GitHub issues to trace bugs or discuss plans of Ant Design. So, please [don't ask usage questions](https://github.com/ant-design/ant-design/issues/2320) here. You can try to open a new discussion in [antd discussions](https://github.com/ant-design/ant-design/discussions), select `Q&A` to ask questions, also can ask questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) or [Segment Fault](https://segmentfault.com/t/antd), then apply tag `antd` and `react` to your question.
+
+            你好 @${{ github.event.issue.user.login }}，Ant Design Issue 板块是用于 bug 反馈与需求讨论的地方。请[勿询问如何使用的问题](https://github.com/ant-design/ant-design/issues/2320)，你可以试着在 [antd discussions](https://github.com/ant-design/ant-design/discussions) 新开一个 discussion，选择 `Q&A` 类别进行提问，也可以在 [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) 或者 [Segment Fault](https://segmentfault.com/t/antd) 中提问（记得添加 `antd` 和 `react` 标签哦~）。
