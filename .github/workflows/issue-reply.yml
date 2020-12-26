@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: help wanted
         if: github.event.label.name == 'help wanted'
-        uses: actions-cool/issues-helper@v1
+        uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment'
           token: ${{ secrets.ANT_BOT_TOKEN }}
@@ -24,7 +24,7 @@ jobs:
 
       - name: 🤔 Need Reproduce
         if: github.event.label.name == '🤔 Need Reproduce'
-        uses: actions-cool/issues-helper@v1
+        uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment'
           token: ${{ secrets.ANT_BOT_TOKEN }}
@@ -38,7 +38,7 @@ jobs:
       
       - name: Usage
         if: github.event.label.name == 'Usage' || github.event.label.name == 'Question'
-        uses: actions-cool/issues-helper@v1
+        uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.ANT_BOT_TOKEN }}
