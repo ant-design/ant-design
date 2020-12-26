@@ -96,10 +96,12 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       />
     );
 
-    const val = fixControlledValue(value) as string;
+    let val = fixControlledValue(value) as string;
 
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
+    // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
+    val = hasMaxLength ? [...val].slice(0, maxLength).join('') : val;
 
     // TextArea
     const textareaNode = (
