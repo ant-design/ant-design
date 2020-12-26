@@ -35,7 +35,7 @@ Rate component.
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |

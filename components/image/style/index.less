@@ -8,6 +8,7 @@
   position: relative;
   display: inline-block;
   &-img {
+    display: block;
     width: 100%;
     height: auto;
     &-placeholder {
@@ -46,17 +47,17 @@
   }
 
   &-placeholder {
-    .box;
+    .box();
   }
 
   &-preview {
-    .modal-mask;
+    .modal-mask();
 
     height: 100%;
     text-align: center;
 
     &-body {
-      .box;
+      .box();
       overflow: hidden;
     }
 
@@ -70,7 +71,7 @@
       user-select: none;
       pointer-events: auto;
       &-wrapper {
-        .box;
+        .box();
         transition: transform 0.3s @ease-out 0s;
         &::before {
           display: inline-block;
@@ -96,7 +97,7 @@
     }
 
     &-operations {
-      .reset-component;
+      .reset-component();
       position: absolute;
       top: 0;
       right: 0;

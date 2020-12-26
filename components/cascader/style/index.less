@@ -5,7 +5,7 @@
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
 
 .@{cascader-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   &-input.@{ant-prefix}-input {
     // Keep it static for https://github.com/ant-design/ant-design/issues/16738
@@ -24,7 +24,7 @@
   }
 
   &-picker {
-    .reset-component;
+    .reset-component();
 
     position: relative;
     display: inline-block;
@@ -48,7 +48,7 @@
     }
 
     &:focus .@{cascader-prefix-cls}-input {
-      .active;
+      .active();
     }
 
     &-borderless .@{cascader-prefix-cls}-input {
@@ -116,7 +116,7 @@
   // https://github.com/ant-design/ant-design/pull/12407#issuecomment-424657810
   &-picker-label:hover + &-input {
     &:not(.@{cascader-prefix-cls}-picker-disabled &) {
-      .hover;
+      .hover();
     }
   }
 

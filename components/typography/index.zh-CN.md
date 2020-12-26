@@ -113,14 +113,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       onEllipsis: function(ellipsis),
     }
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| expandable | 是否可展开 | boolean | - |  |
-| rows | 最多显示的行数 | number | - |  |
-| suffix | 自定义省略内容后缀 | ReactNode | - |  |
-| symbol | 自定义省略符号 | ReactNode | `...` |  |
-| onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
-| onExpand | 点击展开时的回调 | function(event) | - |  |
+| 参数       | 说明               | 类型               | 默认值 | 版本  |
+| ---------- | ------------------ | ------------------ | ------ | ----- |
+| expandable | 是否可展开         | boolean            | -      |       |
+| rows       | 最多显示的行数     | number             | -      |       |
+| suffix     | 自定义省略内容后缀 | ReactNode          | -      |       |
+| symbol     | 自定义省略符号     | ReactNode          | `...`  |       |
+| onEllipsis | 触发省略时的回调   | function(ellipsis) | -      | 4.2.0 |
+| onExpand   | 点击展开时的回调   | function(event)    | -      |       |
 
 ## FAQ
 

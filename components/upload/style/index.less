@@ -7,7 +7,7 @@
 @upload-picture-card-border-style: @border-style-base;
 
 .@{upload-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   outline: 0;
 
@@ -131,7 +131,7 @@
   }
 
   &-picture-card-wrapper {
-    .clearfix;
+    .clearfix();
 
     display: inline-block;
     width: 100%;
@@ -139,8 +139,8 @@
 }
 
 .@{upload-prefix-cls}-list {
-  .reset-component;
-  .clearfix;
+  .reset-component();
+  .clearfix();
   line-height: @line-height-base;
 
   // ============================ Item ============================
@@ -201,7 +201,7 @@
       .@{upload-prefix-cls}-text-icon {
         .@{iconfont-css-prefix} {
           position: absolute;
-          top: @font-size-base / 2 - 2px;
+          top: (@font-size-base / 2) - 2px;
           color: @text-color-secondary;
           font-size: @font-size-base;
         }

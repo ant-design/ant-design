@@ -37,24 +37,24 @@ A list can be used to display content related to a single subject. The content c
 
 Properties for pagination.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| Property | Description                              | Type                        | Default  |
+| -------- | ---------------------------------------- | --------------------------- | -------- |
 | position | The specify the position of `Pagination` | `top` \| `bottom` \| `both` | `bottom` |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
 ### List grid props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| column | The column of grid | number | - |  |
-| gutter | The spacing between grid | number | 0 |  |
-| xs | `<576px` column of grid | number | - |  |
-| sm | `≥576px` column of grid | number | - |  |
-| md | `≥768px` column of grid | number | - |  |
-| lg | `≥992px` column of grid | number | - |  |
-| xl | `≥1200px` column of grid | number | - |  |
-| xxl | `≥1600px` column of grid | number | - |  |
+| Property | Description              | Type   | Default | Version |
+| -------- | ------------------------ | ------ | ------- | ------- |
+| column   | The column of grid       | number | -       |         |
+| gutter   | The spacing between grid | number | 0       |         |
+| xs       | `<576px` column of grid  | number | -       |         |
+| sm       | `≥576px` column of grid  | number | -       |         |
+| md       | `≥768px` column of grid  | number | -       |         |
+| lg       | `≥992px` column of grid  | number | -       |         |
+| xl       | `≥1200px` column of grid | number | -       |         |
+| xxl      | `≥1600px` column of grid | number | -       |         |
 
 ### List.Item
 
@@ -65,8 +65,8 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 ### List.Item.Meta
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| avatar | The avatar of list item | ReactNode | - |  |
-| description | The description of list item | ReactNode | - |  |
-| title | The title of list item | ReactNode | - |  |
+| Property    | Description                  | Type      | Default | Version |
+| ----------- | ---------------------------- | --------- | ------- | ------- |
+| avatar      | The avatar of list item      | ReactNode | -       |         |
+| description | The description of list item | ReactNode | -       |         |
+| title       | The title of list item       | ReactNode | -       |         |

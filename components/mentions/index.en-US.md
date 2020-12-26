@@ -43,10 +43,10 @@ When need to mention someone or something.
 
 ### Mention methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |
 
 ### Option
 
