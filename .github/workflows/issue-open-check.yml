@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: check invalid
         if: contains(github.event.issue.body, 'ant-design-issue-helper') == false
-        uses: actions-cool/issues-helper@v1
+        uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment,add-labels,close-issue'
           token: ${{ secrets.ANT_BOT_TOKEN }}
