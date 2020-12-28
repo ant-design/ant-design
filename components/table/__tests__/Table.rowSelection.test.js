@@ -1057,6 +1057,37 @@ describe('Table.rowSelection', () => {
         expect(getIndeterminateSelection(wrapper)).toEqual([]);
         expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
       });
+
+      it('should support `childrenColumnName`', () => {
+        const onChange = jest.fn();
+
+        const table = createTable({
+          dataSource: [
+            {
+              key: 0,
+              name: 'Jack',
+              childList: [
+                { key: 1, name: 'Light' },
+                { key: 2, name: 'Bamboo' },
+              ],
+            },
+          ],
+          expandable: {
+            childrenColumnName: 'childList',
+            defaultExpandAllRows: true,
+          },
+          rowSelection: {
+            checkStrictly: false,
+            onChange,
+          },
+        });
+        const wrapper = mount(table);
+        const checkboxes = wrapper.find('input');
+        expect(checkboxes).toHaveLength(1 + 3);
+
+        checkboxes.at(1).simulate('change', { target: { checked: true } });
+        expect(getSelections(wrapper)).toEqual([0, 1, 2]);
+      });
     });
     it('warns when set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured data.', () => {
       resetWarned();
