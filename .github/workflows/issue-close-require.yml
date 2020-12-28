@@ -22,7 +22,7 @@ jobs:
           actions: 'close-issues'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           labels: 'needs-more-info'
-          inactive-day: 7
+          inactive-day: 3
           body: |
             Since the issue was labeled with `needs-more-info`, no response was received for 7 days. The issue is now closed. If you have any questions, you can comment and reply.
 
