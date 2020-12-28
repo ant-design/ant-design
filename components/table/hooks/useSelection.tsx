@@ -395,6 +395,7 @@ export default function useSelection<RecordType>(
               indeterminate={!checkedCurrentAll && checkedCurrentSome}
               onChange={onSelectAllChange}
               disabled={flattedData.length === 0 || allDisabled}
+              skipGroup
             />
             {customizeSelections}
           </div>
@@ -452,6 +453,7 @@ export default function useSelection<RecordType>(
                 {...checkboxProps}
                 indeterminate={mergedIndeterminate}
                 checked={checked}
+                skipGroup
                 onClick={e => e.stopPropagation()}
                 onChange={({ nativeEvent }) => {
                   const { shiftKey } = nativeEvent;
