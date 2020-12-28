@@ -16,4 +16,4 @@ jobs:
           actions: 'remove-labels'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          labels: 'Inactive'
+          labels: 'Inactive,needs-more-info'
