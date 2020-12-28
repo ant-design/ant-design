@@ -43,9 +43,8 @@ export interface ResultProps {
 const ExceptionStatus = Object.keys(ExceptionMap);
 
 /**
- * render icon
- * if ExceptionStatus includes ,render svg image
- * else render iconNode
+ * Render icon if ExceptionStatus includes ,render svg image else render iconNode
+ *
  * @param prefixCls
  * @param {status, icon}
  */

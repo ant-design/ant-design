@@ -1,8 +1,8 @@
 /**
  * TODO: 4.0
- * - remove `dataSource`
- * - `size` not work with customizeInput
- * - customizeInput not feedback `ENTER` key since accessibility enhancement
+ *     - remove `dataSource`
+ *     - `size` not work with customizeInput
+ *     - customizeInput not feedback `ENTER` key since accessibility enhancement
  */
 
 import * as React from 'react';

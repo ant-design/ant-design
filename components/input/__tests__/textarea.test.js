@@ -58,12 +58,12 @@ describe('TextArea', () => {
     const wrapper = mount(
       <TextArea onKeyDown={fakeHandleKeyDown} onPressEnter={fakeHandlePressEnter} />,
     );
-    /** keyCode 65 is A */
+    /** KeyCode 65 is A */
     wrapper.find('textarea').simulate('keydown', { keyCode: 65 });
     expect(fakeHandleKeyDown).toHaveBeenCalledTimes(1);
     expect(fakeHandlePressEnter).toHaveBeenCalledTimes(0);
 
-    /** keyCode 13 is Enter */
+    /** KeyCode 13 is Enter */
     wrapper.find('textarea').simulate('keydown', { keyCode: 13 });
     expect(fakeHandleKeyDown).toHaveBeenCalledTimes(2);
     expect(fakeHandlePressEnter).toHaveBeenCalledTimes(1);

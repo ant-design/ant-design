@@ -30,6 +30,7 @@ export default function ErrorList({
       if (changedVisible) {
         /**
          * We trigger in sync to avoid dom shaking but this get warning in react 16.13.
+         *
          * So use Promise to keep in micro async to handle this.
          * https://github.com/ant-design/ant-design/issues/21698#issuecomment-593743485
          */

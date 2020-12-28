@@ -17,9 +17,7 @@ function hasAddon(props: InputProps | ClearableInputProps) {
   return !!(props.addonBefore || props.addonAfter);
 }
 
-/**
- * This basic props required for input and textarea.
- */
+/** This basic props required for input and textarea. */
 interface BasicProps {
   prefixCls: string;
   inputType: typeof ClearableInputType[number];
@@ -36,9 +34,7 @@ interface BasicProps {
   bordered: boolean;
 }
 
-/**
- * This props only for input.
- */
+/** This props only for input. */
 interface ClearableInputProps extends BasicProps {
   size?: SizeType;
   suffix?: React.ReactNode;

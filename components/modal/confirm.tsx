@@ -60,6 +60,7 @@ export default function confirm(config: ModalFuncProps) {
   function render({ okText, cancelText, prefixCls, ...props }: any) {
     /**
      * https://github.com/ant-design/ant-design/issues/23623
+     *
      * Sync render blocks React event. Let's make this async.
      */
     setTimeout(() => {

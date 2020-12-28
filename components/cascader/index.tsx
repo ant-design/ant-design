@@ -93,7 +93,7 @@ export interface CascaderProps {
   name?: string;
   /** 输入框id */
   id?: string;
-  /** whether has border style */
+  /** Whether has border style */
   bordered?: boolean;
   /** 禁用 */
   disabled?: boolean;
@@ -115,7 +115,7 @@ export interface CascaderProps {
   inputPrefixCls?: string;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
-  /** use this after antd@3.7.0 */
+  /** Use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
   dropdownRender?: (menus: React.ReactNode) => React.ReactNode;

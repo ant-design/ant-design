@@ -7,10 +7,7 @@ import { FormLabelAlign } from './interface';
 import { RequiredMark } from './Form';
 import { ValidateStatus } from './FormItem';
 
-/**
- * Form Context
- * Set top form style and pass to Form Item usage.
- */
+/** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {
   vertical: boolean;
   name?: string;
@@ -28,10 +25,7 @@ export const FormContext = React.createContext<FormContextProps>({
   itemRef: (() => {}) as any,
 });
 
-/**
- * Form Item Context
- * Used for Form noStyle Item error collection
- */
+/** Form Item Context. Used for Form noStyle Item error collection */
 export interface FormItemContextProps {
   updateItemErrors: (name: string, errors: string[]) => void;
 }
@@ -40,10 +34,7 @@ export const FormItemContext = React.createContext<FormItemContextProps>({
   updateItemErrors: () => {},
 });
 
-/**
- * Form Provider
- *
- */
+/** Form Provider */
 export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMessages'> {}
 
 export const FormProvider: React.FC<FormProviderProps> = props => {
@@ -51,9 +42,7 @@ export const FormProvider: React.FC<FormProviderProps> = props => {
   return <RcFormProvider {...providerProps} />;
 };
 
-/**
- * Used for ErrorList only
- */
+/** Used for ErrorList only */
 export interface FormItemPrefixContextProps {
   prefixCls: string;
   status?: ValidateStatus;
