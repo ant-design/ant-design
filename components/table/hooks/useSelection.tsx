@@ -117,8 +117,11 @@ export default function useSelection<RecordType>(
     () =>
       checkStrictly
         ? { keyEntities: null }
-        : convertDataToEntities((data as unknown) as DataNode[], undefined, getRowKey as any),
-    [data, getRowKey, checkStrictly],
+        : convertDataToEntities((data as unknown) as DataNode[], {
+            externalGetKey: getRowKey as any,
+            childrenPropName: childrenColumnName,
+          }),
+    [data, getRowKey, checkStrictly, childrenColumnName],
   );
 
   // Get flatten data
