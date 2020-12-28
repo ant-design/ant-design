@@ -24,6 +24,6 @@ jobs:
           labels: 'needs-more-info'
           inactive-day: 3
           body: |
-            Since the issue was labeled with `needs-more-info`, no response was received for 3 days. The issue is now closed. If you have any questions, you can comment and reply.
+            Since the issue was labeled with `needs-more-info`, but no response in 3 days. This issue will be closed. If you have any questions, you can comment and reply.
 
-            由于该 issue 标记 `needs-more-info`，却 3 天未收到回应。现关闭 issue。若有任何问题，可评论回复。
+            由于该 issue 被标记为需要更多信息，却 3 天未收到回应。现关闭 issue，若有任何问题，可评论回复。
