@@ -8,10 +8,22 @@ jobs:
   close-issues:
     runs-on: ubuntu-latest
     steps:
-      - name: close-issues
+      - name: need reproduce
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'close-issues'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           labels: '🤔 Need Reproduce'
           inactive-day: 3
+      
+      - name: needs more info
+        uses: actions-cool/issues-helper@v1.2
+        with:
+          actions: 'close-issues'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          labels: 'needs-more-info'
+          inactive-day: 7
+          body: |
+            Since the issue was labeled with `needs-more-info`, no response was received for 7 days. The issue is now closed. If you have any questions, you can comment and reply.
+
+            由于该 issue 标记 `needs-more-info`，却 7 天未收到回应。现关闭 issue。若有任何问题，可评论回复。
