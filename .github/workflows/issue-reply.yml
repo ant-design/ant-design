@@ -58,4 +58,4 @@ jobs:
           body: |
             Hi @${{ github.event.issue.user.login }}. Current version (3.x) is off the maintenance period. We may not accept pull request or fix bug with it anymore. This topic will be auto closed.
 
-            你好 @${{ github.event.issue.user.login }},当前版本（3.x）已经过了维护期。我们不会再接受对其的相关 PR 与 issue。当前 topic 会被自动关闭。
+            你好 @${{ github.event.issue.user.login }}，当前版本（3.x）已经过了维护期。我们不会再接受对其的相关 PR 与 issue。当前 topic 会被自动关闭。
