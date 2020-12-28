@@ -98,7 +98,7 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 | Name              | Description                          |
 | ----------------- | ------------------------------------ |
-| scrollTo({ key }) | Scroll to key item in virtual scroll |
+| scrollTo({ key: string | number; align?: 'top' | 'bottom' | 'auto'; offset?: number }) | Scroll to key item in virtual scroll |
 
 ## FAQ
 

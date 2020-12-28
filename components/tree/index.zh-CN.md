@@ -99,7 +99,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 | 名称              | 说明                            |
 | ----------------- | ------------------------------- |
-| scrollTo({ key }) | 虚拟滚动下，滚动到指定 key 条目 |
+| scrollTo({ key: string | number; align?: 'top' | 'bottom' | 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
 
 ## FAQ
 
