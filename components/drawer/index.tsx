@@ -31,7 +31,7 @@ export interface DrawerProps {
   mask?: boolean;
   maskStyle?: React.CSSProperties;
   style?: React.CSSProperties;
-  /** wrapper dom node style of header and body */
+  /** Wrapper dom node style of header and body */
   drawerStyle?: React.CSSProperties;
   headerStyle?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;

@@ -140,7 +140,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     icon,
     ghost = false,
     block = false,
-    /** if we extract items here, we dont need use omit.js */
+    /** If we extract items here, we don't need use omit.js */
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button' as ButtonProps['htmlType'],
     ...rest

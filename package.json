@@ -234,6 +234,7 @@
     "node-fetch": "^2.6.0",
     "open": "^7.0.3",
     "prettier": "^2.2.0",
+    "prettier-plugin-jsdoc": "^0.2.12",
     "pretty-quick": "^3.0.0",
     "querystring": "^0.2.0",
     "rc-footer": "^0.6.3",

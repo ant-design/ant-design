@@ -19,9 +19,7 @@ function getDefaultTarget() {
 
 // Affix
 export interface AffixProps {
-  /**
-   * 距离窗口顶部达到指定偏移量后触发
-   */
+  /** 距离窗口顶部达到指定偏移量后触发 */
   offsetTop?: number;
   /** 距离窗口底部达到指定偏移量后触发 */
   offsetBottom?: number;

@@ -1,7 +1,5 @@
 /* eslint-disable no-console */
-/**
- * Generate legacy locale file as shadow of `/locale` to `/locale-provider`.
- */
+/** Generate legacy locale file as shadow of `/locale` to `/locale-provider`. */
 
 const glob = require('glob');
 const fs = require('fs');
