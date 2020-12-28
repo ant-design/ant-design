@@ -26,4 +26,4 @@ jobs:
           body: |
             Since the issue was labeled with `needs-more-info`, no response was received for 7 days. The issue is now closed. If you have any questions, you can comment and reply.
 
-            由于该 issue 标记 `needs-more-info`，却 7 天未收到回应。现关闭 issue。若有任何问题，可评论回复。
+            由于该 issue 标记 `needs-more-info`，却 3 天未收到回应。现关闭 issue。若有任何问题，可评论回复。
