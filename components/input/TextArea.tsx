@@ -9,10 +9,14 @@ import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
+interface ShowCountProps {
+  formatter: (args: { count: number; maxLength?: number }) => string;
+}
+
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
-  showCount?: boolean;
+  showCount?: boolean | ShowCountProps;
   maxLength?: number;
   size?: SizeType;
 }
@@ -92,10 +96,12 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       />
     );
 
-    const val = fixControlledValue(value) as string;
+    let val = fixControlledValue(value) as string;
 
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
+    // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
+    val = hasMaxLength ? [...val].slice(0, maxLength).join('') : val;
 
     // TextArea
     const textareaNode = (
@@ -114,10 +120,14 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const valueLength = hasMaxLength
-        ? Math.min(Number(maxLength), [...val].length)
-        : [...val].length;
-      const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      const valueLength = [...val].length;
+
+      let dataCount = '';
+      if (typeof showCount === 'object') {
+        dataCount = showCount.formatter({ count: valueLength, maxLength });
+      } else {
+        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      }
 
       return (
         <div

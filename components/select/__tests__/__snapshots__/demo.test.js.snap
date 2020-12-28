@@ -8,29 +8,38 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
   <div
     class="ant-select-selector"
   >
-    <span
-      class="ant-select-selection-search"
-      style="width:0"
+    <div
+      class="ant-select-selection-overflow"
     >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        role="combobox"
-        type="search"
-        value=""
-      />
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-search-mirror"
+      <div
+        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+        style="opacity:1"
       >
-         
-      </span>
-    </span>
+        <div
+          class="ant-select-selection-search"
+          style="width:0"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
     <span
       class="ant-select-selection-placeholder"
     />
@@ -330,76 +339,95 @@ Array [
     <div
       class="ant-select-selector"
     >
-      <span
-        class="ant-select-selection-item ant-select-selection-item-disabled"
+      <div
+        class="ant-select-selection-overflow"
       >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          a10
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-item"
-      >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          c12
-        </span>
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-item-remove"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
           <span
-            aria-label="close"
-            class="anticon anticon-close"
-            role="img"
+            class="ant-select-selection-item ant-select-selection-item-disabled"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-select-selection-item-content"
             >
-              <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-              />
-            </svg>
+              a10
+            </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-search"
-        style="width:0"
-      >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          readonly=""
-          role="combobox"
-          style="opacity:0"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-search-mirror"
+        </div>
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
-           
-        </span>
-      </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            <span
+              class="ant-select-selection-item-content"
+            >
+              c12
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          style="opacity:1"
+        >
+          <div
+            class="ant-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <div
@@ -741,88 +769,107 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
   <div
     class="ant-select-selector"
   >
-    <span>
-      <span
-        class="ant-tag ant-tag-gold"
-        style="margin-right:3px"
-      >
-        gold
-        <span
-          aria-label="close"
-          class="anticon anticon-close ant-tag-close-icon"
-          role="img"
-          tabindex="-1"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-            />
-          </svg>
-        </span>
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-tag ant-tag-cyan"
-        style="margin-right:3px"
-      >
-        cyan
-        <span
-          aria-label="close"
-          class="anticon anticon-close ant-tag-close-icon"
-          role="img"
-          tabindex="-1"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-            />
-          </svg>
-        </span>
-      </span>
-    </span>
-    <span
-      class="ant-select-selection-search"
-      style="width:0"
+    <div
+      class="ant-select-selection-overflow"
     >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        readonly=""
-        role="combobox"
-        style="opacity:0"
-        type="search"
-        unselectable="on"
-        value=""
-      />
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-search-mirror"
+      <div
+        class="ant-select-selection-overflow-item"
+        style="opacity:1"
       >
-         
-      </span>
-    </span>
+        <span>
+          <span
+            class="ant-tag ant-tag-gold"
+            style="margin-right:3px"
+          >
+            gold
+            <span
+              aria-label="close"
+              class="anticon anticon-close ant-tag-close-icon"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-selection-overflow-item"
+        style="opacity:1"
+      >
+        <span>
+          <span
+            class="ant-tag ant-tag-cyan"
+            style="margin-right:3px"
+          >
+            cyan
+            <span
+              aria-label="close"
+              class="anticon anticon-close ant-tag-close-icon"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+        style="opacity:1"
+      >
+        <div
+          class="ant-select-selection-search"
+          style="width:0"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
   <span
     aria-hidden="true"
@@ -926,67 +973,81 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
     <div
       class="ant-select-selector"
     >
-      <span
-        class="ant-select-selection-item"
+      <div
+        class="ant-select-selection-overflow"
       >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          Lucy
-        </span>
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-item-remove"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
           <span
-            aria-label="close"
-            class="anticon anticon-close"
-            role="img"
+            class="ant-select-selection-item"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-select-selection-item-content"
             >
-              <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-              />
-            </svg>
+              Lucy
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-search"
-        style="width:0"
-      >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          readonly=""
-          role="combobox"
-          style="opacity:0"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-search-mirror"
+        </div>
+        <div
+          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          style="opacity:1"
         >
-           
-        </span>
-      </span>
+          <div
+            class="ant-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <span
@@ -1013,32 +1074,41 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
   <div
     class="ant-select-selector"
   >
-    <span
-      class="ant-select-selection-search"
-      style="width:0"
+    <div
+      class="ant-select-selection-overflow"
     >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        readonly=""
-        role="combobox"
-        style="opacity:0"
-        type="search"
-        unselectable="on"
-        value=""
-      />
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-search-mirror"
+      <div
+        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+        style="opacity:1"
       >
-         
-      </span>
-    </span>
+        <div
+          class="ant-select-selection-search"
+          style="width:0"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
     <span
       class="ant-select-selection-placeholder"
     >
@@ -1120,102 +1190,121 @@ Array [
     <div
       class="ant-select-selector"
     >
-      <span
-        class="ant-select-selection-item"
+      <div
+        class="ant-select-selection-overflow"
       >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          a10
-        </span>
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-item-remove"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
           <span
-            aria-label="close"
-            class="anticon anticon-close"
-            role="img"
+            class="ant-select-selection-item"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-select-selection-item-content"
             >
-              <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-              />
-            </svg>
+              a10
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-item"
-      >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          c12
-        </span>
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-item-remove"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        </div>
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
           <span
-            aria-label="close"
-            class="anticon anticon-close"
-            role="img"
+            class="ant-select-selection-item"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-select-selection-item-content"
             >
-              <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-              />
-            </svg>
+              c12
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-search"
-        style="width:0"
-      >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          readonly=""
-          role="combobox"
-          style="opacity:0"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-search-mirror"
+        </div>
+        <div
+          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          style="opacity:1"
         >
-           
-        </span>
-      </span>
+          <div
+            class="ant-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
     <span
       aria-hidden="true"
@@ -1252,52 +1341,71 @@ Array [
     <div
       class="ant-select-selector"
     >
-      <span
-        class="ant-select-selection-item"
+      <div
+        class="ant-select-selection-overflow"
       >
-        <span
-          class="ant-select-selection-item-content"
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
-          a10
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-item"
-      >
-        <span
-          class="ant-select-selection-item-content"
+          <span
+            class="ant-select-selection-item"
+          >
+            <span
+              class="ant-select-selection-item-content"
+            >
+              a10
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
-          c12
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-search"
-        style="width:0"
-      >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          disabled=""
-          readonly=""
-          role="combobox"
-          style="opacity:0"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-search-mirror"
+          <span
+            class="ant-select-selection-item"
+          >
+            <span
+              class="ant-select-selection-item-content"
+            >
+              c12
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          style="opacity:1"
         >
-           
-        </span>
-      </span>
+          <div
+            class="ant-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              disabled=""
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
 ]
@@ -1374,67 +1482,216 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
   <div
     class="ant-select-selector"
   >
-    <span
-      class="ant-select-selection-item"
+    <div
+      class="ant-select-selection-overflow"
     >
-      <span
-        class="ant-select-selection-item-content"
-      >
-        China
-      </span>
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-item-remove"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
+      <div
+        class="ant-select-selection-overflow-item"
+        style="opacity:1"
       >
         <span
-          aria-label="close"
-          class="anticon anticon-close"
-          role="img"
+          class="ant-select-selection-item"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            class="ant-select-selection-item-content"
           >
-            <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-            />
-          </svg>
+            China
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </span>
+          </span>
         </span>
-      </span>
-    </span>
-    <span
-      class="ant-select-selection-search"
-      style="width:0"
-    >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        readonly=""
-        role="combobox"
-        style="opacity:0"
-        type="search"
-        unselectable="on"
-        value=""
-      />
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-search-mirror"
+      </div>
+      <div
+        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+        style="opacity:1"
       >
-         
-      </span>
-    </span>
+        <div
+          class="ant-select-selection-search"
+          style="width:0"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-select ant-select-multiple ant-select-show-search"
+      style="width:100%"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <div
+          class="ant-select-selection-overflow"
+        >
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-rest"
+            style="opacity:0.2;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+          >
+            <span
+              class="ant-select-selection-item"
+            >
+              <span
+                class="ant-select-selection-item-content"
+              >
+                + 4 ...
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+            style="opacity:1;order:0"
+          >
+            <div
+              class="ant-select-selection-search"
+              style="width:0"
+            >
+              <input
+                aria-activedescendant="undefined_list_0"
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-haspopup="listbox"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                readonly=""
+                role="combobox"
+                style="opacity:0"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-search-mirror"
+              >
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+      style="width:100%"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <div
+          class="ant-select-selection-overflow"
+        >
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-rest"
+            style="opacity:0.2;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+          >
+            <span
+              class="ant-select-selection-item"
+            >
+              <span
+                class="ant-select-selection-item-content"
+              >
+                + 4 ...
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+            style="opacity:1;order:0"
+          >
+            <div
+              class="ant-select-selection-search"
+              style="width:0"
+            >
+              <input
+                aria-activedescendant="undefined_list_0"
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                readonly=""
+                role="combobox"
+                style="opacity:0"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-search-mirror"
+              >
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -1598,32 +1855,41 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
   <div
     class="ant-select-selector"
   >
-    <span
-      class="ant-select-selection-search"
-      style="width:0"
+    <div
+      class="ant-select-selection-overflow"
     >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        readonly=""
-        role="combobox"
-        style="opacity:0"
-        type="search"
-        unselectable="on"
-        value=""
-      />
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-search-mirror"
+      <div
+        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+        style="opacity:1"
       >
-         
-      </span>
-    </span>
+        <div
+          class="ant-select-selection-search"
+          style="width:0"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
     <span
       class="ant-select-selection-placeholder"
     >
@@ -1767,102 +2033,121 @@ Array [
     <div
       class="ant-select-selector"
     >
-      <span
-        class="ant-select-selection-item"
+      <div
+        class="ant-select-selection-overflow"
       >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          a10
-        </span>
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-item-remove"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
           <span
-            aria-label="close"
-            class="anticon anticon-close"
-            role="img"
+            class="ant-select-selection-item"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-select-selection-item-content"
             >
-              <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-              />
-            </svg>
+              a10
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-item"
-      >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          c12
-        </span>
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-item-remove"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        </div>
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
           <span
-            aria-label="close"
-            class="anticon anticon-close"
-            role="img"
+            class="ant-select-selection-item"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-select-selection-item-content"
             >
-              <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-              />
-            </svg>
+              c12
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-search"
-        style="width:0"
-      >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          readonly=""
-          role="combobox"
-          style="opacity:0"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-search-mirror"
+        </div>
+        <div
+          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          style="opacity:1"
         >
-           
-        </span>
-      </span>
+          <div
+            class="ant-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <br />,
@@ -1873,99 +2158,118 @@ Array [
     <div
       class="ant-select-selector"
     >
-      <span
-        class="ant-select-selection-item"
+      <div
+        class="ant-select-selection-overflow"
       >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          a10
-        </span>
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-item-remove"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
           <span
-            aria-label="close"
-            class="anticon anticon-close"
-            role="img"
+            class="ant-select-selection-item"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-select-selection-item-content"
             >
-              <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-              />
-            </svg>
+              a10
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-item"
-      >
-        <span
-          class="ant-select-selection-item-content"
-        >
-          c12
-        </span>
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-item-remove"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        </div>
+        <div
+          class="ant-select-selection-overflow-item"
+          style="opacity:1"
         >
           <span
-            aria-label="close"
-            class="anticon anticon-close"
-            role="img"
+            class="ant-select-selection-item"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-select-selection-item-content"
             >
-              <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-              />
-            </svg>
+              c12
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-search"
-        style="width:0"
-      >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          role="combobox"
-          type="search"
-          value=""
-        />
-        <span
-          aria-hidden="true"
-          class="ant-select-selection-search-mirror"
+        </div>
+        <div
+          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          style="opacity:1"
         >
-           
-        </span>
-      </span>
+          <div
+            class="ant-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
 ]
@@ -2106,29 +2410,38 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
   <div
     class="ant-select-selector"
   >
-    <span
-      class="ant-select-selection-search"
-      style="width:0"
+    <div
+      class="ant-select-selection-overflow"
     >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        role="combobox"
-        type="search"
-        value=""
-      />
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-search-mirror"
+      <div
+        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+        style="opacity:1"
       >
-         
-      </span>
-    </span>
+        <div
+          class="ant-select-selection-search"
+          style="width:0"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
     <span
       class="ant-select-selection-placeholder"
     >

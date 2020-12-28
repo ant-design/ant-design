@@ -140,7 +140,7 @@ describe('TextArea', () => {
     it('maxLength', () => {
       const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
       const textarea = wrapper.find('.ant-input-textarea');
-      expect(wrapper.find('textarea').prop('value')).toBe('12345678');
+      expect(wrapper.find('textarea').prop('value')).toBe('12345');
       expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
@@ -164,6 +164,19 @@ describe('TextArea', () => {
       // Inner
       expect(wrapper.find('.ant-input').hasClass('bamboo')).toBeFalsy();
       expect(wrapper.find('.ant-input').props().style.background).toBeFalsy();
+    });
+
+    it('count formatter', () => {
+      const wrapper = mount(
+        <TextArea
+          maxLength={5}
+          showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+          value="12345678"
+        />,
+      );
+      const textarea = wrapper.find('.ant-input-textarea');
+      expect(wrapper.find('textarea').prop('value')).toBe('12345');
+      expect(textarea.prop('data-count')).toBe('5, 5');
     });
   });
 

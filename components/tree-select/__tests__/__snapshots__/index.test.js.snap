@@ -150,71 +150,90 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
   <div
     class="ant-select-selector"
   >
-    <span
-      class="ant-select-selection-item"
+    <div
+      class="ant-select-selection-overflow"
     >
-      <span
-        class="ant-select-selection-item-content"
+      <div
+        class="ant-select-selection-overflow-item"
+        style="opacity: 1;"
       >
-        my leaf
-      </span>
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-item-remove"
-        style="user-select: none;"
-        unselectable="on"
-      >
-        <span>
-          remove
+        <span
+          class="ant-select-selection-item"
+        >
+          <span
+            class="ant-select-selection-item-content"
+          >
+            my leaf
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select: none;"
+            unselectable="on"
+          >
+            <span>
+              remove
+            </span>
+          </span>
         </span>
-      </span>
-    </span>
-    <span
-      class="ant-select-selection-item"
-    >
-      <span
-        class="ant-select-selection-item-content"
+      </div>
+      <div
+        class="ant-select-selection-overflow-item"
+        style="opacity: 1;"
       >
-        your leaf
-      </span>
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-item-remove"
-        style="user-select: none;"
-        unselectable="on"
-      >
-        <span>
-          remove
+        <span
+          class="ant-select-selection-item"
+        >
+          <span
+            class="ant-select-selection-item-content"
+          >
+            your leaf
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select: none;"
+            unselectable="on"
+          >
+            <span>
+              remove
+            </span>
+          </span>
         </span>
-      </span>
-    </span>
-    <span
-      class="ant-select-selection-search"
-      style="width: 0px;"
-    >
-      <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        readonly=""
-        role="combobox"
-        style="opacity: 0;"
-        type="search"
-        unselectable="on"
-        value=""
-      />
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-search-mirror"
+      </div>
+      <div
+        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+        style="opacity: 1;"
       >
-         
-      </span>
-    </span>
+        <div
+          class="ant-select-selection-search"
+          style="width: 0px;"
+        >
+          <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
   <span
     aria-hidden="true"

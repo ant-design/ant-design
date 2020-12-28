@@ -108,6 +108,8 @@ export interface UploadProps<T = any> {
   isImageUrl?: (file: UploadFile) => boolean;
   progress?: UploadListProgressProps;
   itemRender?: ItemRender<T>;
+  /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
+  maxCount?: number;
 }
 
 export interface UploadState<T = any> {

@@ -1,5 +1,6 @@
 @import './index';
 
+@select-overflow-prefix-cls: ~'@{select-prefix-cls}-selection-overflow';
 @select-multiple-item-border-width: 1px;
 
 @select-multiple-padding: max(
@@ -12,6 +13,20 @@
  * Do not merge `height` & `line-height` under style with `selection` & `search`,
  * since chrome may update to redesign with its align logic.
  */
+
+// =========================== Overflow ===========================
+.@{select-overflow-prefix-cls} {
+  position: relative;
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  max-width: 100%;
+
+  &-item {
+    flex: none;
+    max-width: 100%;
+  }
+}
 
 .@{select-prefix-cls} {
   &-multiple {
@@ -56,9 +71,10 @@
 
       height: @select-multiple-item-height;
       margin-top: @select-multiple-item-spacing-half;
-      margin-right: @input-padding-vertical-base;
+      margin-inline-end: @input-padding-vertical-base;
       margin-bottom: @select-multiple-item-spacing-half;
-      padding: 0 (@padding-xs / 2) 0 @padding-xs;
+      padding-inline-start: @padding-xs;
+      padding-inline-end: @padding-xs / 2;
       line-height: @select-multiple-item-height - @select-multiple-item-border-width * 2;
       background: @select-selection-item-bg;
       border: 1px solid @select-selection-item-border-color;
@@ -102,14 +118,23 @@
     }
 
     // ========================== Input ==========================
+    .@{select-overflow-prefix-cls}-item + .@{select-overflow-prefix-cls}-item {
+      .@{select-prefix-cls}-selection-search {
+        margin-inline-start: 0;
+      }
+    }
+
     .@{select-prefix-cls}-selection-search {
       position: relative;
-      margin-left: (@select-multiple-padding / 2);
+      margin-inline-start: @input-padding-horizontal-base - @input-padding-vertical-base;
+      margin-top: @select-multiple-item-spacing-half;
+      margin-bottom: @select-multiple-item-spacing-half;
 
       &-input,
       &-mirror {
+        height: @select-multiple-item-height;
         font-family: @font-family;
-        line-height: @line-height-base;
+        line-height: @select-multiple-item-height;
         transition: all 0.3s;
       }
 
@@ -125,11 +150,6 @@
         z-index: 999;
         white-space: pre; // fix whitespace wrapping caused width calculation bug
         visibility: hidden;
-      }
-
-      // https://github.com/ant-design/ant-design/issues/22906
-      &:first-child > .@{select-prefix-cls}-selection-search-input {
-        margin-left: 6.5px !important;
       }
     }
 

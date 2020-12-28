@@ -173,7 +173,8 @@ const columns = [
 展开功能的配置。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
+| columnWidth | 自定义展开列宽度 | string \| number | - |  |
 | childrenColumnName | 指定树形结构的列名 | string | children |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |

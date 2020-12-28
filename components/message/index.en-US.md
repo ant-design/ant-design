@@ -58,6 +58,7 @@ The properties of config are as follows:
 | key | The unique identifier of the Message | string \| number | - |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | onClose | Specify a function that will be called when the message is closed | function | - |
+| onClick | Specify a function that will be called when the message is clicked | function | - |
 
 ### Global static methods
 

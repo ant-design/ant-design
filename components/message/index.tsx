@@ -127,6 +127,7 @@ export interface ArgsProps {
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
@@ -148,6 +149,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
       </div>
     ),
     onClose: args.onClose,
+    onClick: args.onClick,
   };
 }
 
