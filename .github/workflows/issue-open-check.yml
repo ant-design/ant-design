@@ -86,4 +86,4 @@ jobs:
           actions: 'create-comment'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          body: You can check this https://github.com/ant-design/ant-design/issues/21039 if it helps.
+          body: Hello @${{ github.event.issue.user.login }}, you can check this https://github.com/ant-design/ant-design/issues/21039 if it helps.
