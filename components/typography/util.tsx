@@ -54,6 +54,42 @@ function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
 
   return childList;
 }
+  
+function getRealLineHeight(originEle: HTMLElement) {
+  const heightContainer = document.createElement('p');
+  heightContainer.setAttribute('aria-hidden', 'true');
+
+  const originStyle = window.getComputedStyle(originEle);
+  const originCSS = styleToString(originStyle);
+
+  // Set shadow
+  heightContainer.setAttribute('style', originCSS);
+  heightContainer.style.position = 'fixed';
+  heightContainer.style.left = '0';
+  heightContainer.style.height = 'auto';
+  heightContainer.style.minHeight = 'auto';
+  heightContainer.style.maxHeight = 'auto';
+  heightContainer.style.top = '-999999px';
+  heightContainer.style.zIndex = '-1000';
+
+  // clean up css overflow
+  heightContainer.style.textOverflow = 'clip';
+  heightContainer.style.whiteSpace = 'normal';
+  (heightContainer.style as any).webkitLineClamp = 'none';
+
+  heightContainer.appendChild(document.createTextNode('text'));
+  document.body.appendChild(heightContainer);
+
+  let realLineHeight = pxToNumber(getComputedStyle(heightContainer).lineHeight);
+
+  if (realLineHeight !== heightContainer.getBoundingClientRect().height) {
+    realLineHeight = heightContainer.getBoundingClientRect().height;
+  }
+
+  document.body.removeChild(heightContainer);
+
+  return realLineHeight;
+}
 
 export default (
   originEle: HTMLElement,
@@ -72,7 +108,7 @@ export default (
   // Get origin style
   const originStyle = window.getComputedStyle(originEle);
   const originCSS = styleToString(originStyle);
-  const lineHeight = pxToNumber(originStyle.lineHeight);
+  const lineHeight = getRealLineHeight(originEle);
   const maxHeight = Math.round(
     lineHeight * (rows + 1) +
       pxToNumber(originStyle.paddingTop) +
