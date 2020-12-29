@@ -85,6 +85,13 @@ Supports all props of `Input`.
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | Whether show toggle button | boolean | true |  |
 
+#### Input Methods
+
+| Name | Description | Parameters | Version |
+| --- | --- | --- | --- |
+| blur | Remove focus | - |  |
+| focus | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
 ## FAQ
 
 ### Why Input lose focus when change `prefix/suffix`
