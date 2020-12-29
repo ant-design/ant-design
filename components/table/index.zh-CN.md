@@ -210,6 +210,7 @@ const columns = [
 | onSelect | 用户手动选择/取消选择某行的回调 | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | 用户手动选择反选的回调 | function(selectedRowKeys) | - |  |
+| onSelectNone | 用户清空选择的回调 | function() | - |  |
 
 ### scroll
 

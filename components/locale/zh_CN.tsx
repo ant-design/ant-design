@@ -24,6 +24,7 @@ const localeValues: Locale = {
     filterEmptyText: '无筛选项',
     selectAll: '全选当页',
     selectInvert: '反选当页',
+    selectNone: '清空所有',
     selectionAll: '全选所有',
     sortTitle: '排序',
     expand: '展开行',

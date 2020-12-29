@@ -203,6 +203,7 @@ Properties for row selection.
 | onSelect | Callback executed when select/deselect one row | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | Callback executed when select/deselect all rows | function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | Callback executed when row selection is inverted | function(selectedRowKeys) | - |  |
+| onSelectNone | Callback executed when row selection is cleared | function() | - |  |
 
 ### scroll
 

@@ -24,6 +24,7 @@ const localeValues: Locale = {
     emptyText: 'No data',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
+    selectNone: 'Clear all data',
     selectionAll: 'Select all data',
     sortTitle: 'Sort',
     expand: 'Expand row',

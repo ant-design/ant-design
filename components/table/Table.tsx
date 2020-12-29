@@ -26,7 +26,11 @@ import {
   TableLocale,
   TableAction,
 } from './interface';
-import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
+import useSelection, {
+  SELECTION_ALL,
+  SELECTION_INVERT,
+  SELECTION_NONE,
+} from './hooks/useSelection';
 import useSorter, { getSortData, SortState } from './hooks/useSorter';
 import useFilter, { getFilterData, FilterState } from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
@@ -509,6 +513,7 @@ Table.defaultProps = {
 
 Table.SELECTION_ALL = SELECTION_ALL;
 Table.SELECTION_INVERT = SELECTION_INVERT;
+Table.SELECTION_NONE = SELECTION_NONE;
 Table.Column = Column;
 Table.ColumnGroup = ColumnGroup;
 Table.Summary = Summary;

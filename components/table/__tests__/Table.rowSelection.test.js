@@ -294,9 +294,26 @@ describe('Table.rowSelection', () => {
     checkboxes.at(1).simulate('change', { target: { checked: true } });
 
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    dropdownWrapper.find('.ant-dropdown-menu-item').last().simulate('click');
+    dropdownWrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
 
     expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
+  });
+
+  it('fires selectNone event', () => {
+    const handleSelectNone = jest.fn();
+    const rowSelection = {
+      onSelectNone: handleSelectNone,
+      selections: true,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    const checkboxes = wrapper.find('input');
+
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item').last().simulate('click');
+
+    expect(handleSelectNone).toHaveBeenCalled();
   });
 
   it('fires selection event', () => {
