@@ -67,3 +67,23 @@ jobs:
           token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           labels: 'IE | Firefox |  Safari,Internet Explorer'
+
+      - name: check-ie-dropdown
+        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true
+        uses: actions-cool/issues-helper@v1.2
+        id: checkieid
+        with:
+          actions: 'check-issue'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          # 格式如：'x1,x2' or  'x1,x2/y1,y2' 最多支持 2 个数组           
+          title-includes: 'ie/select,dropdown,下拉,弹出,选择'
+
+      - name: deal-check-ie
+        if: steps.checkid.outputs.check-result == true
+        uses: actions-cool/issues-helper@v1.2
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: You can check this https://github.com/ant-design/ant-design/issues/21039 if it helps.
