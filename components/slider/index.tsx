@@ -59,13 +59,17 @@ export interface SliderSingleProps extends SliderBaseProps {
 }
 
 export interface SliderRangeProps extends SliderBaseProps {
-  range: true;
+  range: true | SliderRange;
   value?: [number, number];
   defaultValue?: [number, number];
   onChange?: (value: [number, number]) => void;
   onAfterChange?: (value: [number, number]) => void;
   handleStyle?: React.CSSProperties[];
   trackStyle?: React.CSSProperties[];
+}
+
+interface SliderRange {
+  draggableTrack?: boolean;
 }
 
 export type Visibles = { [index: number]: boolean };
@@ -136,15 +140,24 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     const cls = classNames(className, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
+
     // make reverse default on rtl direction
     if (direction === 'rtl' && !restProps.vertical) {
       restProps.reverse = !restProps.reverse;
     }
+  
+    // extrack draggableTrack from range={{ ... }}
+    let draggableTrack: boolean | undefined;
+    if (typeof range === 'object') {
+      draggableTrack = range.draggableTrack;
+    }
+  
     if (range) {
       return (
         <RcRange
           {...(restProps as SliderRangeProps)}
           step={restProps.step!}
+          draggableTrack={draggableTrack}
           className={cls}
           ref={ref}
           handle={(info: HandleGeneratorInfo) =>
