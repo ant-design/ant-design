@@ -80,7 +80,7 @@ jobs:
           title-includes: 'ie/select,dropdown,下拉,弹出,选择'
 
       - name: deal-check-ie
-        if: steps.checkid.outputs.check-result == true
+        if: steps.checkieid.outputs.check-result == true
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment'
