@@ -87,6 +87,13 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | 是否显示切换按钮 | boolean | true |  |
 
+#### Input Methods
+
+| 名称 | 说明 | 参数 | 版本 |
+| --- | --- | --- | --- |
+| blur | 取消焦点 | - |  |
+| focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
 ## FAQ
 
 ### 为什么我动态改变 `prefix/suffix` 时，Input 会失去焦点？
