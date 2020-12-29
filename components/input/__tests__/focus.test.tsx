@@ -18,7 +18,7 @@ describe('Input.Focus', () => {
       focus,
       setSelectionRange,
     });
-    textareaSpy = spyElementPrototypes(HTMLInputElement, {
+    textareaSpy = spyElementPrototypes(HTMLTextAreaElement, {
       focus,
       setSelectionRange,
     });
@@ -48,8 +48,8 @@ describe('Input.Focus', () => {
   });
 
   it('all', () => {
-    const ref = React.createRef<Input>();
-    mount(<Input ref={ref} defaultValue="light" />);
+    const ref = React.createRef<any>();
+    mount(<TextArea ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'all' });
 
     expect(focus).toHaveBeenCalled();
