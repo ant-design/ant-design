@@ -225,6 +225,22 @@
           background-color: @dropdown-menu-submenu-disabled-bg;
           cursor: not-allowed;
         }
+
+        > a {
+          position: relative;
+          color: @disabled-color;
+          pointer-events: none;
+
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: not-allowed;
+            content: '';
+          }
+        }
       }
 
       &-divider {

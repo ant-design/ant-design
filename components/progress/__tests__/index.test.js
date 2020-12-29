@@ -175,6 +175,15 @@ describe('Progress', () => {
     );
   });
 
+  it('should display correct step', () => {
+    const wrapper = mount(<Progress steps={9} percent={22.22} />);
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(2);
+    wrapper.setProps({ percent: 33.33 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(3);
+    wrapper.setProps({ percent: 44.44 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(4);
+  });
+
   it('steps should have default percent 0', () => {
     const wrapper = mount(<ProgressSteps />);
     expect(wrapper.render()).toMatchSnapshot();

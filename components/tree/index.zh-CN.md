@@ -66,7 +66,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | disableCheckbox | 禁掉 checkbox | boolean | false |  |
 | disabled | 禁掉响应 | boolean | false |  |
 | icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode \| (props) => ReactNode | - |  |
-| isLeaf | 设置为叶子节点(设置了`loadData`时有效)。为 `false` 时会强制将其作为父节点 | boolean | - |  |
+| isLeaf | 设置为叶子节点 (设置了 `loadData` 时有效)。为 `false` 时会强制将其作为父节点 | boolean | - |  |
 | key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | (内部计算出的节点位置) |  |
 | selectable | 设置节点是否可被选中 | boolean | true |  |
 | title | 标题 | ReactNode | `---` |  |
@@ -97,9 +97,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 ### Tree 方法
 
-| 名称              | 说明                            |
-| ----------------- | ------------------------------- |
-| scrollTo({ key }) | 虚拟滚动下，滚动到指定 key 条目 |
+| 名称 | 说明 |
+| --- | --- |
+| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
 
 ## FAQ
 

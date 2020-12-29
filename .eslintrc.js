@@ -118,7 +118,7 @@ module.exports = {
     'jest/no-conditional-expect': 0,
 
     'unicorn/better-regex': 2,
-    'unicorn/prefer-trim-start-end': 2,
+    'unicorn/prefer-string-trim-start-end': 2,
     'unicorn/expiring-todo-comments': 2,
     'unicorn/no-abusive-eslint-disable': 2,
 
