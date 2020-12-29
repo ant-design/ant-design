@@ -3,7 +3,6 @@ order: 21
 title:
   zh-CN: 聚焦
   en-US: Focus
-only: true
 ---
 
 ## zh-CN
