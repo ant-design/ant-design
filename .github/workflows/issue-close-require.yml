@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: need reproduce
-        uses: actions-cool/issues-helper@v1.2
+        uses: actions-cool/issues-helper@v1.4
         with:
           actions: 'close-issues'
           token: ${{ secrets.ANT_BOT_TOKEN }}
@@ -17,7 +17,7 @@ jobs:
           inactive-day: 3
       
       - name: needs more info
-        uses: actions-cool/issues-helper@v1.2
+        uses: actions-cool/issues-helper@v1.4
         with:
           actions: 'close-issues'
           token: ${{ secrets.ANT_BOT_TOKEN }}
