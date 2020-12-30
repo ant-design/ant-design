@@ -5,14 +5,13 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import Line from './Line';
 import Circle from './Circle';
 import Steps from './Steps';
-import { validProgress } from './utils';
+import { validProgress, getSuccessPercent } from './utils';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = typeof ProgressTypes[number];
@@ -65,15 +64,8 @@ export default class Progress extends React.Component<ProgressProps> {
   };
 
   getPercentNumber() {
-    const { percent = 0, success } = this.props;
-    let { successPercent } = this.props;
-    /** @deprecated Use `percent` instead */
-    if (success && 'progress' in success) {
-      successPercent = success.progress;
-    }
-    if (success && 'percent' in success) {
-      successPercent = success.percent;
-    }
+    const { percent = 0 } = this.props;
+    const successPercent = getSuccessPercent(this.props);
     return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
       10,
@@ -89,15 +81,8 @@ export default class Progress extends React.Component<ProgressProps> {
   }
 
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { showInfo, format, type, percent, success } = this.props;
-    let { successPercent } = this.props;
-    if (success && 'progress' in success) {
-      devWarning(false, 'Progress', '`success.progress` is deprecated. Please use `success.percent` instead.');
-      successPercent = success.progress;
-    }
-    if (success && 'percent' in success) {
-      successPercent = success.percent;
-    }
+    const { showInfo, format, type, percent } = this.props;
+    const successPercent = getSuccessPercent(this.props);
     if (!showInfo) return null;
 
     let text;
@@ -136,7 +121,7 @@ export default class Progress extends React.Component<ProgressProps> {
     devWarning(
       !('successPercent' in props),
       'Progress',
-      '`successPercent` is deprecated. Please use `success` instead.',
+      '`successPercent` is deprecated. Please use `success.percent` instead.',
     );
 
     let progress;
@@ -152,7 +137,7 @@ export default class Progress extends React.Component<ProgressProps> {
           {progressInfo}
         </Steps>
       ) : (
-        <Line {...this.props} prefixCls={prefixCls}>
+        <Line {...this.props} prefixCls={prefixCls} direction={direction}>
           {progressInfo}
         </Line>
       );

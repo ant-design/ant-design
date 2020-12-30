@@ -87,7 +87,7 @@ const Dropdown: DropdownInterface = props => {
       overlayNode = overlay;
     }
     overlayNode = React.Children.only(
-      typeof overlayNode === 'string' ? <span>overlayNode</span> : overlayNode,
+      typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
     );
 
     const overlayProps = overlayNode.props;
@@ -144,9 +144,13 @@ const Dropdown: DropdownInterface = props => {
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
-    className: classNames(child.props.className, `${prefixCls}-trigger`, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    }),
+    className: classNames(
+      `${prefixCls}-trigger`,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      child.props.className,
+    ),
     disabled,
   });
 

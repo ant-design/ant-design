@@ -4,12 +4,27 @@
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 
 .@{descriptions-prefix-cls} {
-  &-title {
+  &-header {
+    display: flex;
+    align-items: center;
     margin-bottom: @descriptions-title-margin-bottom;
+  }
+
+  &-title {
+    flex: auto;
+    overflow: hidden;
     color: @heading-color;
     font-weight: bold;
     font-size: @font-size-lg;
     line-height: @line-height-base;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-extra {
+    margin-left: auto;
+    color: @descriptions-extra-color;
+    font-size: @font-size-base;
   }
 
   &-view {
@@ -67,16 +82,26 @@
 
   &-item-content {
     display: table-cell;
+    flex: 1;
     color: @text-color;
     font-size: @font-size-base;
     line-height: @line-height-base;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   &-item {
     padding-bottom: 0;
-    > span {
-      display: inline-flex;
-      align-items: baseline;
+    vertical-align: top;
+
+    &-container {
+      display: flex;
+
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
+        display: inline-flex;
+        align-items: baseline;
+      }
     }
   }
 

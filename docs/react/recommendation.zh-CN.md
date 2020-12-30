@@ -8,7 +8,7 @@ title: 社区精选组件
 | 类型 | 推荐组件 |
 | --- | --- |
 | 可视化图表 | [AntV 数据可视化解决方案](https://antv.vision/zh) [🔥 AntV 图表库](https://g2plot.antv.vision/zh) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
-| React Hooks 库 | [umi-hooks](https://github.com/umijs/hooks) |
+| React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](https://github.com/whoisandy/react-blocks) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | 拖拽 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
@@ -25,7 +25,7 @@ title: 社区精选组件
 | 顶部进度条 | [nprogress](https://github.com/rstacruz/nprogress) |
 | 应用国际化 | [react-intl](https://github.com/yahoo/react-intl) |
 | 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
-| Markdown 渲染 | [react-markdown](http://rexxars.github.io/react-markdown/) |
+| Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
 | 无限滚动 | [react-virtualized](https://github.com/bvaughn/react-virtualized) [antd-table-infinity](https://github.com/Leonard-Li777/antd-table-infinity) |
 | 地图 | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap 高德](https://github.com/ElemeFE/react-amap) |
 | 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |

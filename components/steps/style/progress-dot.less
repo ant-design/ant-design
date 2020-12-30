@@ -7,7 +7,7 @@
     &-tail {
       top: @steps-dot-top;
       width: 100%;
-      margin: 0 0 0 @steps-desciption-max-width / 2;
+      margin: 0 0 0 (@steps-description-max-width / 2);
       padding: 0;
 
       &::after {
@@ -47,12 +47,21 @@
         }
       }
     }
+    &-content {
+      width: @steps-description-max-width;
+    }
     &-process .@{steps-prefix-cls}-item-icon {
       position: relative;
       top: -1px;
       width: @steps-current-dot-size;
       height: @steps-current-dot-size;
       line-height: @steps-current-dot-size;
+      background: none;
+    }
+    &-process .@{steps-prefix-cls}-icon {
+      &:first-child .@{steps-prefix-cls}-icon-dot {
+        left: 0;
+      }
     }
   }
 }
@@ -73,7 +82,13 @@
   .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
     left: 0;
   }
-  .@{steps-prefix-cls}-item-process .@{steps-prefix-cls}-icon-dot {
+  .@{steps-prefix-cls}-item-content {
+    width: inherit;
+  }
+  .@{steps-prefix-cls}-item-process
+    .@{steps-prefix-cls}-item-container
+    .@{steps-prefix-cls}-item-icon
+    .@{steps-prefix-cls}-icon-dot {
     left: -2px;
   }
 }

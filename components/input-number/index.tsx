@@ -4,7 +4,7 @@ import RcInputNumber from 'rc-input-number';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { Omit } from '../_util/type';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
@@ -22,6 +22,7 @@ export interface InputNumberProps
   tabIndex?: number;
   onChange?: (value: number | string | undefined) => void;
   disabled?: boolean;
+  readOnly?: boolean;
   size?: SizeType;
   formatter?: (value: number | string | undefined) => string;
   parser?: (displayValue: string | undefined) => number | string;
@@ -33,44 +34,47 @@ export interface InputNumberProps
   id?: string;
   precision?: number;
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
+  onStep?: (value: number, info: { offset: number; type: 'up' | 'down' }) => void;
 }
 
 const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => {
-  const renderInputNumber = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { className, size: customizeSize, prefixCls: customizePrefixCls, ...others } = props;
-    const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-    const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-    const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
 
-    return (
-      <SizeContext.Consumer>
-        {size => {
-          const mergeSize = customizeSize || size;
-          const inputNumberClass = classNames(
-            {
-              [`${prefixCls}-lg`]: mergeSize === 'large',
-              [`${prefixCls}-sm`]: mergeSize === 'small',
-              [`${prefixCls}-rtl`]: direction === 'rtl',
-            },
-            className,
-          );
+  const {
+    className,
+    size: customizeSize,
+    prefixCls: customizePrefixCls,
+    readOnly,
+    ...others
+  } = props;
 
-          return (
-            <RcInputNumber
-              ref={ref}
-              className={inputNumberClass}
-              upHandler={upIcon}
-              downHandler={downIcon}
-              prefixCls={prefixCls}
-              {...others}
-            />
-          );
-        }}
-      </SizeContext.Consumer>
-    );
-  };
+  const prefixCls = getPrefixCls('input-number', customizePrefixCls);
+  const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
+  const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
 
-  return <ConfigConsumer>{renderInputNumber}</ConfigConsumer>;
+  const mergeSize = customizeSize || size;
+  const inputNumberClass = classNames(
+    {
+      [`${prefixCls}-lg`]: mergeSize === 'large',
+      [`${prefixCls}-sm`]: mergeSize === 'small',
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-readonly`]: readOnly,
+    },
+    className,
+  );
+
+  return (
+    <RcInputNumber
+      ref={ref}
+      className={inputNumberClass}
+      upHandler={upIcon}
+      downHandler={downIcon}
+      prefixCls={prefixCls}
+      readOnly={readOnly}
+      {...others}
+    />
+  );
 });
 
 InputNumber.defaultProps = {

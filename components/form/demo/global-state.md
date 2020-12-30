@@ -22,11 +22,11 @@ import React, { useState } from 'react';
 import { Form, Input } from 'antd';
 
 interface FieldData {
-  name: string[];
-  value: any;
-  touched: boolean;
-  validating: boolean;
-  errors: string[];
+  name: string | number | (string | number)[];
+  value?: any;
+  touched?: boolean;
+  validating?: boolean;
+  errors?: string[];
 }
 
 interface CustomizedFormProps {
@@ -40,7 +40,7 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => 
       name="global_state"
       layout="inline"
       fields={fields}
-      onFieldsChange={(changedFields, allFields) => {
+      onFieldsChange={(_, allFields) => {
         onChange(allFields);
       }}
     >
@@ -56,10 +56,10 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => 
 };
 
 const Demo = () => {
-  const [fields, setFields] = useState([{ name: ['username'], value: 'Ant Design' }]);
+  const [fields, setFields] = useState<FieldData[]>([{ name: ['username'], value: 'Ant Design' }]);
 
   return (
-    <div>
+    <>
       <CustomizedForm
         fields={fields}
         onChange={newFields => {
@@ -67,7 +67,7 @@ const Demo = () => {
         }}
       />
       <pre className="language-bash">{JSON.stringify(fields, null, 2)}</pre>
-    </div>
+    </>
   );
 };
 

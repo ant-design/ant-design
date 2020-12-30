@@ -23,6 +23,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -33,8 +34,8 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
   </div>
   <div>
     <div
-      class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity: 0; min-width: 0; width: 0px;"
+      class="ant-select-dropdown ant-tree-select-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+      style="opacity: 0; pointer-events: none; min-width: 0; width: 0px;"
     >
       <div>
         <div>
@@ -51,37 +52,59 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
               />
             </div>
             <div
-              class="ant-select-tree-list"
-              style="height: 256px;"
+              aria-hidden="true"
+              class="ant-select-tree-treenode"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
-              <div>
+              <div
+                class="ant-select-tree-indent"
+              >
                 <div
-                  class="ant-select-tree-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
+                  class="ant-select-tree-indent-unit"
+                />
+              </div>
+            </div>
+            <div
+              class="ant-select-tree-list"
+              style="position: relative;"
+            >
+              <div
+                class="ant-select-tree-list-holder"
+                style="max-height: 256px; overflow-y: auto;"
+              >
+                <div>
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-list-holder-inner"
+                    style="display: flex; flex-direction: column;"
                   >
-                    <span
-                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
-                    />
-                    <span
-                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
-                      title="parent 1"
+                    <div
+                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     >
                       <span
-                        class="ant-select-tree-iconEle ant-select-tree-icon__customize"
+                        aria-hidden="true"
+                        class="ant-select-tree-indent"
+                      />
+                      <span
+                        class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                        title="parent 1"
                       >
-                        <span>
-                          Bamboo
+                        <span
+                          class="ant-select-tree-iconEle ant-select-tree-icon__customize"
+                        >
+                          <span>
+                            Bamboo
+                          </span>
+                        </span>
+                        <span
+                          class="ant-select-tree-title"
+                        >
+                          parent 1
                         </span>
                       </span>
-                      <span
-                        class="ant-select-tree-title"
-                      >
-                        parent 1
-                      </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -104,7 +127,6 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -182,6 +204,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -227,6 +250,7 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -248,7 +272,6 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"

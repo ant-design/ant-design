@@ -5,7 +5,7 @@
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
 
 .@{cascader-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   &-input.@{ant-prefix}-input {
     // Keep it static for https://github.com/ant-design/ant-design/issues/16738
@@ -24,7 +24,7 @@
   }
 
   &-picker {
-    .reset-component;
+    .reset-component();
 
     position: relative;
     display: inline-block;
@@ -48,7 +48,7 @@
     }
 
     &:focus .@{cascader-prefix-cls}-input {
-      .active;
+      .active();
     }
 
     &-borderless .@{cascader-prefix-cls}-input {
@@ -110,16 +110,14 @@
       color: @disabled-color;
       font-size: 12px;
       line-height: 12px;
-      transition: transform 0.2s;
-      &&-expand {
-        transform: rotate(180deg);
-      }
     }
   }
 
   // https://github.com/ant-design/ant-design/pull/12407#issuecomment-424657810
   &-picker-label:hover + &-input {
-    .hover;
+    &:not(.@{cascader-prefix-cls}-picker-disabled &) {
+      .hover();
+    }
   }
 
   &-picker-small &-picker-clear,
@@ -190,8 +188,10 @@
   }
   &-menu-item {
     padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
+    overflow: hidden;
     line-height: @cascader-dropdown-line-height;
     white-space: nowrap;
+    text-overflow: ellipsis;
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
@@ -223,11 +223,10 @@
 
     &-expand &-expand-icon,
     &-loading-icon {
-      .iconfont-size-under-12px(10px);
-
       position: absolute;
       right: @control-padding-horizontal;
       color: @text-color-secondary;
+      font-size: 10px;
 
       .@{cascader-prefix-cls}-menu-item-disabled& {
         color: @disabled-color;

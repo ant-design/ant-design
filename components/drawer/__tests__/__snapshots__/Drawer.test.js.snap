@@ -29,6 +29,7 @@ exports[`Drawer className is test_drawer 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -37,7 +38,6 @@ exports[`Drawer className is test_drawer 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -126,6 +126,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -134,7 +135,6 @@ exports[`Drawer destroyOnClose is true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -192,6 +192,7 @@ exports[`Drawer getContainer return undefined 2`] = `
                 aria-label="Close"
                 class="ant-drawer-close"
                 style="--scroll-bar: 0px;"
+                type="button"
               >
                 <span
                   aria-label="close"
@@ -200,7 +201,6 @@ exports[`Drawer getContainer return undefined 2`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="close"
                     fill="currentColor"
                     focusable="false"
@@ -256,6 +256,7 @@ exports[`Drawer have a footer 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -264,7 +265,6 @@ exports[`Drawer have a footer 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -329,6 +329,7 @@ exports[`Drawer have a title 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -337,7 +338,6 @@ exports[`Drawer have a title 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -392,6 +392,7 @@ exports[`Drawer render correctly 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -400,7 +401,6 @@ exports[`Drawer render correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -455,6 +455,7 @@ exports[`Drawer render top drawer 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -463,7 +464,6 @@ exports[`Drawer render top drawer 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -523,6 +523,7 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -531,7 +532,6 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -587,6 +587,7 @@ exports[`Drawer support closeIcon 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span>
                 close

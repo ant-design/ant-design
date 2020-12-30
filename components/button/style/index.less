@@ -19,9 +19,9 @@
   // Fixing https://github.com/ant-design/ant-design/issues/13214
   // It is a render problem of chrome, which is only happened in the codesandbox demo
   // 0.001px solution works and I don't why
-  line-height: @line-height-base;
-  .btn;
-  .btn-default;
+  line-height: @btn-line-height;
+  .btn();
+  .btn-default();
 
   // Fix loading button animation
   // https://github.com/ant-design/ant-design/issues/24323
@@ -30,7 +30,7 @@
   }
 
   &-primary {
-    .btn-primary;
+    .btn-primary();
 
     .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
       border-right-color: @btn-group-border;
@@ -62,46 +62,46 @@
   }
 
   &-ghost {
-    .btn-ghost;
+    .btn-ghost();
   }
 
   &-dashed {
-    .btn-dashed;
+    .btn-dashed();
   }
 
   // type="danger" will deprecated
   // use danger instead
   &-danger {
-    .btn-danger;
+    .btn-danger();
   }
 
   &-link {
-    .btn-link;
+    .btn-link();
   }
 
   &-text {
-    .btn-text;
+    .btn-text();
   }
 
   &-dangerous {
-    .btn-danger-default;
+    .btn-danger-default();
   }
 
   &-dangerous&-primary {
-    .btn-danger;
+    .btn-danger();
   }
 
   &-dangerous&-link {
-    .btn-danger-link;
+    .btn-danger-link();
   }
 
   &-dangerous&-text {
-    .btn-danger-text;
+    .btn-danger-text();
   }
 
   &-icon-only {
     .btn-square(@btn-prefix-cls);
-    vertical-align: -0.5px;
+    vertical-align: -1px;
   }
 
   &-round {
@@ -111,8 +111,7 @@
     }
   }
 
-  &-circle,
-  &-circle-outline {
+  &-circle {
     .btn-circle(@btn-prefix-cls);
   }
 
@@ -160,7 +159,12 @@
     transition: all 0.3s @ease-in-out;
 
     .@{iconfont-css-prefix} {
-      padding-right: @margin-xs;
+      padding-right: @padding-xs;
+      animation: none;
+      // for smooth button padding transition
+      svg {
+        animation: loadingCircle 1s infinite linear;
+      }
     }
 
     &:only-child {

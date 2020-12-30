@@ -1,0 +1,21 @@
+name: Automatic Merge by label
+on:
+  pull_request:
+    types:
+      - labeled
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'BranchAutoMerge' && github.event.pull_request.head.repo.full_name == 'ant-design/ant-design' && (github.event.pull_request.head.ref == 'master' || github.event.pull_request.head.ref == 'feature')
+    steps:
+      - name: Auto Approve
+        uses: "hmarr/auto-approve-action@v2.0.0"
+        with:
+          github-token: "${{ secrets.ANT_BOT_TOKEN }}"
+
+      - name: Auto Merge
+        uses: "zombieJ/automerge-action@0.0.2"
+        env:
+          GITHUB_TOKEN: "${{ secrets.ANT_BOT_TOKEN }}"
+          MERGE_LABELS: "BranchAutoMerge"
+          MERGE_REMOVE_LABELS: "BranchAutoMerge"

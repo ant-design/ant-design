@@ -77,7 +77,6 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -111,14 +110,14 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
     </div>
@@ -203,7 +202,6 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -237,14 +235,14 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
     </div>
@@ -332,7 +330,6 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -374,14 +371,14 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
       </div>
@@ -467,7 +464,6 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -501,14 +497,14 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
     </div>
@@ -568,7 +564,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -607,7 +602,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -648,7 +642,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -682,7 +675,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
       </div>
@@ -771,7 +764,6 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="ellipsis"
                 fill="currentColor"
                 focusable="false"
@@ -807,14 +799,14 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
       </div>
@@ -900,7 +892,6 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -934,14 +925,14 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
     </div>
@@ -1026,7 +1017,6 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -1060,14 +1050,14 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
     </div>
@@ -1114,7 +1104,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="close"
                 fill="currentColor"
                 focusable="false"
@@ -1153,7 +1142,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="close"
                 fill="currentColor"
                 focusable="false"
@@ -1192,7 +1180,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="plus"
               fill="currentColor"
               focusable="false"
@@ -1236,7 +1223,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -1262,7 +1248,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="plus"
             fill="currentColor"
             focusable="false"
@@ -1300,14 +1285,14 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
     </div>
@@ -1316,141 +1301,344 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
-<div
-  class="ant-tabs ant-tabs-top"
->
+Array [
   <div
-    class="ant-tabs-nav"
-    role="tablist"
+    class="ant-tabs ant-tabs-top"
   >
     <div
-      class="ant-tabs-nav-wrap"
+      class="ant-tabs-nav"
+      role="tablist"
     >
       <div
-        class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        class="ant-tabs-nav-wrap"
       >
         <div
-          class="ant-tabs-tab ant-tabs-tab-active"
+          class="ant-tabs-nav-list"
+          style="transform:translate(0px, 0px)"
         >
           <div
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab ant-tabs-tab-active"
           >
-            Tab 1
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-tabs-tab"
-        >
           <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab"
           >
-            Tab 2
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 2
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-tabs-tab"
-        >
           <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab"
           >
-            Tab 3
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 3
+            </div>
           </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-hidden="true"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="visibility:hidden;order:1"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Extra Action
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
         </div>
         <div
-          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          aria-hidden="true"
+          class="ant-tabs-tabpane"
+          role="tabpanel"
+          style="display:none"
+          tabindex="-1"
+        />
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane"
+          role="tabpanel"
+          style="display:none"
+          tabindex="-1"
         />
       </div>
     </div>
-    <div
-      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-    >
-      <button
-        aria-controls="null-more-popup"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-hidden="true"
-        class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
-        tabindex="-1"
-        type="button"
-      >
-        <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-tabs-extra-content"
-    >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Extra Action
-        </span>
-      </button>
-    </div>
-  </div>
+  </div>,
+  <br />,
+  <br />,
+  <br />,
+  <div>
+    You can also specify its direction or both side
+  </div>,
   <div
-    class="ant-tabs-content-holder"
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-checkbox-group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="left"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        left
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="right"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        right
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-tabs ant-tabs-top"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-nav"
+      role="tablist"
     >
       <div
-        aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        role="tabpanel"
-        tabindex="0"
+        class="ant-tabs-extra-content"
       >
-        Content of tab 1
+        <button
+          class="ant-btn tabs-extra-demo-button"
+          type="button"
+        >
+          <span>
+            Left Extra Action
+          </span>
+        </button>
       </div>
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
-        role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
-        tabindex="-1"
-      />
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform:translate(0px, 0px)"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 2
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 3
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
-        role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
-        tabindex="-1"
-      />
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-hidden="true"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="visibility:hidden;order:1"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Right Extra Action
+          </span>
+        </button>
+      </div>
     </div>
-  </div>
-</div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
+        </div>
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane"
+          role="tabpanel"
+          style="display:none"
+          tabindex="-1"
+        />
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane"
+          role="tabpanel"
+          style="display:none"
+          tabindex="-1"
+        />
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
@@ -1485,7 +1673,6 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="apple"
                   fill="currentColor"
                   focusable="false"
@@ -1519,7 +1706,6 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="android"
                   fill="currentColor"
                   focusable="false"
@@ -1562,7 +1748,6 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="ellipsis"
             fill="currentColor"
             focusable="false"
@@ -1583,13 +1768,12 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
-      style="margin-left:-100%"
     >
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="visibility:hidden;height:0;overflow-y:hidden"
+        style="display:none"
         tabindex="-1"
       />
       <div
@@ -1628,6 +1812,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1649,7 +1834,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1685,6 +1869,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1706,7 +1891,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1742,6 +1926,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1763,7 +1948,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1799,6 +1983,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1820,7 +2005,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -1899,7 +2083,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -2208,7 +2391,6 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="ellipsis"
                       fill="currentColor"
                       focusable="false"
@@ -2229,13 +2411,12 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
             >
               <div
                 class="ant-tabs-content ant-tabs-content-top"
-                style="margin-left:-100%"
               >
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
@@ -2250,126 +2431,126 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="visibility:hidden;height:0;overflow-y:hidden"
+                  style="display:none"
                   tabindex="-1"
                 />
               </div>
@@ -2380,7 +2561,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
       </div>
@@ -2390,82 +2571,105 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="margin-bottom:16px"
+    style="margin-bottom:24px"
   >
     <div
       class="ant-space-item"
       style="margin-right:8px"
     >
-      Tab position：
+      Tab position:
     </div>
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-single ant-select-show-arrow"
+        class="ant-radio-group ant-radio-group-outline"
       >
-        <div
-          class="ant-select-selector"
+        <label
+          class="ant-radio-button-wrapper"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-radio-button"
           >
             <input
-              aria-activedescendant="undefined_list_0"
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-haspopup="listbox"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              readonly=""
-              role="combobox"
-              style="opacity:0"
-              unselectable="on"
-              value=""
+              class="ant-radio-button-input"
+              type="radio"
+              value="top"
+            />
+            <span
+              class="ant-radio-button-inner"
             />
           </span>
-          <span
-            class="ant-select-selection-item"
-          >
+          <span>
             top
           </span>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+        </label>
+        <label
+          class="ant-radio-button-wrapper"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
-            role="img"
+            class="ant-radio-button"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="bottom"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
           </span>
-        </span>
+          <span>
+            bottom
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        >
+          <span
+            class="ant-radio-button ant-radio-button-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-button-input"
+              type="radio"
+              value="left"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            left
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper"
+        >
+          <span
+            class="ant-radio-button"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="right"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            right
+          </span>
+        </label>
       </div>
     </div>
-  </div>
+  </div>,
   <div
-    class="ant-tabs ant-tabs-top"
+    class="ant-tabs ant-tabs-left"
   >
     <div
       class="ant-tabs-nav"
@@ -2540,7 +2744,6 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -2560,7 +2763,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
       class="ant-tabs-content-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-content ant-tabs-content-left"
       >
         <div
           aria-hidden="false"
@@ -2574,20 +2777,20 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
@@ -2732,7 +2935,6 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -2766,14 +2968,14 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
       </div>
@@ -2855,7 +3057,6 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -2889,14 +3090,14 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
       </div>
@@ -3381,7 +3582,6 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="ellipsis"
               fill="currentColor"
               focusable="false"
@@ -3402,13 +3602,12 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     >
       <div
         class="ant-tabs-content ant-tabs-content-top"
-        style="margin-left:-100%"
       >
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
@@ -3423,196 +3622,196 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="visibility:hidden;height:0;overflow-y:hidden"
+          style="display:none"
           tabindex="-1"
         />
       </div>

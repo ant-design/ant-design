@@ -46,24 +46,12 @@ declare module 'rc-rate';
 
 declare module 'rc-queue-anim';
 
-declare module 'rc-slider';
-
-declare module 'rc-slider/lib/Slider';
-
-declare module 'rc-slider/lib/Range';
-
-declare module 'rc-slider/lib/Handle';
-
 declare module 'rc-steps';
 
 declare module 'rc-switch';
-
-declare module 'rc-upload';
 
 declare module '*.json' {
   const value: any;
   export const version: string;
   export default value;
 }
-
-declare module 'react-copy-to-clipboard';

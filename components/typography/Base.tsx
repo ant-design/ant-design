@@ -1,25 +1,25 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import findDOMNode from 'rc-util/lib/Dom/findDOMNode';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
+import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import { ConfigConsumerProps, configConsumerProps, ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
-import isStyleSupport from '../_util/styleChecker';
+import { isStyleSupport } from '../_util/styleChecker';
 import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
 import measure from './util';
 
-export type BaseType = 'secondary' | 'danger' | 'warning';
+export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 const isLineClampSupport = isStyleSupport('webkitLineClamp');
 const isTextOverflowSupport = isStyleSupport('textOverflow');
@@ -28,13 +28,17 @@ interface CopyConfig {
   text?: string;
   onCopy?: () => void;
   icon?: React.ReactNode;
-  tooltips?: [React.ReactNode, React.ReactNode];
+  tooltips?: boolean | React.ReactNode;
 }
 
 interface EditConfig {
   editing?: boolean;
+  icon?: React.ReactNode;
+  tooltip?: boolean | React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
+  maxLength?: number;
+  autoSize?: boolean | AutoSizeType;
 }
 
 interface EllipsisConfig {
@@ -128,7 +132,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   context: ConfigConsumerProps;
 
-  editIcon?: TransButton;
+  editIcon?: HTMLDivElement;
 
   contentRef = React.createRef<HTMLElement>();
 
@@ -209,7 +213,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   // ================ Copy ================
-  onCopyClick = () => {
+  onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
     const { children, copyable } = this.props;
     const copyConfig: CopyConfig = {
       ...(typeof copyable === 'object' ? copyable : null),
@@ -253,7 +258,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     };
   }
 
-  setEditRef = (node: TransButton) => {
+  setEditRef = (node: HTMLDivElement) => {
     this.editIcon = node;
   };
 
@@ -313,7 +318,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     );
 
     const { content, text, ellipsis } = measure(
-      findDOMNode(this.contentRef.current),
+      this.contentRef.current,
       { rows, suffix },
       children,
       this.renderOperations(true),
@@ -359,15 +364,20 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { editable } = this.props;
     if (!editable) return;
 
+    const { icon, tooltip } = editable as EditConfig;
+
+    const title = toArray(tooltip)[0] || this.editStr;
+    const ariaLabel = typeof title === 'string' ? title : '';
+
     return (
-      <Tooltip key="edit" title={this.editStr}>
+      <Tooltip key="edit" title={tooltip === false ? '' : title}>
         <TransButton
           ref={this.setEditRef}
           className={`${this.getPrefixCls()}-edit`}
           onClick={this.onEditClick}
-          aria-label={this.editStr}
+          aria-label={ariaLabel}
         >
-          <EditOutlined role="button" />
+          {icon || <EditOutlined role="button" />}
         </TransButton>
       </Tooltip>
     );
@@ -380,20 +390,23 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const prefixCls = this.getPrefixCls();
 
-    const title = copied
-      ? (copyable as CopyConfig).tooltips?.[1] || this.copiedStr
-      : (copyable as CopyConfig).tooltips?.[0] || this.copyStr;
-
+    const { tooltips } = copyable as CopyConfig;
+    let tooltipNodes = toArray(tooltips) as React.ReactNode[];
+    if (tooltipNodes.length === 0) {
+      tooltipNodes = [this.copyStr, this.copiedStr];
+    }
+    const title = copied ? tooltipNodes[1] : tooltipNodes[0];
     const ariaLabel = typeof title === 'string' ? title : '';
+    const icons = toArray((copyable as CopyConfig).icon);
 
     return (
-      <Tooltip key="copy" title={title}>
+      <Tooltip key="copy" title={tooltips === false ? '' : title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? <CheckOutlined /> : (copyable as CopyConfig).icon || <CopyOutlined />}
+          {copied ? icons[1] || <CheckOutlined /> : icons[0] || <CopyOutlined />}
         </TransButton>
       </Tooltip>
     );
@@ -402,6 +415,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
+    const { maxLength, autoSize } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
@@ -411,6 +425,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         className={className}
         style={style}
         direction={direction}
+        maxLength={maxLength}
+        autoSize={autoSize}
       />
     );
   }
@@ -447,22 +463,27 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const cssLineClamp = rows && rows > 1 && cssEllipsis;
 
     let textNode: React.ReactNode = children;
-    let ariaLabel: string | undefined;
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
       const { title } = restProps;
-      ariaLabel = title;
+      let restContent = title || '';
       if (!title && (typeof children === 'string' || typeof children === 'number')) {
-        ariaLabel = String(children);
+        restContent = String(children);
       }
+
+      // show rest content as title on symbol
+      restContent = restContent?.slice(String(ellipsisContent || '').length);
+
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={ariaLabel} aria-hidden="true">
+        <>
           {ellipsisContent}
-          {ELLIPSIS_STR}
+          <span title={restContent} aria-hidden="true">
+            {ELLIPSIS_STR}
+          </span>
           {suffix}
-        </span>
+        </>
       );
     } else {
       textNode = (
@@ -486,20 +507,22 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           return (
             <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
               <Typography
-                className={classNames(className, {
-                  [`${prefixCls}-${type}`]: type,
-                  [`${prefixCls}-disabled`]: disabled,
-                  [`${prefixCls}-ellipsis`]: rows,
-                  [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-                  [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-                })}
+                className={classNames(
+                  {
+                    [`${prefixCls}-${type}`]: type,
+                    [`${prefixCls}-disabled`]: disabled,
+                    [`${prefixCls}-ellipsis`]: rows,
+                    [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                    [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+                  },
+                  className,
+                )}
                 style={{
                   ...style,
                   WebkitLineClamp: cssLineClamp ? rows : null,
                 }}
                 component={component}
                 ref={this.contentRef}
-                aria-label={ariaLabel}
                 direction={direction}
                 {...textProps}
               >

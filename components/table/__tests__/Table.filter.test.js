@@ -69,6 +69,19 @@ describe('Table.filter', () => {
     expect(wrapper.find('.ant-table-filter-column')).toHaveLength(0);
   });
 
+  // https://github.com/ant-design/ant-design/issues/26988
+  it('not show filter icon when filter and filterDropdown is undefined', () => {
+    const noFilterColumn = { ...column, filters: undefined, filterDropdown: undefined };
+    delete noFilterColumn.onFilter;
+    const wrapper = mount(
+      createTable({
+        columns: [noFilterColumn],
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-column')).toHaveLength(0);
+  });
+
   it('renders filter correctly', () => {
     const wrapper = mount(createTable());
 
@@ -82,16 +95,23 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
-    const wrapper = mount(createTable({
-      columns: [
-        {
-          ...column,
-          filters: [],
-        },
-      ],
-    }));
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [],
+          },
+        ],
+      }),
+    );
     wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
     expect(wrapper.find('Empty').length).toBe(1);
+    // eslint-disable-next-line no-console
+    expect(console.error).not.toHaveBeenCalled();
+    // eslint-disable-next-line no-console
+    console.error.mockRestore();
   });
 
   it('renders radio filter correctly', () => {
@@ -308,6 +328,41 @@ describe('Table.filter', () => {
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 
+  it('render checked of checkbox correctly controlled by filteredValue', () => {
+    ['Lucy', 23, false].forEach(val => {
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filters: [{ text: val, value: val }],
+              filteredValue: [val],
+            },
+          ],
+        }),
+      );
+
+      wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+
+      expect(wrapper.find('FilterDropdown').find('Checkbox').at(0).props().checked).toEqual(true);
+    });
+
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [{ text: 'ant', value: 'ant' }],
+            filteredValue: ['any-value-not-exists-in-filters'],
+          },
+        ],
+      }),
+    );
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+
+    expect(wrapper.find('FilterDropdown').find('Checkbox').at(0).props().checked).toEqual(false);
+  });
+
   it('can read defaults from defaultFilteredValue', () => {
     const wrapper = mount(
       createTable({
@@ -481,6 +536,7 @@ describe('Table.filter', () => {
     ].forEach(([text, value]) => {
       it(`${typeof value} type`, () => {
         const onFilter = jest.fn();
+        const onChange = jest.fn();
         const filters = [{ text, value }];
         const wrapper = mount(
           createTable({
@@ -491,6 +547,7 @@ describe('Table.filter', () => {
                 onFilter,
               },
             ],
+            onChange,
           }),
         );
 
@@ -511,6 +568,10 @@ describe('Table.filter', () => {
 
         onFilter.mock.calls.forEach(([val]) => {
           expect(val).toBe(value);
+        });
+        onChange.mock.calls.forEach(([, currentFilters]) => {
+          const [, val] = Object.entries(currentFilters)[0];
+          expect(val).toEqual([value]);
         });
         // Another time of Filter show
         // https://github.com/ant-design/ant-design/issues/15593
@@ -690,6 +751,22 @@ describe('Table.filter', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('renders custom filter icon as ReactNode', () => {
+    const filterIcon = <span className="customize-icon" />;
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find('span.customize-icon').length).toBe(1);
+  });
+
   // https://github.com/ant-design/ant-design/issues/13028
   it('reset dropdown filter correctly', () => {
     class Demo extends React.Component {
@@ -778,9 +855,7 @@ describe('Table.filter', () => {
             title: 'Name',
             dataIndex: 'name',
             filters,
-            onFilter: (value, record) => {
-              return record.name.indexOf(value) === 0;
-            },
+            onFilter: (value, record) => record.name.indexOf(value) === 0,
             sorter: (a, b) => a.name.length - b.name.length,
             sortDirections: ['descend'],
           },
@@ -863,25 +938,23 @@ describe('Table.filter', () => {
     const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
     const filterDropdown = (...args) => filterDropdownMock(...args);
 
-    const Test = () => {
-      return (
-        <Table
-          rowKey="name"
-          columns={[
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              filterDropdown,
-            },
-          ]}
-          dataSource={[
-            {
-              name: 'Jack',
-            },
-          ]}
-        />
-      );
-    };
+    const Test = () => (
+      <Table
+        rowKey="name"
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filterDropdown,
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'Jack',
+          },
+        ]}
+      />
+    );
 
     mount(<Test />);
     expect(filterDropdownMock).toHaveBeenCalledWith(
@@ -895,25 +968,23 @@ describe('Table.filter', () => {
     const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
     const filterDropdown = (...args) => filterDropdownMock(...args);
 
-    const Test = () => {
-      return (
-        <Table
-          rowKey="name"
-          columns={[
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              filterDropdown,
-            },
-          ]}
-          dataSource={[
-            {
-              name: 'Jack',
-            },
-          ]}
-        />
-      );
-    };
+    const Test = () => (
+      <Table
+        rowKey="name"
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filterDropdown,
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'Jack',
+          },
+        ]}
+      />
+    );
 
     const wrapper = mount(<Test />);
 
@@ -1197,5 +1268,92 @@ describe('Table.filter', () => {
       .find('Checkbox')
       .first();
     expect(checkbox.props().checked).toEqual(false);
+  });
+
+  it('should not trigger onChange when filter is empty', () => {
+    const onChange = jest.fn();
+    const Test = ({ filters }) => (
+      <Table
+        onChange={onChange}
+        rowKey="name"
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filters,
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'Jack',
+          },
+        ]}
+      />
+    );
+    const wrapper = mount(<Test filters={[]} />);
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    expect(onChange).not.toHaveBeenCalled();
+    onChange.mockReset();
+    wrapper.unmount();
+  });
+
+  it('filters in children should render', () => {
+    const columns = [
+      {
+        title: 'English Score',
+        dataIndex: 'english',
+        filters: [{ text: '1', value: 1 }],
+        onFilter: record => String(record.english1).includes(String(1)),
+        children: [
+          {
+            title: 'English Score1',
+            dataIndex: 'english1',
+            filters: [{ text: '2', value: 2 }],
+            onFilter: record => String(record.english2).includes(String(2)),
+          },
+          {
+            title: 'English Score2',
+            dataIndex: 'english2',
+            filters: [{ text: '2', value: 3 }],
+            onFilter: record => String(record.english2).includes(String(3)),
+          },
+        ],
+      },
+    ];
+    const dataSource = [
+      {
+        key: '1',
+        english: 71,
+        english1: 71,
+        english2: 72,
+      },
+      {
+        key: '2',
+        english: 89,
+        english1: 72,
+        english2: 72,
+      },
+      {
+        key: '3',
+        english: 70,
+        english1: 71,
+        english2: 73,
+      },
+      {
+        key: '4',
+        english: 89,
+        english1: 71,
+        english2: 72,
+      },
+    ];
+    const wrapper = mount(
+      createTable({
+        columns,
+        dataSource,
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-column')).toHaveLength(3);
   });
 });

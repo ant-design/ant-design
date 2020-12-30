@@ -79,7 +79,7 @@ We provide Less and JavaScript usage for developers.
 
   ```js
   import { blue } from '@ant-design/colors';
-  console.log(blue); // ['#E6F7FF', '#BAE7FF', '#91D5FF', ''#69C0FF', '#40A9FF', '#1890FF', '#096DD9', '#0050B3', '#003A8C', '#002766']
+  console.log(blue); // ['#E6F7FF', '#BAE7FF', '#91D5FF', '#69C0FF', '#40A9FF', '#1890FF', '#096DD9', '#0050B3', '#003A8C', '#002766']
   console.log(blue.primary); // '#1890FF'
   ```
 
@@ -104,7 +104,7 @@ Functional color represents a clear message as well as status, such as success, 
 
 ### Neutral Color
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UE0tRqE2hkwAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/antfincdn/8yMmB1lcD%24/colors.jpg">
 
 Neutral color is mainly used in a large part of the text interface, in addition to the background, borders, dividing lines, and other scenes are also very common. Neutral color definition needs to consider the difference between dark background and light background, while incorporating the WCAG 2.0 standard. The neutral color of Ant Design is based on transparency, as shown on the right:
 

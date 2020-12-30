@@ -134,7 +134,7 @@ class DrawerForm extends React.Component {
                 >
                   <DatePicker.RangePicker
                     style={{ width: '100%' }}
-                    getPopupContainer={trigger => trigger.parentNode}
+                    getPopupContainer={trigger => trigger.parentElement}
                   />
                 </Form.Item>
               </Col>

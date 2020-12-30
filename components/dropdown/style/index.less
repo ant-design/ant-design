@@ -5,7 +5,7 @@
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 
 .@{dropdown-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: absolute;
   top: -9999px;
@@ -15,9 +15,9 @@
 
   &::before {
     position: absolute;
-    top: -7px;
+    top: -@popover-distance + @popover-arrow-width;
     right: 0;
-    bottom: -7px;
+    bottom: -@popover-distance + @popover-arrow-width;
     left: -7px;
     z-index: -9999;
     opacity: 0.0001;
@@ -28,7 +28,7 @@
     position: relative;
 
     .@{ant-prefix}-btn > .@{iconfont-css-prefix}-down {
-      .iconfont-size-under-12px(10px);
+      font-size: 10px;
     }
 
     .@{iconfont-css-prefix}-down::before {
@@ -71,7 +71,7 @@
     height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
     background: transparent;
     border-style: solid;
-    border-width: sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2;
+    border-width: (sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2);
     transform: rotate(45deg);
   }
 
@@ -140,10 +140,7 @@
       z-index: @zindex-dropdown;
       background: transparent;
       box-shadow: none;
-
-      > .@{dropdown-prefix-cls}-menu {
-        transform-origin: 0 0;
-      }
+      transform-origin: 0 0;
 
       ul,
       li {
@@ -170,10 +167,12 @@
       transition: all 0.3s;
 
       > .@{iconfont-css-prefix}:first-child,
+      > a > .@{iconfont-css-prefix}:first-child,
       > span > .@{iconfont-css-prefix}:first-child {
         min-width: 12px;
         margin-right: 8px;
         font-size: @font-size-sm;
+        vertical-align: -0.1em;
       }
 
       > a {
@@ -226,6 +225,22 @@
           background-color: @dropdown-menu-submenu-disabled-bg;
           cursor: not-allowed;
         }
+
+        > a {
+          position: relative;
+          color: @disabled-color;
+          pointer-events: none;
+
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: not-allowed;
+            content: '';
+          }
+        }
       }
 
       &-divider {
@@ -236,15 +251,15 @@
         background-color: @border-color-split;
       }
 
-      .@{dropdown-prefix-cls}-menu-submenu-arrow {
+      .@{dropdown-prefix-cls}-menu-submenu-expand-icon {
         position: absolute;
         right: @padding-xs;
 
-        &-icon {
+        .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
           margin-right: 0 !important;
           color: @text-color-secondary;
+          font-size: 10px;
           font-style: normal;
-          .iconfont-size-under-12px(10px);
         }
       }
     }
@@ -322,8 +337,8 @@
 .@{dropdown-prefix-cls}-link,
 .@{dropdown-prefix-cls}-button {
   > .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
+    font-size: 10px;
     vertical-align: baseline;
-    .iconfont-size-under-12px(10px);
   }
 }
 

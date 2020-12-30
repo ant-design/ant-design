@@ -49,7 +49,7 @@ interface ChangeEventInfo<RecordType> {
     pageSize?: number;
     total?: number;
   };
-  filters: Record<string, Key[] | null>;
+  filters: Record<string, (Key | boolean)[] | null>;
   sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
 
   filterStates: FilterState<RecordType>[];
@@ -80,7 +80,7 @@ export interface TableProps<RecordType>
 
   onChange?: (
     pagination: TablePaginationConfig,
-    filters: Record<string, Key[] | null>,
+    filters: Record<string, (Key | boolean)[] | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
@@ -162,7 +162,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some(item => (item as any)[childrenColumnName])) {
+    if (rawData.some(item => (item as any)?.[childrenColumnName])) {
       return 'nest';
     }
 
@@ -183,7 +183,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       return rowKey;
     }
 
-    return (record: RecordType) => (record as any)[rowKey as string];
+    return (record: RecordType) => (record as any)?.[rowKey as string];
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
@@ -222,26 +222,20 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (onChange) {
-      onChange(
-        changeInfo.pagination!,
-        changeInfo.filters!,
-        changeInfo.sorter!,
-        {
-          currentDataSource: getFilterData(
-            getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-            changeInfo.filterStates!,
-          ),
-          action,
-        },
-      );
+      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+        currentDataSource: getFilterData(
+          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+          changeInfo.filterStates!,
+        ),
+        action,
+      });
     }
   };
 
   /**
-   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?)
-   * to read state out and then put it back to title render.
-   * Move these code into `hooks` but still too complex.
-   * We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
+   * state out and then put it back to title render. Move these code into `hooks` but still too
+   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
    */
 
   // ============================ Sorter =============================
@@ -276,7 +270,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================ Filter ============================
   const onFilterChange = (
-    filters: Record<string, Key[]>,
+    filters: Record<string, (Key | boolean)[]>,
     filterStates: FilterState<RecordType>[],
   ) => {
     triggerOnChange(
@@ -409,21 +403,22 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   }
 
   // Indent size
-  mergedExpandable.indentSize = mergedExpandable.indentSize || indentSize || 15;
+  if (typeof mergedExpandable.indentSize !== 'number') {
+    mergedExpandable.indentSize = typeof indentSize === 'number' ? indentSize : 15;
+  }
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(
-    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
-      return transformTitleColumns(
+    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
+      transformTitleColumns(
         transformSelectionColumns(transformFilterColumns(transformSorterColumns(innerColumns))),
-      );
-    },
+      ),
     [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
   );
 
   let topPaginationNode: React.ReactNode;
   let bottomPaginationNode: React.ReactNode;
-  if (pagination !== false) {
+  if (pagination !== false && mergedPagination?.total) {
     let paginationSize: TablePaginationConfig['size'];
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
@@ -470,9 +465,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     };
   }
 
-  const wrapperClassNames = classNames(`${prefixCls}-wrapper`, className, {
-    [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
-  });
+  const wrapperClassNames = classNames(
+    `${prefixCls}-wrapper`,
+    {
+      [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
   return (
     <div className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>
@@ -498,7 +497,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           internalRefs={internalRefs as any}
           transformColumns={transformColumns}
         />
-        {pageData && pageData.length > 0 && bottomPaginationNode}
+        {bottomPaginationNode}
       </Spin>
     </div>
   );

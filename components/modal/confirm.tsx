@@ -8,11 +8,19 @@ import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 
+let defaultRootPrefixCls = 'ant';
+
+function getRootPrefixCls() {
+  return defaultRootPrefixCls;
+}
+
+type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
+
 export type ModalFunc = (
   props: ModalFuncProps,
 ) => {
   destroy: () => void;
-  update: (newConfig: ModalFuncProps) => void;
+  update: (configUpdate: ConfigUpdate) => void;
 };
 
 export interface ModalStaticFunctions {
@@ -27,7 +35,7 @@ export interface ModalStaticFunctions {
 export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
-  // eslint-disable-next-line no-use-before-define
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
 
   function destroy(...args: any[]) {
@@ -41,7 +49,7 @@ export default function confirm(config: ModalFuncProps) {
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
-      // eslint-disable-next-line no-use-before-define
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       if (fn === close) {
         destroyFns.splice(i, 1);
         break;
@@ -49,9 +57,10 @@ export default function confirm(config: ModalFuncProps) {
     }
   }
 
-  function render({ okText, cancelText, ...props }: any) {
+  function render({ okText, cancelText, prefixCls, ...props }: any) {
     /**
      * https://github.com/ant-design/ant-design/issues/23623
+     *
      * Sync render blocks React event. Let's make this async.
      */
     setTimeout(() => {
@@ -59,6 +68,8 @@ export default function confirm(config: ModalFuncProps) {
       ReactDOM.render(
         <ConfirmDialog
           {...props}
+          prefixCls={prefixCls || `${getRootPrefixCls()}-modal`}
+          rootPrefixCls={getRootPrefixCls()}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
@@ -76,11 +87,15 @@ export default function confirm(config: ModalFuncProps) {
     render(currentConfig);
   }
 
-  function update(newConfig: ModalFuncProps) {
-    currentConfig = {
-      ...currentConfig,
-      ...newConfig,
-    };
+  function update(configUpdate: ConfigUpdate) {
+    if (typeof configUpdate === 'function') {
+      currentConfig = configUpdate(currentConfig);
+    } else {
+      currentConfig = {
+        ...currentConfig,
+        ...configUpdate,
+      };
+    }
     render(currentConfig);
   }
 
@@ -137,4 +152,10 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
     okCancel: true,
     ...props,
   };
+}
+
+export function globalConfig({ rootPrefixCls }: { rootPrefixCls?: string }) {
+  if (rootPrefixCls) {
+    defaultRootPrefixCls = rootPrefixCls;
+  }
 }

@@ -8,7 +8,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import Animate from 'rc-animate';
+import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -17,9 +17,7 @@ import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
 
 export interface AlertProps {
-  /**
-   * Type of Alert styles, options:`success`, `info`, `warning`, `error`
-   */
+  /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
   closable?: boolean;
@@ -42,6 +40,7 @@ export interface AlertProps {
   className?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -75,12 +74,13 @@ const Alert: AlertInterface = ({
   onMouseEnter,
   onMouseLeave,
   onClick,
+  afterClose,
   showIcon,
   closable,
   closeText,
+  action,
   ...props
 }) => {
-  const [closing, setClosing] = React.useState(false);
   const [closed, setClosed] = React.useState(false);
 
   const ref = React.useRef<HTMLElement>();
@@ -88,21 +88,8 @@ const Alert: AlertInterface = ({
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const dom = ref.current as HTMLElement;
-    dom.style.height = `${dom.offsetHeight}px`;
-    // Magic code
-    // 重复一次后才能正确设置 height
-    dom.style.height = `${dom.offsetHeight}px`;
-
-    setClosing(true);
-    props.onClose?.(e);
-  };
-
-  const animationEnd = () => {
-    setClosing(false);
     setClosed(true);
-    props.afterClose?.();
+    props.onClose?.(e);
   };
 
   const getType = () => {
@@ -132,8 +119,8 @@ const Alert: AlertInterface = ({
     return React.createElement(iconType, { className: `${prefixCls}-icon` });
   };
 
-  const renderCloseIcon = () => {
-    return isClosable ? (
+  const renderCloseIcon = () =>
+    isClosable ? (
       <button
         type="button"
         onClick={handleClose}
@@ -147,7 +134,6 @@ const Alert: AlertInterface = ({
         )}
       </button>
     ) : null;
-  };
 
   // banner 模式默认有 Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
@@ -156,11 +142,9 @@ const Alert: AlertInterface = ({
     prefixCls,
     `${prefixCls}-${type}`,
     {
-      [`${prefixCls}-closing`]: closing,
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,
-      [`${prefixCls}-closable`]: isClosable,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -168,29 +152,41 @@ const Alert: AlertInterface = ({
 
   const dataOrAriaProps = getDataOrAriaProps(props);
 
-  return closed ? null : (
-    <Animate
-      component=""
-      showProp="data-show"
-      transitionName={`${prefixCls}-slide-up`}
-      onEnd={animationEnd}
+  return (
+    <CSSMotion
+      visible={!closed}
+      motionName={`${prefixCls}-motion`}
+      motionAppear={false}
+      motionEnter={false}
+      onLeaveStart={node => ({
+        maxHeight: node.offsetHeight,
+      })}
+      onLeaveEnd={afterClose}
     >
-      <div
-        ref={ref}
-        data-show={!closing}
-        className={alertCls}
-        style={style}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onClick={onClick}
-        {...dataOrAriaProps}
-      >
-        {isShowIcon ? renderIconNode() : null}
-        <span className={`${prefixCls}-message`}>{message}</span>
-        <span className={`${prefixCls}-description`}>{description}</span>
-        {renderCloseIcon()}
-      </div>
-    </Animate>
+      {({ className: motionClassName, style: motionStyle }) => (
+        <div
+          ref={ref}
+          data-show={!closed}
+          className={classNames(alertCls, motionClassName)}
+          style={{ ...style, ...motionStyle }}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          onClick={onClick}
+          role="alert"
+          {...dataOrAriaProps}
+        >
+          {isShowIcon ? renderIconNode() : null}
+          <div className={`${prefixCls}-content`}>
+            <div className={`${prefixCls}-message`}>{message}</div>
+            <div className={`${prefixCls}-description`}>{description}</div>
+          </div>
+
+          {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
+
+          {renderCloseIcon()}
+        </div>
+      )}
+    </CSSMotion>
   );
 };
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
 import { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
-import { BuildInPlacements } from 'rc-trigger/lib/interface';
+import { placements as Placements } from 'rc-tooltip/lib/placements';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
@@ -37,16 +37,17 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 
-export interface AbstractTooltipProps extends Partial<RcTooltipProps> {
+export interface AbstractTooltipProps extends Partial<Omit<RcTooltipProps, 'children'>> {
   style?: React.CSSProperties;
   className?: string;
   color?: LiteralUnion<PresetColorType, string>;
   placement?: TooltipPlacement;
-  builtinPlacements?: BuildInPlacements;
+  builtinPlacements?: typeof Placements;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  children?: React.ReactNode;
 }
 
 export type RenderFunction = () => React.ReactNode;
@@ -211,8 +212,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     overlayClassName,
     color,
     overlayInnerStyle,
+    children,
   } = props;
-  const children = props.children as React.ReactElement<any>;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   let tempVisible = visible;
   // Hide tooltip when there is no title
@@ -234,7 +235,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
   });
 
-  let formattedOverlayInnerStyle;
+  let formattedOverlayInnerStyle = overlayInnerStyle;
   let arrowContentStyle;
   if (color && !PresetColorRegex.test(color)) {
     formattedOverlayInnerStyle = { ...overlayInnerStyle, background: color };

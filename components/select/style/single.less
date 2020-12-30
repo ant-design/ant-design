@@ -67,7 +67,7 @@
 
   // Opacity selection if open
   &.@{select-prefix-cls}-open .@{select-prefix-cls}-selection-item {
-    opacity: 0.4;
+    color: @input-placeholder-color;
   }
 
   // ========================== Input ==========================
@@ -76,15 +76,16 @@
   // Not customize
   &:not(.@{select-prefix-cls}-customize-input) {
     .@{select-prefix-cls}-selector {
-      .select-selector();
-      .select-search-input-without-border();
       width: 100%;
-
       height: @input-height-base;
       padding: 0 @input-padding-horizontal-base;
 
       .@{select-prefix-cls}-selection-search-input {
         height: @select-height-without-border;
+      }
+
+      &::after {
+        line-height: @select-height-without-border;
       }
     }
   }
@@ -123,6 +124,7 @@
       .@{select-prefix-cls}-selector {
         height: @input-height;
 
+        &::after,
         .@{select-prefix-cls}-selection-item,
         .@{select-prefix-cls}-selection-placeholder {
           line-height: @input-height - 2 * @border-width-base;

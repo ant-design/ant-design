@@ -14,28 +14,21 @@ title:
 Bordered-less style component.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <>
+  <Space direction="vertical" size={12}>
     <DatePicker bordered={false} />
-    <br />
     <DatePicker picker="week" bordered={false} />
-    <br />
     <DatePicker picker="month" bordered={false} />
-    <br />
     <DatePicker picker="year" bordered={false} />
-    <br />
     <RangePicker bordered={false} />
-    <br />
     <RangePicker picker="week" bordered={false} />
-    <br />
     <RangePicker picker="month" bordered={false} />
-    <br />
     <RangePicker picker="year" bordered={false} />
-  </>,
+  </Space>,
   mountNode,
 );
 ```

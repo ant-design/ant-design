@@ -29,11 +29,13 @@ describe('Calendar', () => {
 
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
-    const wrapper = mount(<Calendar onSelect={onSelect} />);
+    const onChange = jest.fn();
+    const wrapper = mount(<Calendar onSelect={onSelect} onChange={onChange} />);
     wrapper.find('.ant-picker-cell').at(0).simulate('click');
     expect(onSelect).toHaveBeenCalledWith(expect.anything());
     const value = onSelect.mock.calls[0][0];
     expect(Moment.isMoment(value)).toBe(true);
+    expect(onChange).toHaveBeenCalled();
   });
 
   it('only Valid range should be selectable', () => {
@@ -96,6 +98,26 @@ describe('Calendar', () => {
     const { disabledDate } = wrapper.find('PickerPanel').props();
     expect(disabledDate(Moment('2018-06-02'))).toBe(true);
     expect(disabledDate(Moment('2018-04-02'))).toBe(false);
+  });
+
+  it('validRange should work with disabledDate function', () => {
+    const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
+    const wrapper = mount(
+      <Calendar validRange={validRange} disabledDate={data => data.isSame(Moment('2018-02-03'))} />,
+    );
+
+    const { disabledDate } = wrapper.find('PickerPanel').props();
+    expect(disabledDate(Moment('2018-02-01'))).toBe(true);
+    expect(disabledDate(Moment('2018-02-02'))).toBe(false);
+    expect(disabledDate(Moment('2018-02-03'))).toBe(true);
+    expect(disabledDate(Moment('2018-02-04'))).toBe(false);
+    expect(disabledDate(Moment('2018-06-01'))).toBe(true);
+  });
+
+  it('Calendar MonthSelect should display correct label', () => {
+    const validRange = [Moment('2018-02-02'), Moment('2019-06-1')];
+    const wrapper = mount(<Calendar validRange={validRange} defaultValue={Moment('2019-01-01')} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('Calendar should change mode by prop', () => {
@@ -190,7 +212,7 @@ describe('Calendar', () => {
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('3'));
   });
 
-  it('if start.month > value.month, set value.month to start.month ', () => {
+  it('if start.month > value.month, set value.month to start.month', () => {
     const value = new Moment('1990-01-03');
     const start = new Moment('2019-11-01');
     const end = new Moment('2019-03-01');
@@ -199,7 +221,7 @@ describe('Calendar', () => {
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('10'));
   });
 
-  it('if change year and new month > end month, set value.month to end.month ', () => {
+  it('if change year and new month > end month, set value.month to end.month', () => {
     const value = new Moment('2018-11-03');
     const start = new Moment('2000-01-01');
     const end = new Moment('2019-03-01');
@@ -341,14 +363,12 @@ describe('Calendar', () => {
     expect(onMonthChange).toHaveBeenCalled();
 
     // Type
-    const headerRenderWithTypeChange = jest.fn(({ type }) => {
-      return (
-        <Group size="small" onChange={onTypeChange} value={type}>
-          <Button value="month">Month</Button>
-          <Button value="year">Year</Button>
-        </Group>
-      );
-    });
+    const headerRenderWithTypeChange = jest.fn(({ type }) => (
+      <Group size="small" onChange={onTypeChange} value={type}>
+        <Button value="month">Month</Button>
+        <Button value="year">Year</Button>
+      </Group>
+    ));
 
     const wrapperWithTypeChange = mount(
       <Calendar fullscreen={false} headerRender={headerRenderWithTypeChange} />,

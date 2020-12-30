@@ -3,6 +3,7 @@ components/**/*.jsx
 !components/*/__tests__/**/*.js
 !components/*/demo/*
 !.*.js
+~*
 # Docs templates
 site/theme/template/Color/ColorPicker.jsx
 site/theme/template/IconDisplay/*.js
@@ -23,6 +24,8 @@ lib/**/*
 node_modules
 _site
 dist
+coverage
 **/*.d.ts
 # Scripts
 scripts/previewEditor/**/*
+jest-stare

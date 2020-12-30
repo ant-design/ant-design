@@ -1,9 +1,0 @@
-codecov:
-  branch: master
-
-coverage:
-  status:
-    project:
-      default:
-        # Fail the status if coverage drops by >= 0.1%
-        threshold: 0.1

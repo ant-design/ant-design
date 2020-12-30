@@ -6,11 +6,11 @@
 @transfer-prefix-cls: ~'@{ant-prefix}-transfer';
 
 @transfer-header-vertical-padding: ceil(
-  (@transfer-header-height - 1px - @font-size-base * @line-height-base) / 2
+  ((@transfer-header-height - 1px - @font-size-base * @line-height-base) / 2)
 );
 
 .@{transfer-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   display: flex;
@@ -91,9 +91,13 @@
       }
 
       &-dropdown {
+        font-size: 10px;
         transform: translateY(10%);
         cursor: pointer;
-        .iconfont-size-under-12px(10px);
+
+        &[disabled] {
+          cursor: not-allowed;
+        }
       }
     }
 
@@ -189,9 +193,9 @@
     }
 
     &-pagination {
-      flex: none;
-      align-self: flex-end;
       padding: @padding-xs 0;
+      text-align: right;
+      border-top: @border-width-base @border-style-base @border-color-split;
     }
 
     &-body-not-found {
@@ -230,7 +234,7 @@
   }
 
   .@{ant-prefix}-empty-image {
-    max-height: @transfer-header-height / 2 - 22;
+    max-height: (@transfer-header-height / 2) - 22;
   }
 }
 

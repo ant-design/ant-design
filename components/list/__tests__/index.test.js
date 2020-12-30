@@ -17,11 +17,6 @@ describe('List', () => {
     const dataSource = [];
 
     const wrapper = mount(<List renderItem={renderItem} dataSource={dataSource} locale={locale} />);
-    expect(
-      wrapper
-        .find('div')
-        .first()
-        .props().locale,
-    ).toBe(undefined);
+    expect(wrapper.find('div').first().props().locale).toBe(undefined);
   });
 });

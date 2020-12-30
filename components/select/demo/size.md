@@ -27,55 +27,50 @@ function handleChange(value) {
   console.log(`Selected: ${value}`);
 }
 
-class SelectSizesDemo extends React.Component {
-  state = {
-    size: 'default',
+const SelectSizesDemo = () => {
+  const [size, setSize] = React.useState('default');
+
+  const handleSizeChange = e => {
+    setSize(e.target.value);
   };
 
-  handleSizeChange = e => {
-    this.setState({ size: e.target.value });
-  };
-
-  render() {
-    const { size } = this.state;
-    return (
-      <>
-        <Radio.Group value={size} onChange={this.handleSizeChange}>
-          <Radio.Button value="large">Large</Radio.Button>
-          <Radio.Button value="default">Default</Radio.Button>
-          <Radio.Button value="small">Small</Radio.Button>
-        </Radio.Group>
-        <br />
-        <br />
-        <Select size={size} defaultValue="a1" onChange={handleChange} style={{ width: 200 }}>
-          {children}
-        </Select>
-        <br />
-        <Select
-          mode="multiple"
-          size={size}
-          placeholder="Please select"
-          defaultValue={['a10', 'c12']}
-          onChange={handleChange}
-          style={{ width: '100%' }}
-        >
-          {children}
-        </Select>
-        <br />
-        <Select
-          mode="tags"
-          size={size}
-          placeholder="Please select"
-          defaultValue={['a10', 'c12']}
-          onChange={handleChange}
-          style={{ width: '100%' }}
-        >
-          {children}
-        </Select>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Radio.Group value={size} onChange={handleSizeChange}>
+        <Radio.Button value="large">Large</Radio.Button>
+        <Radio.Button value="default">Default</Radio.Button>
+        <Radio.Button value="small">Small</Radio.Button>
+      </Radio.Group>
+      <br />
+      <br />
+      <Select size={size} defaultValue="a1" onChange={handleChange} style={{ width: 200 }}>
+        {children}
+      </Select>
+      <br />
+      <Select
+        mode="multiple"
+        size={size}
+        placeholder="Please select"
+        defaultValue={['a10', 'c12']}
+        onChange={handleChange}
+        style={{ width: '100%' }}
+      >
+        {children}
+      </Select>
+      <br />
+      <Select
+        mode="tags"
+        size={size}
+        placeholder="Please select"
+        defaultValue={['a10', 'c12']}
+        onChange={handleChange}
+        style={{ width: '100%' }}
+      >
+        {children}
+      </Select>
+    </>
+  );
+};
 
 ReactDOM.render(<SelectSizesDemo />, mountNode);
 ```

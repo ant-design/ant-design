@@ -2,9 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
+import { composeRef } from 'rc-util/lib/ref';
 import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
-import { composeRef } from '../_util/ref';
 
 export const { Option } = RcMentions;
 
@@ -106,11 +106,14 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
-  const mergedClassName = classNames(className, {
-    [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-focused`]: focused,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const mergedClassName = classNames(
+    {
+      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-focused`]: focused,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   return (
     <RcMentions

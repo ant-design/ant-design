@@ -13,6 +13,7 @@ pool:
 
 stages:
   - stage: site
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
     jobs:
       - job: Build_Site
         steps:
@@ -23,7 +24,7 @@ stages:
           - task: NodeTool@0
             displayName: 'Install Node.js'
             inputs:
-              versionSpec: '12.13.1'
+              versionSpec: '14.7.0'
           - script: npm install
             displayName: 'Install modules'
           - script: |
@@ -53,65 +54,9 @@ stages:
           - task: NodeTool@0
             displayName: 'Install Node.js'
             inputs:
-              versionSpec: '12.13.1'
+              versionSpec: '14.7.0'
           - script: npm install
             displayName: 'Install modules'
           - script: |
               node ./scripts/azure-github-comment.js "[<img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Comment on github'
-  - stage: ui
-    dependsOn: []
-    jobs:
-      - job: UI_Test
-        steps:
-          - checkout: self
-            displayName: 'Checkout'
-            clean: true
-            fetchDepth: 1
-          - task: NodeTool@0
-            displayName: 'Install Node.js'
-            inputs:
-              versionSpec: '12.16.3'
-          - script: npm install
-            displayName: 'Install modules'
-          - script: |
-              node ./scripts/azure-github-comment.js -ui "[![UI Testing](https://user-images.githubusercontent.com/14831261/82744255-6bfc8800-9da8-11ea-9017-857933e8433b.gif)](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
-            displayName: 'Comment on github'
-          - script: npm run test-image
-            displayName: 'UI Test'
-          - task: PublishPipelineArtifact@1
-            inputs:
-              targetPath: $(System.DefaultWorkingDirectory)/jest-stare
-              artifactName: jestStare
-            condition: failed()
-          - script: |
-              node ./scripts/azure-github-comment.js -ui "[<img width="306" src="https://user-images.githubusercontent.com/14831261/82744259-6e5ee200-9da8-11ea-8479-685f6e280b77.jpg">](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
-            displayName: 'Update comment on github'
-      - job: UI_Test_Failed
-        dependsOn: UI_Test
-        condition: failed()
-        steps:
-          - checkout: self
-            displayName: 'Checkout'
-            clean: true
-            fetchDepth: 1
-          - task: NodeTool@0
-            displayName: 'Install Node.js'
-            inputs:
-              versionSpec: '12.13.1'
-          - script: npm install
-            displayName: 'Install modules'
-          - task: DownloadPipelineArtifact@2
-            inputs:
-              artifact: jestStare
-              path: './jest-stare'
-          - script: ls -al ./jest-stare
-            displayName: 'List report'
-          - script: |
-              export DEPLOY_DOMAIN=https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
-              echo "Deploy to $DEPLOY_DOMAIN"
-              npx surge --project ./jest-stare --domain $DEPLOY_DOMAIN
-            displayName: 'Deploy Report Site'
-          - script: |
-              node ./scripts/azure-github-comment.js -ui "[<img width="306" src="https://user-images.githubusercontent.com/14831261/82744257-6dc64b80-9da8-11ea-80cf-05b2279a5602.jpg">](https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh)"
-            displayName: 'Update comment on github'

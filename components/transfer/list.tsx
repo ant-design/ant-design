@@ -6,12 +6,12 @@ import Checkbox from '../checkbox';
 import Menu from '../menu';
 import Dropdown from '../dropdown';
 import {
-  TransferItem,
   TransferDirection,
   RenderResult,
   RenderResultObject,
   SelectAllLabel,
   TransferLocale,
+  KeyWiseTransferItem,
 } from './index';
 import Search from './search';
 import DefaultListBody, { TransferListBodyProps, OmitProps } from './ListBody';
@@ -28,23 +28,23 @@ function isRenderResultPlainObject(result: RenderResult) {
   );
 }
 
-function getEnabledItemKeys(items: TransferItem[]) {
+function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
   return items.filter(data => !data.disabled).map(data => data.key);
 }
 
-export interface RenderedItem {
+export interface RenderedItem<RecordType> {
   renderedText: string;
   renderedEl: React.ReactNode;
-  item: TransferItem;
+  item: RecordType;
 }
 
-type RenderListFunction = (props: TransferListBodyProps) => React.ReactNode;
+type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNode;
 
-export interface TransferListProps extends TransferLocale {
+export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
-  titleText: string;
-  dataSource: TransferItem[];
-  filterOption?: (filterText: string, item: TransferItem) => boolean;
+  titleText: React.ReactNode;
+  dataSource: RecordType[];
+  filterOption?: (filterText: string, item: RecordType) => boolean;
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -52,14 +52,14 @@ export interface TransferListProps extends TransferLocale {
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
-  /** render item */
-  render?: (item: TransferItem) => RenderResult;
+  /** Render item */
+  render?: (item: RecordType) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
-  renderList?: RenderListFunction;
-  footer?: (props: TransferListProps) => React.ReactNode;
+  renderList?: RenderListFunction<RecordType>;
+  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
   onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
   direction: TransferDirection;
@@ -74,10 +74,9 @@ interface TransferListState {
   filterValue: string;
 }
 
-export default class TransferList extends React.PureComponent<
-  TransferListProps,
-  TransferListState
-> {
+export default class TransferList<
+  RecordType extends KeyWiseTransferItem
+> extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
   static defaultProps = {
     dataSource: [],
     titleText: '',
@@ -88,9 +87,9 @@ export default class TransferList extends React.PureComponent<
 
   triggerScrollTimer: number;
 
-  defaultListBodyRef = React.createRef<DefaultListBody>();
+  defaultListBodyRef = React.createRef<DefaultListBody<RecordType>>();
 
-  constructor(props: TransferListProps) {
+  constructor(props: TransferListProps<RecordType>) {
     super(props);
     this.state = {
       filterValue: '',
@@ -101,7 +100,7 @@ export default class TransferList extends React.PureComponent<
     clearTimeout(this.triggerScrollTimer);
   }
 
-  getCheckStatus(filteredItems: TransferItem[]) {
+  getCheckStatus(filteredItems: RecordType[]) {
     const { checkedKeys } = this.props;
     if (checkedKeys.length === 0) {
       return 'none';
@@ -114,18 +113,18 @@ export default class TransferList extends React.PureComponent<
 
   // ================================ Item ================================
   getFilteredItems(
-    dataSource: TransferItem[],
+    dataSource: RecordType[],
     filterValue: string,
-  ): { filteredItems: TransferItem[]; filteredRenderItems: RenderedItem[] } {
-    const filteredItems: TransferItem[] = [];
-    const filteredRenderItems: RenderedItem[] = [];
+  ): { filteredItems: RecordType[]; filteredRenderItems: RenderedItem<RecordType>[] } {
+    const filteredItems: RecordType[] = [];
+    const filteredRenderItems: RenderedItem<RecordType>[] = [];
 
     dataSource.forEach(item => {
       const renderedItem = this.renderItem(item);
       const { renderedText } = renderedItem;
 
       // Filter skip
-      if (filterValue && filterValue.trim() && !this.matchFilter(renderedText, item)) {
+      if (filterValue && !this.matchFilter(renderedText, item)) {
         return null;
       }
 
@@ -152,7 +151,7 @@ export default class TransferList extends React.PureComponent<
     handleClear();
   };
 
-  matchFilter = (text: string, item: TransferItem) => {
+  matchFilter = (text: string, item: RecordType) => {
     const { filterValue } = this.state;
     const { filterOption } = this.props;
     if (filterOption) {
@@ -164,7 +163,10 @@ export default class TransferList extends React.PureComponent<
   getCurrentPageItems = () => {};
 
   // =============================== Render ===============================
-  renderListBody = (renderList: RenderListFunction | undefined, props: TransferListBodyProps) => {
+  renderListBody = (
+    renderList: RenderListFunction<RecordType> | undefined,
+    props: TransferListBodyProps<RecordType>,
+  ) => {
     let bodyContent: React.ReactNode = renderList ? renderList(props) : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
@@ -180,11 +182,11 @@ export default class TransferList extends React.PureComponent<
     prefixCls: string,
     searchPlaceholder: string,
     filterValue: string,
-    filteredItems: TransferItem[],
+    filteredItems: RecordType[],
     notFoundContent: React.ReactNode,
-    filteredRenderItems: RenderedItem[],
+    filteredRenderItems: RenderedItem<RecordType>[],
     checkedKeys: string[],
-    renderList?: RenderListFunction,
+    renderList?: RenderListFunction<RecordType>,
     showSearch?: boolean,
     disabled?: boolean,
   ): React.ReactNode {
@@ -233,7 +235,7 @@ export default class TransferList extends React.PureComponent<
   }
 
   getCheckBox(
-    filteredItems: TransferItem[],
+    filteredItems: RecordType[],
     onItemSelectAll: (dataSource: string[], checkAll: boolean) => void,
     showSelectAll?: boolean,
     disabled?: boolean,
@@ -258,7 +260,7 @@ export default class TransferList extends React.PureComponent<
     return checkAllCheckbox;
   }
 
-  renderItem = (item: TransferItem): RenderedItem => {
+  renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const { render = defaultRender } = this.props;
     const renderResult: RenderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);

@@ -14,7 +14,7 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Switch, Radio, Form } from 'antd';
+import { Table, Switch, Radio, Form, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 const columns = [
@@ -47,12 +47,12 @@ const columns = [
     key: 'action',
     sorter: true,
     render: () => (
-      <span>
-        <a style={{ marginRight: 16 }}>Delete</a>
+      <Space size="middle">
+        <a>Delete</a>
         <a className="ant-dropdown-link">
           More actions <DownOutlined />
         </a>
-      </span>
+      </Space>
     ),
   },
 ];

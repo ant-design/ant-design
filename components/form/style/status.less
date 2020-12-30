@@ -6,6 +6,18 @@
   // ================================================================
   /* Some non-status related component style is in `components.less` */
 
+  // ========================= Explain =========================
+  /* To support leave along ErrorList. We add additional className to handle explain style */
+  &-explain {
+    &&-error {
+      color: @error-color;
+    }
+
+    &&-warning {
+      color: @warning-color;
+    }
+  }
+
   &-has-feedback {
     // ========================= Input =========================
     .@{ant-prefix}-input {
@@ -34,12 +46,10 @@
     // Fix overlapping between feedback icon and <Select>'s arrow.
     // https://github.com/ant-design/ant-design/issues/4431
     > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
+    > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    :not(.@{ant-prefix}-input-group-addon)
-      > .@{ant-prefix}-select
-      .@{ant-prefix}-select-selection__clear {
-      right: 28px;
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear {
+      right: 32px;
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
@@ -51,10 +61,10 @@
     // ======================= Cascader ========================
     .@{ant-prefix}-cascader-picker {
       &-arrow {
-        margin-right: 17px;
+        margin-right: 19px;
       }
       &-clear {
-        right: 28px;
+        right: 32px;
       }
     }
 
@@ -93,15 +103,6 @@
           visibility: visible;
           animation: zoomIn 0.3s @ease-out-back;
           pointer-events: none;
-
-          & svg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-          }
         }
       }
     }
@@ -124,9 +125,10 @@
       animation-name: diffZoomIn3 !important;
     }
 
-    //select
-    .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
+    // Select
+    .@{ant-prefix}-select:not(.@{ant-prefix}-select-disabled):not(.@{ant-prefix}-select-customize-input) {
       .@{ant-prefix}-select-selector {
+        background-color: @form-warning-input-bg;
         border-color: @warning-color !important;
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
@@ -135,15 +137,17 @@
       }
     }
 
-    //input-number, timepicker
+    // InputNumber, TimePicker
     .@{ant-prefix}-input-number,
     .@{ant-prefix}-picker {
+      background-color: @form-warning-input-bg;
       border-color: @warning-color;
       &-focused,
       &:focus {
         .active(@warning-color);
       }
       &:not([disabled]):hover {
+        background-color: @form-warning-input-bg;
         border-color: @warning-color;
       }
     }
@@ -162,9 +166,10 @@
       animation-name: diffZoomIn2 !important;
     }
 
-    //select
-    .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
+    // Select
+    .@{ant-prefix}-select:not(.@{ant-prefix}-select-disabled):not(.@{ant-prefix}-select-customize-input) {
       .@{ant-prefix}-select-selector {
+        background-color: @form-error-input-bg;
         border-color: @error-color !important;
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
@@ -187,22 +192,26 @@
       }
     }
 
-    //input-number, timepicker
+    // InputNumber, TimePicker
     .@{ant-prefix}-input-number,
     .@{ant-prefix}-picker {
+      background-color: @form-error-input-bg;
       border-color: @error-color;
       &-focused,
       &:focus {
         .active(@error-color);
       }
       &:not([disabled]):hover {
+        background-color: @form-error-input-bg;
         border-color: @error-color;
       }
     }
+
     .@{ant-prefix}-mention-wrapper {
       .@{ant-prefix}-mention-editor {
         &,
         &:not([disabled]):hover {
+          background-color: @form-error-input-bg;
           border-color: @error-color;
         }
       }
@@ -213,6 +222,7 @@
     }
 
     .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+      background-color: @form-error-input-bg;
       .active(@error-color);
     }
 
@@ -234,12 +244,16 @@
         }
       }
     }
-  }
 
-  // Patch to keep error explain color
-  &-has-error-leave {
-    .@{form-item-prefix-cls}-explain {
-      color: @error-color;
+    // RadioGroup
+    .@{ant-prefix}-radio-button-wrapper {
+      border-color: @error-color !important;
+
+      &:not(:first-child) {
+        &::before {
+          background-color: @error-color;
+        }
+      }
     }
   }
 

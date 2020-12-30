@@ -269,7 +269,6 @@ exports[`Progress render out-of-range progress 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="check-circle"
         fill="currentColor"
         focusable="false"
@@ -312,7 +311,6 @@ exports[`Progress render out-of-range progress with info 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="check-circle"
         fill="currentColor"
         focusable="false"
@@ -607,4 +605,10 @@ exports[`Progress should support steps 1`] = `
     </span>
   </div>
 </div>
+`;
+
+exports[`Progress steps should have default percent 0 1`] = `
+<div
+  class="undefined-steps-outer"
+/>
 `;

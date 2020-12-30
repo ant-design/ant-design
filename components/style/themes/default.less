@@ -50,13 +50,12 @@
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-@text-color: fade(@black, 65%);
+@text-color: fade(@black, 85%);
 @text-color-secondary: fade(@black, 45%);
 @text-color-inverse: @white;
 @icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
-@heading-color: fade(#000, 85%);
-@heading-color-dark: fade(@white, 100%);
+@heading-color: fade(@black, 85%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 @text-selection-bg: @primary-color;
@@ -69,6 +68,7 @@
 @heading-2-size: ceil(@font-size-base * 2.14);
 @heading-3-size: ceil(@font-size-base * 1.71);
 @heading-4-size: ceil(@font-size-base * 1.42);
+@heading-5-size: ceil(@font-size-base * 1.14);
 // https://github.com/ant-design/ant-design/issues/20210
 @line-height-base: 1.5715;
 @border-radius-base: 2px;
@@ -205,6 +205,8 @@
 @btn-height-lg: @height-lg;
 @btn-height-sm: @height-sm;
 
+@btn-line-height: @line-height-base;
+
 @btn-circle-size: @btn-height-base;
 @btn-circle-size-lg: @btn-height-lg;
 @btn-circle-size-sm: @btn-height-sm;
@@ -239,10 +241,12 @@
 @descriptions-item-trailing-colon: true;
 @descriptions-item-label-colon-margin-right: 8px;
 @descriptions-item-label-colon-margin-left: 2px;
+@descriptions-extra-color: @text-color;
 
 // Divider
 @divider-text-padding: 1em;
 @divider-orientation-margin: 5%;
+@divider-color: rgba(0, 0, 0, 6%);
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
@@ -254,6 +258,8 @@
 // Radio
 @radio-size: 16px;
 @radio-top: 0px;
+@radio-border-width: 1px;
+@radio-dot-size: @radio-size - 8px;
 @radio-dot-color: @primary-color;
 @radio-dot-disabled-color: fade(@black, 20%);
 @radio-solid-checked-color: @component-background;
@@ -265,15 +271,17 @@
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
 @radio-disabled-button-checked-bg: tint(@black, 90%);
-@radio-disabled-button-checked-color: @text-color-inverse;
+@radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
 
 // Media queries breakpoints
-// Extra small screen / phone
+// @screen-xs and @screen-xs-min is not used in Grid
+// smallest break point is @screen-md
 @screen-xs: 480px;
 @screen-xs-min: @screen-xs;
+// 👆 Extra small screen / phone
 
-// Small screen / tablet
+// 👇 Small screen / tablet
 @screen-sm: 576px;
 @screen-sm-min: @screen-sm;
 
@@ -324,7 +332,7 @@
 
 // z-index list, order by `z-index`
 @zindex-badge: auto;
-@zindex-table-fixed: auto;
+@zindex-table-fixed: 2;
 @zindex-affix: 10;
 @zindex-back-top: 10;
 @zindex-picker-panel: 10;
@@ -336,7 +344,9 @@
 @zindex-popover: 1030;
 @zindex-dropdown: 1050;
 @zindex-picker: 1050;
-@zindex-tooltip: 1060;
+@zindex-popoconfirm: 1060;
+@zindex-tooltip: 1070;
+@zindex-image: 1080;
 
 // Animation
 @animation-duration-slow: 0.3s; // Modal
@@ -378,16 +388,18 @@
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
 @input-padding-vertical-base: max(
-  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+  (round(((@input-height-base - @font-size-base * @line-height-base) / 2) * 10) / 10) -
     @border-width-base,
   3px
 );
 @input-padding-vertical-sm: max(
-  round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+  (round(((@input-height-sm - @font-size-base * @line-height-base) / 2) * 10) / 10) -
+    @border-width-base,
   0
 );
-@input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
-  10 - @border-width-base;
+@input-padding-vertical-lg: (
+    ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10
+  ) - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
 @input-icon-color: @input-color;
@@ -413,6 +425,7 @@
 // Select
 // ---
 @select-border-color: @border-color-base;
+@select-item-selected-color: @text-color;
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
 @select-item-selected-bg: @primary-1;
@@ -428,7 +441,10 @@
 @select-single-item-height-lg: 40px;
 @select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
 @select-multiple-item-height-lg: 32px;
-@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
+@select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
+@select-multiple-disabled-background: @input-disabled-bg;
+@select-multiple-item-disabled-color: #bfbfbf;
+@select-multiple-item-disabled-border-color: @select-border-color;
 
 // Cascader
 // ---
@@ -579,10 +595,10 @@
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
-@table-padding-vertical-md: @table-padding-vertical * 3 / 4;
-@table-padding-horizontal-md: @table-padding-horizontal / 2;
-@table-padding-vertical-sm: @table-padding-vertical / 2;
-@table-padding-horizontal-sm: @table-padding-horizontal / 2;
+@table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
+@table-padding-horizontal-md: (@table-padding-horizontal / 2);
+@table-padding-vertical-sm: (@table-padding-vertical / 2);
+@table-padding-horizontal-sm: (@table-padding-horizontal / 2);
 @table-border-radius-base: @border-radius-base;
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
@@ -598,8 +614,10 @@
 @table-filter-btns-bg: inherit;
 @table-filter-dropdown-bg: @component-background;
 @table-expand-icon-bg: @component-background;
-@table-selection-column-width: 60px;
-@table-selection-extra-right: 0;
+@table-selection-column-width: 32px;
+// Sticky
+@table-sticky-scroll-bar-bg: fade(#000, 35%);
+@table-sticky-scroll-bar-radius: 4px;
 
 // Tag
 // --
@@ -618,6 +636,8 @@
 @picker-border-color: @border-color-split;
 @picker-date-hover-range-border-color: lighten(@primary-color, 20%);
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
+@picker-time-panel-column-width: 56px;
+@picker-time-panel-column-height: 224px;
 @picker-time-panel-cell-height: 28px;
 @picker-panel-cell-height: 24px;
 @picker-panel-cell-width: 36px;
@@ -642,11 +662,14 @@
 // Badge
 // ---
 @badge-height: 20px;
+@badge-height-sm: 14px;
 @badge-dot-size: 6px;
 @badge-font-size: @font-size-sm;
+@badge-font-size-sm: @font-size-sm;
 @badge-font-weight: normal;
 @badge-status-size: 6px;
 @badge-text-color: @component-background;
+@badge-color: @highlight-color;
 
 // Rate
 // ---
@@ -662,13 +685,13 @@
 @card-head-font-size: @font-size-lg;
 @card-head-font-size-sm: @font-size-base;
 @card-head-padding: 16px;
-@card-head-padding-sm: @card-head-padding / 2;
+@card-head-padding-sm: (@card-head-padding / 2);
 @card-head-height: 48px;
 @card-head-height-sm: 36px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
-@card-padding-base-sm: @card-padding-base / 2;
-@card-actions-background: @background-color-light;
+@card-padding-base-sm: (@card-padding-base / 2);
+@card-actions-background: @component-background;
 @card-actions-li-margin: 12px 0;
 @card-skeleton-bg: #cfd8dc;
 @card-background: @component-background;
@@ -698,8 +721,9 @@
 @tabs-card-head-background: @background-color-light;
 @tabs-card-height: 40px;
 @tabs-card-active-color: @primary-color;
-@tabs-card-horizontal-padding: (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2 -
-  @border-width-base @padding-md;
+@tabs-card-horizontal-padding: (
+    (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2
+  ) - @border-width-base @padding-md;
 @tabs-card-horizontal-padding-sm: 6px @padding-md;
 @tabs-card-horizontal-padding-lg: 7px @padding-md 6px;
 @tabs-title-font-size: @font-size-base;
@@ -738,6 +762,9 @@
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
+@avatar-group-overlapping: -8px;
+@avatar-group-space: 3px;
+@avatar-group-border-color: #fff;
 
 // Switch
 // ---
@@ -760,7 +787,7 @@
 @pagination-item-bg: @component-background;
 @pagination-item-size: @height-base;
 @pagination-item-size-sm: 24px;
-@pagination-font-family: Arial;
+@pagination-font-family: @font-family;
 @pagination-font-weight-active: 500;
 @pagination-item-bg-active: @component-background;
 @pagination-item-link-bg: @component-background;
@@ -835,7 +862,7 @@
 
 // Skeleton
 // ---
-@skeleton-color: #f2f2f2;
+@skeleton-color: rgba(190, 190, 190, 0.2);
 @skeleton-to-color: shade(@skeleton-color, 5%);
 @skeleton-paragraph-margin-top: 28px;
 @skeleton-paragraph-li-margin-top: @margin-md;
@@ -883,11 +910,9 @@
 @alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
-  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size * 2 +
-  @alert-with-description-padding-vertical;
-@alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
+  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size;
+@alert-icon-top: 8px + @font-size-base * (@line-height-base / 2) - (@font-size-base / 2);
 @alert-with-description-icon-size: 24px;
-@alert-with-description-icon-top: @alert-with-description-padding-vertical;
 
 // List
 // ---
@@ -907,7 +932,7 @@
 // ---
 @statistic-title-font-size: @font-size-base;
 @statistic-content-font-size: 24px;
-@statistic-unit-font-size: 16px;
+@statistic-unit-font-size: 24px;
 @statistic-font-family: @font-family;
 
 // Drawer
@@ -956,7 +981,7 @@
 @steps-dot-size: 8px;
 @steps-dot-top: 2px;
 @steps-current-dot-size: 10px;
-@steps-desciption-max-width: 140px;
+@steps-description-max-width: 140px;
 @steps-nav-content-max-width: auto;
 @steps-vertical-icon-width: 16px;
 @steps-vertical-tail-width: 16px;
@@ -979,5 +1004,8 @@
 // ---
 @image-size-base: 48px;
 @image-font-size-base: 24px;
-@image-bg: #ccc;
+@image-bg: #f5f5f5;
 @image-color: #fff;
+@image-preview-operation-size: 18px;
+@image-preview-operation-color: @text-color-dark;
+@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);

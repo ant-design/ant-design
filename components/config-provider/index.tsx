@@ -7,12 +7,26 @@ import { ValidateMessages } from 'rc-field-form/lib/interface';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
+import {
+  ConfigConsumer,
+  ConfigContext,
+  CSPConfig,
+  DirectionType,
+  ConfigConsumerProps,
+} from './context';
 import { SizeType, SizeContextProvider } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
+import { RequiredMark } from '../form/Form';
 
-export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
+export {
+  RenderEmptyHandler,
+  ConfigContext,
+  ConfigConsumer,
+  CSPConfig,
+  DirectionType,
+  ConfigConsumerProps,
+};
 
 export const configConsumerProps = [
   'getTargetContainer',
@@ -36,6 +50,7 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
   form?: {
     validateMessages?: ValidateMessages;
+    requiredMark?: RequiredMark;
   };
   input?: {
     autoComplete?: string;
@@ -45,7 +60,7 @@ export interface ConfigProviderProps {
     ghost: boolean;
   };
   componentSize?: SizeType;
-  direction?: 'ltr' | 'rtl';
+  direction?: DirectionType;
   space?: {
     size?: SizeType | number;
   };
@@ -53,7 +68,9 @@ export interface ConfigProviderProps {
   dropdownMatchSelectWidth?: boolean;
 }
 
-const ConfigProvider: React.FC<ConfigProviderProps> = props => {
+const ConfigProvider: React.FC<ConfigProviderProps> & {
+  ConfigContext: typeof ConfigContext;
+} = props => {
   React.useEffect(() => {
     if (props.direction) {
       message.config({
@@ -65,16 +82,17 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
     }
   }, [props.direction]);
 
-  const getPrefixClsWrapper = (context: ConfigConsumerProps) => {
-    return (suffixCls: string, customizePrefixCls?: string) => {
-      const { prefixCls } = props;
+  const getPrefixClsWrapper = (context: ConfigConsumerProps) => (
+    suffixCls: string,
+    customizePrefixCls?: string,
+  ) => {
+    const { prefixCls } = props;
 
-      if (customizePrefixCls) return customizePrefixCls;
+    if (customizePrefixCls) return customizePrefixCls;
 
-      const mergedPrefixCls = prefixCls || context.getPrefixCls('');
+    const mergedPrefixCls = prefixCls || context.getPrefixCls('');
 
-      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
-    };
+    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
   };
 
   const renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
@@ -128,8 +146,11 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
       config.input = input;
     }
 
-    let childNode = children;
+    if (form) {
+      config.form = form;
+    }
 
+    let childNode = children;
     // Additional Form provider
     let validateMessages: ValidateMessages = {};
 
@@ -144,13 +165,18 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
       childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
     }
 
+    const childrenWithLocale =
+      locale === undefined ? (
+        childNode
+      ) : (
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+          {childNode}
+        </LocaleProvider>
+      );
+
     return (
       <SizeContextProvider size={componentSize}>
-        <ConfigContext.Provider value={config}>
-          <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-            {childNode}
-          </LocaleProvider>
-        </ConfigContext.Provider>
+        <ConfigContext.Provider value={config}>{childrenWithLocale}</ConfigContext.Provider>
       </SizeContextProvider>
     );
   };
@@ -166,4 +192,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
   );
 };
 
+/** @private internal usage. do not use in your production */
+ConfigProvider.ConfigContext = ConfigContext;
 export default ConfigProvider;

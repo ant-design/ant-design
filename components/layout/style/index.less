@@ -18,9 +18,10 @@
 
   &&-has-sider {
     flex-direction: row;
+
     > .@{layout-prefix-cls},
     > .@{layout-prefix-cls}-content {
-      overflow-x: hidden;
+      width: 0; // https://segmentfault.com/a/1190000019498300
     }
   }
 
@@ -89,7 +90,7 @@
     }
 
     &-zero-width {
-      & > * {
+      > * {
         overflow: hidden;
       }
 
@@ -101,7 +102,7 @@
         width: @layout-zero-trigger-width;
         height: @layout-zero-trigger-height;
         color: @layout-trigger-color;
-        font-size: @layout-zero-trigger-width / 2;
+        font-size: (@layout-zero-trigger-width / 2);
         line-height: @layout-zero-trigger-height;
         text-align: center;
         background: @layout-sider-background;
@@ -109,8 +110,19 @@
         cursor: pointer;
         transition: background 0.3s ease;
 
-        &:hover {
-          background: tint(@layout-sider-background, 10%);
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: transparent;
+          transition: all 0.3s;
+          content: '';
+        }
+
+        &:hover::after {
+          background: rgba(255, 255, 255, 0.1);
         }
 
         &-right {

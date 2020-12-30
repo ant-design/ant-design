@@ -13,7 +13,7 @@
 
 // Base class
 .@{tooltip-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: absolute;
   z-index: @zindex-tooltip;
@@ -96,7 +96,7 @@
 
     &-content {
       box-shadow: @tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateY(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
+      transform: translateY((-@tooltip-arrow-rotate-width / 2)) rotate(45deg);
     }
   }
 
@@ -120,7 +120,7 @@
 
     &-content {
       box-shadow: -@tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateX(@tooltip-arrow-rotate-width / 2) rotate(45deg);
+      transform: translateX((@tooltip-arrow-rotate-width / 2)) rotate(45deg);
     }
   }
 
@@ -144,7 +144,7 @@
 
     &-content {
       box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateX(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
+      transform: translateX((-@tooltip-arrow-rotate-width / 2)) rotate(45deg);
     }
   }
 
@@ -168,7 +168,7 @@
 
     &-content {
       box-shadow: -@tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateY(@tooltip-arrow-rotate-width / 2) rotate(45deg);
+      transform: translateY((@tooltip-arrow-rotate-width / 2)) rotate(45deg);
     }
   }
 

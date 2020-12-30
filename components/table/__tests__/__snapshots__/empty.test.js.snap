@@ -341,41 +341,107 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  style="height:0;font-size:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-placeholder"

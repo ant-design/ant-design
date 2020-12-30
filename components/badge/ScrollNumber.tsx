@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
@@ -38,11 +39,12 @@ export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
   count?: string | number | null;
-  displayComponent?: React.ReactElement<HTMLElement>;
+  children?: React.ReactElement<HTMLElement>;
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
   title?: string | number | null;
+  show: boolean;
 }
 
 export interface ScrollNumberState {
@@ -56,15 +58,16 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   className,
   style,
   title,
+  show,
   component = 'sup',
-  displayComponent,
+  children,
   onAnimated = () => {},
   ...restProps
 }) => {
-  const [animateStarted, setAnimateStarted] = React.useState(true);
-  const [count, setCount] = React.useState(customizeCount);
-  const [prevCount, setPrevCount] = React.useState(customizeCount);
-  const [lastCount, setLastCount] = React.useState(customizeCount);
+  const [animateStarted, setAnimateStarted] = useState(true);
+  const [count, setCount] = useState(customizeCount);
+  const [prevCount, setPrevCount] = useState(customizeCount);
+  const [lastCount, setLastCount] = useState(customizeCount);
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
 
@@ -92,6 +95,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     };
   }, [animateStarted, customizeCount, onAnimated]);
 
+  // =========================== Function ===========================
   const getPositionByNum = (num: number, i: number) => {
     const currentCount = Math.abs(Number(count));
     const lstCount = Math.abs(Number(lastCount));
@@ -113,6 +117,15 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
       return 10 + num;
     }
     return num;
+  };
+
+  // ============================ Render ============================
+  const newProps = {
+    ...restProps,
+    'data-show': show,
+    style,
+    className: classNames(prefixCls, className),
+    title: title as string,
   };
 
   const renderCurrentNumber = (num: number | string, i: number) => {
@@ -142,21 +155,12 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     );
   };
 
-  const renderNumberElement = () => {
-    if (count && Number(count) % 1 === 0) {
-      return getNumberArray(count)
-        .map((num, i) => renderCurrentNumber(num, i))
-        .reverse();
-    }
-    return count;
-  };
-
-  const newProps = {
-    ...restProps,
-    style,
-    className: classNames(prefixCls, className),
-    title: title as string,
-  };
+  const numberNode =
+    count && Number(count) % 1 === 0
+      ? getNumberArray(count)
+          .map((num, i) => renderCurrentNumber(num, i))
+          .reverse()
+      : count;
 
   // allow specify the border
   // mock border-color by box-shadow for compatible with old usage:
@@ -167,15 +171,12 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
       boxShadow: `0 0 0 1px ${style.borderColor} inset`,
     };
   }
-  if (displayComponent) {
-    return cloneElement(displayComponent, {
-      className: classNames(
-        `${prefixCls}-custom-component`,
-        displayComponent.props && displayComponent.props.className,
-      ),
-    });
+  if (children) {
+    return cloneElement(children, oriProps => ({
+      className: classNames(`${prefixCls}-custom-component`, oriProps?.className),
+    }));
   }
-  return React.createElement(component as any, newProps, renderNumberElement());
+  return React.createElement(component as any, newProps, numberNode);
 };
 
 export default ScrollNumber;

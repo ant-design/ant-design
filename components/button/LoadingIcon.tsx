@@ -1,6 +1,5 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import CSSMotion from 'rc-animate/lib/CSSMotion';
+import React from 'react';
+import CSSMotion from 'rc-motion';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 
 export interface LoadingIconProps {
@@ -8,7 +7,6 @@ export interface LoadingIconProps {
   existIcon: boolean;
   loading?: boolean | object;
 }
-
 const getCollapsedWidth = () => ({ width: 0, opacity: 0, transform: 'scale(0)' });
 const getRealWidth = (node: HTMLElement) => ({
   width: node.scrollWidth,
@@ -16,7 +14,7 @@ const getRealWidth = (node: HTMLElement) => ({
   transform: 'scale(1)',
 });
 
-export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIconProps) {
+const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon }) => {
   const visible = !!loading;
 
   if (existIcon) {
@@ -40,13 +38,13 @@ export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIc
       onLeaveStart={getRealWidth}
       onLeaveActive={getCollapsedWidth}
     >
-      {({ className, style }: { className: string; style: React.CSSProperties }, ref: any) => {
-        return (
-          <span className={`${prefixCls}-loading-icon`} style={style} ref={ref}>
-            <LoadingOutlined className={classNames(className)} />
-          </span>
-        );
-      }}
+      {({ className, style }: { className?: string; style?: React.CSSProperties }, ref: any) => (
+        <span className={`${prefixCls}-loading-icon`} style={style} ref={ref}>
+          <LoadingOutlined className={className} />
+        </span>
+      )}
     </CSSMotion>
   );
-}
+};
+
+export default LoadingIcon;

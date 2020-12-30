@@ -21,6 +21,7 @@ Array [
           autocomplete="off"
           class="ant-select-selection-search-input"
           role="combobox"
+          type="search"
           value=""
         />
       </span>
@@ -52,6 +53,7 @@ Array [
           autocomplete="off"
           class="ant-select-selection-search-input"
           role="combobox"
+          type="search"
           value=""
         />
       </span>
@@ -77,44 +79,51 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-search ant-select-selection-search-input ant-input-affix-wrapper ant-input-affix-wrapper-lg"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-select-selection-search-input"
       >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-input ant-input-lg"
-          placeholder="input here"
-          role="combobox"
-          type="text"
-          value=""
-        />
         <span
-          class="ant-input-suffix"
+          class="ant-input-wrapper ant-input-group"
         >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-input ant-input-lg"
+            placeholder="input here"
+            role="combobox"
+            type="search"
+            value=""
+          />
           <span
-            aria-label="search"
-            class="anticon anticon-search ant-input-search-icon"
-            role="img"
-            tabindex="-1"
+            class="ant-input-group-addon"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="search"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <button
+              class="ant-btn ant-btn-lg ant-btn-icon-only ant-input-search-button"
+              type="button"
             >
-              <path
-                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-              />
-            </svg>
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </button>
           </span>
         </span>
       </span>
@@ -148,6 +157,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
         placeholder="input here"
         role="combobox"
         style="height:50px"
+        type="search"
       />
     </span>
     <span
@@ -202,6 +212,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   role="combobox"
+                  type="search"
                   value=""
                 />
               </span>
@@ -256,6 +267,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -277,7 +289,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -342,6 +353,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -363,7 +375,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -396,6 +407,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     autocomplete="off"
                     class="ant-select-selection-search-input"
                     role="combobox"
+                    type="search"
                     value=""
                   />
                 </span>
@@ -441,7 +453,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <span
-                  class="ant-select-selection-search-input ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-select-selection-search-input"
                 >
                   <input
                     aria-activedescendant="undefined_list_0"
@@ -452,7 +464,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     autocomplete="off"
                     class="ant-input"
                     role="combobox"
-                    type="text"
+                    type="search"
                     value=""
                   />
                   <span
@@ -465,7 +477,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="search"
                         fill="currentColor"
                         focusable="false"
@@ -536,6 +547,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -557,7 +569,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -582,7 +593,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <span
-                    class="ant-select-selection-search-input ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-select-selection-search-input"
                   >
                     <input
                       aria-activedescendant="undefined_list_0"
@@ -593,7 +604,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       autocomplete="off"
                       class="ant-input"
                       role="combobox"
-                      type="text"
+                      type="search"
                       value=""
                     />
                     <span
@@ -606,7 +617,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="search"
                           fill="currentColor"
                           focusable="false"
@@ -678,6 +688,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -699,7 +710,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -724,43 +734,50 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <span
-                    class="ant-input-search ant-select-selection-search-input ant-input-affix-wrapper"
+                    class="ant-input-group-wrapper ant-input-search ant-select-selection-search-input"
                   >
-                    <input
-                      aria-activedescendant="undefined_list_0"
-                      aria-autocomplete="list"
-                      aria-controls="undefined_list"
-                      aria-haspopup="listbox"
-                      aria-owns="undefined_list"
-                      autocomplete="off"
-                      class="ant-input"
-                      role="combobox"
-                      type="text"
-                      value=""
-                    />
                     <span
-                      class="ant-input-suffix"
+                      class="ant-input-wrapper ant-input-group"
                     >
+                      <input
+                        aria-activedescendant="undefined_list_0"
+                        aria-autocomplete="list"
+                        aria-controls="undefined_list"
+                        aria-haspopup="listbox"
+                        aria-owns="undefined_list"
+                        autocomplete="off"
+                        class="ant-input"
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                       <span
-                        aria-label="search"
-                        class="anticon anticon-search ant-input-search-icon"
-                        role="img"
-                        tabindex="-1"
+                        class="ant-input-group-addon"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="search"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <button
+                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          type="button"
                         >
-                          <path
-                            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                          />
-                        </svg>
+                          <span
+                            aria-label="search"
+                            class="anticon anticon-search"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="search"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
                       </span>
                     </span>
                   </span>
@@ -821,6 +838,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -842,7 +860,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -867,43 +884,50 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <span
-                    class="ant-input-search ant-select-selection-search-input ant-input-affix-wrapper"
+                    class="ant-input-group-wrapper ant-input-search ant-select-selection-search-input"
                   >
-                    <input
-                      aria-activedescendant="undefined_list_0"
-                      aria-autocomplete="list"
-                      aria-controls="undefined_list"
-                      aria-haspopup="listbox"
-                      aria-owns="undefined_list"
-                      autocomplete="off"
-                      class="ant-input"
-                      role="combobox"
-                      type="text"
-                      value=""
-                    />
                     <span
-                      class="ant-input-suffix"
+                      class="ant-input-wrapper ant-input-group"
                     >
+                      <input
+                        aria-activedescendant="undefined_list_0"
+                        aria-autocomplete="list"
+                        aria-controls="undefined_list"
+                        aria-haspopup="listbox"
+                        aria-owns="undefined_list"
+                        autocomplete="off"
+                        class="ant-input"
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                       <span
-                        aria-label="search"
-                        class="anticon anticon-search ant-input-search-icon"
-                        role="img"
-                        tabindex="-1"
+                        class="ant-input-group-addon"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="search"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <button
+                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          type="button"
                         >
-                          <path
-                            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                          />
-                        </svg>
+                          <span
+                            aria-label="search"
+                            class="anticon anticon-search"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="search"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
                       </span>
                     </span>
                   </span>
@@ -924,7 +948,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="search"
                   fill="currentColor"
                   focusable="false"
@@ -969,6 +992,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -1001,6 +1025,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -1025,7 +1050,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-search ant-select-selection-search-input ant-input-search-enter-button ant-input-search-large ant-input-group-wrapper ant-input-group-wrapper-lg"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -1040,14 +1065,14 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
             class="ant-input ant-input-lg"
             placeholder="input here"
             role="combobox"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-input-search-button ant-btn-primary ant-btn-lg"
+              class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
               type="button"
             >
               <span
@@ -1057,7 +1082,6 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="search"
                   fill="currentColor"
                   focusable="false"

@@ -1,0 +1,36 @@
+name: UI
+
+on:
+  pull_request_target:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        if: github.event_name == 'pull_request_target'
+        uses: actions/checkout@master
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/head
+
+      - name: checkout
+        if: github.event_name == 'push'
+        uses: actions/checkout@master
+
+      - name: install
+        run: npm install
+
+      - name: test
+        run: npm run test-image
+
+      - name: argos-ci
+        # argos-ci only support base branch, so we should expect master
+        if: github.event_name == 'pull_request_target' && github.base_ref == 'master'
+        run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch pull/${{ github.event.pull_request.number }}/merge --commit ${{ github.event.pull_request.head.sha }}
+
+      - name: argos-ci
+        if: github.event_name == 'push'
+        run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch ${GITHUB_REF##*/} --commit ${{ github.sha }}

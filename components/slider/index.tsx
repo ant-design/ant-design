@@ -1,7 +1,5 @@
 import * as React from 'react';
-import RcSlider from 'rc-slider/lib/Slider';
-import RcRange from 'rc-slider/lib/Range';
-import RcHandle from 'rc-slider/lib/Handle';
+import RcSlider, { Range as RcRange, Handle as RcHandle } from 'rc-slider';
 import classNames from 'classnames';
 import { TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
@@ -18,16 +16,15 @@ export interface SliderMarks {
 
 interface HandleGeneratorInfo {
   value?: number;
-  dragging: boolean;
+  dragging?: boolean;
   index: number;
-  rest: any[];
 }
 
 export type HandleGeneratorFn = (config: {
   tooltipPrefixCls?: string;
   prefixCls?: string;
   info: HandleGeneratorInfo;
-}) => React.ReactNode;
+}) => React.ReactElement;
 
 export interface SliderBaseProps {
   prefixCls?: string;
@@ -35,7 +32,7 @@ export interface SliderBaseProps {
   reverse?: boolean;
   min?: number;
   max?: number;
-  step?: number | null;
+  step?: null | number;
   marks?: SliderMarks;
   dots?: boolean;
   included?: boolean;
@@ -48,6 +45,7 @@ export interface SliderBaseProps {
   tooltipVisible?: boolean;
   tooltipPlacement?: TooltipPlacement;
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  autoFocus?: boolean;
 }
 
 export interface SliderSingleProps extends SliderBaseProps {
@@ -56,6 +54,8 @@ export interface SliderSingleProps extends SliderBaseProps {
   defaultValue?: number;
   onChange?: (value: number) => void;
   onAfterChange?: (value: number) => void;
+  handleStyle?: React.CSSProperties;
+  trackStyle?: React.CSSProperties;
 }
 
 export interface SliderRangeProps extends SliderBaseProps {
@@ -64,75 +64,104 @@ export interface SliderRangeProps extends SliderBaseProps {
   defaultValue?: [number, number];
   onChange?: (value: [number, number]) => void;
   onAfterChange?: (value: [number, number]) => void;
+  handleStyle?: React.CSSProperties[];
+  trackStyle?: React.CSSProperties[];
 }
 
 export type Visibles = { [index: number]: boolean };
 
-const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>((props, ref) => {
-  const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
-  const [visibles, setVisibles] = React.useState<Visibles>({});
+const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
+  (props, ref: any) => {
+    const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
+    const [visibles, setVisibles] = React.useState<Visibles>({});
 
-  const toggleTooltipVisible = (index: number, visible: boolean) => {
-    const temp = { ...visibles };
-    temp[index] = visible;
-    setVisibles(temp);
-  };
+    const toggleTooltipVisible = (index: number, visible: boolean) => {
+      setVisibles((prev: Visibles) => ({ ...prev, [index]: visible }));
+    };
 
-  const handleWithTooltip: HandleGeneratorFn = ({
-    tooltipPrefixCls,
-    prefixCls,
-    info: { value, dragging, index, ...restProps },
-  }) => {
+    const getTooltipPlacement = (tooltipPlacement?: TooltipPlacement, vertical?: boolean) => {
+      if (tooltipPlacement) {
+        return tooltipPlacement;
+      }
+      if (!vertical) {
+        return 'top';
+      }
+      return direction === 'rtl' ? 'left' : 'right';
+    };
+
+    const handleWithTooltip: HandleGeneratorFn = ({
+      tooltipPrefixCls,
+      prefixCls,
+      info: { value, dragging, index, ...restProps },
+    }) => {
+      const {
+        tipFormatter,
+        tooltipVisible,
+        tooltipPlacement,
+        getTooltipPopupContainer,
+        vertical,
+      } = props;
+      const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
+      const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
+      return (
+        <SliderTooltip
+          prefixCls={tooltipPrefixCls}
+          title={tipFormatter ? tipFormatter(value) : ''}
+          visible={visible}
+          placement={getTooltipPlacement(tooltipPlacement, vertical)}
+          transitionName="zoom-down"
+          key={index}
+          overlayClassName={`${prefixCls}-tooltip`}
+          getPopupContainer={getTooltipPopupContainer || getPopupContainer || (() => document.body)}
+        >
+          <RcHandle
+            {...restProps}
+            value={value}
+            onMouseEnter={() => toggleTooltipVisible(index, true)}
+            onMouseLeave={() => toggleTooltipVisible(index, false)}
+          />
+        </SliderTooltip>
+      );
+    };
+
     const {
-      tipFormatter,
-      tooltipVisible,
-      tooltipPlacement,
-      getTooltipPopupContainer,
-      vertical,
+      prefixCls: customizePrefixCls,
+      tooltipPrefixCls: customizeTooltipPrefixCls,
+      range,
+      className,
+      ...restProps
     } = props;
-    const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
-    const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
-    return (
-      <SliderTooltip
-        prefixCls={tooltipPrefixCls}
-        title={tipFormatter ? tipFormatter(value) : ''}
-        visible={visible}
-        placement={tooltipPlacement || (vertical ? 'right' : 'top')}
-        transitionName="zoom-down"
-        key={index}
-        overlayClassName={`${prefixCls}-tooltip`}
-        getPopupContainer={getTooltipPopupContainer || getPopupContainer || (() => document.body)}
-      >
-        <RcHandle
-          {...restProps}
-          value={value}
-          onMouseEnter={() => toggleTooltipVisible(index, true)}
-          onMouseLeave={() => toggleTooltipVisible(index, false)}
+    const prefixCls = getPrefixCls('slider', customizePrefixCls);
+    const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
+    const cls = classNames(className, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
+    // make reverse default on rtl direction
+    if (direction === 'rtl' && !restProps.vertical) {
+      restProps.reverse = !restProps.reverse;
+    }
+    if (range) {
+      return (
+        <RcRange
+          {...(restProps as SliderRangeProps)}
+          step={restProps.step!}
+          className={cls}
+          ref={ref}
+          handle={(info: HandleGeneratorInfo) =>
+            handleWithTooltip({
+              tooltipPrefixCls,
+              prefixCls,
+              info,
+            })
+          }
+          prefixCls={prefixCls}
         />
-      </SliderTooltip>
-    );
-  };
-
-  const {
-    prefixCls: customizePrefixCls,
-    tooltipPrefixCls: customizeTooltipPrefixCls,
-    range,
-    className,
-    ...restProps
-  } = props;
-  const prefixCls = getPrefixCls('slider', customizePrefixCls);
-  const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
-  const cls = classNames(className, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
-  // make reverse default on rtl direction
-  if (direction === 'rtl' && !restProps.vertical) {
-    restProps.reverse = !restProps.reverse;
-  }
-  if (range) {
+      );
+    }
     return (
-      <RcRange
-        {...restProps}
+      <RcSlider
+        {...(restProps as SliderSingleProps)}
+        step={restProps.step!}
         className={cls}
         ref={ref}
         handle={(info: HandleGeneratorInfo) =>
@@ -143,27 +172,10 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>((
           })
         }
         prefixCls={prefixCls}
-        tooltipPrefixCls={tooltipPrefixCls}
       />
     );
-  }
-  return (
-    <RcSlider
-      {...restProps}
-      className={cls}
-      ref={ref}
-      handle={(info: HandleGeneratorInfo) =>
-        handleWithTooltip({
-          tooltipPrefixCls,
-          prefixCls,
-          info,
-        })
-      }
-      prefixCls={prefixCls}
-      tooltipPrefixCls={tooltipPrefixCls}
-    />
-  );
-});
+  },
+);
 
 Slider.displayName = 'Slider';
 

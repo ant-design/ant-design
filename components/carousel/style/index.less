@@ -4,7 +4,7 @@
 @carousel-prefix-cls: ~'@{ant-prefix}-carousel';
 
 .@{carousel-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   .slick-slider {
     position: relative;
@@ -15,6 +15,7 @@
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
   }
+
   .slick-list {
     position: relative;
     display: block;
@@ -47,11 +48,20 @@
           visibility: visible;
         }
       }
+
+      // fix Carousel content height not match parent node
+      // when children is empty node
+      // https://github.com/ant-design/ant-design/issues/25878
+      > div > div {
+        vertical-align: bottom;
+      }
     }
   }
+
   .slick-slider .slick-track,
   .slick-slider .slick-list {
     transform: translate3d(0, 0, 0);
+    touch-action: pan-y;
   }
 
   .slick-track {
@@ -74,6 +84,7 @@
       visibility: hidden;
     }
   }
+
   .slick-slide {
     display: none;
     float: left;
@@ -83,6 +94,7 @@
     img {
       display: block;
     }
+
     &.slick-loading img {
       display: none;
     }
@@ -103,7 +115,6 @@
   .slick-vertical .slick-slide {
     display: block;
     height: auto;
-    border: @border-width-base @border-style-base transparent;
   }
   .slick-arrow.slick-hidden {
     display: none;

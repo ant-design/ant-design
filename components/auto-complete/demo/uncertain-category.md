@@ -26,7 +26,7 @@ const searchResult = (query: string) => {
   return new Array(getRandomInt(5))
     .join('.')
     .split('.')
-    .map((item, idx) => {
+    .map((_, idx) => {
       const category = `${query}${idx}`;
       return {
         value: category,

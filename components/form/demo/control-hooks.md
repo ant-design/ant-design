@@ -33,21 +33,21 @@ const tailLayout = {
 const Demo = () => {
   const [form] = Form.useForm();
 
-  const onGenderChange = value => {
+  const onGenderChange = (value: string) => {
     switch (value) {
-      case "male":
-        form.setFieldsValue({ note: "Hi, man!" });
+      case 'male':
+        form.setFieldsValue({ note: 'Hi, man!' });
         return;
-      case "female":
-        form.setFieldsValue({ note: "Hi, lady!" });
+      case 'female':
+        form.setFieldsValue({ note: 'Hi, lady!' });
         return;
-      case "other":
-        form.setFieldsValue({ note: "Hi there!" });
+      case 'other':
+        form.setFieldsValue({ note: 'Hi there!' });
         return;
     }
   };
 
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log(values);
   };
 

@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/image/demo/basic.md correctly 1`] = `
+<div
+  class="ant-image"
+  style="width:200px"
+>
+  <img
+    class="ant-image-img"
+    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+  />
+</div>
+`;
+
+exports[`renders ./components/image/demo/fallback.md correctly 1`] = `
+<div
+  class="ant-image"
+  style="width:200px;height:200px"
+>
+  <img
+    class="ant-image-img"
+    src="error"
+    style="height:200px"
+  />
+</div>
+`;
+
+exports[`renders ./components/image/demo/placeholder.md correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:12px"
+  >
+    <div
+      class="ant-image"
+      style="width:200px"
+    >
+      <img
+        class="ant-image-img"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?undefined"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-image-placeholder"
+      >
+        <div
+          class="ant-image"
+          style="width:200px"
+        >
+          <img
+            class="ant-image-img"
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Reload
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/image/demo/previewGroup.md correctly 1`] = `
+Array [
+  <div
+    class="ant-image"
+    style="width:200px"
+  >
+    <img
+      class="ant-image-img"
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    />
+  </div>,
+  <div
+    class="ant-image"
+    style="width:200px"
+  >
+    <img
+      class="ant-image-img"
+      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+    />
+  </div>,
+]
+`;

@@ -28,23 +28,28 @@ const suffix = (
   />
 );
 
+const onSearch = value => console.log(value);
+
 ReactDOM.render(
   <>
+    <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
     <Search
       placeholder="input search text"
-      onSearch={value => console.log(value)}
-      style={{ width: 200 }}
+      allowClear
+      onSearch={onSearch}
+      style={{ width: 200, margin: '0 10px' }}
     />
     <br />
     <br />
-    <Search placeholder="input search text" onSearch={value => console.log(value)} enterButton />
+    <Search placeholder="input search text" onSearch={onSearch} enterButton />
     <br />
     <br />
     <Search
       placeholder="input search text"
+      allowClear
       enterButton="Search"
       size="large"
-      onSearch={value => console.log(value)}
+      onSearch={onSearch}
     />
     <br />
     <br />
@@ -53,7 +58,7 @@ ReactDOM.render(
       enterButton="Search"
       size="large"
       suffix={suffix}
-      onSearch={value => console.log(value)}
+      onSearch={onSearch}
     />
   </>,
   mountNode,

@@ -4,20 +4,20 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CardGridProps {
   prefixCls?: string;
-  style?: React.CSSProperties;
   className?: string;
   hoverable?: boolean;
+  style?: React.CSSProperties;
 }
 
-const Grid: React.FC<CardGridProps> = props => (
+const Grid: React.FC<CardGridProps> = ({ prefixCls, className, hoverable = true, ...props }) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, className, hoverable = true, ...others } = props;
-      const prefixCls = getPrefixCls('card', customizePrefixCls);
-      const classString = classNames(`${prefixCls}-grid`, className, {
-        [`${prefixCls}-grid-hoverable`]: hoverable,
+      const prefix = getPrefixCls('card', prefixCls);
+      const classString = classNames(`${prefix}-grid`, className, {
+        [`${prefix}-grid-hoverable`]: hoverable,
       });
-      return <div {...others} className={classString} />;
+
+      return <div {...props} className={classString} />;
     }}
   </ConfigConsumer>
 );

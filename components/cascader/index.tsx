@@ -11,7 +11,12 @@ import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 
 import Input from '../input';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import {
+  ConfigConsumer,
+  ConfigConsumerProps,
+  RenderEmptyHandler,
+  DirectionType,
+} from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
@@ -84,7 +89,11 @@ export interface CascaderProps {
   placeholder?: string;
   /** 输入框大小，可选 `large` `default` `small` */
   size?: SizeType;
-  /** whether has border style */
+  /** 输入框name */
+  name?: string;
+  /** 输入框id */
+  id?: string;
+  /** Whether has border style */
   bordered?: boolean;
   /** 禁用 */
   disabled?: boolean;
@@ -106,10 +115,10 @@ export interface CascaderProps {
   inputPrefixCls?: string;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
-  /** use this after antd@3.7.0 */
+  /** Use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
-  dropdownRender?: (menus: React.ReactNode) => React.ReactNode
+  dropdownRender?: (menus: React.ReactNode) => React.ReactNode;
 }
 
 export interface CascaderState {
@@ -127,6 +136,9 @@ interface CascaderLocale {
 
 // We limit the filtered item count by default
 const defaultLimit = 50;
+
+// keep value when filtering
+const keepFilteredValueField = '__KEEP_FILTERED_OPTION_VALUE';
 
 function highlightKeyword(str: string, keyword: string, prefixCls: string | undefined) {
   return str.split(keyword).map((node: string, index: number) =>
@@ -222,6 +234,19 @@ function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNames
   });
 }
 
+function getEmptyNode(
+  renderEmpty: RenderEmptyHandler,
+  names: FilledFieldNamesType,
+  notFoundContent?: React.ReactNode,
+) {
+  return {
+    [names.value]: 'ANT_CASCADER_NOT_FOUND',
+    [names.label]: notFoundContent || renderEmpty('Cascader'),
+    disabled: true,
+    isEmptyNode: true,
+  };
+}
+
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     transitionName: 'slide-up',
@@ -255,6 +280,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
   cachedOptions: CascaderOptionType[] = [];
 
+  clearSelectionTimeout: any;
+
   private input: Input;
 
   constructor(props: CascaderProps) {
@@ -267,6 +294,12 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       flattenOptions: props.showSearch ? flattenTree(props.options, props) : undefined,
       prevProps: props,
     };
+  }
+
+  componentWillUnmount() {
+    if (this.clearSelectionTimeout) {
+      clearTimeout(this.clearSelectionTimeout);
+    }
   }
 
   setValue = (value: CascaderValueType, selectedOptions: CascaderOptionType[] = []) => {
@@ -300,7 +333,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   handleChange = (value: any, selectedOptions: CascaderOptionType[]) => {
     this.setState({ inputValue: '' });
     if (selectedOptions[0].__IS_FILTERED_OPTION) {
-      const unwrappedValue = value[0];
+      const unwrappedValue =
+        selectedOptions[0][keepFilteredValueField] === undefined
+          ? value[0]
+          : selectedOptions[0][keepFilteredValueField];
       const unwrappedSelectedOptions = selectedOptions[0].path;
       this.setValue(unwrappedValue, unwrappedSelectedOptions);
       return;
@@ -345,7 +381,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { popupVisible } = this.state;
     const inputValue = e.target.value;
+    if (!popupVisible) {
+      this.handlePopupVisibleChange(true);
+    }
     this.setState({ inputValue });
   };
 
@@ -354,8 +394,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     e.preventDefault();
     e.stopPropagation();
     if (!inputValue) {
-      this.setValue([]);
       this.handlePopupVisibleChange(false);
+      this.clearSelectionTimeout = setTimeout(() => {
+        this.setValue([]);
+      }, 200);
     } else {
       this.setState({ inputValue: '' });
     }
@@ -399,25 +441,22 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     filtered = filtered.sort((a, b) => sort(a, b, inputValue, names));
 
     if (filtered.length > 0) {
-      return filtered.map((path: CascaderOptionType[]) => {
-        return {
-          __IS_FILTERED_OPTION: true,
-          path,
-          [names.value]: path.map((o: CascaderOptionType) => o[names.value]),
-          [names.label]: render(inputValue, path, prefixCls, names),
-          disabled: path.some((o: CascaderOptionType) => !!o.disabled),
-          isEmptyNode: true,
-        } as CascaderOptionType;
-      });
+      // Fix issue: https://github.com/ant-design/ant-design/issues/26554
+      const field = names.value === names.label ? keepFilteredValueField : names.value;
+
+      return filtered.map(
+        (path: CascaderOptionType[]) =>
+          ({
+            __IS_FILTERED_OPTION: true,
+            path,
+            [field]: path.map((o: CascaderOptionType) => o[names.value]),
+            [names.label]: render(inputValue, path, prefixCls, names),
+            disabled: path.some((o: CascaderOptionType) => !!o.disabled),
+            isEmptyNode: true,
+          } as CascaderOptionType),
+      );
     }
-    return [
-      {
-        [names.value]: 'ANT_CASCADER_NOT_FOUND',
-        [names.label]: notFoundContent || renderEmpty('Cascader'),
-        disabled: true,
-        isEmptyNode: true,
-      },
-    ];
+    return [getEmptyNode(renderEmpty, names, notFoundContent)];
   }
 
   focus() {
@@ -428,7 +467,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     this.input.blur();
   }
 
-  getPopupPlacement(direction: string = 'ltr') {
+  getPopupPlacement(direction: DirectionType = 'ltr') {
     const { popupPlacement } = this.props;
     if (popupPlacement !== undefined) {
       return popupPlacement;
@@ -492,15 +531,19 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           [`${prefixCls}-picker-arrow`]: true,
           [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
         });
-        const pickerCls = classNames(className, `${prefixCls}-picker`, {
-          [`${prefixCls}-picker-rtl`]: isRtlLayout,
-          [`${prefixCls}-picker-with-value`]: state.inputValue,
-          [`${prefixCls}-picker-disabled`]: disabled,
-          [`${prefixCls}-picker-${mergedSize}`]: !!mergedSize,
-          [`${prefixCls}-picker-show-search`]: !!showSearch,
-          [`${prefixCls}-picker-focused`]: inputFocused,
-          [`${prefixCls}-picker-borderless`]: !bordered,
-        });
+        const pickerCls = classNames(
+          `${prefixCls}-picker`,
+          {
+            [`${prefixCls}-picker-rtl`]: isRtlLayout,
+            [`${prefixCls}-picker-with-value`]: state.inputValue,
+            [`${prefixCls}-picker-disabled`]: disabled,
+            [`${prefixCls}-picker-${mergedSize}`]: !!mergedSize,
+            [`${prefixCls}-picker-show-search`]: !!showSearch,
+            [`${prefixCls}-picker-focused`]: inputFocused,
+            [`${prefixCls}-picker-borderless`]: !bordered,
+          },
+          className,
+        );
 
         // Fix bug of https://github.com/facebook/react/pull/5004
         // and https://fb.me/react-unknown-prop
@@ -532,12 +575,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
-          options = [
-            {
-              [names.label]: notFoundContent || renderEmpty('Cascader'),
-              [names.value]: 'ANT_CASCADER_NOT_FOUND',
-            },
-          ];
+          options = [getEmptyNode(renderEmpty, names, notFoundContent)];
         }
         // Dropdown menu should keep previous status until it is fully closed.
         if (!state.popupVisible) {
@@ -611,12 +649,19 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         );
 
         const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
-        const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon', 'bordered']);
+        const rest = omit(props, [
+          'inputIcon',
+          'expandIcon',
+          'loadingIcon',
+          'bordered',
+          'className',
+        ]);
         const rcCascaderPopupClassName = classNames(popupClassName, {
           [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
           [`${prefixCls}-menu-empty`]:
             options.length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND',
         });
+
         return (
           <RcCascader
             {...rest}

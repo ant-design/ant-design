@@ -4,7 +4,7 @@
 @statistic-prefix-cls: ~'@{ant-prefix}-statistic';
 
 .@{statistic-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   &-title {
     margin-bottom: @margin-xss;
@@ -20,9 +20,6 @@
     &-value {
       display: inline-block;
       direction: ltr;
-      &-decimal {
-        font-size: @statistic-unit-font-size;
-      }
     }
 
     &-prefix,
@@ -36,7 +33,6 @@
 
     &-suffix {
       margin-left: 4px;
-      font-size: @statistic-unit-font-size;
     }
   }
 }

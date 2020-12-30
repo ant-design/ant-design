@@ -17,8 +17,6 @@ Controlled mode lets parent nodes reflect the status of child nodes more intelli
 import React, { useState } from 'react';
 import { Tree } from 'antd';
 
-const { TreeNode } = Tree;
-
 const treeData = [
   {
     title: '0-0',
@@ -64,12 +62,12 @@ const treeData = [
 ];
 
 const Demo = () => {
-  const [expandedKeys, setExpandedKeys] = useState<string[]>(['0-0-0', '0-0-1']);
-  const [checkedKeys, setCheckedKeys] = useState<string[]>(['0-0-0']);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(['0-0-0', '0-0-1']);
+  const [checkedKeys, setCheckedKeys] = useState<React.Key[]>(['0-0-0']);
+  const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
   const [autoExpandParent, setAutoExpandParent] = useState<boolean>(true);
 
-  const onExpand = expandedKeys => {
+  const onExpand = (expandedKeys: React.Key[]) => {
     console.log('onExpand', expandedKeys);
     // if not set autoExpandParent to false, if children expanded, parent can not collapse.
     // or, you can remove all expanded children keys.
@@ -77,12 +75,12 @@ const Demo = () => {
     setAutoExpandParent(false);
   };
 
-  const onCheck = checkedKeys => {
+  const onCheck = (checkedKeys: React.Key[]) => {
     console.log('onCheck', checkedKeys);
     setCheckedKeys(checkedKeys);
   };
 
-  const onSelect = (selectedKeys, info) => {
+  const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('onSelect', info);
     setSelectedKeys(selectedKeys);
   };

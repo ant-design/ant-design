@@ -6,7 +6,7 @@ title: Grid
 cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
 ---
 
-24 Grids System。
+24 Grids System.
 
 ## Design concept
 
@@ -69,8 +69,8 @@ In the grid system, we define the frame outside the information area based on `r
 
 Following is a brief look at how it works:
 
-- Establish a set of `column` in the horizontal space defined by `row` (abbreviated col)
-- Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`
+- Establish a set of `column` in the horizontal space defined by `row` (abbreviated col).
+- Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`.
 - The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `<Col span={8} />`.
 - If the sum of `col` spans in a `row` are more than 24, then the overflowing `col` as a whole will start a new line arrangement.
 
@@ -90,8 +90,9 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | Vertical alignment | `top` \| `middle` \| `bottom` | `top` |  |
-| gutter | Spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| object \| array | 0 |  |  |
+| gutter | Spacing between grids, could be a number or a object like { xs: 8, sm: 16, md: 24}. Or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| object \| array | 0 |  |
 | justify | Horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` | `start` |  |
+| wrap | Auto wrap line | boolean | true | 4.8.0 |
 
 ### Col
 
@@ -103,12 +104,12 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | pull | The number of cells that raster is moved to the left | number | 0 |  |
 | push | The number of cells that raster is moved to the right | number | 0 |  |
 | span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
-| xs | `<576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  |
-| sm | `≥576px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| md | `≥768px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| lg | `≥992px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| xl | `≥1200px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| xxl | `≥1600px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  |
+| sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| md | `screen ≥ 768px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| lg | `screen ≥ 992px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| xl | `screen ≥ 1200px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | number \| object | - |  |
 
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints) (not including `occasionally part`).
 

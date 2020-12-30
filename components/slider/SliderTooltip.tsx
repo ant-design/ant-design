@@ -1,46 +1,23 @@
 import * as React from 'react';
+import { useRef } from 'react';
+import { composeRef } from 'rc-util/lib/ref';
+import raf from 'rc-util/lib/raf';
 import Tooltip, { TooltipProps } from '../tooltip';
-
-function useCombinedRefs(
-  ...refs: Array<React.MutableRefObject<unknown> | ((instance: unknown) => void) | null>
-) {
-  const targetRef = React.useRef();
-
-  React.useEffect(() => {
-    refs.forEach(ref => {
-      if (!ref) return;
-
-      if (typeof ref === 'function') {
-        ref(targetRef.current);
-      } else {
-        ref.current = targetRef.current;
-      }
-    });
-  }, [refs]);
-
-  return targetRef;
-}
 
 const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const { visible } = props;
-  const innerRef = React.useRef<any>(null);
-  const tooltipRef = useCombinedRefs(ref, innerRef);
+  const innerRef = useRef<any>(null);
 
-  const rafRef = React.useRef<number | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   function cancelKeepAlign() {
-    window.cancelAnimationFrame(rafRef.current!);
+    raf.cancel(rafRef.current!);
     rafRef.current = null;
   }
 
   function keepAlign() {
-    if (rafRef.current !== null) {
-      return;
-    }
-
-    rafRef.current = window.requestAnimationFrame(() => {
-      (tooltipRef.current as any).forcePopupAlign();
-
+    rafRef.current = raf(() => {
+      innerRef.current.forcePopupAlign();
       rafRef.current = null;
       keepAlign();
     });
@@ -56,7 +33,7 @@ const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     return cancelKeepAlign;
   }, [visible]);
 
-  return <Tooltip ref={tooltipRef} {...props} />;
+  return <Tooltip ref={composeRef(innerRef, ref)} {...props} />;
 });
 
 export default SliderTooltip;

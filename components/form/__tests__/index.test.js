@@ -22,7 +22,7 @@ describe('Form', () => {
 
   async function change(wrapper, index, value) {
     wrapper.find(Input).at(index).simulate('change', { target: { value } });
-    await sleep(100);
+    await sleep(200);
     wrapper.update();
   }
 
@@ -40,23 +40,78 @@ describe('Form', () => {
     scrollIntoView.mockRestore();
   });
 
-  it('noStyle Form.Item', async () => {
-    const onChange = jest.fn();
+  describe('noStyle Form.Item', () => {
+    it('work', async () => {
+      const onChange = jest.fn();
 
-    const wrapper = mount(
-      <Form>
-        <Form.Item>
-          <Form.Item name="test" rules={[{ required: true }]}>
-            <Input onChange={onChange} />
+      const wrapper = mount(
+        <Form>
+          <Form.Item>
+            <Form.Item name="test" rules={[{ required: true }]}>
+              <Input onChange={onChange} />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-      </Form>,
-    );
+        </Form>,
+      );
 
-    await change(wrapper, 0, '');
-    expect(wrapper.find('.ant-form-item-explain').length).toBe(1);
+      await change(wrapper, 0, '');
+      expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
+      expect(wrapper.find('.ant-form-item-has-error').length).toBeTruthy();
 
-    expect(onChange).toHaveBeenCalled();
+      expect(onChange).toHaveBeenCalled();
+    });
+
+    it('should clean up', async () => {
+      const Demo = () => {
+        const [form] = Form.useForm();
+
+        return (
+          <Form form={form} initialValues={{ aaa: '2' }}>
+            <Form.Item name="aaa">
+              <Input
+                onChange={async () => {
+                  await sleep(0);
+                  try {
+                    await form.validateFields();
+                  } catch (e) {
+                    // do nothing
+                  }
+                }}
+              />
+            </Form.Item>
+            <Form.Item shouldUpdate noStyle>
+              {() => {
+                const aaa = form.getFieldValue('aaa');
+
+                if (aaa === '1') {
+                  return (
+                    <Form.Item name="bbb" rules={[{ required: true, message: 'aaa' }]}>
+                      <Input />
+                    </Form.Item>
+                  );
+                }
+
+                return (
+                  <Form.Item>
+                    <Form.Item name="ccc" rules={[{ required: true, message: 'ccc' }]} noStyle>
+                      <Input />
+                    </Form.Item>
+                  </Form.Item>
+                );
+              }}
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const wrapper = mount(<Demo />);
+      await change(wrapper, 0, '1');
+      expect(wrapper.find('.ant-form-item-explain').text()).toEqual('aaa');
+      await change(wrapper, 0, '2');
+      expect(wrapper.find('.ant-form-item-explain').text()).toEqual('ccc');
+      await change(wrapper, 0, '1');
+      expect(wrapper.find('.ant-form-item-explain').text()).toEqual('aaa');
+    });
   });
 
   it('`shouldUpdate` should work with render props', () => {
@@ -81,6 +136,7 @@ describe('Form', () => {
       "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
     );
   });
+
   it('`name` should not work with render props', () => {
     mount(
       <Form>
@@ -93,6 +149,7 @@ describe('Form', () => {
       "Warning: [antd: Form.Item] Do not use `name` with `children` of render props since it's not a field.",
     );
   });
+
   it('children is array has name props', () => {
     mount(
       <Form>
@@ -366,6 +423,38 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
   });
 
+  it('Form.Item with `help` should display error style when validate failed', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="help" rules={[{ required: true, message: 'message' }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await change(wrapper, 0, '');
+    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-has-error')).toBeTruthy();
+    expect(wrapper.find('.ant-form-item-explain').text()).toEqual('help');
+  });
+
+  it('clear validation message when ', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="username" rules={[{ required: true, message: 'message' }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    await change(wrapper, 0, '1');
+    expect(wrapper.find('.ant-form-item-explain').length).toBeFalsy();
+    await change(wrapper, 0, '');
+    expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
+    await change(wrapper, 0, '123');
+    await sleep(800);
+    wrapper.update();
+    expect(wrapper.find('.ant-form-item-explain').length).toBeFalsy();
+  });
+
   // https://github.com/ant-design/ant-design/issues/21167
   it('`require` without `name`', () => {
     const wrapper = mount(
@@ -469,6 +558,43 @@ describe('Form', () => {
     wrapper.update();
     await sleep(100);
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+  });
+
+  it('`messageVariables` support validate', async () => {
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: '${label} is good!' }}>
+        <Form.Item name="test" messageVariables={{ label: 'Bamboo' }} rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await sleep(100);
+    wrapper.update();
+    await sleep(100);
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+  });
+
+  it('validation message should has alert role', async () => {
+    // https://github.com/ant-design/ant-design/issues/25711
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: 'name is good!' }}>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await sleep(100);
+    wrapper.update();
+    await sleep(100);
+    expect(wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('role')).toBe(
+      'alert',
+    );
   });
 
   it('return same form instance', () => {
@@ -575,10 +701,10 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();
   });
 
-  it('no warning of initialValue & getValueProps', () => {
+  it('no warning of initialValue & getValueProps & preserve', () => {
     mount(
       <Form>
-        <Form.Item initialValue="bamboo" getValueProps={() => null}>
+        <Form.Item initialValue="bamboo" getValueProps={() => null} preserve={false}>
           <Input />
         </Form.Item>
       </Form>,
@@ -610,14 +736,90 @@ describe('Form', () => {
     expect(wrapper.find('input').prop('onBlur')).toBeTruthy();
   });
 
-  it('Form item hidden', () => {
+  describe('Form item hidden', () => {
+    it('should work', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item name="light" hidden>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+      expect(wrapper).toMatchRenderedSnapshot();
+    });
+
+    it('noStyle should not work when hidden', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item name="light" hidden noStyle>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+      expect(wrapper).toMatchRenderedSnapshot();
+    });
+  });
+
+  it('legacy hideRequiredMark', () => {
     const wrapper = mount(
-      <Form>
-        <Form.Item name="light" hidden>
+      <Form hideRequiredMark>
+        <Form.Item name="light" required>
           <Input />
         </Form.Item>
       </Form>,
     );
-    expect(wrapper).toMatchRenderedSnapshot();
+
+    expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
+  });
+
+  it('_internalItemRender api test', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item
+          name="light"
+          _internalItemRender={{
+            mark: 'pro_table_render',
+            render: (_, doms) => (
+              <div id="test">
+                {doms.input}
+                {doms.errorList}
+                {doms.extra}
+              </div>
+            ),
+          }}
+        >
+          <input defaultValue="should warning" />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('#test').exists()).toBeTruthy();
+  });
+
+  describe('tooltip', () => {
+    it('ReactNode', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item label="light" tooltip={<span>Bamboo</span>}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      const tooltipProps = wrapper.find('Tooltip').props();
+      expect(tooltipProps.title).toEqual(<span>Bamboo</span>);
+    });
+
+    it('config', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      const tooltipProps = wrapper.find('Tooltip').props();
+      expect(tooltipProps.title).toEqual('Bamboo');
+    });
   });
 });

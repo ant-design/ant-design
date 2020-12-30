@@ -1,7 +1,3 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
-@import '../../input/style/mixin';
-
 @picker-cell-inner-cls: ~'@{picker-prefix-cls}-cell-inner';
 
 .@{picker-prefix-cls} {
@@ -115,8 +111,8 @@
   &-super-next-icon {
     &::after {
       position: absolute;
-      top: ceil(@picker-arrow-size / 2);
-      left: ceil(@picker-arrow-size / 2);
+      top: ceil((@picker-arrow-size / 2));
+      left: ceil((@picker-arrow-size / 2));
       display: inline-block;
       width: @picker-arrow-size;
       height: @picker-arrow-size;
@@ -239,6 +235,8 @@
     &-in-view&-range-hover-start:not(&-in-range):not(&-range-start):not(&-range-end),
     &-in-view&-range-hover-end:not(&-in-range):not(&-range-start):not(&-range-end),
     &-in-view&-range-hover-start&-range-start-single,
+    &-in-view&-range-hover-start&-range-start&-range-end&-range-end-near-hover,
+    &-in-view&-range-hover-end&-range-start&-range-end&-range-start-near-hover,
     &-in-view&-range-hover-end&-range-end-single,
     &-in-view&-range-hover:not(&-in-range) {
       &::after {
@@ -300,12 +298,12 @@
     .@{picker-prefix-cls}-date-panel
       &-in-view&-in-range&-range-hover-start
       .@{cellClassName}::after {
-      right: -6px - @border-width-base;
+      right: -5px - @border-width-base;
       left: 0;
     }
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       right: 0;
-      left: -6px - @border-width-base;
+      left: -5px - @border-width-base;
     }
 
     // Hover with range start & end
@@ -319,6 +317,7 @@
     // Edge start
     tr > &-in-view&-range-hover:first-child::after,
     tr > &-in-view&-range-hover-end:first-child::after,
+    &-in-view&-start&-range-hover-edge-start&-range-hover-edge-start-near-range::after,
     &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
     &-in-view&-range-hover-start::after {
       left: 6px;
@@ -330,6 +329,7 @@
     // Edge end
     tr > &-in-view&-range-hover:last-child::after,
     tr > &-in-view&-range-hover-start:last-child::after,
+    &-in-view&-end&-range-hover-edge-end&-range-hover-edge-end-near-range::after,
     &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
     &-in-view&-range-hover-end::after {
       right: 6px;
@@ -463,8 +463,8 @@
   &-quarter-panel,
   &-month-panel {
     @hover-cell-fixed-distance: (
-        (@picker-panel-width - @padding-xs * 2) / 3 - @picker-year-month-cell-width
-      ) / 2;
+      (((@picker-panel-width - @padding-xs * 2) / 3) - @picker-year-month-cell-width) / 2
+    );
 
     .@{picker-prefix-cls}-body {
       padding: 0 @padding-xs;
@@ -590,12 +590,12 @@
     .@{picker-prefix-cls}-content {
       display: flex;
       flex: auto;
-      height: 224px;
+      height: @picker-time-panel-column-height;
     }
 
     &-column {
       flex: 1 0 auto;
-      width: 56px;
+      width: @picker-time-panel-column-width;
       margin: 0;
       padding: 0;
       overflow-y: hidden;
@@ -605,10 +605,11 @@
 
       &::after {
         display: block;
-        height: 224px - @picker-time-panel-cell-height;
+        height: @picker-time-panel-column-height - @picker-time-panel-cell-height;
         content: '';
         .@{picker-prefix-cls}-datetime-panel & {
-          height: 224px - @picker-time-panel-cell-height + 2 * @border-width-base;
+          height: @picker-time-panel-column-height - @picker-time-panel-cell-height + 2 *
+            @border-width-base;
         }
       }
 
@@ -634,10 +635,9 @@
             width: 100%;
             height: @picker-time-panel-cell-height;
             margin: 0;
-            padding: 0;
+            padding: 0 0 0 ((@picker-time-panel-column-width - 28px) / 2);
             color: @text-color;
             line-height: @picker-time-panel-cell-height;
-            text-align: center;
             border-radius: 0;
             cursor: pointer;
             transition: background @animation-duration-slow;

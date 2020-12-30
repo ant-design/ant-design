@@ -32,7 +32,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Button type="primary" onClick={() => this.setModal1Visible(true)}>
           Display a modal dialog at 20px to Top
         </Button>
@@ -63,7 +63,7 @@ class App extends React.Component {
           <p>some contents...</p>
           <p>some contents...</p>
         </Modal>
-      </div>
+      </>
     );
   }
 }

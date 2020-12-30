@@ -6,12 +6,12 @@
 
 // Input styles
 .@{ant-prefix}-input {
-  .reset-component;
-  .input;
+  .reset-component();
+  .input();
 
   //== Style for input-group: input with label, with button or dropdown...
   &-group {
-    .reset-component;
+    .reset-component();
     .input-group(~'@{ant-prefix}-input');
     &-wrapper {
       display: inline-block;
@@ -41,6 +41,15 @@
       height: @input-height-sm;
       padding-top: 3px;
       padding-bottom: 3px;
+    }
+  }
+
+  &-textarea {
+    &-show-count::after {
+      display: block;
+      color: @text-color-secondary;
+      text-align: right;
+      content: attr(data-count);
     }
   }
 }

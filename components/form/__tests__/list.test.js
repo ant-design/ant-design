@@ -1,21 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import raf from 'raf';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
 import { sleep } from '../../../tests/utils';
 
-jest.mock('raf');
-
 describe('Form.List', () => {
-  raf.mockImplementation(callback => window.setTimeout(callback));
-
-  afterAll(() => {
-    raf.mockRestore();
-  });
-
   async function change(wrapper, index, value) {
     wrapper.find(Input).at(index).simulate('change', { target: { value } });
     await sleep();
@@ -163,5 +154,82 @@ describe('Form.List', () => {
     wrapper.find('form').simulate('submit');
     await sleep();
     expect(onFinish).toHaveBeenLastCalledWith({ list: ['input2', 'input3'] });
+  });
+
+  it('list errors', async () => {
+    jest.useFakeTimers();
+
+    let operation;
+    const wrapper = mount(
+      <Form>
+        <Form.List
+          name="list"
+          rules={[
+            {
+              validator: async (_, value) => {
+                if (value.length < 2) {
+                  return Promise.reject(new Error('At least 2'));
+                }
+              },
+            },
+          ]}
+        >
+          {(_, opt, { errors }) => {
+            operation = opt;
+            return <Form.ErrorList errors={errors} />;
+          }}
+        </Form.List>
+      </Form>,
+    );
+
+    async function addItem() {
+      await act(async () => {
+        operation.add();
+        await sleep(100);
+        jest.runAllTimers();
+        wrapper.update();
+      });
+    }
+
+    await addItem();
+    expect(wrapper.find('.ant-form-item-explain div').text()).toEqual('At least 2');
+
+    await addItem();
+    expect(wrapper.find('.ant-form-item-explain div')).toHaveLength(0);
+
+    jest.useRealTimers();
+  });
+
+  describe('ErrorList component', () => {
+    it('should trigger onDomErrorVisibleChange by motion end', async () => {
+      jest.useFakeTimers();
+
+      const onDomErrorVisibleChange = jest.fn();
+      const wrapper = mount(
+        <Form.ErrorList
+          errors={['bamboo is light']}
+          onDomErrorVisibleChange={onDomErrorVisibleChange}
+        />,
+      );
+
+      await act(async () => {
+        await sleep();
+        jest.runAllTimers();
+        wrapper.update();
+      });
+
+      act(() => {
+        wrapper.find('CSSMotion').props().onLeaveEnd();
+      });
+
+      expect(onDomErrorVisibleChange).toHaveBeenCalledWith(false);
+
+      jest.useRealTimers();
+    });
+  });
+
+  it('should render empty without errors', () => {
+    const wrapper = mount(<Form.ErrorList />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

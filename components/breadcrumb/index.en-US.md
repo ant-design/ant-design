@@ -22,22 +22,23 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
 | routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
-| separator | Custom separator | string \| ReactNode | `/` |  |
+| separator | Custom separator | ReactNode | `/` |  |
 
 ### Breadcrumb.Item
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| className | The additional css class | string | - |  |
+| dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
 | href | Target of hyperlink | string | - |  |
 | overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
-| onClick | Set the handler to handle `click` event | (e:MouseEvent)=>void | - |  |
-| dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
+| onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
 
 ### Breadcrumb.Separator
 
-| Property | Description      | Type                | Default | Version |
-| -------- | ---------------- | ------------------- | ------- | ------- |
-| children | Custom separator | string \| ReactNode | `/`     |         |
+| Property | Description      | Type      | Default | Version |
+| -------- | ---------------- | --------- | ------- | ------- |
+| children | Custom separator | ReactNode | `/`     |         |
 
 > When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
 

@@ -4,72 +4,52 @@
 
 @pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
-.@{pagination-prefix-cls} {
-  &-rtl {
-    direction: rtl;
+.@{pagination-prefix-cls}-rtl {
+  .@{pagination-prefix-cls}-total-text {
+    margin-right: 0;
+    margin-left: 8px;
   }
 
-  &-total-text {
-    .@{pagination-prefix-cls}-rtl & {
+  .@{pagination-prefix-cls}-item,
+  .@{pagination-prefix-cls}-prev,
+  .@{pagination-prefix-cls}-jump-prev,
+  .@{pagination-prefix-cls}-jump-next {
+    margin-right: 0;
+    margin-left: 8px;
+  }
+
+  .@{pagination-prefix-cls}-slash {
+    margin: 0 5px 0 10px;
+  }
+
+  .@{pagination-prefix-cls}-options {
+    margin-right: 16px;
+    margin-left: 0;
+
+    .@{pagination-prefix-cls}-options-size-changer.@{ant-prefix}-select {
       margin-right: 0;
       margin-left: 8px;
     }
-  }
 
-  &-item {
-    .@{pagination-prefix-cls}-rtl & {
-      margin-right: 0;
-      margin-left: 8px;
-    }
-  }
-
-  &-prev,
-  &-jump-prev,
-  &-jump-next {
-    .@{pagination-prefix-cls}-rtl & {
-      margin-right: 0;
-      margin-left: 8px;
-    }
-  }
-
-  &-slash {
-    .@{pagination-prefix-cls}-rtl & {
-      margin: 0 5px 0 10px;
-    }
-  }
-
-  &-options {
-    .@{pagination-prefix-cls}-rtl & {
-      margin-right: 16px;
+    .@{pagination-prefix-cls}-options-quick-jumper {
       margin-left: 0;
     }
+  }
 
-    &-size-changer.@{ant-prefix}-select {
-      .@{pagination-prefix-cls}-rtl & {
+  &.@{pagination-prefix-cls}-simple {
+    .@{pagination-prefix-cls}-simple-pager {
+      margin-right: 0;
+      margin-left: 8px;
+
+      input {
         margin-right: 0;
         margin-left: 8px;
       }
     }
   }
 
-  &-simple &-simple-pager {
-    .@{pagination-prefix-cls}-rtl& {
-      margin-right: 0;
-      margin-left: 8px;
-    }
-
-    input {
-      .@{pagination-prefix-cls}-rtl& {
-        margin-right: 0;
-        margin-left: 8px;
-      }
-    }
-  }
-
-  &.mini &-options {
-    .@{pagination-prefix-cls}-rtl& {
-      margin-right: 2px;
-      margin-left: 0;
-    }
+  &.@{pagination-prefix-cls}.mini .@{pagination-prefix-cls}-options {
+    margin-right: 2px;
+    margin-left: 0;
   }
 }

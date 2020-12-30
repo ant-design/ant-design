@@ -5,20 +5,22 @@
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
+@descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
+@table-sticky-zindex: calc(@zindex-table-fixed + 1);
+@table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 
 .@{table-prefix-cls}-wrapper {
+  clear: both;
   max-width: 100%;
-  .clearfix;
+  .clearfix();
 }
 
 .@{table-prefix-cls} {
-  .reset-component;
+  .reset-component();
   position: relative;
-  z-index: 0;
-  clear: both;
   font-size: @table-font-size;
   background: @table-bg;
   border-radius: @border-radius-base;
@@ -103,6 +105,23 @@
       > td {
         border-bottom: @border-width-base @border-style-base @border-color-split;
         transition: background 0.3s;
+
+        // ========================= Nest Table ===========================
+        > .@{table-prefix-cls}-wrapper:only-child {
+          .@{table-prefix-cls} {
+            margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+                  ceil(@font-size-sm * 1.4));
+
+            &-tbody > tr:last-child > td {
+              border-bottom: 0;
+
+              &:first-child,
+              &:last-child {
+                border-radius: 0;
+              }
+            }
+          }
+        }
       }
 
       &.@{table-prefix-cls}-row:hover {
@@ -120,27 +139,6 @@
         &:hover {
           > td {
             background: @table-selected-row-hover-bg;
-          }
-        }
-      }
-
-      // ========================= Nest Table ===========================
-      .@{table-prefix-cls}-wrapper:only-child {
-        .@{table-prefix-cls} {
-          margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-                ceil(@font-size-sm * 1.4));
-
-          td {
-            background: transparent;
-          }
-
-          &-tbody > tr:last-child > td {
-            border-bottom: 0;
-
-            &:first-child,
-            &:last-child {
-              border-radius: 0;
-            }
           }
         }
       }
@@ -163,16 +161,18 @@
   }
 
   &-pagination {
+    display: flex;
+
     &-left {
-      float: left;
+      justify-content: flex-start;
     }
 
     &-center {
-      text-align: center;
+      justify-content: center;
     }
 
     &-right {
-      float: right;
+      justify-content: flex-end;
     }
   }
 
@@ -232,7 +232,7 @@
 
     &-up,
     &-down {
-      .iconfont-size-under-12px(11px);
+      font-size: 11px;
 
       &.active {
         color: @primary-color;
@@ -312,7 +312,7 @@
 
   // Dropdown
   &-filter-dropdown {
-    .reset-component;
+    .reset-component();
 
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
@@ -373,17 +373,21 @@
 
   &-selection {
     position: relative;
+    display: inline-flex;
+    flex-direction: column;
 
     &-extra {
       position: absolute;
       top: 0;
-      right: @table-selection-extra-right;
+      z-index: 1;
       cursor: pointer;
       transition: all 0.3s;
+      margin-inline-start: 100%;
+      padding-inline-start: @padding-xss;
 
       .@{iconfont-css-prefix} {
-        .iconfont-size-under-12px(10px);
         color: @table-header-icon-color;
+        font-size: 10px;
 
         &:hover {
           color: @table-header-icon-color-hover;
@@ -413,12 +417,12 @@
     float: left;
     box-sizing: border-box;
 
-    width: ceil(@font-size-sm * 1.4);
-    height: ceil(@font-size-sm * 1.4);
+    width: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3;
+    height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3;
     padding: 0;
     color: inherit;
-    line-height: @font-size-sm;
-    vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
+    line-height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base *
+      3;
     background: @table-expand-icon-bg;
     border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base;
@@ -441,7 +445,7 @@
     }
 
     &::before {
-      top: 7px;
+      top: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       right: 3px;
       left: 3px;
       height: @border-width-base;
@@ -450,7 +454,7 @@
     &::after {
       top: 3px;
       bottom: 3px;
-      left: 7px;
+      left: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       width: @border-width-base;
       transform: rotate(90deg);
     }
@@ -475,7 +479,8 @@
     }
 
     .@{table-prefix-cls}-row-indent + & {
-      margin-top: (@font-size-base * @line-height-base - ceil(@font-size-sm * 1.4)) / 2;
+      margin-top: ((@font-size-base * @line-height-base - @border-width-base * 3) / 2) -
+        ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       margin-right: @padding-xs;
     }
   }
@@ -486,6 +491,11 @@
       > td {
         background: @table-expanded-row-bg;
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/25573
+    .@{descriptions-prefix-cls}-view table {
+      width: auto;
     }
   }
 
@@ -514,7 +524,7 @@
   &-cell-fix-right {
     position: -webkit-sticky !important;
     position: sticky !important;
-    z-index: 2;
+    z-index: @zindex-table-fixed;
     background: @table-bg;
   }
 
@@ -591,6 +601,36 @@
     .@{table-prefix-cls}-cell-fix-right-first::after,
     .@{table-prefix-cls}-cell-fix-right-last::after {
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+    }
+  }
+  &-sticky {
+    &-header {
+      position: sticky;
+      z-index: @table-sticky-zindex;
+    }
+    &-scroll {
+      position: sticky;
+      bottom: 0;
+      z-index: @table-sticky-zindex;
+      display: flex;
+      align-items: center;
+      background: lighten(@border-color-split, 80%);
+      border-top: 1px solid @border-color-split;
+      opacity: 0.6;
+      &:hover {
+        transform-origin: center bottom;
+      }
+      &-bar {
+        height: 8px;
+        background-color: @table-sticky-scroll-bar-bg;
+        border-radius: @table-sticky-scroll-bar-radius;
+        &:hover {
+          background-color: @table-sticky-scroll-bar-active-bg;
+        }
+        &-active {
+          background-color: @table-sticky-scroll-bar-active-bg;
+        }
+      }
     }
   }
 }

@@ -1,44 +1,20 @@
 import * as React from 'react';
-import { Item } from 'rc-menu';
+import { Item, MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
-import { ClickParam } from '.';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
-import { isValidElement } from '../_util/reactNode';
+import { isValidElement, cloneElement } from '../_util/reactNode';
 
-export interface MenuItemProps
-  extends Omit<
-    React.HTMLAttributes<HTMLLIElement>,
-    'title' | 'onClick' | 'onMouseEnter' | 'onMouseLeave'
-  > {
-  rootPrefixCls?: string;
-  disabled?: boolean;
-  level?: number;
+export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   icon?: React.ReactNode;
   danger?: boolean;
   title?: React.ReactNode;
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  onClick?: (param: ClickParam) => void;
-  onMouseEnter?: (e: { key: string; domEvent: MouseEvent }) => void;
-  onMouseLeave?: (e: { key: string; domEvent: MouseEvent }) => void;
 }
 
 export default class MenuItem extends React.Component<MenuItemProps> {
   static isMenuItem = true;
-
-  private menuItem: this;
-
-  onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
-    this.menuItem.onKeyDown(e);
-  };
-
-  saveMenuItem = (menuItem: this) => {
-    this.menuItem = menuItem;
-  };
 
   renderItemChildren(inlineCollapsed: boolean) {
     const { icon, children, level, rootPrefixCls } = this.props;
@@ -87,15 +63,22 @@ export default class MenuItem extends React.Component<MenuItemProps> {
             >
               <Item
                 {...rest}
-                className={classNames(className, {
-                  [`${rootPrefixCls}-item-danger`]: danger,
-                  [`${rootPrefixCls}-item-only-child`]:
-                    (icon ? childrenLength + 1 : childrenLength) === 1,
-                })}
+                className={classNames(
+                  {
+                    [`${rootPrefixCls}-item-danger`]: danger,
+                    [`${rootPrefixCls}-item-only-child`]:
+                      (icon ? childrenLength + 1 : childrenLength) === 1,
+                  },
+                  className,
+                )}
                 title={title}
-                ref={this.saveMenuItem}
               >
-                {icon}
+                {cloneElement(icon, {
+                  className: classNames(
+                    isValidElement(icon) ? icon.props?.className : '',
+                    `${rootPrefixCls}-item-icon`,
+                  ),
+                })}
                 {this.renderItemChildren(inlineCollapsed)}
               </Item>
             </Tooltip>

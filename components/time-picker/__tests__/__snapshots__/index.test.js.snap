@@ -25,7 +25,6 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -72,7 +71,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -99,7 +97,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close-circle"
             fill="currentColor"
             focusable="false"
@@ -117,8 +114,8 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown"
-      style="opacity: 0;"
+      class="ant-picker-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+      style="opacity: 0; pointer-events: none;"
     >
       <div
         class="ant-picker-panel-container"
@@ -1507,7 +1504,6 @@ exports[`TimePicker rtl render component should be rendered correctly in RTL dir
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -1530,7 +1526,7 @@ exports[`TimePicker rtl render component should be rendered correctly in RTL dir
 
 exports[`TimePicker should support bordered 1`] = `
 <div
-  class="ant-picker custom-class ant-picker-borderless"
+  class="ant-picker ant-picker-borderless custom-class"
 >
   <div
     class="ant-picker-input"
@@ -1553,7 +1549,6 @@ exports[`TimePicker should support bordered 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -1580,7 +1575,6 @@ exports[`TimePicker should support bordered 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"

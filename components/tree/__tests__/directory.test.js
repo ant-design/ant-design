@@ -250,4 +250,11 @@ describe('Directory Tree', () => {
       expect.objectContaining({ event: 'select', nativeEvent: expect.anything() }),
     );
   });
+
+  it('ref support', () => {
+    const treeRef = React.createRef();
+    mount(createTree({ ref: treeRef }));
+
+    expect('scrollTo' in treeRef.current).toBeTruthy();
+  });
 });

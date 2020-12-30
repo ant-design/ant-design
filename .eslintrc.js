@@ -70,6 +70,7 @@ module.exports = {
     'react/static-property-placement': 0,
     'react/no-find-dom-node': 0,
     'react/no-unused-prop-types': 0,
+    'react/default-props-match-prop-types': 0,
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
 
     'import/extensions': 0,
@@ -112,11 +113,22 @@ module.exports = {
 
     'jest/no-test-callback': 0,
     'jest/expect-expect': 0,
+    'jest/no-done-callback': 0,
+    'jest/valid-title': 0,
+    'jest/no-conditional-expect': 0,
 
     'unicorn/better-regex': 2,
-    'unicorn/prefer-trim-start-end': 2,
+    'unicorn/prefer-string-trim-start-end': 2,
     'unicorn/expiring-todo-comments': 2,
     'unicorn/no-abusive-eslint-disable': 2,
+
+    // https://github.com/typescript-eslint/typescript-eslint/issues/2540#issuecomment-692866111
+    'no-use-before-define': 0,
+    '@typescript-eslint/no-use-before-define': 2,
+    'no-shadow': 0,
+    '@typescript-eslint/no-shadow': [2, { ignoreTypeValueShadow: true }],
+    // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
+    'no-undef': 0,
   },
   globals: {
     gtag: true,

@@ -28,17 +28,12 @@ describe('Transfer.List', () => {
   it('should render correctly', () => {
     const wrapper = mount(<List {...listCommonProps} />);
     wrapper.update();
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('should check top Checkbox while all available items are checked', () => {
     const wrapper = mount(<List {...listCommonProps} checkedKeys={['a', 'b']} />);
-    expect(
-      wrapper
-        .find('.ant-transfer-list-header')
-        .find(Checkbox)
-        .prop('checked'),
-    ).toBeTruthy();
+    expect(wrapper.find('.ant-transfer-list-header').find(Checkbox).prop('checked')).toBeTruthy();
   });
 
   it('when component has been unmounted, componentWillUnmount should be called', () => {

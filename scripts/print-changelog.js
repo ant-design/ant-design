@@ -20,9 +20,22 @@ const $ = jQuery(window);
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
 const QUERY_AUTHOR = '.timeline-comment-header-text .author:first';
-const MAINTAINERS = ['zombiej', 'afc163', 'chenshuai2144', 'shaodahong', 'xrkffgg'].map(author =>
-  author.toLowerCase(),
-);
+// https://github.com/orgs/ant-design/teams/ant-design-collaborators/members
+const MAINTAINERS = [
+  'zombiej',
+  'afc163',
+  'chenshuai2144',
+  'shaodahong',
+  'xrkffgg',
+  'AshoneA',
+  'yesmeck',
+  'bang88',
+  'yoyo837',
+  'hengkx',
+  'Rustin-Liu',
+  'fireairforce',
+  'Kermit-Xuan',
+].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
@@ -186,9 +199,9 @@ async function printLog() {
   console.log('\n');
   console.log(chalk.yellow('🇨🇳 Chinese changelog:'));
   console.log('\n');
-  printPR('chinese', chinese => {
-    return chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`;
-  });
+  printPR('chinese', chinese =>
+    chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`,
+  );
 
   console.log('\n-----\n');
 
@@ -213,13 +226,13 @@ async function printLog() {
   fs.writeFileSync(path.join(__dirname, 'previewEditor', 'index.html'), html, 'utf8');
 
   // Start preview
-  const ls = spawn('npx', [
-    'http-server',
-    path.join(__dirname, 'previewEditor'),
-    '-c-1',
-    '-p',
-    '2893',
-  ]);
+  const ls = spawn(
+    'npx',
+    ['http-server', path.join(__dirname, 'previewEditor'), '-c-1', '-p', '2893'],
+    {
+      shell: true,
+    },
+  );
   ls.stdout.on('data', data => {
     console.log(data.toString());
   });

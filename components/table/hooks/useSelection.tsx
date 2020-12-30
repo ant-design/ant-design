@@ -59,7 +59,7 @@ function flattenData<RecordType>(
   (data || []).forEach(record => {
     list.push(record);
 
-    if (childrenColumnName in record) {
+    if (record && typeof record === 'object' && childrenColumnName in record) {
       list = [
         ...list,
         ...flattenData<RecordType>((record as any)[childrenColumnName], childrenColumnName),
@@ -117,8 +117,11 @@ export default function useSelection<RecordType>(
     () =>
       checkStrictly
         ? { keyEntities: null }
-        : convertDataToEntities((data as unknown) as DataNode[], undefined, getRowKey as any),
-    [data, getRowKey, checkStrictly],
+        : convertDataToEntities((data as unknown) as DataNode[], {
+            externalGetKey: getRowKey as any,
+            childrenPropName: childrenColumnName,
+          }),
+    [data, getRowKey, checkStrictly, childrenColumnName],
   );
 
   // Get flatten data
@@ -150,15 +153,13 @@ export default function useSelection<RecordType>(
   }, [flattedData, getRowKey, getCheckboxProps]);
 
   const isCheckboxDisabled: GetCheckDisabled<RecordType> = useCallback(
-    (r: RecordType) => {
-      return !!checkboxPropsMap.get(getRowKey(r))?.disabled;
-    },
+    (r: RecordType) => !!checkboxPropsMap.get(getRowKey(r))?.disabled,
     [checkboxPropsMap, getRowKey],
   );
 
   const [derivedSelectedKeys, derivedHalfSelectedKeys] = useMemo(() => {
     if (checkStrictly) {
-      return [mergedSelectedKeys, []];
+      return [mergedSelectedKeys || [], []];
     }
     const { checkedKeys, halfCheckedKeys } = conductCheck(
       mergedSelectedKeys,
@@ -166,16 +167,17 @@ export default function useSelection<RecordType>(
       keyEntities as any,
       isCheckboxDisabled as any,
     );
-    return [checkedKeys, halfCheckedKeys];
+    return [checkedKeys || [], halfCheckedKeys];
   }, [mergedSelectedKeys, checkStrictly, keyEntities, isCheckboxDisabled]);
 
   const derivedSelectedKeySet: Set<Key> = useMemo(() => {
     const keys = selectionType === 'radio' ? derivedSelectedKeys.slice(0, 1) : derivedSelectedKeys;
     return new Set(keys);
   }, [derivedSelectedKeys, selectionType]);
-  const derivedHalfSelectedKeySet = useMemo(() => {
-    return selectionType === 'radio' ? new Set() : new Set(derivedHalfSelectedKeys);
-  }, [derivedHalfSelectedKeys, selectionType]);
+  const derivedHalfSelectedKeySet = useMemo(
+    () => (selectionType === 'radio' ? new Set() : new Set(derivedHalfSelectedKeys)),
+    [derivedHalfSelectedKeys, selectionType],
+  );
 
   // Save last selected key to enable range selection
   const [lastSelectedKey, setLastSelectedKey] = useState<Key | null>(null);
@@ -393,6 +395,7 @@ export default function useSelection<RecordType>(
               indeterminate={!checkedCurrentAll && checkedCurrentSome}
               onChange={onSelectAllChange}
               disabled={flattedData.length === 0 || allDisabled}
+              skipGroup
             />
             {customizeSelections}
           </div>
@@ -431,14 +434,26 @@ export default function useSelection<RecordType>(
           const key = getRowKey(record, index);
           const checked = keySet.has(key);
           const indeterminate = derivedHalfSelectedKeySet.has(key);
-
+          const checkboxProps = checkboxPropsMap.get(key);
+          let mergedIndeterminate: boolean;
+          if (expandType === 'nest') {
+            mergedIndeterminate = indeterminate;
+            devWarning(
+              !(typeof checkboxProps?.indeterminate === 'boolean'),
+              'Table',
+              'set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
+            );
+          } else {
+            mergedIndeterminate = checkboxProps?.indeterminate ?? indeterminate;
+          }
           // Record checked
           return {
             node: (
               <Checkbox
-                {...checkboxPropsMap.get(key)}
+                {...checkboxProps}
+                indeterminate={mergedIndeterminate}
                 checked={checked}
-                indeterminate={indeterminate}
+                skipGroup
                 onClick={e => e.stopPropagation()}
                 onChange={({ nativeEvent }) => {
                   const { shiftKey } = nativeEvent;

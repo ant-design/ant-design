@@ -1,23 +1,29 @@
-.steps-vertical() {
+.@{steps-prefix-cls}-vertical {
   display: flex;
   flex-direction: column;
-  .@{steps-prefix-cls}-item {
+
+  > .@{steps-prefix-cls}-item {
     display: block;
     flex: 1 0 auto;
+    padding-left: 0;
     overflow: visible;
-    &-icon {
+
+    .@{steps-prefix-cls}-item-icon {
       float: left;
       margin-right: @steps-vertical-icon-width;
     }
-    &-content {
+
+    .@{steps-prefix-cls}-item-content {
       display: block;
       min-height: 48px;
       overflow: hidden;
     }
-    &-title {
+
+    .@{steps-prefix-cls}-item-title {
       line-height: @steps-icon-size;
     }
-    &-description {
+
+    .@{steps-prefix-cls}-item-description {
       padding-bottom: 12px;
     }
   }
@@ -63,15 +69,5 @@
     .@{steps-prefix-cls}-item-title {
       line-height: @steps-small-icon-size;
     }
-  }
-}
-
-.@{steps-prefix-cls}-vertical {
-  .steps-vertical;
-}
-
-@media (max-width: @screen-xs) {
-  .@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
-    .steps-vertical;
   }
 }

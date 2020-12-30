@@ -56,11 +56,9 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               aria-label="like"
               class="anticon anticon-like"
               role="img"
-              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="like"
                 fill="currentColor"
                 focusable="false"
@@ -86,11 +84,9 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               aria-label="dislike"
               class="anticon anticon-dislike"
               role="img"
-              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="dislike"
                 fill="currentColor"
                 focusable="false"
@@ -198,7 +194,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
 
 exports[`renders ./components/comment/demo/list.md correctly 1`] = `
 <div
-  class="ant-list comment-list ant-list-split"
+  class="ant-list ant-list-split comment-list"
 >
   <div
     class="ant-list-header"

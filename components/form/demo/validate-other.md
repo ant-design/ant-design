@@ -37,7 +37,7 @@ const formItemLayout = {
   wrapperCol: { span: 14 },
 };
 
-const normFile = e => {
+const normFile = (e: any) => {
   console.log('Upload event:', e);
   if (Array.isArray(e)) {
     return e;
@@ -46,7 +46,7 @@ const normFile = e => {
 };
 
 const Demo = () => {
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
 
@@ -120,7 +120,11 @@ const Demo = () => {
         </Radio.Group>
       </Form.Item>
 
-      <Form.Item name="radio-button" label="Radio.Button">
+      <Form.Item
+        name="radio-button"
+        label="Radio.Button"
+        rules={[{ required: true, message: 'Please pick an item!' }]}
+      >
         <Radio.Group>
           <Radio.Button value="a">item 1</Radio.Button>
           <Radio.Button value="b">item 2</Radio.Button>
@@ -177,9 +181,7 @@ const Demo = () => {
         extra="longgggggggggggggggggggggggggggggggggg"
       >
         <Upload name="logo" action="/upload.do" listType="picture">
-          <Button>
-            <UploadOutlined /> Click to upload
-          </Button>
+          <Button icon={<UploadOutlined />}>Click to upload</Button>
         </Upload>
       </Form.Item>
 

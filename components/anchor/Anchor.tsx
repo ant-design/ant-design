@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
@@ -8,6 +7,8 @@ import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
 import AnchorContext from './context';
+
+export type AnchorContainer = HTMLElement | Window;
 
 function getDefaultContainer() {
   return window;
@@ -37,8 +38,6 @@ type Section = {
   link: string;
   top: number;
 };
-
-export type AnchorContainer = HTMLElement | Window;
 
 export interface AnchorProps {
   prefixCls?: string;
@@ -99,6 +98,8 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   };
 
   content: ConfigConsumerProps;
+
+  private wrapperRef = React.createRef<HTMLDivElement>();
 
   private inkNode: HTMLSpanElement;
 
@@ -253,9 +254,10 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   };
 
   updateInk = () => {
-    const { prefixCls } = this;
-    const anchorNode = ReactDOM.findDOMNode(this) as Element;
-    const linkNode = anchorNode.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
+    const { prefixCls, wrapperRef } = this;
+    const anchorNode = wrapperRef.current;
+    const linkNode = anchorNode?.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
+
     if (linkNode) {
       this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
@@ -286,9 +288,13 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       visible: activeLink,
     });
 
-    const wrapperClass = classNames(className, `${prefixCls}-wrapper`, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+    const wrapperClass = classNames(
+      `${prefixCls}-wrapper`,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     const anchorClass = classNames(prefixCls, {
       fixed: !affix && !showInkInFixed,
@@ -300,7 +306,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     };
 
     const anchorContent = (
-      <div className={wrapperClass} style={wrapperStyle}>
+      <div ref={this.wrapperRef} className={wrapperClass} style={wrapperStyle}>
         <div className={anchorClass}>
           <div className={`${prefixCls}-ink`}>
             <span className={inkClass} ref={this.saveInkNode} />

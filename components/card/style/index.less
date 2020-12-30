@@ -9,7 +9,7 @@
 @gradient-max: fade(@card-skeleton-bg, 40%);
 
 .@{card-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   background: @card-background;
@@ -43,7 +43,7 @@
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: @card-radius @card-radius 0 0;
-    .clearfix;
+    .clearfix();
 
     &-wrapper {
       display: flex;
@@ -57,6 +57,13 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+
+      > .@{ant-prefix}-typography,
+      > .@{ant-prefix}-typography-edit-content {
+        left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
 
     .@{ant-prefix}-tabs {
@@ -89,7 +96,7 @@
 
   &-body {
     padding: @card-padding-base;
-    .clearfix;
+    .clearfix();
   }
 
   &-contain-grid:not(&-loading) &-body {
@@ -130,10 +137,13 @@
     padding-bottom: 0;
   }
 
-  &-cover {
+  &-bordered &-cover {
     margin-right: -1px;
     margin-left: -1px;
+    transform: translateY(-1px);
+  }
 
+  &-cover {
     > * {
       display: block;
       width: 100%;
@@ -150,7 +160,7 @@
     list-style: none;
     background: @card-actions-background;
     border-top: @border-width-base @border-style-base @border-color-split;
-    .clearfix;
+    .clearfix();
 
     & > li {
       float: left;
@@ -220,7 +230,7 @@
 
   &-meta {
     margin: -4px 0;
-    .clearfix;
+    .clearfix();
 
     &-avatar {
       float: left;

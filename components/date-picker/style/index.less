@@ -1,28 +1,21 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
-@import './panel';
 
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 
 .picker-padding(@input-height, @font-size, @padding-horizontal) {
   // font height probably 22.0001， So use floor better
   @font-height: floor(@font-size * @line-height-base) + 2;
-  @padding-top: max((@input-height - @font-height) / 2, 0);
+  @padding-top: max(((@input-height - @font-height) / 2), 0);
   @padding-bottom: max(@input-height - @font-height - @padding-top, 0);
   padding: @padding-top @padding-horizontal @padding-bottom;
 }
 
 .@{picker-prefix-cls} {
-  @vertical-fix-base: @input-height-base - ceil(@font-size-base * @line-height-base) - 2 *
-    @input-padding-vertical-base - 2 * @border-width-base;
-  @vertical-fix-lg: @input-height-lg - ceil(@font-size-lg * @line-height-base) - 2 *
-    @input-padding-vertical-lg - 2 * @border-width-base;
-  @vertical-fix-sm: @input-height-sm - ceil(@font-size-base * @line-height-base) - 2 *
-    @input-padding-vertical-sm - 2 * @border-width-base;
   @arrow-size: 10px;
 
-  .reset-component;
+  .reset-component();
   .picker-padding(@input-height-base, @font-size-base, @input-padding-horizontal-base);
   position: relative;
   display: inline-flex;
@@ -61,6 +54,7 @@
   &-input {
     position: relative;
     display: inline-flex;
+    align-items: center;
     width: 100%;
 
     > input {
@@ -90,6 +84,12 @@
         opacity: 1;
       }
     }
+
+    &-placeholder {
+      > input {
+        color: @input-placeholder-color;
+      }
+    }
   }
 
   // Size
@@ -107,9 +107,14 @@
 
   &-suffix {
     align-self: center;
-    margin-left: @padding-xs / 2;
+    margin-left: (@padding-xs / 2);
     color: @disabled-color;
+    line-height: 1;
     pointer-events: none;
+
+    > * {
+      vertical-align: top;
+    }
   }
 
   &-clear {
@@ -117,11 +122,16 @@
     top: 50%;
     right: 0;
     color: @disabled-color;
+    line-height: 1;
     background: @component-background;
     transform: translateY(-50%);
     cursor: pointer;
     opacity: 0;
     transition: opacity @animation-duration-slow, color @animation-duration-slow;
+
+    > * {
+      vertical-align: top;
+    }
 
     &:hover {
       color: @text-color-secondary;
@@ -187,11 +197,21 @@
       padding: 0 @padding-xs;
       line-height: 1;
     }
+
+    &.@{picker-prefix-cls}-small {
+      .@{picker-prefix-cls}-clear {
+        right: @input-padding-horizontal-sm;
+      }
+
+      .@{picker-prefix-cls}-active-bar {
+        margin-left: @input-padding-horizontal-sm;
+      }
+    }
   }
 
   // ======================= Dropdown =======================
   &-dropdown {
-    .reset-component;
+    .reset-component();
     position: absolute;
     z-index: @zindex-picker;
 
@@ -201,7 +221,7 @@
 
     &-placement-bottomLeft {
       .@{picker-prefix-cls}-range-arrow {
-        top: @arrow-size / 2 - @arrow-size / 3;
+        top: (@arrow-size / 2) - (@arrow-size / 3);
         display: block;
         transform: rotate(-45deg);
       }
@@ -209,10 +229,34 @@
 
     &-placement-topLeft {
       .@{picker-prefix-cls}-range-arrow {
-        bottom: @arrow-size / 2 - @arrow-size / 3;
+        bottom: (@arrow-size / 2) - (@arrow-size / 3);
         display: block;
         transform: rotate(135deg);
       }
+    }
+
+    &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+    &.slide-up-enter.slide-up-enter-active&-placement-topRight,
+    &.slide-up-appear.slide-up-appear-active&-placement-topLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-topRight {
+      animation-name: antSlideDownIn;
+    }
+
+    &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+    &.slide-up-enter.slide-up-enter-active&-placement-bottomRight,
+    &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-bottomRight {
+      animation-name: antSlideUpIn;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-topLeft,
+    &.slide-up-leave.slide-up-leave-active&-placement-topRight {
+      animation-name: antSlideDownOut;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft,
+    &.slide-up-leave.slide-up-leave-active&-placement-bottomRight {
+      animation-name: antSlideUpOut;
     }
   }
 
@@ -226,15 +270,15 @@
 
   // Time picker with additional style
   &-dropdown &-panel > &-time-panel {
-    padding-top: @padding-xs / 2;
+    padding-top: (@padding-xs / 2);
   }
 
   // ======================== Ranges ========================
   &-ranges {
     margin-bottom: 0;
-    padding: @padding-xs / 2 @padding-sm;
+    padding: (@padding-xs / 2) @padding-sm;
     overflow: hidden;
-    line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
+    line-height: @picker-text-height - 2 * @border-width-base - (@padding-xs / 2);
     text-align: left;
     list-style: none;
 
@@ -276,7 +320,7 @@
       right: @border-width-base;
       width: @arrow-size;
       height: @arrow-size;
-      border: @arrow-size / 2 solid @border-color-split;
+      border: (@arrow-size / 2) solid @border-color-split;
       border-color: @calendar-bg @calendar-bg transparent transparent;
       content: '';
     }
@@ -309,4 +353,5 @@
   }
 }
 
+@import './panel';
 @import './rtl';

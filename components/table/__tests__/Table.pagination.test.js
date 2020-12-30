@@ -39,7 +39,7 @@ describe('Table.pagination', () => {
 
   it('not crash when pageSize is undefined', () => {
     expect(() => {
-      mount(createTable({ pagination: { pageSIze: undefined } }));
+      mount(createTable({ pagination: { pageSize: undefined } }));
     }).not.toThrow();
   });
 
@@ -100,7 +100,18 @@ describe('Table.pagination', () => {
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
     wrapper.find('.ant-select-item').last().simulate('click');
-    expect(scrollTo).toHaveBeenCalledTimes(3);
+    expect(scrollTo).toHaveBeenCalledTimes(2);
+  });
+
+  it('should scroll inside .ant-table-body', () => {
+    scrollTo.mockImplementationOnce((top, { getContainer }) => {
+      expect(top).toBe(0);
+      expect(getContainer().className).toBe('ant-table-body');
+    });
+    const wrapper = mount(
+      createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
+    );
+    wrapper.find('Pager').last().simulate('click');
   });
 
   it('fires change event', () => {
@@ -228,9 +239,8 @@ describe('Table.pagination', () => {
   });
 
   /**
-   * `pagination` is not designed to accept `true` value,
-   * but in practice, many people assign `true` to `pagination`,
-   * since they misunderstand that `pagination` can accept a boolean value.
+   * `pagination` is not designed to accept `true` value, but in practice, many people assign `true`
+   * to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
    */
   it('Accepts pagination as true', () => {
     const wrapper = mount(createTable({ pagination: true }));
@@ -274,7 +284,7 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
   });
 
-  it('select by checkbox to trigger stopPropagation', () => {
+  it('onShowSizeChange should trigger once', () => {
     jest.useFakeTimers();
     const onShowSizeChange = jest.fn();
     const onChange = jest.fn();
@@ -293,7 +303,8 @@ describe('Table.pagination', () => {
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
     dropdownWrapper.find('.ant-select-item-option').at(3).simulate('click');
-    expect(onShowSizeChange).toHaveBeenCalled();
+    expect(onShowSizeChange).toHaveBeenCalledTimes(1);
+    expect(onShowSizeChange).toHaveBeenLastCalledWith(1, 100);
     expect(onChange).toHaveBeenCalled();
     jest.useRealTimers();
   });
@@ -334,6 +345,24 @@ describe('Table.pagination', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should call onChange when change pagination size', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+        },
+        onChange,
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    dropdownWrapper.find('.ant-select-item-option').at(2).simulate('click');
+
+    expect(onChange).toBeCalledTimes(1);
+  });
+
   it('dynamic warning', () => {
     resetWarned();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -358,5 +387,58 @@ describe('Table.pagination', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
     );
+  });
+
+  it('should render pagination after last item on last page being removed', () => {
+    const total = data.length;
+    const paginationProp = {
+      pageSize: 1,
+      total,
+      current: total,
+      position: ['topLeft', 'bottomLeft'],
+    };
+    const wrapper = mount(
+      createTable({
+        pagination: paginationProp,
+      }),
+    );
+
+    wrapper.setProps({
+      dataSource: data.slice(total - 1),
+      pagination: { ...paginationProp, total: total - 1 },
+    });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(2);
+  });
+
+  it('showTotal should hide when removed', () => {
+    const Demo = () => {
+      const [p, setP] = React.useState({
+        showTotal: t => `>${t}<`,
+        total: 200,
+        current: 1,
+        pageSize: 10,
+      });
+
+      return (
+        <Table
+          data={[]}
+          columns={[]}
+          pagination={p}
+          onChange={pg => {
+            setP({
+              ...pg,
+              total: 23,
+            });
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    expect(wrapper.find('.ant-pagination-total-text').text()).toEqual('>200<');
+
+    // Should hide
+    wrapper.find('.ant-pagination-item-2').simulate('click');
+    expect(wrapper.find('.ant-pagination-total-text')).toHaveLength(0);
   });
 });

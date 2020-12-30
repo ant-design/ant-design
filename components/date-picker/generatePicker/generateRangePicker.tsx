@@ -90,10 +90,13 @@ export default function generateRangePicker<DateType>(
                 transitionName="slide-up"
                 {...restProps}
                 {...additionalOverrideProps}
-                className={classNames(className, {
-                  [`${prefixCls}-${mergedSize}`]: mergedSize,
-                  [`${prefixCls}-borderless`]: !bordered,
-                })}
+                className={classNames(
+                  {
+                    [`${prefixCls}-${mergedSize}`]: mergedSize,
+                    [`${prefixCls}-borderless`]: !bordered,
+                  },
+                  className,
+                )}
                 locale={locale!.lang}
                 prefixCls={prefixCls}
                 getPopupContainer={customGetPopupContainer || getPopupContainer}

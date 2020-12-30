@@ -1036,7 +1036,6 @@ exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="smile"
         fill="currentColor"
         focusable="false"
@@ -1084,7 +1083,6 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -1156,7 +1154,6 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close-circle"
             fill="currentColor"
             focusable="false"
@@ -1187,7 +1184,6 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close-circle"
             fill="currentColor"
             focusable="false"
@@ -1227,7 +1223,6 @@ exports[`renders ./components/result/demo/info.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="exclamation-circle"
         fill="currentColor"
         focusable="false"
@@ -1275,7 +1270,6 @@ exports[`renders ./components/result/demo/success.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="check-circle"
         fill="currentColor"
         focusable="false"
@@ -1336,7 +1330,6 @@ exports[`renders ./components/result/demo/warning.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="warning"
         fill="currentColor"
         focusable="false"

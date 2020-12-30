@@ -11,7 +11,7 @@ import Empty from '../../../empty';
 import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
-import useSyncState from '../useSyncState';
+import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
 
 const { SubMenu, Item: MenuItem } = Menu;
@@ -34,17 +34,22 @@ function renderFilterItems({
   locale: TableLocale;
 }) {
   if (filters.length === 0) {
+    // wrapped with <div /> to avoid react warning
+    // https://github.com/ant-design/ant-design/issues/25979
     return (
-      <Empty
-        image={Empty.PRESENTED_IMAGE_SIMPLE}
-        description={locale.filterEmptyText}
+      <div
         style={{
           margin: '16px 0',
         }}
-        imageStyle={{
-          height: 24,
-        }}
-      />
+      >
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={locale.filterEmptyText}
+          imageStyle={{
+            height: 24,
+          }}
+        />
+      </div>
     );
   }
   return filters.map((filter, index) => {
@@ -127,8 +132,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const propFilteredKeys = filterState && filterState.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
-  const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
-    setFilteredKeysSync(selectedKeys);
+  const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
+    setFilteredKeysSync(selectedKeys!);
   };
 
   React.useEffect(() => {
@@ -146,11 +151,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const onMenuClick = () => {
     window.clearTimeout(openRef.current);
   };
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(
+    () => () => {
       window.clearTimeout(openRef.current);
-    };
-  }, []);
+    },
+    [],
+  );
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[] | undefined | null) => {

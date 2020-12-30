@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { SiderProps } from './Sider';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 
 export interface GeneratorProps {
   suffixCls: string;
@@ -32,28 +31,15 @@ interface BasicPropsWithTagName extends BasicProps {
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   return (BasicComponent: any) => {
-    return class Adapter extends React.Component<BasicProps, any> {
-      static displayName: string = displayName;
+    const Adapter: React.FC<BasicProps> = props => {
+      const { getPrefixCls } = React.useContext(ConfigContext);
+      const { prefixCls: customizePrefixCls } = props;
+      const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
 
-      static Header: any;
-
-      static Footer: any;
-
-      static Content: any;
-
-      static Sider: any;
-
-      renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
-        const { prefixCls: customizePrefixCls } = this.props;
-        const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
-
-        return <BasicComponent prefixCls={prefixCls} tagName={tagName} {...this.props} />;
-      };
-
-      render() {
-        return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
-      }
+      return <BasicComponent prefixCls={prefixCls} tagName={tagName} {...props} />;
     };
+    Adapter.displayName = displayName;
+    return Adapter;
   };
 }
 
@@ -63,60 +49,42 @@ const Basic = (props: BasicPropsWithTagName) => {
   return React.createElement(tagName, { className: classString, ...others }, children);
 };
 
-interface BasicLayoutState {
-  siders: string[];
-}
+const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
+  const { direction } = React.useContext(ConfigContext);
 
-class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutState> {
-  state = { siders: [] };
+  const [siders, setSiders] = React.useState<string[]>([]);
 
-  getSiderHook() {
-    return {
-      addSider: (id: string) => {
-        this.setState(state => ({
-          siders: [...state.siders, id],
-        }));
-      },
-      removeSider: (id: string) => {
-        this.setState(state => ({
-          siders: state.siders.filter(currentId => currentId !== id),
-        }));
-      },
-    };
-  }
+  const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = props;
+  const classString = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-has-sider`]: typeof hasSider === 'boolean' ? hasSider : siders.length > 0,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
-  renderComponent = ({ direction }: ConfigConsumerProps) => {
-    const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = this.props;
-    const classString = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-has-sider`]:
-          typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-    );
+  return (
+    <LayoutContext.Provider
+      value={{
+        siderHook: {
+          addSider: (id: string) => {
+            setSiders(prev => [...prev, id]);
+          },
+          removeSider: (id: string) => {
+            setSiders(prev => prev.filter(currentId => currentId !== id));
+          },
+        },
+      }}
+    >
+      <Tag className={classString} {...others}>
+        {children}
+      </Tag>
+    </LayoutContext.Provider>
+  );
+};
 
-    return (
-      <LayoutContext.Provider value={{ siderHook: this.getSiderHook() }}>
-        <Tag className={classString} {...others}>
-          {children}
-        </Tag>
-      </LayoutContext.Provider>
-    );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
-  }
-}
-
-const Layout: React.ComponentClass<BasicProps> & {
-  Header: React.ComponentClass<BasicProps>;
-  Footer: React.ComponentClass<BasicProps>;
-  Content: React.ComponentClass<BasicProps>;
-  Sider: React.ComponentClass<SiderProps>;
-} = generator({
+const Layout = generator({
   suffixCls: 'layout',
   tagName: 'section',
   displayName: 'Layout',
@@ -140,8 +108,6 @@ const Content = generator({
   displayName: 'Content',
 })(Basic);
 
-Layout.Header = Header;
-Layout.Footer = Footer;
-Layout.Content = Content;
+export { Header, Footer, Content };
 
 export default Layout;

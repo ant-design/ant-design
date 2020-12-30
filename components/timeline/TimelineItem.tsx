@@ -1,9 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
 import { ConfigContext } from '../config-provider';
 
-export interface TimeLineItemProps {
+export interface TimelineItemProps {
   prefixCls?: string;
   className?: string;
   color?: string;
@@ -14,18 +13,24 @@ export interface TimeLineItemProps {
   label?: React.ReactNode;
 }
 
-const TimelineItem: React.FC<TimeLineItemProps> = props => {
+// for compatibililty
+// https://github.com/ant-design/ant-design/pull/26832
+export interface TimeLineItemProps extends TimelineItemProps {
+  __deprecated_do_not_use_it__?: any; // eslint-disable-line camelcase
+}
+
+const TimelineItem: React.FC<TimelineItemProps> = ({
+  prefixCls: customizePrefixCls,
+  className,
+  color = 'blue',
+  dot,
+  pending = false,
+  position /** Dead, but do not pass in <li {...omit()} */,
+  label,
+  children,
+  ...restProps
+}) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    color,
-    children,
-    pending,
-    dot,
-    label,
-    ...restProps
-  } = props;
 
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
   const itemClassName = classNames(
@@ -43,7 +48,7 @@ const TimelineItem: React.FC<TimeLineItemProps> = props => {
   });
 
   return (
-    <li {...omit(restProps, ['position'])} className={itemClassName}>
+    <li {...restProps} className={itemClassName}>
       {label && <div className={`${prefixCls}-item-label`}>{label}</div>}
       <div className={`${prefixCls}-item-tail`} />
       <div
@@ -55,12 +60,6 @@ const TimelineItem: React.FC<TimeLineItemProps> = props => {
       <div className={`${prefixCls}-item-content`}>{children}</div>
     </li>
   );
-};
-
-TimelineItem.defaultProps = {
-  color: 'blue',
-  pending: false,
-  position: '',
 };
 
 export default TimelineItem;

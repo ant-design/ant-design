@@ -19,9 +19,7 @@ function getDefaultTarget() {
 
 // Affix
 export interface AffixProps {
-  /**
-   * 距离窗口顶部达到指定偏移量后触发
-   */
+  /** 距离窗口顶部达到指定偏移量后触发 */
   offsetTop?: number;
   /** 距离窗口底部达到指定偏移量后触发 */
   offsetBottom?: number;
@@ -138,9 +136,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
     return offsetTop;
   };
 
-  getOffsetBottom = () => {
-    return this.props.offsetBottom;
-  };
+  getOffsetBottom = () => this.props.offsetBottom;
 
   savePlaceholderNode = (node: HTMLDivElement) => {
     this.placeholderNode = node;

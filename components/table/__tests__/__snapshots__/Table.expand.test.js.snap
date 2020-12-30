@@ -100,7 +100,6 @@ exports[`Table.expand click to expand 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -120,7 +119,9 @@ exports[`Table.expand click to expand 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -142,7 +143,6 @@ exports[`Table.expand click to expand 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"

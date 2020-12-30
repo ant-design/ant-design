@@ -116,7 +116,7 @@ exports[`Breadcrumb should render a menu 1`] = `
   </span>
   <span>
     <span
-      class="ant-breadcrumb-overlay-link ant-dropdown-trigger"
+      class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
     >
       <span
         class="ant-breadcrumb-link"
@@ -134,7 +134,6 @@ exports[`Breadcrumb should render a menu 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -175,6 +174,51 @@ exports[`Breadcrumb should render a menu 1`] = `
       class="ant-breadcrumb-link"
     >
       <span />
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Location
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Mock Node
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Application Center
     </span>
     <span
       class="ant-breadcrumb-separator"

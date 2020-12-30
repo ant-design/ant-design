@@ -26,7 +26,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -50,7 +49,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -86,7 +84,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -110,7 +107,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -146,7 +142,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -170,7 +165,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -206,7 +200,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -230,7 +223,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -266,7 +258,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -290,7 +281,6 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -336,7 +326,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -360,7 +349,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -396,7 +384,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -420,7 +407,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -456,7 +442,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -480,7 +465,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -516,7 +500,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -540,7 +523,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -576,7 +558,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -600,7 +581,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="heart"
               fill="currentColor"
               focusable="false"
@@ -999,7 +979,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="frown"
               fill="currentColor"
               focusable="false"
@@ -1023,7 +1002,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="frown"
               fill="currentColor"
               focusable="false"
@@ -1059,7 +1037,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="frown"
               fill="currentColor"
               focusable="false"
@@ -1083,7 +1060,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="frown"
               fill="currentColor"
               focusable="false"
@@ -1119,7 +1095,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="meh"
               fill="currentColor"
               focusable="false"
@@ -1143,7 +1118,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="meh"
               fill="currentColor"
               focusable="false"
@@ -1179,7 +1153,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="smile"
               fill="currentColor"
               focusable="false"
@@ -1203,7 +1176,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="smile"
               fill="currentColor"
               focusable="false"
@@ -1239,7 +1211,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="smile"
               fill="currentColor"
               focusable="false"
@@ -1263,7 +1234,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="smile"
               fill="currentColor"
               focusable="false"
@@ -1310,7 +1280,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1334,7 +1303,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1370,7 +1338,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1394,7 +1361,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1430,7 +1396,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1454,7 +1419,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1490,7 +1454,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1514,7 +1477,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1550,7 +1512,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1574,7 +1535,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1622,7 +1582,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1646,7 +1605,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1682,7 +1640,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1706,7 +1663,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1742,7 +1698,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1766,7 +1721,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1802,7 +1756,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1826,7 +1779,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1862,7 +1814,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1886,7 +1837,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -1937,7 +1887,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -1961,7 +1910,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -1997,7 +1945,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2021,7 +1968,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2057,7 +2003,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2081,7 +2026,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2117,7 +2061,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2141,7 +2084,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2177,7 +2119,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2201,7 +2142,6 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2246,7 +2186,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2270,7 +2209,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2306,7 +2244,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2330,7 +2267,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2366,7 +2302,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2390,7 +2325,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2426,7 +2360,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2450,7 +2383,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2486,7 +2418,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2510,7 +2441,6 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -2556,7 +2486,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2580,7 +2509,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2616,7 +2544,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2640,7 +2567,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2676,7 +2602,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2700,7 +2625,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2736,7 +2660,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2760,7 +2683,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2796,7 +2718,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"
@@ -2820,7 +2741,6 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="star"
               fill="currentColor"
               focusable="false"

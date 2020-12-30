@@ -59,7 +59,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -79,7 +78,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -112,7 +110,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -123,7 +121,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -471,7 +468,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -491,7 +487,9 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -513,7 +511,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -688,7 +685,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -708,7 +704,9 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -730,7 +728,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -968,7 +965,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -988,7 +984,9 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -1010,7 +1008,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -1080,7 +1077,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1091,7 +1088,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -1123,7 +1119,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1134,7 +1130,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -1166,7 +1161,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1177,7 +1172,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -1306,7 +1300,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1326,7 +1319,9 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -1348,7 +1343,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -1506,7 +1500,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1526,7 +1519,9 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -1548,7 +1543,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -1639,7 +1633,6 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="menu"
                         fill="currentColor"
                         focusable="false"
@@ -1683,7 +1676,6 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="menu"
                         fill="currentColor"
                         focusable="false"
@@ -1727,7 +1719,6 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="menu"
                         fill="currentColor"
                         focusable="false"
@@ -2710,7 +2701,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-up"
                                   fill="currentColor"
                                   focusable="false"
@@ -2730,7 +2720,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-down"
                                   fill="currentColor"
                                   focusable="false"
@@ -2763,7 +2752,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -2774,7 +2763,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="filter"
                                 fill="currentColor"
                                 focusable="false"
@@ -2816,7 +2804,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-up"
                                   fill="currentColor"
                                   focusable="false"
@@ -2836,7 +2823,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-down"
                                   fill="currentColor"
                                   focusable="false"
@@ -2909,38 +2895,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -2993,38 +2987,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3077,38 +3079,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3161,38 +3171,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3245,38 +3263,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3329,38 +3355,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3413,38 +3447,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3497,38 +3539,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3581,38 +3631,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3665,38 +3723,46 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
@@ -3731,7 +3797,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -3751,7 +3816,9 @@ Array [
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -3773,7 +3840,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -3952,7 +4018,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -3972,7 +4037,9 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -3994,7 +4061,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -4100,7 +4166,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4127,7 +4195,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4154,7 +4224,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4181,7 +4253,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4208,7 +4282,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4235,7 +4311,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4262,7 +4340,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4289,7 +4369,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4316,7 +4398,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4343,7 +4427,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
+                    <a
+                      class="ant-typography"
+                    >
                       Edit
                     </a>
                   </td>
@@ -4375,7 +4461,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -4395,7 +4480,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -4404,7 +4491,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           tabindex="0"
           title="2"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             2
           </a>
         </li>
@@ -4413,7 +4502,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           tabindex="0"
           title="3"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             3
           </a>
         </li>
@@ -4422,7 +4513,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           tabindex="0"
           title="4"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             4
           </a>
         </li>
@@ -4431,7 +4524,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           tabindex="0"
           title="5"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             5
           </a>
         </li>
@@ -4453,7 +4548,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   focusable="false"
@@ -4479,7 +4573,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           tabindex="0"
           title="10"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             10
           </a>
         </li>
@@ -4501,7 +4597,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -4539,12 +4634,14 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
               </span>
               <span
                 class="ant-select-selection-item"
+                title="10 / page"
               >
                 10 / page
               </span>
@@ -4562,7 +4659,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -4807,7 +4903,6 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -4827,7 +4922,9 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -4849,7 +4946,6 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -5105,7 +5201,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -5125,7 +5220,9 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -5147,7 +5244,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -5398,7 +5494,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -5418,7 +5513,9 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -5440,7 +5537,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -5459,303 +5555,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
-Array [
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="margin-bottom:16px"
-  >
-    <div
-      class="ant-space-item"
-      style="margin-right:8px"
-    >
-      CheckStrictly: 
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        aria-checked="false"
-        class="ant-switch"
-        role="switch"
-        type="button"
-      >
-        <div
-          class="ant-switch-handle"
-        />
-        <span
-          class="ant-switch-inner"
-        />
-      </button>
-    </div>
-  </div>,
-  <div
-    class="ant-table-wrapper"
-  >
-    <div
-      class="ant-spin-nested-loading"
-    >
-      <div
-        class="ant-spin-container"
-      >
-        <div
-          class="ant-table"
-        >
-          <div
-            class="ant-table-container"
-          >
-            <div
-              class="ant-table-content"
-            >
-              <table
-                style="table-layout:auto"
-              >
-                <colgroup>
-                  <col
-                    class="ant-table-selection-col"
-                  />
-                  <col />
-                  <col
-                    style="width:12%;min-width:12%"
-                  />
-                  <col
-                    style="width:30%;min-width:30%"
-                  />
-                </colgroup>
-                <thead
-                  class="ant-table-thead"
-                >
-                  <tr>
-                    <th
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <div
-                        class="ant-table-selection"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                    >
-                      Name
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                    >
-                      Age
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                    >
-                      Address
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="ant-table-tbody"
-                >
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="1"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell ant-table-cell-with-append"
-                    >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      John Brown sr.
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      60
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 1 Lake Park
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="2"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell ant-table-cell-with-append"
-                    >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                        type="button"
-                      />
-                      Joe Black
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Sidney No. 1 Lake Park
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
-        >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
-          >
-            <button
-              class="ant-pagination-item-link"
-              disabled=""
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="left"
-                class="anticon anticon-left"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="left"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
-            title="1"
-          >
-            <a>
-              1
-            </a>
-          </li>
-          <li
-            aria-disabled="true"
-            class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
-          >
-            <button
-              class="ant-pagination-item-link"
-              disabled=""
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>,
-]
 `;
 
 exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
@@ -5870,41 +5669,107 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  style="height:0;font-size:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -6063,7 +5928,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -6083,7 +5947,9 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -6105,7 +5971,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -6262,41 +6127,107 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  style="height:0;font-size:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -6975,7 +6906,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -6995,7 +6925,9 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -7004,7 +6936,9 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           tabindex="0"
           title="2"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             2
           </a>
         </li>
@@ -7013,7 +6947,9 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           tabindex="0"
           title="3"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             3
           </a>
         </li>
@@ -7022,7 +6958,9 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           tabindex="0"
           title="4"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             4
           </a>
         </li>
@@ -7031,7 +6969,9 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           tabindex="0"
           title="5"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             5
           </a>
         </li>
@@ -7053,7 +6993,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   focusable="false"
@@ -7079,7 +7018,9 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           tabindex="0"
           title="10"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             10
           </a>
         </li>
@@ -7101,7 +7042,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -7139,12 +7079,14 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
               </span>
               <span
                 class="ant-select-selection-item"
+                title="10 / page"
               >
                 10 / page
               </span>
@@ -7162,7 +7104,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -7252,17 +7193,35 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  style="height:0;font-size:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -8291,7 +8250,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -8311,7 +8269,9 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -8320,7 +8280,9 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
           tabindex="0"
           title="2"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             2
           </a>
         </li>
@@ -8342,7 +8304,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -8380,12 +8341,14 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
               </span>
               <span
                 class="ant-select-selection-item"
+                title="50 / page"
               >
                 50 / page
               </span>
@@ -8403,7 +8366,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -8470,7 +8432,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -8481,7 +8443,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -8545,7 +8506,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -8565,7 +8525,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -8668,32 +8627,80 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  style="height:0;font-size:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -9171,7 +9178,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+        class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -9192,7 +9199,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -9212,7 +9218,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -9221,7 +9229,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           tabindex="0"
           title="2"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             2
           </a>
         </li>
@@ -9230,7 +9240,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           tabindex="0"
           title="3"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             3
           </a>
         </li>
@@ -9239,7 +9251,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           tabindex="0"
           title="4"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             4
           </a>
         </li>
@@ -9248,7 +9262,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           tabindex="0"
           title="5"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             5
           </a>
         </li>
@@ -9270,7 +9286,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   focusable="false"
@@ -9296,7 +9311,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           tabindex="0"
           title="10"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             10
           </a>
         </li>
@@ -9318,7 +9335,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -9337,7 +9353,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -9356,12 +9372,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
               </span>
               <span
                 class="ant-select-selection-item"
+                title="10 / page"
               >
                 10 / page
               </span>
@@ -9379,7 +9397,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -9459,7 +9476,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -9481,7 +9497,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -9492,7 +9508,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -9534,7 +9549,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -9554,7 +9568,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -9603,7 +9616,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-up"
                                     fill="currentColor"
                                     focusable="false"
@@ -9623,7 +9635,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
@@ -9645,7 +9656,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -9656,7 +9667,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="filter"
                               fill="currentColor"
                               focusable="false"
@@ -9785,7 +9795,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -9805,7 +9814,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -9827,7 +9838,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -10130,7 +10140,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -10150,7 +10159,9 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -10172,7 +10183,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -10250,7 +10260,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -10270,7 +10279,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -10313,7 +10321,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -10333,7 +10340,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -10376,7 +10382,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -10396,7 +10401,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -10546,7 +10550,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -10566,7 +10569,9 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -10588,7 +10593,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -10957,7 +10961,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -10977,7 +10980,9 @@ Array [
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -10999,7 +11004,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -11275,7 +11279,6 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -11295,7 +11298,9 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -11317,7 +11322,6 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -11537,7 +11541,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -11557,7 +11560,9 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -11579,7 +11584,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -11682,16 +11686,25 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Invite John Brown
-                        </a>
-                        <a>
-                          Delete
-                        </a>
-                      </span>
+                          <a>
+                            Invite John Brown
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -11729,16 +11742,25 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Invite Jim Green
-                        </a>
-                        <a>
-                          Delete
-                        </a>
-                      </span>
+                          <a>
+                            Invite Jim Green
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -11781,16 +11803,25 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Invite Joe Black
-                        </a>
-                        <a>
-                          Delete
-                        </a>
-                      </span>
+                          <a>
+                            Invite Joe Black
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
@@ -11820,7 +11851,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -11840,7 +11870,9 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -11862,7 +11894,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -11986,7 +12017,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="caret-up"
                                       fill="currentColor"
                                       focusable="false"
@@ -12006,7 +12036,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="caret-down"
                                       fill="currentColor"
                                       focusable="false"
@@ -12028,7 +12057,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -12039,7 +12068,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="filter"
                                 fill="currentColor"
                                 focusable="false"
@@ -12081,7 +12109,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-up"
                                   fill="currentColor"
                                   focusable="false"
@@ -12101,7 +12128,6 @@ Array [
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="caret-down"
                                   fill="currentColor"
                                   focusable="false"
@@ -12150,7 +12176,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="caret-up"
                                       fill="currentColor"
                                       focusable="false"
@@ -12170,7 +12195,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="caret-down"
                                       fill="currentColor"
                                       focusable="false"
@@ -12192,7 +12216,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -12203,7 +12227,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="filter"
                                 fill="currentColor"
                                 focusable="false"
@@ -12344,7 +12367,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -12364,7 +12386,9 @@ Array [
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -12386,7 +12410,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -12450,7 +12473,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell react-resizable"
-                    handle="[object Object]"
                   >
                     Date
                     <span
@@ -12459,7 +12481,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
-                    handle="[object Object]"
                   >
                     <div
                       class="ant-table-column-sorters-with-tooltip"
@@ -12483,7 +12504,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -12503,7 +12523,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -12526,7 +12545,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell react-resizable"
-                    handle="[object Object]"
                   >
                     Type
                     <span
@@ -12535,7 +12553,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell react-resizable"
-                    handle="[object Object]"
                   >
                     Note
                     <span
@@ -12675,7 +12692,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -12695,7 +12711,9 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -12717,7 +12735,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -12814,7 +12831,6 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -12834,7 +12850,9 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -12856,7 +12874,6 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -13195,7 +13212,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -13215,7 +13231,9 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -13237,7 +13255,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -13767,7 +13784,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -13787,7 +13803,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -13796,7 +13814,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
             tabindex="0"
             title="2"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               2
             </a>
           </li>
@@ -13805,7 +13825,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
             tabindex="0"
             title="3"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               3
             </a>
           </li>
@@ -13814,7 +13836,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
             tabindex="0"
             title="4"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               4
             </a>
           </li>
@@ -13823,7 +13847,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
             tabindex="0"
             title="5"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               5
             </a>
           </li>
@@ -13845,7 +13871,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -13932,7 +13957,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="down"
                               fill="currentColor"
                               focusable="false"
@@ -14386,7 +14410,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -14406,7 +14429,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -14415,7 +14440,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
           tabindex="0"
           title="2"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             2
           </a>
         </li>
@@ -14424,7 +14451,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
           tabindex="0"
           title="3"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             3
           </a>
         </li>
@@ -14433,7 +14462,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
           tabindex="0"
           title="4"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             4
           </a>
         </li>
@@ -14442,7 +14473,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
           tabindex="0"
           title="5"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             5
           </a>
         </li>
@@ -14464,7 +14497,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -14781,7 +14813,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -14801,7 +14832,9 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -14810,7 +14843,9 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
           tabindex="0"
           title="2"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             2
           </a>
         </li>
@@ -14819,7 +14854,9 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
           tabindex="0"
           title="3"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             3
           </a>
         </li>
@@ -14828,7 +14865,9 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
           tabindex="0"
           title="4"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             4
           </a>
         </li>
@@ -14837,7 +14876,9 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
           tabindex="0"
           title="5"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             5
           </a>
         </li>
@@ -14859,7 +14900,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -14997,7 +15037,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -15018,7 +15058,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -15038,7 +15077,9 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -15060,7 +15101,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -15194,7 +15234,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -15215,7 +15255,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="left"
                   fill="currentColor"
                   focusable="false"
@@ -15235,7 +15274,9 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             tabindex="0"
             title="1"
           >
-            <a>
+            <a
+              rel="nofollow"
+            >
               1
             </a>
           </li>
@@ -15257,7 +15298,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -15274,6 +15314,1140 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </li>
         </ul>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-header ant-table-sticky-header"
+            style="overflow:hidden;top:0"
+          >
+            <table
+              style="table-layout:fixed;visibility:hidden"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-sticky"
+                    style="position:sticky;left:0"
+                  >
+                    Full Name
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
+                    style="position:sticky;left:0"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Column 1
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Column 2
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Column 3
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Column 4
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Column 5
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Column 6
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Column 7
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Column 8
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
+                    style="position:sticky;right:0"
+                  >
+                    Action
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div
+            class="ant-table-body"
+            style="overflow-x:auto;overflow-y:hidden"
+          >
+            <table
+              style="width:1500px;min-width:100%;table-layout:fixed"
+            >
+              <colgroup>
+                <col
+                  style="width:100px;min-width:100px"
+                />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+              </colgroup>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height:0;font-size:0"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 0
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 1
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 2
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 3
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 4
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="5"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 5
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="6"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 6
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="7"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 7
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="8"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 8
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="9"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 9
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        unselectable="unselectable"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-2"
+          tabindex="0"
+          title="2"
+        >
+          <a
+            rel="nofollow"
+          >
+            2
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-3"
+          tabindex="0"
+          title="3"
+        >
+          <a
+            rel="nofollow"
+          >
+            3
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-4"
+          tabindex="0"
+          title="4"
+        >
+          <a
+            rel="nofollow"
+          >
+            4
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+          tabindex="0"
+          title="5"
+        >
+          <a
+            rel="nofollow"
+          >
+            5
+          </a>
+        </li>
+        <li
+          class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+          tabindex="0"
+          title="Next 5 Pages"
+        >
+          <a
+            class="ant-pagination-item-link"
+          >
+            <div
+              class="ant-pagination-item-container"
+            >
+              <span
+                aria-label="double-right"
+                class="anticon anticon-double-right ant-pagination-item-link-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="double-right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="ant-pagination-item-ellipsis"
+              >
+                •••
+              </span>
+            </div>
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-10"
+          tabindex="0"
+          title="10"
+        >
+          <a
+            rel="nofollow"
+          >
+            10
+          </a>
+        </li>
+        <li
+          aria-disabled="false"
+          class="ant-pagination-next"
+          tabindex="0"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-options"
+        >
+          <div
+            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+          >
+            <div
+              class="ant-select-selector"
+            >
+              <span
+                class="ant-select-selection-search"
+              >
+                <input
+                  aria-activedescendant="undefined_list_0"
+                  aria-autocomplete="list"
+                  aria-controls="undefined_list"
+                  aria-haspopup="listbox"
+                  aria-owns="undefined_list"
+                  autocomplete="off"
+                  class="ant-select-selection-search-input"
+                  readonly=""
+                  role="combobox"
+                  style="opacity:0"
+                  type="search"
+                  unselectable="on"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-select-selection-item"
+                title="10 / page"
+              >
+                10 / page
+              </span>
+            </div>
+            <span
+              aria-hidden="true"
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="down"
+                class="anticon anticon-down ant-select-suffix"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -15512,14 +16686,26 @@ Array [
                   <tr
                     aria-hidden="true"
                     class="ant-table-measure-row"
-                    style="height:0"
+                    style="height:0;font-size:0"
                   >
                     <td
                       style="padding:0;border:0;height:0"
-                    />
+                    >
+                      <div
+                        style="height:0;overflow:hidden"
+                      >
+                         
+                      </div>
+                    </td>
                     <td
                       style="padding:0;border:0;height:0"
-                    />
+                    >
+                      <div
+                        style="height:0;overflow:hidden"
+                      >
+                         
+                      </div>
+                    </td>
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
@@ -15639,6 +16825,303 @@ Array [
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders ./components/table/demo/tree-data.md correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      CheckStrictly: 
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        />
+      </button>
+    </div>
+  </div>,
+  <div
+    class="ant-table-wrapper"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout:auto"
+              >
+                <colgroup>
+                  <col
+                    class="ant-table-selection-col"
+                  />
+                  <col />
+                  <col
+                    style="width:12%;min-width:12%"
+                  />
+                  <col
+                    style="width:30%;min-width:30%"
+                  />
+                </colgroup>
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <div
+                        class="ant-table-selection"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper"
+                        >
+                          <span
+                            class="ant-checkbox"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                      </div>
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      Address
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-with-append"
+                    >
+                      <span
+                        class="ant-table-row-indent indent-level-0"
+                        style="padding-left:0px"
+                      />
+                      <button
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                      John Brown sr.
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      60
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-with-append"
+                    >
+                      <span
+                        class="ant-table-row-indent indent-level-0"
+                        style="padding-left:0px"
+                      />
+                      <button
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                        type="button"
+                      />
+                      Joe Black
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Sidney No. 1 Lake Park
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          unselectable="unselectable"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-next ant-pagination-disabled"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>,

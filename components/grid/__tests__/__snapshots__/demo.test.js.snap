@@ -76,7 +76,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -111,7 +110,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -146,7 +144,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -181,7 +178,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -216,7 +212,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -256,7 +251,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -307,7 +301,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -358,7 +351,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -414,7 +406,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -449,7 +440,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -463,22 +453,22 @@ Array [
     <div
       class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4"
     >
-      1 col-order-esponsive
+      1 col-order-responsive
     </div>
     <div
       class="ant-col ant-col-6 ant-col-xs-order-2 ant-col-sm-order-1 ant-col-md-order-4 ant-col-lg-order-3"
     >
-      2 col-order-esponsive
+      2 col-order-responsive
     </div>
     <div
       class="ant-col ant-col-6 ant-col-xs-order-3 ant-col-sm-order-4 ant-col-md-order-2 ant-col-lg-order-1"
     >
-      3 col-order-esponsive
+      3 col-order-responsive
     </div>
     <div
       class="ant-col ant-col-6 ant-col-xs-order-4 ant-col-sm-order-3 ant-col-md-order-1 ant-col-lg-order-2"
     >
-      4 col-order-esponsive
+      4 col-order-responsive
     </div>
   </div>,
 ]
@@ -489,7 +479,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -516,7 +505,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -543,7 +531,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -567,6 +554,26 @@ Array [
       0 1 300px
     </div>
   </div>,
+  <div
+    class="ant-row ant-row-no-wrap"
+  >
+    <div
+      class="ant-col"
+      style="flex:none"
+    >
+      <div
+        style="padding:0 16px"
+      >
+        none
+      </div>
+    </div>
+    <div
+      class="ant-col"
+      style="flex:auto;min-width:0"
+    >
+      auto with no-wrap
+    </div>
+  </div>,
 ]
 `;
 
@@ -575,7 +582,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -631,7 +637,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -687,7 +692,6 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -827,9 +831,7 @@ Array [
 
 exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
 Array [
-  <span
-    style="margin-right:6px"
-  >
+  <span>
     Horizontal Gutter (px): 
   </span>,
   <div
@@ -925,9 +927,7 @@ Array [
       </div>
     </div>
   </div>,
-  <span
-    style="margin-right:6px"
-  >
+  <span>
     Vertical Gutter (px): 
   </span>,
   <div
@@ -1023,9 +1023,7 @@ Array [
       </div>
     </div>
   </div>,
-  <span
-    style="margin-right:6px"
-  >
+  <span>
     Column Count:
   </span>,
   <div

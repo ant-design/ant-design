@@ -88,7 +88,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -148,7 +147,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="check"
             fill="currentColor"
             focusable="false"
@@ -225,7 +223,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="minus"
           fill="currentColor"
           focusable="false"
@@ -250,7 +247,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="plus"
           fill="currentColor"
           focusable="false"
@@ -360,7 +356,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -420,7 +415,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="check"
             fill="currentColor"
             focusable="false"
@@ -566,7 +560,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="minus"
           fill="currentColor"
           focusable="false"
@@ -591,7 +584,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="plus"
           fill="currentColor"
           focusable="false"
@@ -870,7 +862,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="check"
             fill="currentColor"
             focusable="false"
@@ -960,7 +951,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -1000,7 +990,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="check-circle"
           fill="currentColor"
           focusable="false"
@@ -1107,7 +1096,6 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -1147,7 +1135,6 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="check-circle"
           fill="currentColor"
           focusable="false"
@@ -1347,7 +1334,7 @@ Array [
           stroke=""
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+          style="stroke:#52C41A;stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -1401,7 +1388,7 @@ Array [
           stroke=""
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:66.09291283123217px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+          style="stroke:#52C41A;stroke-dasharray:66.09291283123217px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -1428,7 +1415,7 @@ Array [
         style="width:14px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
         style="width:14px;height:8px"
       />
       <div
@@ -1455,7 +1442,7 @@ Array [
         style="width:14px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
         style="width:14px;height:8px"
       />
       <div
@@ -1515,7 +1502,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="check-circle"
             fill="currentColor"
             focusable="false"

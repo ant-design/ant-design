@@ -74,7 +74,7 @@
       color: @site-text-color-secondary;
 
       &:hover {
-        color: @icon-color-hover;
+        color: @site-text-color;
       }
     }
   }
@@ -91,6 +91,19 @@
         }
       }
     }
+  }
+
+  a[disabled] {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: @heading-color;
   }
 
   .markdown {
@@ -343,5 +356,14 @@
 
   .token.strong {
     font-weight: bold;
+  }
+
+  .components-overview {
+    &-img {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    &-search input {
+      color: rgba(255, 255, 255, 0.65);
+    }
   }
 }

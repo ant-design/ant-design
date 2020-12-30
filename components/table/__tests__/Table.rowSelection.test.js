@@ -86,7 +86,7 @@ describe('Table.rowSelection', () => {
     const radios = wrapper.find('input');
 
     expect(radios.length).toBe(4);
-
+    radios.first().simulate('click');
     radios.first().simulate('change', { target: { checked: true } });
     expect(getSelections(wrapper)).toEqual([0]);
 
@@ -98,6 +98,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       getCheckboxProps: record => ({
         disabled: record.name === 'Lucy',
+        indeterminate: record.name === 'Tom',
         name: record.name,
       }),
     };
@@ -109,6 +110,22 @@ describe('Table.rowSelection', () => {
     expect(checkboxes.at(1).props().name).toEqual(data[0].name);
     expect(checkboxes.at(2).props().disabled).toBe(true);
     expect(checkboxes.at(2).props().name).toEqual(data[1].name);
+
+    expect(getIndeterminateSelection(wrapper)).toEqual([2]);
+  });
+
+  it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
+    const rowSelection = {
+      getCheckboxProps: record => ({
+        disabled: record.name === 'Lucy',
+        indeterminate: record.name === 'Tom',
+        name: record.name,
+      }),
+      selectedRowKeys: [2],
+    };
+
+    const wrapper = mount(createTable({ rowSelection }));
+    expect(getIndeterminateSelection(wrapper)).toEqual([2]);
   });
 
   it('works with pagination', () => {
@@ -734,17 +751,6 @@ describe('Table.rowSelection', () => {
     expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
   });
 
-  it('should not crash when children is empty', () => {
-    const wrapper = mount(
-      createTable({ dataSource: [{ id: 1, name: 'Hello', age: 10, children: null }] }),
-    );
-    wrapper.find('.ant-table-row-expand-icon').simulate('click');
-
-    expect(() => {
-      wrapper.find('input').last().simulate('change');
-    }).not.toThrow();
-  });
-
   it('should onRowClick not called when checkbox clicked', () => {
     const onRowClick = jest.fn();
 
@@ -1051,6 +1057,57 @@ describe('Table.rowSelection', () => {
         expect(getIndeterminateSelection(wrapper)).toEqual([]);
         expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
       });
+
+      it('should support `childrenColumnName`', () => {
+        const onChange = jest.fn();
+
+        const table = createTable({
+          dataSource: [
+            {
+              key: 0,
+              name: 'Jack',
+              childList: [
+                { key: 1, name: 'Light' },
+                { key: 2, name: 'Bamboo' },
+              ],
+            },
+          ],
+          expandable: {
+            childrenColumnName: 'childList',
+            defaultExpandAllRows: true,
+          },
+          rowSelection: {
+            checkStrictly: false,
+            onChange,
+          },
+        });
+        const wrapper = mount(table);
+        const checkboxes = wrapper.find('input');
+        expect(checkboxes).toHaveLength(1 + 3);
+
+        checkboxes.at(1).simulate('change', { target: { checked: true } });
+        expect(getSelections(wrapper)).toEqual([0, 1, 2]);
+      });
+    });
+    it('warns when set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured data.', () => {
+      resetWarned();
+      mount(
+        createTable({
+          dataSource: dataWithChildren,
+          defaultExpandAllRows: true,
+          rowSelection: {
+            checkStrictly: false,
+            getCheckboxProps() {
+              return {
+                indeterminate: true,
+              };
+            },
+          },
+        }),
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Table] set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
+      );
     });
   });
 
@@ -1104,6 +1161,44 @@ describe('Table.rowSelection', () => {
         ['light', 'bamboo'],
         [{ name: 'light' }, { name: 'bamboo' }],
       );
+    });
+
+    it('works with receive selectedRowKeys fron [] to undefined', () => {
+      const onChange = jest.fn();
+      const dataSource = [{ name: 'Jack' }];
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: [0] }}
+          rowKey="name"
+        />,
+      );
+
+      wrapper.setProps({ rowSelection: { onChange, selectedRowKeys: undefined } });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+    });
+
+    it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
+      const onChange = jest.fn();
+      const dataSource = [{ name: 'Jack' }];
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: [0], type: 'radio' }}
+          rowKey="name"
+        />,
+      );
+
+      wrapper.setProps({ rowSelection: { onChange, selectedRowKeys: undefined, type: 'radio' } });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
     });
   });
 });

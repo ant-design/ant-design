@@ -9,13 +9,15 @@ title:
 
 带行编辑功能的表格。
 
+> 🛎️ 想要 3 分钟实现？试试 [ProTable 的可编辑表格](https://procomponents.ant.design/components/table#%E5%8F%AF%E7%BC%96%E8%BE%91%E8%A1%A8%E6%A0%BC)！
+
 ## en-US
 
 Table with editable rows.
 
 ```tsx
 import React, { useState } from 'react';
-import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
+import { Table, Input, InputNumber, Popconfirm, Form, Typography } from 'antd';
 
 interface Item {
   key: string;
@@ -84,7 +86,7 @@ const EditableTable = () => {
 
   const isEditing = (record: Item) => record.key === editingKey;
 
-  const edit = (record: Item) => {
+  const edit = (record: Partial<Item> & { key: React.Key }) => {
     form.setFieldsValue({ name: '', age: '', address: '', ...record });
     setEditingKey(record.key);
   };
@@ -151,9 +153,9 @@ const EditableTable = () => {
             </Popconfirm>
           </span>
         ) : (
-          <a disabled={editingKey !== ''} onClick={() => edit(record)}>
+          <Typography.Link disabled={editingKey !== ''} onClick={() => edit(record)}>
             Edit
-          </a>
+          </Typography.Link>
         );
       },
     },

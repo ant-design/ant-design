@@ -72,9 +72,6 @@ const data = [
 
 const SortableItem = sortableElement(props => <tr {...props} />);
 const SortableContainer = sortableContainer(props => <tbody {...props} />);
-const DragableBodyRow = ({ index, className, style, ...restProps }) => (
-  <SortableItem index={restProps['data-row-key']} {...restProps} />
-);
 
 class SortableTable extends React.Component {
   state = {
@@ -90,16 +87,25 @@ class SortableTable extends React.Component {
     }
   };
 
+  DraggableContainer = props => (
+    <SortableContainer
+      useDragHandle
+      helperClass="row-dragging"
+      onSortEnd={this.onSortEnd}
+      {...props}
+    />
+  );
+
+  DraggableBodyRow = ({ className, style, ...restProps }) => {
+    const { dataSource } = this.state;
+    // function findIndex base on Table rowKey props and should always be a right array index
+    const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
+    return <SortableItem index={index} {...restProps} />;
+  };
+
   render() {
     const { dataSource } = this.state;
-    const DraggableContainer = props => (
-      <SortableContainer
-        useDragHandle
-        helperClass="row-dragging"
-        onSortEnd={this.onSortEnd}
-        {...props}
-      />
-    );
+
     return (
       <Table
         pagination={false}
@@ -108,8 +114,8 @@ class SortableTable extends React.Component {
         rowKey="index"
         components={{
           body: {
-            wrapper: DraggableContainer,
-            row: DragableBodyRow,
+            wrapper: this.DraggableContainer,
+            row: this.DraggableBodyRow,
           },
         }}
       />

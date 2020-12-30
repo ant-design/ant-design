@@ -5,7 +5,7 @@
 @list-prefix-cls: ~'@{ant-prefix}-list';
 
 .@{list-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
 
@@ -105,11 +105,12 @@
         font-size: @font-size-base;
         line-height: @line-height-base;
         text-align: center;
-        cursor: pointer;
+
+        &:first-child {
+          padding-left: 0;
+        }
       }
-      & > li:first-child {
-        padding-left: 0;
-      }
+
       &-split {
         position: absolute;
         top: 50%;

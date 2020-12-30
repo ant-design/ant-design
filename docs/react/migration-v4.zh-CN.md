@@ -17,7 +17,8 @@ title: 从 v3 到 v4
 ### 设计规范调整
 
 - 行高从 `1.5`(`21px`) 调整为 `1.5715`(`22px`)。
-- 基础圆角调整，由`4px` 改为 `2px`。
+- 字体颜色从 `rgba(0, 0, 0, 0.65)` 调深为 `rgba(0, 0, 0, 0.85)`。`4.6.0`
+- 基础圆角调整，由 `4px` 改为 `2px`。
 - Selected 颜色和 Hovered 颜色进行了交换。
 - 全局阴影优化，调整为三层阴影区分控件层次关系。
 - 气泡确认框中图标的使用改变，由问号改为感叹号。
@@ -27,6 +28,7 @@ title: 从 v3 到 v4
 - DatePicker 交互重做，面板和输入框分离，范围选择现可单独选择开始和结束时间。
 - Table 默认背景颜色从透明修改为白色。
 - Tabs 火柴棍样式缩短为和文字等长。
+- Tabs 交互重做，DOM 结构改变。`4.3.0`
 
 ### 兼容性调整
 
@@ -55,6 +57,7 @@ title: 从 v3 到 v4
 - 移除了 Transfer 的 `lazy` 属性，它并没有起到真正的优化效果。
 - 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
 - 移除了 Table 的 `rowSelection.hideDefaultSelections` 属性，请在 `rowSelection.selections` 中使用 `SELECTION_ALL` 和 `SELECTION_INVERT` 替代，[自定义选择项](/components/table/#components-table-demo-row-selection-custom)。
+- 废弃 Button.Group，请使用 `Space` 代替。
 
 #### 图标升级
 
@@ -113,6 +116,7 @@ const Demo = () => (
 - Form 重写
   - 不再需要 `Form.create`。
   - 嵌套字段支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+  - `validateTrigger` 不再收集字段值。
   - 迁移文档请查看[此处](/components/form/v3)。
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
@@ -122,10 +126,14 @@ const Demo = () => (
 - Tree、Select、TreeSelect、AutoComplete 重新写
   - 使用虚拟滚动。
   - `onBlur` 时不再修改选中值，且返回 React 原生的 `event` 对象。
+    - 如果你在使用兼容包的 Form 且配置了 `validateTrigger` 为 `onBlur`，请改至 `onChange` 以做兼容。
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
+  - AutoComplete 选项与 Select 对齐，请使用 `options` 代替 `dataSource`。
   - Select 移除 `dropdownMenuStyle` 属性。
   - 如果你需要设置弹窗高度请使用 `listHeight` 来代替 `dropdownStyle` 的高度样式。
   - `filterOption` 第二个参数直接返回原数据，不在需要通过 `option.props.children` 来进行匹配。
+  - Tree、TreeSelect 同时指定 `title` 和 `label` 的时候，会选择显示 `label`。为了 `labelInValue` 行为一致进行了该调整。[新行为](https://codesandbox.io/s/keen-curran-d3qnp)（在第一个节点展示 'label'），[旧行为](https://codesandbox.io/s/muddy-darkness-57lb3)（在第一个节点展示 'title'）。
+  - Tree 传入内容采用 `treeData` 属性，来代替 `TreeNode` 方式，TreeNode 依然可用，但是会在控制台抛出警告。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
@@ -136,6 +144,7 @@ const Demo = () => (
 - Tabs 重写（[4.3.0](https://github.com/ant-design/ant-design/pull/24552)）
   - Dom 结构变化，如有覆盖样式需要仔细检查。
   - 横向滚动交互变化，`onPrevClick` 和 `onNextClick` 不再工作。
+- less 变量变化，如 DatePicker/TimePicker/Calendar 相关变量已全部重构，又如 [@btn-padding-base](https://github.com/ant-design/ant-design/issues/28141) 等进行了重命名，具体变化请自行对比 [3.x 变量](https://github.com/ant-design/ant-design/blob/3.x-stable/components/style/themes/default.less) 和 [4.x 变量](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)。
 
 ```diff
 <Table
@@ -189,8 +198,8 @@ antd4-codemod src
 + import '@ant-design/compatible/assets/index.css';
 + import { Input, Button } from 'antd';
 
-  ReactDOM.render( (
-    <div>
+  ReactDOM.render(
+    <>
       <Form>
         {getFieldDecorator('username')(<Input />)}
         <Button>Submit</Button>
@@ -202,7 +211,7 @@ antd4-codemod src
         defaultSuggestions={['afc163', 'benjycui']}
         onSelect={onSelect}
       />
-    </div>
+    </>
   );
 ```
 

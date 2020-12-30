@@ -16,7 +16,7 @@ The `value` of time-related components is a `moment` object, which we need to pr
 ```tsx
 import { Form, DatePicker, TimePicker, Button } from 'antd';
 
-const { MonthPicker, RangePicker } = DatePicker;
+const { RangePicker } = DatePicker;
 
 const formItemLayout = {
   labelCol: {
@@ -29,14 +29,14 @@ const formItemLayout = {
   },
 };
 const config = {
-  rules: [{ type: 'object', required: true, message: 'Please select time!' }],
+  rules: [{ type: 'object' as const, required: true, message: 'Please select time!' }],
 };
 const rangeConfig = {
-  rules: [{ type: 'array', required: true, message: 'Please select time!' }],
+  rules: [{ type: 'array' as const, required: true, message: 'Please select time!' }],
 };
 
 const TimeRelatedForm = () => {
-  const onFinish = fieldsValue => {
+  const onFinish = (fieldsValue: any) => {
     // Should format date value before submit.
     const rangeValue = fieldsValue['range-picker'];
     const rangeTimeValue = fieldsValue['range-time-picker'];
@@ -64,7 +64,7 @@ const TimeRelatedForm = () => {
         <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
       </Form.Item>
       <Form.Item name="month-picker" label="MonthPicker" {...config}>
-        <MonthPicker />
+        <DatePicker picker="month" />
       </Form.Item>
       <Form.Item name="range-picker" label="RangePicker" {...rangeConfig}>
         <RangePicker />

@@ -20,6 +20,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -30,7 +31,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
   <div>
     <div
       class="ant-select-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div>
         <div
@@ -48,29 +49,35 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
           </div>
         </div>
         <div
-          class=""
-          style="height:256px"
+          class="rc-virtual-list"
+          style="position:relative"
         >
-          <div>
-            <div
-              class=""
-              style="display:flex;flex-direction:column"
-            >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          >
+            <div>
               <div
-                aria-selected="false"
-                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                class="rc-virtual-list-holder-inner"
+                style="display:flex;flex-direction:column"
               >
                 <div
-                  class="ant-select-item-option-content"
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                  title="ReactNode"
                 >
-                  ReactNode
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    ReactNode
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select:none;-webkit-user-select:none"
+                    unselectable="on"
+                  />
                 </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select:none;-webkit-user-select:none"
-                  unselectable="on"
-                />
               </div>
             </div>
           </div>
@@ -83,7 +90,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
 
 exports[`AutoComplete rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-rtl ant-select-single ant-select-show-search"
+  class="ant-select ant-select-rtl ant-select-auto-complete ant-select-single ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -100,6 +107,7 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>

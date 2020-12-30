@@ -17,6 +17,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 ### Design specification
 
 - Line height changes from `1.5`(`21px`) to `1.5715`(`22px`).
+- Darken font color from `rgba(0, 0, 0, 0.65)` to `rgba(0, 0, 0, 0.85)`. `4.6.0`
 - Basic rounded corner adjustment, changed from `4px` to `2px`.
 - Exchanged Selected and Hovered color.
 - Global shadow optimization, adjusted to three layers of shadows to distinguish control hierarchies.
@@ -27,6 +28,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - DatePicker interactive redo, range selection can now select start and end time separately.
 - Table change default background color from transparent to white.
 - Smaller Tabs bar width.
+- New Tabs interaction and dom structure is changed in `4.3.0`.
 
 ### Compatibility
 
@@ -55,6 +57,8 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - Removed the `lazy` attribute of Transfer, which did not really optimize the effect.
 - Removed `combobox` mode, please use `AutoComplete` instead.
 - Removed the `rowSelection.hideDefaultSelections` property of Table, please use `SELECTION_ALL` and `SELECTION_INVERT` in `rowSelection.selections` instead, [Custom Selection](/components/table/#components-table-demo-row-selection-custom).
+- Deprecated Button.Group, please use `Space` instead.
+- less variables were changed like DatePicker/TimePicker/Calendar related variables or [@btn-padding-base](https://github.com/ant-design/ant-design/issues/28141), please check [3.x variables](https://github.com/ant-design/ant-design/blob/3.x-stable/components/style/themes/default.less) and [4.x variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) for more details.
 
 #### Icon upgrade
 
@@ -113,6 +117,7 @@ const Demo = () => (
 - Form rewrite.
   - No need to use `Form.create`.
   - Nest fields definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
+  - `validateTrigger` no long collect field value.
   - See [here](/components/form/v3) for migration documentation.
 - DatePicker rewrite
   - Provide the `picker` property for selector switching.
@@ -122,10 +127,13 @@ const Demo = () => (
 - Tree, Select, TreeSelect, AutoComplete rewrite
   - use virtual scrolling.
   - `onBlur` no longer trigger value change and return React origin `event` object instead.
+    - If config `validateTrigger` as `onBlur` with compatible Form, please change to `onChange` instead.
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
+  - AutoComplete options definition align with Select. Please use `options` instead of `dataSource`.
   - Select remove `dropdownMenuStyle` prop.
   - Use `listHeight` to config popup height instead of `dropdownStyle`.
   - `filterOption` return origin data with second params instead. No need to use `option.props.children` for matching.
+  - Tree, TreeSelect will display `label` when `title` and `label` are both set. The adjustment is for aligning behavior with `labelInValue`. [New behavior](https://codesandbox.io/s/keen-curran-d3qnp) (show 'label' on first node). [Old behavior](https://codesandbox.io/s/muddy-darkness-57lb3) (show 'title' on first node).
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.

@@ -1,18 +1,17 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Drawer from '..';
+import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-const DrawerTest = ({ getContainer }) => {
-  return (
-    <div>
-      <Drawer visible width={400} getContainer={getContainer}>
-        Here is content of Drawer
-      </Drawer>
-    </div>
-  );
-};
+const DrawerTest = ({ getContainer }) => (
+  <div>
+    <Drawer visible width={400} getContainer={getContainer}>
+      Here is content of Drawer
+    </Drawer>
+  </div>
+);
 
 describe('Drawer', () => {
   mountTest(Drawer);
@@ -133,5 +132,19 @@ describe('Drawer', () => {
       </Drawer>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('ConfigProvider should not warning', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    mount(
+      <ConfigProvider virtual>
+        <Drawer visible>Bamboo is Light</Drawer>
+      </ConfigProvider>,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
   });
 });

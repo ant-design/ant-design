@@ -9,7 +9,7 @@
 @tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
 .@{tab-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   display: flex;
   overflow: hidden;
@@ -150,6 +150,7 @@
 
     &-btn {
       outline: none;
+      transition: all 0.3s;
     }
 
     &-remove {
@@ -181,6 +182,14 @@
     &&-disabled {
       color: @disabled-color;
       cursor: not-allowed;
+    }
+
+    &&-disabled &-btn,
+    &&-disabled &-remove {
+      &:focus,
+      &:active {
+        color: @disabled-color;
+      }
     }
 
     & &-remove .@{iconfont-css-prefix} {

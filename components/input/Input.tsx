@@ -7,7 +7,7 @@ import TextArea from './TextArea';
 import Password from './Password';
 import { Omit, LiteralUnion } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 
@@ -47,6 +47,7 @@ export interface InputProps
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   allowClear?: boolean;
+  bordered?: boolean;
 }
 
 export function fixControlledValue<T>(value: T) {
@@ -84,15 +85,17 @@ export function resolveOnChange(
 
 export function getInputClassName(
   prefixCls: string,
+  bordered: boolean,
   size?: SizeType,
   disabled?: boolean,
-  direction?: any,
+  direction?: DirectionType,
 ) {
   return classNames(prefixCls, {
     [`${prefixCls}-sm`]: size === 'small',
     [`${prefixCls}-lg`]: size === 'large',
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-rtl`]: direction === 'rtl',
+    [`${prefixCls}-borderless`]: !bordered,
   });
 }
 
@@ -122,7 +125,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   removePasswordTimeout: number;
 
-  direction: any = 'ltr';
+  direction: DirectionType = 'ltr';
 
   constructor(props: InputProps) {
     super(props);
@@ -176,6 +179,10 @@ class Input extends React.Component<InputProps, InputState> {
     this.input.blur();
   }
 
+  setSelectionRange(start: number, end: number, direction?: 'forward' | 'backward' | 'none') {
+    this.input.setSelectionRange(start, end, direction);
+  }
+
   select() {
     this.input.select();
   }
@@ -207,6 +214,8 @@ class Input extends React.Component<InputProps, InputState> {
   setValue(value: string, callback?: () => void) {
     if (this.props.value === undefined) {
       this.setState({ value }, callback);
+    } else {
+      callback?.();
     }
   }
 
@@ -220,6 +229,7 @@ class Input extends React.Component<InputProps, InputState> {
   renderInput = (
     prefixCls: string,
     size: SizeType | undefined,
+    bordered: boolean,
     input: ConfigConsumerProps['input'] = {},
   ) => {
     const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
@@ -237,6 +247,7 @@ class Input extends React.Component<InputProps, InputState> {
       'defaultValue',
       'size',
       'inputType',
+      'bordered',
     ]);
     return (
       <input
@@ -247,7 +258,7 @@ class Input extends React.Component<InputProps, InputState> {
         onBlur={this.onBlur}
         onKeyDown={this.handleKeyDown}
         className={classNames(
-          getInputClassName(prefixCls, customizeSize || size, disabled, this.direction),
+          getInputClassName(prefixCls, bordered, customizeSize || size, disabled, this.direction),
           {
             [className!]: className && !addonBefore && !addonAfter,
           },
@@ -287,7 +298,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls } = this.props;
+    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
 
@@ -300,12 +311,13 @@ class Input extends React.Component<InputProps, InputState> {
             prefixCls={prefixCls}
             inputType="input"
             value={fixControlledValue(value)}
-            element={this.renderInput(prefixCls, size, input)}
+            element={this.renderInput(prefixCls, size, bordered, input)}
             handleReset={this.handleReset}
             ref={this.saveClearableInput}
             direction={direction}
             focused={focused}
             triggerFocus={this.focus}
+            bordered={bordered}
           />
         )}
       </SizeContext.Consumer>

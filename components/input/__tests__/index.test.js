@@ -74,6 +74,29 @@ describe('Input', () => {
       wrapper.unmount();
     });
   });
+
+  it('set mouse cursor position', () => {
+    const defaultValue = '11111';
+    const valLength = defaultValue.length;
+    const wrapper = mount(<Input autoFocus defaultValue={defaultValue} />);
+    wrapper.instance().setSelectionRange(valLength, valLength);
+    expect(wrapper.instance().input.selectionStart).toEqual(5);
+    expect(wrapper.instance().input.selectionEnd).toEqual(5);
+  });
+});
+
+describe('prefix and suffix', () => {
+  it('should support className when has suffix', () => {
+    const wrapper = mount(<Input suffix="suffix" className="my-class-name" />);
+    expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
+    expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
+  });
+
+  it('should support className when has prefix', () => {
+    const wrapper = mount(<Input prefix="prefix" className="my-class-name" />);
+    expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
+    expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
+  });
 });
 
 describe('As Form Control', () => {
@@ -107,13 +130,6 @@ describe('As Form Control', () => {
     wrapper.find('button').simulate('click');
     expect(wrapper.find('input').prop('value')).toBe('');
     expect(wrapper.find('textarea').prop('value')).toBe('');
-  });
-});
-
-describe('Input.Search', () => {
-  it('should support suffix', () => {
-    const wrapper = mount(<Input.Search suffix="suffix" />);
-    expect(wrapper.render()).toMatchSnapshot();
   });
 });
 
@@ -188,5 +204,12 @@ describe('Input allowClear', () => {
       const wrapper = mount(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
       expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/27444
+  it('should support className', () => {
+    const wrapper = mount(<Input allowClear className="my-class-name" />);
+    expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
+    expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
   });
 });

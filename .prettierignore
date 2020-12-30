@@ -1,4 +1,8 @@
+**/*.png
 **/*.svg
+CODEOWNERS
+.dockerignore
+Dockerfile.ui-test
 package.json
 .umi
 .umi-production
@@ -23,5 +27,6 @@ components/*/*.jsx
 .DS_Store
 .editorconfig
 .eslintignore
+.history
 **/*.yml
 components/style/color/*.less

@@ -1,41 +1,60 @@
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 import React from 'react';
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import delayRaf from '../raf';
-import throttleByAnimationFrame from '../throttleByAnimationFrame';
+import {
+  throttleByAnimationFrame,
+  throttleByAnimationFrameDecorator,
+} from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import Wave from '../wave';
 import TransButton from '../transButton';
-import openAnimation from '../openAnimation';
+import { isStyleSupport, isFlexSupported } from '../styleChecker';
 import { sleep } from '../../../tests/utils';
-import focusTest from '../../../tests/shared/focusTest';
 
 describe('Test utils function', () => {
-  focusTest(TransButton);
+  describe('throttle', () => {
+    it('throttle function should work', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
+      expect(callback).not.toHaveBeenCalled();
 
-  it('throttle function should work', async () => {
-    const callback = jest.fn();
-    const throttled = throttleByAnimationFrame(callback);
-    expect(callback).not.toHaveBeenCalled();
+      throttled();
+      throttled();
+      await sleep(20);
 
-    throttled();
-    throttled();
-    await sleep(20);
+      expect(callback).toHaveBeenCalled();
+      expect(callback.mock.calls.length).toBe(1);
+    });
 
-    expect(callback).toHaveBeenCalled();
-    expect(callback.mock.calls.length).toBe(1);
-  });
+    it('throttle function should be canceled', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
 
-  it('throttle function should be canceled', async () => {
-    const callback = jest.fn();
-    const throttled = throttleByAnimationFrame(callback);
+      throttled();
+      throttled.cancel();
+      await sleep(20);
 
-    throttled();
-    throttled.cancel();
-    await sleep(20);
+      expect(callback).not.toHaveBeenCalled();
+    });
 
-    expect(callback).not.toHaveBeenCalled();
+    it('throttleByAnimationFrameDecorator should works', async () => {
+      const callbackFn = jest.fn();
+      class Test {
+        @throttleByAnimationFrameDecorator()
+        // eslint-disable-next-line class-methods-use-this
+        callback() {
+          callbackFn();
+        }
+      }
+      const test = new Test();
+      test.callback();
+      test.callback();
+      test.callback();
+      await sleep(30);
+      expect(callbackFn).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('getDataOrAriaProps', () => {
@@ -171,9 +190,10 @@ describe('Test utils function', () => {
 
   describe('TransButton', () => {
     it('can be focus/blur', () => {
-      const wrapper = mount(<TransButton>TransButton</TransButton>);
-      expect(typeof wrapper.instance().focus).toBe('function');
-      expect(typeof wrapper.instance().blur).toBe('function');
+      const ref = React.createRef();
+      mount(<TransButton ref={ref}>TransButton</TransButton>);
+      expect(typeof ref.current.focus).toBe('function');
+      expect(typeof ref.current.blur).toBe('function');
     });
 
     it('should trigger onClick when press enter', () => {
@@ -187,20 +207,23 @@ describe('Test utils function', () => {
     });
   });
 
-  describe('openAnimation', () => {
-    it('should support openAnimation', () => {
-      const done = jest.fn();
-      const domNode = document.createElement('div');
-      expect(typeof openAnimation.enter).toBe('function');
-      expect(typeof openAnimation.leave).toBe('function');
-      expect(typeof openAnimation.appear).toBe('function');
-      const appear = openAnimation.appear(domNode, done);
-      const enter = openAnimation.enter(domNode, done);
-      const leave = openAnimation.leave(domNode, done);
-      expect(typeof appear.stop).toBe('function');
-      expect(typeof enter.stop).toBe('function');
-      expect(typeof leave.stop).toBe('function');
-      expect(done).toHaveBeenCalled();
+  describe('style', () => {
+    it('isFlexSupported', () => {
+      expect(isFlexSupported).toBe(true);
+    });
+
+    it('isStyleSupport', () => {
+      expect(isStyleSupport('color')).toBe(true);
+      expect(isStyleSupport('not-existed')).toBe(false);
+    });
+
+    it('isStyleSupport return false in service side', () => {
+      const spy = jest
+        .spyOn(window.document, 'documentElement', 'get')
+        .mockImplementation(() => undefined);
+      expect(isStyleSupport('color')).toBe(false);
+      expect(isStyleSupport('not-existed')).toBe(false);
+      spy.mockRestore();
     });
   });
 });

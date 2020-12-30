@@ -20,14 +20,14 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 const HorizontalLoginForm = () => {
   const [form] = Form.useForm();
-  const [, forceUpdate] = useState();
+  const [, forceUpdate] = useState({});
 
   // To disable submit button at the beginning.
   useEffect(() => {
     forceUpdate({});
   }, []);
 
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log('Finish:', values);
   };
 
@@ -56,7 +56,7 @@ const HorizontalLoginForm = () => {
             htmlType="submit"
             disabled={
               !form.isFieldsTouched(true) ||
-              form.getFieldsError().filter(({ errors }) => errors.length).length
+              !!form.getFieldsError().filter(({ errors }) => errors.length).length
             }
           >
             Log in

@@ -1,8 +1,33 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import Col, { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { FormContext, FormContextProps } from './context';
+import { RequiredMark } from './Form';
+import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+import Tooltip, { TooltipProps } from '../tooltip';
+
+export type WrapperTooltipProps = TooltipProps & {
+  icon?: React.ReactElement;
+};
+
+export type LabelTooltipType = WrapperTooltipProps | React.ReactNode;
+
+function toTooltipProps(tooltip: LabelTooltipType): WrapperTooltipProps | null {
+  if (!tooltip) {
+    return null;
+  }
+
+  if (typeof tooltip === 'object' && !React.isValidElement(tooltip)) {
+    return tooltip as WrapperTooltipProps;
+  }
+
+  return {
+    title: tooltip,
+  };
+}
 
 export interface FormItemLabelProps {
   colon?: boolean;
@@ -10,6 +35,8 @@ export interface FormItemLabelProps {
   label?: React.ReactNode;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
+  requiredMark?: RequiredMark;
+  tooltip?: LabelTooltipType;
 }
 
 const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixCls: string }> = ({
@@ -20,7 +47,11 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   labelAlign,
   colon,
   required,
+  requiredMark,
+  tooltip,
 }) => {
+  const [formLocale] = useLocaleReceiver('Form');
+
   if (!label) return null;
 
   return (
@@ -51,8 +82,39 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           labelChildren = (label as string).replace(/[:|：]\s*$/, '');
         }
 
+        // Tooltip
+        const tooltipProps = toTooltipProps(tooltip);
+        if (tooltipProps) {
+          const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
+          const tooltipNode = (
+            <Tooltip {...restTooltipProps}>
+              {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip` })}
+            </Tooltip>
+          );
+
+          labelChildren = (
+            <>
+              {labelChildren}
+              {tooltipNode}
+            </>
+          );
+        }
+
+        // Add required mark if optional
+        if (requiredMark === 'optional' && !required) {
+          labelChildren = (
+            <>
+              {labelChildren}
+              <span className={`${prefixCls}-item-optional`}>
+                {formLocale?.optional || defaultLocale.Form?.optional}
+              </span>
+            </>
+          );
+        }
+
         const labelClassName = classNames({
           [`${prefixCls}-item-required`]: required,
+          [`${prefixCls}-item-required-mark-optional`]: requiredMark === 'optional',
           [`${prefixCls}-item-no-colon`]: !computedColon,
         });
 

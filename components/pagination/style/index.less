@@ -5,7 +5,7 @@
 @pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
 .@{pagination-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   ul,
   ol {
@@ -119,6 +119,7 @@
         display: block;
         margin: auto;
         color: @disabled-color;
+        font-family: Arial, Helvetica, sans-serif;
         letter-spacing: 2px;
         text-align: center;
         text-indent: 0.13em;
@@ -163,10 +164,12 @@
 
   &-prev,
   &-next {
+    font-family: Arial, Helvetica, sans-serif;
     outline: 0;
 
     button {
       color: @text-color;
+      cursor: pointer;
       user-select: none;
     }
 
@@ -178,6 +181,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      padding: 0;
       font-size: 12px;
       text-align: center;
       background-color: @pagination-item-link-bg;
@@ -227,17 +231,17 @@
     &-size-changer.@{ant-prefix}-select {
       display: inline-block;
       width: auto;
-      margin-right: 8px;
     }
 
     &-quick-jumper {
       display: inline-block;
       height: @input-height-base;
+      margin-left: @margin-xs;
       line-height: @input-height-base;
       vertical-align: top;
 
       input {
-        .input;
+        .input();
 
         width: 50px;
         margin: 0 8px;
@@ -280,6 +284,13 @@
 
       &:hover {
         border-color: @primary-color;
+      }
+
+      &[disabled] {
+        color: @disabled-color;
+        background: @disabled-bg;
+        border-color: @border-color-base;
+        cursor: not-allowed;
       }
     }
   }
@@ -339,7 +350,7 @@
       line-height: @pagination-item-size-sm;
 
       input {
-        .input-sm;
+        .input-sm();
 
         width: 44px;
       }
@@ -376,6 +387,9 @@
       background: @disabled-bg;
       border-color: @border-color-base;
       cursor: not-allowed;
+      .@{pagination-prefix-cls}-simple& {
+        background: transparent;
+      }
     }
 
     .@{pagination-prefix-cls}-item-link-icon {
@@ -384,6 +398,10 @@
 
     .@{pagination-prefix-cls}-item-ellipsis {
       opacity: 1;
+    }
+
+    .@{pagination-prefix-cls}-simple-pager {
+      color: @disabled-color;
     }
   }
 }

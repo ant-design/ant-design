@@ -11,8 +11,7 @@
 
   &&-select-picture-card {
     .@{upload-prefix-cls}-rtl& {
-      float: right;
-      margin-right: 0;
+      margin-right: auto;
       margin-left: 8px;
     }
   }
@@ -97,6 +96,10 @@
 
   &-picture,
   &-picture-card {
+    .@{upload-item}-info {
+      padding: 0;
+    }
+
     .@{upload-item}-thumbnail {
       .@{upload-prefix-cls}-list-rtl& {
         right: 8px;
@@ -136,7 +139,7 @@
 
     .@{upload-item}-progress {
       .@{upload-prefix-cls}-list-rtl& {
-        padding-right: 56px;
+        padding-right: 0;
         padding-left: 0;
       }
     }
@@ -152,15 +155,7 @@
   &-picture-card {
     &-container {
       .@{upload-prefix-cls}-list-rtl & {
-        float: right;
-        margin: 0 0 8px 8px;
-      }
-    }
-
-    .@{upload-item} {
-      .@{upload-prefix-cls}-list-rtl& {
-        float: right;
-        margin: 0 0 8px 8px;
+        margin: 0 0 @margin-xs @margin-xs;
       }
     }
 
@@ -175,12 +170,6 @@
     .@{upload-item}-file + .@{upload-item}-name {
       .@{upload-prefix-cls}-list-rtl& {
         margin: 8px 0 0;
-        padding: 0;
-      }
-    }
-
-    .@{upload-item}-info {
-      .@{upload-prefix-cls}-list-rtl& {
         padding: 0;
       }
     }

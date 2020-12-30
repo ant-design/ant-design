@@ -1106,7 +1106,7 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 
 exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
 <div
-  class="ant-list demo-loadmore-list ant-list-split ant-list-loading"
+  class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
 >
   <div
     class="ant-spin-nested-loading"
@@ -1668,7 +1668,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1707,7 +1706,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="like"
                         fill="currentColor"
                         focusable="false"
@@ -1746,7 +1744,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="message"
                         fill="currentColor"
                         focusable="false"
@@ -1837,7 +1834,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1876,7 +1872,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="like"
                         fill="currentColor"
                         focusable="false"
@@ -1915,7 +1910,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="message"
                         fill="currentColor"
                         focusable="false"
@@ -2006,7 +2000,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -2045,7 +2038,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="like"
                         fill="currentColor"
                         focusable="false"
@@ -2084,7 +2076,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="message"
                         fill="currentColor"
                         focusable="false"
@@ -2155,7 +2146,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="left"
               fill="currentColor"
               focusable="false"
@@ -2175,7 +2165,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="1"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           1
         </a>
       </li>
@@ -2184,7 +2176,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="2"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           2
         </a>
       </li>
@@ -2193,7 +2187,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="3"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           3
         </a>
       </li>
@@ -2202,7 +2198,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="4"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           4
         </a>
       </li>
@@ -2211,7 +2209,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="5"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           5
         </a>
       </li>
@@ -2233,7 +2233,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="double-right"
                 fill="currentColor"
                 focusable="false"
@@ -2259,7 +2258,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="8"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           8
         </a>
       </li>
@@ -2281,7 +2282,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="right"
               fill="currentColor"
               focusable="false"

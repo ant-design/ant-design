@@ -11,7 +11,7 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -20,7 +20,6 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -38,7 +37,7 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"
@@ -47,7 +46,6 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"

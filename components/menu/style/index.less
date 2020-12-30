@@ -6,7 +6,7 @@
 
 // default theme
 .@{menu-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
@@ -19,7 +19,7 @@
   outline: none;
   box-shadow: @box-shadow-base;
   transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
-  .clearfix;
+  .clearfix();
 
   ul,
   ol {
@@ -41,6 +41,9 @@
     transition: all 0.3s;
   }
 
+  &-horizontal &-submenu {
+    transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out;
+  }
   &-submenu,
   &-submenu-inline {
     transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out,
@@ -141,10 +144,10 @@
     padding: 0;
     overflow: hidden;
     border-right: 0;
-    transform-origin: 0 0;
 
     // https://github.com/ant-design/ant-design/issues/22244
-    &:not(.zoom-big-enter-active):not(.zoom-big-leave-active) {
+    // https://github.com/ant-design/ant-design/issues/26812
+    &:not([class*='-active']) {
       overflow-x: hidden;
       overflow-y: auto;
     }
@@ -167,6 +170,11 @@
     min-width: 114px; // in case of submenu width is too big: https://codesandbox.io/s/qvpwm6mk66
   }
 
+  &-horizontal &-item,
+  &-horizontal &-submenu-title {
+    transition: border-color 0.3s, background 0.3s;
+  }
+
   &-item,
   &-submenu-title {
     position: relative;
@@ -175,21 +183,23 @@
     padding: @menu-item-padding;
     white-space: nowrap;
     cursor: pointer;
-    transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
-      background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
+    transition: border-color 0.3s, background 0.3s, padding 0.15s @ease-in-out;
+
+    .@{menu-prefix-cls}-item-icon,
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: @menu-icon-margin-right;
       font-size: @menu-icon-size;
-      transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
+      transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out, color 0.3s;
       + span {
         opacity: 1;
-        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
+        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out, color 0.3s;
       }
     }
 
     &.@{menu-prefix-cls}-item-only-child {
-      > .@{iconfont-css-prefix} {
+      > .@{iconfont-css-prefix},
+      > .@{menu-prefix-cls}-item-icon {
         margin-right: 0;
       }
     }
@@ -208,8 +218,10 @@
     &-popup {
       position: absolute;
       z-index: @zindex-dropdown;
+      background: transparent;
       border-radius: @border-radius-base;
       box-shadow: none;
+      transform-origin: 0 0;
 
       // https://github.com/ant-design/ant-design/issues/13955
       &::before {
@@ -244,78 +256,62 @@
       background-color: @menu-popup-bg;
     }
 
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right,
-    &-inline {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+    &-expand-icon,
+    &-arrow {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      width: 10px;
+      color: @menu-item-color;
+      transform: translateY(-50%);
+      transition: transform 0.3s @ease-in-out;
+    }
+
+    &-arrow {
+      &::before,
+      &::after {
         position: absolute;
-        top: 50%;
-        right: 16px;
-        width: 10px;
-        transition: transform 0.3s @ease-in-out;
-
-        &::before,
-        &::after {
-          position: absolute;
-          width: 6px;
-          height: 1.5px;
-          // background + background-image to makes before & after cross have same color.
-          // ref: https://github.com/ant-design/ant-design/issues/15910
-          background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
-          border-radius: 2px;
-          transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
-            top 0.3s @ease-in-out;
-          content: '';
-        }
-        &::before {
-          transform: rotate(45deg) translateY(-2px);
-        }
-        &::after {
-          transform: rotate(-45deg) translateY(2px);
-        }
+        width: 6px;
+        height: 1.5px;
+        background-color: currentColor;
+        border-radius: 2px;
+        transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out, top 0.3s @ease-in-out,
+          color 0.3s @ease-in-out;
+        content: '';
       }
-      > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
-        &::after,
-        &::before {
-          background: linear-gradient(to right, @menu-highlight-color, @menu-highlight-color);
-        }
-      }
-    }
-
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
-        &::before {
-          transform: rotate(45deg) translateY(-2px);
-        }
-        &::after {
-          transform: rotate(-45deg) translateY(2px);
-        }
-      }
-    }
-
-    &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
       &::before {
-        transform: rotate(-45deg) translateX(2px);
+        transform: rotate(45deg) translateY(-2.5px);
       }
       &::after {
-        transform: rotate(45deg) translateX(-2px);
+        transform: rotate(-45deg) translateY(2.5px);
       }
     }
 
-    &-open {
-      &.@{menu-prefix-cls}-submenu-inline
-        > .@{menu-prefix-cls}-submenu-title
-        .@{menu-prefix-cls}-submenu-arrow {
-        transform: translateY(-2px);
-        &::after {
-          transform: rotate(-45deg) translateX(-2px);
-        }
-        &::before {
-          transform: rotate(45deg) translateX(2px);
-        }
+    &:hover > &-title > &-expand-icon,
+    &:hover > &-title > &-arrow {
+      color: @menu-highlight-color;
+    }
+
+    &-inline &-arrow {
+      &::before {
+        transform: rotate(-45deg) translateX(2.5px);
+      }
+      &::after {
+        transform: rotate(45deg) translateX(-2.5px);
+      }
+    }
+
+    &-horizontal &-arrow {
+      display: none;
+    }
+
+    &-open&-inline > &-title > &-arrow {
+      transform: translateY(-2px);
+      &::after {
+        transform: rotate(-45deg) translateX(-2.5px);
+      }
+      &::before {
+        transform: rotate(45deg) translateX(2.5px);
       }
     }
   }
@@ -324,17 +320,33 @@
   &-vertical-left &-submenu-selected,
   &-vertical-right &-submenu-selected {
     color: @menu-highlight-color;
-    a {
-      color: @menu-highlight-color;
-    }
   }
 
   &-horizontal {
     line-height: @menu-horizontal-line-height;
-    white-space: nowrap;
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
+
+    &:not(.@{menu-prefix-cls}-dark) {
+      > .@{menu-prefix-cls}-item,
+      > .@{menu-prefix-cls}-submenu {
+        margin: @menu-item-padding;
+        margin-top: -1px;
+        margin-bottom: 0;
+        padding: @menu-item-padding;
+        padding-right: 0;
+        padding-left: 0;
+
+        &:hover,
+        &-active,
+        &-open,
+        &-selected {
+          color: @menu-highlight-color;
+          border-bottom: 2px solid @menu-highlight-color;
+        }
+      }
+    }
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
@@ -343,14 +355,10 @@
       display: inline-block;
       vertical-align: bottom;
       border-bottom: 2px solid transparent;
+    }
 
-      &:hover,
-      &-active,
-      &-open,
-      &-selected {
-        color: @menu-highlight-color;
-        border-bottom: 2px solid @menu-highlight-color;
-      }
+    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      padding: 0;
     }
 
     > .@{menu-prefix-cls}-item {
@@ -461,11 +469,13 @@
       > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
-      padding: 0 (@menu-collapsed-width - @menu-icon-size-lg) / 2;
+      padding: 0 ~'calc(50% - @{menu-icon-size-lg} / 2)';
       text-overflow: clip;
       .@{menu-prefix-cls}-submenu-arrow {
         display: none;
       }
+
+      .@{menu-prefix-cls}-item-icon,
       .@{iconfont-css-prefix} {
         margin: 0;
         font-size: @menu-icon-size-lg;
@@ -478,12 +488,15 @@
       }
     }
 
+    .@{menu-prefix-cls}-item-icon,
     .@{iconfont-css-prefix} {
       display: inline-block;
     }
 
     &-tooltip {
       pointer-events: none;
+
+      .@{menu-prefix-cls}-item-icon,
       .@{iconfont-css-prefix} {
         display: none;
       }

@@ -4,7 +4,7 @@
 @avatar-prefix-cls: ~'@{ant-prefix}-avatar';
 
 .@{avatar-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   display: inline-block;
@@ -17,6 +17,10 @@
 
   &-image {
     background: transparent;
+  }
+
+  .@{ant-prefix}-image-img {
+    display: block;
   }
 
   .avatar-size(@avatar-size-base, @avatar-font-size-base);
@@ -61,3 +65,6 @@
     }
   }
 }
+
+@import './group';
+@import './rtl';
