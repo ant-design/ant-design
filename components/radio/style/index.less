@@ -43,7 +43,7 @@
   display: inline-block;
   line-height: 1;
   white-space: nowrap;
-  vertical-align: sub;
+  vertical-align: text-bottom;
   outline: none;
   cursor: pointer;
 
@@ -336,13 +336,6 @@ span.@{radio-prefix-cls} + * {
   100% {
     transform: scale(1.6);
     opacity: 0;
-  }
-}
-
-// Firefox hack
-@supports (-moz-appearance: meterbar) and (background-blend-mode: difference, normal) {
-  .@{radio-prefix-cls} {
-    vertical-align: text-bottom;
   }
 }
 
