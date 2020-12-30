@@ -960,6 +960,165 @@ Array [
       </table>
     </div>
   </div>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-descriptions"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        Root style
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                  style="background:red"
+                >
+                  Product
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="background:green"
+                >
+                  Cloud Database
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                  style="background:red"
+                >
+                  Billing Mode
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="background:green"
+                >
+                  Prepaid
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                  style="background:red;color:orange"
+                >
+                  Automatic Renewal
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="background:green;color:blue"
+                >
+                  YES
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  <div
+    class="ant-descriptions ant-descriptions-bordered"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        Root style
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="background:red"
+            >
+              Product
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="background:green"
+            >
+              Cloud Database
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="background:red"
+            >
+              Billing Mode
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="background:green"
+            >
+              Prepaid
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="background:red;color:orange"
+            >
+              Automatic Renewal
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="background:green;color:blue"
+            >
+              YES
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
 ]
 `;
 
