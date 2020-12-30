@@ -148,7 +148,9 @@
     "rc-upload": "~3.3.4",
     "rc-util": "^5.1.0",
     "scroll-into-view-if-needed": "^2.2.25",
-    "warning": "^4.0.3"
+    "warning": "^4.0.3",
+    "react-dnd": "^11.1.1",
+    "react-dnd-html5-backend": "^11.1.1"
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
@@ -246,8 +248,6 @@
     "react": "^17.0.1",
     "react-color": "^2.17.3",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dnd": "^11.1.1",
-    "react-dnd-html5-backend": "^11.1.1",
     "react-dom": "^17.0.1",
     "react-draggable": "^4.4.3",
     "react-github-button": "^0.1.11",

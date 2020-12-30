@@ -14,13 +14,11 @@ title:
 By using custom components, we can integrate table with react-dnd to implement drag sorting.
 
 ```jsx
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Table } from 'antd';
-import { DndProvider, useDrag, useDrop, createDndContext } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { useDrag, useDrop } from 'react-dnd';
 import update from 'immutability-helper';
-
-const RNDContext = createDndContext(HTML5Backend);
+import HOCDndProvider from '../DnDHoc.tsx';
 
 const type = 'DragableBodyRow';
 
@@ -120,18 +118,8 @@ const DragSortingTable: React.FC = () => {
     [data],
   );
 
-  let manager = useRef(RNDContext);
-  // 如果是单独例子就可以不用缓存
-  if (typeof window === 'undefined') {
-    useEffect(() => {
-      manager = window._cacheDND;
-    }, []);
-  } else {
-    manager = window._cacheDND;
-  }
-
   return (
-    <DndProvider manager={manager.current.dragDropManager}>
+    <HOCDndProvider>
       <Table
         columns={columns}
         dataSource={data}
@@ -141,7 +129,7 @@ const DragSortingTable: React.FC = () => {
           moveRow,
         })}
       />
-    </DndProvider>
+    </HOCDndProvider>
   );
 };
 

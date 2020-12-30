@@ -7,20 +7,20 @@ title:
 
 ## zh-CN
 
-集成 react-dnd 来实现拖拽排序列。注意 因为此例和下面的行拖动例子 dnd 冲突 所以做了缓存来处理在单独使用中可以不需要这么做
+集成 react-dnd 来实现拖拽排序列。注意 因为此例和下面的行拖动例子 dnd 冲突 所以做了 hoc 来处理 在单独使用中可以不需要这么做
 
 ## en-US
 
 we can integrate table with react-dnd to implement drag sorting columns.
 
 ```jsx
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Table } from 'antd';
-import { createDndContext, DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { useDrag, useDrop } from 'react-dnd';
+
+import HOCDndProvider from '../DnDHoc.tsx';
 
 const type = 'DragTableHeadRow';
-const RNDContext = createDndContext(HTML5Backend);
 
 const columns = [
   {
@@ -160,25 +160,12 @@ const DragColumnTable = () => {
 
   const components = {
     header: {
-      row: props => {
-        return <DragTableHeadRow {...props} moveCol={moveCol} />;
-      },
+      row: props => <DragTableHeadRow {...props} moveCol={moveCol} />,
     },
   };
 
-  const manager = useRef(RNDContext);
-
-  if (typeof window === 'undefined') {
-    useEffect(() => {
-      window._cacheDND = manager;
-    }, []);
-  } else {
-    window._cacheDND = manager;
-  }
-  // Error: Cannot have two HTML5 backends at the same time
-  // 这里要做缓存是为了个下一个列子用而不报错
   return (
-    <DndProvider manager={manager.current.dragDropManager}>
+    <HOCDndProvider>
       <Table
         columns={nowColumns}
         dataSource={data}
@@ -187,7 +174,7 @@ const DragColumnTable = () => {
         scroll={{ x: true }}
         style={{ width: '800px' }}
       />
-    </DndProvider>
+    </HOCDndProvider>
   );
 };
 

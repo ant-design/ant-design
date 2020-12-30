@@ -1363,6 +1363,369 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
 </div>
 `;
 
+exports[`renders ./components/table/demo/drag-column.md correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+  style="width:800px"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-right"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+            style="overflow-x:auto;overflow-y:hidden"
+          >
+            <table
+              style="width:auto;min-width:100%;table-layout:fixed"
+            >
+              <colgroup>
+                <col
+                  class="ant-table-selection-col"
+                />
+                <col />
+                <col />
+                <col
+                  style="width:600px;min-width:600px"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-selection-column"
+                  >
+                    <div
+                      class="ant-table-selection"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </div>
+                  </th>
+                  <th
+                    class="ant-table-cell  "
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell  "
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell  "
+                  >
+                    Address
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    btn
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height:0;font-size:0"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-selection-column"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper"
+                    >
+                      <span
+                        class="ant-checkbox"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    1
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-selection-column"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper"
+                    >
+                      <span
+                        class="ant-checkbox"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    1
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell ant-table-selection-column"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper"
+                    >
+                      <span
+                        class="ant-checkbox"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sidney No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    1
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        unselectable="unselectable"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
 <div
   class="ant-table-wrapper"
