@@ -174,15 +174,14 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
       if (removedFileList) {
         currentFile = { ...file, status: 'removed' };
-
-        for (let item of fileList) {
+        fileList?.some(item => {
           const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
           if (item[matchKey] === currentFile[matchKey]) {
             item.status = 'removed';
-            break;
+            return true;
           }
-        }
-
+        });
+        console.log(fileList);
         if (upload.current) {
           upload.current.abort(currentFile);
         }
