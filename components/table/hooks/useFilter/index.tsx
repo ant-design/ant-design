@@ -121,17 +121,25 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   const currentFilters: Record<string, (Key | boolean)[] | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
-    const { filters } = column;
-    const originKeys: ColumnFilterItem['value'][] = [];
-    if (Array.isArray(filteredKeys)) {
-      filters?.forEach((filter: ColumnFilterItem) => {
-        if (filteredKeys.includes(String(filter.value))) {
-          originKeys.push(filter.value);
-        }
-      });
-      currentFilters[key] = originKeys;
+    const { filters, filterDropdown } = column;
+    if (filterDropdown) {
+      currentFilters[key] = filteredKeys || null;
     } else {
-      currentFilters[key] = null;
+      const originKeys: ColumnFilterItem['value'][] = [];
+      if (Array.isArray(filteredKeys)) {
+        if (Array.isArray(filters)) {
+          filters.forEach((filter: ColumnFilterItem) => {
+            if (filteredKeys.includes(String(filter.value))) {
+              originKeys.push(filter.value);
+            }
+          });
+          currentFilters[key] = originKeys;
+        } else {
+          currentFilters[key] = filteredKeys || null;
+        }
+      } else {
+        currentFilters[key] = null;
+      }
     }
   });
 

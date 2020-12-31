@@ -453,7 +453,7 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({ onChange: handleChange }));
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
-    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
 
     expect(handleChange).not.toHaveBeenCalled();
   });
@@ -840,6 +840,42 @@ describe('Table.filter', () => {
       .simulate('change', { target: { value: 'whatevervalue' } });
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('should trigger onChange with correct params if defines custom filterDropdown', () => {
+    const onChange = jest.fn();
+    const filterDropdown = ({ setSelectedKeys, confirm }) => (
+      <div>
+        <input onChange={e => setSelectedKeys([e.target.value])} />
+        <button className="confirm-btn" type="submit" onClick={confirm}>
+          Confirm
+        </button>
+      </div>
+    );
+    const wrapper = mount(
+      createTable({
+        onChange,
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filterDropdown,
+          },
+        ],
+      }),
+    );
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper
+      .find('input')
+      .first()
+      .simulate('change', { target: { value: 'test' } });
+    wrapper.find('.confirm-btn').first().simulate('click');
+    expect(onChange).toHaveBeenCalled();
+    onChange.mock.calls.forEach(([, currentFilters]) => {
+      const [, val] = Object.entries(currentFilters)[0];
+      expect(val).toEqual(['test']);
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/17089
