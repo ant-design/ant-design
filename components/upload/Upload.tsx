@@ -178,7 +178,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
           if (item[matchKey] === currentFile[matchKey]) {
             item.status = 'removed';
-            return;
           }
         });
 
