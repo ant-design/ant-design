@@ -166,7 +166,8 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 Properties for expandable.
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
+| columnWidth | Set the width of the expand column | string \| number | - |  |
 | childrenColumnName | The column contains children to display | string | children |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
@@ -202,6 +203,7 @@ Properties for row selection.
 | onSelect | Callback executed when select/deselect one row | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | Callback executed when select/deselect all rows | function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | Callback executed when row selection is inverted | function(selectedRowKeys) | - |  |
+| onSelectNone | Callback executed when row selection is cleared | function() | - |  |
 
 ### scroll
 

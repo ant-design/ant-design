@@ -83,6 +83,46 @@ Array [
 ]
 `;
 
+exports[`renders ./components/slider/demo/dragableTrack.md correctly 1`] = `
+<div
+  class="ant-slider"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <div
+    class="ant-slider-track ant-slider-track-1"
+    style="left:20%;right:auto;width:30%"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="20"
+    class="ant-slider-handle ant-slider-handle-1"
+    role="slider"
+    style="left:20%;right:auto;transform:translateX(-50%)"
+    tabindex="0"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="50"
+    class="ant-slider-handle ant-slider-handle-2"
+    role="slider"
+    style="left:50%;right:auto;transform:translateX(-50%)"
+    tabindex="0"
+  />
+  <div
+    class="ant-slider-mark"
+  />
+</div>
+`;
+
 exports[`renders ./components/slider/demo/event.md correctly 1`] = `
 Array [
   <div

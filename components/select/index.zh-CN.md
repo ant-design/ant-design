@@ -44,7 +44,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 { value: string, label: ReactNode } 的格式 | boolean | false |  |
 | listHeight | 设置弹窗滚动高度 | number | 256 |  |
 | loading | 加载中状态 | boolean | false |  |
-| maxTagCount | 最多显示多少个 tag | number | - |  |
+| maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  |
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | - |  |

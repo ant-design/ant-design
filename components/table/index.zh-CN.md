@@ -173,7 +173,8 @@ const columns = [
 展开功能的配置。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
+| columnWidth | 自定义展开列宽度 | string \| number | - |  |
 | childrenColumnName | 指定树形结构的列名 | string | children |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
@@ -209,6 +210,7 @@ const columns = [
 | onSelect | 用户手动选择/取消选择某行的回调 | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | 用户手动选择反选的回调 | function(selectedRowKeys) | - |  |
+| onSelectNone | 用户清空选择的回调 | function() | - |  |
 
 ### scroll
 

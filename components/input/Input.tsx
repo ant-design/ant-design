@@ -11,6 +11,10 @@ import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-pr
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 
+export interface InputFocusOptions extends FocusOptions {
+  cursor?: 'start' | 'end' | 'all';
+}
+
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
   prefixCls?: string;
@@ -99,6 +103,34 @@ export function getInputClassName(
   });
 }
 
+export function triggerFocus(
+  element?: HTMLInputElement | HTMLTextAreaElement,
+  option?: InputFocusOptions,
+) {
+  if (!element) return;
+
+  element.focus(option);
+
+  // Selection content
+  const { cursor } = option || {};
+  if (cursor) {
+    const len = element.value.length;
+
+    switch (cursor) {
+      case 'start':
+        element.setSelectionRange(0, 0);
+        break;
+
+      case 'end':
+        element.setSelectionRange(len, len);
+        break;
+
+      default:
+        element.setSelectionRange(0, len);
+    }
+  }
+}
+
 export interface InputState {
   value: any;
   focused: boolean;
@@ -171,8 +203,8 @@ class Input extends React.Component<InputProps, InputState> {
     }
   }
 
-  focus = () => {
-    this.input.focus();
+  focus = (option?: InputFocusOptions) => {
+    triggerFocus(this.input, option);
   };
 
   blur() {

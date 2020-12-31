@@ -35,6 +35,12 @@ To input a value in a range.
 | onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
 
+### range
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| draggableTrack | Whether range track can be drag | boolean | false | 4.10.0 |
+
 ## Methods
 
 | Name    | Description  | Version |

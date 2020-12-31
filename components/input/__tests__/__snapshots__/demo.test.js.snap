@@ -1184,6 +1184,104 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/input/demo/focus.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Focus at first
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Focus at last
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Focus to select all
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Focus prevent scroll
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          aria-checked="true"
+          class="ant-switch ant-switch-checked"
+          role="switch"
+          type="button"
+        >
+          <div
+            class="ant-switch-handle"
+          />
+          <span
+            class="ant-switch-inner"
+          >
+            Input
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <input
+      class="ant-input"
+      style="width:100%"
+      type="text"
+      value="Ant Design love you!"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders ./components/input/demo/group.md correctly 1`] = `
 <div
   class="site-input-group-wrapper"

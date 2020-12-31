@@ -46,9 +46,10 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | allowClear | 可以点击清除图标删除内容 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| countFormatter | 指定字数展示的格式 | (count: number, maxLength?: number) => string | - | 4.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | maxLength | 内容最大长度 | number | - | 4.7.0 |
-| showCount | 是否展示字数 | boolean | false | 4.7.0 |
+| showCount | 是否展示字数 | boolean \| { formatter: ({ count: number, maxLength?: number }) => string } | false | 4.7.0 (formatter: 4.10.0) |
 | value | 输入框内容 | string | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 | onResize | resize 回调 | function({ width, height }) | - |  |
@@ -85,6 +86,13 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | --- | --- | --- | --- | --- |
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | 是否显示切换按钮 | boolean | true |  |
+
+#### Input Methods
+
+| 名称 | 说明 | 参数 | 版本 |
+| --- | --- | --- | --- |
+| blur | 取消焦点 | - |  |
+| focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
 ## FAQ
 
