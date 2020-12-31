@@ -180,6 +180,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             item.status = 'removed';
             return true;
           }
+          return false;
         });
         if (upload.current) {
           upload.current.abort(currentFile);
