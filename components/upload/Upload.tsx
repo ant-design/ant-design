@@ -176,7 +176,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         currentFile = { ...file, status: 'removed' };
         fileList?.forEach(item => {
           const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
-          if (item[matchKey] === currentFile[matchKey]) item.status = 'removed';
+          if (item[matchKey] === currentFile[matchKey]) {
+            item.status = 'removed';
+            return;
+          }
         });
 
         if (upload.current) {
