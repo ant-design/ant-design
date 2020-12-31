@@ -82,8 +82,8 @@ function getRealLineHeight(originEle: HTMLElement) {
 
   let realLineHeight = pxToNumber(getComputedStyle(heightContainer).lineHeight);
 
-  if (realLineHeight !== heightContainer.getBoundingClientRect().height) {
-    realLineHeight = heightContainer.getBoundingClientRect().height;
+  if (realLineHeight !== heightContainer.offsetHeight) {
+    realLineHeight = heightContainer.offsetHeight;
   }
 
   document.body.removeChild(heightContainer);
