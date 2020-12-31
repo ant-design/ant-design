@@ -74,7 +74,7 @@
       margin-inline-end: @input-padding-vertical-base;
       margin-bottom: @select-multiple-item-spacing-half;
       padding-inline-start: @padding-xs;
-      padding-inline-end: @padding-xs / 2;
+      padding-inline-end: (@padding-xs / 2);
       line-height: @select-multiple-item-height - @select-multiple-item-border-width * 2;
       background: @select-selection-item-bg;
       border: 1px solid @select-selection-item-border-color;
@@ -129,6 +129,7 @@
       margin-inline-start: @input-padding-horizontal-base - @input-padding-vertical-base;
       margin-top: @select-multiple-item-spacing-half;
       margin-bottom: @select-multiple-item-spacing-half;
+      max-width: 100%;
 
       &-input,
       &-mirror {
