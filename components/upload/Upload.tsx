@@ -181,7 +181,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             return true;
           }
         });
-        console.log(fileList);
         if (upload.current) {
           upload.current.abort(currentFile);
         }
