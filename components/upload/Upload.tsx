@@ -162,22 +162,32 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   };
 
   const handleRemove = (file: UploadFile) => {
+    let currentFile: UploadFile;
     Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
       // Prevent removing file
       if (ret === false) {
         return;
       }
 
-      const removedFileList = removeFileItem(file, getFileList());
+      const fileList = getFileList();
+      const removedFileList = removeFileItem(file, fileList);
 
       if (removedFileList) {
-        file.status = 'removed';
+        currentFile = { ...file, status: 'removed' };
+        fileList?.some(item => {
+          const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
+          if (item[matchKey] === currentFile[matchKey]) {
+            item.status = 'removed';
+            return true;
+          }
+          return false;
+        });
         if (upload.current) {
-          upload.current.abort(file);
+          upload.current.abort(currentFile);
         }
 
         onInternalChange({
-          file,
+          file: currentFile,
           fileList: removedFileList,
         });
       }
