@@ -15,6 +15,38 @@ timeline: true
 
 ---
 
+## 4.10.0
+
+`2021-01-01`
+
+🎉 新年快乐！
+
+- Input
+  - 🆕 Input.TextArea 的 `showCount` 属性现在支持传入一个方法来自定义数字的展示格式了。[#28145](https://github.com/ant-design/ant-design/pull/28145) [@MrHeer](https://github.com/MrHeer)
+  - 🆕 Input `focus` 支持配置获取焦点时的光标位置。[#28602](https://github.com/ant-design/ant-design/pull/28602)
+- Modal
+  - 🐞 修复 Modal 可以被拖拽到窗口外的问题。[#28438](https://github.com/ant-design/ant-design/pull/28527) [@mumiao](https://github.com/mumiao)
+  - 🆕 Modal.method 新增 `afterClose` 回调，会在 Modal 完全关闭后触发。[#28053](https://github.com/ant-design/ant-design/pull/28053) [@liuchao233](https://github.com/liuchao233)
+- Table
+  - 🐞 修复 `childrenColumnName` 和 `checkStrictly={false}` 无法一起使用的问题。[#28568](https://github.com/ant-design/ant-design/pull/28568)
+  - 🐞 修复 Checkbox.Group 内选择行为异常的问题。[#28576](https://github.com/ant-design/ant-design/pull/28576)
+  - 🆕 新增 `expandable.columnWidth` 以自定义展开列的宽度。[#28249](https://github.com/ant-design/ant-design/pull/28249)
+  - 🆕 选择项新增清空所有选项。[#28580](https://github.com/ant-design/ant-design/pull/28580) [@n0ruSh](https://github.com/ant-design/ant-design/pull/285)
+- 🐞 修复 PageHeader 的 `title` 必填的类型问题。[#28374](https://github.com/ant-design/ant-design/pull/28374) [@zhukovvandrei](https://github.com/zhukovvandrei)
+- 🐞 修复 Image 组件的错位问题。[#28439](https://github.com/ant-design/ant-design/pull/28439) [@MoeCasts](https://github.com/MoeCasts)
+- 🐞 修复 Typography 可编辑态光标跳动的问题。[#28545](https://github.com/ant-design/ant-design/pull/28545)
+- 🐞 修复 TreeSelect & Select searchValue 在受控且有值时，下拉菜单无法打开的问题。[#28574](https://github.com/ant-design/ant-design/pull/28574)
+- 🐞 修复 Dropdown 禁用菜单项内的链接样式。[#28578](https://github.com/ant-design/ant-design/pull/28578)
+- 🐞 修复 Progress `steps` 显示精度问题。[#28530](https://github.com/ant-design/ant-design/pull/28530) [@gaoryrt](https://github.com/gaoryrt)
+- 🐞 修复 Radio 在 Chrome 下的对齐样式问题。[#28616](https://github.com/ant-design/ant-design/pull/28616)
+- 💄 优化 Card 图片白边样式。[#28624](https://github.com/ant-design/ant-design/pull/28624)
+- 🆕 Slider 新增 range.draggableTrack 以支持范围刻度整体可拖拽。[#28592](https://github.com/ant-design/ant-design/pull/28592)
+- 🆕 `message` 新增 `onClick` 回调，会在消息被点击时触发。[#28148](https://github.com/ant-design/ant-design/pull/28148) [@ZeroTo0ne](https://github.com/ant-design/ant-design/pull/28148)
+- 🆕 Descriptions 上可以统一设置 `labelStyle` 和 `contentStyle`。 [#28613](https://github.com/ant-design/ant-design/pull/28613)
+- 🆕 Form 的 `scrollToFirstError` 属性支持设置滚动的位置参数。[#28272](https://github.com/ant-design/ant-design/pull/28272) [@vouis](https://github.com/vouis)
+- 🆕 Upload 新增 `maxCount` 属性以限制文件数量。[#28367](https://github.com/ant-design/ant-design/pull/28367)
+- 🆕 Select 多选模式下 `maxTagCount` 支持 `responsive`。[#28520](https://github.com/ant-design/ant-design/pull/28520)
+
 ## 4.9.4
 
 - 🐞 修复 Menu 在 Chrome 下 hover 色延迟变化的问题。[#28372](https://github.com/ant-design/ant-design/pull/28372)
