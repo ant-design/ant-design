@@ -32,7 +32,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 {
   visible?: boolean;
   onVisibleChange?: (visible, prevVisible) => void;
-  getContainer: string | HTMLElement | (() => HTMLElement); // V4.8.0
+  getContainer?: string | HTMLElement | (() => HTMLElement); // V4.8.0
+  src?: string; // V4.10.0
 }
 ```
 
