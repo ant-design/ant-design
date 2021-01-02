@@ -21,7 +21,17 @@ timeline: true
 
 🎉 Happy New Year!
 
+- 🐞 Fix the compatibility issue of less 4.0.0.
+- 🐞 Fix the problem of cursor jumping when Typography is editable. [#28545](https://github.com/ant-design/ant-design/pull/28545)
+- 🐞 Fix the problem that repeatedly clicking on expanded nodes when Tree dynamically loads data will lead to wrong status.[#28349](https://github.com/ant-design/ant-design/issues/28349) [@liuchao233](https://github.com/react-component/tree/pull/401)
+- 🐞 Fix the problem that TreeSelect & Select cannot open the dropdown menu when it's `searchValue` has value. [#28574](https://github.com/ant-design/ant-design/pull/28574)
+- 🐞 Fix Dropdown disabled menu item link style. [#28578](https://github.com/ant-design/ant-design/pull/28578)
+- 🐞 Fix Progress `steps` display accuracy issue. [#28530](https://github.com/ant-design/ant-design/pull/28530) [@gaoryrt](https://github.com/gaoryrt)
+- 🐞 Fix Radio align issue in Chrome. [#28616](https://github.com/ant-design/ant-design/pull/28616)
+- 🐞 Fix Collapse arrow position not aligned when change @collapse-header-padding variable. [#28507](https://github.com/ant-design/ant-design/pull/28507)
+- 💄 Optimize the white border style of Card images. [#28624](https://github.com/ant-design/ant-design/pull/28624)
 - Input
+  - 🐞 Fix TextArea value get cut when input chinese words. [#28456](https://github.com/ant-design/ant-design/pull/28456)
   - 🆕 The `showCount` property of Input.TextArea now supports passing in a method to customize the display format of the number. [#28145](https://github.com/ant-design/ant-design/pull/28145) [@MrHeer](https://github.com/MrHeer)
   - 🆕 Input `focus` supports configuring the cursor position when getting focus. [#28602](https://github.com/ant-design/ant-design/pull/28602)
 - Modal
@@ -30,22 +40,33 @@ timeline: true
 - Table
   - 🐞 Fix the problem that Table childrenColumnName and checkStrictly={false} cannot be used together. [#28568](https://github.com/ant-design/ant-design/pull/28568)
   - 🐞 Fix Table selection abnormal behavior when inside Checkbox.Group. [#28576](https://github.com/ant-design/ant-design/pull/28576)
+  - 🐞 Fix the problem that the sticky header style is messy when there is no data. [#28323](https://github.com/ant-design/ant-design/issues/28323)
   - 🆕 Adds `expandable.columnWidth` to customize the width of the expanded column. [#28249](https://github.com/ant-design/ant-design/pull/28249)
   - 🆕 Adds clear all option from selection. [#28580](https://github.com/ant-design/ant-design/pull/28580) [@n0ruSh](https://github.com/ant-design/ant-design/pull/285)
-- 🐞 Fix the `title` property if PageHeader was required is TS definition. [#28374](https://github.com/ant-design/ant-design/pull/28374) [@zhukovvandrei](https://github.com/zhukovvandrei)
-- 🐞 Fix the misalignment issue of Image component.[#28439](https://github.com/ant-design/ant-design/pull/28439) [@MoeCasts](https://github.com/MoeCasts)
-- 🐞 Fix the problem of cursor jumping when Typography is editable. [#28545](https://github.com/ant-design/ant-design/pull/28545)
-- 🐞 Fix the problem that TreeSelect & Select cannot open the dropdown menu when it's `searchValue` has value. [#28574](https://github.com/ant-design/ant-design/pull/28574)
-- 🐞 Fix Dropdown disabled menu item link style. [#28578](https://github.com/ant-design/ant-design/pull/28578)
-- 🐞 Fix Progress `steps` display accuracy issue. [#28530](https://github.com/ant-design/ant-design/pull/28530) [@gaoryrt](https://github.com/gaoryrt)
-- 🐞 Fix Radio align issue in Chrome. [#28616](https://github.com/ant-design/ant-design/pull/28616)
-- 💄 Optimize the white border style of Card images. [#28624](https://github.com/ant-design/ant-design/pull/28624)
+- Image
+  - 🐞 Fix the misalignment issue of Image component.[#28439](https://github.com/ant-design/ant-design/pull/28439) [@MoeCasts](https://github.com/MoeCasts)
+  - 🆕 Added functionality for zoom in\out by sliding the wheel. [#react-component/image/52](https://github.com/react-component/image/pull/52) [@OmriGM](https://github.com/OmriGM)
+- Upload
+  - 🐞 Fix a warning when using `transformFile`. [#28455](https://github.com/ant-design/ant-design/pull/28455) [@YanYuanFE](https://github.com/YanYuanFE)
+  - 🐞 Fix Upload `fileList` cannot work with data that is produced by immer. [#28636](https://github.com/ant-design/ant-design/pull/28636) [@mumiao](https://github.com/mumiao)
+  - 🆕 Upload adds a new `maxCount` property to limit the number of files. [#28367](https://github.com/ant-design/ant-design/pull/28367)
+- DatePicker
+  - 🚀 Optimize the logic of `disabledDate`. [#react-component/picker/191](https://github.com/react-component/picker/pull/191)
+  - 🆕 Adds `onKeyDown` callback. [#react-component/picker/138](https://github.com/react-component/picker/pull/138) [@conquera99](https://github.com/react-component/picker/pull/138)
+- Select
+  - 🐞 Fix issue where `options` update does not trigger the selection box content update. [#react-component/select/580](https://github.com/react-component/select/pull/580) [@jameslahm](https://github.com/jameslahm)
+  - 🐞 Fix the problem that `tokenSeparators` can not recognize the separator correctly under Chinese input method. [#28564](https://github.com/ant-design/ant-design/issues/28564)
+  - 🆕 Adds `scrollTo` to the `red`. [#react-component/select/565](https://github.com/react-component/select/pull/565)
+  - 🆕 `maxTagCount` supports `responsive` in `multiple` mode. [#28520](https://github.com/ant-design/ant-design/pull/28520)
 - 🆕 Slider add a new `range.draggableTrack` prop. [#28592](https://github.com/ant-design/ant-design/pull/28592)
 - 🆕 Descriptions support setting `labelStyle` & `contentStyle` directly. [#28613](https://github.com/ant-design/ant-design/pull/28613)
 - 🆕 message added a new `onClick` callback that will be triggered when the message is clicked. [#28148](https://github.com/ant-design/ant-design/pull/28148) [@ZeroTo0ne](https://github.com/ant-design/ant-design/pull/28148)
 - 🆕 The `scrollToFirstError` property of the Form adds support for setting the position for scrolling. [#28272](https://github.com/ant-design/ant-design/pull/28272) [@vouis](https://github.com/vouis)
-- 🆕 Upload adds a new `maxCount` property to limit the number of files. [#28367](https://github.com/ant-design/ant-design/pull/28367)
-- 🆕 Select `maxTagCount` supports `responsive` in `multiple` mode. [#28520](https://github.com/ant-design/ant-design/pull/28520)
+- 🆕 Steps support reponsive which allows to turn off reponsive change. [#28459](https://github.com/ant-design/ant-design/pull/28459)
+- 🌐 Localization
+  - 🇭🇷 Improved Croatian language support. [#28458](https://github.com/ant-design/ant-design/pull/28458)
+- TypeScript
+  - ⚒️ Fix `title` type of PageHeader. [#28374](https://github.com/ant-design/ant-design/pull/28374) [@zhukovvandrei](https://github.com/zhukovvandrei)
 
 ## 4.9.4
 
