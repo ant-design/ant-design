@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check-inactive
-        uses: actions-cool/issues-helper@v1.4
+        uses: actions-cool/issues-helper@v1.7
         with:
           actions: 'check-inactive'
           token: ${{ secrets.ANT_BOT_TOKEN }}
