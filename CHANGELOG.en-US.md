@@ -45,9 +45,10 @@ timeline: true
   - 🆕 Adds clear all option from selection. [#28580](https://github.com/ant-design/ant-design/pull/28580) [@n0ruSh](https://github.com/ant-design/ant-design/pull/285)
 - Image
   - 🐞 Fix the misalignment issue of Image component.[#28439](https://github.com/ant-design/ant-design/pull/28439) [@MoeCasts](https://github.com/MoeCasts)
-  - 🆕 Added functionality for zoom in\out by sliding the wheel. [#react-component/image/52](https://github.com/react-component/image/pull/52) [@OmriGM](https://github.com/OmriGM)
+  - 💄 Adds preview style. [#28235](https://github.com/ant-design/ant-design/pull/28235)
+  - 🆕 Adds functionality for zoom in\out by sliding the wheel. [#react-component/image/52](https://github.com/react-component/image/pull/52) [@OmriGM](https://github.com/OmriGM)
 - Upload
-  - 🐞 Fix a warning when using `transformFile`. [#28455](https://github.com/ant-design/ant-design/pull/28455) [@YanYuanFE](https://github.com/YanYuanFE)
+  - 🐞 Fix a warning even when not using `transformFile`. [#28455](https://github.com/ant-design/ant-design/pull/28455) [@YanYuanFE](https://github.com/YanYuanFE)
   - 🐞 Fix Upload `fileList` cannot work with data that is produced by immer. [#28636](https://github.com/ant-design/ant-design/pull/28636) [@mumiao](https://github.com/mumiao)
   - 🆕 Upload adds a new `maxCount` property to limit the number of files. [#28367](https://github.com/ant-design/ant-design/pull/28367)
 - DatePicker

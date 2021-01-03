@@ -24,7 +24,7 @@ timeline: true
 - 🐞 修复不兼容 less 4.0.0 的问题。
 - 🐞 修复 Typography 可编辑态光标跳动的问题。[#28545](https://github.com/ant-design/ant-design/pull/28545)
 - 🐞 修复 Tree 动态加载数据时重复点击展开节点会导致状态错误的问题。[#28349](https://github.com/ant-design/ant-design/issues/28349) [@liuchao233](https://github.com/react-component/tree/pull/401)
-- 🐞 修复 TreeSelect & Select searchValue 在受控且有值时，下拉菜单无法打开的问题。[#28574](https://github.com/ant-design/ant-design/pull/28574)
+- 🐞 修复 TreeSelect & Select `searchValue` 在受控且有值时，下拉菜单无法打开的问题。[#28574](https://github.com/ant-design/ant-design/pull/28574)
 - 🐞 修复 Dropdown 禁用菜单项内的链接样式。[#28578](https://github.com/ant-design/ant-design/pull/28578)
 - 🐞 修复 Progress `steps` 显示精度问题。[#28530](https://github.com/ant-design/ant-design/pull/28530) [@gaoryrt](https://github.com/gaoryrt)
 - 🐞 修复 Radio 在 Chrome 下的对齐样式问题。[#28616](https://github.com/ant-design/ant-design/pull/28616)
@@ -45,9 +45,10 @@ timeline: true
   - 🆕 选择项新增清空所有选项。[#28580](https://github.com/ant-design/ant-design/pull/28580) [@n0ruSh](https://github.com/ant-design/ant-design/pull/285)
 - Image
   - 🐞 修复错位问题。[#28439](https://github.com/ant-design/ant-design/pull/28439) [@MoeCasts](https://github.com/MoeCasts)
+  - 💄 添加预览样式。[#28235](https://github.com/ant-design/ant-design/pull/28235)
   - 🆕 支持使用鼠标滚轮缩放图片。[#react-component/image/52](https://github.com/react-component/image/pull/52) [@OmriGM](https://github.com/OmriGM)
 - Upload
-  - 🐞 修复使用 `transformFile` 时会有警告的问题。[#28455](https://github.com/ant-design/ant-design/pull/28455) [@YanYuanFE](https://github.com/YanYuanFE)
+  - 🐞 修复不使用 `transformFile` 时也会有警告的问题。[#28455](https://github.com/ant-design/ant-design/pull/28455) [@YanYuanFE](https://github.com/YanYuanFE)
   - 🐞 修复 Upload 的 `fileList` 和 immer 数据配合使用报错问题。[#28636](https://github.com/ant-design/ant-design/pull/28636) [@mumiao](https://github.com/mumiao)
   - 🆕 Upload 新增 `maxCount` 属性以限制文件数量。[#28367](https://github.com/ant-design/ant-design/pull/28367)
 - DatePicker
