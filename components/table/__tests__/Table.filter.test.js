@@ -304,6 +304,34 @@ describe('Table.filter', () => {
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 
+  it('should handle filteredValue and non-array filterValue as expected', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filteredValue: ['Lucy', 12, true],
+          },
+        ],
+      }),
+    );
+    function getFilterMenu() {
+      return wrapper.find('FilterDropdown');
+    }
+
+    expect(getFilterMenu().props().filterState.filteredKeys).toEqual(['Lucy', '12', 'true']);
+
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          filteredValue: null,
+        },
+      ],
+    });
+    expect(getFilterMenu().props().filterState.filteredKeys).toEqual(null);
+  });
+
   it('can be controlled by filteredValue null', () => {
     const wrapper = mount(
       createTable({
