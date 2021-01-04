@@ -41,7 +41,7 @@ timeline: true
   - 🐞 修复 `childrenColumnName` 和 `checkStrictly={false}` 无法一起使用的问题。[#28568](https://github.com/ant-design/ant-design/pull/28568)
   - 🐞 修复 Checkbox.Group 内选择行为异常的问题。[#28576](https://github.com/ant-design/ant-design/pull/28576)
   - 🐞 修复无数据时固定表头样式错乱的问题。[#28323](https://github.com/ant-design/ant-design/issues/28323)
-  - 🐞 修复了如果用户自定义 `filterDropdown` 时 `onChange` 事件的 `filters` 参数总是接收空数组的问题。[#28627](https://github.com/ant-design/ant-design/pull/28627) [@Meowu](https://github.com/Meowu)
+  - 🐞 修复自定义 `filterDropdown` 时 `onChange` 事件的 `filters` 参数总是接收空数组的问题。[#28627](https://github.com/ant-design/ant-design/pull/28627) [@Meowu](https://github.com/Meowu)
   - 🆕 新增 `expandable.columnWidth` 以自定义展开列的宽度。[#28249](https://github.com/ant-design/ant-design/pull/28249)
   - 🆕 选择项新增清空所有选项。[#28580](https://github.com/ant-design/ant-design/pull/28580) [@n0ruSh](https://github.com/ant-design/ant-design/pull/285)
 - Image
