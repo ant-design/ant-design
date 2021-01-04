@@ -34,7 +34,9 @@ function collectFilterStates<RecordType>(
     } else if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
-        const filteredValues = (column.filteredValue || []).map(String);
+        const filteredValues = Array.isArray(column.filteredValue)
+          ? column.filteredValue.map(String)
+          : column.filteredValue;
         filterStates.push({
           column,
           key: getColumnKey(column, columnPos),
@@ -121,17 +123,21 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   const currentFilters: Record<string, (Key | boolean)[] | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
-    const { filters } = column;
-    const originKeys: ColumnFilterItem['value'][] = [];
-    if (Array.isArray(filteredKeys)) {
-      filters?.forEach((filter: ColumnFilterItem) => {
-        if (filteredKeys.includes(String(filter.value))) {
-          originKeys.push(filter.value);
-        }
-      });
-      currentFilters[key] = originKeys;
+    const { filters, filterDropdown } = column;
+    if (filterDropdown) {
+      currentFilters[key] = filteredKeys || null;
     } else {
-      currentFilters[key] = null;
+      const originKeys: ColumnFilterItem['value'][] = [];
+      if (Array.isArray(filteredKeys)) {
+        filters?.forEach((filter: ColumnFilterItem) => {
+          if (filteredKeys.includes(String(filter.value))) {
+            originKeys.push(filter.value);
+          }
+        });
+        currentFilters[key] = originKeys;
+      } else {
+        currentFilters[key] = null;
+      }
     }
   });
 

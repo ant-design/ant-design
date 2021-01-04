@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.9.4",
+  "version": "4.10.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -217,6 +217,7 @@
     "husky": "^4.0.3",
     "identity-obj-proxy": "^3.0.0",
     "ignore-emit-webpack-plugin": "^2.0.6",
+    "immer": "^8.0.0",
     "immutability-helper": "^3.0.0",
     "inquirer": "^7.1.0",
     "intersection-observer": "^0.12.0",

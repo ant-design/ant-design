@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import produce from 'immer';
 import Upload from '..';
 import Form from '../../form';
 import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
@@ -326,6 +327,29 @@ describe('Upload', () => {
       expect(targetItem).toEqual(fileList.slice(1));
     });
 
+    it('remove fileItem and fileList with immuable data', () => {
+      const file = { uid: '-3', name: 'item3.jpg' };
+      const fileList = produce(
+        [
+          {
+            uid: '-1',
+            name: 'item.jpg',
+          },
+          {
+            uid: '-2',
+            name: 'item2.jpg',
+          },
+        ],
+        draftState => {
+          draftState.push({
+            uid: '-3',
+            name: 'item3.jpg',
+          });
+        },
+      );
+      const targetItem = removeFileItem(file, fileList);
+      expect(targetItem).toEqual(fileList.slice(0, 2));
+    });
     it('should not be able to remove fileItem', () => {
       const file = { uid: '-3', name: 'item.jpg' };
       const fileList = [
