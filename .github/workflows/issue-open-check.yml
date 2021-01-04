@@ -66,4 +66,4 @@ jobs:
           actions: 'add-labels'
           token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          labels: 'IE | Firefox |  Safari,Internet Explorer'
+          labels: 'IE | Firefox | Safari,Internet Explorer'
