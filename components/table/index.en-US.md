@@ -165,22 +165,22 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 Properties for expandable.
 
-| Property | Description | Type | Default |
+| Property | Description | Type | Default |  |
 | --- | --- | --- | --- | --- |
+| childrenColumnName | The column contains children to display | string | children |  |
 | columnWidth | Set the width of the expand column | string \| number | - |  |
-| childrenColumnName | The column contains children to display | string | children |
-| defaultExpandAllRows | Expand all rows initially | boolean | false |
-| defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
-| expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |
-| expandedRowKeys | Current expanded row keys | string\[] | - |
-| expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |
-| expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |
-| expandIconColumnIndex | Customize expand icon column index. Not render when `-1` | number | - |
-| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |
-| indentSize | Indent size in pixels of tree data | number | 15 |
-| rowExpandable | Enable row can be expandable | (record) => boolean | - |
-| onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |
-| onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |
+| defaultExpandAllRows | Expand all rows initially | boolean | false |  |
+| defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |  |
+| expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |  |
+| expandedRowKeys | Current expanded row keys | string\[] | - |  |
+| expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |  |
+| expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
+| expandIconColumnIndex | Customize expand icon column index. Not render when `-1` | number | - |  |
+| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |  |
+| indentSize | Indent size in pixels of tree data | number | 15 |  |
+| rowExpandable | Enable row can be expandable | (record) => boolean | - |  |
+| onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
+| onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
 
 ### rowSelection
 
