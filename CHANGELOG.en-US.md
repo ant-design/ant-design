@@ -47,6 +47,7 @@ timeline: true
   - 🐞 Fix the misalignment issue of Image component.[#28439](https://github.com/ant-design/ant-design/pull/28439) [@MoeCasts](https://github.com/MoeCasts)
   - 💄 Adds preview style. [#28235](https://github.com/ant-design/ant-design/pull/28235)
   - 🆕 Adds functionality for zoom in\out by sliding the wheel. [#react-component/image/52](https://github.com/react-component/image/pull/52) [@OmriGM](https://github.com/OmriGM)
+  - 🆕 Support separate settings url for preview images. [#react-component/image/56](https://github.com/react-component/image/pull/56) [@wangcch](https://github.com/wangcch)
 - Upload
   - 🐞 Fix a warning even when not using `transformFile`. [#28455](https://github.com/ant-design/ant-design/pull/28455) [@YanYuanFE](https://github.com/YanYuanFE)
   - 🐞 Fix Upload `fileList` cannot work with data that is produced by immer. [#28636](https://github.com/ant-design/ant-design/pull/28636) [@mumiao](https://github.com/mumiao)
@@ -56,6 +57,7 @@ timeline: true
   - 🆕 Adds `onKeyDown` callback. [#react-component/picker/138](https://github.com/react-component/picker/pull/138) [@conquera99](https://github.com/react-component/picker/pull/138)
 - Select
   - 🐞 Fix issue where `options` update does not trigger the selection box content update. [#react-component/select/580](https://github.com/react-component/select/pull/580) [@jameslahm](https://github.com/jameslahm)
+  - 🐞 Fix the problem that the dropdown box cannot be opened after clicking the option with `tagRender`. [react-component/select/582](https://github.com/react-component/select/pull/582) [@mumiao](https://github.com/mumiao)
   - 🐞 Fix the problem that `tokenSeparators` can not recognize the separator correctly under Chinese input method. [#28564](https://github.com/ant-design/ant-design/issues/28564)
   - 🆕 Adds `scrollTo` to the `ref`. [#react-component/select/565](https://github.com/react-component/select/pull/565)
   - 🆕 `maxTagCount` supports `responsive` in `multiple` mode. [#28520](https://github.com/ant-design/ant-design/pull/28520)

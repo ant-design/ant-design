@@ -47,6 +47,7 @@ timeline: true
   - 🐞 修复错位问题。[#28439](https://github.com/ant-design/ant-design/pull/28439) [@MoeCasts](https://github.com/MoeCasts)
   - 💄 添加预览样式。[#28235](https://github.com/ant-design/ant-design/pull/28235)
   - 🆕 支持使用鼠标滚轮缩放图片。[#react-component/image/52](https://github.com/react-component/image/pull/52) [@OmriGM](https://github.com/OmriGM)
+  - 🆕 支持单独设置预览图片。[#react-component/image/56](https://github.com/react-component/image/pull/56) [@wangcch](https://github.com/wangcch)
 - Upload
   - 🐞 修复不使用 `transformFile` 时也会有警告的问题。[#28455](https://github.com/ant-design/ant-design/pull/28455) [@YanYuanFE](https://github.com/YanYuanFE)
   - 🐞 修复 Upload 的 `fileList` 和 immer 数据配合使用报错问题。[#28636](https://github.com/ant-design/ant-design/pull/28636) [@mumiao](https://github.com/mumiao)
@@ -56,7 +57,8 @@ timeline: true
   - 🆕 新增 `onKeyDown` 回调。[#react-component/picker/138](https://github.com/react-component/picker/pull/138) [@conquera99](https://github.com/react-component/picker/pull/138)
 - Select
   - 🐞 修复 `options` 更新不会触发选择框内容更新的问题。[#react-component/select/580](https://github.com/react-component/select/pull/580) [@jameslahm](https://github.com/jameslahm)
-  - 修复 `tokenSeparators` 在中文输入法下无法正确识别分隔符的问题。[#28564](https://github.com/ant-design/ant-design/issues/28564)
+  - 🐞 修复使用 `tagRender` 后点击选项无法打开下拉框的问题。[react-component/select/582](https://github.com/react-component/select/pull/582) [@mumiao](https://github.com/mumiao)
+  - 🐞 修复 `tokenSeparators` 在中文输入法下无法正确识别分隔符的问题。[#28564](https://github.com/ant-design/ant-design/issues/28564)
   - 🆕 `ref` 新增 `scrollTo` 方法。[#react-component/select/565](https://github.com/react-component/select/pull/565)
   - 🆕 多选模式下 `maxTagCount` 支持 `responsive`。[#28520](https://github.com/ant-design/ant-design/pull/28520)
 - 🆕 Slider 新增 range.draggableTrack 以支持范围刻度整体可拖拽。[#28592](https://github.com/ant-design/ant-design/pull/28592)
