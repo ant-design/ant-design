@@ -331,7 +331,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
     dataSource.forEach((record: KeyWise<RecordType>) => {
       if (rowKey) {
-        record.key = rowKey(record);
+        record = {
+          ...record,
+          key: rowKey(record),
+        };
       }
 
       // rightDataSource should be ordered by targetKeys
