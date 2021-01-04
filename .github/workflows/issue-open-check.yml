@@ -60,7 +60,7 @@ jobs:
             * Ant Design Pro Preview : https://prosite.z23.web.core.windows.net
             
       - name: check-ie
-        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && (contains(github.event.issue.title, 'IE') == true || contains(github.event.issue.title, 'Internet Explorer') == true)
+        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && github.event.issue.title.includes('IE') == true || contains(github.event.issue.title, 'Internet Explorer') == true)
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'add-labels'
