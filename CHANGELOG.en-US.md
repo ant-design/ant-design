@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.10.0
 
-`2021-01-01`
+`2021-01-04`
 
 🎉 Happy New Year!
 
@@ -41,6 +41,7 @@ timeline: true
   - 🐞 Fix the problem that Table childrenColumnName and checkStrictly={false} cannot be used together. [#28568](https://github.com/ant-design/ant-design/pull/28568)
   - 🐞 Fix Table selection abnormal behavior when inside Checkbox.Group. [#28576](https://github.com/ant-design/ant-design/pull/28576)
   - 🐞 Fix the problem that the sticky header style is messy when there is no data. [#28323](https://github.com/ant-design/ant-design/issues/28323)
+  - 🐞 Fix the problem that `onChange` listener always receives empty list as `filters` parameter if use a custom `filterDropdown`. [#28627](https://github.com/ant-design/ant-design/pull/28627) [@Meowu](https://github.com/Meowu)
   - 🆕 Adds `expandable.columnWidth` to customize the width of the expanded column. [#28249](https://github.com/ant-design/ant-design/pull/28249)
   - 🆕 Adds clear all option from selection. [#28580](https://github.com/ant-design/ant-design/pull/28580) [@n0ruSh](https://github.com/ant-design/ant-design/pull/285)
 - Image
