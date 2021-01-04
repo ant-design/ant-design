@@ -9,6 +9,8 @@ title:
 
 通过 `filterDropdown` 自定义的列筛选功能，并实现一个搜索列的示例。
 
+通过 `triggerFilter` 函数执行筛选，接收 `boolean` 类型参数 `closeMenu`，是否关闭当前菜单窗口，默认为 `false` 不关闭。
+
 ## en-US
 
 Implement a customized column search example via `filterDropdown`.
@@ -52,7 +54,7 @@ class App extends React.Component {
   };
 
   getColumnSearchProps = dataIndex => ({
-    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, triggerFilter }) => (
       <div style={{ padding: 8 }}>
         <Input
           ref={node => {
@@ -76,6 +78,19 @@ class App extends React.Component {
           </Button>
           <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
             Reset
+          </Button>
+          <Button
+            size="small"
+            type="link"
+            onClick={() => {
+              triggerFilter();
+              this.setState({
+                searchText: selectedKeys[0],
+                searchedColumn: dataIndex,
+              });
+            }}
+          >
+            Filter
           </Button>
         </Space>
       </div>

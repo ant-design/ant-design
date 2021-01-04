@@ -75,6 +75,7 @@ export interface FilterDropdownProps {
   clearFilters?: () => void;
   filters?: ColumnFilterItem[];
   visible: boolean;
+  triggerFilter: (closeMenu: boolean) => void;
 }
 
 export interface ColumnType<RecordType> extends RcColumnType<RecordType> {

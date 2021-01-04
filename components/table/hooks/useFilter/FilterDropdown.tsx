@@ -160,8 +160,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[] | undefined | null) => {
-    triggerVisible(false);
-
     const mergedKeys = keys && keys.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
@@ -179,12 +177,19 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onConfirm = () => {
+    triggerVisible(false);
     internalTriggerFilter(getFilteredKeysSync());
   };
 
   const onReset = () => {
+    triggerVisible(false);
     setFilteredKeysSync([]);
     internalTriggerFilter([]);
+  };
+
+  const doFilter = (closeMenu: boolean = false) => {
+    triggerVisible(!closeMenu);
+    internalTriggerFilter(getFilteredKeysSync());
   };
 
   const onVisibleChange = (newVisible: boolean) => {
@@ -217,6 +222,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       clearFilters: onReset,
       filters: column.filters,
       visible: mergedVisible,
+      triggerFilter: doFilter,
     });
   } else if (column.filterDropdown) {
     dropdownContent = column.filterDropdown;
