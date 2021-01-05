@@ -83,7 +83,8 @@ class App extends React.Component {
             type="link"
             size="small"
             onClick={() => {
-              confirm(false);
+              confirm({ closeDropdown: false });
+              console.log('1234');
               this.setState({
                 searchText: selectedKeys[0],
                 searchedColumn: dataIndex,
