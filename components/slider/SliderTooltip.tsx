@@ -17,7 +17,7 @@ const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   function keepAlign() {
     rafRef.current = raf(() => {
-      innerRef.current.forcePopupAlign();
+      innerRef.current?.forcePopupAlign();
       rafRef.current = null;
       keepAlign();
     });
