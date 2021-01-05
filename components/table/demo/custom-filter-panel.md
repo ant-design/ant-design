@@ -9,7 +9,7 @@ title:
 
 通过 `filterDropdown` 自定义的列筛选功能，并实现一个搜索列的示例。
 
-给函数 `confirm` 添加 `boolean` 类型参数 `closeDropdown`，是否关闭筛选菜单，默认为 `true`，关闭。
+给函数 `confirm` 添加 `boolean` 类型参数 `closeDropdown`，是否关闭筛选菜单，默认为 `true`。
 
 ## en-US
 
