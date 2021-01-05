@@ -1,0 +1,3 @@
+import uzLA from '../../date-picker/locale/uz_LA';
+
+export default uzLA;
