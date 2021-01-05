@@ -1,0 +1,134 @@
+/* eslint-disable no-template-curly-in-string */
+import Pagination from 'rc-pagination/lib/locale/uz_UZ';
+import DatePicker from '../date-picker/locale/uz_UZ';
+import TimePicker from '../time-picker/locale/uz_UZ';
+import Calendar from '../calendar/locale/uz_UZ';
+import { Locale } from '../locale-provider';
+
+const typeTemplate = '${label} is not a valid ${type}';
+
+const localeValues: Locale = {
+  locale: 'uz',
+  Pagination,
+  DatePicker,
+  TimePicker,
+  Calendar,
+  global: {
+    placeholder: 'Iltimos tanlang',
+  },
+  Table: {
+    filterTitle: 'Filter menyu',
+    filterConfirm: 'OK',
+    filterReset: 'Qayta o‘rnatish',
+    filterEmptyText: 'Filtrlar yo‘q',
+    emptyText: 'Ma'lumot yo‘q',
+    selectAll: 'Joriy sahifani tanlang',
+    selectInvert: 'Joriy sahifani teskari yo‘naltirish',
+    selectNone: 'Barcha ma'lumotlarni o‘chirish',
+    selectionAll: 'Barcha ma'lumotlarni tanlang',
+    sortTitle: 'Saralash',
+    expand: 'Qatorni kengaytirish',
+    collapse: 'Qatorni yopish',
+    triggerDesc: 'Kamayish tartibida saralash',
+    triggerAsc: 'O‘sish tartibida saralash',
+    cancelSort: 'Saralashni bekor qilish',
+  },
+  Modal: {
+    okText: 'OK',
+    cancelText: 'Bekor qilish',
+    justOkText: 'OK',
+  },
+  Popconfirm: {
+    okText: 'OK',
+    cancelText: 'Bekor qilish',
+  },
+  Transfer: {
+    titles: ['', ''],
+    searchPlaceholder: 'Bu erda qidirish',
+    itemUnit: 'element',
+    itemsUnit: 'elementlar',
+    remove: 'O‘chirish',
+    selectCurrent: 'Joriy sahifani tanlash',
+    removeCurrent: 'Joriy sahifani o‘cirish',
+    selectAll: 'Barcha ma'lumotlarni tanlash',
+    removeAll: 'Barch ma'lumotlarni o‘chirish',
+    selectInvert: 'Joriy sahifani teskari yo‘naltirish',
+  },
+  Upload: {
+    uploading: 'Yuklanmoqda...',
+    removeFile: 'Faylni o‘chirish',
+    uploadError: 'Yuklashda xatolik',
+    previewFile: 'Faylni oldindan ko‘rish',
+    downloadFile: 'Faylni yuklab olish',
+  },
+  Empty: {
+    description: 'Ma'lumot yo‘q',
+  },
+  Icon: {
+    icon: 'belgi',
+  },
+  Text: {
+    edit: 'Taxrirlash',
+    copy: 'Nusxalash',
+    copied: 'Nusxalandi',
+    expand: 'Kengaytirish',
+  },
+  PageHeader: {
+    back: 'Orqaga',
+  },
+  Form: {
+    optional: '(optional)',
+    defaultValidateMessages: {
+      default: 'Field validation error for ${label}',
+      required: 'Please enter ${label}',
+      enum: '${label} must be one of [${enum}]',
+      whitespace: '${label} cannot be a blank character',
+      date: {
+        format: '${label} date format is invalid',
+        parse: '${label} cannot be converted to a date',
+        invalid: '${label} is an invalid date',
+      },
+      types: {
+        string: typeTemplate,
+        method: typeTemplate,
+        array: typeTemplate,
+        object: typeTemplate,
+        number: typeTemplate,
+        date: typeTemplate,
+        boolean: typeTemplate,
+        integer: typeTemplate,
+        float: typeTemplate,
+        regexp: typeTemplate,
+        email: typeTemplate,
+        url: typeTemplate,
+        hex: typeTemplate,
+      },
+      string: {
+        len: '${label} must be ${len} characters',
+        min: '${label} must be at least ${min} characters',
+        max: '${label} must be up to ${max} characters',
+        range: '${label} must be between ${min}-${max} characters',
+      },
+      number: {
+        len: '${label} must be equal to ${len}',
+        min: '${label} must be minimum ${min}',
+        max: '${label} must be maximum ${max}',
+        range: '${label} must be between ${min}-${max}',
+      },
+      array: {
+        len: 'Must be ${len} ${label}',
+        min: 'At least ${min} ${label}',
+        max: 'At most ${max} ${label}',
+        range: 'The amount of ${label} must be between ${min}-${max}',
+      },
+      pattern: {
+        mismatch: '${label} does not match the pattern ${pattern}',
+      },
+    },
+  },
+  Image: {
+    preview: 'Preview',
+  },
+};
+
+export default localeValues;
