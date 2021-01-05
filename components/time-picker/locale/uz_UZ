@@ -1,0 +1,9 @@
+/** Created by Azizbek Jonibekov on 05/01/21. */
+import { TimePickerLocale } from '../index';
+
+const locale: TimePickerLocale = {
+  placeholder: 'Vaqtni tanlang',
+  rangePlaceholder: ['Boshlanish vaqti', 'Tugash vaqti'],
+};
+
+export default locale;
