@@ -5,7 +5,7 @@ import TimePicker from '../time-picker/locale/uz_UZ';
 import Calendar from '../calendar/locale/uz_UZ';
 import { Locale } from '../locale-provider';
 
-const typeTemplate = '${label} is not a valid ${type}';
+const typeTemplate = '${label} ${type} turiga mos emas';
 
 const localeValues: Locale = {
   locale: 'uz',
@@ -79,13 +79,13 @@ const localeValues: Locale = {
   Form: {
     optional: '(optional)',
     defaultValidateMessages: {
-      default: 'Field validation error for ${label}',
-      required: 'Please enter ${label}',
-      enum: '${label} must be one of [${enum}]',
-      whitespace: '${label} cannot be a blank character',
+      default: '${label} uchun maydonni tekshirish xatosi',
+      required: 'Iltimos, ${label}ni kiriting',
+      enum: '${label} [${enum}]dan biri bo‘lishi kerak',
+      whitespace: '${label} bo‘sh belgi bo‘lishi mumkin emas',
       date: {
-        format: '${label} date format is invalid',
-        parse: '${label} cannot be converted to a date',
+        format: '${label} sana formati xato',
+        parse: '${label} sanaga o‘tkazib bo‘lmaydi',
         invalid: '${label} is an invalid date',
       },
       types: {
@@ -104,30 +104,30 @@ const localeValues: Locale = {
         hex: typeTemplate,
       },
       string: {
-        len: '${label} must be ${len} characters',
-        min: '${label} must be at least ${min} characters',
-        max: '${label} must be up to ${max} characters',
-        range: '${label} must be between ${min}-${max} characters',
+        len: '${label} ${len} ta belgi uzunligida bo‘lishi zarur',
+        min: '${label} eng kamida ${min} ta belgi uzunligida bo‘lishi zarur',
+        max: '${label} eng ko‘pida ${max} ta belgi uzunligida bo‘lishi zarur',
+        range: '${label} ${min}-${max} ta belgilar oralig‘ida bo‘lishi zarur',
       },
       number: {
-        len: '${label} must be equal to ${len}',
-        min: '${label} must be minimum ${min}',
-        max: '${label} must be maximum ${max}',
-        range: '${label} must be between ${min}-${max}',
+        len: '${label} ${len}ga teng bo‘lishi zarur',
+        min: '${label} eng kamida ${min} bo‘lishi zarur',
+        max: '${label} eng ko‘pida ${max} bo‘lishi zarur',
+        range: '${label} ${min}-${max} raqamlar oralig‘ida bo‘lishi zarur',
       },
       array: {
-        len: 'Must be ${len} ${label}',
-        min: 'At least ${min} ${label}',
-        max: 'At most ${max} ${label}',
-        range: 'The amount of ${label} must be between ${min}-${max}',
+        len: '${len} ${label} bo‘lishi zarur',
+        min: 'Eng kamida ${min} ${label}',
+        max: 'Eng ko‘pida ${max} ${label}',
+        range: '${label}ning soni ${min}-${max} sonlar oralig‘ida bo‘lishi zarur',
       },
       pattern: {
-        mismatch: '${label} does not match the pattern ${pattern}',
+        mismatch: '${label} ${pattern} namunasiga mos kelmaydi',
       },
     },
   },
   Image: {
-    preview: 'Preview',
+    preview: 'Oldindan ko'rish',
   },
 };
 
