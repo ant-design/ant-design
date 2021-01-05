@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: remove inactive
+        if: github.event.issue.state == 'open'
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'remove-labels'
