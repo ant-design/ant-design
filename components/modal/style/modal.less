@@ -1,45 +1,38 @@
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
-@modal-footer-padding-vertical: 10px;
-@modal-footer-padding-horizontal: 16px;
 
 .@{dialog-prefix-cls} {
-  .reset-component;
+  .reset-component();
+  .modal-mask();
 
   position: relative;
   top: 100px;
   width: auto;
+  max-width: calc(100vw - 32px);
   margin: 0 auto;
   padding-bottom: 24px;
 
   &-wrap {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     z-index: @zindex-modal;
-    overflow: auto;
-    outline: 0;
-    -webkit-overflow-scrolling: touch;
   }
 
   &-title {
     margin: 0;
-    color: @heading-color;
+    color: @modal-heading-color;
     font-weight: 500;
-    font-size: @font-size-lg;
-    line-height: 22px;
+    font-size: @modal-header-title-font-size;
+    line-height: @modal-header-title-line-height;
     word-wrap: break-word;
   }
 
   &-content {
     position: relative;
-    background-color: @component-background;
+    background-color: @modal-content-bg;
     background-clip: padding-box;
     border: 0;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
+    pointer-events: auto;
   }
 
   &-close {
@@ -48,7 +41,7 @@
     right: 0;
     z-index: @zindex-popup-close;
     padding: 0;
-    color: @text-color-secondary;
+    color: @modal-close-color;
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
@@ -60,11 +53,11 @@
 
     &-x {
       display: block;
-      width: 56px;
-      height: 56px;
+      width: @modal-header-close-size;
+      height: @modal-header-close-size;
       font-size: @font-size-lg;
       font-style: normal;
-      line-height: 56px;
+      line-height: @modal-header-close-size;
       text-align: center;
       text-transform: none;
       text-rendering: auto;
@@ -78,10 +71,11 @@
   }
 
   &-header {
-    padding: 16px 24px;
+    padding: @modal-header-padding;
     color: @text-color;
     background: @modal-header-bg;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-bottom: @modal-header-border-width @modal-header-border-style
+      @modal-header-border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
@@ -96,35 +90,13 @@
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     text-align: right;
     background: @modal-footer-bg;
-    border-top: @border-width-base @border-style-base @border-color-split;
+    border-top: @modal-footer-border-width @modal-footer-border-style
+      @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
+
     button + button {
       margin-bottom: 0;
       margin-left: 8px;
-    }
-  }
-
-  &.zoom-enter,
-  &.zoom-appear {
-    transform: none; // reset scale avoid mousePosition bug
-    opacity: 0;
-    animation-duration: @animation-duration-slow;
-    user-select: none; // https://github.com/ant-design/ant-design/issues/11777
-  }
-
-  &-mask {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: @zindex-modal-mask;
-    height: 100%;
-    background-color: @modal-mask-bg;
-    filter: ~'alpha(opacity=50)';
-
-    &-hidden {
-      display: none;
     }
   }
 

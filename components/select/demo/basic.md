@@ -16,14 +16,14 @@ Basic Usage.
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
@@ -38,7 +38,10 @@ ReactDOM.render(
     <Select defaultValue="lucy" style={{ width: 120 }} loading>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </div>,
+    <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
+      <Option value="lucy">Lucy</Option>
+    </Select>
+  </>,
   mountNode,
 );
 ```

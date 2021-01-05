@@ -2,31 +2,37 @@
   .@{steps-prefix-cls}-item {
     overflow: visible;
     &-tail {
-      margin-left: 51px;
+      margin-left: 58px;
       padding: 3.5px 24px;
     }
     &-content {
       display: block;
-      // icon左边距离+一半icon宽度，是content一半的宽度，垂直对齐icon
-      width: (@steps-icon-size / 2 + 36px) * 2;
+      width: ((@steps-icon-size / 2) + 42px) * 2;
       margin-top: 8px;
       text-align: center;
     }
     &-icon {
       display: inline-block;
-      margin-left: 36px;
+      margin-left: 42px;
     }
     &-title {
       padding-right: 0;
+      padding-left: 0;
       &::after {
         display: none;
       }
+    }
+    &-subtitle {
+      display: block;
+      margin-bottom: 4px;
+      margin-left: 0;
+      line-height: @line-height-base;
     }
   }
   &.@{steps-prefix-cls}-small:not(.@{steps-prefix-cls}-dot) {
     .@{steps-prefix-cls}-item {
       &-icon {
-        margin-left: 40px;
+        margin-left: 46px;
       }
     }
   }

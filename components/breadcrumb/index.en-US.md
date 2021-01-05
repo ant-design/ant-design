@@ -2,6 +2,7 @@
 category: Components
 type: Navigation
 title: Breadcrumb
+cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 ---
 
 A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.
@@ -11,16 +12,48 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 - When the system has more than two layers in a hierarchy.
 - When you need to inform the user of where they are.
 - When the user may need to navigate back to a higher level.
-- When the application has multi-layer architecture.
 
 ## API
 
-| Property | Description | Type | Optional | Default |
+### Breadcrumb
+
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode |  | - |
-| params | Routing parameters | object |  | - |
-| routes | The routing stack information of router | [routes\[\]](#routes) |  | - |
-| separator | Custom separator | string\|ReactNode |  | `/` |
+| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
+| params | Routing parameters | object | - |  |
+| routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
+| separator | Custom separator | ReactNode | `/` |  |
+
+### Breadcrumb.Item
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| className | The additional css class | string | - |  |
+| dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
+| href | Target of hyperlink | string | - |  |
+| overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
+| onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
+
+### Breadcrumb.Separator
+
+| Property | Description      | Type      | Default | Version |
+| -------- | ---------------- | --------- | ------- | ------- |
+| children | Custom separator | ReactNode | `/`     |         |
+
+> When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
+
+### routes
+
+```ts
+interface Route {
+  path: string;
+  breadcrumbName: string;
+  children: Array<{
+    path: string;
+    breadcrumbName: string;
+  }>;
+}
+```
 
 ### Use with browserHistory
 

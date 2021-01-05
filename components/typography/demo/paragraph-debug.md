@@ -20,7 +20,7 @@ import { Typography } from 'antd';
 const { Title, Paragraph, Text } = Typography;
 
 ReactDOM.render(
-  <div>
+  <>
     <Title>Introduction</Title>
     <Paragraph>
       In the process of internal desktop applications development, many different design specs and
@@ -29,13 +29,12 @@ ReactDOM.render(
     </Paragraph>
     <Paragraph>
       After massive project practice and summaries, Ant Design, a design language for background
-      applications, is refined by Ant UED Team, which aims to{' '}
+      applications, is refined by Ant UED Team, which aims to
       <Text strong>
         uniform the user interface specs for internal background projects, lower the unnecessary
         cost of design differences and implementation and liberate the resources of design and
         front-end development
-      </Text>
-      .
+      </Text>.
     </Paragraph>
     <Title level={2}>Guidelines and Resources</Title>
     <Paragraph>
@@ -70,7 +69,7 @@ ReactDOM.render(
     </Paragraph>
     <Title level={2}>设计资源</Title>
     <Paragraph>
-      我们提供完善的设计原则、最佳实践和设计资源文件（<Text code>Sketch</Text> 和{' '}
+      我们提供完善的设计原则、最佳实践和设计资源文件（<Text code>Sketch</Text> 和
       <Text code>Axure</Text>），来帮助业务快速设计出高质量的产品原型。
     </Paragraph>
 
@@ -87,7 +86,31 @@ ReactDOM.render(
         </li>
       </ul>
     </Paragraph>
-  </div>,
+
+    <Paragraph>
+      <ul>
+        <li>I am an unordered item</li>
+        <li>
+          I am an unordered item with an ordered sublist
+          <ol>
+            <li>I am ordered</li>
+          </ol>
+          <ul>
+            <li>I am unordered</li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>
+          Ordered list item with unordered sublist
+          <ul>
+            <li>I am unordered!</li>
+            <li>I am also unordered!</li>
+          </ul>
+        </li>
+      </ol>
+    </Paragraph>
+  </>,
   mountNode,
 );
 ```

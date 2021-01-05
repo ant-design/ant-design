@@ -12,3 +12,72 @@ exports[`Layout renders string width correctly 1`] = `
   </div>
 </aside>
 `;
+
+exports[`Layout rtl render component should be rendered correctly in RTL direction 1`] = `
+<section
+  class="ant-layout ant-layout-rtl"
+/>
+`;
+
+exports[`Layout rtl render component should be rendered correctly in RTL direction 2`] = `
+<main
+  class="ant-layout-content"
+/>
+`;
+
+exports[`Layout rtl render component should be rendered correctly in RTL direction 3`] = `
+<aside
+  class="ant-layout-sider ant-layout-sider-dark"
+  style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+>
+  <div
+    class="ant-layout-sider-children"
+  />
+</aside>
+`;
+
+exports[`Layout should be controlled by collapsed 1`] = `
+<Sider>
+  <aside
+    className="ant-layout-sider ant-layout-sider-dark"
+    style={
+      Object {
+        "flex": "0 0 200px",
+        "maxWidth": "200px",
+        "minWidth": "200px",
+        "width": "200px",
+      }
+    }
+  >
+    <div
+      className="ant-layout-sider-children"
+    >
+      Sider
+    </div>
+  </aside>
+</Sider>
+`;
+
+exports[`Layout should be controlled by collapsed 2`] = `
+<Sider
+  collapsed={true}
+>
+  <aside
+    className="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+    style={
+      Object {
+        "flex": "0 0 80px",
+        "maxWidth": "80px",
+        "minWidth": "80px",
+        "width": "80px",
+      }
+    }
+  >
+    <div
+      className="ant-layout-sider-children"
+    >
+      Sider
+    </div>
+  </aside>
+</Sider>
+`;

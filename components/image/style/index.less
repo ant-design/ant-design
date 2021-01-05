@@ -1,0 +1,168 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@image-prefix-cls: ~'@{ant-prefix}-image';
+@image-preview-prefix-cls: ~'@{image-prefix-cls}-preview';
+
+.@{image-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  &-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    &-placeholder {
+      background-color: @image-bg;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTQuNSAyLjVoLTEzQS41LjUgMCAwIDAgMSAzdjEwYS41LjUgMCAwIDAgLjUuNWgxM2EuNS41IDAgMCAwIC41LS41VjNhLjUuNSAwIDAgMC0uNS0uNXpNNS4yODEgNC43NWExIDEgMCAwIDEgMCAyIDEgMSAwIDAgMSAwLTJ6bTguMDMgNi44M2EuMTI3LjEyNyAwIDAgMS0uMDgxLjAzSDIuNzY5YS4xMjUuMTI1IDAgMCAxLS4wOTYtLjIwN2wyLjY2MS0zLjE1NmEuMTI2LjEyNiAwIDAgMSAuMTc3LS4wMTZsLjAxNi4wMTZMNy4wOCAxMC4wOWwyLjQ3LTIuOTNhLjEyNi4xMjYgMCAwIDEgLjE3Ny0uMDE2bC4wMTUuMDE2IDMuNTg4IDQuMjQ0YS4xMjcuMTI3IDAgMCAxLS4wMi4xNzV6IiBmaWxsPSIjOEM4QzhDIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 30%;
+    }
+  }
+
+  &-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: @text-color-inverse;
+    background: fade(@black, 50%);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity @animation-duration-slow;
+
+    &-info {
+      .@{iconfont-css-prefix} {
+        margin-inline-end: @margin-xss;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-placeholder {
+    .box();
+  }
+
+  &-preview {
+    .modal-mask();
+
+    height: 100%;
+    text-align: center;
+
+    &-body {
+      .box();
+      overflow: hidden;
+    }
+
+    &-img {
+      max-width: 100%;
+      max-height: 100%;
+      vertical-align: middle;
+      transform: scale3d(1, 1, 1);
+      cursor: grab;
+      transition: transform 0.3s @ease-out 0s;
+      user-select: none;
+      pointer-events: auto;
+      &-wrapper {
+        .box();
+        transition: transform 0.3s @ease-out 0s;
+        &::before {
+          display: inline-block;
+          width: 1px;
+          height: 50%;
+          margin-right: -1px;
+          content: '';
+        }
+      }
+    }
+
+    &-moving {
+      .@{image-prefix-cls}-preview-img {
+        cursor: grabbing;
+        &-wrapper {
+          transition-duration: 0s;
+        }
+      }
+    }
+
+    &-wrap {
+      z-index: @zindex-image;
+    }
+
+    &-operations {
+      .reset-component();
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      width: 100%;
+      color: @image-preview-operation-color;
+      list-style: none;
+      background: fade(@modal-mask-bg, 10%);
+      pointer-events: auto;
+
+      &-operation {
+        margin-left: @control-padding-horizontal;
+        padding: @control-padding-horizontal;
+        cursor: pointer;
+        &-disabled {
+          color: @image-preview-operation-disabled-color;
+          pointer-events: none;
+        }
+        &:last-of-type {
+          margin-left: 0;
+        }
+      }
+      &-icon {
+        font-size: @image-preview-operation-size;
+      }
+    }
+
+    &-switch-left,
+    &-switch-right {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-top: -22px;
+      color: @image-preview-operation-color;
+      background: fade(@modal-mask-bg, 10%);
+      border-radius: 50%;
+      cursor: pointer;
+      pointer-events: auto;
+      &-disabled {
+        color: @image-preview-operation-disabled-color;
+        cursor: not-allowed;
+        > .anticon {
+          cursor: not-allowed;
+        }
+      }
+      > .anticon {
+        font-size: 18px;
+      }
+    }
+
+    &-switch-left {
+      left: 10px;
+    }
+
+    &-switch-right {
+      right: 10px;
+    }
+  }
+}

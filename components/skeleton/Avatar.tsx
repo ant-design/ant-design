@@ -1,47 +1,38 @@
 import * as React from 'react';
+import omit from 'omit.js';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Element, { SkeletonElementProps } from './Element';
 
-export interface SkeletonAvatarProps {
-  prefixCls?: string;
-  className?: string;
-  style?: object;
-  size?: 'large' | 'small' | 'default';
+export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
   shape?: 'circle' | 'square';
 }
 
-class SkeletonAvatar extends React.Component<SkeletonAvatarProps, any> {
-  static defaultProps: Partial<SkeletonAvatarProps> = {
-    size: 'large',
-  };
-
-  render() {
-    const { prefixCls, className, style, size, shape } = this.props;
-
-    const sizeCls = classNames({
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
-    });
-
-    const shapeCls = classNames({
-      [`${prefixCls}-circle`]: shape === 'circle',
-      [`${prefixCls}-square`]: shape === 'square',
-    });
-
-    const sizeStyle: React.CSSProperties =
-      typeof size === 'number'
-        ? {
-            width: size,
-            height: size,
-            lineHeight: `${size}px`,
-          }
-        : {};
-    return (
-      <span
-        className={classNames(prefixCls, className, sizeCls, shapeCls)}
-        style={{ ...sizeStyle, ...style }}
-      />
+const SkeletonAvatar = (props: AvatarProps) => {
+  const renderSkeletonAvatar = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className, active } = props;
+    const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+    const otherProps = omit(props, ['prefixCls']);
+    const cls = classNames(
+      prefixCls,
+      `${prefixCls}-element`,
+      {
+        [`${prefixCls}-active`]: active,
+      },
+      className,
     );
-  }
-}
+    return (
+      <div className={cls}>
+        <Element prefixCls={`${prefixCls}-avatar`} {...otherProps} />
+      </div>
+    );
+  };
+  return <ConfigConsumer>{renderSkeletonAvatar}</ConfigConsumer>;
+};
+
+SkeletonAvatar.defaultProps = {
+  size: 'default',
+  shape: 'circle',
+};
 
 export default SkeletonAvatar;

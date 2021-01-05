@@ -1,15 +1,15 @@
 .@{steps-prefix-cls}-item-custom {
-  .@{steps-prefix-cls}-item-icon {
+  > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-icon {
     height: auto;
     background: none;
     border: 0;
     > .@{steps-prefix-cls}-icon {
-      top: 0;
+      top: @steps-icon-custom-top;
       left: 0.5px;
-      width: @steps-icon-size;
-      height: @steps-icon-size;
-      font-size: 24px;
-      line-height: @steps-icon-size;
+      width: @steps-icon-custom-size;
+      height: @steps-icon-custom-size;
+      font-size: @steps-icon-custom-font-size;
+      line-height: @steps-icon-custom-size;
     }
   }
   &.@{steps-prefix-cls}-item-process {
@@ -25,6 +25,7 @@
     .@{steps-prefix-cls}-item-custom {
       .@{steps-prefix-cls}-item-icon {
         width: auto;
+        background: none;
       }
     }
   }

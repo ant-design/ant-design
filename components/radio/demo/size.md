@@ -16,36 +16,27 @@ There are three sizes available: large, medium, and small. It can coordinate wit
 ```jsx
 import { Radio } from 'antd';
 
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
-
 ReactDOM.render(
-  <div>
-    <div>
-      <RadioGroup defaultValue="a" size="large">
-        <RadioButton value="a">Hangzhou</RadioButton>
-        <RadioButton value="b">Shanghai</RadioButton>
-        <RadioButton value="c">Beijing</RadioButton>
-        <RadioButton value="d">Chengdu</RadioButton>
-      </RadioGroup>
-    </div>
-    <div style={{ marginTop: 16 }}>
-      <RadioGroup defaultValue="a">
-        <RadioButton value="a">Hangzhou</RadioButton>
-        <RadioButton value="b">Shanghai</RadioButton>
-        <RadioButton value="c">Beijing</RadioButton>
-        <RadioButton value="d">Chengdu</RadioButton>
-      </RadioGroup>
-    </div>
-    <div style={{ marginTop: 16 }}>
-      <RadioGroup defaultValue="a" size="small">
-        <RadioButton value="a">Hangzhou</RadioButton>
-        <RadioButton value="b">Shanghai</RadioButton>
-        <RadioButton value="c">Beijing</RadioButton>
-        <RadioButton value="d">Chengdu</RadioButton>
-      </RadioGroup>
-    </div>
-  </div>,
+  <>
+    <Radio.Group defaultValue="a" size="large">
+      <Radio.Button value="a">Hangzhou</Radio.Button>
+      <Radio.Button value="b">Shanghai</Radio.Button>
+      <Radio.Button value="c">Beijing</Radio.Button>
+      <Radio.Button value="d">Chengdu</Radio.Button>
+    </Radio.Group>
+    <Radio.Group defaultValue="a" style={{ marginTop: 16 }}>
+      <Radio.Button value="a">Hangzhou</Radio.Button>
+      <Radio.Button value="b">Shanghai</Radio.Button>
+      <Radio.Button value="c">Beijing</Radio.Button>
+      <Radio.Button value="d">Chengdu</Radio.Button>
+    </Radio.Group>
+    <Radio.Group defaultValue="a" size="small" style={{ marginTop: 16 }}>
+      <Radio.Button value="a">Hangzhou</Radio.Button>
+      <Radio.Button value="b">Shanghai</Radio.Button>
+      <Radio.Button value="c">Beijing</Radio.Button>
+      <Radio.Button value="d">Chengdu</Radio.Button>
+    </Radio.Group>
+  </>,
   mountNode,
 );
 ```

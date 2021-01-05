@@ -1,9 +1,11 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
-import RcTimePicker from 'rc-time-picker/lib/TimePicker';
+import { mount } from 'enzyme';
 import moment from 'moment';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
+import { resetWarned } from '../../_util/devWarning';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -16,21 +18,22 @@ describe('TimePicker', () => {
     errorSpy.mockRestore();
   });
 
-  focusTest(TimePicker);
+  focusTest(TimePicker, { refFocus: true });
+  mountTest(TimePicker);
+  rtlTest(TimePicker);
 
-  it('renders addon correctly', () => {
-    const addon = () => <button type="button">Ok</button>;
-    const wrapper = mount(<TimePicker addon={addon} />);
-    const rcTimePicker = wrapper.find(RcTimePicker);
-    const addonWrapper = render(rcTimePicker.props().addon());
+  it('warning for addon', () => {
+    resetWarned();
+    const addon = () => (
+      <button className="my-btn" type="button">
+        Ok
+      </button>
+    );
+    const wrapper = mount(<TimePicker addon={addon} open />);
 
-    expect(addonWrapper).toMatchSnapshot();
-  });
-
-  it('allowEmpty deprecated', () => {
-    mount(<TimePicker allowEmpty />);
+    expect(wrapper.find('.my-btn').length).toBeTruthy();
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: TimePicker] `allowEmpty` is deprecated. Please use `allowClear` instead.',
+      'Warning: [antd: TimePicker] `addon` is deprecated. Please use `renderExtraFooter` instead.',
     );
   });
 
@@ -41,31 +44,11 @@ describe('TimePicker', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('handleChange should work correctly', done => {
-    const date = moment('2000-01-01 00:00:00');
-    const onChange = (value, formattedValue) => {
-      expect(value).toBe(date);
-      expect(formattedValue).toBe(date.format('HH:mm:ss'));
-      done();
-    };
-    const wrapper = mount(<TimePicker onChange={onChange} />).instance();
-    wrapper.handleChange(date);
-  });
-
-  it('handleOpenClose should work correctly', done => {
-    const onOpenChange = open => {
-      expect(open).toBe(true);
-      done();
-    };
-    const wrapper = mount(<TimePicker onOpenChange={onOpenChange} />).instance();
-    wrapper.handleOpenClose({ open: true });
-  });
-
   it('clearIcon should render correctly', () => {
     const clearIcon = <div className="test-clear-icon">test</div>;
     const wrapper = mount(<TimePicker clearIcon={clearIcon} />);
     expect(wrapper.find('Picker').prop('clearIcon')).toEqual(
-      <div className="test-clear-icon ant-time-picker-clear">test</div>,
+      <div className="test-clear-icon">test</div>,
     );
   });
 
@@ -73,7 +56,31 @@ describe('TimePicker', () => {
     const locale = {
       placeholder: 'Избери дата',
     };
-    const wrapper = mount(<TimePicker open locale={locale} />);
+    const wrapper = mount(
+      <TimePicker defaultValue={moment('2000-01-01 00:00:00')} open locale={locale} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should pass popupClassName prop to Picker as dropdownClassName prop', () => {
+    const popupClassName = 'myCustomClassName';
+    const wrapper = mount(
+      <TimePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        popupClassName={popupClassName}
+      />,
+    );
+    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
+  });
+
+  it('should support bordered', () => {
+    const wrapper = mount(
+      <TimePicker
+        className="custom-class"
+        defaultValue={moment('2000-01-01 00:00:00')}
+        bordered={false}
+      />,
+    );
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

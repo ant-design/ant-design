@@ -14,16 +14,17 @@ title:
 The Tab with Icon.
 
 ```jsx
-import { Tabs, Icon } from 'antd';
+import { Tabs } from 'antd';
+import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 ReactDOM.render(
   <Tabs defaultActiveKey="2">
     <TabPane
       tab={
         <span>
-          <Icon type="apple" />
+          <AppleOutlined />
           Tab 1
         </span>
       }
@@ -34,7 +35,7 @@ ReactDOM.render(
     <TabPane
       tab={
         <span>
-          <Icon type="android" />
+          <AndroidOutlined />
           Tab 2
         </span>
       }

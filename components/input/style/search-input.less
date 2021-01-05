@@ -6,30 +6,66 @@
 @search-prefix: ~'@{ant-prefix}-input-search';
 
 .@{search-prefix} {
-  &-icon {
-    color: @text-color-secondary;
-    cursor: pointer;
-    transition: all 0.3s;
-    &:hover {
-      color: fade(@black, 80%);
+  .@{ant-prefix}-input {
+    &:hover,
+    &:focus {
+      border-color: @input-hover-border-color;
+
+      + .@{ant-prefix}-input-group-addon .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
+        border-left-color: @input-hover-border-color;
+      }
     }
   }
 
-  &-enter-button {
-    input {
-      border-right: 0;
-    }
+  .@{ant-prefix}-input-affix-wrapper {
+    border-radius: 0;
+  }
 
-    & + .@{ant-prefix}-input-group-addon,
-    input + .@{ant-prefix}-input-group-addon {
+  // fix slight height diff in Firefox:
+  // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
+  .@{ant-prefix}-input-lg {
+    line-height: @line-height-base - 0.0002;
+  }
+
+  > .@{ant-prefix}-input-group {
+    > .@{ant-prefix}-input-group-addon:last-child {
+      left: -1px;
       padding: 0;
       border: 0;
 
       .@{search-prefix}-button {
-        width: 100%;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+      }
+
+      .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
+        color: @text-color-secondary;
+
+        &.@{ant-prefix}-btn-loading::before {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
       }
     }
+  }
+
+  &-button {
+    height: @input-height-base;
+
+    &:hover,
+    &:focus {
+      z-index: 1;
+    }
+  }
+
+  &-large &-button {
+    height: @input-height-lg;
+  }
+
+  &-small &-button {
+    height: @input-height-sm;
   }
 }

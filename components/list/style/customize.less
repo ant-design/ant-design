@@ -1,0 +1,12 @@
+@import './index.less';
+
+@card-prefix-cls: ~'@{ant-prefix}-card';
+
+.@{list-prefix-cls} {
+  // =================== Dard Hook Components ===================
+  .@{card-prefix-cls} {
+    & when (@theme = dark) {
+      background: @list-customize-card-bg;
+    }
+  }
+}

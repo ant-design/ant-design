@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   zh-CN: 带面包屑页头
   en-US: Use with breadcrumbs
@@ -31,5 +31,13 @@ const routes = [
   },
 ];
 
-ReactDOM.render(<PageHeader title="Title" breadcrumb={{ routes }} />, mountNode);
+ReactDOM.render(
+  <PageHeader
+    className="site-page-header"
+    title="Title"
+    breadcrumb={{ routes }}
+    subTitle="This is a subtitle"
+  />,
+  mountNode,
+);
 ```

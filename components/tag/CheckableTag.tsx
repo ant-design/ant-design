@@ -1,38 +1,51 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 
 export interface CheckableTagProps {
   prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
+  /**
+   * It is an absolute controlled component and has no uncontrolled mode.
+   *
+   * .zh-cn 该组件为完全受控组件，不支持非受控用法。
+   */
   checked: boolean;
   onChange?: (checked: boolean) => void;
+  onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-export default class CheckableTag extends React.Component<CheckableTagProps> {
-  handleClick = () => {
-    const { checked, onChange } = this.props;
+const CheckableTag: React.FC<CheckableTagProps> = ({
+  prefixCls: customizePrefixCls,
+  className,
+  checked,
+  onChange,
+  onClick,
+  ...restProps
+}) => {
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     if (onChange) {
       onChange(!checked);
     }
-  };
-  renderCheckableTag = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className, checked, ...restProps } = this.props;
-    const prefixCls = getPrefixCls('tag', customizePrefixCls);
-    const cls = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-checkable`]: true,
-        [`${prefixCls}-checkable-checked`]: checked,
-      },
-      className,
-    );
-
-    delete (restProps as any).onChange; // TypeScript cannot check delete now.
-    return <div {...restProps as any} className={cls} onClick={this.handleClick} />;
+    if (onClick) {
+      onClick(e);
+    }
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderCheckableTag}</ConfigConsumer>;
-  }
-}
+  const prefixCls = getPrefixCls('tag', customizePrefixCls);
+  const cls = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-checkable`]: true,
+      [`${prefixCls}-checkable-checked`]: checked,
+    },
+    className,
+  );
+
+  return <span {...restProps} className={cls} onClick={handleClick} />;
+};
+
+export default CheckableTag;

@@ -3,7 +3,8 @@
 exports[`Cascader can be selected 1`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+    class="ant-cascader-menus"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -18,13 +19,13 @@ exports[`Cascader can be selected 1`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -33,10 +34,10 @@ exports[`Cascader can be selected 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
         <li
@@ -48,13 +49,13 @@ exports[`Cascader can be selected 1`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -63,10 +64,10 @@ exports[`Cascader can be selected 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
       </ul>
@@ -82,13 +83,13 @@ exports[`Cascader can be selected 1`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -97,10 +98,10 @@ exports[`Cascader can be selected 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
       </ul>
@@ -112,7 +113,8 @@ exports[`Cascader can be selected 1`] = `
 exports[`Cascader can be selected 2`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+    class="ant-cascader-menus"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -127,13 +129,13 @@ exports[`Cascader can be selected 2`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -142,10 +144,10 @@ exports[`Cascader can be selected 2`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
         <li
@@ -157,13 +159,13 @@ exports[`Cascader can be selected 2`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -172,10 +174,10 @@ exports[`Cascader can be selected 2`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
       </ul>
@@ -191,13 +193,13 @@ exports[`Cascader can be selected 2`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -206,10 +208,10 @@ exports[`Cascader can be selected 2`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
       </ul>
@@ -232,7 +234,8 @@ exports[`Cascader can be selected 2`] = `
 exports[`Cascader can be selected 3`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden"
+    class="ant-cascader-menus ant-cascader-menus-hidden"
+    style="pointer-events:none"
   >
     <div>
       <ul
@@ -247,13 +250,13 @@ exports[`Cascader can be selected 3`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -262,10 +265,10 @@ exports[`Cascader can be selected 3`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
         <li
@@ -277,13 +280,13 @@ exports[`Cascader can be selected 3`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -292,10 +295,10 @@ exports[`Cascader can be selected 3`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
       </ul>
@@ -311,13 +314,13 @@ exports[`Cascader can be selected 3`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -326,10 +329,10 @@ exports[`Cascader can be selected 3`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
       </ul>
@@ -349,95 +352,11 @@ exports[`Cascader can be selected 3`] = `
 </div>
 `;
 
-exports[`Cascader popup correctly when panel is hidden 1`] = `
+exports[`Cascader can be selected in RTL direction 1`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-empty ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden"
-  >
-    <div />
-  </div>
-</div>
-`;
-
-exports[`Cascader popup correctly when panel is open 1`] = `
-<div>
-  <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
-  >
-    <div>
-      <ul
-        class="ant-cascader-menu"
-      >
-        <li
-          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
-          title="Zhejiang"
-        >
-          Zhejiang
-          <span
-            class="ant-cascader-menu-item-expand-icon"
-          >
-            <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
-                />
-              </svg>
-            </i>
-          </span>
-        </li>
-        <li
-          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
-          title="Jiangsu"
-        >
-          Jiangsu
-          <span
-            class="ant-cascader-menu-item-expand-icon"
-          >
-            <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
-                />
-              </svg>
-            </i>
-          </span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Cascader popup correctly with defaultValue 1`] = `
-<div>
-  <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -452,14 +371,14 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -467,10 +386,10 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
         <li
@@ -482,14 +401,14 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -497,10 +416,120 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
-            </i>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Hangzhou"
+        >
+          Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader can be selected in RTL direction 2`] = `
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0;pointer-events:none"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Zhejiang"
+        >
+          Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Jiangsu"
+        >
+          Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
           </span>
         </li>
       </ul>
@@ -516,14 +545,14 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
           <span
             class="ant-cascader-menu-item-expand-icon"
           >
-            <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
             >
               <svg
                 aria-hidden="true"
-                class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -531,10 +560,10 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </li>
       </ul>
@@ -554,706 +583,659 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
 </div>
 `;
 
-exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `
-<Popup
-  action={
-    Array [
-      "click",
-    ]
-  }
-  align={
-    Object {
-      "offset": Array [
-        0,
-        4,
-      ],
-      "overflow": Object {
-        "adjustX": 1,
-        "adjustY": 1,
-      },
-      "points": Array [
-        "tl",
-        "bl",
-      ],
-    }
-  }
-  className=""
-  destroyPopupOnHide={false}
-  getClassNameFromAlign={[Function]}
-  getRootDomNode={[Function]}
-  mask={false}
-  onAlign={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  prefixCls="ant-cascader-menus"
-  style={Object {}}
-  transitionName="slide-up"
-  visible={true}
->
-  <div>
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      exclusive={true}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="xVisible"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName="slide-up"
-    >
-      <AnimateChild
-        animation={Object {}}
-        key="popup"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName="slide-up"
+exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
+    style="opacity: 0; pointer-events: none;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+        style="height: auto;"
       >
-        <Align
-          align={
-            Object {
-              "offset": Array [
-                0,
-                4,
-              ],
-              "overflow": Object {
-                "adjustX": 1,
-                "adjustY": 1,
-              },
-              "points": Array [
-                "tl",
-                "bl",
-              ],
-            }
-          }
-          childrenProps={
-            Object {
-              "visible": "xVisible",
-            }
-          }
-          disabled={false}
-          key="popup"
-          monitorBufferTime={50}
-          monitorWindowResize={true}
-          onAlign={[Function]}
-          target={[Function]}
-          xVisible={true}
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+          role="menuitem"
+          title=""
         >
-          <PopupInner
-            className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
-            hiddenClassName="ant-cascader-menus-hidden"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-            prefixCls="ant-cascader-menus"
-            style={Object {}}
-            visible={true}
+          <div
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
             <div
-              className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
-              onMouseDown={[Function]}
-              onTouchStart={[Function]}
-              style={Object {}}
+              class="ant-empty-image"
             >
-              <LazyRenderBox
-                className="ant-cascader-menus-content"
-                visible={true}
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <Menus
-                  activeValue={Array []}
-                  allowClear={true}
-                  builtinPlacements={
-                    Object {
-                      "bottomLeft": Object {
-                        "offset": Array [
-                          0,
-                          4,
-                        ],
-                        "overflow": Object {
-                          "adjustX": 1,
-                          "adjustY": 1,
-                        },
-                        "points": Array [
-                          "tl",
-                          "bl",
-                        ],
-                      },
-                      "bottomRight": Object {
-                        "offset": Array [
-                          0,
-                          4,
-                        ],
-                        "overflow": Object {
-                          "adjustX": 1,
-                          "adjustY": 1,
-                        },
-                        "points": Array [
-                          "tr",
-                          "br",
-                        ],
-                      },
-                      "topLeft": Object {
-                        "offset": Array [
-                          0,
-                          -4,
-                        ],
-                        "overflow": Object {
-                          "adjustX": 1,
-                          "adjustY": 1,
-                        },
-                        "points": Array [
-                          "bl",
-                          "tl",
-                        ],
-                      },
-                      "topRight": Object {
-                        "offset": Array [
-                          0,
-                          -4,
-                        ],
-                        "overflow": Object {
-                          "adjustX": 1,
-                          "adjustY": 1,
-                        },
-                        "points": Array [
-                          "br",
-                          "tr",
-                        ],
-                      },
-                    }
-                  }
-                  defaultFieldNames={
-                    Object {
-                      "children": "children",
-                      "label": "label",
-                      "value": "value",
-                    }
-                  }
-                  disabled={false}
-                  dropdownMenuColumnStyle={
-                    Object {
-                      "width": 0,
-                    }
-                  }
-                  expandIcon={
-                    <Icon
-                      type="right"
-                    />
-                  }
-                  expandTrigger="click"
-                  fieldNames={
-                    Object {
-                      "children": "children",
-                      "label": "label",
-                      "value": "value",
-                    }
-                  }
-                  loadingIcon={
-                    <span
-                      className="ant-cascader-menu-item-loading-icon"
-                    >
-                      <Icon
-                        spin={true}
-                        type="redo"
-                      />
-                    </span>
-                  }
-                  onChange={[Function]}
-                  onItemDoubleClick={[Function]}
-                  onPopupVisibleChange={[Function]}
-                  onSelect={[Function]}
-                  options={
-                    Array [
-                      Object {
-                        "__IS_FILTERED_OPTION": true,
-                        "disabled": false,
-                        "label": Array [
-                          "Jiangsu",
-                          Array [
-                            " / ",
-                            "Nanjing",
-                          ],
-                          Array [
-                            " / ",
-                            "Zhong Hua Men",
-                          ],
-                        ],
-                        "path": Array [
-                          Object {
-                            "children": Array [
-                              Object {
-                                "children": Array [
-                                  Object {
-                                    "label": "Zhong Hua Men",
-                                    "value": "zhonghuamen",
-                                  },
-                                ],
-                                "label": "Nanjing",
-                                "value": "nanjing",
-                              },
-                            ],
-                            "label": "Jiangsu",
-                            "value": "jiangsu",
-                          },
-                          Object {
-                            "children": Array [
-                              Object {
-                                "label": "Zhong Hua Men",
-                                "value": "zhonghuamen",
-                              },
-                            ],
-                            "label": "Nanjing",
-                            "value": "nanjing",
-                          },
-                          Object {
-                            "label": "Zhong Hua Men",
-                            "value": "zhonghuamen",
-                          },
-                        ],
-                        "value": Array [
-                          "jiangsu",
-                          "nanjing",
-                          "zhonghuamen",
-                        ],
-                      },
-                      Object {
-                        "__IS_FILTERED_OPTION": true,
-                        "disabled": false,
-                        "label": Array [
-                          "Zhejiang",
-                          Array [
-                            " / ",
-                            Array [
-                              "Hang",
-                              Array [
-                                <span
-                                  className="ant-cascader-menu-item-keyword"
-                                >
-                                  z
-                                </span>,
-                                "hou",
-                              ],
-                            ],
-                          ],
-                          Array [
-                            " / ",
-                            "West Lake",
-                          ],
-                        ],
-                        "path": Array [
-                          Object {
-                            "children": Array [
-                              Object {
-                                "children": Array [
-                                  Object {
-                                    "label": "West Lake",
-                                    "value": "xihu",
-                                  },
-                                ],
-                                "label": "Hangzhou",
-                                "value": "hangzhou",
-                              },
-                            ],
-                            "label": "Zhejiang",
-                            "value": "zhejiang",
-                          },
-                          Object {
-                            "children": Array [
-                              Object {
-                                "label": "West Lake",
-                                "value": "xihu",
-                              },
-                            ],
-                            "label": "Hangzhou",
-                            "value": "hangzhou",
-                          },
-                          Object {
-                            "label": "West Lake",
-                            "value": "xihu",
-                          },
-                        ],
-                        "value": Array [
-                          "zhejiang",
-                          "hangzhou",
-                          "xihu",
-                        ],
-                      },
-                    ]
-                  }
-                  placeholder="Please select"
-                  popupClassName=""
-                  popupPlacement="bottomLeft"
-                  popupVisible={true}
-                  prefixCls="ant-cascader"
-                  showSearch={
-                    Object {
-                      "filter": [Function],
-                    }
-                  }
-                  transitionName="slide-up"
-                  value={Array []}
-                  visible={true}
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
-                  <div>
-                    <ul
-                      className="ant-cascader-menu"
-                      key="0"
-                      style={
-                        Object {
-                          "width": 0,
-                        }
-                      }
-                    >
-                      <li
-                        className="ant-cascader-menu-item"
-                        key="jiangsu,nanjing,zhonghuamen"
-                        onClick={[Function]}
-                        onDoubleClick={[Function]}
-                        onMouseDown={[Function]}
-                        role="menuitem"
-                        title=""
-                      >
-                        Jiangsu
-                         / 
-                        Nanjing
-                         / 
-                        Zhong Hua Men
-                      </li>
-                      <li
-                        className="ant-cascader-menu-item"
-                        key="zhejiang,hangzhou,xihu"
-                        onClick={[Function]}
-                        onDoubleClick={[Function]}
-                        onMouseDown={[Function]}
-                        role="menuitem"
-                        title=""
-                      >
-                        Zhejiang
-                         / 
-                        Hang
-                        <span
-                          className="ant-cascader-menu-item-keyword"
-                          key="seperator"
-                        >
-                          z
-                        </span>
-                        hou
-                         / 
-                        West Lake
-                      </li>
-                    </ul>
-                  </div>
-                </Menus>
-              </LazyRenderBox>
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
-          </PopupInner>
-        </Align>
-      </AnimateChild>
-    </Animate>
+            <p
+              class="ant-empty-description"
+            >
+              No Data
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-</Popup>
+</div>
+`;
+
+exports[`Cascader popup correctly when panel is hidden 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-empty ant-cascader-menus-hidden"
+    style="pointer-events:none"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Cascader popup correctly when panel is open 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus"
+    style="opacity:0;pointer-events:none"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Zhejiang"
+        >
+          Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Jiangsu"
+        >
+          Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader popup correctly with defaultValue 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus"
+    style="opacity:0;pointer-events:none"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Zhejiang"
+        >
+          Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Jiangsu"
+        >
+          Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Hangzhou"
+        >
+          Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title="West Lake"
+        >
+          West Lake
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader popup correctly with defaultValue RTL 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0;pointer-events:none"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Zhejiang"
+        >
+          Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Jiangsu"
+        >
+          Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Hangzhou"
+        >
+          Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title="West Lake"
+        >
+          West Lake
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-cascader-picker ant-cascader-picker-rtl"
+  tabindex="0"
+>
+  <span
+    class="ant-cascader-picker-label"
+  />
+  <input
+    autocomplete="off"
+    class="ant-input ant-input-rtl ant-cascader-input "
+    placeholder="Please select"
+    readonly=""
+    tabindex="-1"
+    type="text"
+    value=""
+  />
+  <span
+    aria-label="down"
+    class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
+  >
+    <svg
+      aria-hidden="true"
+      data-icon="down"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      />
+    </svg>
+  </span>
+</span>
+`;
+
+exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
+    style="opacity: 0; pointer-events: none;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+        style="width: 0px;"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title=""
+        >
+          Jiangsu / Nanjing / Zhong Hua Men
+        </li>
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title=""
+        >
+          Zhejiang / Hang
+          <span
+            class="ant-cascader-menu-item-keyword"
+          >
+            z
+          </span>
+          hou / West Lake
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader should highlight keyword and filter when search in Cascader with same field name of label and value 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
+    style="opacity: 0; pointer-events: none;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+        style="width: 0px;"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title=""
+        >
+          Zhejiang / Hang
+          <span
+            class="ant-cascader-menu-item-keyword"
+          >
+            z
+          </span>
+          hou / West Lake
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+          role="menuitem"
+          title=""
+        >
+          Zhejiang / Hang
+          <span
+            class="ant-cascader-menu-item-keyword"
+          >
+            z
+          </span>
+          hou / Xia Sha
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Cascader should render not found content 1`] = `
-<Popup
-  action={
-    Array [
-      "click",
-    ]
-  }
-  align={
-    Object {
-      "offset": Array [
-        0,
-        4,
-      ],
-      "overflow": Object {
-        "adjustX": 1,
-        "adjustY": 1,
-      },
-      "points": Array [
-        "tl",
-        "bl",
-      ],
-    }
-  }
-  className=""
-  destroyPopupOnHide={false}
-  getClassNameFromAlign={[Function]}
-  getRootDomNode={[Function]}
-  mask={false}
-  onAlign={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  prefixCls="ant-cascader-menus"
-  style={Object {}}
-  transitionName="slide-up"
-  visible={true}
->
-  <div>
-    <Animate
-      animation={Object {}}
-      component=""
-      componentProps={Object {}}
-      exclusive={true}
-      onAppear={[Function]}
-      onEnd={[Function]}
-      onEnter={[Function]}
-      onLeave={[Function]}
-      showProp="xVisible"
-      transitionAppear={true}
-      transitionEnter={true}
-      transitionLeave={true}
-      transitionName="slide-up"
-    >
-      <AnimateChild
-        animation={Object {}}
-        key="popup"
-        transitionAppear={true}
-        transitionEnter={true}
-        transitionLeave={true}
-        transitionName="slide-up"
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-empty slide-up-appear slide-up-appear-prepare slide-up"
+    style="opacity: 0; pointer-events: none;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+        style="height: auto; width: 0px;"
       >
-        <Align
-          align={
-            Object {
-              "offset": Array [
-                0,
-                4,
-              ],
-              "overflow": Object {
-                "adjustX": 1,
-                "adjustY": 1,
-              },
-              "points": Array [
-                "tl",
-                "bl",
-              ],
-            }
-          }
-          childrenProps={
-            Object {
-              "visible": "xVisible",
-            }
-          }
-          disabled={false}
-          key="popup"
-          monitorBufferTime={50}
-          monitorWindowResize={true}
-          onAlign={[Function]}
-          target={[Function]}
-          xVisible={true}
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+          role="menuitem"
+          title=""
         >
-          <PopupInner
-            className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
-            hiddenClassName="ant-cascader-menus-hidden"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-            prefixCls="ant-cascader-menus"
-            style={Object {}}
-            visible={true}
+          <div
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
             <div
-              className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
-              onMouseDown={[Function]}
-              onTouchStart={[Function]}
-              style={Object {}}
+              class="ant-empty-image"
             >
-              <LazyRenderBox
-                className="ant-cascader-menus-content"
-                visible={true}
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <Menus
-                  activeValue={Array []}
-                  allowClear={true}
-                  builtinPlacements={
-                    Object {
-                      "bottomLeft": Object {
-                        "offset": Array [
-                          0,
-                          4,
-                        ],
-                        "overflow": Object {
-                          "adjustX": 1,
-                          "adjustY": 1,
-                        },
-                        "points": Array [
-                          "tl",
-                          "bl",
-                        ],
-                      },
-                      "bottomRight": Object {
-                        "offset": Array [
-                          0,
-                          4,
-                        ],
-                        "overflow": Object {
-                          "adjustX": 1,
-                          "adjustY": 1,
-                        },
-                        "points": Array [
-                          "tr",
-                          "br",
-                        ],
-                      },
-                      "topLeft": Object {
-                        "offset": Array [
-                          0,
-                          -4,
-                        ],
-                        "overflow": Object {
-                          "adjustX": 1,
-                          "adjustY": 1,
-                        },
-                        "points": Array [
-                          "bl",
-                          "tl",
-                        ],
-                      },
-                      "topRight": Object {
-                        "offset": Array [
-                          0,
-                          -4,
-                        ],
-                        "overflow": Object {
-                          "adjustX": 1,
-                          "adjustY": 1,
-                        },
-                        "points": Array [
-                          "br",
-                          "tr",
-                        ],
-                      },
-                    }
-                  }
-                  defaultFieldNames={
-                    Object {
-                      "children": "children",
-                      "label": "label",
-                      "value": "value",
-                    }
-                  }
-                  disabled={false}
-                  dropdownMenuColumnStyle={
-                    Object {
-                      "height": "auto",
-                      "width": 0,
-                    }
-                  }
-                  expandIcon={
-                    <Icon
-                      type="right"
-                    />
-                  }
-                  expandTrigger="click"
-                  fieldNames={
-                    Object {
-                      "children": "children",
-                      "label": "label",
-                      "value": "value",
-                    }
-                  }
-                  loadingIcon={
-                    <span
-                      className="ant-cascader-menu-item-loading-icon"
-                    >
-                      <Icon
-                        spin={true}
-                        type="redo"
-                      />
-                    </span>
-                  }
-                  onChange={[Function]}
-                  onItemDoubleClick={[Function]}
-                  onPopupVisibleChange={[Function]}
-                  onSelect={[Function]}
-                  options={
-                    Array [
-                      Object {
-                        "disabled": true,
-                        "label": <Context.Consumer>
-                          [Function]
-                        </Context.Consumer>,
-                        "value": "ANT_CASCADER_NOT_FOUND",
-                      },
-                    ]
-                  }
-                  placeholder="Please select"
-                  popupClassName=""
-                  popupPlacement="bottomLeft"
-                  popupVisible={true}
-                  prefixCls="ant-cascader"
-                  showSearch={
-                    Object {
-                      "filter": [Function],
-                    }
-                  }
-                  transitionName="slide-up"
-                  value={Array []}
-                  visible={true}
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
-                  <div>
-                    <ul
-                      className="ant-cascader-menu"
-                      key="0"
-                      style={
-                        Object {
-                          "height": "auto",
-                          "width": 0,
-                        }
-                      }
-                    >
-                      <li
-                        className="ant-cascader-menu-item ant-cascader-menu-item-disabled"
-                        key="ANT_CASCADER_NOT_FOUND"
-                        onClick={[Function]}
-                        onDoubleClick={[Function]}
-                        onMouseDown={[Function]}
-                        role="menuitem"
-                        title=""
-                      >
-                        <OriginEmpty
-                          className="ant-empty-small"
-                          image="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHZpZXdCb3g9IjAgMCA2NCA0MSIgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
-                        >
-                          <LocaleReceiver
-                            componentName="Empty"
-                          >
-                            <div
-                              className="ant-empty ant-empty-normal ant-empty-small"
-                            >
-                              <div
-                                className="ant-empty-image"
-                              >
-                                <img
-                                  alt="No Data"
-                                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHZpZXdCb3g9IjAgMCA2NCA0MSIgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
-                                />
-                              </div>
-                              <p
-                                className="ant-empty-description"
-                              >
-                                No Data
-                              </p>
-                            </div>
-                          </LocaleReceiver>
-                        </OriginEmpty>
-                      </li>
-                    </ul>
-                  </div>
-                </Menus>
-              </LazyRenderBox>
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
-          </PopupInner>
-        </Align>
-      </AnimateChild>
-    </Animate>
+            <p
+              class="ant-empty-description"
+            >
+              No Data
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-</Popup>
+</div>
+`;
+
+exports[`Cascader should show not found content when options.length is 0 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-empty slide-up-appear slide-up-appear-prepare slide-up"
+    style="opacity: 0; pointer-events: none;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+        style="height: auto; width: 0px;"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+          role="menuitem"
+          title=""
+        >
+          <div
+            class="ant-empty ant-empty-normal ant-empty-small"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <p
+              class="ant-empty-description"
+            >
+              No Data
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Cascader support controlled mode 1`] = `
@@ -1274,14 +1256,14 @@ exports[`Cascader support controlled mode 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: close-circle"
+  <span
+    aria-label="close-circle"
     class="anticon anticon-close-circle ant-cascader-picker-clear"
+    role="img"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -1290,17 +1272,17 @@ exports[`Cascader support controlled mode 1`] = `
       width="1em"
     >
       <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
       />
     </svg>
-  </i>
-  <i
-    aria-label="icon: down"
+  </span>
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -1312,6 +1294,6 @@ exports[`Cascader support controlled mode 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;

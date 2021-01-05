@@ -2,7 +2,7 @@
 order: 99
 debug: true
 title:
-  zh-CN: 基本
+  zh-CN: 嵌套
   en-US: Nest
 ---
 
@@ -17,8 +17,8 @@ Default activate first tab.
 ```jsx
 import { Tabs, Select } from 'antd';
 
-const TabPane = Tabs.TabPane;
-const Option = Select.Option;
+const { TabPane } = Tabs;
+const { Option } = Select;
 
 const positionList = ['left', 'right', 'top', 'bottom'];
 
@@ -71,6 +71,7 @@ class Demo extends React.Component {
         >
           <Option value="line">Parent - line</Option>
           <Option value="card">Parent - card</Option>
+          <Option value="editable-card">Parent - card edit</Option>
         </Select>
 
         <Select
@@ -81,6 +82,7 @@ class Demo extends React.Component {
         >
           <Option value="line">Child - line</Option>
           <Option value="card">Child - card</Option>
+          <Option value="editable-card">Parent - card edit</Option>
         </Select>
 
         <Tabs defaultActiveKey="1" tabPosition={parentPos} type={parentType}>

@@ -4,21 +4,20 @@
 @tag-prefix-cls: ~'@{ant-prefix}-tag';
 
 .@{tag-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   display: inline-block;
   height: auto;
   margin-right: 8px;
   padding: 0 7px;
   font-size: @tag-font-size;
-  line-height: 20px;
+  line-height: @tag-line-height;
   white-space: nowrap;
   background: @tag-default-bg;
   border: @border-width-base @border-style-base @border-color-base;
   border-radius: @border-radius-base;
-  cursor: default;
   opacity: 1;
-  transition: all 0.3s @ease-in-out-circ;
+  transition: all 0.3s;
 
   &:hover {
     opacity: 0.85;
@@ -36,14 +35,12 @@
     padding: 0 8px;
   }
 
-  .@{iconfont-css-prefix}-close {
-    .iconfont-size-under-12px(10px);
-
+  &-close-icon {
     margin-left: 3px;
     color: @text-color-secondary;
-    font-weight: bold;
+    font-size: 10px;
     cursor: pointer;
-    transition: all 0.3s @ease-in-out-circ;
+    transition: all 0.3s;
 
     &:hover {
       color: @heading-color;
@@ -64,6 +61,7 @@
   &-checkable {
     background-color: transparent;
     border-color: transparent;
+    cursor: pointer;
     &:not(&-checked):hover {
       color: @primary-color;
     }
@@ -102,5 +100,29 @@
     }
   }
 
+  .make-status-color-classes(@color, @status) {
+    @lightColor: '@{color}-1';
+    @lightBorderColor: '@{color}-3';
+    @darkColor: '@{color}-6';
+    &-@{status} {
+      color: @@darkColor;
+      background: @@lightColor;
+      border-color: @@lightBorderColor;
+    }
+  }
+
   .make-color-classes();
+
+  .make-status-color-classes('green', success);
+  .make-status-color-classes('blue', processing);
+  .make-status-color-classes('red', error);
+  .make-status-color-classes('orange', warning);
+
+  // To ensure that a space will be placed between character and `Icon`.
+  > .@{iconfont-css-prefix} + span,
+  > span + .@{iconfont-css-prefix} {
+    margin-left: 7px;
+  }
 }
+
+@import './rtl';

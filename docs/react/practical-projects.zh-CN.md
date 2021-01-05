@@ -1,150 +1,67 @@
 ---
-order: 2
+order: 3
 title: 项目实战
 ---
 
-在真实项目开发中，你可能会需要 Redux 或者 MobX 这样的数据流方案，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的数据流方案以及应用框架搭配使用。我们基于 Redux 推出了自己的最佳实践 dva，以及可插拔的企业级应用框架 umi，推荐你在项目中使用。
+在真实项目开发中，你可能会需要 Redux 或者 MobX 这样的数据流方案，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的数据流方案以及应用框架搭配使用。我们基于业务场景的场景，推出了可插拔的企业级应用框架 umi，推荐你在项目中使用。
 
-[dva](http://dvajs.com/) 是一个基于 Redux 的 轻量级数据流方案，概念来自 elm，支持 side effects、热替换、动态加载、react-native、SSR 等，已在生产环境广泛应用。
-
-[umi](http://umijs.org/) 则是一个可插拔的企业级 react 应用框架。umi 以路由为基础的，支持[类 next.js 的约定式路由](https://umijs.org/zh/guide/router.html)，以及各种进阶的路由功能，并以此进行功能扩展，比如[支持路由级的按需加载](https://umijs.org/zh/plugin/umi-plugin-react.html#dynamicimport)。然后配以完善的[插件体系](https://umijs.org/zh/plugin/)，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求。
+[umi](http://umijs.org/) 则是一个可插拔的企业级 react 应用框架。umi 以路由为基础的，支持[类 next.js 的约定式路由](https://umijs.org/zh/guide/router.html)，以及各种进阶的路由功能，并以此进行功能扩展，比如[支持路由级的按需加载](https://umijs.org/zh/plugin/umi-plugin-react.html#dynamicimport)。然后配以完善的[插件体系](https://umijs.org/zh/plugin/)，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求，同时提供 [Umi UI](https://umijs.org/zh/guide/umi-ui.html) 通过可视化辅助编程（VAP）提高开发体验和研发效率。
 
 > 你可能也会对 [Ant Design Pro](https://pro.ant.design/) 感兴趣，这是一个基于 umi、dva 和 ant design 的开箱即用的中台前端/设计解决方案。
 
-本文会引导你使用 umi、dva 和 antd 从 0 开始创建一个简单应用。
+本文会引导你使用 Umi、dva 和 antd 从 0 开始创建一个简单应用。
 
-## 创建新应用
+## 安装 Umi
 
-先创建一个空目录，
-
-```bash
-$ mkdir myapp
-$ cd myapp
-```
-
-推荐使用 yarn 创建应用，执行以下命令，
-
-> 如果你坚持用 npm，可执行 `npm install -g create-umi && create-umi`，效果一致。
+推荐使用 yarn 创建 Umi 脚手架，执行以下命令。
 
 ```bash
+$ mkdir myapp && cd myapp
 $ yarn create umi
-
-yarn create v1.12.0
-[1/4] 🔍  Resolving packages...
-[2/4] 🚚  Fetching packages...
-[3/4] 🔗  Linking dependencies...
-[4/4] 📃  Building fresh packages...
-
-success Installed "create-umi@0.9.5" with binaries:
-      - create-umi
-```
-
-yarn 会先安装最新版的 [create-umi](https://github.com/umijs/create-umi)，然后提供交互式的提示来创建应用。
-
-选择 `app`, 然后回车确认。
-
-```
-? Select the boilerplate type
-  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
-❯ app             - Create project with a simple boilerplate, support typescript.
-  block           - Create a umi block.
-  library         - Create a library with umi.
-  plugin          - Create a umi plugin.
-```
-
-选上 `antd` 和 `dva`，然后回车确认。
-
-```
-   create package.json
-   create mock/.gitkeep
-   create src/assets/yay.jpg
-   create src/layouts/index.css
-   create src/layouts/index.js
-   create src/pages/index.css
-   create src/pages/index.js
-   create src/global.css
-   create .gitignore
-   create .editorconfig
-   create .env
-   create .umirc.js
-   create .eslintrc
-   create .prettierrc
-   create .prettierignore
-   create src/models/.gitkeep
-   create src/dva.js
-✨  File Generate Done
-✨  Done in 966.73s.
-```
-
-然后安装依赖，
-
-```bash
 $ yarn
 ```
 
-然后启动应用，
+> 如果你使用 npm，可执行 `npx create-umi`，效果一致。
+
+## 安装插件集
+
+执行以下命令，安装插件集（包括 antd、dva、国际化等常用插件）：
 
 ```bash
-$ yarn start
+# 或 npm i @umijs/preset-react -D
+$ yarn add @umijs/preset-react -D
 ```
 
-几秒钟后，你会看到以下输出，
-
-```bash
- DONE  Compiled successfully in 212ms
-
-  App running at:
-  - Local:   http://localhost:8000/
-  - Network: http://{{ YourIP }}:8000/
-```
-
-在浏览器里打开 [http://localhost:8000](http://localhost:8000)，你会看到 umi 的欢迎界面。
-
-<img src="https://gw.alipayobjects.com/zos/rmsportal/lewbQdlEHzuNDpaxykUP.png" width="718" />
-
-## 使用 antd
-
-前面选择 antd 之后，会自动处理 antd 的依赖以及按需加载。你可以检查 `.umirc.js` 里的配置，确保 antd 已开启。
-
-```js
-// ref: https://umijs.org/config/
-export default {
-  plugins: [
-    // ref: https://umijs.org/plugin/umi-plugin-react.html
-    [
-      'umi-plugin-react',
-      {
-        antd: true,
-        dva: true,
-      },
-    ],
-  ],
-};
-```
-
-> 而如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，package.json 里声明的 antd 依赖会被优先使用。
+> 插件默认使用 `"antd": "^4.0.0"`，如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，`package.json` 里声明的 antd 依赖会被优先使用。
 
 ## 新建路由
 
 我们要写个应用来先显示产品列表。首先第一步是创建路由，路由可以想象成是组成应用的不同页面。
 
-如果你没有 npx，需要先安装他，用于执行 node_modules 下的命令，
-
-```bash
-$ yarn global add npx
-```
-
 然后通过命令创建 `/products` 路由，
 
 ```bash
-$ npx umi g page products
+$ npx umi g page products --typescript
 
-   create src/pages/products.js
-   create src/pages/products.css
-✔  success
+Write: src/pages/products.tsx
+Write: src/pages/products.css
 ```
 
-然后在浏览器里打开 [http://localhost:8000/products](http://localhost:8000/products)，你应该能看到对应的页面。
+在 `.umirc.ts` 中配置路由，如果有国际化需要，可以配置 `locale` 开启 antd 国际化：
+
+```diff
+import { defineConfig } from 'umi';
+
+export default defineConfig({
++ locale: { antd: true },
+  routes: [
+    { path: '/', component: '@/pages/index' },
++   { path: '/products', component: '@/pages/products' },
+  ],
+});
+```
+
+运行 `yarn start` 然后在浏览器里打开 [http://localhost:8000/products](http://localhost:8000/products)，你应该能看到对应的页面。
 
 ## 编写 UI Component
 
@@ -152,12 +69,15 @@ $ npx umi g page products
 
 我们来编写一个 `ProductList` component，这样就能在不同的地方显示产品列表了。
 
-新建 `src/components/ProductList.js` 文件：
+然后新建 `src/components/ProductList.tsx` 文件：
 
-```js
+```tsx
 import { Table, Popconfirm, Button } from 'antd';
 
-const ProductList = ({ onDelete, products }) => {
+const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
+  onDelete,
+  products,
+}) => {
   const columns = [
     {
       title: 'Name',
@@ -180,112 +100,167 @@ const ProductList = ({ onDelete, products }) => {
 export default ProductList;
 ```
 
-## 定义 dva Model
+## 简单数据流方案
 
-完成 UI 后，现在开始处理数据和逻辑。
+`@umijs/plugin-model` 是一种基于 hooks 范式的简单数据流方案，可以在一定情况下替代 dva 来进行中台的全局数据流。我们约定在 `src/models` 目录下的文件为项目定义的 model 文件。每个文件需要默认导出一个 function，该 function 定义了一个 Hook，不符合规范的文件我们会过滤掉。
 
-dva 通过 `model` 的概念把一个领域的模型管理起来，包含同步更新 state 的 reducers，处理异步逻辑的 effects，订阅数据源的 subscriptions 。
+文件名则对应最终 model 的 name，你可以通过插件提供的 API 来消费 model 中的数据。
 
-新建 model `src/models/products.js`，
+我们以一个简单的表格作为示例。首先需要新建文件 `src/models/useProductList.ts`。
 
-```js
-export default {
-  namespace: 'products',
-  state: [],
-  reducers: {
-    delete(state, { payload: id }) {
-      return state.filter(item => item.id !== id);
-    },
-  },
-};
+```tsx
+import { useRequest } from 'umi';
+import { queryProductList } from '@/services/product';
+
+export default function useProductList(params: { pageSize: number; current: number }) {
+  const msg = useRequest(() => queryUserList(params));
+
+  const deleteProducts = async (id: string) => {
+    try {
+      await removeProducts(id);
+      message.success('success');
+      msg.run();
+    } catch (error) {
+      message.error('fail');
+    }
+  };
+
+  return {
+    dataSource: msg.data,
+    reload: msg.run,
+    loading: msg.loading,
+    deleteProducts,
+  };
+}
 ```
 
-这个 model 里：
+编辑 `src/pages/products.tsx`，替换为以下内容：
 
-- `namespace` 表示在全局 state 上的 key
-- `state` 是初始值，在这里是空数组
-- `reducers` 等同于 redux 里的 reducer，接收 action，同步更新 state
+```tsx
+import { useModel } from 'umi';
+import ProductList from '@/components/ProductList';
 
-umi 里约定 `src/models` 下的 model 会被自动注入，你无需手动注入。
-
-## connect 起来
-
-到这里，我们已经单独完成了 model 和 component，那么他们如何串联起来呢?
-
-dva 提供了 `connect` 方法。如果你熟悉 redux，这个 connect 来自 react-redux。
-
-编辑 `src/pages/products.js`，替换为以下内容：
-
-```js
-import { connect } from 'dva';
-import ProductList from '../components/ProductList';
-
-const Products = ({ dispatch, products }) => {
-  function handleDelete(id) {
-    dispatch({
-      type: 'products/delete',
-      payload: id,
-    });
-  }
+const Products = () => {
+  const { dataSource, reload, deleteProducts } = useModel('useProductList');
   return (
     <div>
-      <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={products} />
+      <a onClick={() => reload()}>reload</a>
+      <ProductList onDelete={deleteProducts} products={dataSource} />
     </div>
   );
 };
 
-export default connect(({ products }) => ({
-  products,
-}))(Products);
+export default Products;
 ```
 
-最后，我们还需要一些初始数据让这个应用 run 起来。编辑 `src/app.js`：
+执行启动命令：
 
-```js
-export const dva = {
-  config: {
-    onError(err) {
-      err.preventDefault();
-      console.error(err.message);
+```bash
+$ yarn start
+```
+
+访问 [http://localhost:8000](http://localhost:8000/)，应该能看到以下效果：
+
+<img src="https://gw.alipayobjects.com/zos/antfincdn/dPsy4tFHN3/umi.gif" />
+
+## ProLayout
+
+一个标准的中后台页面，一般都需要一个布局，这个布局很多时候都是高度雷同的，ProLayout 封装了常用的菜单，面包屑，页头等功能，提供了一个不依赖的框架且开箱即用的高级布局组件。
+
+并且支持 `side`, `mix`, `top` 三种模式，更是内置了菜单选中，菜单生成面包屑，自动设置页面标题的逻辑。可以帮助你快速的开始一个项目。
+
+![site](https://gw.alipayobjects.com/zos/antfincdn/gXkuc%26RmT7/64038246-E2BF-4840-8898-5AF531897A44.png)
+
+使用方式也是极为简单，只需要进行几个简单的设置。
+
+```tsx
+import { Button } from 'antd';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+
+export default (
+  <ProLayout>
+    <PageContainer
+      extra={[
+        <Button key="3">Operating</Button>,
+        <Button key="2">Operating</Button>,
+        <Button key="1" type="primary">
+          Main Operating
+        </Button>,
+      ]}
+      footer={[<Button>reset</Button>, <Button type="primary">submit</Button>]}
+    >
+      {children}
+    </PageContainer>
+  </ProLayout>
+);
+```
+
+点击这里[快速开始](https://prolayout.ant.design/getting-started)。
+
+## ProTable
+
+一个中后台页面中很多数据都不需要跨页面共享，models 在一些时候也是不需要的。
+
+```tsx
+import ProTable from '@ant-design/pro-table';
+import { Popconfirm, Button } from 'antd';
+import { queryProductList } from '@/services/product';
+
+const Products = () => {
+  const actionRef = useRef<ActionType>();
+
+  const deleteProducts = async (id: string) => {
+    try {
+      await removeProducts(id);
+      message.success('success');
+      actionRef.current?.reload();
+    } catch (error) {
+      message.error('fail');
+    }
+  };
+
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
     },
-    initialState: {
-      products: [{ name: 'dva', id: 1 }, { name: 'antd', id: 2 }],
+    {
+      title: 'Actions',
+      render: (text, record) => {
+        return (
+          <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+            <Button>Delete</Button>
+          </Popconfirm>
+        );
+      },
     },
-  },
+  ];
+
+  return (
+    <ProTable<{ name: string }>
+      headerTitle="查询表格"
+      actionRef={actionRef}
+      rowKey="name"
+      request={(params, sorter, filter) => queryProductList({ ...params, sorter, filter })}
+      columns={columns}
+    />
+  );
 };
 ```
 
-刷新浏览器，应该能看到以下效果：
-
-<img src="https://zos.alipayobjects.com/rmsportal/GQJeDDeUCSTRMMg.gif" />
+ProTable 提供了预设逻辑来处理 loading，分页 和搜索表单，可以大大减少代码量，点击这里[快速开始](https://protable.ant.design/getting-started)。
 
 ## 构建应用
 
-完成开发并且在开发环境验证之后，就需要部署给我们的用户了。先执行下面的命令，
+完成开发并且在开发环境验证之后，就需要部署给我们的用户了，执行以下命令：
 
 ```bash
-$ npm run build
+$ yarn build
 ```
 
-几秒后，输出应该如下：
+![build](https://gw.alipayobjects.com/zos/antfincdn/Zd3f%242NdOK/b911d244-f1a5-4d61-adc5-3710cd86cd1b.png)
 
-```bash
-> @ build /private/tmp/sorrycc-V0lLrF
-> umi build
-
-[5:01:58 PM] webpack compiled in 11s 615ms
-
-
- DONE  Compiled successfully in 11622ms                                           5:01:58 PM
-
-File sizes after gzip:
-
-  340.44 KB  dist/umi.js
-  17.82 KB   dist/umi.css
-```
-
-build 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。你可以在 `dist/` 目录下找到这些文件。
+构建会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。你可以在 `dist/` 目录下找到这些文件。
 
 ## 下一步
 
@@ -302,5 +277,6 @@ build 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images
 - 访问 [umi 官网](https://umijs.org/)和 [dva 官网](https://dvajs.com/)
 - 理解 [umi 的路由](https://umijs.org/zh/guide/router.html)
 - 理解 [如何部署 umi 应用](https://umijs.org/zh/guide/deploy.html)
-- 查看 [dva 知识地图](https://dvajs.com/knowledgemap/)，包含 ES6, React, dva 等所有基础知识
-- 理解 [dva 的 8 个概念](https://dvajs.com/guide/concepts.html)，以及他们是如何串起来的
+- 开箱即用的脚手架 [Ant Design Pro](https://pro.ant.design)
+- 高级布局 [ProLayout](https://prolayout.ant.design)
+- 高级表格 [ProTable](https://protable.ant.design)

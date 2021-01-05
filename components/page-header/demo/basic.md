@@ -17,13 +17,18 @@ Standard header, suitable for use in scenarios that require a brief description.
 import { PageHeader } from 'antd';
 
 ReactDOM.render(
-  <PageHeader onBack={() => null} title="Title" subTitle="This is a subtitle" />,
+  <PageHeader
+    className="site-page-header"
+    onBack={() => null}
+    title="Title"
+    subTitle="This is a subtitle"
+  />,
   mountNode,
 );
 ```
 
-<style>
-.code-box-demo .ant-page-header {
+```css
+.site-page-header {
   border: 1px solid rgb(235, 237, 240);
 }
-<style>
+```

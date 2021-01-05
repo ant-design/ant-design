@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 99
 debug: true
 title:
   zh-CN: 后缀图标
@@ -15,18 +15,17 @@ title:
 Click `TimePicker`, and then we could select or input a time in panel.
 
 ```jsx
-import { TimePicker, Icon } from 'antd';
+import { TimePicker } from 'antd';
 import moment from 'moment';
+import { SmileOutlined } from '@ant-design/icons';
 
 function onChange(time, timeString) {
   console.log(time, timeString);
 }
 
-const icon = <Icon type="smile" />;
-
 ReactDOM.render(
   <TimePicker
-    suffixIcon={icon}
+    suffixIcon={<SmileOutlined />}
     onChange={onChange}
     defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
   />,

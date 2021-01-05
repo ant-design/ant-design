@@ -4,23 +4,35 @@ type: Navigation
 title: PageHeader
 cols: 1
 subtitle:
+cover: https://gw.alipayobjects.com/zos/alicdn/6bKE0Cq0R/PageHeader.svg
 ---
 
-The header can be used to declare the page topic, display important information about the page that the user is interested in, and carry the action items related to the current page (including page-level operations, inter-page navigation, etc.)
+A header with common actions and design elements built in.
 
 ## When To Use
 
-It can also be used as inter-page navigation when it is needed to make the user quickly understand what the current page is and to facilitate the user to use the page function.
+PageHeader can be used to highlight the page topic, display important information about the page, and carry the action items related to the current page (including page-level operations, inter-page navigation, etc.) It can also be used as inter-page navigation.
 
 ## API
 
-| Param | Description | Type | Default value |
-| --- | --- | --- | --- |
-| title | custom title text | ReactNode | - |
-| subTitle | custom subTitle text | ReactNode | - |
-| backIcon | custom back icon, if false the back icon will not be displayed | ReactNode | `<Icon type="arrow-left" />` |
-| tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |
-| extra | Operating area, at the end of the line of the title line | ReactNode | - |
-| breadcrumb | breadcrumb config | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - |
-| footer | PageHeader's footer, generally used to render TabBar | ReactNode | - |
-| onBack | back icon click event | `()=>void` | `()=>history.back()` |
+| Param | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
+| avatar | Avatar next to the title bar | [AvatarProps](/components/avatar/) | - |  |
+| backIcon | Custom back icon, if false the back icon will not be displayed | ReactNode \| boolean | &lt;ArrowLeft /> |  |
+| breadcrumb | Breadcrumb configuration | [Breadcrumb](/components/breadcrumb/) | - |  |
+| extra | Operating area, at the end of the line of the title line | ReactNode | - |  |
+| footer | PageHeader's footer, generally used to render TabBar | ReactNode | - |  |
+| ghost | PageHeader type, will change background color | boolean | true |  |
+| subTitle | Custom subtitle text | ReactNode | - |  |
+| tags | Tag list next to title | [Tag](/components/tag/)\[] \| [Tag](/components/tag/) | - |  |
+| title | Custom title text | ReactNode | - |  |
+| onBack | Back icon click event | () => void | - |  |
+
+<style>
+  [data-theme="dark"] .site-page-header {
+    border: 1px solid #303030;
+  }
+  [data-theme="dark"]  .site-page-header-ghost-wrapper {
+    background-color: rgba(255,255,255,0.08);
+  }
+</style>

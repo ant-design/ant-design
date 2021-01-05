@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 import * as React from 'react';
 import classNames from 'classnames';
 
@@ -8,12 +9,8 @@ export interface SkeletonTitleProps {
   width?: number | string;
 }
 
-class Title extends React.Component<SkeletonTitleProps, any> {
-  render() {
-    const { prefixCls, className, width, style } = this.props;
-
-    return <h3 className={classNames(prefixCls, className)} style={{ width, ...style }} />;
-  }
-}
+const Title = ({ prefixCls, className, width, style }: SkeletonTitleProps) => (
+  <h3 className={classNames(prefixCls, className)} style={{ width, ...style }} />
+);
 
 export default Title;

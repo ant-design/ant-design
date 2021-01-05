@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 3
 title:
   zh-CN: 垂直分割线
   en-US: Vertical
@@ -17,13 +17,13 @@ Use `type="vertical"` make it vertical.
 import { Divider } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     Text
     <Divider type="vertical" />
     <a href="#">Link</a>
     <Divider type="vertical" />
     <a href="#">Link</a>
-  </div>,
+  </>,
   mountNode,
 );
 ```

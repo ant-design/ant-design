@@ -13,12 +13,12 @@ describe('Transfer.Customize', () => {
     errorSpy.mockRestore();
   });
 
-  it('should warning use body', () => {
-    mount(<Transfer body={() => null} />);
+  it('props#body does not work anymore', () => {
+    const body = jest.fn();
+    mount(<Transfer body={body} />);
 
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Transfer] `body` is internal usage and will bre removed, please use `children` instead.',
-    );
+    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(body).not.toHaveBeenCalled();
   });
 
   describe('deprecated function', () => {
@@ -48,30 +48,17 @@ describe('Transfer.Customize', () => {
         </Transfer>,
       );
     });
+  });
 
-    it('should warn if called in body', () => {
-      let init = true;
+  it('warning if use `pagination`', () => {
+    mount(
+      <Transfer dataSource={[]} pagination>
+        {() => null}
+      </Transfer>,
+    );
 
-      mount(
-        <Transfer
-          {...commonProps}
-          body={({ handleSelect, handleSelectAll }) => {
-            if (init) {
-              handleSelect('', true);
-              expect(errorSpy).toHaveBeenCalledWith(
-                'Warning: [antd: Transfer] `handleSelect` will be removed, please use `onSelect` instead.',
-              );
-              errorSpy.mockReset();
-              handleSelectAll([], true);
-              expect(errorSpy).toHaveBeenCalledWith(
-                'Warning: [antd: Transfer] `handleSelectAll` will be removed, please use `onSelectAll` instead.',
-              );
-            }
-            init = false;
-            return null;
-          }}
-        />,
-      );
-    });
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Transfer] `pagination` not support customize render list.',
+    );
   });
 });

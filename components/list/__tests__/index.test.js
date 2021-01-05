@@ -1,21 +1,22 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import List from '..';
-
-const ListItem = List.Item;
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('List', () => {
+  mountTest(List);
+  mountTest(List.Item);
+
+  rtlTest(List);
+  rtlTest(List.Item);
+
   it('locale not passed to internal div', async () => {
     const locale = { emptyText: 'Custom text' };
-    const renderItem = item => <ListItem>{item}</ListItem>;
+    const renderItem = item => <List.Item>{item}</List.Item>;
     const dataSource = [];
 
     const wrapper = mount(<List renderItem={renderItem} dataSource={dataSource} locale={locale} />);
-    expect(
-      wrapper
-        .find('div')
-        .first()
-        .props().locale,
-    ).toBe(undefined);
+    expect(wrapper.find('div').first().props().locale).toBe(undefined);
   });
 });

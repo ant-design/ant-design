@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Use `tipFormatter` to format content of `Toolip`. If `tipFormatter` is null, hide it.
+Use `tipFormatter` to format content of `Tooltip`. If `tipFormatter` is null, hide it.
 
 ```jsx
 import { Slider } from 'antd';
@@ -21,10 +21,10 @@ function formatter(value) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <Slider tipFormatter={formatter} />
     <Slider tipFormatter={null} />
-  </div>,
+  </>,
   mountNode,
 );
 ```

@@ -46,10 +46,3 @@ ReactDOM.render(
   mountNode,
 );
 ```
-
-<style>
-.code-box-demo .ant-btn {
-  margin-right: 1em;
-  margin-bottom: 1em;
-}
-</style>

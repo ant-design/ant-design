@@ -1,0 +1,68 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+.@{ant-prefix}-row {
+  &-rtl {
+    direction: rtl;
+  }
+}
+
+// mixin
+.loop-grid-columns(@index, @class) when (@index > 0) {
+  .@{ant-prefix}-col@{class}-push-@{index} {
+    // reset property in RTL direction
+    &.@{ant-prefix}-col-rtl {
+      right: percentage((@index / @grid-columns));
+      left: auto;
+    }
+  }
+
+  .@{ant-prefix}-col@{class}-pull-@{index} {
+    // reset property in RTL direction
+    &.@{ant-prefix}-col-rtl {
+      right: auto;
+      left: percentage((@index / @grid-columns));
+    }
+  }
+
+  .@{ant-prefix}-col@{class}-offset-@{index} {
+    // reset property in RTL direction
+    &.@{ant-prefix}-col-rtl {
+      margin-right: percentage((@index / @grid-columns));
+      margin-left: 0;
+    }
+  }
+}
+
+.loop-grid-columns(@index, @class) when (@index = 0) {
+  .@{ant-prefix}-col-push-@{index} {
+    // reset property in RTL direction
+    &.@{ant-prefix}-col-rtl {
+      right: auto;
+    }
+  }
+
+  .@{ant-prefix}-col-pull-@{index} {
+    &.@{ant-prefix}-col-rtl {
+      left: auto;
+    }
+  }
+
+  .@{ant-prefix}-col@{class}-push-@{index} {
+    &.@{ant-prefix}-col-rtl {
+      right: auto;
+    }
+  }
+
+  .@{ant-prefix}-col@{class}-pull-@{index} {
+    &.@{ant-prefix}-col-rtl {
+      left: auto;
+    }
+  }
+
+  .@{ant-prefix}-col@{class}-offset-@{index} {
+    &.@{ant-prefix}-col-rtl {
+      margin-right: 0;
+    }
+  }
+}

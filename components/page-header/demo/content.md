@@ -1,22 +1,61 @@
 ---
-order: 3
+order: 4
 title:
-  zh-CN: 带内容的例子
-  en-US: Example with content
+  zh-CN: 组合示例
+  en-US: Complete example
 ---
 
 ## zh-CN
 
-带内容的例子,可以优先展示页面的主要信息。
+使用了 PageHeader 提供的所有能力。
 
 ## en-US
 
-An example with content that gives priority to the main information of the page.
+Show all props provided by PageHeader.
 
 ```jsx
-import { PageHeader, Typography } from 'antd';
+import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        1st menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        2nd menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+        3rd menu item
+      </a>
+    </Menu.Item>
+  </Menu>
+);
+
+const DropdownMenu = () => (
+  <Dropdown key="more" overlay={menu}>
+    <Button
+      style={{
+        border: 'none',
+        padding: 0,
+      }}
+    >
+      <EllipsisOutlined
+        style={{
+          fontSize: 20,
+          verticalAlign: 'top',
+        }}
+      />
+    </Button>
+  </Dropdown>
+);
 
 const routes = [
   {
@@ -33,8 +72,15 @@ const routes = [
   },
 ];
 
+const IconLink = ({ src, text }) => (
+  <a className="example-link">
+    <img className="example-link-icon" src={src} alt={text} />
+    {text}
+  </a>
+);
+
 const content = (
-  <div className="content">
+  <>
     <Paragraph>
       Ant Design interprets the color system into two levels: a system-level color system and a
       product-level color system.
@@ -44,64 +90,104 @@ const content = (
       easier for designers to have a clear psychological expectation of color when adjusting colors,
       as well as facilitate communication in teams.
     </Paragraph>
-    <p className="contentLink">
-      <a>
-        <img
-          src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
-          alt="start"
-        />
-        Quick Start
-      </a>
-      <a>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" alt="info" />
-        Product Info
-      </a>
-      <a>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc" />
-        Product Doc
-      </a>
-    </p>
-  </div>
+    <div>
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
+        text="Quick Start"
+      />
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
+        text=" Product Info"
+      />
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
+        text="Product Doc"
+      />
+    </div>
+  </>
 );
 
-const extraContent = (
-  <img
-    src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
-    alt="content"
-  />
+const Content = ({ children, extraContent }) => (
+  <Row>
+    <div style={{ flex: 1 }}>{children}</div>
+    <div className="image">{extraContent}</div>
+  </Row>
 );
 
 ReactDOM.render(
-  <PageHeader title="Title" breadcrumb={{ routes }}>
-    <div className="wrap">
-      <div className="content">{content}</div>
-      <div className="extraContent">{extraContent}</div>
-    </div>
+  <PageHeader
+    title="Title"
+    className="site-page-header"
+    subTitle="This is a subtitle"
+    tags={<Tag color="blue">Running</Tag>}
+    extra={[
+      <Button key="3">Operation</Button>,
+      <Button key="2">Operation</Button>,
+      <Button key="1" type="primary">
+        Primary
+      </Button>,
+      <DropdownMenu key="more" />,
+    ]}
+    avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
+    breadcrumb={{ routes }}
+  >
+    <Content
+      extraContent={
+        <img
+          src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
+          alt="content"
+          width="100%"
+        />
+      }
+    >
+      {content}
+    </Content>
   </PageHeader>,
   mountNode,
 );
 ```
 
-<style>
-#components-page-header-demo-content .wrap {
+```css
+#components-page-header-demo-content .image {
+  margin: 0 0 0 60px;
   display: flex;
+  align-items: center;
 }
-#components-page-header-demo-content .content {
-  flex: 1;
+
+#components-page-header-demo-content .ant-page-header-rtl .image {
+  margin: 0 60px 0 0;
 }
-#components-page-header-demo-content .extraContent {
-  min-width: 240px;
-  text-align: right;
+
+#components-page-header-demo-content .example-link {
+  line-height: 24px;
+  margin-right: 16px;
 }
-#components-page-header-demo-content .contentLink {
-  padding-top: 16px;
+[data-theme='compact'] #components-page-header-demo-content .example-link {
+  line-height: 20px;
 }
-#components-page-header-demo-content .contentLink a {
-  display: inline-block;
-  vertical-align: text-top;
-  margin-right: 32px;
-}
-#components-page-header-demo-content .contentLink a img {
+#components-page-header-demo-content .example-link-icon {
   margin-right: 8px;
 }
-</style>
+
+[data-theme='compact'] #components-page-header-demo-content .example-link-icon {
+  width: 20px;
+  height: 20px;
+}
+
+#components-page-header-demo-content .ant-page-header-rtl .example-link {
+  float: right;
+  margin-right: 0;
+  margin-left: 16px;
+}
+#components-page-header-demo-content .ant-page-header-rtl .example-link-icon {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  #components-page-header-demo-content .image {
+    flex: 100%;
+    margin: 24px 0 0;
+  }
+}
+```

@@ -1,15 +1,14 @@
-html,
-body {
-  height: 100%;
+html {
+  &.rtl {
+    direction: rtl;
+  }
 }
 
 body {
-  overflow-x: hidden;
   color: @site-text-color;
-  font-size: 14px;
+  font-size: @font-size-base;
   font-family: @font-family;
-  line-height: 1.5;
-  background: #fff;
+  background: @body-background;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -20,45 +19,109 @@ a {
 .main-wrapper {
   position: relative;
   padding: 40px 0 0;
-  background: #fff;
+  overflow-x: hidden;
+  background: @component-background;
 }
 
 .main-container {
   position: relative;
   min-height: 500px;
-  padding: 0 170px 144px 64px;
-  overflow: hidden;
-  background: #fff;
+  padding: 0 170px 32px 64px;
+  background: @component-background;
+
+  .ant-row-rtl & {
+    padding: 0 64px 144px 170px;
+  }
 }
 
 .main-menu {
   z-index: 1;
 
   &-inner {
+    height: 100%;
     max-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
   }
 
   &:hover &-inner {
     overflow-y: auto;
   }
+
+  > div,
+  > div > div {
+    height: 100%;
+  }
 }
 
 .aside-container {
+  min-height: 100%;
   padding-bottom: 48px;
   font-family: Avenir, @font-family, sans-serif;
 
-  &.ant-menu-inline .ant-menu-submenu-title h4,
-  &.ant-menu-inline > .ant-menu-item,
-  &.ant-menu-inline .ant-menu-item a {
-    overflow: hidden;
-    font-size: 14px;
-    text-overflow: ellipsis;
-  }
+  &.ant-menu-inline {
+    .ant-menu-submenu-title h4,
+    > .ant-menu-item,
+    .ant-menu-item a {
+      overflow: hidden;
+      font-size: 14px;
+      text-overflow: ellipsis;
+    }
 
-  &.ant-menu-inline .ant-menu-item-group-title {
-    padding-left: 56px;
+    > .ant-menu-item-group > .ant-menu-item-group-title {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      font-size: 13px;
+
+      &::after {
+        position: relative;
+        top: 12px;
+        display: block;
+        width: calc(100% - 20px);
+        height: 1px;
+        background: @border-color-split;
+        content: '';
+      }
+    }
+
+    > .ant-menu-item,
+    > .ant-menu-submenu > .ant-menu-submenu-title,
+    > .ant-menu-item-group > .ant-menu-item-group-title,
+    > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
+    &.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item {
+      padding-left: 40px !important;
+
+      .ant-row-rtl & {
+        padding-right: 40px !important;
+        padding-left: 16px !important;
+      }
+    }
+
+    // Nest Category > Type > Article
+    &.ant-menu-inline {
+      .ant-menu-item-group-title {
+        padding-left: 60px;
+
+        .ant-row-rtl & {
+          padding-right: 60px;
+          padding-left: 16px;
+        }
+      }
+
+      .ant-menu-item-group-list > .ant-menu-item {
+        padding-left: 80px !important;
+
+        .ant-row-rtl & {
+          padding-right: 80px !important;
+          padding-left: 16px !important;
+        }
+      }
+    }
+
+    .ant-menu-item-group:first-child {
+      .ant-menu-item-group-title {
+        margin-top: 0;
+      }
+    }
   }
 
   a[disabled] {
@@ -97,30 +160,35 @@ a {
   margin-left: 5px;
   color: #aaa;
   font-size: 12px;
+  .ant-row-rtl & {
+    margin-right: 5px;
+    margin-left: 0;
+    transform: rotate(180deg);
+  }
 }
 
 // reset menu text color
-.menu-site .ant-menu-item > a {
-  color: @site-text-color;
-}
+.menu-site {
+  .ant-menu-item > a {
+    color: @site-text-color;
+  }
 
-.menu-site .ant-menu-item-selected > a,
-.menu-site .ant-menu-item > a:hover {
-  color: @primary-color;
+  .ant-menu-item-selected > a,
+  .ant-menu-item > a:hover {
+    color: @primary-color;
+  }
 }
 
 #react-content {
   height: 100%;
   transition: transform 0.3s @ease-in-out-circ;
 }
-.page-wrapper {
-  width: 100%;
-  padding: 0;
-  overflow: hidden;
-}
 
 .drawer-content {
   padding: 40px 0;
+  &-wrapper {
+    background-color: @component-background;
+  }
 }
 
 .drawer {
@@ -128,10 +196,68 @@ a {
 }
 
 #_hj_feedback_container {
-  .path1::before {
+  [class$='icon_emotion_path1']::before {
     color: @primary-color !important;
   }
-  .path2::before {
-    color: #fff !important;
+}
+
+.fixed-widgets {
+  position: fixed;
+  right: 32px;
+  bottom: 102px;
+  z-index: 2147483640;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  &-tooltip {
+    .ant-tooltip-inner {
+      min-width: 100px;
+    }
   }
+  & > div {
+    display: block;
+  }
+  &-active {
+    color: @primary-color;
+  }
+  & &-avatar {
+    color: #000;
+    background-color: #fff;
+    box-shadow: @shadow-2;
+    transition: color 0.3s;
+    &:hover {
+      color: @primary-color;
+    }
+  }
+}
+
+// keep transition consistent to make mode toggle animation be more smooth, include:
+// nav bar background
+// nav search border
+// nav menu background
+// wrapper content
+// sidemenu background
+// sidemenu active background
+// content background
+// affix toc
+#header,
+#header #search-box,
+#header #nav.ant-menu,
+.main-wrapper,
+.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu,
+.main-wrapper
+  > .ant-row
+  > .main-menu
+  .main-menu-inner
+  > .ant-menu.aside-container.ant-menu-inline
+  > .ant-menu-item-group
+  > .ant-menu-item-group-title::after,
+.main-wrapper .main-container,
+#demo-toc.toc {
+  transition: all 0.3s @ease-in-out-circ;
+}
+
+// remove margin-bottom from dark theme (why need margin-bottom in dark theme?)
+#header > .ant-row > .ant-col h1 {
+  margin-bottom: 0;
 }

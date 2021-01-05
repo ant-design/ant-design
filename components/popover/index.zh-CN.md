@@ -3,6 +3,7 @@ category: Components
 subtitle: 气泡卡片
 type: 数据展示
 title: Popover
+cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
 ---
 
 点击/鼠标移入元素，弹出气泡式的卡片浮层。
@@ -15,10 +16,10 @@ title: Popover
 
 ## API
 
-| 参数    | 说明     | 类型              | 默认值 |
-| ------- | -------- | ----------------- | ------ |
-| content | 卡片内容 | string\|ReactNode | 无     |
-| title   | 卡片标题 | string\|ReactNode | 无     |
+| 参数    | 说明     | 类型                         | 默认值 | 版本 |
+| ------- | -------- | ---------------------------- | ------ | ---- |
+| content | 卡片内容 | ReactNode \| () => ReactNode | -      |      |
+| title   | 卡片标题 | ReactNode \| () => ReactNode | -      |      |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 

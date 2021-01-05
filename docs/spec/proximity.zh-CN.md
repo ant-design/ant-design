@@ -1,5 +1,6 @@
 ---
-category: 原则
+category: 设计模式
+type: 原则
 order: 1
 title: 亲密性
 ---
@@ -12,15 +13,15 @@ title: 亲密性
 
 <img class="preview-img" align="right" alt="纵向间距示例" description="在 Ant Design 中，这三种规格分别为：8px（小号间距）、16px（中号间距）、24px（大号间距）。" src="https://gw.alipayobjects.com/zos/rmsportal/goazWUHPXsGEDFIGsNlm.png">
 
-通过『小号间距』、『中号间距』、『大号间距』这三种规格来划分信息层次。
+通过「小号间距」、「中号间距」、「大号间距」这三种规格来划分信息层次。
 
 <br>
 
-<img class="preview-img" align="right" alt="增加元素示例" description="通过增加『分割线』来拉开层次。" src="https://gw.alipayobjects.com/zos/rmsportal/XNFCsupiYDBTJFQkmOmv.png">
+<img class="preview-img" align="right" alt="增加元素示例" description="通过增加「分割线」来拉开层次。" src="https://gw.alipayobjects.com/zos/rmsportal/XNFCsupiYDBTJFQkmOmv.png">
 
-在这三种规格不适用的情况下，可以通过加减『基础间距』的倍数，或者增加元素来拉开信息层次。
+在这三种规格不适用的情况下，可以通过加减「基础间距」的倍数，或者增加元素来拉开信息层次。
 
-> 注：在 Ant Design 中，`y = 8 + 8 * n`。其中，`n >= 0`，y 是纵向间距，8 是『基础间距』。
+> 注：在 Ant Design 中，`y = 8 + 8 * n`。其中，`n >= 0`，y 是纵向间距，8 是「基础间距」。
 
 ---
 

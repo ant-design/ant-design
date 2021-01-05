@@ -13,8 +13,8 @@ title:
 
 We can customize the rendering of sidebar in the calendar by providing a `renderSidebar` function to `DatePicker`.
 
-````jsx
-import { DatePicker, Tag } from 'antd';
+```jsx
+import { DatePicker, Tag, Space } from 'antd';
 import moment from 'moment';
 
 const { RangePicker } = DatePicker;
@@ -29,7 +29,7 @@ class DatePickerWithCustomRange extends React.PureComponent {
   };
 
   renderSidebar = () => (
-    <div style={{ padding: 8 }}>
+    <Space direction="vertical">
       <Tag
         color="blue"
         onClick={() => {
@@ -54,7 +54,7 @@ class DatePickerWithCustomRange extends React.PureComponent {
       >
         Tomorrow
       </Tag>
-    </div>
+    </Space>
   );
 
   render() {
@@ -71,17 +71,11 @@ class DatePickerWithCustomRange extends React.PureComponent {
 
 function getLastMomentRange(range, rangeType = 'days') {
   const now = moment();
-  return [
-    moment(now)
-      .subtract(range, rangeType)
-      .startOf('day'),
-    now,
-  ];
+  return [moment(now).subtract(range, rangeType).startOf('day'), now];
 }
 
 function getStartOfMomentRange(startOfType = 'day') {
-  const now = moment();
-  return [moment(now).startOf(startOfType), now];
+  return [moment().startOf(startOfType), moment().endOf(startOfType)];
 }
 
 class RangPickerWithCustomRange extends React.PureComponent {
@@ -93,20 +87,16 @@ class RangPickerWithCustomRange extends React.PureComponent {
     this.setState({ value });
   };
 
-  getLastMomentTagOnClickHandler = (range, rangeType) => {
-    return () => {
-      this.setState({ value: getLastMomentRange(range, rangeType) });
-    };
+  getLastMomentTagOnClickHandler = (range, rangeType) => () => {
+    this.setState({ value: getLastMomentRange(range, rangeType) });
   };
 
-  getStartOfMomentTagOnClickHandler = startOfType => {
-    return () => {
-      this.setState({ value: getStartOfMomentRange(startOfType) });
-    };
+  getStartOfMomentTagOnClickHandler = startOfType => () => {
+    this.setState({ value: getStartOfMomentRange(startOfType) });
   };
 
   renderSidebar = () => (
-    <div style={{ padding: 8 }}>
+    <Space direction="vertical">
       <Tag color="blue" onClick={this.getLastMomentTagOnClickHandler(7, 'day')}>
         Last 7 days
       </Tag>
@@ -128,7 +118,7 @@ class RangPickerWithCustomRange extends React.PureComponent {
       <Tag color="blue" onClick={this.getStartOfMomentTagOnClickHandler('year')}>
         This Year
       </Tag>
-    </div>
+    </Space>
   );
 
   render() {
@@ -144,12 +134,10 @@ class RangPickerWithCustomRange extends React.PureComponent {
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <DatePickerWithCustomRange />
-    <br />
     <RangPickerWithCustomRange />
-  </div>,
+  </Space>,
   mountNode,
 );
-
-````
+```

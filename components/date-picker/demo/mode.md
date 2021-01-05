@@ -1,8 +1,9 @@
 ---
-order: 11
+order: 99
 title:
   zh-CN: 受控面板
   en-US: Controlled Panels
+debug: true
 ---
 
 ## zh-CN
@@ -14,7 +15,7 @@ title:
 Determing which panel to show with `mode` and `onPanelChange`.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
@@ -76,11 +77,10 @@ class ControlledRangePicker extends React.Component {
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <ControlledDatePicker />
-    <br />
     <ControlledRangePicker />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

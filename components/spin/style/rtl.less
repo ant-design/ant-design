@@ -1,0 +1,20 @@
+.@{spin-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-dot {
+    &-spin {
+      .@{spin-prefix-cls}-rtl & {
+        transform: rotate(-45deg);
+        animation-name: antRotateRtl;
+      }
+    }
+  }
+}
+
+@keyframes antRotateRtl {
+  to {
+    transform: rotate(-405deg);
+  }
+}

@@ -1,17 +1,14 @@
 ---
-category:
-  zh-CN: 模式
-  en-US: Patterns
-order: 9
-title:
-  zh-CN: 数据录入
-  en-US: Data Entry
+category: 设计模式
+type: 全局规则
+order: 3
+title: 数据录入
 ---
 
 数据录入是获取对象信息的重要交互方式，用户会频繁的增加、修改或删除信息。多种多样的文本录入和选择录入方式帮助用户更加清晰和高效的完成这项体验。设计者应当注意这几点：
 
-- 为初级用户／偶尔访问的用户提供简单易懂的文案作为『标签（Label） 』；为领域专家提供专业术语作为『标签（Label） 』。当需要用户提供敏感信息时，通过『暗提示』来说明系统为什么要这么做，例如：需要获取身份证号码、手机号码时；
-- 让用户能在上下文中获取信息，帮助他完成输入。使用『良好的默认值』、『结构化的格式』、『暗提示』、『输入提醒』等方式，避免让用户在空白中猜测输入。
+- 为初级用户／偶尔访问的用户提供简单易懂的文案作为「标签（Label） 」；为领域专家提供专业术语作为「标签（Label） 」。当需要用户提供敏感信息时，通过「暗提示」来说明系统为什么要这么做，例如：需要获取身份证号码、手机号码时；
+- 让用户能在上下文中获取信息，帮助他完成输入。使用「良好的默认值」、「结构化的格式」、「暗提示」、「输入提醒」等方式，避免让用户在空白中猜测输入。
 
 ---
 
@@ -39,9 +36,9 @@ title:
 
 为提升数据录入效率，通常可以在输入框内增加暗提示以帮助提醒用户。
 
-> 注：输入框通常与标签（label）搭配使用，标签（label）默认放于输入区域的左侧，当文案过长或英文环境下也可放于在上方，但同个系统中需保持统一。
+> 注：输入框通常与标签（label）搭配使用，标签（label）默认放于输入区域的左侧，当文案过长或英文环境下也可放于输入区域的上方，但在同系统中需保持统一。
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xcDCXmgTCeXWelIovxvh.png" description="当说明文案较长时，你可以使用一个『信息』图标或者提示工具。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xcDCXmgTCeXWelIovxvh.png" description="当说明文案较长时，你可以使用一个「信息」图标或者提示工具。">
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/AUTvHOWDsCTgSojYrQms.png" description="对于那些短的输入提醒（短于一句），你可以将其放置在输入框的下方。">
 
@@ -80,14 +77,14 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MsOFIDWorXeobBLkEwjS.png">
 
-用于切换单个选项的状态。『开关』的内联标签应该显示清楚，例如：禁用/启用，不允许/允许等。
+用于切换单个选项的状态。「开关」的内联标签应该显示清楚，例如：禁用/启用，不允许/允许等。
 
 <br />
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/GJNIykRlFgmVRSKNGOCg.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gLJCJDtOquBTRdBSoGYe.png" alt="错误示范" description="切换『开关』结果会立即生效，无需与操作按钮搭配使用。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gLJCJDtOquBTRdBSoGYe.png" alt="错误示范" description="切换「开关」结果会立即生效，无需与操作按钮搭配使用。">
 
-> 注：当用户切换『开关』按钮将直接触发状态改变。
+> 注：当用户切换「开关」按钮将直接触发状态改变。
 
 ### 选择列表（Dropdown）
 
@@ -110,7 +107,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jRUNDmdChSEsFAXVBzAx.png">
 
-> 注：在不要求精准数值的场景下用户使用『连续滑块』可得到更灵活便捷的操作；在用户需要精确数值时，可与『数字输入框』搭配使用。
+> 注：在不要求精准数值的场景下用户使用「连续滑块」可得到更灵活便捷的操作；在用户需要精确数值时，可与「数字输入框」搭配使用。
 
 ### 穿梭框（Transfer）
 

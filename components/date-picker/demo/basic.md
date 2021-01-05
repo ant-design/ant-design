@@ -14,24 +14,20 @@ title:
 Basic use case. Users can select or input a date in panel.
 
 ```jsx
-import { DatePicker } from 'antd';
-
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
+import { DatePicker, Space } from 'antd';
 
 function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical">
     <DatePicker onChange={onChange} />
-    <br />
-    <MonthPicker onChange={onChange} placeholder="Select month" />
-    <br />
-    <RangePicker onChange={onChange} />
-    <br />
-    <WeekPicker onChange={onChange} placeholder="Select week" />
-  </div>,
+    <DatePicker onChange={onChange} picker="week" />
+    <DatePicker onChange={onChange} picker="month" />
+    <DatePicker onChange={onChange} picker="quarter" />
+    <DatePicker onChange={onChange} picker="year" />
+  </Space>,
   mountNode,
 );
 ```

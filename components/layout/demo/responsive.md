@@ -9,16 +9,17 @@ title:
 
 Layout.Sider 支持响应式布局。
 
-> 说明：配置 `breakpoint` 属性即生效，视窗宽度小于 `breakpoint` 时 Sider 缩小为 `collapsedWidth` 宽度，若将 `collapsedWidth` 设置为零，会出现特殊 trigger。
+> 说明：配置 `breakpoint` 属性即生效，视窗宽度小于 `breakpoint` 时 Sider 缩小为 `collapsedWidth` 宽度，若将 `collapsedWidth` 设置为 0，会出现特殊 trigger。
 
 ## en-US
 
 Layout.Sider supports responsive layout.
 
-> Note: You can get a responsive layout by setting `breakpoint`, the Sider will collapse to the width of `collapsedWidth` when window width is below the `breakpoint`. And a special trigger will appear if the `collapsedWidth` is set to `0`.
+> Note: You can get a responsive layout by setting `breakpoint`, the Sider will collapse to the width of `collapsedWidth` when window width is below the `breakpoint`. And a special trigger will appear if the `collapsedWidth` is set to 0.
 
 ```jsx
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
+import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -36,28 +37,26 @@ ReactDOM.render(
     >
       <div className="logo" />
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-        <Menu.Item key="1">
-          <Icon type="user" />
-          <span className="nav-text">nav 1</span>
+        <Menu.Item key="1" icon={<UserOutlined />}>
+          nav 1
         </Menu.Item>
-        <Menu.Item key="2">
-          <Icon type="video-camera" />
-          <span className="nav-text">nav 2</span>
+        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+          nav 2
         </Menu.Item>
-        <Menu.Item key="3">
-          <Icon type="upload" />
-          <span className="nav-text">nav 3</span>
+        <Menu.Item key="3" icon={<UploadOutlined />}>
+          nav 3
         </Menu.Item>
-        <Menu.Item key="4">
-          <Icon type="user" />
-          <span className="nav-text">nav 4</span>
+        <Menu.Item key="4" icon={<UserOutlined />}>
+          nav 4
         </Menu.Item>
       </Menu>
     </Sider>
     <Layout>
-      <Header style={{ background: '#fff', padding: 0 }} />
+      <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
       <Content style={{ margin: '24px 16px 0' }}>
-        <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>content</div>
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+          content
+        </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
@@ -72,4 +71,18 @@ ReactDOM.render(
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
+
+.site-layout-sub-header-background {
+  background: #fff;
+}
+
+.site-layout-background {
+  background: #fff;
+}
 ```
+
+<style>
+  [data-theme="dark"] .site-layout-sub-header-background {
+    background: #141414;
+  }
+</style>

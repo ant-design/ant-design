@@ -3,36 +3,29 @@
 
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
 
-@alert-message-color: @heading-color;
-@alert-text-color: @text-color;
-@alert-close-color: @text-color-secondary;
-@alert-close-hover-color: @icon-color-hover;
-
 .@{alert-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
-  padding: 8px 15px 8px 37px;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  word-wrap: break-word;
   border-radius: @border-radius-base;
 
-  &&-no-icon {
-    padding: 8px 15px;
-  }
-
-  &&-closable {
-    padding-right: 30px;
+  &-content {
+    flex: 1;
+    min-width: 0;
   }
 
   &-icon {
-    position: absolute;
-    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
-    left: 16px;
+    margin-right: @margin-xs;
   }
 
   &-description {
     display: none;
     font-size: @font-size-base;
-    line-height: 22px;
+    line-height: @font-size-base + 8px;
   }
 
   &-success {
@@ -62,18 +55,30 @@
   &-error {
     background-color: @alert-error-bg-color;
     border: @border-width-base @border-style-base @alert-error-border-color;
+
     .@{alert-prefix-cls}-icon {
       color: @alert-error-icon-color;
     }
+
+    .@{alert-prefix-cls}-description > pre {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &-action {
+    margin-left: @margin-xs;
   }
 
   &-close-icon {
-    position: absolute;
-    top: 8px;
-    right: 16px;
+    margin-left: @margin-xs;
+    padding: 0;
     overflow: hidden;
     font-size: @font-size-sm;
-    line-height: 22px;
+    line-height: @font-size-sm;
+    background-color: transparent;
+    border: none;
+    outline: none;
     cursor: pointer;
 
     .@{iconfont-css-prefix}-close {
@@ -86,37 +91,26 @@
   }
 
   &-close-text {
-    position: absolute;
-    right: 16px;
+    color: @alert-close-color;
+    transition: color 0.3s;
+    &:hover {
+      color: @alert-close-hover-color;
+    }
   }
 
   &-with-description {
-    position: relative;
-    padding: 15px 15px 15px 64px;
-    color: @alert-text-color;
-    line-height: @line-height-base;
-    border-radius: @border-radius-base;
+    align-items: flex-start;
+    padding: @alert-with-description-padding;
   }
 
   &-with-description&-no-icon {
-    padding: 15px;
+    padding: @alert-with-description-no-icon-padding-vertical 15px;
   }
 
   &-with-description &-icon {
-    position: absolute;
-    top: 16px;
-    left: 24px;
-    font-size: 24px;
+    margin-right: @alert-with-description-padding-vertical;
+    font-size: @alert-with-description-icon-size;
   }
-
-  &-with-description &-close-icon {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    font-size: @font-size-base;
-    cursor: pointer;
-  }
-
   &-with-description &-message {
     display: block;
     margin-bottom: 4px;
@@ -124,22 +118,28 @@
     font-size: @font-size-lg;
   }
 
+  &-message {
+    color: @alert-message-color;
+  }
+
   &-with-description &-description {
     display: block;
   }
 
-  &&-close {
-    height: 0 !important;
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    transform-origin: 50% 0;
-    transition: all 0.3s @ease-in-out-circ;
+  &&-motion-leave {
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 0.3s @ease-in-out-circ, opacity 0.3s @ease-in-out-circ,
+      padding-top 0.3s @ease-in-out-circ, padding-bottom 0.3s @ease-in-out-circ,
+      margin-bottom 0.3s @ease-in-out-circ;
   }
 
-  &-slide-up-leave {
-    animation: antAlertSlideUpOut 0.3s @ease-in-out-circ;
-    animation-fill-mode: both;
+  &&-motion-leave-active {
+    max-height: 0;
+    margin-bottom: 0 !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
   }
 
   &-banner {
@@ -149,28 +149,4 @@
   }
 }
 
-@keyframes antAlertSlideUpIn {
-  0% {
-    transform: scaleY(0);
-    transform-origin: 0% 0%;
-    opacity: 0;
-  }
-  100% {
-    transform: scaleY(1);
-    transform-origin: 0% 0%;
-    opacity: 1;
-  }
-}
-
-@keyframes antAlertSlideUpOut {
-  0% {
-    transform: scaleY(1);
-    transform-origin: 0% 0%;
-    opacity: 1;
-  }
-  100% {
-    transform: scaleY(0);
-    transform-origin: 0% 0%;
-    opacity: 0;
-  }
-}
+@import './rtl';

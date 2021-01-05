@@ -1,0 +1,54 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@typography-prefix-cls: ~'@{ant-prefix}-typography';
+
+.@{typography-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  // Operation
+  &-expand,
+  &-edit,
+  &-copy {
+    .@{typography-prefix-cls}-rtl & {
+      margin-right: 4px;
+      margin-left: 0;
+    }
+  }
+
+  &-expand {
+    .@{typography-prefix-cls}-rtl & {
+      float: left;
+    }
+  }
+
+  // Text input area
+  &-edit-content {
+    div& {
+      &.@{typography-prefix-cls}-rtl {
+        right: -@input-padding-horizontal - 1px;
+        left: auto;
+      }
+    }
+
+    &-confirm {
+      .@{typography-prefix-cls}-rtl & {
+        right: auto;
+        left: 10px;
+      }
+    }
+  }
+
+  // list
+  ul,
+  ol {
+    li {
+      .@{typography-prefix-cls}-rtl& {
+        margin: 0 20px 0 0;
+        padding: 0 4px 0 0;
+      }
+    }
+  }
+}

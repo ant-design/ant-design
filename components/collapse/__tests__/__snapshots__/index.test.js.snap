@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Collapse could override default openMotion 1`] = `
+<div
+  class="ant-collapse ant-collapse-icon-position-left"
+>
+  <div
+    class="ant-collapse-item ant-collapse-item-active"
+  >
+    <div
+      aria-expanded="true"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        aria-label="right"
+        class="anticon anticon-right ant-collapse-arrow"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="right"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          style="transform: rotate(90deg);"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+          />
+        </svg>
+      </span>
+      This is panel header 1
+    </div>
+    <div
+      class="ant-collapse-content ant-collapse-content-active"
+    >
+      <div
+        class="ant-collapse-content-box"
+      >
+        content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Collapse should render extra node of panel 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-left"
@@ -13,13 +61,13 @@ exports[`Collapse should render extra node of panel 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -28,10 +76,10 @@ exports[`Collapse should render extra node of panel 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       header
       <div
         class="ant-collapse-extra"
@@ -53,13 +101,13 @@ exports[`Collapse should render extra node of panel 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -68,10 +116,10 @@ exports[`Collapse should render extra node of panel 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       header
       <div
         class="ant-collapse-extra"

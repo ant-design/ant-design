@@ -19,152 +19,152 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class="current"
+          class="ant-scroll-number-only-unit current"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
@@ -193,14 +193,14 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       class="head-example"
       href="#"
     />
-    <i
-      aria-label="icon: clock-circle"
+    <span
+      aria-label="clock-circle"
       class="anticon anticon-clock-circle ant-scroll-number-custom-component"
+      role="img"
       style="color:#f5222d"
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="clock-circle"
         fill="currentColor"
         focusable="false"
@@ -215,7 +215,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
         />
       </svg>
-    </i>
+    </span>
   </span>
 </div>
 `;
@@ -240,152 +240,152 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
           style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
         >
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             0
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             1
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             2
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             3
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             4
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             5
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             6
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             7
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             8
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             9
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             0
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             1
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             2
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             3
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             4
           </p>
           <p
-            class="current"
+            class="ant-scroll-number-only-unit current"
           >
             5
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             6
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             7
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             8
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             9
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             0
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             1
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             2
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             3
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             4
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             5
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             6
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             7
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             8
           </p>
           <p
-            class=""
+            class="ant-scroll-number-only-unit"
           >
             9
           </p>
@@ -399,13 +399,13 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         class="ant-btn"
         type="button"
       >
-        <i
-          aria-label="icon: minus"
+        <span
+          aria-label="minus"
           class="anticon anticon-minus"
+          role="img"
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="minus"
             fill="currentColor"
             focusable="false"
@@ -417,19 +417,19 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
               d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
             />
           </svg>
-        </i>
+        </span>
       </button>
       <button
         class="ant-btn"
         type="button"
       >
-        <i
-          aria-label="icon: plus"
+        <span
+          aria-label="plus"
           class="anticon anticon-plus"
+          role="img"
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="plus"
             fill="currentColor"
             focusable="false"
@@ -437,6 +437,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
             viewBox="64 64 896 896"
             width="1em"
           >
+            <defs />
             <path
               d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
             />
@@ -444,7 +445,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
               d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
             />
           </svg>
-        </i>
+        </span>
       </button>
     </div>
   </div>
@@ -465,11 +466,13 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
     </span>
     <button
       aria-checked="true"
-      checked=""
       class="ant-switch ant-switch-checked"
       role="switch"
       type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
       <span
         class="ant-switch-inner"
       />
@@ -479,12 +482,17 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
 `;
 
 exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
-<div>
-  <h4
-    style="margin-bottom:16px"
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Presets:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets
+    </span>
+  </div>,
   <div>
     <div>
       <span
@@ -668,12 +676,17 @@ exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <h4
-    style="margin:16px 0"
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Custom:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Custom
+    </span>
+  </div>,
   <div>
     <span
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -730,8 +743,8 @@ exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
         #108ee9
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
@@ -739,13 +752,13 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
   <span
     class="ant-badge"
   >
-    <i
-      aria-label="icon: notification"
+    <span
+      aria-label="notification"
       class="anticon anticon-notification"
+      role="img"
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="notification"
         fill="currentColor"
         focusable="false"
@@ -757,7 +770,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
           d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.7c-3.7 11.6-5.7 23.9-5.7 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1zm496 58.4L318.8 611.3l-12.9-5.2H184V417.9h121.9l12.9-5.2L840 203.3v617.4z"
         />
       </svg>
-    </i>
+    </span>
     <sup
       class="ant-scroll-number ant-badge-dot"
       data-show="true"
@@ -766,13 +779,13 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
   <span
     class="ant-badge"
   >
-    <i
-      aria-label="icon: notification"
+    <span
+      aria-label="notification"
       class="anticon anticon-notification"
+      role="img"
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="notification"
         fill="currentColor"
         focusable="false"
@@ -784,7 +797,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
           d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.7c-3.7 11.6-5.7 23.9-5.7 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1zm496 58.4L318.8 611.3l-12.9-5.2H184V417.9h121.9l12.9-5.2L840 203.3v617.4z"
         />
       </svg>
-    </i>
+    </span>
   </span>
   <span
     class="ant-badge"
@@ -822,152 +835,152 @@ exports[`renders ./components/badge/demo/link.md correctly 1`] = `
         style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class="current"
+          class="ant-scroll-number-only-unit current"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
@@ -978,506 +991,712 @@ exports[`renders ./components/badge/demo/link.md correctly 1`] = `
 `;
 
 exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
-<div>
-  <span
-    class="ant-badge ant-badge-not-a-wrapper"
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
   >
-    <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
-      data-show="true"
-      title="25"
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
       <span
-        class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1200%);-webkit-transform:translateY(-1200%);transform:translateY(-1200%)"
-      >
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class="current"
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-      </span>
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
-      >
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class="current"
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-      </span>
-    </sup>
-  </span>
-  <span
-    class="ant-badge ant-badge-not-a-wrapper"
+        class="ant-switch-inner"
+      />
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
   >
-    <sup
-      class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      style="background-color:#fff;color:#999;box-shadow:0 0 0 1px #d9d9d9 inset"
-      title="4"
+    <span
+      class="ant-badge ant-badge-not-a-wrapper"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1400%);-webkit-transform:translateY(-1400%);transform:translateY(-1400%)"
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+        data-show="true"
+        title="25"
       >
-        <p
-          class=""
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none;-ms-transform:translateY(-1200%);-webkit-transform:translateY(-1200%);transform:translateY(-1200%)"
         >
-          0
-        </p>
-        <p
-          class=""
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit current"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
         >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class="current"
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-      </span>
-    </sup>
-  </span>
-  <span
-    class="ant-badge ant-badge-not-a-wrapper"
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit current"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+        </span>
+      </sup>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
   >
-    <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
-      data-show="true"
-      style="background-color:#52c41a"
-      title="109"
+    <span
+      class="ant-badge ant-badge-not-a-wrapper site-badge-count-4"
     >
-      99+
-    </sup>
-  </span>
+      <sup
+        class="ant-scroll-number ant-badge-count"
+        data-show="true"
+        title="4"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none;-ms-transform:translateY(-1400%);-webkit-transform:translateY(-1400%);transform:translateY(-1400%)"
+        >
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            0
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            1
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            2
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            3
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            4
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            5
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            6
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            7
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            8
+          </p>
+          <p
+            class="ant-scroll-number-only-unit"
+          >
+            9
+          </p>
+        </span>
+      </sup>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-badge ant-badge-not-a-wrapper site-badge-count-109"
+    >
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+        data-show="true"
+        style="background-color:#52c41a"
+        title="109"
+      >
+        99+
+      </sup>
+    </span>
+  </div>
 </div>
+`;
+
+exports[`renders ./components/badge/demo/offset.md correctly 1`] = `
+<span
+  class="ant-badge"
+>
+  <a
+    class="head-example"
+    href="#"
+  />
+  <sup
+    class="ant-scroll-number ant-badge-count"
+    data-show="true"
+    style="margin-top:10px;right:-10px"
+    title="5"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+    >
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        0
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        1
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        2
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        3
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        4
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        5
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        6
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        7
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        8
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        9
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        0
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        1
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        2
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        3
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        4
+      </p>
+      <p
+        class="ant-scroll-number-only-unit current"
+      >
+        5
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        6
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        7
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        8
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        9
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        0
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        1
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        2
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        3
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        4
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        5
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        6
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        7
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        8
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        9
+      </p>
+    </span>
+  </sup>
+</span>
 `;
 
 exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
@@ -1499,152 +1718,152 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
         style="transition:none;-ms-transform:translateY(-1900%);-webkit-transform:translateY(-1900%);transform:translateY(-1900%)"
       >
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class="current"
+          class="ant-scroll-number-only-unit current"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
@@ -1654,152 +1873,152 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
         style="transition:none;-ms-transform:translateY(-1900%);-webkit-transform:translateY(-1900%);transform:translateY(-1900%)"
       >
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class="current"
+          class="ant-scroll-number-only-unit current"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
@@ -1852,6 +2071,540 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
     </sup>
   </span>
 </div>
+`;
+
+exports[`renders ./components/badge/demo/ribbbon.md correctly 1`] = `
+<div
+  class="ant-ribbon-wrapper"
+>
+  <div
+    class="ant-card ant-card-bordered"
+  >
+    <div
+      class="ant-card-body"
+    >
+      And raises the spyglass.
+    </div>
+  </div>
+  <div
+    class="ant-ribbon ant-ribbon-placement-end"
+  >
+    <span
+      class="ant-ribbon-text"
+    >
+      Pushes open the window
+    </span>
+    <div
+      class="ant-ribbon-corner"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-end"
+      >
+        <span
+          class="ant-ribbon-text"
+        >
+          啦啦啦啦
+        </span>
+        <div
+          class="ant-ribbon-corner"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
+      >
+        <span
+          class="ant-ribbon-text"
+        >
+          啦啦啦啦
+        </span>
+        <div
+          class="ant-ribbon-corner"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-end"
+        style="background:#2db7f5"
+      >
+        <span
+          class="ant-ribbon-text"
+        >
+          啦啦啦啦
+        </span>
+        <div
+          class="ant-ribbon-corner"
+          style="color:#2db7f5"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-start"
+        style="background:#2db7f5"
+      >
+        <span
+          class="ant-ribbon-text"
+        >
+          啦啦啦啦
+        </span>
+        <div
+          class="ant-ribbon-corner"
+          style="color:#2db7f5"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-end"
+        style="background:#2db7f5"
+      >
+        <span
+          class="ant-ribbon-text"
+        >
+          啦啦啦啦
+        </span>
+        <div
+          class="ant-ribbon-corner"
+          style="color:#2db7f5"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/badge/demo/size.md correctly 1`] = `
+Array [
+  <span
+    class="ant-badge"
+  >
+    <a
+      class="head-example"
+      href="#"
+    />
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+      >
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>,
+  <span
+    class="ant-badge"
+  >
+    <a
+      class="head-example"
+      href="#"
+    />
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-count-sm"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+      >
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>,
+]
 `;
 
 exports[`renders ./components/badge/demo/status.md correctly 1`] = `
@@ -1993,152 +2746,152 @@ exports[`renders ./components/badge/demo/title.md correctly 1`] = `
         style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class="current"
+          class="ant-scroll-number-only-unit current"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>

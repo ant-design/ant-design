@@ -13,27 +13,22 @@ title:
 
 Set a `target` for 'Affix', which is listen to scroll event of target element (default is `window`).
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
-class Demo extends React.Component {
-  render() {
-    return (
-      <div
-        className="scrollable-container"
-        ref={node => {
-          this.container = node;
-        }}
-      >
-        <div className="background">
-          <Affix target={() => this.container}>
-            <Button type="primary">Fixed at the top of container</Button>
-          </Affix>
-        </div>
+const Demo: React.FC = () => {
+  const [container, setContainer] = useState<HTMLDivElement | null>(null);
+  return (
+    <div className="scrollable-container" ref={setContainer}>
+      <div className="background">
+        <Affix target={() => container}>
+          <Button type="primary">Fixed at the top of container</Button>
+        </Affix>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 ReactDOM.render(<Demo />, mountNode);
 ```

@@ -1,421 +1,399 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import * as PropTypes from 'prop-types';
+import { useContext, useRef } from 'react';
+import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
-import Animate from 'rc-animate';
+import { Field, FormInstance } from 'rc-field-form';
+import { FieldProps } from 'rc-field-form/lib/Field';
+import FieldContext from 'rc-field-form/lib/FieldContext';
+import { Meta, NamePath } from 'rc-field-form/lib/interface';
+import { supportRef } from 'rc-util/lib/ref';
+import omit from 'omit.js';
 import Row from '../grid/row';
-import Col, { ColProps } from '../grid/col';
-import Icon from '../icon';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
-import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
-import { FormContext, FormContextProps } from './context';
+import devWarning from '../_util/devWarning';
+import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
+import FormItemInput, { FormItemInputProps } from './FormItemInput';
+import { FormContext, FormItemContext } from './context';
+import { toArray, getFieldId } from './util';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import useFrameState from './hooks/useFrameState';
+import useItemRef from './hooks/useItemRef';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
+export type ValidateStatus = typeof ValidateStatuses[number];
 
-export type FormLabelAlign = 'left' | 'right';
+type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
+type RcFieldProps = Omit<FieldProps, 'children'>;
+type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
-export interface FormItemProps {
+interface MemoInputProps {
+  value: any;
+  update: number;
+  children: React.ReactNode;
+}
+
+const MemoInput = React.memo(
+  ({ children }: MemoInputProps) => children as JSX.Element,
+  (prev, next) => prev.value === next.value && prev.update === next.update,
+);
+
+export interface FormItemProps<Values = any>
+  extends FormItemLabelProps,
+    FormItemInputProps,
+    RcFieldProps {
   prefixCls?: string;
-  className?: string;
-  id?: string;
-  htmlFor?: string;
-  label?: React.ReactNode;
-  labelAlign?: FormLabelAlign;
-  labelCol?: ColProps;
-  wrapperCol?: ColProps;
-  help?: React.ReactNode;
-  extra?: React.ReactNode;
-  validateStatus?: (typeof ValidateStatuses)[number];
-  hasFeedback?: boolean;
-  required?: boolean;
+  noStyle?: boolean;
   style?: React.CSSProperties;
-  colon?: boolean;
+  className?: string;
+  children?: ChildrenType<Values>;
+  id?: string;
+  hasFeedback?: boolean;
+  validateStatus?: ValidateStatus;
+  required?: boolean;
+  hidden?: boolean;
+  initialValue?: any;
+  messageVariables?: Record<string, string>;
+  tooltip?: LabelTooltipType;
+  /** Auto passed by List render props. User should not use this. */
+  fieldKey?: React.Key | React.Key[];
 }
 
-function intersperseSpace<T>(list: Array<T>): Array<T | string> {
-  return list.reduce((current, item) => [...current, ' ', item], []).slice(1);
+function hasValidName(name?: NamePath): Boolean {
+  if (name === null) {
+    devWarning(false, 'Form.Item', '`null` is passed as `name` property');
+  }
+  return !(name === undefined || name === null);
 }
 
-export default class FormItem extends React.Component<FormItemProps, any> {
-  static defaultProps = {
-    hasFeedback: false,
-  };
+function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
+  const {
+    name,
+    fieldKey,
+    noStyle,
+    dependencies,
+    prefixCls: customizePrefixCls,
+    style,
+    className,
+    shouldUpdate,
+    hasFeedback,
+    help,
+    rules,
+    validateStatus,
+    children,
+    required,
+    label,
+    messageVariables,
+    trigger = 'onChange',
+    validateTrigger,
+    hidden,
+    ...restProps
+  } = props;
+  const destroyRef = useRef(false);
+  const { getPrefixCls } = useContext(ConfigContext);
+  const { name: formName, requiredMark } = useContext(FormContext);
+  const { updateItemErrors } = useContext(FormItemContext);
+  const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
+  const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    labelAlign: PropTypes.string,
-    labelCol: PropTypes.object,
-    help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
-    validateStatus: PropTypes.oneOf(ValidateStatuses),
-    hasFeedback: PropTypes.bool,
-    wrapperCol: PropTypes.object,
-    className: PropTypes.string,
-    id: PropTypes.string,
-    children: PropTypes.node,
-    colon: PropTypes.bool,
-  };
+  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
+  const mergedValidateTrigger =
+    validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
-  helpShow = false;
-
-  componentDidMount() {
-    const { children, help, validateStatus, id } = this.props;
-    warning(
-      this.getControls(children, true).length <= 1 ||
-        (help !== undefined || validateStatus !== undefined),
-      'Form.Item',
-      'Cannot generate `validateStatus` and `help` automatically, ' +
-        'while there are more than one `getFieldDecorator` in it.',
-    );
-
-    warning(
-      !id,
-      'Form.Item',
-      '`id` is deprecated for its label `htmlFor`. Please use `htmlFor` directly.',
-    );
+  function setDomErrorVisible(visible: boolean) {
+    if (!destroyRef.current) {
+      innerSetDomErrorVisible(visible);
+    }
   }
 
-  getHelpMessage() {
-    const { help } = this.props;
-    if (help === undefined && this.getOnlyControl()) {
-      const { errors } = this.getField();
-      if (errors) {
-        return intersperseSpace(
-          errors.map((e: any, index: number) => {
-            let node: React.ReactElement<any> | null = null;
+  const hasName = hasValidName(name);
 
-            if (React.isValidElement(e)) {
-              node = e;
-            } else if (React.isValidElement(e.message)) {
-              node = e.message;
-            }
+  // Cache Field NamePath
+  const nameRef = useRef<(string | number)[]>([]);
 
-            return node ? React.cloneElement(node, { key: index }) : e.message;
-          }),
-        );
-      }
-      return '';
-    }
-    return help;
-  }
+  // Should clean up if Field removed
+  React.useEffect(
+    () => () => {
+      destroyRef.current = true;
+      updateItemErrors(nameRef.current.join('__SPLIT__'), []);
+    },
+    [],
+  );
 
-  getControls(children: React.ReactNode, recursively: boolean) {
-    let controls: React.ReactElement<any>[] = [];
-    const childrenArray = React.Children.toArray(children);
-    for (let i = 0; i < childrenArray.length; i++) {
-      if (!recursively && controls.length > 0) {
-        break;
-      }
+  const prefixCls = getPrefixCls('form', customizePrefixCls);
 
-      const child = childrenArray[i] as React.ReactElement<any>;
-      if (
-        child.type &&
-        ((child.type as any) === FormItem || (child.type as any).displayName === 'FormItem')
-      ) {
-        continue;
-      }
-      if (!child.props) {
-        continue;
-      }
-      if (FIELD_META_PROP in child.props) {
-        // And means FIELD_DATA_PROP in child.props, too.
-        controls.push(child);
-      } else if (child.props.children) {
-        controls = controls.concat(this.getControls(child.props.children, recursively));
-      }
-    }
-    return controls;
-  }
-
-  getOnlyControl() {
-    const child = this.getControls(this.props.children, false)[0];
-    return child !== undefined ? child : null;
-  }
-
-  getChildProp(prop: string) {
-    const child = this.getOnlyControl() as React.ReactElement<any>;
-    return child && child.props && child.props[prop];
-  }
-
-  getId() {
-    return this.getChildProp('id');
-  }
-
-  getMeta() {
-    return this.getChildProp(FIELD_META_PROP);
-  }
-
-  getField() {
-    return this.getChildProp(FIELD_DATA_PROP);
-  }
-
-  onHelpAnimEnd = (_key: string, helpShow: boolean) => {
-    this.helpShow = helpShow;
-    if (!helpShow) {
-      this.setState({});
-    }
-  };
-
-  renderHelp(prefixCls: string) {
-    const help = this.getHelpMessage();
-    const children = help ? (
-      <div className={`${prefixCls}-explain`} key="help">
-        {help}
-      </div>
-    ) : null;
-    if (children) {
-      this.helpShow = !!children;
-    }
-    return (
-      <Animate
-        transitionName="show-help"
-        component=""
-        transitionAppear
-        key="help"
-        onEnd={this.onHelpAnimEnd}
-      >
-        {children}
-      </Animate>
-    );
-  }
-
-  renderExtra(prefixCls: string) {
-    const { extra } = this.props;
-    return extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
-  }
-
-  getValidateStatus() {
-    const onlyControl = this.getOnlyControl();
-    if (!onlyControl) {
-      return '';
-    }
-    const field = this.getField();
-    if (field.validating) {
-      return 'validating';
-    }
-    if (field.errors) {
-      return 'error';
-    }
-    const fieldValue = 'value' in field ? field.value : this.getMeta().initialValue;
-    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
-      return 'success';
-    }
-    return '';
-  }
-
-  renderValidateWrapper(
-    prefixCls: string,
-    c1: React.ReactNode,
-    c2: React.ReactNode,
-    c3: React.ReactNode,
-  ) {
-    const { props } = this;
-    const onlyControl = this.getOnlyControl;
-    const validateStatus =
-      props.validateStatus === undefined && onlyControl
-        ? this.getValidateStatus()
-        : props.validateStatus;
-
-    let classes = `${prefixCls}-item-control`;
-    if (validateStatus) {
-      classes = classNames(`${prefixCls}-item-control`, {
-        'has-feedback': props.hasFeedback || validateStatus === 'validating',
-        'has-success': validateStatus === 'success',
-        'has-warning': validateStatus === 'warning',
-        'has-error': validateStatus === 'error',
-        'is-validating': validateStatus === 'validating',
-      });
-    }
-
-    let iconType = '';
-    switch (validateStatus) {
-      case 'success':
-        iconType = 'check-circle';
-        break;
-      case 'warning':
-        iconType = 'exclamation-circle';
-        break;
-      case 'error':
-        iconType = 'close-circle';
-        break;
-      case 'validating':
-        iconType = 'loading';
-        break;
-      default:
-        iconType = '';
-        break;
-    }
-
-    const icon =
-      props.hasFeedback && iconType ? (
-        <span className={`${prefixCls}-item-children-icon`}>
-          <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
-        </span>
-      ) : null;
-
-    return (
-      <div className={classes}>
-        <span className={`${prefixCls}-item-children`}>
-          {c1}
-          {icon}
-        </span>
-        {c2}
-        {c3}
-      </div>
-    );
-  }
-
-  renderWrapper(prefixCls: string, children: React.ReactNode) {
-    return (
-      <FormContext.Consumer key="wrapper">
-        {({ wrapperCol: contextWrapperCol, vertical }: FormContextProps) => {
-          const { wrapperCol } = this.props;
-          const mergedWrapperCol: ColProps =
-            ('wrapperCol' in this.props ? wrapperCol : contextWrapperCol) || {};
-
-          const className = classNames(
-            `${prefixCls}-item-control-wrapper`,
-            mergedWrapperCol.className,
-          );
-
-          // No pass FormContext since it's useless
-          return (
-            <FormContext.Provider value={{ vertical }}>
-              <Col {...mergedWrapperCol} className={className}>
-                {children}
-              </Col>
-            </FormContext.Provider>
-          );
-        }}
-      </FormContext.Consumer>
-    );
-  }
-
-  isRequired() {
-    const { required } = this.props;
-    if (required !== undefined) {
-      return required;
-    }
-    if (this.getOnlyControl()) {
-      const meta = this.getMeta() || {};
-      const validate = meta.validate || [];
-
-      return validate
-        .filter((item: any) => !!item.rules)
-        .some((item: any) => {
-          return item.rules.some((rule: any) => rule.required);
-        });
-    }
-    return false;
-  }
-
-  // Resolve duplicated ids bug between different forms
-  // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = () => {
-    const id = this.props.id || this.getId();
-    if (!id) {
-      return;
-    }
-
-    const formItemNode = ReactDOM.findDOMNode(this) as Element;
-    const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
-    if (control && control.focus) {
-      control.focus();
-    }
-  };
-
-  renderLabel(prefixCls: string) {
-    return (
-      <FormContext.Consumer key="label">
-        {({
-          vertical,
-          labelAlign: contextLabelAlign,
-          labelCol: contextLabelCol,
-          colon: contextColon,
-        }: FormContextProps) => {
-          const { label, labelCol, labelAlign, colon, id, htmlFor } = this.props;
-          const required = this.isRequired();
-
-          const mergedLabelCol: ColProps =
-            ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
-
-          const mergedLabelAlign: FormLabelAlign | undefined =
-            'labelAlign' in this.props ? labelAlign : contextLabelAlign;
-
-          const labelClsBasic = `${prefixCls}-item-label`;
-          const labelColClassName = classNames(
-            labelClsBasic,
-            mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
-            mergedLabelCol.className,
-          );
-
-          let labelChildren = label;
-          // Keep label is original where there should have no colon
-          const computedColon = colon === true || (contextColon !== false && colon !== false);
-          const haveColon = computedColon && !vertical;
-          // Remove duplicated user input colon
-          if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-            labelChildren = (label as string).replace(/[：|:]\s*$/, '');
+  // ======================== Errors ========================
+  // Collect noStyle Field error to the top FormItem
+  const updateChildItemErrors = noStyle
+    ? updateItemErrors
+    : (subName: string, subErrors: string[]) => {
+        setInlineErrors((prevInlineErrors = {}) => {
+          if (!isEqual(prevInlineErrors[subName], subErrors)) {
+            return {
+              ...prevInlineErrors,
+              [subName]: subErrors,
+            };
           }
+          return prevInlineErrors;
+        });
+      };
 
-          const labelClassName = classNames({
-            [`${prefixCls}-item-required`]: required,
-            [`${prefixCls}-item-no-colon`]: !computedColon,
-          });
+  // ===================== Children Ref =====================
+  const getItemRef = useItemRef();
 
-          return label ? (
-            <Col {...mergedLabelCol} className={labelColClassName}>
-              <label
-                htmlFor={htmlFor || id || this.getId()}
-                className={labelClassName}
-                title={typeof label === 'string' ? label : ''}
-                onClick={this.onLabelClick}
-              >
-                {labelChildren}
-              </label>
-            </Col>
-          ) : null;
-        }}
-      </FormContext.Consumer>
-    );
-  }
+  function renderLayout(
+    baseChildren: React.ReactNode,
+    fieldId?: string,
+    meta?: Meta,
+    isRequired?: boolean,
+  ): React.ReactNode {
+    if (noStyle && !hidden) {
+      return baseChildren;
+    }
 
-  renderChildren(prefixCls: string) {
-    const { children } = this.props;
-    return [
-      this.renderLabel(prefixCls),
-      this.renderWrapper(
-        prefixCls,
-        this.renderValidateWrapper(
-          prefixCls,
-          children,
-          this.renderHelp(prefixCls),
-          this.renderExtra(prefixCls),
-        ),
-      ),
-    ];
-  }
+    // ======================== Errors ========================
+    // >>> collect sub errors
+    let subErrorList: string[] = [];
+    Object.keys(inlineErrors).forEach(subName => {
+      subErrorList = [...subErrorList, ...(inlineErrors[subName] || [])];
+    });
 
-  renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, style, className } = this.props;
-    const prefixCls = getPrefixCls('form', customizePrefixCls);
-    const children = this.renderChildren(prefixCls);
+    // >>> merged errors
+    let mergedErrors: React.ReactNode[];
+    if (help !== undefined && help !== null) {
+      mergedErrors = toArray(help);
+    } else {
+      mergedErrors = meta ? meta.errors : [];
+      mergedErrors = [...mergedErrors, ...subErrorList];
+    }
+
+    // ======================== Status ========================
+    let mergedValidateStatus: ValidateStatus = '';
+    if (validateStatus !== undefined) {
+      mergedValidateStatus = validateStatus;
+    } else if (meta?.validating) {
+      mergedValidateStatus = 'validating';
+    } else if (meta?.errors?.length || subErrorList.length) {
+      mergedValidateStatus = 'error';
+    } else if (meta?.touched) {
+      mergedValidateStatus = 'success';
+    }
+
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: this.helpShow,
+      [`${prefixCls}-item-with-help`]: domErrorVisible || help,
       [`${className}`]: !!className,
+
+      // Status
+      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
+      [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
+      [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
+      [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
+      [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+      [`${prefixCls}-item-hidden`]: hidden,
     };
 
+    // ======================= Children =======================
     return (
-      <Row className={classNames(itemClassName)} style={style} key="row">
-        {children}
+      <Row
+        className={classNames(itemClassName)}
+        style={style}
+        key="row"
+        {...omit(restProps, [
+          'colon',
+          'extra',
+          'getValueFromEvent',
+          'getValueProps',
+          'hasFeedback',
+          'help',
+          'htmlFor',
+          'id', // It is deprecated because `htmlFor` is its replacement.
+          'initialValue',
+          'isListField',
+          'label',
+          'labelAlign',
+          'labelCol',
+          'normalize',
+          'preserve',
+          'required',
+          'tooltip',
+          'validateFirst',
+          'validateStatus',
+          'valuePropName',
+          'wrapperCol',
+          '_internalItemRender',
+        ])}
+      >
+        {/* Label */}
+        <FormItemLabel
+          htmlFor={fieldId}
+          required={isRequired}
+          requiredMark={requiredMark}
+          {...props}
+          prefixCls={prefixCls}
+        />
+        {/* Input Group */}
+        <FormItemInput
+          {...props}
+          {...meta}
+          errors={mergedErrors}
+          prefixCls={prefixCls}
+          status={mergedValidateStatus}
+          onDomErrorVisibleChange={setDomErrorVisible}
+          validateStatus={mergedValidateStatus}
+        >
+          <FormItemContext.Provider value={{ updateItemErrors: updateChildItemErrors }}>
+            {baseChildren}
+          </FormItemContext.Provider>
+        </FormItemInput>
       </Row>
     );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderFormItem}</ConfigConsumer>;
   }
+
+  const isRenderProps = typeof children === 'function';
+
+  // Record for real component render
+  const updateRef = useRef(0);
+  updateRef.current += 1;
+
+  if (!hasName && !isRenderProps && !dependencies) {
+    return renderLayout(children) as JSX.Element;
+  }
+
+  let variables: Record<string, string> = {};
+  if (typeof label === 'string') {
+    variables.label = label;
+  }
+  if (messageVariables) {
+    variables = { ...variables, ...messageVariables };
+  }
+
+  return (
+    <Field
+      {...props}
+      messageVariables={variables}
+      trigger={trigger}
+      validateTrigger={mergedValidateTrigger}
+      onReset={() => {
+        setDomErrorVisible(false);
+      }}
+    >
+      {(control, meta, context) => {
+        const { errors } = meta;
+
+        const mergedName = toArray(name).length && meta ? meta.name : [];
+        const fieldId = getFieldId(mergedName, formName);
+
+        if (noStyle) {
+          nameRef.current = [...mergedName];
+          if (fieldKey) {
+            const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
+            nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
+          }
+          updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
+        }
+
+        const isRequired =
+          required !== undefined
+            ? required
+            : !!(
+                rules &&
+                rules.some(rule => {
+                  if (rule && typeof rule === 'object' && rule.required) {
+                    return true;
+                  }
+                  if (typeof rule === 'function') {
+                    const ruleEntity = rule(context);
+                    return ruleEntity && ruleEntity.required;
+                  }
+                  return false;
+                })
+              );
+
+        // ======================= Children =======================
+        const mergedControl: typeof control = {
+          ...control,
+        };
+
+        let childNode: React.ReactNode = null;
+
+        devWarning(
+          !(shouldUpdate && dependencies),
+          'Form.Item',
+          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+        );
+        if (Array.isArray(children) && hasName) {
+          devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          childNode = children;
+        } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
+          devWarning(
+            !!(shouldUpdate || dependencies),
+            'Form.Item',
+            '`children` of render props only work with `shouldUpdate` or `dependencies`.',
+          );
+          devWarning(
+            !hasName,
+            'Form.Item',
+            "Do not use `name` with `children` of render props since it's not a field.",
+          );
+        } else if (dependencies && !isRenderProps && !hasName) {
+          devWarning(
+            false,
+            'Form.Item',
+            'Must set `name` or use render props when `dependencies` is set.',
+          );
+        } else if (isValidElement(children)) {
+          devWarning(
+            children.props.defaultValue === undefined,
+            'Form.Item',
+            '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
+          );
+
+          const childProps = { ...children.props, ...mergedControl };
+          if (!childProps.id) {
+            childProps.id = fieldId;
+          }
+
+          if (supportRef(children)) {
+            childProps.ref = getItemRef(mergedName, children);
+          }
+
+          // We should keep user origin event handler
+          const triggers = new Set<string>([
+            ...toArray(trigger),
+            ...toArray(mergedValidateTrigger),
+          ]);
+
+          triggers.forEach(eventName => {
+            childProps[eventName] = (...args: any[]) => {
+              mergedControl[eventName]?.(...args);
+              children.props[eventName]?.(...args);
+            };
+          });
+
+          childNode = (
+            <MemoInput
+              value={mergedControl[props.valuePropName || 'value']}
+              update={updateRef.current}
+            >
+              {cloneElement(children, childProps)}
+            </MemoInput>
+          );
+        } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
+          childNode = (children as RenderChildren)(context);
+        } else {
+          devWarning(
+            !mergedName.length,
+            'Form.Item',
+            '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
+          );
+          childNode = children;
+        }
+
+        return renderLayout(childNode, fieldId, meta, isRequired);
+      }}
+    </Field>
+  );
 }
+
+export default FormItem;

@@ -1,8 +1,9 @@
-import CalendarLocale from 'rc-calendar/lib/locale/hi_IN';
+import CalendarLocale from 'rc-picker/lib/locale/hi_IN';
 import TimePickerLocale from '../../time-picker/locale/hi_IN';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     placeholder: 'तारीख़ चुनें',
     rangePlaceholder: ['प्रारंभ तिथि', 'समाप्ति तिथि'],

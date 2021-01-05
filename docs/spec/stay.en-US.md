@@ -1,14 +1,15 @@
 ---
-category: Principles
+category: Design Patterns
+type: Principles
 order: 6
 title: Stay on the Page
 ---
 
 Solve most of problems on the same page and avoid a new one, because the page refresh and forwarding can lead to change blindness, in addition to disrupting the user's mental flow.
 
-> ** Change Blindness** is a surprising perceptual phenomenon that occurs when a change in a visual stimulus is introduced and the observer does not notice it. People's poor ability to detect changes has been argued to reflect fundamental limitations of human attention, from the term of Change blindness, Wikipedia.
+> **Change Blindness** is a surprising perceptual phenomenon that occurs when a change in a visual stimulus is introduced and the observer does not notice it. People's poor ability to detect changes has been argued to reflect fundamental limitations of human attention, from the term of Change blindness, Wikipedia.
 
-> ** Flow**, also known as the zone, is the mental state of operation in which a person performing an activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity, from the term of Flow, Wikipedia
+> **Flow**, also known as the zone, is the mental state of operation in which a person performing an activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity, from the term of Flow, Wikipedia
 
 ---
 

@@ -7,24 +7,25 @@ title:
 
 ## zh-CN
 
-第一列是联动的选择框。
+第一列是联动的选择框。可以通过 `rowSelection.type` 属性指定选择类型，默认为 `checkbox`。
 
 > 默认点击 checkbox 触发选择行为，需要点击行触发可以参考例子：<https://codesandbox.io/s/000vqw38rl>
 
 ## en-US
 
-Rows can be selectable by making first column as a selectable column.
+Rows can be selectable by making first column as a selectable column. You can use `rowSelection.type` to set selection type. Default is `checkbox`.
 
-> selection happens when clicking checkbox defaultly. You can see <https://codesandbox.io/s/000vqw38rl> if you need row-click selection behavior.
+> selection happens when clicking checkbox by default. You can see <https://codesandbox.io/s/000vqw38rl> if you need row-click selection behavior.
 
-```jsx
-import { Table } from 'antd';
+```tsx
+import React, { useState } from 'react';
+import { Table, Radio, Divider } from 'antd';
 
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    render: (text: string) => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -35,7 +36,15 @@ const columns = [
     dataIndex: 'address',
   },
 ];
-const data = [
+
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const data: DataType[] = [
   {
     key: '1',
     name: 'John Brown',
@@ -64,17 +73,43 @@ const data = [
 
 // rowSelection object indicates the need for row selection
 const rowSelection = {
-  onChange: (selectedRowKeys, selectedRows) => {
+  onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
-  getCheckboxProps: record => ({
+  getCheckboxProps: (record: DataType) => ({
     disabled: record.name === 'Disabled User', // Column configuration not to be checked
     name: record.name,
   }),
 };
 
-ReactDOM.render(
-  <Table rowSelection={rowSelection} columns={columns} dataSource={data} />,
-  mountNode,
-);
+const Demo = () => {
+  const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
+
+  return (
+    <div>
+      <Radio.Group
+        onChange={({ target: { value } }) => {
+          setSelectionType(value);
+        }}
+        value={selectionType}
+      >
+        <Radio value="checkbox">Checkbox</Radio>
+        <Radio value="radio">radio</Radio>
+      </Radio.Group>
+
+      <Divider />
+
+      <Table
+        rowSelection={{
+          type: selectionType,
+          ...rowSelection,
+        }}
+        columns={columns}
+        dataSource={data}
+      />
+    </div>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```

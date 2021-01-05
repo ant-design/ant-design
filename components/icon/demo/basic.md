@@ -7,23 +7,29 @@ title:
 
 ## zh-CN
 
-使用 `<Icon />` 标签声明组件，指定图标对应的 `type` 属性。可以通过 `theme` 属性来设置不同的主题风格的图标，也可以通过设置 `spin` 属性来实现动画旋转效果。
+通过 `@ant-design/icons` 引用 Icon 组件，不同主题的 Icon 组件名为图标名加主题做为后缀，也可以通过设置 `spin` 属性来实现动画旋转效果。
 
 ## en-US
 
-Use tag `<Icon />` to create an icon and set its type in the `type` prop. Specific the `spin` property to show spinning animation and the `theme` property to switch different themes.
+Import icons from `@ant-design/icons`, component name of icons with different theme is the icon name suffixed by the theme name. Specific the `spin` property to show spinning animation.
 
 ```jsx
-import { Icon } from 'antd';
+import {
+  HomeOutlined,
+  SettingFilled,
+  SmileOutlined,
+  SyncOutlined,
+  LoadingOutlined,
+} from '@ant-design/icons';
 
 ReactDOM.render(
   <div className="icons-list">
-    <Icon type="home" />
-    <Icon type="setting" theme="filled" />
-    <Icon type="smile" theme="outlined" />
-    <Icon type="sync" spin />
-    <Icon type="smile" rotate={180} />
-    <Icon type="loading" />
+    <HomeOutlined />
+    <SettingFilled />
+    <SmileOutlined />
+    <SyncOutlined spin />
+    <SmileOutlined rotate={180} />
+    <LoadingOutlined />
   </div>,
   mountNode,
 );
@@ -33,5 +39,9 @@ ReactDOM.render(
 .icons-list > .anticon {
   margin-right: 6px;
   font-size: 24px;
+}
+.ant-row-rtl .icons-list > .anticon {
+  margin-right: 0;
+  margin-left: 6px;
 }
 </style>

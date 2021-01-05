@@ -2,7 +2,7 @@
 order: 8
 title:
   zh-CN: 预设范围
-  en-US: Presetted Ranges
+  en-US: Preset Ranges
 ---
 
 ## zh-CN
@@ -11,13 +11,13 @@ title:
 
 ## en-US
 
-We can set presetted ranges to RangePicker to improve user experience.
+We can set preset ranges to RangePicker to improve user experience.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 import moment from 'moment';
 
-const RangePicker = DatePicker.RangePicker;
+const { RangePicker } = DatePicker;
 
 function onChange(dates, dateStrings) {
   console.log('From: ', dates[0], ', to: ', dates[1]);
@@ -25,7 +25,7 @@ function onChange(dates, dateStrings) {
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <RangePicker
       ranges={{
         Today: [moment(), moment()],
@@ -33,7 +33,6 @@ ReactDOM.render(
       }}
       onChange={onChange}
     />
-    <br />
     <RangePicker
       ranges={{
         Today: [moment(), moment()],
@@ -43,7 +42,7 @@ ReactDOM.render(
       format="YYYY/MM/DD HH:mm:ss"
       onChange={onChange}
     />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

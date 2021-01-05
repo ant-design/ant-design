@@ -1,4 +1,6 @@
-const locale = {
+import { TimePickerLocale } from '../index';
+
+const locale: TimePickerLocale = {
   placeholder: '請選擇時間',
 };
 

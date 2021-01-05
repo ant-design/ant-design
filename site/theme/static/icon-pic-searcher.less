@@ -1,0 +1,51 @@
+.icon-pic-searcher {
+  display: inline-block;
+  margin: 0 8px;
+
+  .icon-pic-btn {
+    color: @text-color-secondary;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      color: @input-icon-hover-color;
+    }
+  }
+}
+
+.icon-pic-preview {
+  width: 66px;
+  height: 66px;
+  margin-top: 10px;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid @border-color-base;
+  border-radius: 4px;
+
+  > img {
+    max-width: 50px;
+    max-height: 50px;
+  }
+}
+
+.icon-pic-search-result {
+  min-height: 50px;
+  padding: 0 10px;
+  > .result-tip {
+    padding: 10px 0;
+    color: @text-color-secondary;
+  }
+  > table {
+    width: 100%;
+    .col-icon {
+      width: 80px;
+      padding: 10px 0;
+      > .anticon {
+        font-size: 30px;
+
+        :hover {
+          color: @link-hover-color;
+        }
+      }
+    }
+  }
+}

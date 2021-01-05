@@ -35,19 +35,22 @@ exports[`List.pagination renders pagination correctly 1`] = `
     >
       <li
         aria-disabled="true"
-        class="ant-pagination-disabled ant-pagination-prev"
+        class="ant-pagination-prev ant-pagination-disabled"
         title="Previous Page"
       >
-        <a
+        <button
           class="ant-pagination-item-link"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <i
-            aria-label="icon: left"
+          <span
+            aria-label="left"
             class="anticon anticon-left"
+            role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="left"
               fill="currentColor"
               focusable="false"
@@ -56,18 +59,20 @@ exports[`List.pagination renders pagination correctly 1`] = `
               width="1em"
             >
               <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
               />
             </svg>
-          </i>
-        </a>
+          </span>
+        </button>
       </li>
       <li
         class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
         tabindex="0"
         title="1"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           1
         </a>
       </li>
@@ -76,26 +81,30 @@ exports[`List.pagination renders pagination correctly 1`] = `
         tabindex="0"
         title="2"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           2
         </a>
       </li>
       <li
         aria-disabled="false"
-        class=" ant-pagination-next"
+        class="ant-pagination-next"
         tabindex="0"
         title="Next Page"
       >
-        <a
+        <button
           class="ant-pagination-item-link"
+          tabindex="-1"
+          type="button"
         >
-          <i
-            aria-label="icon: right"
+          <span
+            aria-label="right"
             class="anticon anticon-right"
+            role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="right"
               fill="currentColor"
               focusable="false"
@@ -104,11 +113,11 @@ exports[`List.pagination renders pagination correctly 1`] = `
               width="1em"
             >
               <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
               />
             </svg>
-          </i>
-        </a>
+          </span>
+        </button>
       </li>
     </ul>
   </div>
@@ -117,24 +126,27 @@ exports[`List.pagination renders pagination correctly 1`] = `
 
 exports[`List.pagination should change page size work 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
     aria-disabled="true"
-    class="ant-pagination-disabled ant-pagination-prev"
+    class="ant-pagination-prev ant-pagination-disabled"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      disabled=""
+      tabindex="-1"
+      type="button"
     >
-      <i
-        aria-label="icon: left"
+      <span
+        aria-label="left"
         class="anticon anticon-left"
+        role="img"
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -143,36 +155,41 @@ exports[`List.pagination should change page size work 1`] = `
           width="1em"
         >
           <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
           />
         </svg>
-      </i>
-    </a>
+      </span>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
   <li
     aria-disabled="true"
-    class="ant-pagination-disabled ant-pagination-next"
+    class="ant-pagination-next ant-pagination-disabled"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      disabled=""
+      tabindex="-1"
+      type="button"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right"
+        role="img"
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -181,65 +198,74 @@ exports[`List.pagination should change page size work 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
-    </a>
+      </span>
+    </button>
   </li>
   <li
     class="ant-pagination-options"
   >
     <div
-      class="ant-pagination-options-size-changer ant-select ant-select-enabled"
+      class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls="test-uuid"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display: block; opacity: 1;"
-            title="10 / page"
-          >
-            10 / page
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="10 / page"
+        >
+          10 / page
         </span>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </li>
 </ul>
@@ -247,24 +273,27 @@ exports[`List.pagination should change page size work 1`] = `
 
 exports[`List.pagination should change page size work 2`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
     aria-disabled="true"
-    class="ant-pagination-disabled ant-pagination-prev"
+    class="ant-pagination-prev ant-pagination-disabled"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      disabled=""
+      tabindex="-1"
+      type="button"
     >
-      <i
-        aria-label="icon: left"
+      <span
+        aria-label="left"
         class="anticon anticon-left"
+        role="img"
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -273,36 +302,41 @@ exports[`List.pagination should change page size work 2`] = `
           width="1em"
         >
           <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
           />
         </svg>
-      </i>
-    </a>
+      </span>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
   <li
     aria-disabled="true"
-    class="ant-pagination-disabled ant-pagination-next"
+    class="ant-pagination-next ant-pagination-disabled"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      disabled=""
+      tabindex="-1"
+      type="button"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right"
+        role="img"
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -311,120 +345,206 @@ exports[`List.pagination should change page size work 2`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
-    </a>
+      </span>
+    </button>
   </li>
   <li
     class="ant-pagination-options"
   >
     <div
-      class="ant-pagination-options-size-changer ant-select ant-select-focused ant-select-enabled"
-      style=""
+      class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-open"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls="test-uuid"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display: block; opacity: 1;"
-            title="30 / page"
-          >
-            30 / page
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="true"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="50 / page"
+        >
+          50 / page
         </span>
       </div>
-    </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft slide-up-leave"
-        style="left: -999px; top: -995px;"
-      >
+      <div>
         <div
-          id="test-uuid"
-          style="overflow: auto; transform: translateZ(0);"
+          class="ant-select-dropdown slide-up-enter slide-up-enter-prepare slide-up"
+          style="pointer-events: none; min-width: 0; opacity: 0;"
         >
-          <ul
-            class="ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
-            role="listbox"
-            tabindex="0"
-          >
-            <li
-              aria-selected="false"
-              class="ant-select-dropdown-menu-item"
-              role="option"
-              style="user-select: none;"
-              unselectable="on"
+          <div>
+            <div
+              id="rc_select_TEST_OR_SSR_list"
+              role="listbox"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
-              10 / page
-            </li>
-            <li
-              aria-selected="false"
-              class="ant-select-dropdown-menu-item"
-              role="option"
-              style="user-select: none;"
-              unselectable="on"
+              <div
+                aria-label="10 / page"
+                aria-selected="false"
+                id="rc_select_TEST_OR_SSR_list_0"
+                role="option"
+              >
+                10
+              </div>
+              <div
+                aria-label="20 / page"
+                aria-selected="false"
+                id="rc_select_TEST_OR_SSR_list_1"
+                role="option"
+              >
+                20
+              </div>
+            </div>
+            <div
+              class="rc-virtual-list"
+              style="position: relative;"
             >
-              20 / page
-            </li>
-            <li
-              aria-selected="true"
-              class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-selected"
-              role="option"
-              style="user-select: none;"
-              unselectable="on"
-            >
-              30 / page
-            </li>
-            <li
-              aria-selected="false"
-              class="ant-select-dropdown-menu-item"
-              role="option"
-              style="user-select: none;"
-              unselectable="on"
-            >
-              40 / page
-            </li>
-          </ul>
+              <div
+                class="rc-virtual-list-holder"
+                style="max-height: 256px; overflow-y: auto;"
+              >
+                <div>
+                  <div
+                    class="rc-virtual-list-holder-inner"
+                    style="display: flex; flex-direction: column;"
+                  >
+                    <div
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                      title="10 / page"
+                    >
+                      <div
+                        class="ant-select-item-option-content"
+                      >
+                        10 / page
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
+                    </div>
+                    <div
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option"
+                      title="20 / page"
+                    >
+                      <div
+                        class="ant-select-item-option-content"
+                      >
+                        20 / page
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
+                    </div>
+                    <div
+                      aria-selected="true"
+                      class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                      title="50 / page"
+                    >
+                      <div
+                        class="ant-select-item-option-content"
+                      >
+                        50 / page
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
+                    </div>
+                    <div
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option"
+                      title="100 / page"
+                    >
+                      <div
+                        class="ant-select-item-option-content"
+                      >
+                        100 / page
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
     </div>
   </li>
 </ul>
@@ -432,25 +552,27 @@ exports[`List.pagination should change page size work 2`] = `
 
 exports[`List.pagination should default work 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
     aria-disabled="false"
-    class=" ant-pagination-prev"
+    class="ant-pagination-prev"
     tabindex="0"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      tabindex="-1"
+      type="button"
     >
-      <i
-        aria-label="icon: left"
+      <span
+        aria-label="left"
         class="anticon anticon-left"
+        role="img"
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -459,18 +581,20 @@ exports[`List.pagination should default work 1`] = `
           width="1em"
         >
           <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
           />
         </svg>
-      </i>
-    </a>
+      </span>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -479,25 +603,30 @@ exports[`List.pagination should default work 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
   <li
     aria-disabled="true"
-    class="ant-pagination-disabled ant-pagination-next"
+    class="ant-pagination-next ant-pagination-disabled"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      disabled=""
+      tabindex="-1"
+      type="button"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right"
+        role="img"
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -506,65 +635,74 @@ exports[`List.pagination should default work 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
-    </a>
+      </span>
+    </button>
   </li>
   <li
     class="ant-pagination-options"
   >
     <div
-      class="ant-pagination-options-size-changer ant-select ant-select-enabled"
+      class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls="test-uuid"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display: block; opacity: 1;"
-            title="3 / page"
-          >
-            3 / page
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="3 / page"
+        >
+          3 / page
         </span>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </li>
 </ul>

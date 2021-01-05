@@ -14,9 +14,10 @@ title:
 Customize the background, border, margin styles and icon for each panel.
 
 ```jsx
-import { Collapse, Icon } from 'antd';
+import { Collapse } from 'antd';
+import { CaretRightOutlined } from '@ant-design/icons';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 const text = `
   A dog is a type of domesticated animal.
@@ -24,30 +25,41 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const customPanelStyle = {
-  background: '#f7f7f7',
-  borderRadius: 4,
-  marginBottom: 24,
-  border: 0,
-  overflow: 'hidden',
-};
-
 ReactDOM.render(
   <Collapse
     bordered={false}
     defaultActiveKey={['1']}
-    expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
+    expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+    className="site-collapse-custom-collapse"
   >
-    <Panel header="This is panel header 1" key="1" style={customPanelStyle}>
+    <Panel header="This is panel header 1" key="1" className="site-collapse-custom-panel">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 2" key="2" style={customPanelStyle}>
+    <Panel header="This is panel header 2" key="2" className="site-collapse-custom-panel">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 3" key="3" style={customPanelStyle}>
+    <Panel header="This is panel header 3" key="3" className="site-collapse-custom-panel">
       <p>{text}</p>
     </Panel>
   </Collapse>,
   mountNode,
 );
 ```
+
+```css
+[data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+  background: #f7f7f7;
+  border-radius: 2px;
+  margin-bottom: 24px;
+  border: 0px;
+  overflow: hidden;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-collapse-custom-collapse .site-collapse-custom-panel {
+    background: rgba(255,255,255,0.04);
+    border: 0px;
+  }
+</style>

@@ -4,7 +4,7 @@
   @checkbox-inner-prefix-cls: ~'@{checkbox-prefix-cls}-inner';
   // 一般状态
   .@{checkbox-prefix-cls} {
-    .reset-component;
+    .reset-component();
 
     position: relative;
     top: -0.09em;
@@ -28,10 +28,10 @@
       width: 100%;
       height: 100%;
       border: 1px solid @checkbox-color;
-      border-radius: @border-radius-sm;
+      border-radius: @border-radius-base;
       visibility: hidden;
       animation: antCheckboxEffect 0.36s ease-in-out;
-      animation-fill-mode: both;
+      animation-fill-mode: backwards;
       content: '';
     }
 
@@ -47,9 +47,10 @@
       display: block;
       width: @checkbox-size;
       height: @checkbox-size;
-      background-color: @checkbox-check-color;
+      direction: ltr;
+      background-color: @checkbox-check-bg;
       border: @checkbox-border-width @border-style-base @border-color-base;
-      border-radius: @border-radius-sm;
+      border-radius: @border-radius-base;
       // Fix IE checked style
       // https://github.com/ant-design/ant-design/issues/12597
       border-collapse: separate;
@@ -61,7 +62,7 @@
 
         position: absolute;
         top: 50%;
-        left: 21%;
+        left: 22%;
         display: table;
         width: @check-width;
         height: @check-height;
@@ -137,32 +138,40 @@
       color: @disabled-color;
       cursor: not-allowed;
     }
+
+    // Not show highlight border of checkbox when disabled
+    &:hover::after,
+    .@{checkbox-prefix-cls}-wrapper:hover &::after {
+      visibility: hidden;
+    }
   }
 
   .@{checkbox-prefix-cls}-wrapper {
-    .reset-component;
+    .reset-component();
 
     display: inline-block;
     line-height: unset;
     cursor: pointer;
+    &.@{checkbox-prefix-cls}-wrapper-disabled {
+      cursor: not-allowed;
+    }
     & + & {
       margin-left: 8px;
     }
   }
 
-  .@{checkbox-prefix-cls}-wrapper + span,
   .@{checkbox-prefix-cls} + span {
     padding-right: 8px;
     padding-left: 8px;
   }
 
   .@{checkbox-prefix-cls}-group {
-    .reset-component;
+    .reset-component();
 
     display: inline-block;
     &-item {
       display: inline-block;
-      margin-right: 8px;
+      margin-right: @checkbox-group-item-margin-right;
       &:last-child {
         margin-right: 0;
       }
@@ -175,7 +184,7 @@
   // 半选状态
   .@{checkbox-prefix-cls}-indeterminate {
     .@{checkbox-inner-prefix-cls} {
-      background-color: #fff;
+      background-color: @checkbox-check-bg;
       border-color: @border-color-base;
     }
     .@{checkbox-inner-prefix-cls}::after {

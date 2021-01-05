@@ -1,8 +1,10 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 
-.@{ant-prefix}-carousel {
-  .reset-component;
+@carousel-prefix-cls: ~'@{ant-prefix}-carousel';
+
+.@{carousel-prefix-cls} {
+  .reset-component();
 
   .slick-slider {
     position: relative;
@@ -13,6 +15,7 @@
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
   }
+
   .slick-list {
     position: relative;
     display: block;
@@ -31,14 +34,34 @@
     .slick-slide {
       pointer-events: none;
 
+      // https://github.com/ant-design/ant-design/issues/23294
+      input.@{ant-prefix}-radio-input,
+      input.@{ant-prefix}-checkbox-input {
+        visibility: hidden;
+      }
+
       &.slick-active {
         pointer-events: auto;
+
+        input.@{ant-prefix}-radio-input,
+        input.@{ant-prefix}-checkbox-input {
+          visibility: visible;
+        }
+      }
+
+      // fix Carousel content height not match parent node
+      // when children is empty node
+      // https://github.com/ant-design/ant-design/issues/25878
+      > div > div {
+        vertical-align: bottom;
       }
     }
   }
+
   .slick-slider .slick-track,
   .slick-slider .slick-list {
     transform: translate3d(0, 0, 0);
+    touch-action: pan-y;
   }
 
   .slick-track {
@@ -61,17 +84,17 @@
       visibility: hidden;
     }
   }
+
   .slick-slide {
     display: none;
     float: left;
     height: 100%;
     min-height: 1px;
-    [dir='rtl'] & {
-      float: right;
-    }
+
     img {
       display: block;
     }
+
     &.slick-loading img {
       display: none;
     }
@@ -92,7 +115,6 @@
   .slick-vertical .slick-slide {
     display: block;
     height: auto;
-    border: @border-width-base @border-style-base transparent;
   }
   .slick-arrow.slick-hidden {
     display: none;
@@ -131,6 +153,7 @@
 
   .slick-prev {
     left: -25px;
+
     &::before {
       content: '←';
     }
@@ -146,13 +169,17 @@
   // Dots
   .slick-dots {
     position: absolute;
-    display: block;
-    width: 100%;
-    height: @carousel-dot-height;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    display: flex !important;
+    justify-content: center;
+    margin-right: 15%;
+    margin-left: 15%;
+    padding-left: 0;
     list-style: none;
+
     &-bottom {
       bottom: 12px;
     }
@@ -162,13 +189,21 @@
     li {
       position: relative;
       display: inline-block;
+      flex: 0 1 auto;
+      box-sizing: content-box;
+      width: @carousel-dot-width;
+      height: @carousel-dot-height;
       margin: 0 2px;
+      margin-right: 3px;
+      margin-left: 3px;
       padding: 0;
       text-align: center;
+      text-indent: -999px;
       vertical-align: top;
+      transition: all 0.5s;
       button {
         display: block;
-        width: @carousel-dot-width;
+        width: 100%;
         height: @carousel-dot-height;
         padding: 0;
         color: transparent;
@@ -185,10 +220,12 @@
           opacity: 0.75;
         }
       }
-      &.slick-active button {
+      &.slick-active {
         width: @carousel-dot-active-width;
-        background: @component-background;
-        opacity: 1;
+        & button {
+          background: @component-background;
+          opacity: 1;
+        }
         &:hover,
         &:focus {
           opacity: 1;
@@ -202,26 +239,40 @@
   .slick-dots {
     top: 50%;
     bottom: auto;
+    flex-direction: column;
     width: @carousel-dot-height;
     height: auto;
+    margin: 0;
     transform: translateY(-50%);
+
     &-left {
+      right: auto;
       left: 12px;
     }
     &-right {
       right: 12px;
+      left: auto;
     }
     li {
-      margin: 0 2px;
+      width: @carousel-dot-height;
+      height: @carousel-dot-width;
+      margin: 4px 2px;
       vertical-align: baseline;
       button {
         width: @carousel-dot-height;
         height: @carousel-dot-width;
       }
-      &.slick-active button {
+      &.slick-active {
         width: @carousel-dot-height;
         height: @carousel-dot-active-width;
+
+        button {
+          width: @carousel-dot-height;
+          height: @carousel-dot-active-width;
+        }
       }
     }
   }
 }
+
+@import './rtl';

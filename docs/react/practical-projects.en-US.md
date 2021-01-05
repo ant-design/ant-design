@@ -1,125 +1,35 @@
 ---
-order: 2
-title: Real project with umi and dva
+order: 3
+title: Real project with umi
 ---
 
-In real project development, you might need a data flow solution like Redux or MobX. Ant Design React is a UI library that can be used with any data flow solution and application framework within the React ecosystem. We have launched dva based on Redux, as well as a pluggable enterprise application framework umi, which is recommended for use in your projects.
+In real project development, you may need data flow solutions such as Redux or MobX. Ant Design React is a UI library that can be used with data flow solutions and application frameworks in any React ecosystem. Based on the business scenario, we launched a pluggable enterprise-level application framework umi, which is recommended for use in the project.
 
-Dva is a lightweight data flow solution based on Redux. The concept comes from elm. It supports side effects, hot module replacement, dynamic loading, react-native, SSR, etc. It has been widely used in production.
-
-And [umi](http://umijs.org/) is a routing-based framework that supports [next.js-like conventional routing](https://umijs.org/guide/router.html) and various advanced routing functions, such as [routing-level on-demand loading](https://umijs.org/en/plugin/umi-plugin-react.html#dynamicimport). With a complete [plugin system](https://umijs.org/plugin/) that covers every life cycle from source code to build product, umi is able to support various functional extensions and business needs.
+And [umi](http://umijs.org/) is a routing-based framework that supports [next.js-like conventional routing](https://umijs.org/guide/router.html) and various advanced routing functions, such as [routing-level on-demand loading](https://umijs.org/en/plugin/umi-plugin-react.html#dynamicimport). With a complete [plugin system](https://umijs.org/plugin/) that covers every life cycle from source code to build product, umi is able to support various functional extensions and business needs; meanwhile [Umi UI](https://umijs.org/guide/umi-ui.html) is provided to enhance the development experience and development efficiency through Visual Aided Programming (VAP).
 
 > You may also be interested in [Ant Design Pro](https://pro.ant.design/), an Out-of-box UI solution for enterprise applications based on umi, dva and ant design.
 
-This article will guide you to create a simple application from zero using umi, dva and antd.
+This article will guide you to create a simple application from zero using Umi, dva and antd.
 
-## Create New App
-
-First create an empty directory,
-
-```bash
-$ mkdir myapp
-$ cd myapp
-```
+## Install Umi
 
 It is recommended to use yarn to create an application and execute the following command.
 
-> If you insist on using npm, execute `npm install -g create-umi && create-umi` and the effect will be the same.
-
 ```bash
+$ mkdir myapp && cd myapp
 $ yarn create umi
-
-yarn create v1.12.0
-[1/4] 🔍  Resolving packages...
-[2/4] 🚚  Fetching packages...
-[3/4] 🔗  Linking dependencies...
-[4/4] 📃  Building fresh packages...
-
-success Installed "create-umi@0.9.5" with binaries:
-      - create-umi
-```
-
-Yarn will install the latest version of [create-umi](https://github.com/umijs/create-umi) and then create the app with interactive ui.
-
-Select `app` and press Enter to confirm.
-
-```
-? Select the boilerplate type
-  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
-❯ app             - Create project with a simple boilerplate, support typescript.
-  block           - Create a umi block.
-  library         - Create a library with umi.
-  plugin          - Create a umi plugin.
-```
-
-Select `antd` and `dva` and press Enter to confirm.
-
-```bash
-   create package.json
-   create mock/.gitkeep
-   create src/assets/yay.jpg
-   create src/layouts/index.css
-   create src/layouts/index.js
-   create src/pages/index.css
-   create src/pages/index.js
-   create src/global.css
-   create .gitignore
-   create .editorconfig
-   create .env
-   create .umirc.js
-   create .eslintrc
-   create .prettierrc
-   create .prettierignore
-   create src/models/.gitkeep
-   create src/dva.js
-✨  File Generate Done
-✨  Done in 966.73s.
-```
-
-Then install dependencies,
-
-```bash
 $ yarn
 ```
 
-Then start the app,
+> If you use npm, you can execute `npx create-umi` with the same effect.
+
+## Install presets
+
+Execute the following command, install presets(including the antd, dva, locale plugins):
 
 ```bash
-$ yarn start
-```
-
-After a few seconds, you will see the following output,
-
-```bash
- DONE  Compiled successfully in 212ms
-
-  App running at:
-  - Local:   http://localhost:8000/
-  - Network: http://{{ YourIP }}:8000/
-```
-
-Open [http://localhost:8000](http://localhost:8000) in your browser, you will see the welcome page of umi.
-
-<img src="https://gw.alipayobjects.com/zos/rmsportal/lewbQdlEHzuNDpaxykUP.png" width="718" />
-
-## Integrate antd
-
-After selecting `antd` earlier, antd's dependencies are automatically handled and loaded on demand. You can check the configuration in `.umirc.js` to make sure antd is turned on.
-
-```js
-// ref: https://umijs.org/config/
-export default {
-  plugins: [
-    // ref: https://umijs.org/plugin/umi-plugin-react.html
-    [
-      'umi-plugin-react',
-      {
-        antd: true,
-        dva: true,
-      },
-    ],
-  ],
-};
+# 或 npm i @umijs/preset-react -D
+$ yarn add @umijs/preset-react -D
 ```
 
 > And if you want to use a fixed version of antd, you can install additional antd dependency in your project, and the antd dependencies declared in package.json will be used first.
@@ -137,14 +47,27 @@ $ yarn global add npx
 Then create a `/products` route,
 
 ```bash
-$ npx umi g page products
+$ npx umi g page products --typescript
 
-   create src/pages/products.js
-   create src/pages/products.css
-✔  success
+Write: src/pages/products.tsx
+Write: src/pages/products.css
 ```
 
-Then open [http://localhost:8000/products](http://localhost:8000/products) in your browser and you should see the corresponding page.
+In `.umirc.ts` configured in routing, if there is need to internationalization, can configure `locale` enable antd internationalization:
+
+```diff
+import { defineConfig } from 'umi';
+
+export default defineConfig({
++ locale: { antd: true },
+  routes: [
+    { path: '/', component: '@/pages/index' },
++   { path: '/products', component: '@/pages/products' },
+  ],
+});
+```
+
+run `yarn start` then open [http://localhost:8000/products](http://localhost:8000/products) in your browser and you should see the corresponding page.
 
 ## Write UI Components
 
@@ -152,7 +75,7 @@ As your application grows and you notice you are sharing UI elements between mul
 
 Let's create a `ProductList` component that we can use in multiple places to show a list of products.
 
-Create `src/components/ProductList.js` by typing:
+Create `src/components/ProductList.tsx` by typing:
 
 ```js
 import { Table, Popconfirm, Button } from 'antd';
@@ -180,110 +103,159 @@ const ProductList = ({ onDelete, products }) => {
 export default ProductList;
 ```
 
-## Define dva Model
+## Simple data management solution
 
-After completing the UI, we will begin processing the data and logic.
+`@umijs/plugin-model` is a simple data flow scheme based on the hooks paradigm, which can replace dva to perform global data flow in the middle stage under certain circumstances. We agree that the files in the `src/models` directory are the model files defined by the project. Each file needs to export a function by default, the function defines a hook, and files that do not meet the specifications will be filtered out.
 
-dva manages the domain model with `model`, with reducers for synchronous state updates, effects for async logic, and subscriptions for data source subscribe.
+The file name corresponds to the name of the final model, and you can consume the data in the model through the API provided by the plug-in.
 
-Let's create a model `src/models/products.js` by typing,
+Let's take a simple table as an example. First you need to create a new file `src/models/useProductList.ts`.
 
-```js
-export default {
-  namespace: 'products',
-  state: [],
-  reducers: {
-    delete(state, { payload: id }) {
-      return state.filter(item => item.id !== id);
-    },
-  },
-};
+```tsx
+import { useRequest } from 'umi';
+import { queryProductList } from '@/services/product';
+
+export default function useProductList(params: { pageSize: number; current: number }) {
+  const msg = useRequest(() => queryUserList(params));
+
+  const deleteProducts = async (id: string) => {
+    try {
+      await removeProducts(id);
+      message.success('success');
+      msg.run();
+    } catch (error) {
+      message.error('fail');
+    }
+  };
+
+  return {
+    dataSource: msg.data,
+    reload: msg.run,
+    loading: msg.loading,
+    deleteProducts,
+  };
+}
 ```
 
-In this model:
+Edit `src/pages/products.tsx` and replace with the following:
 
-- `namespace` represents the key on global state
-- `state` is the initial value, here it is an empty array
-- `reducers` is equivalent to a reducer in redux, accepting an action, and update state simultaneously
+```tsx
+import { useModel } from 'umi';
+import ProductList from '@/components/ProductList';
 
-In umi, the model files under `src/models` will be automatically injected, you don't need to inject manually.
-
-## Connect
-
-So far, we have completed a separate model and component. How do we connect them together?
-
-dva provides a `connect` method. If you are familiar with redux, this connect is from react-redux.
-
-Edit `src/pages/products.js` and replace it with the following,
-
-```js
-import { connect } from 'dva';
-import ProductList from '../components/ProductList';
-
-const Products = ({ dispatch, products }) => {
-  function handleDelete(id) {
-    dispatch({
-      type: 'products/delete',
-      payload: id,
-    });
-  }
+const Products = () => {
+  const { dataSource, reload, deleteProducts } = useModel('useProductList');
   return (
     <div>
-      <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={products} />
+      <a onClick={() => reload()}>reload</a>
+      <ProductList onDelete={deleteProducts} products={dataSource} />
     </div>
   );
 };
 
-export default connect(({ products }) => ({
-  products,
-}))(Products);
-```
-
-Finally, we need some initial data to make the application run together. Edit `src/app.js`,
-
-```js
-export const dva = {
-  config: {
-    onError(err) {
-      err.preventDefault();
-      console.error(err.message);
-    },
-    initialState: {
-      products: [{ name: 'dva', id: 1 }, { name: 'antd', id: 2 }],
-    },
-  },
-};
+export default Products;
 ```
 
 Refresh your browser, you should see the following result:
 
-<img src="https://zos.alipayobjects.com/rmsportal/GQJeDDeUCSTRMMg.gif" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/dPsy4tFHN3/umi.gif" />
+
+## ProLayout
+
+A standard mid-to-back page generally requires a layout. This layout is often highly similar. ProLayout encapsulates commonly used menus, breadcrumbs, page headers and other functions, provides an independent framework and works out of the box Advanced layout components.
+
+And supports three modes of `side`, `mix`, and `top`, and it also has built-in menu selection, the menu generates breadcrumbs, and automatically sets the logic of the page title. Can help you start a project quickly.
+
+![site](https://gw.alipayobjects.com/zos/antfincdn/gXkuc%26RmT7/64038246-E2BF-4840-8898-5AF531897A44.png)
+
+The method of use is also extremely simple, requiring only a few simple settings.
+
+```tsx
+import { Button } from 'antd';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+
+export default (
+  <ProLayout>
+    <PageContainer
+      extra={[
+        <Button key="3">Operating</Button>,
+        <Button key="2">Operating</Button>,
+        <Button key="1" type="primary">
+          Main Operating
+        </Button>,
+      ]}
+      footer={[<Button>reset</Button>, <Button type="primary">submit</Button>]}
+    >
+      {children}
+    </PageContainer>
+  </ProLayout>
+);
+```
+
+Click here [Quick Start](https://prolayout.ant.design/getting-started).
+
+## ProTable
+
+Many data in an admin page does not need to be shared across pages, and models are sometimes not needed.
+
+```tsx
+import ProTable from '@ant-design/pro-table';
+import { Popconfirm, Button } from 'antd';
+import { queryProductList } from '@/services/product';
+
+const Products = () => {
+  const actionRef = useRef<ActionType>();
+
+  const deleteProducts = async (id: string) => {
+    try {
+      await removeProducts(id);
+      message.success('success');
+      actionRef.current?.reload();
+    } catch (error) {
+      message.error('fail');
+    }
+  };
+
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+    },
+    {
+      title: 'Actions',
+      render: (text, record) => {
+        return (
+          <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+            <Button>Delete</Button>
+          </Popconfirm>
+        );
+      },
+    },
+  ];
+
+  return (
+    <ProTable<{ name: string }>
+      headerTitle="Query Table"
+      actionRef={actionRef}
+      rowKey="name"
+      request={(params, sorter, filter) => queryProductList({ ...params, sorter, filter })}
+      columns={columns}
+    />
+  );
+};
+```
+
+ProTable provides preset logic to handle loading, pagination and search forms, which can greatly reduce the amount of code, click here [Quick Start](https://protable.ant.design/getting-started).
 
 ## Build
 
-Now that we've written our application and verified that it works in development, it's time to get it ready for deployment to our users. To do so, run the following command,
+Now that we've written our application and verified that it works in development, it's time to get it ready for deployment to our users. To do so, execute the following command:
 
 ```bash
-$ npm run build
+$ yarn build
 ```
 
-After a few seconds, the output should be as follows,
-
-```bash
-> @ build /private/tmp/sorrycc-V0lLrF
-> umi build
-
-[5:01:58 PM] webpack compiled in 11s 615ms
-
-
- DONE  Compiled successfully in 11622ms                                           5:01:58 PM
-
-File sizes after gzip:
-
-  340.44 KB  dist/umi.js
-  17.82 KB   dist/umi.css
-```
+![](https://gw.alipayobjects.com/zos/antfincdn/Zd3f%242NdOK/b911d244-f1a5-4d61-adc5-3710cd86cd1b.png)
 
 The `build` command packages up all of the assets that make up your application —— JavaScript, templates, CSS, web fonts, images, and more. Then you can find these files in the `dist/` directory.
 
@@ -302,5 +274,6 @@ You can:
 - Visit [umi official website](https://umijs.org/) and [dva official website](https://dvajs.com/)
 - Know [the umi routes](https://umijs.org/zh/guide/router.html)
 - Know [how to deploy umi application](https://umijs.org/zh/guide/deploy.html)
-- Checkout [dva knowledge](https://dvajs.com/knowledgemap/), including all the basic knowledge with ES6, React, dva
-- Be familiar with the [8 Concepts of dva](https://dvajs.com/guide/concepts.html), and understand how they are connected together
+- Scaffolding out of the box [Ant Design Pro](https://pro.ant.design)
+- Advanced Layout [ProLayout](https://prolayout.ant.design)
+- Advanced Table [ProTable](https://protable.ant.design)

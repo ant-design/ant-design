@@ -1,7 +1,8 @@
 .@{menu-prefix-cls} {
   // dark theme
-  &-dark,
-  &-dark &-sub {
+  &&-dark,
+  &-dark &-sub,
+  &&-dark &-sub {
     color: @menu-dark-color;
     background: @menu-dark-bg;
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
@@ -20,7 +21,6 @@
 
   &-dark &-inline&-sub {
     background: @menu-dark-submenu-bg;
-    box-shadow: 0 2px 8px fade(@black, 45%) inset;
   }
 
   &-dark&-horizontal {
@@ -31,8 +31,13 @@
   &-dark&-horizontal > &-submenu {
     top: 0;
     margin-top: 0;
+    padding: @menu-item-padding;
     border-color: @menu-dark-bg;
     border-bottom: 0;
+  }
+
+  &-dark&-horizontal > &-item:hover {
+    background-color: @menu-dark-item-active-bg;
   }
 
   &-dark&-horizontal > &-item > a::before {
@@ -41,7 +46,8 @@
 
   &-dark &-item,
   &-dark &-item-group-title,
-  &-dark &-item > a {
+  &-dark &-item > a,
+  &-dark &-item > span > a {
     color: @menu-dark-color;
   }
 
@@ -77,7 +83,8 @@
   &-dark &-submenu-title:hover {
     color: @menu-dark-highlight-color;
     background-color: transparent;
-    > a {
+    > a,
+    > span > a {
       color: @menu-dark-highlight-color;
     }
     > .@{menu-prefix-cls}-submenu-title,
@@ -91,6 +98,13 @@
       }
     }
   }
+  &-dark &-item:hover {
+    background-color: @menu-dark-item-hover-bg;
+  }
+
+  &-dark&-dark:not(&-horizontal) &-item-selected {
+    background-color: @menu-dark-item-active-bg;
+  }
 
   &-dark &-item-selected {
     color: @menu-dark-highlight-color;
@@ -99,8 +113,19 @@
       border-right: 0;
     }
     > a,
-    > a:hover {
+    > span > a,
+    > a:hover,
+    > span > a:hover {
       color: @menu-dark-highlight-color;
+    }
+
+    .@{menu-prefix-cls}-item-icon,
+    .@{iconfont-css-prefix} {
+      color: @menu-dark-selected-item-icon-color;
+
+      + span {
+        color: @menu-dark-selected-item-text-color;
+      }
     }
   }
 
@@ -113,7 +138,8 @@
   &-dark &-item-disabled,
   &-dark &-submenu-disabled {
     &,
-    > a {
+    > a,
+    > span > a {
       color: @disabled-color-dark !important;
       opacity: 0.8;
     }

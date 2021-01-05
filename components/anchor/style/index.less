@@ -4,7 +4,7 @@
 @anchor-border-width: 2px;
 
 .@{ant-prefix}-anchor {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   padding-left: @anchor-border-width;
@@ -13,7 +13,7 @@
     margin-left: -4px;
     padding-left: 4px;
     overflow: auto;
-    background-color: @component-background;
+    background-color: @anchor-bg;
   }
 
   &-ink {
@@ -27,7 +27,7 @@
       width: @anchor-border-width;
       height: 100%;
       margin: 0 auto;
-      background-color: @border-color-split;
+      background-color: @anchor-border-color;
       content: ' ';
     }
     &-ball {
@@ -52,7 +52,7 @@
   }
 
   &-link {
-    padding: 7px 0 7px 16px;
+    padding: @anchor-link-padding;
     line-height: 1.143;
 
     &-title {
@@ -80,3 +80,5 @@
     padding-bottom: 5px;
   }
 }
+
+@import './rtl';

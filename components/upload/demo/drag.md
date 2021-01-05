@@ -18,16 +18,17 @@ You can drag files to a specific area, to upload. Alternatively, you can also up
 We can upload serveral files at once in modern browsers by giving the input the `multiple` attribute.
 
 ```jsx
-import { Upload, Icon, message } from 'antd';
+import { Upload, message } from 'antd';
+import { InboxOutlined } from '@ant-design/icons';
 
-const Dragger = Upload.Dragger;
+const { Dragger } = Upload;
 
 const props = {
   name: 'file',
   multiple: true,
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   onChange(info) {
-    const status = info.file.status;
+    const { status } = info.file;
     if (status !== 'uploading') {
       console.log(info.file, info.fileList);
     }
@@ -42,7 +43,7 @@ const props = {
 ReactDOM.render(
   <Dragger {...props}>
     <p className="ant-upload-drag-icon">
-      <Icon type="inbox" />
+      <InboxOutlined />
     </p>
     <p className="ant-upload-text">Click or drag file to this area to upload</p>
     <p className="ant-upload-hint">

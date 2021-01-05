@@ -14,18 +14,18 @@ title:
 Render extra footer in panel for customized requirements.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 
-const { RangePicker, MonthPicker } = DatePicker;
+const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <DatePicker renderExtraFooter={() => 'extra footer'} />
     <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
     <RangePicker renderExtraFooter={() => 'extra footer'} />
     <RangePicker renderExtraFooter={() => 'extra footer'} showTime />
-    <MonthPicker renderExtraFooter={() => 'extra footer'} placeholder="Select month" />
-  </div>,
+    <DatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
+  </Space>,
   mountNode,
 );
 ```

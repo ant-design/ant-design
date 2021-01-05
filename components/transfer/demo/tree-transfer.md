@@ -14,22 +14,18 @@ title:
 Customize render list with Tree component.
 
 ```jsx
+import React, { useState } from 'react';
 import { Transfer, Tree } from 'antd';
 
-const { TreeNode } = Tree;
-
 // Customize Table Transfer
-const isChecked = (selectedKeys, eventKey) => {
-  return selectedKeys.indexOf(eventKey) !== -1;
-};
+const isChecked = (selectedKeys, eventKey) => selectedKeys.indexOf(eventKey) !== -1;
 
-const generateTree = (treeNodes = [], checkedKeys = []) => {
-  return treeNodes.map(({ children, ...props }) => (
-    <TreeNode {...props} disabled={checkedKeys.includes(props.key)}>
-      {generateTree(children, checkedKeys)}
-    </TreeNode>
-  ));
-};
+const generateTree = (treeNodes = [], checkedKeys = []) =>
+  treeNodes.map(({ children, ...props }) => ({
+    ...props,
+    disabled: checkedKeys.includes(props.key),
+    children: generateTree(children, checkedKeys),
+  }));
 
 const TreeTransfer = ({ dataSource, targetKeys, ...restProps }) => {
   const transferDataSource = [];
@@ -60,29 +56,14 @@ const TreeTransfer = ({ dataSource, targetKeys, ...restProps }) => {
               checkStrictly
               defaultExpandAll
               checkedKeys={checkedKeys}
-              onCheck={(
-                _,
-                {
-                  node: {
-                    props: { eventKey },
-                  },
-                },
-              ) => {
-                onItemSelect(eventKey, !isChecked(checkedKeys, eventKey));
+              treeData={generateTree(dataSource, targetKeys)}
+              onCheck={(_, { node: { key } }) => {
+                onItemSelect(key, !isChecked(checkedKeys, key));
               }}
-              onSelect={(
-                _,
-                {
-                  node: {
-                    props: { eventKey },
-                  },
-                },
-              ) => {
-                onItemSelect(eventKey, !isChecked(checkedKeys, eventKey));
+              onSelect={(_, { node: { key } }) => {
+                onItemSelect(key, !isChecked(checkedKeys, key));
               }}
-            >
-              {generateTree(dataSource, targetKeys)}
-            </Tree>
+            />
           );
         }
       }}
@@ -95,37 +76,28 @@ const treeData = [
   {
     key: '0-1',
     title: '0-1',
-    children: [{ key: '0-1-0', title: '0-1-0' }, { key: '0-1-1', title: '0-1-1' }],
+    children: [
+      { key: '0-1-0', title: '0-1-0' },
+      { key: '0-1-1', title: '0-1-1' },
+    ],
   },
   { key: '0-2', title: '0-3' },
 ];
 
-class App extends React.Component {
-  state = {
-    targetKeys: [],
+const App = () => {
+  const [targetKeys, setTargetKeys] = useState([]);
+  const onChange = keys => {
+    setTargetKeys(keys);
   };
-
-  onChange = targetKeys => {
-    console.log('Target Keys:', targetKeys);
-    this.setState({ targetKeys });
-  };
-
-  render() {
-    const { targetKeys } = this.state;
-    return (
-      <div>
-        <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={this.onChange} />
-      </div>
-    );
-  }
-}
+  return <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={onChange} />;
+};
 
 ReactDOM.render(<App />, mountNode);
 ```
 
 <style>
 .tree-transfer .ant-transfer-list:first-child {
-  width: 50%;
   flex: none;
+  width: 50%;
 }
 </style>

@@ -1,13 +1,15 @@
 import * as React from 'react';
-import Icon from '../icon';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+
 import Input from '../input';
 
 export interface TransferSearchProps {
   prefixCls?: string;
   placeholder?: string;
-  onChange?: (e: React.FormEvent<any>) => void;
-  handleClear?: (e: React.MouseEvent<any>) => void;
-  value?: any;
+  onChange?: (e: React.FormEvent<HTMLElement>) => void;
+  handleClear?: (e: React.MouseEvent<HTMLElement>) => void;
+  value?: string;
   disabled?: boolean;
 }
 
@@ -35,17 +37,17 @@ export default class Search extends React.Component<TransferSearchProps, any> {
     const { placeholder, value, prefixCls, disabled } = this.props;
     const icon =
       value && value.length > 0 ? (
-        <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
-          <Icon type="close-circle" theme="filled" />
+        <a className={`${prefixCls}-action`} onClick={this.handleClear}>
+          <CloseCircleFilled />
         </a>
       ) : (
         <span className={`${prefixCls}-action`}>
-          <Icon type="search" />
+          <SearchOutlined />
         </span>
       );
 
     return (
-      <div>
+      <>
         <Input
           placeholder={placeholder}
           className={prefixCls}
@@ -54,7 +56,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
           disabled={disabled}
         />
         {icon}
-      </div>
+      </>
     );
   }
 }

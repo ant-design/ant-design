@@ -1,7 +1,5 @@
 import * as React from 'react';
-import * as moment from 'moment';
 import padStart from 'lodash/padStart';
-import interopDefault from '../_util/interopDefault';
 
 export type valueType = number | string;
 export type countdownValueType = valueType | string;
@@ -35,10 +33,14 @@ const timeUnits: [string, number][] = [
   ['S', 1], // million seconds
 ];
 
-function formatTimeStr(duration: number, format: string) {
+export function formatTimeStr(duration: number, format: string) {
   let leftDuration: number = duration;
 
-  return timeUnits.reduce((current, [name, unit]) => {
+  const escapeRegex = /\[[^\]]*]/g;
+  const keepList: string[] = (format.match(escapeRegex) || []).map(str => str.slice(1, -1));
+  const templateText = format.replace(escapeRegex, '[]');
+
+  const replacedText = timeUnits.reduce((current, [name, unit]) => {
     if (current.indexOf(name) !== -1) {
       const value = Math.floor(leftDuration / unit);
       leftDuration -= value * unit;
@@ -48,13 +50,20 @@ function formatTimeStr(duration: number, format: string) {
       });
     }
     return current;
-  }, format);
+  }, templateText);
+
+  let index = 0;
+  return replacedText.replace(escapeRegex, () => {
+    const match = keepList[index];
+    index += 1;
+    return match;
+  });
 }
 
 export function formatCountdown(value: countdownValueType, config: CountdownFormatConfig) {
   const { format = '' } = config;
-  const target = interopDefault(moment)(value).valueOf();
-  const current = interopDefault(moment)().valueOf();
+  const target = new Date(value).getTime();
+  const current = Date.now();
   const diff = Math.max(target - current, 0);
 
   return formatTimeStr(diff, format);

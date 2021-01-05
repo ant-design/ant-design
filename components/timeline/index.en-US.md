@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Timeline
+cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
 ---
 
 Vertical display timeline.
@@ -28,17 +29,18 @@ Timeline
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| pending | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false` |
-| pendingDot | Set the dot of the last ghost node when pending is true | string\|ReactNode | `<Icon type="loading" />` |
-| reverse | reverse nodes or not | boolean | false |
-| mode | By sending `alternate` the timeline will distribute the nodes to the left and right. | `left` \| `alternate` \| `right` | - |
+| mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `left` \| `alternate` \| `right` | - |
+| pending | Set the last ghost node's existence or its content | boolean \| ReactNode | false |
+| pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /> |
+| reverse | Whether reverse nodes or not | boolean | false |
 
 ### Timeline.Item
 
 Node of timeline
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| color | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` |  |
-| dot | Customize timeline dot | string\|ReactNode | - |  |
-| position | Customize node position | `left` \| `right` | - | 3.17.0 |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
+| dot | Customize timeline dot | ReactNode | - |
+| label | Set the label | ReactNode | - |
+| position | Customize node position | `left` \| `right` | - |

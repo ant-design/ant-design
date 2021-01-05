@@ -3,16 +3,27 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+import { formatTimeStr } from '../utils';
+import { sleep } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Statistic', () => {
+  mountTest(Statistic);
+  mountTest(Statistic.Countdown);
+  rtlTest(Statistic);
+
   beforeAll(() => {
-    MockDate.set(moment('2018-11-28 00:00:00'));
+    MockDate.set(moment('2018-11-28 00:00:00').valueOf());
   });
 
   afterAll(() => {
     MockDate.reset();
+  });
+
+  it('`-` is not a number', () => {
+    const wrapper = mount(<Statistic value="-" />);
+    expect(wrapper.find('.ant-statistic-content').text()).toEqual('-');
   });
 
   it('customize formatter', () => {
@@ -39,14 +50,21 @@ describe('Statistic', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('loading with skeleton', async () => {
+    let loading = false;
+    const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);
+    expect(wrapper.find('.ant-skeleton')).toHaveLength(0);
+    expect(wrapper.find('.ant-statistic-content')).toHaveLength(1);
+
+    loading = true;
+    wrapper.setProps({ loading });
+    expect(wrapper.find('.ant-skeleton')).toHaveLength(1);
+    expect(wrapper.find('.ant-statistic-content')).toHaveLength(0);
+  });
+
   describe('Countdown', () => {
     it('render correctly', () => {
-      const now = moment()
-        .add(2, 'd')
-        .add(11, 'h')
-        .add(28, 'm')
-        .add(9, 's')
-        .add(3, 'ms');
+      const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
 
       [
         ['H:m:s', '59:28:9'],
@@ -69,11 +87,33 @@ describe('Statistic', () => {
       const instance = wrapper.instance();
       expect(instance.countdownId).not.toBe(undefined);
 
-      await delay(10);
+      await sleep(10);
 
       wrapper.unmount();
       expect(instance.countdownId).toBe(undefined);
       expect(onFinish).not.toHaveBeenCalled();
+    });
+
+    it('responses hover events', () => {
+      const onMouseEnter = jest.fn();
+      const onMouseLeave = jest.fn();
+      const wrapper = mount(<Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+      wrapper.simulate('mouseenter');
+      expect(onMouseEnter).toHaveBeenCalled();
+      wrapper.simulate('mouseleave');
+      expect(onMouseLeave).toHaveBeenCalled();
+    });
+
+    it('responses hover events for Countdown', () => {
+      const onMouseEnter = jest.fn();
+      const onMouseLeave = jest.fn();
+      const wrapper = mount(
+        <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+      );
+      wrapper.simulate('mouseenter');
+      expect(onMouseEnter).toHaveBeenCalled();
+      wrapper.simulate('mouseleave');
+      expect(onMouseLeave).toHaveBeenCalled();
     });
 
     describe('time finished', () => {
@@ -96,12 +136,18 @@ describe('Statistic', () => {
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
 
-        MockDate.set(moment('2019-11-28 00:00:00'));
+        MockDate.set(moment('2019-11-28 00:00:00').valueOf());
         jest.runAllTimers();
 
         expect(onFinish).toHaveBeenCalled();
         jest.useFakeTimers();
       });
+    });
+  });
+
+  describe('utils', () => {
+    it('format should support escape', () => {
+      expect(formatTimeStr(1000 * 60 * 60 * 24, 'D [Day]')).toBe('1 Day');
     });
   });
 });

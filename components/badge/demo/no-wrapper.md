@@ -16,23 +16,44 @@ title:
 Used in standalone when children is empty.
 
 ```jsx
-import { Badge } from 'antd';
+import { Badge, Space, Switch } from 'antd';
 
-ReactDOM.render(
-  <div>
-    <Badge count={25} />
-    <Badge
-      count={4}
-      style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }}
-    />
-    <Badge count={109} style={{ backgroundColor: '#52c41a' }} />
-  </div>,
-  mountNode,
-);
+const Demo = () => {
+  const [show, setShow] = React.useState(true);
+
+  return (
+    <Space>
+      <Switch
+        checked={show}
+        onChange={() => {
+          setShow(!show);
+        }}
+      />
+      <Badge count={show ? 25 : 0} />
+      <Badge count={show ? 4 : 0} className="site-badge-count-4" />
+      <Badge
+        className="site-badge-count-109"
+        count={show ? 109 : 0}
+        style={{ backgroundColor: '#52c41a' }}
+      />
+    </Space>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
+```
+
+```css
+.site-badge-count-4 .ant-badge-count {
+  background-color: #fff;
+  color: #999;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
+}
 ```
 
 <style>
-.ant-badge-not-a-wrapper:not(.ant-badge-status) {
-  margin-right: 8px;
+[data-theme="dark"] .site-badge-count-4 .ant-badge-count {
+  background-color: #141414;
+  box-shadow: 0 0 0 1px #434343 inset;
 }
 </style>

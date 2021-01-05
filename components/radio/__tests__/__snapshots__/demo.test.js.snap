@@ -1,5 +1,380 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/radio/demo/badge.md correctly 1`] = `
+<div
+  class="ant-radio-group ant-radio-group-solid"
+>
+  <span
+    class="ant-badge"
+  >
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="1"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Click Me
+      </span>
+    </label>
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="1"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1100%);-webkit-transform:translateY(-1100%);transform:translateY(-1100%)"
+      >
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit current"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>
+  <span
+    class="ant-badge"
+  >
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Not Me
+      </span>
+    </label>
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="2"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1200%);-webkit-transform:translateY(-1200%);transform:translateY(-1200%)"
+      >
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit current"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>
+</div>
+`;
+
 exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
 <label
   class="ant-radio-wrapper"
@@ -21,8 +396,8 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
 </label>
 `;
 
-exports[`renders ./components/radio/demo/disable.md correctly 1`] = `
-<div>
+exports[`renders ./components/radio/demo/disabled.md correctly 1`] = `
+Array [
   <label
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
   >
@@ -41,8 +416,7 @@ exports[`renders ./components/radio/demo/disable.md correctly 1`] = `
     <span>
       Disabled
     </span>
-  </label>
-  <br />
+  </label>,
   <label
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
   >
@@ -62,457 +436,442 @@ exports[`renders ./components/radio/demo/disable.md correctly 1`] = `
     <span>
       Disabled
     </span>
-  </label>
-  <div
-    style="margin-top:20px"
+  </label>,
+  <br />,
+  <button
+    class="ant-btn ant-btn-primary"
+    style="margin-top:16px"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
-    >
-      <span>
-        Toggle disabled
-      </span>
-    </button>
-  </div>
-</div>
+    <span>
+      Toggle disabled
+    </span>
+  </button>,
+]
 `;
 
 exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
-<div>
-  <div>
-    <div
-      class="ant-radio-group ant-radio-group-outline"
-    >
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-      >
-        <span
-          class="ant-radio-button ant-radio-button-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            type="radio"
-            value="a"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Hangzhou
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Shanghai
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="c"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Beijing
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Chengdu
-        </span>
-      </label>
-    </div>
-  </div>
+Array [
   <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="a"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="b"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="c"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Beijing
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="d"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Chengdu
+      </span>
+    </label>
+  </div>,
+  <div
+    class="ant-radio-group ant-radio-group-outline"
     style="margin-top:16px"
   >
-    <div
-      class="ant-radio-group ant-radio-group-outline"
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      <span
+        class="ant-radio-button ant-radio-button-checked"
       >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="a"
+        />
         <span
-          class="ant-radio-button ant-radio-button-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            type="radio"
-            value="a"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Hangzhou
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-disabled"
       >
+        <input
+          class="ant-radio-button-input"
+          disabled=""
+          type="radio"
+          value="b"
+        />
         <span
-          class="ant-radio-button ant-radio-button-disabled"
-        >
-          <input
-            class="ant-radio-button-input"
-            disabled=""
-            type="radio"
-            value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Shanghai
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="c"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="c"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Beijing
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Beijing
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="d"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Chengdu
-        </span>
-      </label>
-    </div>
-  </div>
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Chengdu
+      </span>
+    </label>
+  </div>,
   <div
+    class="ant-radio-group ant-radio-group-outline"
     style="margin-top:16px"
   >
-    <div
-      class="ant-radio-group ant-radio-group-outline"
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
     >
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
+      <span
+        class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
       >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          disabled=""
+          type="radio"
+          value="a"
+        />
         <span
-          class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            disabled=""
-            type="radio"
-            value="a"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Hangzhou
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-disabled"
       >
+        <input
+          class="ant-radio-button-input"
+          disabled=""
+          type="radio"
+          value="b"
+        />
         <span
-          class="ant-radio-button ant-radio-button-disabled"
-        >
-          <input
-            class="ant-radio-button-input"
-            disabled=""
-            type="radio"
-            value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Shanghai
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-disabled"
       >
+        <input
+          class="ant-radio-button-input"
+          disabled=""
+          type="radio"
+          value="c"
+        />
         <span
-          class="ant-radio-button ant-radio-button-disabled"
-        >
-          <input
-            class="ant-radio-button-input"
-            disabled=""
-            type="radio"
-            value="c"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Beijing
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Beijing
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-disabled"
       >
+        <input
+          class="ant-radio-button-input"
+          disabled=""
+          type="radio"
+          value="d"
+        />
         <span
-          class="ant-radio-button ant-radio-button-disabled"
-        >
-          <input
-            class="ant-radio-button-input"
-            disabled=""
-            type="radio"
-            value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Chengdu
-        </span>
-      </label>
-    </div>
-  </div>
-</div>
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Chengdu
+      </span>
+    </label>
+  </div>,
+]
 `;
 
 exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
-<div>
-  <div>
-    <div
-      class="ant-radio-group ant-radio-group-solid"
-    >
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-      >
-        <span
-          class="ant-radio-button ant-radio-button-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            type="radio"
-            value="a"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Hangzhou
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Shanghai
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="c"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Beijing
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Chengdu
-        </span>
-      </label>
-    </div>
-  </div>
+Array [
   <div
+    class="ant-radio-group ant-radio-group-solid"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="a"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="b"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="c"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Beijing
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="d"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Chengdu
+      </span>
+    </label>
+  </div>,
+  <div
+    class="ant-radio-group ant-radio-group-solid"
     style="margin-top:16px"
   >
-    <div
-      class="ant-radio-group ant-radio-group-solid"
+    <label
+      class="ant-radio-button-wrapper"
     >
-      <label
-        class="ant-radio-button-wrapper"
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="a"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="a"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Hangzhou
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-disabled"
       >
+        <input
+          class="ant-radio-button-input"
+          disabled=""
+          type="radio"
+          value="b"
+        />
         <span
-          class="ant-radio-button ant-radio-button-disabled"
-        >
-          <input
-            class="ant-radio-button-input"
-            disabled=""
-            type="radio"
-            value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Shanghai
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
       >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="c"
+        />
         <span
-          class="ant-radio-button ant-radio-button-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            type="radio"
-            value="c"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Beijing
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Beijing
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="d"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Chengdu
-        </span>
-      </label>
-    </div>
-  </div>
-</div>
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Chengdu
+      </span>
+    </label>
+  </div>,
+]
 `;
 
 exports[`renders ./components/radio/demo/radiogroup.md correctly 1`] = `
@@ -688,7 +1047,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
 `;
 
 exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -750,7 +1109,8 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
         Orange
       </span>
     </label>
-  </div>
+  </div>,
+  <br />,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -794,13 +1154,14 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-radio-disabled"
       >
         <input
           class="ant-radio-input"
+          disabled=""
           type="radio"
           value="Orange"
         />
@@ -812,24 +1173,26 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
         Orange
       </span>
     </label>
-  </div>
+  </div>,
+  <br />,
+  <br />,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio-button ant-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           type="radio"
           value="Apple"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>
@@ -837,18 +1200,18 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-button-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio-button"
       >
         <input
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           type="radio"
           value="Pear"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>
@@ -856,26 +1219,91 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-button-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio-button"
       >
         <input
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           type="radio"
           value="Orange"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>
         Orange
       </span>
     </label>
-  </div>
-</div>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-radio-group ant-radio-group-solid"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="Apple"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="Pear"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-disabled"
+      >
+        <input
+          class="ant-radio-button-input"
+          disabled=""
+          type="radio"
+          value="Orange"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+]
 `;
 
 exports[`renders ./components/radio/demo/radiogroup-with-name.md correctly 1`] = `
@@ -967,259 +1395,251 @@ exports[`renders ./components/radio/demo/radiogroup-with-name.md correctly 1`] =
 `;
 
 exports[`renders ./components/radio/demo/size.md correctly 1`] = `
-<div>
-  <div>
-    <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-large"
-    >
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-      >
-        <span
-          class="ant-radio-button ant-radio-button-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            type="radio"
-            value="a"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Hangzhou
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Shanghai
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="c"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Beijing
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Chengdu
-        </span>
-      </label>
-    </div>
-  </div>
+Array [
   <div
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-large"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="a"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="b"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="c"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Beijing
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="d"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Chengdu
+      </span>
+    </label>
+  </div>,
+  <div
+    class="ant-radio-group ant-radio-group-outline"
     style="margin-top:16px"
   >
-    <div
-      class="ant-radio-group ant-radio-group-outline"
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      <span
+        class="ant-radio-button ant-radio-button-checked"
       >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="a"
+        />
         <span
-          class="ant-radio-button ant-radio-button-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            type="radio"
-            value="a"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Hangzhou
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="b"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Shanghai
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="c"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="c"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Beijing
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Beijing
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="d"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Chengdu
-        </span>
-      </label>
-    </div>
-  </div>
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Chengdu
+      </span>
+    </label>
+  </div>,
   <div
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
     style="margin-top:16px"
   >
-    <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      <span
+        class="ant-radio-button ant-radio-button-checked"
       >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="a"
+        />
         <span
-          class="ant-radio-button ant-radio-button-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            type="radio"
-            value="a"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Hangzhou
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="b"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Shanghai
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="c"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="c"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Beijing
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Beijing
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="d"
+        />
         <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          Chengdu
-        </span>
-      </label>
-    </div>
-  </div>
-</div>
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Chengdu
+      </span>
+    </label>
+  </div>,
+]
 `;

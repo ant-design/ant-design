@@ -19,7 +19,7 @@ import moment from 'moment';
 
 const data = [
   {
-    actions: [<span>Reply to</span>],
+    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: 'Han Solo',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     content: (
@@ -30,21 +30,13 @@ const data = [
       </p>
     ),
     datetime: (
-      <Tooltip
-        title={moment()
-          .subtract(1, 'days')
-          .format('YYYY-MM-DD HH:mm:ss')}
-      >
-        <span>
-          {moment()
-            .subtract(1, 'days')
-            .fromNow()}
-        </span>
+      <Tooltip title={moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+        <span>{moment().subtract(1, 'days').fromNow()}</span>
       </Tooltip>
     ),
   },
   {
-    actions: [<span>Reply to</span>],
+    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: 'Han Solo',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     content: (
@@ -55,16 +47,8 @@ const data = [
       </p>
     ),
     datetime: (
-      <Tooltip
-        title={moment()
-          .subtract(2, 'days')
-          .format('YYYY-MM-DD HH:mm:ss')}
-      >
-        <span>
-          {moment()
-            .subtract(2, 'days')
-            .fromNow()}
-        </span>
+      <Tooltip title={moment().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+        <span>{moment().subtract(2, 'days').fromNow()}</span>
       </Tooltip>
     ),
   },

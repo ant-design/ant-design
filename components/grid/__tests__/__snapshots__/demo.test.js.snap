@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
-<div>
+Array [
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col ant-col-24"
+    >
+      col
+    </div>
+  </div>,
   <div
     class="ant-row"
   >
@@ -15,7 +24,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     >
       col-12
     </div>
-  </div>
+  </div>,
   <div
     class="ant-row"
   >
@@ -34,7 +43,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     >
       col-8
     </div>
-  </div>
+  </div>,
   <div
     class="ant-row"
   >
@@ -58,17 +67,24 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     >
       col-6
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
-<div>
-  <p>
-    sub-element align left
-  </p>
+Array [
   <div
-    class="ant-row-flex ant-row-flex-start"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      sub-element align left
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-start"
   >
     <div
       class="ant-col ant-col-4"
@@ -90,12 +106,19 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     >
       col-4
     </div>
-  </div>
-  <p>
-    sub-element align center
-  </p>
+  </div>,
   <div
-    class="ant-row-flex ant-row-flex-center"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      sub-element align center
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-center"
   >
     <div
       class="ant-col ant-col-4"
@@ -117,12 +140,19 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     >
       col-4
     </div>
-  </div>
-  <p>
-    sub-element align right
-  </p>
+  </div>,
   <div
-    class="ant-row-flex ant-row-flex-end"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      sub-element align right
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-end"
   >
     <div
       class="ant-col ant-col-4"
@@ -144,12 +174,19 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     >
       col-4
     </div>
-  </div>
-  <p>
-    sub-element monospaced arrangement
-  </p>
+  </div>,
   <div
-    class="ant-row-flex ant-row-flex-space-between"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      sub-element monospaced arrangement
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-space-between"
   >
     <div
       class="ant-col ant-col-4"
@@ -171,12 +208,19 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     >
       col-4
     </div>
-  </div>
-  <p>
-    sub-element align full
-  </p>
+  </div>,
   <div
-    class="ant-row-flex ant-row-flex-space-around"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      sub-element align full
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-space-around"
   >
     <div
       class="ant-col ant-col-4"
@@ -198,17 +242,24 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     >
       col-4
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
-<div>
-  <p>
-    Align Top
-  </p>
+Array [
   <div
-    class="ant-row-flex ant-row-flex-center ant-row-flex-top"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Align Top
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-center ant-row-top"
   >
     <div
       class="ant-col ant-col-4"
@@ -246,12 +297,19 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
         col-4
       </p>
     </div>
-  </div>
-  <p>
-    Align Center
-  </p>
+  </div>,
   <div
-    class="ant-row-flex ant-row-flex-space-around ant-row-flex-middle"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Align Middle
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-space-around ant-row-middle"
   >
     <div
       class="ant-col ant-col-4"
@@ -289,12 +347,19 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
         col-4
       </p>
     </div>
-  </div>
-  <p>
-    Align Bottom
-  </p>
+  </div>,
   <div
-    class="ant-row-flex ant-row-flex-space-between ant-row-flex-bottom"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Align Bottom
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-space-between ant-row-bottom"
   >
     <div
       class="ant-col ant-col-4"
@@ -332,14 +397,24 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
         col-4
       </p>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
-<div>
+Array [
   <div
-    class="ant-row-flex"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Normal
+    </span>
+  </div>,
+  <div
+    class="ant-row"
   >
     <div
       class="ant-col ant-col-6 ant-col-order-4"
@@ -361,14 +436,159 @@ exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
     >
       4 col-order-1
     </div>
-  </div>
-</div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Responsive
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4"
+    >
+      1 col-order-responsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-xs-order-2 ant-col-sm-order-1 ant-col-md-order-4 ant-col-lg-order-3"
+    >
+      2 col-order-responsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-xs-order-3 ant-col-sm-order-4 ant-col-md-order-2 ant-col-lg-order-1"
+    >
+      3 col-order-responsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-xs-order-4 ant-col-sm-order-3 ant-col-md-order-1 ant-col-lg-order-2"
+    >
+      4 col-order-responsive
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Percentage columns
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col"
+      style="flex:2 2 auto"
+    >
+      2 / 5
+    </div>
+    <div
+      class="ant-col"
+      style="flex:3 3 auto"
+    >
+      3 / 5
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Fill rest
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col"
+      style="flex:0 0 100px"
+    >
+      100px
+    </div>
+    <div
+      class="ant-col"
+      style="flex:auto"
+    >
+      Fill Rest
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Raw flex style
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col"
+      style="flex:1 1 200px"
+    >
+      1 1 200px
+    </div>
+    <div
+      class="ant-col"
+      style="flex:0 1 300px"
+    >
+      0 1 300px
+    </div>
+  </div>,
+  <div
+    class="ant-row ant-row-no-wrap"
+  >
+    <div
+      class="ant-col"
+      style="flex:none"
+    >
+      <div
+        style="padding:0 16px"
+      >
+        none
+      </div>
+    </div>
+    <div
+      class="ant-col"
+      style="flex:auto;min-width:0"
+    >
+      auto with no-wrap
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
-<div
-  class="gutter-example"
->
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Horizontal
+    </span>
+  </div>,
   <div
     class="ant-row"
     style="margin-left:-8px;margin-right:-8px"
@@ -378,7 +598,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
       style="padding-left:8px;padding-right:8px"
     >
       <div
-        class="gutter-box"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
@@ -388,7 +608,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
       style="padding-left:8px;padding-right:8px"
     >
       <div
-        class="gutter-box"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
@@ -398,7 +618,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
       style="padding-left:8px;padding-right:8px"
     >
       <div
-        class="gutter-box"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
@@ -408,17 +628,167 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
       style="padding-left:8px;padding-right:8px"
     >
       <div
-        class="gutter-box"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Responsive
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+    style="margin-left:-16px;margin-right:-16px"
+  >
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:16px;padding-right:16px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:16px;padding-right:16px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:16px;padding-right:16px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:16px;padding-right:16px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Vertical
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-12px;margin-bottom:12px"
+  >
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/grid/demo/offset.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-row"
   >
@@ -432,7 +802,7 @@ exports[`renders ./components/grid/demo/offset.md correctly 1`] = `
     >
       col-8
     </div>
-  </div>
+  </div>,
   <div
     class="ant-row"
   >
@@ -446,7 +816,7 @@ exports[`renders ./components/grid/demo/offset.md correctly 1`] = `
     >
       col-6 col-offset-6
     </div>
-  </div>
+  </div>,
   <div
     class="ant-row"
   >
@@ -455,219 +825,307 @@ exports[`renders ./components/grid/demo/offset.md correctly 1`] = `
     >
       col-12 col-offset-6
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
-<div>
+Array [
+  <span>
+    Horizontal Gutter (px): 
+  </span>,
   <div
-    style="margin-bottom:16px"
+    style="width:50%"
   >
-    <span
-      style="margin-right:6px"
-    >
-      Gutter (px): 
-    </span>
     <div
-      style="width:50%"
+      class="ant-slider ant-slider-with-marks"
     >
       <div
-        class="ant-slider ant-slider-with-marks"
+        class="ant-slider-rail"
+      />
+      <div
+        class="ant-slider-track"
+        style="left:0%;right:auto;width:20%"
+      />
+      <div
+        class="ant-slider-step"
       >
-        <div
-          class="ant-slider-rail"
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="left:0%"
         />
-        <div
-          class="ant-slider-track"
-          style="left:0%;width:20%"
-        />
-        <div
-          class="ant-slider-step"
-        >
-          <span
-            class="ant-slider-dot ant-slider-dot-active"
-            style="left:0%"
-          />
-          <span
-            class="ant-slider-dot ant-slider-dot-active"
-            style="left:20%"
-          />
-          <span
-            class="ant-slider-dot"
-            style="left:40%"
-          />
-          <span
-            class="ant-slider-dot"
-            style="left:60%"
-          />
-          <span
-            class="ant-slider-dot"
-            style="left:80%"
-          />
-          <span
-            class="ant-slider-dot"
-            style="left:100%"
-          />
-        </div>
-        <div
-          aria-disabled="false"
-          aria-valuemax="5"
-          aria-valuemin="0"
-          aria-valuenow="1"
-          class="ant-slider-handle"
-          role="slider"
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
           style="left:20%"
-          tabindex="0"
         />
-        <div
-          class="ant-slider-mark"
+        <span
+          class="ant-slider-dot"
+          style="left:40%"
+        />
+        <span
+          class="ant-slider-dot"
+          style="left:60%"
+        />
+        <span
+          class="ant-slider-dot"
+          style="left:80%"
+        />
+        <span
+          class="ant-slider-dot"
+          style="left:100%"
+        />
+      </div>
+      <div
+        aria-disabled="false"
+        aria-valuemax="5"
+        aria-valuemin="0"
+        aria-valuenow="1"
+        class="ant-slider-handle"
+        role="slider"
+        style="left:20%;right:auto;transform:translateX(-50%)"
+        tabindex="0"
+      />
+      <div
+        class="ant-slider-mark"
+      >
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
         >
-          <span
-            class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            8
-          </span>
-          <span
-            class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            16
-          </span>
-          <span
-            class="ant-slider-mark-text"
-            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            24
-          </span>
-          <span
-            class="ant-slider-mark-text"
-            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            32
-          </span>
-          <span
-            class="ant-slider-mark-text"
-            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            40
-          </span>
-          <span
-            class="ant-slider-mark-text"
-            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            48
-          </span>
-        </div>
+          8
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
+        >
+          16
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
+        >
+          24
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
+        >
+          32
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
+        >
+          40
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
+        >
+          48
+        </span>
       </div>
     </div>
-    <span
-      style="margin-right:6px"
-    >
-      Column Count:
-    </span>
+  </div>,
+  <span>
+    Vertical Gutter (px): 
+  </span>,
+  <div
+    style="width:50%"
+  >
     <div
-      style="width:50%"
+      class="ant-slider ant-slider-with-marks"
     >
       <div
-        class="ant-slider ant-slider-with-marks"
+        class="ant-slider-rail"
+      />
+      <div
+        class="ant-slider-track"
+        style="left:0%;right:auto;width:20%"
+      />
+      <div
+        class="ant-slider-step"
       >
-        <div
-          class="ant-slider-rail"
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="left:0%"
         />
-        <div
-          class="ant-slider-track"
-          style="left:0%;width:40%"
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="left:20%"
         />
-        <div
-          class="ant-slider-step"
-        >
-          <span
-            class="ant-slider-dot ant-slider-dot-active"
-            style="left:0%"
-          />
-          <span
-            class="ant-slider-dot ant-slider-dot-active"
-            style="left:20%"
-          />
-          <span
-            class="ant-slider-dot ant-slider-dot-active"
-            style="left:40%"
-          />
-          <span
-            class="ant-slider-dot"
-            style="left:60%"
-          />
-          <span
-            class="ant-slider-dot"
-            style="left:80%"
-          />
-          <span
-            class="ant-slider-dot"
-            style="left:100%"
-          />
-        </div>
-        <div
-          aria-disabled="false"
-          aria-valuemax="5"
-          aria-valuemin="0"
-          aria-valuenow="2"
-          class="ant-slider-handle"
-          role="slider"
+        <span
+          class="ant-slider-dot"
           style="left:40%"
-          tabindex="0"
         />
-        <div
-          class="ant-slider-mark"
+        <span
+          class="ant-slider-dot"
+          style="left:60%"
+        />
+        <span
+          class="ant-slider-dot"
+          style="left:80%"
+        />
+        <span
+          class="ant-slider-dot"
+          style="left:100%"
+        />
+      </div>
+      <div
+        aria-disabled="false"
+        aria-valuemax="5"
+        aria-valuemin="0"
+        aria-valuenow="1"
+        class="ant-slider-handle"
+        role="slider"
+        style="left:20%;right:auto;transform:translateX(-50%)"
+        tabindex="0"
+      />
+      <div
+        class="ant-slider-mark"
+      >
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
         >
-          <span
-            class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            2
-          </span>
-          <span
-            class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            3
-          </span>
-          <span
-            class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            4
-          </span>
-          <span
-            class="ant-slider-mark-text"
-            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            6
-          </span>
-          <span
-            class="ant-slider-mark-text"
-            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            8
-          </span>
-          <span
-            class="ant-slider-mark-text"
-            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
-          >
-            12
-          </span>
-        </div>
+          8
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
+        >
+          16
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
+        >
+          24
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
+        >
+          32
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
+        >
+          40
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
+        >
+          48
+        </span>
       </div>
     </div>
-  </div>
+  </div>,
+  <span>
+    Column Count:
+  </span>,
+  <div
+    style="width:50%;margin-bottom:48px"
+  >
+    <div
+      class="ant-slider ant-slider-with-marks"
+    >
+      <div
+        class="ant-slider-rail"
+      />
+      <div
+        class="ant-slider-track"
+        style="left:0%;right:auto;width:40%"
+      />
+      <div
+        class="ant-slider-step"
+      >
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="left:0%"
+        />
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="left:20%"
+        />
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="left:40%"
+        />
+        <span
+          class="ant-slider-dot"
+          style="left:60%"
+        />
+        <span
+          class="ant-slider-dot"
+          style="left:80%"
+        />
+        <span
+          class="ant-slider-dot"
+          style="left:100%"
+        />
+      </div>
+      <div
+        aria-disabled="false"
+        aria-valuemax="5"
+        aria-valuemin="0"
+        aria-valuenow="2"
+        class="ant-slider-handle"
+        role="slider"
+        style="left:40%;right:auto;transform:translateX(-50%)"
+        tabindex="0"
+      />
+      <div
+        class="ant-slider-mark"
+      >
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+        >
+          2
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
+        >
+          3
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
+        >
+          4
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
+        >
+          6
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
+        >
+          8
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
+        >
+          12
+        </span>
+      </div>
+    </div>
+  </div>,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:8px"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -675,7 +1133,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -683,7 +1141,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -691,22 +1149,71 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
       </div>
     </div>
-  </div>
-  <pre>
-    &lt;Row gutter={16}&gt;
+  </div>,
+  <div
+    class="ant-row"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:8px"
+  >
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+  </div>,
+  <pre
+    class="demo-code"
+  >
+    &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
 &lt;/Row&gt;
-  </pre>
-</div>
+  </pre>,
+  <pre
+    class="demo-code"
+  >
+    &lt;Row gutter={[16, 16]}&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+&lt;/Row&gt;
+  </pre>,
+]
 `;
 
 exports[`renders ./components/grid/demo/responsive.md correctly 1`] = `
@@ -754,20 +1261,20 @@ exports[`renders ./components/grid/demo/responsive-more.md correctly 1`] = `
 `;
 
 exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
-<div>
+<div
+  class="ant-row"
+>
   <div
-    class="ant-row"
+    class="ant-col ant-col-18 ant-col-push-6"
   >
-    <div
-      class="ant-col ant-col-18 ant-col-push-6"
-    >
-      col-18 col-push-6
-    </div>
-    <div
-      class="ant-col ant-col-6 ant-col-pull-18"
-    >
-      col-6 col-pull-18
-    </div>
+    col-18 col-push-6
+  </div>
+  <div
+    class="ant-col ant-col-6 ant-col-pull-18"
+  >
+    col-6 col-pull-18
   </div>
 </div>
 `;
+
+exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `null`;

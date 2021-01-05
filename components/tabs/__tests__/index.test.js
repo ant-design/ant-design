@@ -1,10 +1,23 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Tabs from '..';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { TabPane } = Tabs;
 
 describe('Tabs', () => {
+  mountTest(() => (
+    <Tabs>
+      <TabPane tab="xx" key="xx" />
+    </Tabs>
+  ));
+  rtlTest(() => (
+    <Tabs>
+      <TabPane tab="xx" key="xx" />
+    </Tabs>
+  ));
+
   describe('editable-card', () => {
     let handleEdit;
     let wrapper;
@@ -16,21 +29,25 @@ describe('Tabs', () => {
           <TabPane tab="foo" key="1">
             foo
           </TabPane>
+          {undefined}
+          {null}
+          {false}
         </Tabs>,
       );
     });
 
     it('add card', () => {
-      wrapper
-        .find('.ant-tabs-new-tab')
-        .hostNodes()
-        .simulate('click');
+      wrapper.find('.ant-tabs-nav-add').first().simulate('click');
       expect(handleEdit.mock.calls[0][1]).toBe('add');
     });
 
     it('remove card', () => {
       wrapper.find('.anticon-close').simulate('click');
       expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
+    });
+
+    it('validateElement', () => {
+      expect(wrapper.find('.ant-tabs-tab').length).toBe(1);
     });
   });
 
@@ -58,5 +75,14 @@ describe('Tabs', () => {
       );
       expect(wrapper).toMatchSnapshot();
     });
+  });
+
+  it('warning for onNextClick', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Tabs onNextClick={() => {}} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
+    );
+    errorSpy.mockRestore();
   });
 });

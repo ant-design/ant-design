@@ -1,5 +1,5 @@
 ---
-order: 24
+order: 25
 title:
   en-US: Nested tables
   zh-CN: 嵌套子表格
@@ -14,7 +14,8 @@ title:
 Showing more detailed info of every row.
 
 ```jsx
-import { Table, Badge, Menu, Dropdown, Icon } from 'antd';
+import { Table, Badge, Menu, Dropdown, Space } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 const menu = (
   <Menu>
@@ -44,15 +45,15 @@ function NestedTable() {
         dataIndex: 'operation',
         key: 'operation',
         render: () => (
-          <span className="table-operation">
-            <a href="javascript:;">Pause</a>
-            <a href="javascript:;">Stop</a>
+          <Space size="middle">
+            <a>Pause</a>
+            <a>Stop</a>
             <Dropdown overlay={menu}>
-              <a href="javascript:;">
-                More <Icon type="down" />
+              <a>
+                More <DownOutlined />
               </a>
             </Dropdown>
-          </span>
+          </Space>
         ),
       },
     ];
@@ -76,7 +77,7 @@ function NestedTable() {
     { title: 'Upgraded', dataIndex: 'upgradeNum', key: 'upgradeNum' },
     { title: 'Creator', dataIndex: 'creator', key: 'creator' },
     { title: 'Date', dataIndex: 'createdAt', key: 'createdAt' },
-    { title: 'Action', key: 'operation', render: () => <a href="javascript:;">Publish</a> },
+    { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
   ];
 
   const data = [];
@@ -96,7 +97,7 @@ function NestedTable() {
     <Table
       className="components-table-demo-nested"
       columns={columns}
-      expandedRowRender={expandedRowRender}
+      expandable={{ expandedRowRender }}
       dataSource={data}
     />
   );

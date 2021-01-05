@@ -14,7 +14,8 @@ title:
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
 ```jsx
-import { Transfer, Switch } from 'antd';
+import React, { useState } from 'react';
+import { Transfer } from 'antd';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -22,69 +23,45 @@ for (let i = 0; i < 20; i++) {
     key: i.toString(),
     title: `content${i + 1}`,
     description: `description of content${i + 1}`,
-    disabled: i % 3 < 1,
   });
 }
 
-const oriTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
+const initialTargetKeys = mockData.filter(item => +item.key > 10).map(item => item.key);
 
-class App extends React.Component {
-  state = {
-    targetKeys: oriTargetKeys,
-    selectedKeys: [],
-    disabled: false,
+const App1 = () => {
+  const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
+  const [selectedKeys, setSelectedKeys] = useState([]);
+  const onChange = (nextTargetKeys, direction, moveKeys) => {
+    console.log('targetKeys:', nextTargetKeys);
+    console.log('direction:', direction);
+    console.log('moveKeys:', moveKeys);
+    setTargetKeys(nextTargetKeys);
   };
 
-  handleChange = (nextTargetKeys, direction, moveKeys) => {
-    this.setState({ targetKeys: nextTargetKeys });
-
-    console.log('targetKeys: ', nextTargetKeys);
-    console.log('direction: ', direction);
-    console.log('moveKeys: ', moveKeys);
+  const onSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
+    console.log('sourceSelectedKeys:', sourceSelectedKeys);
+    console.log('targetSelectedKeys:', targetSelectedKeys);
+    setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
   };
 
-  handleSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
-    this.setState({ selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys] });
-
-    console.log('sourceSelectedKeys: ', sourceSelectedKeys);
-    console.log('targetSelectedKeys: ', targetSelectedKeys);
-  };
-
-  handleScroll = (direction, e) => {
+  const onScroll = (direction, e) => {
     console.log('direction:', direction);
     console.log('target:', e.target);
   };
 
-  handleDisable = disabled => {
-    this.setState({ disabled });
-  };
+  return (
+    <Transfer
+      dataSource={mockData}
+      titles={['Source', 'Target']}
+      targetKeys={targetKeys}
+      selectedKeys={selectedKeys}
+      onChange={onChange}
+      onSelectChange={onSelectChange}
+      onScroll={onScroll}
+      render={item => item.title}
+    />
+  );
+};
 
-  render() {
-    const { targetKeys, selectedKeys, disabled } = this.state;
-    return (
-      <div>
-        <Transfer
-          dataSource={mockData}
-          titles={['Source', 'Target']}
-          targetKeys={targetKeys}
-          selectedKeys={selectedKeys}
-          onChange={this.handleChange}
-          onSelectChange={this.handleSelectChange}
-          onScroll={this.handleScroll}
-          render={item => item.title}
-          disabled={disabled}
-        />
-        <Switch
-          unCheckedChildren="disabled"
-          checkedChildren="disabled"
-          checked={disabled}
-          onChange={this.handleDisable}
-          style={{ marginTop: 16 }}
-        />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<App1 />, mountNode);
 ```

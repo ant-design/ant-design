@@ -1,0 +1,6 @@
+FROM buildkite/puppeteer:v3.0.4
+RUN mkdir /app
+WORKDIR /app
+COPY package.json ./
+ENV  PATH="${PATH}:/app/node_modules/.bin"
+COPY . .

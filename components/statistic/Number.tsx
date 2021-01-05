@@ -6,7 +6,7 @@ interface NumberProps extends FormatConfig {
   value: valueType;
 }
 
-const StatisticNumber: React.SFC<NumberProps> = props => {
+const StatisticNumber: React.FC<NumberProps> = props => {
   const { value, formatter, precision, decimalSeparator, groupSeparator = '', prefixCls } = props;
 
   let valueNode: React.ReactNode;
@@ -20,7 +20,7 @@ const StatisticNumber: React.SFC<NumberProps> = props => {
     const cells = val.match(/^(-?)(\d*)(\.(\d+))?$/);
 
     // Process if illegal number
-    if (!cells) {
+    if (!cells || val === '-') {
       valueNode = val;
     } else {
       const negative = cells[1];

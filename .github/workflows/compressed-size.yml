@@ -1,0 +1,20 @@
+name: 📦 Compressed Size
+
+on: [pull_request_target]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      CI_JOB_NUMBER: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: refs/pull/${{ github.event.pull_request.number }}/merge
+    - uses: preactjs/compressed-size-action@v2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        pattern: "./dist/**/*.min.{js,css}"
+        build-script: "dist"

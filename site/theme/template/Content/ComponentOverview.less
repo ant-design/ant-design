@@ -1,0 +1,45 @@
+@import '../../../../components/style/themes/default.less';
+
+.components-overview {
+  padding: 0;
+
+  &-group-title {
+    margin-bottom: 24px !important;
+  }
+
+  &-title {
+    overflow: hidden;
+    color: @text-color;
+    text-overflow: ellipsis;
+  }
+  &-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 152px;
+  }
+  &-card {
+    cursor: pointer;
+    transition: all @animation-duration-base @ease-in-out;
+    &:hover {
+      box-shadow: @shadow-1-down;
+    }
+  }
+}
+
+.components-overview-search {
+  width: 100%;
+  padding: 0;
+  font-size: 20px;
+  border: 0;
+  box-shadow: none;
+
+  input {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 20px;
+  }
+
+  .anticon {
+    color: #bbb;
+  }
+}

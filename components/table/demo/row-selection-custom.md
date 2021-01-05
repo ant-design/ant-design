@@ -56,17 +56,10 @@ class App extends React.Component {
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
-      hideDefaultSelections: true,
       selections: [
-        {
-          key: 'all-data',
-          text: 'Select All Data',
-          onSelect: () => {
-            this.setState({
-              selectedRowKeys: [...Array(46).keys()], // 0...45
-            });
-          },
-        },
+        Table.SELECTION_ALL,
+        Table.SELECTION_INVERT,
+        Table.SELECTION_NONE,
         {
           key: 'odd',
           text: 'Select Odd Row',
@@ -96,7 +89,6 @@ class App extends React.Component {
           },
         },
       ],
-      onSelection: this.onSelection,
     };
     return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
   }

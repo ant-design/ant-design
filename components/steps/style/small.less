@@ -1,14 +1,16 @@
 .@{steps-prefix-cls}-small {
   &.@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical)
     .@{steps-prefix-cls}-item {
-    margin-right: 12px;
-    &:last-child {
-      margin-right: 0;
+    padding-left: 12px;
+
+    &:first-child {
+      padding-left: 0;
     }
   }
   .@{steps-prefix-cls}-item-icon {
     width: @steps-small-icon-size;
     height: @steps-small-icon-size;
+    margin: @steps-small-icon-margin;
     font-size: @font-size-sm;
     line-height: @steps-small-icon-size;
     text-align: center;
@@ -19,7 +21,7 @@
     font-size: @font-size-base;
     line-height: @steps-small-icon-size;
     &::after {
-      top: @steps-small-icon-size / 2;
+      top: (@steps-small-icon-size / 2);
     }
   }
   .@{steps-prefix-cls}-item-description {
@@ -28,7 +30,6 @@
   }
   .@{steps-prefix-cls}-item-tail {
     top: 8px;
-    padding: 0 8px;
   }
   .@{steps-prefix-cls}-item-custom .@{steps-prefix-cls}-item-icon {
     width: inherit;

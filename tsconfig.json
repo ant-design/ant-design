@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "antd": ["components/index.tsx"],
+      "antd/es/*": ["components/*"]
+    },
     "strictNullChecks": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -9,7 +14,8 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "target": "es6",
-    "lib": ["dom", "es2017"]
+    "lib": ["dom", "es2017"],
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "lib", "es"]
 }

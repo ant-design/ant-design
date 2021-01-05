@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
+<div
+  class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+        aria-autocomplete="list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="rc_select_TEST_OR_SSR_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
+        readonly=""
+        role="combobox"
+        style="opacity: 0;"
+        type="search"
+        unselectable="on"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    />
+  </div>
+  <div>
+    <div
+      class="ant-select-dropdown ant-tree-select-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+      style="opacity: 0; pointer-events: none; min-width: 0; width: 0px;"
+    >
+      <div>
+        <div>
+          <div
+            class="ant-select-tree"
+          >
+            <div
+              role="tree"
+            >
+              <input
+                disabled=""
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+                value=""
+              />
+            </div>
+            <div
+              aria-hidden="true"
+              class="ant-select-tree-treenode"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+            >
+              <div
+                class="ant-select-tree-indent"
+              >
+                <div
+                  class="ant-select-tree-indent-unit"
+                />
+              </div>
+            </div>
+            <div
+              class="ant-select-tree-list"
+              style="position: relative;"
+            >
+              <div
+                class="ant-select-tree-list-holder"
+                style="max-height: 256px; overflow-y: auto;"
+              >
+                <div>
+                  <div
+                    class="ant-select-tree-list-holder-inner"
+                    style="display: flex; flex-direction: column;"
+                  >
+                    <div
+                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-tree-indent"
+                      />
+                      <span
+                        class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                        title="parent 1"
+                      >
+                        <span
+                          class="ant-select-tree-iconEle ant-select-tree-icon__customize"
+                        >
+                          <span>
+                            Bamboo
+                          </span>
+                        </span>
+                        <span
+                          class="ant-select-tree-title"
+                        >
+                          parent 1
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] = `
+<div
+  class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <div
+      class="ant-select-selection-overflow"
+    >
+      <div
+        class="ant-select-selection-overflow-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="ant-select-selection-item"
+        >
+          <span
+            class="ant-select-selection-item-content"
+          >
+            my leaf
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select: none;"
+            unselectable="on"
+          >
+            <span>
+              remove
+            </span>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-selection-overflow-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="ant-select-selection-item"
+        >
+          <span
+            class="ant-select-selection-item-content"
+          >
+            your leaf
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select: none;"
+            unselectable="on"
+          >
+            <span>
+              remove
+            </span>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+        style="opacity: 1;"
+      >
+        <div
+          class="ant-select-selection-search"
+          style="width: 0px;"
+        >
+          <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-clear"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span>
+      clear
+    </span>
+  </span>
+</div>
+`;
+
+exports[`TreeSelect rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-select ant-tree-select ant-select-rtl ant-select-single ant-select-show-arrow"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        readonly=""
+        role="combobox"
+        style="opacity:0"
+        type="search"
+        unselectable="on"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    />
+  </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
+`;

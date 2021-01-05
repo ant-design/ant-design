@@ -1,0 +1,88 @@
+@import '../../../static/theme.less';
+@import '../../../../../components/style/themes/default.less';
+@import './index.less';
+
+#nav {
+  height: 100%;
+  font-size: 14px;
+  font-family: Avenir, @font-family, sans-serif;
+  border: 0;
+
+  &.ant-menu-horizontal {
+    border-bottom: none;
+
+    & > .ant-menu-item,
+    & > .ant-menu-submenu {
+      min-width: 40px;
+      height: @header-height;
+      margin-right: 12px;
+      margin-left: 12px;
+      line-height: @header-height - @menu-item-border - 2px;
+      border-top: @menu-item-border solid transparent;
+
+      &:hover {
+        border-top: @menu-item-border solid @primary-color;
+        border-bottom: @menu-item-border solid transparent;
+      }
+    }
+
+    & .ant-menu-submenu-title .anticon {
+      margin: 0;
+    }
+
+    & > .ant-menu-submenu-open {
+      border-top: @menu-item-border solid @primary-color;
+      border-bottom: @menu-item-border solid transparent;
+    }
+
+    & > .ant-menu-item-selected {
+      border-top: @menu-item-border solid @primary-color;
+      border-bottom: @menu-item-border solid transparent;
+      a {
+        color: @primary-color;
+      }
+    }
+  }
+
+  & > .ant-menu-item,
+  & > .ant-menu-submenu {
+    text-align: center;
+  }
+}
+
+.header-link {
+  color: @site-text-color;
+}
+
+.ant-menu-item-active .header-link {
+  color: @primary-color;
+}
+
+// Popover menu is only used for mobile
+.popover-menu {
+  width: 300px;
+
+  .ant-popover-inner-content {
+    padding: 0;
+
+    #nav {
+      .ant-menu-item,
+      .ant-menu-submenu {
+        text-align: left;
+      }
+
+      .ant-menu-item-group-title {
+        padding-left: 24px;
+      }
+
+      .ant-menu-item-group-list {
+        padding: 0 16px;
+      }
+
+      .ant-menu-item,
+      a {
+        color: #333;
+      }
+    }
+  }
+}

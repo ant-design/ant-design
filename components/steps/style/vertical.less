@@ -1,43 +1,57 @@
-.steps-vertical() {
-  display: block;
-  .@{steps-prefix-cls}-item {
+.@{steps-prefix-cls}-vertical {
+  display: flex;
+  flex-direction: column;
+
+  > .@{steps-prefix-cls}-item {
     display: block;
+    flex: 1 0 auto;
+    padding-left: 0;
     overflow: visible;
-    &-icon {
+
+    .@{steps-prefix-cls}-item-icon {
       float: left;
-      margin-right: 16px;
+      margin-right: @steps-vertical-icon-width;
     }
-    &-content {
+
+    .@{steps-prefix-cls}-item-content {
       display: block;
       min-height: 48px;
       overflow: hidden;
     }
-    &-title {
+
+    .@{steps-prefix-cls}-item-title {
       line-height: @steps-icon-size;
     }
-    &-description {
+
+    .@{steps-prefix-cls}-item-description {
       padding-bottom: 12px;
     }
   }
 
-  > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-tail {
+  > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
     position: absolute;
     top: 0;
-    left: 16px;
+    left: @steps-vertical-tail-width;
     width: 1px;
     height: 100%;
     padding: @steps-icon-size + 6px 0 6px;
+
     &::after {
       width: 1px;
       height: 100%;
     }
   }
 
-  > .@{steps-prefix-cls}-item:not(:last-child) > .@{steps-prefix-cls}-item-tail {
+  > .@{steps-prefix-cls}-item:not(:last-child)
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
     display: block;
   }
 
   > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
     > .@{steps-prefix-cls}-item-content
     > .@{steps-prefix-cls}-item-title {
     &::after {
@@ -45,25 +59,15 @@
     }
   }
 
-  &.@{steps-prefix-cls}-small {
+  &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item-container {
     .@{steps-prefix-cls}-item-tail {
       position: absolute;
       top: 0;
-      left: 12px;
+      left: @steps-vertical-tail-width-sm;
       padding: @steps-small-icon-size + 6px 0 6px;
     }
     .@{steps-prefix-cls}-item-title {
       line-height: @steps-small-icon-size;
     }
-  }
-}
-
-.@{steps-prefix-cls}-vertical {
-  .steps-vertical;
-}
-
-@media (max-width: @screen-xs) {
-  .@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
-    .steps-vertical;
   }
 }

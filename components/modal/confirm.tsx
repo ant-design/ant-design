@@ -1,150 +1,42 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import classNames from 'classnames';
-import Icon from '../icon';
-import Dialog, { ModalFuncProps, destroyFns } from './Modal';
-import ActionButton from './ActionButton';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import { getConfirmLocale } from './locale';
-import warning from '../_util/warning';
+import { ModalFuncProps, destroyFns } from './Modal';
+import ConfirmDialog from './ConfirmDialog';
 
-interface ConfirmDialogProps extends ModalFuncProps {
-  afterClose?: () => void;
-  close: (...args: any[]) => void;
-  autoFocusButton?: null | 'ok' | 'cancel';
+let defaultRootPrefixCls = 'ant';
+
+function getRootPrefixCls() {
+  return defaultRootPrefixCls;
 }
 
-const IS_REACT_16 = !!ReactDOM.createPortal;
+type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
-const ConfirmDialog = (props: ConfirmDialogProps) => {
-  const {
-    onCancel,
-    onOk,
-    close,
-    zIndex,
-    afterClose,
-    visible,
-    keyboard,
-    centered,
-    getContainer,
-    maskStyle,
-    okButtonProps,
-    cancelButtonProps,
-    iconType = 'question-circle',
-  } = props;
-  warning(
-    !('iconType' in props),
-    'Modal',
-    `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
-  );
-
-  // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
-  const icon = props.icon === undefined ? iconType : props.icon;
-  const okType = props.okType || 'primary';
-  const prefixCls = props.prefixCls || 'ant-modal';
-  const contentPrefixCls = `${prefixCls}-confirm`;
-  // 默认为 true，保持向下兼容
-  const okCancel = 'okCancel' in props ? props.okCancel! : true;
-  const width = props.width || 416;
-  const style = props.style || {};
-  const mask = props.mask === undefined ? true : props.mask;
-  // 默认为 false，保持旧版默认行为
-  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
-  const runtimeLocale = getConfirmLocale();
-  const okText = props.okText || (okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
-  const cancelText = props.cancelText || runtimeLocale.cancelText;
-  const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
-  const transitionName = props.transitionName || 'zoom';
-  const maskTransitionName = props.maskTransitionName || 'fade';
-
-  const classString = classNames(
-    contentPrefixCls,
-    `${contentPrefixCls}-${props.type}`,
-    props.className,
-  );
-
-  const cancelButton = okCancel && (
-    <ActionButton
-      actionFn={onCancel}
-      closeModal={close}
-      autoFocus={autoFocusButton === 'cancel'}
-      buttonProps={cancelButtonProps}
-    >
-      {cancelText}
-    </ActionButton>
-  );
-
-  const iconNode = typeof icon === 'string' ? <Icon type={icon} /> : icon;
-
-  return (
-    <Dialog
-      prefixCls={prefixCls}
-      className={classString}
-      wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={close.bind(this, { triggerCancel: true })}
-      visible={visible}
-      title=""
-      transitionName={transitionName}
-      footer=""
-      maskTransitionName={maskTransitionName}
-      mask={mask}
-      maskClosable={maskClosable}
-      maskStyle={maskStyle}
-      style={style}
-      width={width}
-      zIndex={zIndex}
-      afterClose={afterClose}
-      keyboard={keyboard}
-      centered={centered}
-      getContainer={getContainer}
-    >
-      <div className={`${contentPrefixCls}-body-wrapper`}>
-        <div className={`${contentPrefixCls}-body`}>
-          {iconNode}
-          <span className={`${contentPrefixCls}-title`}>{props.title}</span>
-          <div className={`${contentPrefixCls}-content`}>{props.content}</div>
-        </div>
-        <div className={`${contentPrefixCls}-btns`}>
-          {cancelButton}
-          <ActionButton
-            type={okType}
-            actionFn={onOk}
-            closeModal={close}
-            autoFocus={autoFocusButton === 'ok'}
-            buttonProps={okButtonProps}
-          >
-            {okText}
-          </ActionButton>
-        </div>
-      </div>
-    </Dialog>
-  );
+export type ModalFunc = (
+  props: ModalFuncProps,
+) => {
+  destroy: () => void;
+  update: (configUpdate: ConfigUpdate) => void;
 };
+
+export interface ModalStaticFunctions {
+  info: ModalFunc;
+  success: ModalFunc;
+  error: ModalFunc;
+  warn: ModalFunc;
+  warning: ModalFunc;
+  confirm: ModalFunc;
+}
 
 export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
-
-  function close(...args: any[]) {
-    currentConfig = {
-      ...currentConfig,
-      visible: false,
-      afterClose: destroy.bind(this, ...args),
-    };
-    if (IS_REACT_16) {
-      render(currentConfig);
-    } else {
-      destroy(...args);
-    }
-  }
-
-  function update(newConfig: ModalFuncProps) {
-    currentConfig = {
-      ...currentConfig,
-      ...newConfig,
-    };
-    render(currentConfig);
-  }
 
   function destroy(...args: any[]) {
     const unmountResult = ReactDOM.unmountComponentAtNode(div);
@@ -157,6 +49,7 @@ export default function confirm(config: ModalFuncProps) {
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       if (fn === close) {
         destroyFns.splice(i, 1);
         break;
@@ -164,8 +57,51 @@ export default function confirm(config: ModalFuncProps) {
     }
   }
 
-  function render(props: any) {
-    ReactDOM.render(<ConfirmDialog {...props} />, div);
+  function render({ okText, cancelText, prefixCls, ...props }: any) {
+    /**
+     * https://github.com/ant-design/ant-design/issues/23623
+     *
+     * Sync render blocks React event. Let's make this async.
+     */
+    setTimeout(() => {
+      const runtimeLocale = getConfirmLocale();
+      ReactDOM.render(
+        <ConfirmDialog
+          {...props}
+          prefixCls={prefixCls || `${getRootPrefixCls()}-modal`}
+          rootPrefixCls={getRootPrefixCls()}
+          okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
+          cancelText={cancelText || runtimeLocale.cancelText}
+        />,
+        div,
+      );
+    });
+  }
+
+  function close(...args: any[]) {
+    currentConfig = {
+      ...currentConfig,
+      visible: false,
+      afterClose: () => {
+        if (typeof config.afterClose === 'function') {
+          config.afterClose();
+        }
+        destroy.apply(this, args);
+      },
+    };
+    render(currentConfig);
+  }
+
+  function update(configUpdate: ConfigUpdate) {
+    if (typeof configUpdate === 'function') {
+      currentConfig = configUpdate(currentConfig);
+    } else {
+      currentConfig = {
+        ...currentConfig,
+        ...configUpdate,
+      };
+    }
+    render(currentConfig);
   }
 
   render(currentConfig);
@@ -176,4 +112,55 @@ export default function confirm(config: ModalFuncProps) {
     destroy: close,
     update,
   };
+}
+
+export function withWarn(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'warning',
+    icon: <ExclamationCircleOutlined />,
+    okCancel: false,
+    ...props,
+  };
+}
+
+export function withInfo(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'info',
+    icon: <InfoCircleOutlined />,
+    okCancel: false,
+    ...props,
+  };
+}
+
+export function withSuccess(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'success',
+    icon: <CheckCircleOutlined />,
+    okCancel: false,
+    ...props,
+  };
+}
+
+export function withError(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'error',
+    icon: <CloseCircleOutlined />,
+    okCancel: false,
+    ...props,
+  };
+}
+
+export function withConfirm(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'confirm',
+    icon: <ExclamationCircleOutlined />,
+    okCancel: true,
+    ...props,
+  };
+}
+
+export function globalConfig({ rootPrefixCls }: { rootPrefixCls?: string }) {
+  if (rootPrefixCls) {
+    defaultRootPrefixCls = rootPrefixCls;
+  }
 }

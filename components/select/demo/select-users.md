@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-一个带有远程搜索，节流控制，请求时序控制，加载状态的多选示例。
+一个带有远程搜索，防抖控制，请求时序控制，加载状态的多选示例。
 
 ## en-US
 
@@ -17,7 +17,7 @@ A complete multiple select sample with remote search, debounce fetch, ajax callb
 import { Select, Spin } from 'antd';
 import debounce from 'lodash/debounce';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 class UserRemoteSelect extends React.Component {
   constructor(props) {

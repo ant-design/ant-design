@@ -1,13 +1,13 @@
 ---
-order: 9
+order: 10
 title:
-  zh-CN: block 按钮
-  en-US: block Button
+  zh-CN: Block 按钮
+  en-US: Block Button
 ---
 
 ## zh-CN
 
-`block`属性将使按钮适合其父宽度。
+`block` 属性将使按钮适合其父宽度。
 
 ## en-US
 
@@ -17,7 +17,7 @@ title:
 import { Button } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Button type="primary" block>
       Primary
     </Button>
@@ -25,13 +25,10 @@ ReactDOM.render(
     <Button type="dashed" block>
       Dashed
     </Button>
-    <Button type="danger" block>
-      Danger
-    </Button>
     <Button type="link" block>
       Link
     </Button>
-  </div>,
+  </>,
   mountNode,
 );
 ```

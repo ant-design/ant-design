@@ -16,7 +16,7 @@ By default, any number of panels can be expanded at a time. The first panel is e
 ```jsx
 import { Collapse } from 'antd';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 function callback(key) {
   console.log(key);
@@ -36,7 +36,7 @@ ReactDOM.render(
     <Panel header="This is panel header 2" key="2">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 3" key="3" disabled>
+    <Panel header="This is panel header 3" key="3">
       <p>{text}</p>
     </Panel>
   </Collapse>,
@@ -45,7 +45,7 @@ ReactDOM.render(
 ```
 
 <style>
-p {
+[data-theme="compact"] p, p {
   margin: 0;
 }
 </style>

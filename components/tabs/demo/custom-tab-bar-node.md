@@ -15,10 +15,10 @@ Use `react-dnd` to make tabs draggable.
 
 ```jsx
 import { Tabs } from 'antd';
-import { DragDropContextProvider, DragSource, DropTarget } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import { DndProvider, DragSource, DropTarget } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 // Drag & Drop node
 class TabNode extends React.Component {
@@ -127,11 +127,11 @@ class DraggableTabs extends React.Component {
     });
 
     return (
-      <DragDropContextProvider backend={HTML5Backend}>
+      <DndProvider backend={HTML5Backend}>
         <Tabs renderTabBar={this.renderTabBar} {...this.props}>
           {orderTabs}
         </Tabs>
-      </DragDropContextProvider>
+      </DndProvider>
     );
   }
 }

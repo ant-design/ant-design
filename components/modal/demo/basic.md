@@ -14,57 +14,37 @@ title:
 Basic modal.
 
 ```jsx
+import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-class App extends React.Component {
-  state = { visible: false };
+const App = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
+  const showModal = () => {
+    setIsModalVisible(true);
   };
 
-  handleOk = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
+  const handleOk = () => {
+    setIsModalVisible(false);
   };
 
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
 
-  render() {
-    return (
-      <div>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal
-        </Button>
-        <Modal
-          title="Basic Modal"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
-      </div>
-    );
-  }
-}
+  return (
+    <>
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
+      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
+    </>
+  );
+};
 
 ReactDOM.render(<App />, mountNode);
 ```
-
-<style>
-.ant-modal p {
-  margin: 0;
-}
-</style>

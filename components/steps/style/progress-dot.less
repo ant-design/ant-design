@@ -1,13 +1,15 @@
-.@{steps-prefix-cls}-dot {
+.@{steps-prefix-cls}-dot,
+.@{steps-prefix-cls}-dot.@{steps-prefix-cls}-small {
   .@{steps-prefix-cls}-item {
     &-title {
       line-height: @line-height-base;
     }
     &-tail {
-      top: 2px;
+      top: @steps-dot-top;
       width: 100%;
-      margin: 0 0 0 @steps-desciption-max-width / 2;
+      margin: 0 0 0 (@steps-description-max-width / 2);
       padding: 0;
+
       &::after {
         width: ~'calc(100% - 20px)';
         height: 3px;
@@ -25,6 +27,7 @@
       line-height: @steps-dot-size;
       background: transparent;
       border: 0;
+
       .@{steps-prefix-cls}-icon-dot {
         position: relative;
         float: left;
@@ -45,14 +48,19 @@
       }
     }
     &-content {
-      width: @steps-desciption-max-width;
+      width: @steps-description-max-width;
     }
     &-process .@{steps-prefix-cls}-item-icon {
+      position: relative;
+      top: -1px;
       width: @steps-current-dot-size;
       height: @steps-current-dot-size;
       line-height: @steps-current-dot-size;
-      .@{steps-prefix-cls}-icon-dot {
-        top: -1px;
+      background: none;
+    }
+    &-process .@{steps-prefix-cls}-icon {
+      &:first-child .@{steps-prefix-cls}-icon-dot {
+        left: 0;
       }
     }
   }
@@ -62,8 +70,10 @@
   .@{steps-prefix-cls}-item-icon {
     margin-top: 8px;
     margin-left: 0;
+    background: none;
   }
-  .@{steps-prefix-cls}-item-tail {
+  // https://github.com/ant-design/ant-design/issues/18354
+  .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
     top: 2px;
     left: -9px;
     margin: 0;
@@ -72,7 +82,13 @@
   .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
     left: 0;
   }
-  .@{steps-prefix-cls}-item-process .@{steps-prefix-cls}-icon-dot {
+  .@{steps-prefix-cls}-item-content {
+    width: inherit;
+  }
+  .@{steps-prefix-cls}-item-process
+    .@{steps-prefix-cls}-item-container
+    .@{steps-prefix-cls}-item-icon
+    .@{steps-prefix-cls}-icon-dot {
     left: -2px;
   }
 }

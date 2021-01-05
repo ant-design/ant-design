@@ -2,16 +2,22 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Progress from '..';
 import { handleGradient, sortGradient } from '../Line';
+import ProgressSteps from '../Steps';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Progress', () => {
+  mountTest(Progress);
+  rtlTest(Progress);
+
   it('successPercent should decide the progress status when it exists', () => {
-    const wrapper = mount(<Progress percent={100} successPercent={50} />);
+    const wrapper = mount(<Progress percent={100} success={{ percent: 50 }} />);
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
 
-    wrapper.setProps({ percent: 50, successPercent: 100 });
+    wrapper.setProps({ percent: 50, success: { percent: 100 } });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
 
-    wrapper.setProps({ percent: 100, successPercent: 0 });
+    wrapper.setProps({ percent: 100, success: { percent: 0 } });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
   });
 
@@ -25,13 +31,13 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('render negetive progress', () => {
+  it('render negative progress', () => {
     const wrapper = mount(<Progress percent={-20} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('render negetive successPercent', () => {
-    const wrapper = mount(<Progress percent={50} successPercent={-20} />);
+  it('render negative successPercent', () => {
+    const wrapper = mount(<Progress percent={50} success={{ percent: -20 }} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -39,7 +45,7 @@ describe('Progress', () => {
     const wrapper = mount(
       <Progress
         percent={50}
-        successPercent={10}
+        success={{ percent: 10 }}
         format={(percent, successPercent) => `${percent} ${successPercent}`}
       />,
     );
@@ -71,11 +77,38 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('render trailColor progress', () => {
+    const wrapper = mount(<Progress status="normal" trailColor="#ffffff" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render successColor progress', () => {
+    const wrapper = mount(
+      <Progress percent={60} success={{ percent: 30, strokeColor: '#ffffff' }} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render dashboard zero gapDegree', () => {
+    const wrapper = mount(<Progress type="dashboard" gapDegree={0} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render dashboard 295 gapDegree', () => {
+    const wrapper = mount(<Progress type="dashboard" gapDegree={295} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render dashboard 296 gapDegree', () => {
+    const wrapper = mount(<Progress type="dashboard" gapDegree={296} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('get correct line-gradient', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890ff, #1890ff)');
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890FF, #1890FF)');
     expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test 0%)',
     );
@@ -83,6 +116,9 @@ describe('Progress', () => {
 
   it('sort gradients correctly', () => {
     expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toBe(
+      'test10 10%, test20 20%, test30 30%',
+    );
+    expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20', dummy: 'test' })).toBe(
       'test10 10%, test20 20%, test30 30%',
     );
   });
@@ -104,5 +140,68 @@ describe('Progress', () => {
     const wrapper = mount(<Progress percent={100} status="invalid" />);
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
     errorSpy.mockRestore();
+  });
+
+  it('should support steps', () => {
+    const wrapper = mount(<Progress steps={3} />);
+    expect(wrapper).toMatchRenderedSnapshot();
+  });
+
+  it('steps should be changable', () => {
+    const wrapper = mount(<Progress steps={5} percent={60} />);
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(3);
+    wrapper.setProps({ percent: 40 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(2);
+  });
+
+  it('steps should be changable when has strokeColor', () => {
+    const wrapper = mount(<Progress steps={5} percent={60} strokeColor="#1890ff" />);
+    expect(wrapper.find('.ant-progress-steps-item').at(0).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 255)',
+    );
+    wrapper.setProps({ percent: 40 });
+    expect(wrapper.find('.ant-progress-steps-item').at(2).getDOMNode().style.backgroundColor).toBe(
+      '',
+    );
+    expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 255)',
+    );
+  });
+
+  it('steps should support trailColor', () => {
+    const wrapper = mount(<Progress steps={5} percent={20} trailColor="#1890ee" />);
+    expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 238)',
+    );
+  });
+
+  it('should display correct step', () => {
+    const wrapper = mount(<Progress steps={9} percent={22.22} />);
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(2);
+    wrapper.setProps({ percent: 33.33 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(3);
+    wrapper.setProps({ percent: 44.44 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(4);
+  });
+
+  it('steps should have default percent 0', () => {
+    const wrapper = mount(<ProgressSteps />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should warnning if use `progress` in success', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Progress percent={60} success={{ progress: 30 }} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
+    );
+  });
+
+  it('should warnning if use `progress` in success in type Circle', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
+    );
   });
 });

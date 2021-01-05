@@ -13,11 +13,11 @@ title:
 
 Additional description for alert message.
 
-```jsx
+```tsx
 import { Alert } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Alert
       message="Success Text"
       description="Success Description Success Description Success Description"
@@ -38,7 +38,7 @@ ReactDOM.render(
       description="Error Description Error Description Error Description Error Description"
       type="error"
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

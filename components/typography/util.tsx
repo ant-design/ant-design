@@ -6,6 +6,10 @@ interface MeasureResult {
   finished: boolean;
   reactNode: React.ReactNode;
 }
+interface Option {
+  rows: number;
+  suffix?: string;
+}
 
 // We only handle element & text node.
 const ELEMENT_NODE = 1;
@@ -51,27 +55,29 @@ function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
   return childList;
 }
 
-export function measure(
+export default (
   originEle: HTMLElement,
-  rows: number,
+  option: Option,
   content: React.ReactNode,
   fixedContent: React.ReactNode[],
   ellipsisStr: string,
-): { content: React.ReactNode; text: string; ellipsis: boolean } {
+): { content: React.ReactNode; text: string; ellipsis: boolean } => {
   if (!ellipsisContainer) {
     ellipsisContainer = document.createElement('div');
     ellipsisContainer.setAttribute('aria-hidden', 'true');
     document.body.appendChild(ellipsisContainer);
   }
 
+  const { rows, suffix = '' } = option;
   // Get origin style
   const originStyle = window.getComputedStyle(originEle);
   const originCSS = styleToString(originStyle);
   const lineHeight = pxToNumber(originStyle.lineHeight);
-  const maxHeight =
+  const maxHeight = Math.round(
     lineHeight * (rows + 1) +
-    pxToNumber(originStyle.paddingTop) +
-    pxToNumber(originStyle.paddingBottom);
+      pxToNumber(originStyle.paddingTop) +
+      pxToNumber(originStyle.paddingBottom),
+  );
 
   // Set shadow
   ellipsisContainer.setAttribute('style', originCSS);
@@ -92,7 +98,10 @@ export function measure(
   const contentList: React.ReactNode[] = mergeChildren(toArray(content));
   render(
     <div style={wrapperStyle}>
-      <span style={wrapperStyle}>{contentList}</span>
+      <span style={wrapperStyle}>
+        {contentList}
+        {suffix}
+      </span>
       <span style={wrapperStyle}>{fixedContent}</span>
     </div>,
     ellipsisContainer,
@@ -125,7 +134,7 @@ export function measure(
   // Create origin content holder
   const ellipsisContentHolder = document.createElement('span');
   ellipsisContainer.appendChild(ellipsisContentHolder);
-  const ellipsisTextNode = document.createTextNode(ellipsisStr);
+  const ellipsisTextNode = document.createTextNode(ellipsisStr + suffix);
   ellipsisContentHolder.appendChild(ellipsisTextNode);
 
   fixedNodes.forEach(childNode => {
@@ -155,7 +164,7 @@ export function measure(
         const currentStepText = fullText.slice(0, step);
         textNode.textContent = currentStepText;
 
-        if (inRange()) {
+        if (inRange() || !currentStepText) {
           return step === fullText.length
             ? {
                 finished: false,
@@ -171,9 +180,8 @@ export function measure(
 
     if (inRange()) {
       return measureText(textNode, fullText, midLoc, endLoc, midLoc);
-    } else {
-      return measureText(textNode, fullText, startLoc, midLoc, lastSuccessLoc);
     }
+    return measureText(textNode, fullText, startLoc, midLoc, lastSuccessLoc);
   }
 
   function measureNode(childNode: ChildNode, index: number): MeasureResult {
@@ -195,7 +203,8 @@ export function measure(
         finished: true,
         reactNode: null,
       };
-    } else if (type === TEXT_NODE) {
+    }
+    if (type === TEXT_NODE) {
       const fullText = childNode.textContent || '';
       const textNode = document.createTextNode(fullText);
       appendChildNode(textNode);
@@ -204,6 +213,7 @@ export function measure(
 
     // Not handle other type of content
     // PS: This code should not be attached after react 16
+    /* istanbul ignore next */
     return {
       finished: false,
       reactNode: null,
@@ -223,4 +233,4 @@ export function measure(
     text: ellipsisContainer.innerHTML,
     ellipsis: true,
   };
-}
+};

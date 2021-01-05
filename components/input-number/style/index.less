@@ -3,10 +3,11 @@
 @import '../../input/style/mixin';
 
 @input-number-prefix-cls: ~'@{ant-prefix}-input-number';
+@form-item-prefix-cls: ~'@{ant-prefix}-form-item';
 
 .@{input-number-prefix-cls} {
-  .reset-component;
-  .input;
+  .reset-component();
+  .input();
 
   display: inline-block;
   width: 90px;
@@ -31,7 +32,7 @@
     }
     &:hover &-up-inner,
     &:hover &-down-inner {
-      color: @primary-5;
+      color: @input-number-handler-hover-bg;
     }
   }
 
@@ -50,7 +51,11 @@
   }
 
   &:hover {
-    .hover();
+    .hover(@input-number-hover-border-color);
+    & + .@{form-item-prefix-cls}-children-icon {
+      opacity: 0;
+      transition: opacity 0.24s linear 0.24s;
+    }
   }
 
   &-focused {
@@ -67,6 +72,12 @@
     }
   }
 
+  &-readonly {
+    .@{input-number-prefix-cls}-handler-wrap {
+      display: none;
+    }
+  }
+
   &-input {
     width: 100%;
     height: @input-height-base - 2px;
@@ -77,8 +88,14 @@
     border-radius: @border-radius-base;
     outline: 0;
     transition: all 0.3s linear;
-    -moz-appearance: textfield;
+    -moz-appearance: textfield !important;
     .placeholder();
+
+    &[type='number']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-outer-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
   }
 
   &-lg {
@@ -105,8 +122,8 @@
     right: 0;
     width: 22px;
     height: 100%;
-    background: @component-background;
-    border-left: @border-width-base @border-style-base @border-color-base;
+    background: @input-number-handler-bg;
+    border-left: @border-width-base @border-style-base @input-number-handler-border-color;
     border-radius: 0 @border-radius-base @border-radius-base 0;
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
@@ -117,10 +134,9 @@
     .@{input-number-prefix-cls}-handler {
       .@{input-number-prefix-cls}-handler-up-inner,
       .@{input-number-prefix-cls}-handler-down-inner {
-        .iconfont-size-under-12px(7px);
-
         min-width: auto;
         margin-right: 0;
+        font-size: 7px;
       }
     }
   }
@@ -134,6 +150,7 @@
   }
 
   &-handler-up {
+    border-top-right-radius: @border-radius-base;
     cursor: pointer;
     &-inner {
       top: 50%;
@@ -148,11 +165,12 @@
   &-handler-down {
     top: 0;
     border-top: @border-width-base @border-style-base @border-color-base;
+    border-bottom-right-radius: @border-radius-base;
     cursor: pointer;
     &-inner {
       top: 50%;
-      margin-top: -6px;
       text-align: center;
+      transform: translateY(-50%);
     }
     &:hover {
       height: 60% !important;
@@ -169,3 +187,5 @@
     color: @disabled-color;
   }
 }
+
+@import './rtl';

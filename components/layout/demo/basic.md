@@ -19,7 +19,7 @@ import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
 ReactDOM.render(
-  <div>
+  <>
     <Layout>
       <Header>Header</Header>
       <Content>Content</Content>
@@ -52,7 +52,7 @@ ReactDOM.render(
         <Footer>Footer</Footer>
       </Layout>
     </Layout>
-  </div>,
+  </>,
   mountNode,
 );
 ```
@@ -63,27 +63,36 @@ ReactDOM.render(
 }
 #components-layout-demo-basic .ant-layout-header,
 #components-layout-demo-basic .ant-layout-footer {
-  background: #7dbcea;
   color: #fff;
+  background: #7dbcea;
+}
+[data-theme="dark"] #components-layout-demo-basic .ant-layout-header {
+  background: #6aa0c7;
+}
+[data-theme="dark"] #components-layout-demo-basic .ant-layout-footer {
+  background: #6aa0c7;
 }
 #components-layout-demo-basic .ant-layout-footer {
   line-height: 1.5;
 }
 #components-layout-demo-basic .ant-layout-sider {
-  background: #3ba0e9;
   color: #fff;
   line-height: 120px;
+  background: #3ba0e9;
+}
+[data-theme="dark"] #components-layout-demo-basic .ant-layout-sider {
+  background: #3499ec;
 }
 #components-layout-demo-basic .ant-layout-content {
-  background: rgba(16, 142, 233, 1);
-  color: #fff;
   min-height: 120px;
+  color: #fff;
   line-height: 120px;
+  background: rgba(16, 142, 233, 1);
 }
-#components-layout-demo-basic > .code-box-demo > div > .ant-layout {
-  margin-bottom: 48px;
+[data-theme="dark"] #components-layout-demo-basic .ant-layout-content {
+  background: #107bcb;
 }
-#components-layout-demo-basic > .code-box-demo > div > .ant-layout:last-child {
-  margin: 0;
+#components-layout-demo-basic > .code-box-demo > .ant-layout + .ant-layout {
+  margin-top: 48px;
 }
 </style>

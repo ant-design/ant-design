@@ -1,54 +1,86 @@
 import * as React from 'react';
-import { Item } from 'rc-menu';
-import { ClickParam } from '.';
-import { MenuContext, MenuContextProps } from './';
-import Tooltip from '../tooltip';
+import { Item, MenuItemProps as RcMenuItemProps } from 'rc-menu';
+import toArray from 'rc-util/lib/Children/toArray';
+import classNames from 'classnames';
+import MenuContext, { MenuContextProps } from './MenuContext';
+import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
+import { isValidElement, cloneElement } from '../_util/reactNode';
 
-export interface MenuItemProps {
-  rootPrefixCls?: string;
-  disabled?: boolean;
-  level?: number;
+export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
+  icon?: React.ReactNode;
+  danger?: boolean;
   title?: React.ReactNode;
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  onClick?: (param: ClickParam) => void;
-  onMouseEnter?: (e: { key: string; domEvent: MouseEvent }) => void;
-  onMouseLeave?: (e: { key: string; domEvent: MouseEvent }) => void;
 }
 
 export default class MenuItem extends React.Component<MenuItemProps> {
   static isMenuItem = true;
-  private menuItem: this;
 
-  onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
-    this.menuItem.onKeyDown(e);
-  };
-
-  saveMenuItem = (menuItem: this) => {
-    this.menuItem = menuItem;
-  };
+  renderItemChildren(inlineCollapsed: boolean) {
+    const { icon, children, level, rootPrefixCls } = this.props;
+    // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
+    // ref: https://github.com/ant-design/ant-design/pull/23456
+    if (!icon || (isValidElement(children) && children.type === 'span')) {
+      if (children && inlineCollapsed && level === 1 && typeof children === 'string') {
+        return (
+          <div className={`${rootPrefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>
+        );
+      }
+      return children;
+    }
+    return <span>{children}</span>;
+  }
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { level, children, rootPrefixCls } = this.props;
-    const { title, ...rest } = this.props;
+    const { level, className, children, rootPrefixCls } = this.props;
+    const { title, icon, danger, ...rest } = this.props;
 
     return (
       <MenuContext.Consumer>
-        {({ inlineCollapsed }: MenuContextProps) => {
-          let titleNode = title || (level === 1 ? children : '');
-          if (!siderCollapsed && !inlineCollapsed) {
-            titleNode = null;
+        {({ inlineCollapsed, direction }: MenuContextProps) => {
+          let tooltipTitle = title;
+          if (typeof title === 'undefined') {
+            tooltipTitle = level === 1 ? children : '';
+          } else if (title === false) {
+            tooltipTitle = '';
           }
+          const tooltipProps: TooltipProps = {
+            title: tooltipTitle,
+          };
 
+          if (!siderCollapsed && !inlineCollapsed) {
+            tooltipProps.title = null;
+            // Reset `visible` to fix control mode tooltip display not correct
+            // ref: https://github.com/ant-design/ant-design/issues/16742
+            tooltipProps.visible = false;
+          }
+          const childrenLength = toArray(children).length;
           return (
             <Tooltip
-              title={titleNode}
-              placement="right"
+              {...tooltipProps}
+              placement={direction === 'rtl' ? 'left' : 'right'}
               overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
             >
-              <Item {...rest} title={title} ref={this.saveMenuItem} />
+              <Item
+                {...rest}
+                className={classNames(
+                  {
+                    [`${rootPrefixCls}-item-danger`]: danger,
+                    [`${rootPrefixCls}-item-only-child`]:
+                      (icon ? childrenLength + 1 : childrenLength) === 1,
+                  },
+                  className,
+                )}
+                title={title}
+              >
+                {cloneElement(icon, {
+                  className: classNames(
+                    isValidElement(icon) ? icon.props?.className : '',
+                    `${rootPrefixCls}-item-icon`,
+                  ),
+                })}
+                {this.renderItemChildren(inlineCollapsed)}
+              </Item>
             </Tooltip>
           );
         }}

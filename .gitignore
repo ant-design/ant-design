@@ -25,6 +25,7 @@ nohup.out
 _site
 _data
 dist
+report.html
 /lib
 /es
 elasticsearch-*
@@ -38,8 +39,29 @@ components/**/*.jsx
 !components/**/__tests__/**/*.js
 !components/**/__tests__/**/*.js.snap
 /.history
+*.tmp
+
 # Docs templates
+site/theme/template/Color/ColorPicker.jsx
 site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
 site/theme/template/IconDisplay/fields.js
-*.tmp
+site/theme/template/Home/**/*.jsx
+site/theme/template/utils.jsx
+site/theme/template/Layout/Footer.jsx
+site/theme/template/Layout/Header/**/*.jsx
+site/theme/template/Layout/SiteContext.jsx
+site/theme/template/Content/Article.jsx
+site/theme/template/Content/EditButton.jsx
+site/theme/template/Resources/*.jsx
+site/theme/template/Resources/**/*.jsx
+site/theme/template/NotFound.jsx
+scripts/previewEditor/index.html
+components/version/version.tsx
+
+# Image snapshot diff
+__diff_output__/
+__image_snapshots__/
+/jest-stare
+/imageSnapshots
+/imageDiffSnapshots

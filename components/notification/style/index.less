@@ -1,26 +1,24 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './customize.less';
 
 @notification-prefix-cls: ~'@{ant-prefix}-notification';
 @notification-width: 384px;
-@notification-padding-vertical: 16px;
-@notification-padding-horizontal: 24px;
 @notification-padding: @notification-padding-vertical @notification-padding-horizontal;
 @notification-margin-bottom: 16px;
+@notification-margin-edge: 24px;
 
 .@{notification-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: fixed;
   z-index: @zindex-notification;
-  width: @notification-width;
-  max-width: ~'calc(100vw - 32px)';
-  margin-right: 24px;
+  margin-right: @notification-margin-edge;
 
   &-topLeft,
   &-bottomLeft {
     margin-right: 0;
-    margin-left: 24px;
+    margin-left: @notification-margin-edge;
 
     .@{notification-prefix-cls}-fade-enter.@{notification-prefix-cls}-fade-enter-active,
     .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
@@ -33,18 +31,36 @@
     cursor: pointer;
   }
 
+  &-hook-holder,
   &-notice {
     position: relative;
+    width: @notification-width;
+    max-width: ~'calc(100vw - @{notification-margin-edge} * 2)';
     margin-bottom: @notification-margin-bottom;
-    padding: @notification-padding;
+    margin-left: auto;
     overflow: hidden;
-    line-height: 1.5;
-    background: @component-background;
+    word-wrap: break-word;
+    background: @notification-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
 
+    .@{notification-prefix-cls}-topLeft &,
+    .@{notification-prefix-cls}-bottomLeft & {
+      margin-right: auto;
+      margin-left: 0;
+    }
+  }
+
+  &-hook-holder > &-notice {
+    margin-bottom: 0;
+    box-shadow: none;
+  }
+
+  &-notice {
+    padding: @notification-padding;
+    line-height: @line-height-base;
+
     &-message {
-      display: inline-block;
       margin-bottom: 8px;
       color: @heading-color;
       font-size: @font-size-lg;
@@ -83,12 +99,17 @@
       font-size: @font-size-base;
     }
 
-    .@{iconfont-css-prefix}&-icon {
+    // Icon & color style in different selector level
+    // https://github.com/ant-design/ant-design/issues/16503
+    // https://github.com/ant-design/ant-design/issues/15512
+    &-icon {
       position: absolute;
       margin-left: 4px;
       font-size: 24px;
       line-height: 24px;
+    }
 
+    .@{iconfont-css-prefix}&-icon {
       &-success {
         color: @success-color;
       }
@@ -111,7 +132,12 @@
       outline: none;
 
       &:hover {
-        color: shade(@text-color-secondary, 40%);
+        & when (@theme = dark) {
+          color: fade(@white, 85%);
+        }
+        & when not (@theme = dark) {
+          color: shade(@text-color-secondary, 40%);
+        }
       }
     }
 
@@ -180,8 +206,6 @@
   0% {
     max-height: 150px;
     margin-bottom: @notification-margin-bottom;
-    padding-top: @notification-padding;
-    padding-bottom: @notification-padding;
     opacity: 1;
   }
   100% {
@@ -192,3 +216,5 @@
     opacity: 0;
   }
 }
+
+@import './rtl';

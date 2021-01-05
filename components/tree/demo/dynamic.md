@@ -13,54 +13,65 @@ title:
 
 To load data asynchronously when click to expand a treeNode.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Tree } from 'antd';
 
-const { TreeNode } = Tree;
+interface DataNode {
+  title: string;
+  key: string;
+  isLeaf?: boolean;
+  children?: DataNode[];
+}
 
-class Demo extends React.Component {
-  state = {
-    treeData: [
-      { title: 'Expand to load', key: '0' },
-      { title: 'Expand to load', key: '1' },
-      { title: 'Tree Node', key: '2', isLeaf: true },
-    ],
-  };
+const initTreeDate: DataNode[] = [
+  { title: 'Expand to load', key: '0' },
+  { title: 'Expand to load', key: '1' },
+  { title: 'Tree Node', key: '2', isLeaf: true },
+];
 
-  onLoadData = treeNode =>
-    new Promise(resolve => {
-      if (treeNode.props.children) {
+// It's just a simple demo. You can use tree map to optimize update perf.
+function updateTreeData(list: DataNode[], key: React.Key, children: DataNode[]): DataNode[] {
+  return list.map(node => {
+    if (node.key === key) {
+      return {
+        ...node,
+        children,
+      };
+    } else if (node.children) {
+      return {
+        ...node,
+        children: updateTreeData(node.children, key, children),
+      };
+    }
+    return node;
+  });
+}
+
+const Demo: React.FC<{}> = () => {
+  const [treeData, setTreeData] = useState(initTreeDate);
+
+  function onLoadData({ key, children }: any) {
+    return new Promise<void>(resolve => {
+      if (children) {
         resolve();
         return;
       }
       setTimeout(() => {
-        treeNode.props.dataRef.children = [
-          { title: 'Child Node', key: `${treeNode.props.eventKey}-0` },
-          { title: 'Child Node', key: `${treeNode.props.eventKey}-1` },
-        ];
-        this.setState({
-          treeData: [...this.state.treeData],
-        });
+        setTreeData(origin =>
+          updateTreeData(origin, key, [
+            { title: 'Child Node', key: `${key}-0` },
+            { title: 'Child Node', key: `${key}-1` },
+          ]),
+        );
+
         resolve();
       }, 1000);
     });
-
-  renderTreeNodes = data =>
-    data.map(item => {
-      if (item.children) {
-        return (
-          <TreeNode title={item.title} key={item.key} dataRef={item}>
-            {this.renderTreeNodes(item.children)}
-          </TreeNode>
-        );
-      }
-      return <TreeNode {...item} dataRef={item} />;
-    });
-
-  render() {
-    return <Tree loadData={this.onLoadData}>{this.renderTreeNodes(this.state.treeData)}</Tree>;
   }
-}
+
+  return <Tree loadData={onLoadData} treeData={treeData} />;
+};
 
 ReactDOM.render(<Demo />, mountNode);
 ```

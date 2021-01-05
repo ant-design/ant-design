@@ -14,7 +14,8 @@ title:
 A button is on the left, and a related functional menu is on the right. You can set the icon property to modify the icon of right.
 
 ```jsx
-import { Menu, Dropdown, Button, Icon, message } from 'antd';
+import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
 function handleButtonClick(e) {
   message.info('Click on left button.');
@@ -28,44 +29,46 @@ function handleMenuClick(e) {
 
 const menu = (
   <Menu onClick={handleMenuClick}>
-    <Menu.Item key="1">
-      <Icon type="user" />
+    <Menu.Item key="1" icon={<UserOutlined />}>
       1st menu item
     </Menu.Item>
-    <Menu.Item key="2">
-      <Icon type="user" />
+    <Menu.Item key="2" icon={<UserOutlined />}>
       2nd menu item
     </Menu.Item>
-    <Menu.Item key="3">
-      <Icon type="user" />
-      3rd item
+    <Menu.Item key="3" icon={<UserOutlined />}>
+      3rd menu item
     </Menu.Item>
   </Menu>
 );
 
 ReactDOM.render(
-  <div id="components-dropdown-demo-dropdown-button">
+  <Space wrap>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
     </Dropdown.Button>
-    <Dropdown.Button overlay={menu} icon={<Icon type="user" />}>
+    <Dropdown.Button overlay={menu} placement="bottomCenter" icon={<UserOutlined />}>
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu} disabled>
       Dropdown
     </Dropdown.Button>
+    <Dropdown.Button
+      overlay={menu}
+      buttonsRender={([leftButton, rightButton]) => [
+        <Tooltip title="tooltip" key="leftButton">
+          {leftButton}
+        </Tooltip>,
+        React.cloneElement(rightButton, { loading: true }),
+      ]}
+    >
+      With Tooltip
+    </Dropdown.Button>
     <Dropdown overlay={menu}>
       <Button>
-        Button <Icon type="down" />
+        Button <DownOutlined />
       </Button>
     </Dropdown>
-  </div>,
+  </Space>,
   mountNode,
 );
-```
-
-```css
-#components-dropdown-demo-dropdown-button .ant-dropdown-button {
-  margin: 0 8px 8px 0;
-}
 ```

@@ -1,31 +1,23 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import Radio from './radio';
 import { RadioChangeEvent } from './interface';
 import { AbstractCheckboxProps } from '../checkbox/Checkbox';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import RadioGroupContext from './context';
 
 export type RadioButtonProps = AbstractCheckboxProps<RadioChangeEvent>;
 
-export default class RadioButton extends React.Component<RadioButtonProps, any> {
-  static contextTypes = {
-    radioGroup: PropTypes.any,
-  };
+const RadioButton = (props: RadioButtonProps, ref: React.Ref<any>) => {
+  const radioGroupContext = React.useContext(RadioGroupContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
-  context: any;
-
-  renderRadioButton = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, ...radioProps }: RadioButtonProps = this.props;
-    const prefixCls = getPrefixCls('radio-button', customizePrefixCls);
-    if (this.context.radioGroup) {
-      radioProps.checked = this.props.value === this.context.radioGroup.value;
-      radioProps.disabled = this.props.disabled || this.context.radioGroup.disabled;
-    }
-
-    return <Radio prefixCls={prefixCls} {...radioProps} />;
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderRadioButton}</ConfigConsumer>;
+  const { prefixCls: customizePrefixCls, ...radioProps } = props;
+  const prefixCls = getPrefixCls('radio-button', customizePrefixCls);
+  if (radioGroupContext) {
+    radioProps.checked = props.value === radioGroupContext.value;
+    radioProps.disabled = props.disabled || radioGroupContext.disabled;
   }
-}
+  return <Radio prefixCls={prefixCls} {...radioProps} type="radio" ref={ref} />;
+};
+
+export default React.forwardRef(RadioButton);

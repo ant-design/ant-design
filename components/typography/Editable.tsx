@@ -1,135 +1,134 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { polyfill } from 'react-lifecycles-compat';
-import Icon from '../icon';
+import EnterOutlined from '@ant-design/icons/EnterOutlined';
+import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import TextArea from '../input/TextArea';
+import { DirectionType } from '../config-provider';
 
 interface EditableProps {
   prefixCls?: string;
-  value?: string;
+  value: string;
   ['aria-label']?: string;
   onSave: (value: string) => void;
   onCancel: () => void;
   className?: string;
   style?: React.CSSProperties;
+  direction?: DirectionType;
+  maxLength?: number;
+  autoSize?: boolean | AutoSizeType;
 }
 
-interface EditableState {
-  current: string;
-  prevValue?: string;
-}
+const Editable: React.FC<EditableProps> = ({
+  prefixCls,
+  'aria-label': ariaLabel,
+  className,
+  style,
+  direction,
+  maxLength,
+  autoSize = true,
+  value,
+  onSave,
+  onCancel,
+}) => {
+  const ref = React.useRef<any>();
 
-class Editable extends React.Component<EditableProps, EditableState> {
-  static getDerivedStateFromProps(nextProps: EditableProps, prevState: EditableState) {
-    const { prevValue } = prevState;
-    const { value } = nextProps;
-    const newState: Partial<EditableState> = {
-      prevValue: value,
-    };
+  const inComposition = React.useRef(false);
+  const lastKeyCode = React.useRef<number>();
 
-    if (prevValue !== value) {
-      newState.current = value;
+  const [current, setCurrent] = React.useState(value);
+
+  React.useEffect(() => {
+    setCurrent(value);
+  }, [value]);
+
+  React.useEffect(() => {
+    if (ref.current && ref.current.resizableTextArea) {
+      const { textArea } = ref.current.resizableTextArea;
+      textArea.focus();
+      const { length } = textArea.value;
+      textArea.setSelectionRange(length, length);
     }
+  }, []);
 
-    return newState;
-  }
-
-  textarea?: TextArea;
-  lastKeyCode?: number;
-  inComposition?: boolean = false;
-
-  state = {
-    current: '',
+  const onChange: React.ChangeEventHandler<HTMLTextAreaElement> = ({ target }) => {
+    setCurrent(target.value.replace(/[\n\r]/g, ''));
   };
 
-  componentDidMount() {
-    if (this.textarea) {
-      this.textarea.focus();
-    }
-  }
-
-  onChange: React.ChangeEventHandler<HTMLTextAreaElement> = ({ target: { value } }) => {
-    this.setState({ current: value.replace(/[\r\n]/g, '') });
+  const onCompositionStart = () => {
+    inComposition.current = true;
   };
 
-  onCompositionStart = () => {
-    this.inComposition = true;
-  };
-  onCompositionEnd = () => {
-    this.inComposition = false;
+  const onCompositionEnd = () => {
+    inComposition.current = false;
   };
 
-  onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
+  const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
     // We don't record keyCode when IME is using
-    if (this.inComposition) return;
+    if (inComposition.current) return;
 
-    this.lastKeyCode = keyCode;
+    lastKeyCode.current = keyCode;
   };
 
-  onKeyUp: React.KeyboardEventHandler<HTMLTextAreaElement> = ({
+  const confirmChange = () => {
+    onSave(current.trim());
+  };
+
+  const onKeyUp: React.KeyboardEventHandler<HTMLTextAreaElement> = ({
     keyCode,
     ctrlKey,
     altKey,
     metaKey,
     shiftKey,
   }) => {
-    const { onCancel } = this.props;
     // Check if it's a real key
     if (
-      this.lastKeyCode === keyCode &&
-      !this.inComposition &&
+      lastKeyCode.current === keyCode &&
+      !inComposition.current &&
       !ctrlKey &&
       !altKey &&
       !metaKey &&
       !shiftKey
     ) {
       if (keyCode === KeyCode.ENTER) {
-        this.confirmChange();
+        confirmChange();
       } else if (keyCode === KeyCode.ESC) {
         onCancel();
       }
     }
   };
 
-  onBlur: React.FocusEventHandler<HTMLTextAreaElement> = () => {
-    this.confirmChange();
+  const onBlur: React.FocusEventHandler<HTMLTextAreaElement> = () => {
+    confirmChange();
   };
 
-  confirmChange = () => {
-    const { current } = this.state;
-    const { onSave } = this.props;
+  const textAreaClassName = classNames(
+    prefixCls,
+    `${prefixCls}-edit-content`,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
-    onSave(current.trim());
-  };
-
-  setTextarea = (textarea: TextArea) => {
-    this.textarea = textarea;
-  };
-
-  render() {
-    const { current } = this.state;
-    const { prefixCls, ['aria-label']: ariaLabel, className, style } = this.props;
-
-    return (
-      <div className={`${prefixCls} ${prefixCls}-edit-content ${className}`} style={style}>
-        <TextArea
-          ref={this.setTextarea}
-          value={current}
-          onChange={this.onChange}
-          onKeyDown={this.onKeyDown}
-          onKeyUp={this.onKeyUp}
-          onCompositionStart={this.onCompositionStart}
-          onCompositionEnd={this.onCompositionEnd}
-          onBlur={this.onBlur}
-          aria-label={ariaLabel}
-          autosize
-        />
-        <Icon type="enter" className={`${prefixCls}-edit-content-confirm`} />
-      </div>
-    );
-  }
-}
-
-polyfill(Editable);
+  return (
+    <div className={textAreaClassName} style={style}>
+      <TextArea
+        ref={ref as any}
+        maxLength={maxLength}
+        value={current}
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        onKeyUp={onKeyUp}
+        onCompositionStart={onCompositionStart}
+        onCompositionEnd={onCompositionEnd}
+        onBlur={onBlur}
+        aria-label={ariaLabel}
+        autoSize={autoSize}
+      />
+      <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
+    </div>
+  );
+};
 
 export default Editable;

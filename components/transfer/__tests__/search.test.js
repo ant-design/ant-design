@@ -6,6 +6,24 @@ import Transfer from '../index';
 describe('Transfer.Search', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
+  const dataSource = [
+    {
+      key: 'a',
+      title: 'a',
+      description: 'a',
+    },
+    {
+      key: 'b',
+      title: 'b',
+      description: 'b',
+    },
+    {
+      key: 'c',
+      title: 'c',
+      description: 'c',
+    },
+  ];
+
   afterEach(() => {
     errorSpy.mockReset();
   });
@@ -16,32 +34,13 @@ describe('Transfer.Search', () => {
 
   it('should show cross icon when input value exists', () => {
     const wrapper = mount(<Search value="" />);
-
-    expect(wrapper).toMatchSnapshot();
-
+    expect(wrapper).toMatchRenderedSnapshot();
     wrapper.setProps({ value: 'a' });
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('onSearch', () => {
-    const dataSource = [
-      {
-        key: 'a',
-        title: 'a',
-        description: 'a',
-      },
-      {
-        key: 'b',
-        title: 'b',
-        description: 'b',
-      },
-      {
-        key: 'c',
-        title: 'c',
-        description: 'c',
-      },
-    ];
+    jest.useFakeTimers();
 
     const onSearch = jest.fn();
     const wrapper = mount(
@@ -54,38 +53,40 @@ describe('Transfer.Search', () => {
         showSearch
       />,
     );
-
     wrapper
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
     expect(onSearch).toHaveBeenCalledWith('left', 'a');
-
     onSearch.mockReset();
-
-    wrapper
-      .find('.ant-transfer-list-search-action')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-transfer-list-search-action').at(0).simulate('click');
     expect(onSearch).toHaveBeenCalledWith('left', '');
+    jest.useRealTimers();
   });
 
-  it('legacy onSearchChange', () => {
+  it('legacy props#onSearchChange doesnot work anymore', () => {
     const onSearchChange = jest.fn();
-
     const wrapper = mount(
       <Transfer render={item => item.title} onSearchChange={onSearchChange} showSearch />,
     );
-
     wrapper
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
+    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(onSearchChange).not.toHaveBeenCalled();
+  });
 
-    expect(errorSpy.mock.calls[0][0]).toMatch(
-      'Warning: [antd: Transfer] `onSearchChange` is deprecated. Please use `onSearch` instead.',
+  // https://github.com/ant-design/ant-design/issues/26208
+  it('typing space should trigger filterOption', () => {
+    const filterOption = jest.fn();
+    const wrapper = mount(
+      <Transfer filterOption={filterOption} dataSource={dataSource} showSearch />,
     );
-    expect(onSearchChange.mock.calls[0][0]).toEqual('left');
-    expect(onSearchChange.mock.calls[0][1].target.value).toEqual('a');
+    wrapper
+      .find('.ant-input')
+      .at(0)
+      .simulate('change', { target: { value: ' ' } });
+    expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
   });
 });

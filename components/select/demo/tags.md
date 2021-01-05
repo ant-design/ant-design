@@ -7,16 +7,16 @@ title:
 
 ## zh-CN
 
-tags select，随意输入的内容（scroll the menu）
+tags select，随意输入的内容（scroll the menu）。
 
 ## en-US
 
-Select with tags, transform input to tag (scroll the menu)
+Select with tags, transform input to tag (scroll the menu).
 
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 const children = [];
 for (let i = 10; i < 36; i++) {

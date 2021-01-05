@@ -7,14 +7,24 @@ title:
 
 ## zh-CN
 
-密码框，版本 3.12.0 中新增。
+密码框。
 
 ## en-US
 
-Input type of password and added in 3.12.0.
+Input type of password.
 
 ```jsx
-import { Input } from 'antd';
+import { Input, Space } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
-ReactDOM.render(<Input.Password placeholder="input password" />, mountNode);
+ReactDOM.render(
+  <Space direction="vertical">
+    <Input.Password placeholder="input password" />
+    <Input.Password
+      placeholder="input password"
+      iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+    />
+  </Space>,
+  mountNode,
+);
 ```

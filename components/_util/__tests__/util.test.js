@@ -1,43 +1,60 @@
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 import React from 'react';
 import { mount } from 'enzyme';
+import KeyCode from 'rc-util/lib/KeyCode';
 import delayRaf from '../raf';
-import throttleByAnimationFrame from '../throttleByAnimationFrame';
+import {
+  throttleByAnimationFrame,
+  throttleByAnimationFrameDecorator,
+} from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
-import triggerEvent from '../triggerEvent';
 import Wave from '../wave';
+import TransButton from '../transButton';
+import { isStyleSupport, isFlexSupported } from '../styleChecker';
+import { sleep } from '../../../tests/utils';
 
 describe('Test utils function', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
+  describe('throttle', () => {
+    it('throttle function should work', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
+      expect(callback).not.toHaveBeenCalled();
 
-  afterAll(() => {
-    jest.useRealTimers();
-  });
+      throttled();
+      throttled();
+      await sleep(20);
 
-  it('throttle function should work', () => {
-    const callback = jest.fn();
-    const throttled = throttleByAnimationFrame(callback);
-    expect(callback).not.toHaveBeenCalled();
+      expect(callback).toHaveBeenCalled();
+      expect(callback.mock.calls.length).toBe(1);
+    });
 
-    throttled();
-    throttled();
+    it('throttle function should be canceled', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
 
-    jest.runAllTimers();
-    expect(callback).toHaveBeenCalled();
-    expect(callback.mock.calls.length).toBe(1);
-  });
+      throttled();
+      throttled.cancel();
+      await sleep(20);
 
-  it('throttle function should be canceled', () => {
-    const callback = jest.fn();
-    const throttled = throttleByAnimationFrame(callback);
+      expect(callback).not.toHaveBeenCalled();
+    });
 
-    throttled();
-    throttled.cancel();
-
-    jest.runAllTimers();
-    expect(callback).not.toHaveBeenCalled();
+    it('throttleByAnimationFrameDecorator should works', async () => {
+      const callbackFn = jest.fn();
+      class Test {
+        @throttleByAnimationFrameDecorator()
+        // eslint-disable-next-line class-methods-use-this
+        callback() {
+          callbackFn();
+        }
+      }
+      const test = new Test();
+      test.callback();
+      test.callback();
+      test.callback();
+      await sleep(30);
+      expect(callbackFn).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('getDataOrAriaProps', () => {
@@ -123,24 +140,13 @@ describe('Test utils function', () => {
     });
   });
 
-  it('triggerEvent', () => {
-    const button = document.createElement('button');
-    button.addEventListener(
-      'click',
-      () => {
-        button.style.width = '100px';
-      },
-      true,
-    );
-    triggerEvent(button, 'click');
-    expect(button.style.width).toBe('100px');
-  });
-
   describe('wave', () => {
     it('bindAnimationEvent should return when node is null', () => {
       const wrapper = mount(
         <Wave>
-          <button type="button" disabled />
+          <button type="button" disabled>
+            button
+          </button>
         </Wave>,
       ).instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
@@ -149,7 +155,9 @@ describe('Test utils function', () => {
     it('bindAnimationEvent.onClick should return when children is hidden', () => {
       const wrapper = mount(
         <Wave>
-          <button type="button" style={{ display: 'none' }} />
+          <button type="button" style={{ display: 'none' }}>
+            button
+          </button>
         </Wave>,
       ).instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
@@ -162,6 +170,60 @@ describe('Test utils function', () => {
         </Wave>,
       ).instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
+    });
+
+    it('should not throw when click it', () => {
+      expect(() => {
+        const wrapper = mount(
+          <Wave>
+            <div />
+          </Wave>,
+        );
+        wrapper.simulate('click');
+      }).not.toThrow();
+    });
+
+    it('should not throw when no children', () => {
+      expect(() => mount(<Wave />)).not.toThrow();
+    });
+  });
+
+  describe('TransButton', () => {
+    it('can be focus/blur', () => {
+      const ref = React.createRef();
+      mount(<TransButton ref={ref}>TransButton</TransButton>);
+      expect(typeof ref.current.focus).toBe('function');
+      expect(typeof ref.current.blur).toBe('function');
+    });
+
+    it('should trigger onClick when press enter', () => {
+      const onClick = jest.fn();
+      const preventDefault = jest.fn();
+      const wrapper = mount(<TransButton onClick={onClick}>TransButton</TransButton>);
+      wrapper.simulate('keyUp', { keyCode: KeyCode.ENTER });
+      expect(onClick).toHaveBeenCalled();
+      wrapper.simulate('keyDown', { keyCode: KeyCode.ENTER, preventDefault });
+      expect(preventDefault).toHaveBeenCalled();
+    });
+  });
+
+  describe('style', () => {
+    it('isFlexSupported', () => {
+      expect(isFlexSupported).toBe(true);
+    });
+
+    it('isStyleSupport', () => {
+      expect(isStyleSupport('color')).toBe(true);
+      expect(isStyleSupport('not-existed')).toBe(false);
+    });
+
+    it('isStyleSupport return false in service side', () => {
+      const spy = jest
+        .spyOn(window.document, 'documentElement', 'get')
+        .mockImplementation(() => undefined);
+      expect(isStyleSupport('color')).toBe(false);
+      expect(isStyleSupport('not-existed')).toBe(false);
+      spy.mockRestore();
     });
   });
 });

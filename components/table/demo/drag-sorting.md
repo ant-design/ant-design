@@ -1,5 +1,5 @@
 ---
-order: 25
+order: 26
 title:
   en-US: Drag sorting
   zh-CN: 拖拽排序
@@ -14,72 +14,50 @@ title:
 By using custom components, we can integrate table with react-dnd to implement drag sorting.
 
 ```jsx
+import React, { useState, useCallback, useRef } from 'react';
 import { Table } from 'antd';
-import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import { DndProvider, useDrag, useDrop, createDndContext } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-let dragingIndex = -1;
+const RNDContext = createDndContext(HTML5Backend);
 
-class BodyRow extends React.Component {
-  render() {
-    const { isOver, connectDragSource, connectDropTarget, moveRow, ...restProps } = this.props;
-    const style = { ...restProps.style, cursor: 'move' };
+const type = 'DragableBodyRow';
 
-    let className = restProps.className;
-    if (isOver) {
-      if (restProps.index > dragingIndex) {
-        className += ' drop-over-downward';
+const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
+  const ref = React.useRef();
+  const [{ isOver, dropClassName }, drop] = useDrop({
+    accept: type,
+    collect: monitor => {
+      const { index: dragIndex } = monitor.getItem() || {};
+      if (dragIndex === index) {
+        return {};
       }
-      if (restProps.index < dragingIndex) {
-        className += ' drop-over-upward';
-      }
-    }
-
-    return connectDragSource(
-      connectDropTarget(<tr {...restProps} className={className} style={style} />),
-    );
-  }
-}
-
-const rowSource = {
-  beginDrag(props) {
-    dragingIndex = props.index;
-    return {
-      index: props.index,
-    };
-  },
+      return {
+        isOver: monitor.isOver(),
+        dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
+      };
+    },
+    drop: item => {
+      moveRow(item.index, index);
+    },
+  });
+  const [, drag] = useDrag({
+    item: { type, index },
+    collect: monitor => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+  drop(drag(ref));
+  return (
+    <tr
+      ref={ref}
+      className={`${className}${isOver ? dropClassName : ''}`}
+      style={{ cursor: 'move', ...style }}
+      {...restProps}
+    />
+  );
 };
-
-const rowTarget = {
-  drop(props, monitor) {
-    const dragIndex = monitor.getItem().index;
-    const hoverIndex = props.index;
-
-    // Don't replace items with themselves
-    if (dragIndex === hoverIndex) {
-      return;
-    }
-
-    // Time to actually perform the action
-    props.moveRow(dragIndex, hoverIndex);
-
-    // Note: we're mutating the monitor item here!
-    // Generally it's better to avoid mutations,
-    // but it's good here for the sake of performance
-    // to avoid expensive index searches.
-    monitor.getItem().index = hoverIndex;
-  },
-};
-
-const DragableBodyRow = DropTarget('row', rowTarget, (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver(),
-}))(
-  DragSource('row', rowSource, connect => ({
-    connectDragSource: connect.dragSource(),
-  }))(BodyRow),
-);
 
 const columns = [
   {
@@ -99,67 +77,67 @@ const columns = [
   },
 ];
 
-class DragSortingTable extends React.Component {
-  state = {
-    data: [
-      {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-      },
-      {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-      },
-      {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-      },
-    ],
-  };
+const DragSortingTable: React.FC = () => {
+  const [data, setData] = useState([
+    {
+      key: '1',
+      name: 'John Brown',
+      age: 32,
+      address: 'New York No. 1 Lake Park',
+    },
+    {
+      key: '2',
+      name: 'Jim Green',
+      age: 42,
+      address: 'London No. 1 Lake Park',
+    },
+    {
+      key: '3',
+      name: 'Joe Black',
+      age: 32,
+      address: 'Sidney No. 1 Lake Park',
+    },
+  ]);
 
-  components = {
+  const components = {
     body: {
       row: DragableBodyRow,
     },
   };
 
-  moveRow = (dragIndex, hoverIndex) => {
-    const { data } = this.state;
-    const dragRow = data[dragIndex];
+  const moveRow = useCallback(
+    (dragIndex, hoverIndex) => {
+      const dragRow = data[dragIndex];
+      setData(
+        update(data, {
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, dragRow],
+          ],
+        }),
+      );
+    },
+    [data],
+  );
 
-    this.setState(
-      update(this.state, {
-        data: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, dragRow]],
-        },
-      }),
-    );
-  };
+  const manager = useRef(RNDContext);
 
-  render() {
-    return (
+  return (
+    <DndProvider manager={manager.current.dragDropManager}>
       <Table
         columns={columns}
-        dataSource={this.state.data}
-        components={this.components}
+        dataSource={data}
+        components={components}
         onRow={(record, index) => ({
           index,
-          moveRow: this.moveRow,
+          moveRow,
         })}
       />
-    );
-  }
-}
+    </DndProvider>
+  );
+};
 
-const Demo = DragDropContext(HTML5Backend)(DragSortingTable);
-
-ReactDOM.render(<Demo />, mountNode);
+ReactDOM.render(<DragSortingTable />, mountNode);
 ```
 
 ```css

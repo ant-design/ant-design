@@ -1,11 +1,15 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import devWarning from '../_util/devWarning';
+
+export type CollapsibleType = 'header' | 'disabled';
 
 export interface CollapsePanelProps {
-  key: string;
+  key: string | number;
   header: React.ReactNode;
+  /** @deprecated Use `collapsible="disabled"` instead */
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -14,24 +18,26 @@ export interface CollapsePanelProps {
   forceRender?: boolean;
   id?: string;
   extra?: React.ReactNode;
+  collapsible?: CollapsibleType;
 }
 
-export default class CollapsePanel extends React.Component<CollapsePanelProps, {}> {
-  renderCollapsePanel = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className = '', showArrow = true } = this.props;
-    const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-    const collapsePanelClassName = classNames(
-      {
-        [`${prefixCls}-no-arrow`]: !showArrow,
-      },
-      className,
-    );
-    return (
-      <RcCollapse.Panel {...this.props} prefixCls={prefixCls} className={collapsePanelClassName} />
-    );
-  };
+const CollapsePanel: React.FC<CollapsePanelProps> = props => {
+  devWarning(
+    !('disabled' in props),
+    'Collapse.Panel',
+    '`disabled` is deprecated. Please use `collapsible="disabled"` instead.',
+  );
 
-  render() {
-    return <ConfigConsumer>{this.renderCollapsePanel}</ConfigConsumer>;
-  }
-}
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { prefixCls: customizePrefixCls, className = '', showArrow = true } = props;
+  const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+  const collapsePanelClassName = classNames(
+    {
+      [`${prefixCls}-no-arrow`]: !showArrow,
+    },
+    className,
+  );
+  return <RcCollapse.Panel {...props} prefixCls={prefixCls} className={collapsePanelClassName} />;
+};
+
+export default CollapsePanel;

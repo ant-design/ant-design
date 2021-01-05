@@ -1,91 +1,71 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
-import RadioGroup from './group';
-import RadioButton from './radioButton';
-import { RadioProps, RadioChangeEvent, RadioGroupContext } from './interface';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { composeRef } from 'rc-util/lib/ref';
+import { RadioProps, RadioChangeEvent } from './interface';
+import { ConfigContext } from '../config-provider';
+import RadioGroupContext from './context';
+import devWarning from '../_util/devWarning';
 
-export default class Radio extends React.Component<RadioProps, {}> {
-  static Group: typeof RadioGroup;
-  static Button: typeof RadioButton;
+const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
+  const context = React.useContext(RadioGroupContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const innerRef = React.useRef<HTMLElement>();
+  const mergedRef = composeRef(ref, innerRef);
 
-  static defaultProps = {
-    type: 'radio',
-  };
+  React.useEffect(() => {
+    devWarning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
+  }, []);
 
-  static contextTypes = {
-    radioGroup: PropTypes.any,
-  };
-
-  context: any;
-
-  private rcCheckbox: any;
-
-  shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
-    return (
-      !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.state, nextState) ||
-      !shallowEqual(this.context.radioGroup, nextContext.radioGroup)
-    );
-  }
-
-  focus() {
-    this.rcCheckbox.focus();
-  }
-
-  blur() {
-    this.rcCheckbox.blur();
-  }
-
-  saveCheckbox = (node: any) => {
-    this.rcCheckbox = node;
-  };
-
-  onChange = (e: RadioChangeEvent) => {
-    if (this.props.onChange) {
-      this.props.onChange(e);
+  const onChange = (e: RadioChangeEvent) => {
+    if (props.onChange) {
+      props.onChange(e);
     }
 
-    if (this.context.radioGroup && this.context.radioGroup.onChange) {
-      this.context.radioGroup.onChange(e);
+    if (context?.onChange) {
+      context.onChange(e);
     }
   };
 
-  renderRadio = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { props, context } = this;
-    const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
-    const { radioGroup } = context;
-    const prefixCls = getPrefixCls('radio', customizePrefixCls);
-    const radioProps: RadioProps = { ...restProps };
-    if (radioGroup) {
-      radioProps.name = radioGroup.name;
-      radioProps.onChange = this.onChange;
-      radioProps.checked = props.value === radioGroup.value;
-      radioProps.disabled = props.disabled || radioGroup.disabled;
-    }
-    const wrapperClassString = classNames(className, {
-      [`${prefixCls}-wrapper`]: true,
+  const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
+  const prefixCls = getPrefixCls('radio', customizePrefixCls);
+  const radioProps: RadioProps = { ...restProps };
+  if (context) {
+    radioProps.name = context.name;
+    radioProps.onChange = onChange;
+    radioProps.checked = props.value === context.value;
+    radioProps.disabled = props.disabled || context.disabled;
+  }
+  const wrapperClassString = classNames(
+    `${prefixCls}-wrapper`,
+    {
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
-    });
+      [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
-    return (
-      <label
-        className={wrapperClassString}
-        style={style}
-        onMouseEnter={props.onMouseEnter}
-        onMouseLeave={props.onMouseLeave}
-      >
-        <RcCheckbox {...radioProps} prefixCls={prefixCls} ref={this.saveCheckbox} />
-        {children !== undefined ? <span>{children}</span> : null}
-      </label>
-    );
-  };
+  return (
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
+    <label
+      className={wrapperClassString}
+      style={style}
+      onMouseEnter={props.onMouseEnter}
+      onMouseLeave={props.onMouseLeave}
+    >
+      <RcCheckbox {...radioProps} prefixCls={prefixCls} ref={mergedRef} />
+      {children !== undefined ? <span>{children}</span> : null}
+    </label>
+  );
+};
 
-  render() {
-    return <ConfigConsumer>{this.renderRadio}</ConfigConsumer>;
-  }
-}
+const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
+
+Radio.displayName = 'Radio';
+
+Radio.defaultProps = {
+  type: 'radio',
+};
+
+export default Radio;

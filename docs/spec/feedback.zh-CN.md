@@ -1,7 +1,9 @@
 ---
-category: 模式
-order: 11
+category: 设计模式
+type: 全局规则
+order: 1
 title: 反馈
+skip: true
 ---
 
 为了帮助用户了解应用当前要做什么，也给用户的下一步行为做参考，以及了解操作后所产生的结果 ，当用户和系统需要交互时，使用不同的模式来反馈信息或结果。当设计者使用反馈或者自定义一些反馈时，请注意：
@@ -71,7 +73,7 @@ title: 反馈
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="在操作需要较长时间才能完成时使用，显示该操作的当前进度和状态。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/antfincdn/j6XiEx6UUV/676a18a1-bf60-4d93-8f94-55f1882dd13e.png" description="在操作需要较长时间才能完成时使用，显示该操作的当前进度和状态。">
 
 > 注：若加载时间较长，应提供取消操作。
 

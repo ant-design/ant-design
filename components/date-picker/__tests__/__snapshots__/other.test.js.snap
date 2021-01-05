@@ -3,259 +3,188 @@
 exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
 <div>
   <div
-    class="ant-calendar-picker-container  ant-calendar-picker-container-placement-bottomLeft "
+    class="ant-picker-dropdown"
+    style="opacity:0;pointer-events:none"
   >
     <div
-      class="ant-calendar ant-calendar-month ant-calendar-month-calendar"
-      tabindex="0"
+      class="ant-picker-panel-container"
     >
       <div
-        class="ant-calendar-month-calendar-content"
+        class="ant-picker-panel ant-picker-panel-focused"
+        tabindex="-1"
       >
         <div
-          class="ant-calendar-month-header-wrap"
+          class="ant-picker-month-panel"
         >
           <div
-            class="ant-calendar-header"
+            class="ant-picker-header"
           >
-            <div
-              style="position:relative"
+            <button
+              class="ant-picker-header-super-prev-btn"
+              tabindex="-1"
+              type="button"
             >
-              <a
-                class="ant-calendar-prev-year-btn"
-                role="button"
-                title="Last year (Control + left)"
-              />
-              <a
-                class="ant-calendar-prev-month-btn"
-                role="button"
-                title="Previous month (PageUp)"
-              />
               <span
-                class="ant-calendar-my-select"
-              >
-                <a
-                  class="ant-calendar-month-select"
-                  role="button"
-                  title="Choose a month"
-                >
-                  1月
-                </a>
-                <a
-                  class="ant-calendar-year-select"
-                  role="button"
-                  title="Choose a year"
-                >
-                  2000
-                </a>
-              </span>
-              <a
-                class="ant-calendar-next-month-btn"
-                title="Next month (PageDown)"
+                class="ant-picker-super-prev-icon"
               />
-              <a
-                class="ant-calendar-next-year-btn"
-                title="Next year (Control + right)"
-              />
-            </div>
+            </button>
             <div
-              class="ant-calendar-month-panel"
+              class="ant-picker-header-view"
             >
-              <div>
-                <div
-                  class="ant-calendar-month-panel-header"
-                >
-                  <a
-                    class="ant-calendar-month-panel-prev-year-btn"
-                    role="button"
-                    title="Last year (Control + left)"
-                  />
-                  <a
-                    class="ant-calendar-month-panel-year-select"
-                    role="button"
-                    title="Choose a year"
-                  >
-                    <span
-                      class="ant-calendar-month-panel-year-select-content"
-                    >
-                      2000
-                    </span>
-                    <span
-                      class="ant-calendar-month-panel-year-select-arrow"
-                    >
-                      x
-                    </span>
-                  </a>
-                  <a
-                    class="ant-calendar-month-panel-next-year-btn"
-                    role="button"
-                    title="Next year (Control + right)"
-                  />
-                </div>
-                <div
-                  class="ant-calendar-month-panel-body"
-                >
-                  <table
-                    cellspacing="0"
-                    class="ant-calendar-month-panel-table"
-                    role="grid"
-                  >
-                    <tbody
-                      class="ant-calendar-month-panel-tbody"
-                    >
-                      <tr
-                        role="row"
-                      >
-                        <td
-                          class="ant-calendar-month-panel-cell ant-calendar-month-panel-selected-cell"
-                          role="gridcell"
-                          title="一月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            一月
-                          </a>
-                        </td>
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="二月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            二月
-                          </a>
-                        </td>
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="三月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            三月
-                          </a>
-                        </td>
-                      </tr>
-                      <tr
-                        role="row"
-                      >
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="四月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            四月
-                          </a>
-                        </td>
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="五月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            五月
-                          </a>
-                        </td>
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="六月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            六月
-                          </a>
-                        </td>
-                      </tr>
-                      <tr
-                        role="row"
-                      >
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="七月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            七月
-                          </a>
-                        </td>
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="八月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            八月
-                          </a>
-                        </td>
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="九月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            九月
-                          </a>
-                        </td>
-                      </tr>
-                      <tr
-                        role="row"
-                      >
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="十月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            十月
-                          </a>
-                        </td>
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="十一月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            十一月
-                          </a>
-                        </td>
-                        <td
-                          class="ant-calendar-month-panel-cell"
-                          role="gridcell"
-                          title="十二月"
-                        >
-                          <a
-                            class="ant-calendar-month-panel-month"
-                          >
-                            十二月
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <button
+                class="ant-picker-year-btn"
+                type="button"
+              >
+                2000
+              </button>
             </div>
+            <button
+              class="ant-picker-header-super-next-btn"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ant-picker-super-next-icon"
+              />
+            </button>
+          </div>
+          <div
+            class="ant-picker-body"
+          >
+            <table
+              class="ant-picker-content"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
+                    title="2000-01"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Jan
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-02"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Feb
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-03"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Mar
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-04"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Apr
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-05"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      May
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-06"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Jun
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-07"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Jul
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-08"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Aug
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-09"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Sep
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-10"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Oct
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-11"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Nov
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-12"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      Dec
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -267,700 +196,583 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
 exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
 <div>
   <div
-    class="ant-calendar-picker-container  ant-calendar-picker-container-placement-bottomLeft "
+    class="ant-picker-dropdown"
+    style="opacity:0;pointer-events:none"
   >
     <div
-      class="ant-calendar ant-calendar-week-number"
-      tabindex="0"
+      class="ant-picker-panel-container"
     >
       <div
-        class="ant-calendar-panel"
+        class="ant-picker-panel ant-picker-panel-focused"
+        tabindex="-1"
       >
         <div
-          class="ant-calendar-date-panel"
-          tabindex="0"
+          class="ant-picker-week-panel"
         >
           <div
-            class="ant-calendar-header"
+            class="ant-picker-header"
           >
-            <div
-              style="position:relative"
+            <button
+              class="ant-picker-header-super-prev-btn"
+              tabindex="-1"
+              type="button"
             >
-              <a
-                class="ant-calendar-prev-year-btn"
-                role="button"
-                title="Last year (Control + left)"
-              />
-              <a
-                class="ant-calendar-prev-month-btn"
-                role="button"
-                title="Previous month (PageUp)"
-              />
               <span
-                class="ant-calendar-my-select"
+                class="ant-picker-super-prev-icon"
+              />
+            </button>
+            <button
+              class="ant-picker-header-prev-btn"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ant-picker-prev-icon"
+              />
+            </button>
+            <div
+              class="ant-picker-header-view"
+            >
+              <button
+                class="ant-picker-month-btn"
+                tabindex="-1"
+                type="button"
               >
-                <a
-                  class="ant-calendar-month-select"
-                  role="button"
-                  title="Choose a month"
-                >
-                  1月
-                </a>
-                <a
-                  class="ant-calendar-year-select"
-                  role="button"
-                  title="Choose a year"
-                >
-                  2000
-                </a>
-              </span>
-              <a
-                class="ant-calendar-next-month-btn"
-                title="Next month (PageDown)"
-              />
-              <a
-                class="ant-calendar-next-year-btn"
-                title="Next year (Control + right)"
-              />
+                Jan
+              </button>
+              <button
+                class="ant-picker-year-btn"
+                tabindex="-1"
+                type="button"
+              >
+                2000
+              </button>
             </div>
+            <button
+              class="ant-picker-header-next-btn"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ant-picker-next-icon"
+              />
+            </button>
+            <button
+              class="ant-picker-header-super-next-btn"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ant-picker-super-next-icon"
+              />
+            </button>
           </div>
           <div
-            class="ant-calendar-body"
+            class="ant-picker-body"
           >
             <table
-              cellspacing="0"
-              class="ant-calendar-table"
-              role="grid"
+              class="ant-picker-content"
             >
               <thead>
-                <tr
-                  role="row"
-                >
+                <tr>
                   <th
-                    class="ant-calendar-column-header ant-calendar-week-number-header"
-                    role="columnheader"
-                  >
-                    <span
-                      class="ant-calendar-column-header-inner"
-                    >
-                      x
-                    </span>
+                    aria-label="empty cell"
+                  />
+                  <th>
+                    Su
                   </th>
-                  <th
-                    class="ant-calendar-column-header"
-                    role="columnheader"
-                    title="周一"
-                  >
-                    <span
-                      class="ant-calendar-column-header-inner"
-                    >
-                      一
-                    </span>
+                  <th>
+                    Mo
                   </th>
-                  <th
-                    class="ant-calendar-column-header"
-                    role="columnheader"
-                    title="周二"
-                  >
-                    <span
-                      class="ant-calendar-column-header-inner"
-                    >
-                      二
-                    </span>
+                  <th>
+                    Tu
                   </th>
-                  <th
-                    class="ant-calendar-column-header"
-                    role="columnheader"
-                    title="周三"
-                  >
-                    <span
-                      class="ant-calendar-column-header-inner"
-                    >
-                      三
-                    </span>
+                  <th>
+                    We
                   </th>
-                  <th
-                    class="ant-calendar-column-header"
-                    role="columnheader"
-                    title="周四"
-                  >
-                    <span
-                      class="ant-calendar-column-header-inner"
-                    >
-                      四
-                    </span>
+                  <th>
+                    Th
                   </th>
-                  <th
-                    class="ant-calendar-column-header"
-                    role="columnheader"
-                    title="周五"
-                  >
-                    <span
-                      class="ant-calendar-column-header-inner"
-                    >
-                      五
-                    </span>
+                  <th>
+                    Fr
                   </th>
-                  <th
-                    class="ant-calendar-column-header"
-                    role="columnheader"
-                    title="周六"
-                  >
-                    <span
-                      class="ant-calendar-column-header-inner"
-                    >
-                      六
-                    </span>
-                  </th>
-                  <th
-                    class="ant-calendar-column-header"
-                    role="columnheader"
-                    title="周日"
-                  >
-                    <span
-                      class="ant-calendar-column-header-inner"
-                    >
-                      日
-                    </span>
+                  <th>
+                    Sa
                   </th>
                 </tr>
               </thead>
-              <tbody
-                class="ant-calendar-tbody"
-              >
+              <tbody>
                 <tr
-                  class="ant-calendar-active-week"
-                  role="row"
+                  class="ant-picker-week-panel-row ant-picker-week-panel-row-selected"
                 >
                   <td
-                    class="ant-calendar-week-number-cell"
-                    role="gridcell"
-                  >
-                    52
-                  </td>
-                  <td
-                    class="ant-calendar-cell ant-calendar-last-month-cell"
-                    role="gridcell"
-                    title="1999年12月27日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      27
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell ant-calendar-last-month-cell"
-                    role="gridcell"
-                    title="1999年12月28日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      28
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell ant-calendar-last-month-cell"
-                    role="gridcell"
-                    title="1999年12月29日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      29
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell ant-calendar-last-month-cell"
-                    role="gridcell"
-                    title="1999年12月30日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      30
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell ant-calendar-last-month-cell ant-calendar-last-day-of-month"
-                    role="gridcell"
-                    title="1999年12月31日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      31
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell ant-calendar-selected-date ant-calendar-selected-day"
-                    role="gridcell"
-                    title="2000年1月1日"
-                  >
-                    <div
-                      class="ant-calendar-selected-day"
-                    >
-                      <div
-                        class="ant-calendar-date"
-                      >
-                        1
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月2日"
-                  >
-                    <div
-                      class="ant-calendar-selected-day"
-                    >
-                      <div
-                        class="ant-calendar-date"
-                      >
-                        2
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr
-                  class=""
-                  role="row"
-                >
-                  <td
-                    class="ant-calendar-week-number-cell"
-                    role="gridcell"
+                    class="ant-picker-cell ant-picker-cell-week"
                   >
                     1
                   </td>
                   <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月3日"
+                    class="ant-picker-cell"
+                    title="1999-12-26"
                   >
                     <div
-                      class="ant-calendar-date"
-                    >
-                      3
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月4日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      4
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月5日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      5
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月6日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      6
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月7日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      7
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月8日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      8
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月9日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      9
-                    </div>
-                  </td>
-                </tr>
-                <tr
-                  class=""
-                  role="row"
-                >
-                  <td
-                    class="ant-calendar-week-number-cell"
-                    role="gridcell"
-                  >
-                    2
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月10日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      10
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月11日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      11
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月12日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      12
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月13日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      13
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月14日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      14
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月15日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      15
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月16日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      16
-                    </div>
-                  </td>
-                </tr>
-                <tr
-                  class=""
-                  role="row"
-                >
-                  <td
-                    class="ant-calendar-week-number-cell"
-                    role="gridcell"
-                  >
-                    3
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月17日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      17
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月18日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      18
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月19日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      19
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月20日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      20
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月21日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      21
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月22日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      22
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月23日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      23
-                    </div>
-                  </td>
-                </tr>
-                <tr
-                  class=""
-                  role="row"
-                >
-                  <td
-                    class="ant-calendar-week-number-cell"
-                    role="gridcell"
-                  >
-                    4
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月24日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      24
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月25日"
-                  >
-                    <div
-                      class="ant-calendar-date"
-                    >
-                      25
-                    </div>
-                  </td>
-                  <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月26日"
-                  >
-                    <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       26
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月27日"
+                    class="ant-picker-cell"
+                    title="1999-12-27"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       27
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月28日"
+                    class="ant-picker-cell"
+                    title="1999-12-28"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       28
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月29日"
+                    class="ant-picker-cell"
+                    title="1999-12-29"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       29
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell"
-                    role="gridcell"
-                    title="2000年1月30日"
+                    class="ant-picker-cell"
+                    title="1999-12-30"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       30
                     </div>
                   </td>
-                </tr>
-                <tr
-                  class=""
-                  role="row"
-                >
                   <td
-                    class="ant-calendar-week-number-cell"
-                    role="gridcell"
-                  >
-                    5
-                  </td>
-                  <td
-                    class="ant-calendar-cell ant-calendar-last-day-of-month"
-                    role="gridcell"
-                    title="2000年1月31日"
+                    class="ant-picker-cell ant-picker-cell-end"
+                    title="1999-12-31"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       31
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell ant-calendar-next-month-btn-day"
-                    role="gridcell"
-                    title="2000年2月1日"
+                    class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view ant-picker-cell-selected"
+                    title="2000-01-01"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       1
                     </div>
                   </td>
+                </tr>
+                <tr
+                  class="ant-picker-week-panel-row"
+                >
                   <td
-                    class="ant-calendar-cell ant-calendar-next-month-btn-day"
-                    role="gridcell"
-                    title="2000年2月2日"
+                    class="ant-picker-cell ant-picker-cell-week"
+                  >
+                    2
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-02"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       2
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell ant-calendar-next-month-btn-day"
-                    role="gridcell"
-                    title="2000年2月3日"
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-03"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       3
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell ant-calendar-next-month-btn-day"
-                    role="gridcell"
-                    title="2000年2月4日"
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-04"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       4
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell ant-calendar-next-month-btn-day"
-                    role="gridcell"
-                    title="2000年2月5日"
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-05"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       5
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell ant-calendar-next-month-btn-day"
-                    role="gridcell"
-                    title="2000年2月6日"
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-06"
                   >
                     <div
-                      class="ant-calendar-date"
+                      class="ant-picker-cell-inner"
                     >
                       6
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-07"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      7
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-08"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      8
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-picker-week-panel-row"
+                >
+                  <td
+                    class="ant-picker-cell ant-picker-cell-week"
+                  >
+                    3
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-09"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      9
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-10"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      10
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-11"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      11
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-12"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      12
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-13"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      13
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-14"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      14
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-15"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      15
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-picker-week-panel-row"
+                >
+                  <td
+                    class="ant-picker-cell ant-picker-cell-week"
+                  >
+                    4
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-16"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      16
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-17"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      17
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-18"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      18
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-19"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      19
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-20"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      20
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-21"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      21
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-22"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      22
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-picker-week-panel-row"
+                >
+                  <td
+                    class="ant-picker-cell ant-picker-cell-week"
+                  >
+                    5
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-23"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      23
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-24"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      24
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-25"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      25
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-26"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      26
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-27"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      27
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-28"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      28
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-29"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      29
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-picker-week-panel-row"
+                >
+                  <td
+                    class="ant-picker-cell ant-picker-cell-week"
+                  >
+                    6
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-in-view"
+                    title="2000-01-30"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      30
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                    title="2000-01-31"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      31
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell ant-picker-cell-start"
+                    title="2000-02-01"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      1
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell"
+                    title="2000-02-02"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      2
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell"
+                    title="2000-02-03"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      3
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell"
+                    title="2000-02-04"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      4
+                    </div>
+                  </td>
+                  <td
+                    class="ant-picker-cell"
+                    title="2000-02-05"
+                  >
+                    <div
+                      class="ant-picker-cell-inner"
+                    >
+                      5
                     </div>
                   </td>
                 </tr>
@@ -975,220 +787,261 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
 `;
 
 exports[`Picker format by locale date 1`] = `
-<span
-  class="ant-calendar-picker"
+<div
+  class="ant-picker"
 >
-  <div>
+  <div
+    class="ant-picker-input"
+  >
     <input
-      class="ant-calendar-picker-input ant-input"
+      autocomplete="off"
       placeholder="请选择日期"
       readonly=""
-      value="2000 年 1 月 1 日"
+      size="12"
+      title="2000-01-01"
+      value="2000-01-01"
     />
-    <i
-      aria-label="图标: close-circle"
-      class="anticon anticon-close-circle ant-calendar-picker-clear"
-      tabindex="-1"
+    <span
+      class="ant-picker-suffix"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="close-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-        />
-      </svg>
-    </i>
-    <i
-      aria-label="图标: calendar"
-      class="anticon anticon-calendar ant-calendar-picker-icon"
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="calendar"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
       >
-        <path
-          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-        />
-      </svg>
-    </i>
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
+    </span>
   </div>
-</span>
+</div>
 `;
 
 exports[`Picker format by locale dateTime 1`] = `
-<span
-  class="ant-calendar-picker"
-  style="min-width: 195px;"
+<div
+  class="ant-picker"
 >
-  <div>
+  <div
+    class="ant-picker-input"
+  >
     <input
-      class="ant-calendar-picker-input ant-input"
+      autocomplete="off"
       placeholder="请选择日期"
       readonly=""
-      value="2000 年 1 月 1 日 0 时 0 分 0 秒"
+      size="21"
+      title="2000-01-01 00:00:00"
+      value="2000-01-01 00:00:00"
     />
-    <i
-      aria-label="图标: close-circle"
-      class="anticon anticon-close-circle ant-calendar-picker-clear"
-      tabindex="-1"
+    <span
+      class="ant-picker-suffix"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="close-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-        />
-      </svg>
-    </i>
-    <i
-      aria-label="图标: calendar"
-      class="anticon anticon-calendar ant-calendar-picker-icon"
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="calendar"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
       >
-        <path
-          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-        />
-      </svg>
-    </i>
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
+    </span>
   </div>
-</span>
+</div>
 `;
 
 exports[`Picker format by locale month 1`] = `
-<span
-  class="ant-calendar-picker"
+<div
+  class="ant-picker"
 >
-  <div>
+  <div
+    class="ant-picker-input"
+  >
     <input
-      class="ant-calendar-picker-input ant-input"
-      placeholder="请选择日期"
+      autocomplete="off"
+      placeholder="请选择月份"
       readonly=""
-      value="2000 年 1 月"
+      size="12"
+      title="2000-01"
+      value="2000-01"
     />
-    <i
-      aria-label="图标: close-circle"
-      class="anticon anticon-close-circle ant-calendar-picker-clear"
-      tabindex="-1"
+    <span
+      class="ant-picker-suffix"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="close-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-        />
-      </svg>
-    </i>
-    <i
-      aria-label="图标: calendar"
-      class="anticon anticon-calendar ant-calendar-picker-icon"
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="calendar"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
       >
-        <path
-          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-        />
-      </svg>
-    </i>
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
+    </span>
   </div>
-</span>
+</div>
 `;
 
 exports[`Picker format by locale week 1`] = `
-<span
-  class="ant-calendar-picker"
+<div
+  class="ant-picker"
 >
-  <span
-    style="display: inline-block; width: 100%;"
+  <div
+    class="ant-picker-input"
   >
     <input
-      class="ant-calendar-picker-input ant-input"
-      placeholder="请选择日期"
+      autocomplete="off"
+      placeholder="请选择周"
       readonly=""
-      value="2000 年 52 周"
+      size="12"
+      title="1999-52周"
+      value="1999-52周"
     />
-    <i
-      aria-label="图标: close-circle"
-      class="anticon anticon-close-circle ant-calendar-picker-clear"
-      tabindex="-1"
+    <span
+      class="ant-picker-suffix"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="close-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-        />
-      </svg>
-    </i>
-    <i
-      aria-label="图标: calendar"
-      class="anticon anticon-calendar ant-calendar-picker-icon"
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="calendar"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
       >
-        <path
-          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-        />
-      </svg>
-    </i>
-  </span>
-</span>
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
 `;

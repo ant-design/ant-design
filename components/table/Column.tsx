@@ -1,4 +1,14 @@
-import * as React from 'react';
-import { ColumnProps } from './interface';
+import { ColumnType } from './interface';
 
-export default class Column<T> extends React.Component<ColumnProps<T>, React.ComponentState> {}
+export interface ColumnProps<RecordType> extends ColumnType<RecordType> {
+  children?: null;
+}
+
+/* istanbul ignore next */
+/** This is a syntactic sugar for `columns` prop. So HOC will not work on this. */
+// eslint-disable-next-line no-unused-vars
+function Column<RecordType>(_: ColumnProps<RecordType>) {
+  return null;
+}
+
+export default Column;

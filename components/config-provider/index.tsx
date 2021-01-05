@@ -1,129 +1,197 @@
+// TODO: remove this lint
+// SFC has specified a displayName, but not worked.
+/* eslint-disable react/display-name */
 import * as React from 'react';
-import createReactContext, { Context } from '@ant-design/create-react-context';
+import { FormProvider as RcFormProvider } from 'rc-field-form';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
+import { RenderEmptyHandler } from './renderEmpty';
+import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import {
+  ConfigConsumer,
+  ConfigContext,
+  CSPConfig,
+  DirectionType,
+  ConfigConsumerProps,
+} from './context';
+import { SizeType, SizeContextProvider } from './SizeContext';
+import message from '../message';
+import notification from '../notification';
+import { RequiredMark } from '../form/Form';
 
-import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
-
-export { RenderEmptyHandler };
-
-export interface CSPConfig {
-  nonce?: string;
-}
-
-export interface ConfigConsumerProps {
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  rootPrefixCls?: string;
-  getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
-  renderEmpty: RenderEmptyHandler;
-  csp?: CSPConfig;
-  autoInsertSpaceInButton?: boolean;
-}
+export {
+  RenderEmptyHandler,
+  ConfigContext,
+  ConfigConsumer,
+  CSPConfig,
+  DirectionType,
+  ConfigConsumerProps,
+};
 
 export const configConsumerProps = [
+  'getTargetContainer',
   'getPopupContainer',
   'rootPrefixCls',
   'getPrefixCls',
   'renderEmpty',
   'csp',
   'autoInsertSpaceInButton',
+  'locale',
+  'pageHeader',
 ];
 
 export interface ConfigProviderProps {
+  getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  form?: {
+    validateMessages?: ValidateMessages;
+    requiredMark?: RequiredMark;
+  };
+  input?: {
+    autoComplete?: string;
+  };
+  locale?: Locale;
+  pageHeader?: {
+    ghost: boolean;
+  };
+  componentSize?: SizeType;
+  direction?: DirectionType;
+  space?: {
+    size?: SizeType | number;
+  };
+  virtual?: boolean;
+  dropdownMatchSelectWidth?: boolean;
 }
 
-const ConfigContext: Context<ConfigConsumerProps | null> = createReactContext({
-  // We provide a default function for Context without provider
-  getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
+const ConfigProvider: React.FC<ConfigProviderProps> & {
+  ConfigContext: typeof ConfigContext;
+} = props => {
+  React.useEffect(() => {
+    if (props.direction) {
+      message.config({
+        rtl: props.direction === 'rtl',
+      });
+      notification.config({
+        rtl: props.direction === 'rtl',
+      });
+    }
+  }, [props.direction]);
+
+  const getPrefixClsWrapper = (context: ConfigConsumerProps) => (
+    suffixCls: string,
+    customizePrefixCls?: string,
+  ) => {
+    const { prefixCls } = props;
+
     if (customizePrefixCls) return customizePrefixCls;
 
-    return `ant-${suffixCls}`;
-  },
+    const mergedPrefixCls = prefixCls || context.getPrefixCls('');
 
-  renderEmpty: defaultRenderEmpty,
-});
-
-export const ConfigConsumer = ConfigContext.Consumer;
-
-class ConfigProvider extends React.Component<ConfigProviderProps> {
-  getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
-    const { prefixCls = 'ant' } = this.props;
-
-    if (customizePrefixCls) return customizePrefixCls;
-
-    return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
+    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
   };
 
-  renderProvider = (context: ConfigConsumerProps) => {
-    const { children, getPopupContainer, renderEmpty, csp, autoInsertSpaceInButton } = this.props;
+  const renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
+    const {
+      children,
+      getTargetContainer,
+      getPopupContainer,
+      renderEmpty,
+      csp,
+      autoInsertSpaceInButton,
+      form,
+      input,
+      locale,
+      pageHeader,
+      componentSize,
+      direction,
+      space,
+      virtual,
+      dropdownMatchSelectWidth,
+    } = props;
 
     const config: ConfigConsumerProps = {
       ...context,
-      getPrefixCls: this.getPrefixCls,
+      getPrefixCls: getPrefixClsWrapper(context),
       csp,
       autoInsertSpaceInButton,
+      locale: locale || legacyLocale,
+      direction,
+      space,
+      virtual,
+      dropdownMatchSelectWidth,
     };
+
+    if (getTargetContainer) {
+      config.getTargetContainer = getTargetContainer;
+    }
 
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
     }
+
     if (renderEmpty) {
       config.renderEmpty = renderEmpty;
     }
 
-    return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+    if (pageHeader) {
+      config.pageHeader = pageHeader;
+    }
+
+    if (input) {
+      config.input = input;
+    }
+
+    if (form) {
+      config.form = form;
+    }
+
+    let childNode = children;
+    // Additional Form provider
+    let validateMessages: ValidateMessages = {};
+
+    if (locale && locale.Form && locale.Form.defaultValidateMessages) {
+      validateMessages = locale.Form.defaultValidateMessages;
+    }
+    if (form && form.validateMessages) {
+      validateMessages = { ...validateMessages, ...form.validateMessages };
+    }
+
+    if (Object.keys(validateMessages).length > 0) {
+      childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
+    }
+
+    const childrenWithLocale =
+      locale === undefined ? (
+        childNode
+      ) : (
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+          {childNode}
+        </LocaleProvider>
+      );
+
+    return (
+      <SizeContextProvider size={componentSize}>
+        <ConfigContext.Provider value={config}>{childrenWithLocale}</ConfigContext.Provider>
+      </SizeContextProvider>
+    );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderProvider}</ConfigConsumer>;
-  }
-}
+  return (
+    <LocaleReceiver>
+      {(_, __, legacyLocale) => (
+        <ConfigConsumer>
+          {context => renderProvider(context, legacyLocale as Locale)}
+        </ConfigConsumer>
+      )}
+    </LocaleReceiver>
+  );
+};
 
-// =========================== withConfigConsumer ===========================
-// We need define many types here. So let's put in the block region
-type IReactComponent<P = any> =
-  | React.StatelessComponent<P>
-  | React.ComponentClass<P>
-  | React.ClassicComponentClass<P>;
-
-interface BasicExportProps {
-  prefixCls?: string;
-}
-
-interface ConsumerConfig {
-  prefixCls: string;
-}
-
-interface ConstructorProps {
-  displayName?: string;
-}
-
-export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
-  return function<ComponentDef>(Component: IReactComponent): React.SFC<ExportProps> & ComponentDef {
-    // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
-    const SFC = ((props: ExportProps) => (
-      <ConfigConsumer>
-        {(configProps: ConfigConsumerProps) => {
-          const { prefixCls: basicPrefixCls } = config;
-          const { getPrefixCls } = configProps;
-          const { prefixCls: customizePrefixCls } = props;
-          const prefixCls = getPrefixCls(basicPrefixCls, customizePrefixCls);
-          return <Component {...configProps} {...props} prefixCls={prefixCls} />;
-        }}
-      </ConfigConsumer>
-    )) as React.SFC<ExportProps> & ComponentDef;
-
-    const cons: ConstructorProps = Component.constructor as ConstructorProps;
-    const name = (cons && cons.displayName) || Component.name || 'Component';
-
-    SFC.displayName = `withConfigConsumer(${name})`;
-
-    return SFC;
-  };
-}
-
+/** @private internal usage. do not use in your production */
+ConfigProvider.ConfigContext = ConfigContext;
 export default ConfigProvider;
