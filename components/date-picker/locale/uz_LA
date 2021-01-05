@@ -1,7 +1,7 @@
 /** Created by Azizbek Jonibekov on 05/01/21. */
 
-import CalendarLocale from 'rc-picker/lib/locale/uz_UZ';
-import TimePickerLocale from '../../time-picker/locale/uz_UZ';
+import CalendarLocale from 'rc-picker/lib/locale/uz_LA';
+import TimePickerLocale from '../../time-picker/locale/uz_LA';
 import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
