@@ -1,0 +1,3 @@
+import azAZ from '../../date-picker/locale/uz_UZ';
+
+export default uzUZ;
