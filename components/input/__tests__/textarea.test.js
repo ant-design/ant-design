@@ -79,6 +79,12 @@ describe('TextArea', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should prevent input if maxLength is 0', () => {
+    const wrapper = mount(<TextArea maxLength={0} />);
+    wrapper.find('textarea').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('textarea').prop('value')).toBe('');
+  });
+
   it('when prop value not in this.props, resizeTextarea should be called', async () => {
     const ref = React.createRef();
     const wrapper = mount(<TextArea aria-label="textarea" ref={ref} />);

@@ -61,6 +61,14 @@ export function fixControlledValue<T>(value: T) {
   return value;
 }
 
+export const hasMaxLength = (val: number) => val >= 0;
+// fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
+// fix:#28733 maxlength can't constraint the value set by script, so we need to do it by hand
+export function truncateValue<T>(maxLength: number, value: T) {
+  const val = fixControlledValue(value) as string;
+  return hasMaxLength(maxLength) ? [...val].slice(0, maxLength).join('') : val;
+}
+
 export function resolveOnChange(
   target: HTMLInputElement | HTMLTextAreaElement,
   e:
@@ -330,7 +338,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
+    const { prefixCls: customizePrefixCls, bordered = true, maxLength } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
 
@@ -342,7 +350,7 @@ class Input extends React.Component<InputProps, InputState> {
             {...this.props}
             prefixCls={prefixCls}
             inputType="input"
-            value={fixControlledValue(value)}
+            value={truncateValue(Number(maxLength), value)}
             element={this.renderInput(prefixCls, size, bordered, input)}
             handleReset={this.handleReset}
             ref={this.saveClearableInput}
