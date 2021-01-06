@@ -302,15 +302,6 @@ exports[`Input rtl render component should be rendered correctly in RTL directio
 />
 `;
 
-exports[`Input should support maxLength 1`] = `
-<input
-  class="ant-input"
-  maxlength="3"
-  type="text"
-  value=""
-/>
-`;
-
 exports[`Input should support size 1`] = `
 <input
   class="ant-input ant-input-lg"

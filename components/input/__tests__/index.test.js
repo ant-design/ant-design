@@ -25,9 +25,18 @@ describe('Input', () => {
   rtlTest(Input);
   rtlTest(Input.Group);
 
-  it('should support maxLength', () => {
+  it('should prevent input if maxLength is 0', () => {
+    const wrapper = mount(<Input maxLength={0} />);
+    wrapper.find('input').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('input').prop('value')).toBe('');
+  });
+
+  it('should constraint maxLength set by script', () => {
     const wrapper = mount(<Input maxLength={3} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.find('input').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('input').prop('value')).toBe('111');
+    wrapper.find('input').simulate('change', { target: { value: '2222' } });
+    expect(wrapper.find('input').prop('value')).toBe('222');
   });
 
   it('select()', () => {

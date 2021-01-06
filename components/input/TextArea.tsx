@@ -6,7 +6,13 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigContext } from '../config-provider';
-import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
+import {
+  resolveOnChange,
+  triggerFocus,
+  InputFocusOptions,
+  truncateValue,
+  hasMaxLength,
+} from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 interface ShowCountProps {
@@ -17,7 +23,6 @@ export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
   showCount?: boolean | ShowCountProps;
-  maxLength?: number;
   size?: SizeType;
 }
 
@@ -106,12 +111,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       />
     );
 
-    let val = fixControlledValue(value) as string;
-
-    // Max length value
-    const hasMaxLength = Number(maxLength) > 0;
-    // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
-    val = hasMaxLength ? [...val].slice(0, maxLength).join('') : val;
+    maxLength = Number(maxLength);
+    const val = truncateValue(maxLength, value);
 
     // TextArea
     const textareaNode = (
@@ -130,13 +131,14 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const valueLength = [...val].length;
+      // consider emoji length as-is
+      const valueLength = Math.min(val.length, maxLength);
 
       let dataCount = '';
       if (typeof showCount === 'object') {
         dataCount = showCount.formatter({ count: valueLength, maxLength });
       } else {
-        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+        dataCount = `${valueLength}${hasMaxLength(maxLength) ? ` / ${maxLength}` : ''}`;
       }
 
       return (
