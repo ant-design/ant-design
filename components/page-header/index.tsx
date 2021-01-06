@@ -148,8 +148,7 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
         }
 
         const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-        const defaultBreadcrumbDom =
-          breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
+        const defaultBreadcrumbDom = breadcrumb?.routes ? renderBreadcrumb(breadcrumb) : null;
 
         //  support breadcrumbRender function
         const breadcrumbDom =
