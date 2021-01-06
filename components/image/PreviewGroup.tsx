@@ -1,6 +1,13 @@
 import * as React from 'react';
 import RcImage from 'rc-image';
-import { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
+import RotateLeftOutlined from '@ant-design/icons/RotateLeftOutlined';
+import RotateRightOutlined from '@ant-design/icons/RotateRightOutlined';
+import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
+import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 import { ConfigContext } from '../config-provider';
 
 const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
@@ -9,7 +16,21 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image-preview', customizePrefixCls);
-  return <RcImage.PreviewGroup previewPrefixCls={prefixCls} {...props} />;
+  return (
+    <RcImage.PreviewGroup
+      previewPrefixCls={prefixCls}
+      icons={{
+        rotateLeft: <RotateLeftOutlined />,
+        rotateRight: <RotateRightOutlined />,
+        zoomIn: <ZoomInOutlined />,
+        zoomOut: <ZoomOutOutlined />,
+        close: <CloseOutlined />,
+        left: <LeftOutlined />,
+        right: <RightOutlined />,
+      }}
+      {...props}
+    />
+  );
 };
 
 export default InternalPreviewGroup;
