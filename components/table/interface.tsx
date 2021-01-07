@@ -67,11 +67,15 @@ export type ColumnTitle<RecordType> =
   | React.ReactNode
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
+export interface FilterConfirmProps {
+  closeDropdown: boolean;
+}
+
 export interface FilterDropdownProps {
   prefixCls: string;
   setSelectedKeys: (selectedKeys: React.Key[]) => void;
   selectedKeys: React.Key[];
-  confirm: () => void;
+  confirm: (param: FilterConfirmProps) => void;
   clearFilters?: () => void;
   filters?: ColumnFilterItem[];
   visible: boolean;

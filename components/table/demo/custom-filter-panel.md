@@ -9,6 +9,8 @@ title:
 
 通过 `filterDropdown` 自定义的列筛选功能，并实现一个搜索列的示例。
 
+给函数 `confirm` 添加 `boolean` 类型参数 `closeDropdown`，是否关闭筛选菜单，默认为 `true`。
+
 ## en-US
 
 Implement a customized column search example via `filterDropdown`.
@@ -76,6 +78,20 @@ class App extends React.Component {
           </Button>
           <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
             Reset
+          </Button>
+          <Button
+            type="link"
+            size="small"
+            onClick={() => {
+              confirm({ closeDropdown: false });
+              console.log('1234');
+              this.setState({
+                searchText: selectedKeys[0],
+                searchedColumn: dataIndex,
+              });
+            }}
+          >
+            Filter
           </Button>
         </Space>
       </div>
