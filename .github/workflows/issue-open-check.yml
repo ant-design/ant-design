@@ -33,7 +33,7 @@ jobs:
           title-includes: '官网,网站,国内,镜像,mobile ant design,mobile.ant.design,ant design,ant.design,pro/挂了,无法访问,不能访问,访问不了,出问题,打不开,登不上,can not open,can not be reached'
 
       - name: deal-website
-        if: steps.checkid.outputs.check-result == true
+        if: steps.checkid.outputs.check-result == 'true'
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment,close-issue'
