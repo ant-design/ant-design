@@ -67,8 +67,30 @@ function getFilledItem(
   return clone;
 }
 
-function getRows(children: React.ReactNode, column: number) {
-  const childNodes = toArray(children).filter(n => n);
+function getItems(children: React.ReactNode): React.ReactElement[] {
+  const childNodes = toArray(children).filter(Boolean);
+  const items: React.ReactElement[] = [];
+  childNodes.forEach(node => {
+    const { type, props } = node;
+    if (type === DescriptionsItem) {
+      items.push(node);
+    } else if (typeof type === 'function') {
+      const isClass = Object.getPrototypeOf(type) === React.Component;
+      const ChildComponent = type as any;
+      let childElement: React.ReactElement = null!;
+      if (isClass) {
+        childElement = new ChildComponent(props).render();
+      } else {
+        childElement = ChildComponent(props);
+      }
+      items.push(...getItems(childElement));
+    }
+  });
+
+  return items;
+}
+
+function getRows(childNodes: React.ReactElement[], column: number) {
   const rows: React.ReactElement[][] = [];
 
   let tmpRow: React.ReactElement[] = [];
@@ -150,7 +172,7 @@ function Descriptions({
   }, []);
 
   // Children
-  const rows = getRows(children, mergedColumn);
+  const rows = getRows(getItems(children), mergedColumn);
 
   return (
     <DescriptionsContext.Provider value={{ labelStyle, contentStyle }}>
