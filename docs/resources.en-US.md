@@ -53,7 +53,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - UI Kit for Adobe XD
   - https://uploads-ssl.webflow.com/5ecbd337fe499992c9ed75ba/5f2a7a30f3e817085cec5ac9_ant-xd-svg.svg
   - Library of components for Desktop
-  - https://gumroad.com/l/antdesign-xd
+  - https://www.antforxd.com
 - Figma Open Source Library
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Free open source Figma library with complete accurate to code components

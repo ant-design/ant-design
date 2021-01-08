@@ -543,3 +543,18 @@ describe('Transfer', () => {
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
   });
 });
+
+describe('immutable data', () => {
+  // https://github.com/ant-design/ant-design/issues/28662
+  it('dataSource is frozen', () => {
+    const mockData = [
+      Object.freeze({
+        id: 0,
+        title: `title`,
+        description: `description`,
+      }),
+    ];
+    const wrapper = mount(<Transfer rowKey={item => item.id} dataSource={mockData} />);
+    expect(wrapper).toMatchRenderedSnapshot();
+  });
+});

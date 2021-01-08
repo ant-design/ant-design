@@ -28,7 +28,7 @@ for (let i = 0; i < 20; i++) {
 
 const initialTargetKeys = mockData.filter(item => +item.key > 10).map(item => item.key);
 
-const App1 = () => {
+const App = () => {
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
   const [selectedKeys, setSelectedKeys] = useState([]);
   const onChange = (nextTargetKeys, direction, moveKeys) => {
@@ -63,5 +63,5 @@ const App1 = () => {
   );
 };
 
-ReactDOM.render(<App1 />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ```
