@@ -77,7 +77,7 @@ function getItems(children: React.ReactNode): React.ReactElement[] {
     } else if (typeof type === 'function') {
       const isClass = Object.getPrototypeOf(type) === React.Component;
       const ChildComponent = type as any;
-      let childElement: React.ReactElement = null!;
+      let childElement: React.ReactElement;
       if (isClass) {
         childElement = new ChildComponent(props).render();
       } else {
