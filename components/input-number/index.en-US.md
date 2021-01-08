@@ -28,7 +28,7 @@ When a numeric value needs to be provided.
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | value | The current value | number | - | - |
-| onChange | The callback triggered when the value is changed | function(value: number \| string) | - | - |
+| onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
 
