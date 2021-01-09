@@ -452,6 +452,475 @@ exports[`Descriptions vertical layout 1`] = `
 </div>
 `;
 
+exports[`Descriptions when item is component that wrap DescriptionsItem 1`] = `
+<Descriptions
+  title="User Info"
+>
+  <div
+    className="ant-descriptions"
+  >
+    <div
+      className="ant-descriptions-header"
+    >
+      <div
+        className="ant-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      className="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <Row
+            colon={true}
+            index={0}
+            key="0"
+            prefixCls="ant-descriptions"
+            row={
+              Array [
+                <DescriptionsItem
+                  label="Test1"
+                >
+                  Test Data1
+                </DescriptionsItem>,
+              ]
+            }
+            vertical={false}
+          >
+            <tr
+              className="ant-descriptions-row"
+              key="0"
+            >
+              <Cell
+                colon={true}
+                component="td"
+                content="Test Data1"
+                contentStyle={Object {}}
+                itemPrefixCls="ant-descriptions"
+                key="item-0"
+                label="Test1"
+                labelStyle={Object {}}
+                span={1}
+              >
+                <td
+                  className="ant-descriptions-item"
+                  colSpan={1}
+                >
+                  <div
+                    className="ant-descriptions-item-container"
+                  >
+                    <span
+                      className="ant-descriptions-item-label"
+                      style={Object {}}
+                    >
+                      Test1
+                    </span>
+                    <span
+                      className="ant-descriptions-item-content"
+                      style={Object {}}
+                    >
+                      Test Data1
+                    </span>
+                  </div>
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+          <Row
+            colon={true}
+            index={1}
+            key="1"
+            prefixCls="ant-descriptions"
+            row={
+              Array [
+                <DescriptionsItem
+                  label="Test3"
+                >
+                  Test Data3
+                </DescriptionsItem>,
+              ]
+            }
+            vertical={false}
+          >
+            <tr
+              className="ant-descriptions-row"
+              key="1"
+            >
+              <Cell
+                colon={true}
+                component="td"
+                content="Test Data3"
+                contentStyle={Object {}}
+                itemPrefixCls="ant-descriptions"
+                key="item-0"
+                label="Test3"
+                labelStyle={Object {}}
+                span={1}
+              >
+                <td
+                  className="ant-descriptions-item"
+                  colSpan={1}
+                >
+                  <div
+                    className="ant-descriptions-item-container"
+                  >
+                    <span
+                      className="ant-descriptions-item-label"
+                      style={Object {}}
+                    >
+                      Test3
+                    </span>
+                    <span
+                      className="ant-descriptions-item-content"
+                      style={Object {}}
+                    >
+                      Test Data3
+                    </span>
+                  </div>
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+          <Row
+            colon={true}
+            index={2}
+            key="2"
+            prefixCls="ant-descriptions"
+            row={
+              Array [
+                <DescriptionsItem
+                  label="Product"
+                >
+                  Cloud Database
+                </DescriptionsItem>,
+              ]
+            }
+            vertical={false}
+          >
+            <tr
+              className="ant-descriptions-row"
+              key="2"
+            >
+              <Cell
+                colon={true}
+                component="td"
+                content="Cloud Database"
+                contentStyle={Object {}}
+                itemPrefixCls="ant-descriptions"
+                key="item-0"
+                label="Product"
+                labelStyle={Object {}}
+                span={1}
+              >
+                <td
+                  className="ant-descriptions-item"
+                  colSpan={1}
+                >
+                  <div
+                    className="ant-descriptions-item-container"
+                  >
+                    <span
+                      className="ant-descriptions-item-label"
+                      style={Object {}}
+                    >
+                      Product
+                    </span>
+                    <span
+                      className="ant-descriptions-item-content"
+                      style={Object {}}
+                    >
+                      Cloud Database
+                    </span>
+                  </div>
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+          <Row
+            colon={true}
+            index={3}
+            key="3"
+            prefixCls="ant-descriptions"
+            row={
+              Array [
+                <DescriptionsItem
+                  label="Billing"
+                >
+                  Prepaid
+                </DescriptionsItem>,
+              ]
+            }
+            vertical={false}
+          >
+            <tr
+              className="ant-descriptions-row"
+              key="3"
+            >
+              <Cell
+                colon={true}
+                component="td"
+                content="Prepaid"
+                contentStyle={Object {}}
+                itemPrefixCls="ant-descriptions"
+                key="item-0"
+                label="Billing"
+                labelStyle={Object {}}
+                span={1}
+              >
+                <td
+                  className="ant-descriptions-item"
+                  colSpan={1}
+                >
+                  <div
+                    className="ant-descriptions-item-container"
+                  >
+                    <span
+                      className="ant-descriptions-item-label"
+                      style={Object {}}
+                    >
+                      Billing
+                    </span>
+                    <span
+                      className="ant-descriptions-item-content"
+                      style={Object {}}
+                    >
+                      Prepaid
+                    </span>
+                  </div>
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+          <Row
+            colon={true}
+            index={4}
+            key="4"
+            prefixCls="ant-descriptions"
+            row={
+              Array [
+                <DescriptionsItem
+                  label="Test2"
+                >
+                  Test Data2
+                </DescriptionsItem>,
+              ]
+            }
+            vertical={false}
+          >
+            <tr
+              className="ant-descriptions-row"
+              key="4"
+            >
+              <Cell
+                colon={true}
+                component="td"
+                content="Test Data2"
+                contentStyle={Object {}}
+                itemPrefixCls="ant-descriptions"
+                key="item-0"
+                label="Test2"
+                labelStyle={Object {}}
+                span={1}
+              >
+                <td
+                  className="ant-descriptions-item"
+                  colSpan={1}
+                >
+                  <div
+                    className="ant-descriptions-item-container"
+                  >
+                    <span
+                      className="ant-descriptions-item-label"
+                      style={Object {}}
+                    >
+                      Test2
+                    </span>
+                    <span
+                      className="ant-descriptions-item-content"
+                      style={Object {}}
+                    >
+                      Test Data2
+                    </span>
+                  </div>
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+          <Row
+            colon={true}
+            index={5}
+            key="5"
+            prefixCls="ant-descriptions"
+            row={
+              Array [
+                <DescriptionsItem
+                  label="Test5"
+                >
+                  Test Data5
+                </DescriptionsItem>,
+              ]
+            }
+            vertical={false}
+          >
+            <tr
+              className="ant-descriptions-row"
+              key="5"
+            >
+              <Cell
+                colon={true}
+                component="td"
+                content="Test Data5"
+                contentStyle={Object {}}
+                itemPrefixCls="ant-descriptions"
+                key="item-0"
+                label="Test5"
+                labelStyle={Object {}}
+                span={1}
+              >
+                <td
+                  className="ant-descriptions-item"
+                  colSpan={1}
+                >
+                  <div
+                    className="ant-descriptions-item-container"
+                  >
+                    <span
+                      className="ant-descriptions-item-label"
+                      style={Object {}}
+                    >
+                      Test5
+                    </span>
+                    <span
+                      className="ant-descriptions-item-content"
+                      style={Object {}}
+                    >
+                      Test Data5
+                    </span>
+                  </div>
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+          <Row
+            colon={true}
+            index={6}
+            key="6"
+            prefixCls="ant-descriptions"
+            row={
+              Array [
+                <DescriptionsItem
+                  label="Test6"
+                >
+                  Test Data6
+                </DescriptionsItem>,
+              ]
+            }
+            vertical={false}
+          >
+            <tr
+              className="ant-descriptions-row"
+              key="6"
+            >
+              <Cell
+                colon={true}
+                component="td"
+                content="Test Data6"
+                contentStyle={Object {}}
+                itemPrefixCls="ant-descriptions"
+                key="item-0"
+                label="Test6"
+                labelStyle={Object {}}
+                span={1}
+              >
+                <td
+                  className="ant-descriptions-item"
+                  colSpan={1}
+                >
+                  <div
+                    className="ant-descriptions-item-container"
+                  >
+                    <span
+                      className="ant-descriptions-item-label"
+                      style={Object {}}
+                    >
+                      Test6
+                    </span>
+                    <span
+                      className="ant-descriptions-item-content"
+                      style={Object {}}
+                    >
+                      Test Data6
+                    </span>
+                  </div>
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+          <Row
+            colon={true}
+            index={7}
+            key="7"
+            prefixCls="ant-descriptions"
+            row={
+              Array [
+                <DescriptionsItem
+                  label="Test4"
+                  span={1}
+                >
+                  Test Data4
+                </DescriptionsItem>,
+              ]
+            }
+            vertical={false}
+          >
+            <tr
+              className="ant-descriptions-row"
+              key="7"
+            >
+              <Cell
+                colon={true}
+                component="td"
+                content="Test Data4"
+                contentStyle={Object {}}
+                itemPrefixCls="ant-descriptions"
+                key="item-0"
+                label="Test4"
+                labelStyle={Object {}}
+                span={1}
+              >
+                <td
+                  className="ant-descriptions-item"
+                  colSpan={1}
+                >
+                  <div
+                    className="ant-descriptions-item-container"
+                  >
+                    <span
+                      className="ant-descriptions-item-label"
+                      style={Object {}}
+                    >
+                      Test4
+                    </span>
+                    <span
+                      className="ant-descriptions-item-content"
+                      style={Object {}}
+                    >
+                      Test Data4
+                    </span>
+                  </div>
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Descriptions>
+`;
+
 exports[`Descriptions when item is rendered conditionally 1`] = `
 <div
   class="ant-descriptions"

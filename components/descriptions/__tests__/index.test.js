@@ -238,4 +238,60 @@ describe('Descriptions', () => {
     wrapper.setProps({ extra: undefined });
     expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(false);
   });
+
+  // https://github.com/ant-design/ant-design/issues/28254
+  it('when item is component that wrap DescriptionsItem', () => {
+    // eslint-disable-next-line react/prefer-stateless-function
+    class ClassComponentItem extends React.Component {
+      render() {
+        return <Descriptions.Item label="Test6">Test Data6</Descriptions.Item>;
+      }
+    }
+
+    // eslint-disable-next-line react/prefer-stateless-function
+    class ClassComponent extends React.Component {
+      render() {
+        switch (this.props.type) {
+          case 'more':
+            return (
+              <>
+                <Descriptions.Item label="Test5">Test Data5</Descriptions.Item>
+                <ClassComponentItem />
+              </>
+            );
+          default:
+            return <Descriptions.Item label="Test4">Test Data4</Descriptions.Item>;
+        }
+      }
+    }
+
+    const FunctionComponent = () => <Descriptions.Item label="Test3">Test Data3</Descriptions.Item>;
+
+    const Item = ({ type }) => {
+      switch (type) {
+        case 'more':
+          return (
+            <>
+              <Descriptions.Item label="Test1">Test Data1</Descriptions.Item>
+              <FunctionComponent />
+            </>
+          );
+        default:
+          return <Descriptions.Item label="Test2">Test Data2</Descriptions.Item>;
+      }
+    };
+
+    const wrapper = mount(
+      <Descriptions title="User Info">
+        <Item type="more" />
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+        <Item />
+        <ClassComponent type="more" />
+        <ClassComponent />
+      </Descriptions>,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

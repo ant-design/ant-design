@@ -75,7 +75,7 @@ function getItems(children: React.ReactNode): React.ReactElement[] {
     if (type === DescriptionsItem) {
       items.push(node);
     } else if (typeof type === 'function') {
-      const isClass = Object.getPrototypeOf(type) === React.Component;
+      const isClass = Object.prototype.isPrototypeOf.call(React.Component, type);
       const ChildComponent = type as any;
       let childElement: React.ReactElement;
       if (isClass) {
