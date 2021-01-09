@@ -1,5 +1,5 @@
-<svg width="167.7" height="20" viewBox="0 0 1677 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="maintainability (avg): 70.58">
-  <title>maintainability (avg): 70.58</title>
+<svg width="167.7" height="20" viewBox="0 0 1677 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="maintainability (avg): 73.12">
+  <title>maintainability (avg): 73.12</title>
   <linearGradient id="a" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
@@ -13,8 +13,8 @@
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="60" y="148" textLength="1157" fill="#000" opacity="0.25">maintainability (avg)</text>
     <text x="50" y="138" textLength="1157">maintainability (avg)</text>
-    <text x="1312" y="148" textLength="320" fill="#000" opacity="0.25">70.58</text>
-    <text x="1302" y="138" textLength="320">70.58</text>
+    <text x="1312" y="148" textLength="320" fill="#000" opacity="0.25">73.12</text>
+    <text x="1302" y="138" textLength="320">73.12</text>
   </g>
   
 </svg>
