@@ -1,5 +1,5 @@
 {
-  "minimumThreshold": 10,
+  "minimumThreshold": 18,
   "excludeDirectories": ["/tests", "/site", "/typings", "/docs"],
   "excludeFilenames": [".test.js", ".test.ts"],
   "cliOutputLimit": 750
