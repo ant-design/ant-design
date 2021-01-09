@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 const REPO = process.env.ACCESS_REPO;
 const TOKEN = process.env.ACCESS_TOKEN;
-const PR = process.env.SYSTEM_PULLREQUEST_PULLREQUESTNUMBER;
+const PR = 28643;
 
 const { argv } = process;
 
