@@ -34,3 +34,6 @@ jobs:
       - name: argos-ci
         if: github.event_name == 'push'
         run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch ${GITHUB_REF##*/} --commit ${{ github.sha }}
+
+      - name: codehawk-cli
+        run: npm run codehawk

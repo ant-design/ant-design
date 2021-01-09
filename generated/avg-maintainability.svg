@@ -1,0 +1,20 @@
+<svg width="167.7" height="20" viewBox="0 0 1677 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="maintainability (avg): 70.58">
+  <title>maintainability (avg): 70.58</title>
+  <linearGradient id="a" x2="0" y2="100%">
+    <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <mask id="m"><rect width="1677" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#m)">
+    <rect width="1257" height="200" fill="#555"/>
+    <rect width="420" height="200" fill="#4c1" x="1257"/>
+    <rect width="1677" height="200" fill="url(#a)"/>
+  </g>
+  <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+    <text x="60" y="148" textLength="1157" fill="#000" opacity="0.25">maintainability (avg)</text>
+    <text x="50" y="138" textLength="1157">maintainability (avg)</text>
+    <text x="1312" y="148" textLength="320" fill="#000" opacity="0.25">70.58</text>
+    <text x="1302" y="138" textLength="320">70.58</text>
+  </g>
+  
+</svg>

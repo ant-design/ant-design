@@ -93,7 +93,8 @@
     "test-image": "npm run compile:less && docker-compose run tests",
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save react@16 react-dom@16 react-test-renderer@16 enzyme-adapter-react-16",
-    "argos": "argos upload imageSnapshots"
+    "argos": "argos upload imageSnapshots",
+    "codehawk": "codehawk components"
   },
   "husky": {
     "hooks": {
@@ -187,6 +188,7 @@
     "bundlesize": "^0.18.0",
     "chalk": "^4.0.0",
     "cheerio": "^1.0.0-rc.3",
+    "codehawk-cli": "^8.3.0",
     "concurrently": "^5.0.2",
     "cross-env": "^7.0.0",
     "css-minimizer-webpack-plugin": "^1.1.1",

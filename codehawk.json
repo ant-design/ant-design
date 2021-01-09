@@ -1,0 +1,5 @@
+{
+  "minimumThreshold": 10,
+  "excludeDirectories": ["/tests", "/site", "/typings", "/docs"],
+  "cliOutputLimit": 750
+}
