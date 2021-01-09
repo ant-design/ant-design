@@ -4,6 +4,8 @@
 import * as React from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
+import isEqual from 'lodash/isEqualWith';
+import cloneDeep from 'lodash/cloneDeep';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -71,6 +73,10 @@ export interface ConfigProviderProps {
 const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
 } = props => {
+  const lastConfigCloned = React.useRef<ConfigConsumerProps>();
+  const lastConfigRef = React.useRef<ConfigConsumerProps>();
+  const lastContextRef = React.useRef<ConfigConsumerProps>();
+
   React.useEffect(() => {
     if (props.direction) {
       message.config({
@@ -114,9 +120,8 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       dropdownMatchSelectWidth,
     } = props;
 
-    const config: ConfigConsumerProps = {
+    let config: ConfigConsumerProps = {
       ...context,
-      getPrefixCls: getPrefixClsWrapper(context),
       csp,
       autoInsertSpaceInButton,
       locale: locale || legacyLocale,
@@ -125,6 +130,18 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       virtual,
       dropdownMatchSelectWidth,
     };
+
+    const lastContext = lastContextRef.current;
+    const lastConfig = lastConfigRef.current;
+
+    // Only get new getPrefixCls when context change
+    if ((lastContext && lastContext.getPrefixCls !== context.getPrefixCls) || !lastContext) {
+      config.getPrefixCls = getPrefixClsWrapper(context);
+    } else if (lastConfig) {
+      config.getPrefixCls = lastConfig.getPrefixCls;
+    }
+
+    lastContextRef.current = context;
 
     if (getTargetContainer) {
       config.getTargetContainer = getTargetContainer;
@@ -173,6 +190,14 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
           {childNode}
         </LocaleProvider>
       );
+
+    // https://github.com/ant-design/ant-design/issues/27617
+    if (lastConfig && isEqual(config, lastConfigCloned.current)) {
+      config = lastConfig;
+    } else {
+      lastConfigCloned.current = cloneDeep(config);
+      lastConfigRef.current = config;
+    }
 
     return (
       <SizeContextProvider size={componentSize}>
