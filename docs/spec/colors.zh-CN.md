@@ -48,7 +48,7 @@ ReactDOM.render(<Palette color={{ name: 'gray', count: 13 }} direction="horizont
 
 ### 数据可视化色板
 
-数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 「有效、清晰、准确、美」的原则产生的。[查看色板](https://antv.vision/zh/docs/specification/principles/visual/)
+数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 「有效、清晰、准确、美」的原则产生的。[查看色板](https://antv.vision/zh/docs/specification/principles/basic/)
 
 ### 色板生成工具
 
