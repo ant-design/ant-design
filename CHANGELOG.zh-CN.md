@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.10.1
+
+`2021-01-10`
+
+- 🛠 优化 Select 搜索性能。[#28715](https://github.com/ant-design/ant-design/pull/28715) [@kerm1it](https://github.com/kerm1it)
+- 🐞 修复 Slider 在卸载时报 `forcePopupAlign` 错的问题。[#28699](https://github.com/ant-design/ant-design/pull/28699) [@Kerumen](https://github.com/Kerumen)
+- 🐞 修复 Transfer `dataSource` 为 immutable 数据时报 `Cannot add property key, object is not extensible` 的问题。[#28675](https://github.com/ant-design/ant-design/pull/28675)
+- 🐞 修复 Notification 使用 `useNotification` 生成的提示框关闭时高度跳动的问题。[#28660](https://github.com/ant-design/ant-design/pull/28660)
+
+- TypeScript
+  - 🤖 InputNumber `onChange` 的 `value` 的类型增加 `null`。[#28769](https://github.com/ant-design/ant-design/pull/28769) [@lengfangbing](https://github.com/lengfangbing)
+
 ## 4.10.0
 
 `2021-01-04`
