@@ -50,6 +50,6 @@ ReactDOM.render(
       onSearch={onSearch}
     />
   </Space>,
-  document.getElementById('container'),
+  mountNode,
 );
 ```
