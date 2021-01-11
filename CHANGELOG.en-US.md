@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 4.10.2
+
+`2021-01-11`
+
+- 🐞 Fix import error when use antd in commonjs. [#28715](https://github.com/ant-design/ant-design/issues/28804)
+
 ## 4.10.1
 
 `2021-01-10`
