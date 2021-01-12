@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import zhCN from '../../locale/zh_CN';
 import ConfigProvider from '..';
 import { ConfigConsumer } from '../context';
 
@@ -19,13 +18,34 @@ describe('ConfigProvider', () => {
   it('should not generate new value for same config', () => {
     const MemoedSibling = React.memo(Sibling);
     const App = () => {
-      const [count, setCount] = React.useState(0);
+      const [, forceRender] = React.useReducer(v => v + 1, 1);
       return (
-        <ConfigProvider locale={zhCN}>
-          <button type="button" onClick={() => setCount(1)}>
-            {count}
+        <ConfigProvider pageHeader={{ ghost: true }} direction="ltr">
+          <button type="button" onClick={() => forceRender()}>
+            Force Render
           </button>
           <MemoedSibling />
+        </ConfigProvider>
+      );
+    };
+
+    const wrapper = mount(<App />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.find('#counter').text()).toEqual('1');
+  });
+
+  it('should not generate new value for same config in nested ConfigProvider', () => {
+    const MemoedSibling = React.memo(Sibling);
+    const App = () => {
+      const [, forceRender] = React.useReducer(v => v + 1, 1);
+      return (
+        <ConfigProvider pageHeader={{ ghost: true }} direction="ltr">
+          <ConfigProvider>
+            <button type="button" onClick={() => forceRender()}>
+              Force Render
+            </button>
+            <MemoedSibling />
+          </ConfigProvider>
         </ConfigProvider>
       );
     };
@@ -57,6 +77,46 @@ describe('ConfigProvider', () => {
             Change Direction
           </button>
           <MemoedSibling />
+        </ConfigProvider>
+      );
+    };
+
+    const wrapper = mount(<App />);
+    wrapper.find('.immutable').simulate('click');
+    expect(wrapper.find('#counter').text()).toEqual('2');
+
+    wrapper.find('.mutable').simulate('click');
+    expect(wrapper.find('#counter').text()).toEqual('3');
+  });
+
+  it('should rerender when context value change(immutable or mutable) in nested ConfigProvider', () => {
+    const MemoedSibling = React.memo(Sibling);
+    const App = () => {
+      const [input, setInput] = React.useState({ autoComplete: 'true' });
+      const [, forceRender] = React.useReducer(v => v + 1, 1);
+      const pageHeader = React.useRef({ ghost: false });
+      return (
+        <ConfigProvider input={input} pageHeader={pageHeader.current}>
+          <ConfigProvider>
+            <button
+              type="button"
+              onClick={() => setInput({ autoComplete: 'false' })}
+              className="immutable"
+            >
+              Change Input
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                pageHeader.current.ghost = true;
+                forceRender();
+              }}
+              className="mutable"
+            >
+              Change Direction
+            </button>
+            <MemoedSibling />
+          </ConfigProvider>
         </ConfigProvider>
       );
     };
