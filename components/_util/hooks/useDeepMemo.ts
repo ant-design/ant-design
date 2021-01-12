@@ -2,22 +2,29 @@ import * as React from 'react';
 import isEqual from 'lodash/isEqual';
 import cloneDeep from 'lodash/cloneDeep';
 
-export default function useDeepMemo<T>(
+export default function useDeepMemo<T, U>(
   memoFn: () => T,
-  dep: any,
+  dep: U,
   options: { clone: boolean } = {
     clone: false,
   },
 ) {
   const { clone } = options;
-  const ref = React.useRef<T>();
-  if (!ref.current || !isEqual(dep, ref.current)) {
-    let val = memoFn();
+  const ref = React.useRef<{
+    dep?: U;
+    value?: T;
+    clonedDep?: U;
+  }>({});
+  const { current } = ref;
+  if (!current || !isEqual(dep, clone ? current.clonedDep : current.dep)) {
     if (clone) {
-      val = cloneDeep(val);
+      current.clonedDep = cloneDeep(dep);
+    } else {
+      current.dep = dep;
     }
-    ref.current = val;
+
+    current.value = memoFn();
   }
 
-  return ref.current;
+  return current.value;
 }
