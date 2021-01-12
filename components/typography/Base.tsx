@@ -48,7 +48,7 @@ export interface EllipsisConfig {
   symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
-  tooltip?: React.ReactNode | true;
+  tooltip?: React.ReactNode;
 }
 
 export interface BlockProps extends TypographyProps {
