@@ -217,6 +217,19 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
 Array [
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    />
+  </button>,
   <div
     class="ant-typography ant-typography-ellipsis"
   >
@@ -227,6 +240,12 @@ Array [
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
+  <span
+    class="ant-typography ant-typography-ellipsis"
+    style="width:100px"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </span>,
 ]
 `;
 
