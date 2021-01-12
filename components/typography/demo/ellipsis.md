@@ -49,7 +49,7 @@ const Demo = () => {
       </Paragraph>
 
       <Text
-        style={ellipsis ? { width: 100 } : null}
+        style={ellipsis ? { width: 100 } : undefined}
         ellipsis={ellipsis ? { tooltip: 'I am ellipsis now!' } : false}
       >
         Ant Design, a design language for background applications, is refined by Ant UED Team.

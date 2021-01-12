@@ -4,7 +4,7 @@ import devWarning from '../_util/devWarning';
 import Base, { BlockProps, EllipsisConfig } from './Base';
 
 export interface TextProps extends BlockProps {
-  ellipsis?: Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
+  ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
 }
 
 const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
