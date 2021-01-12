@@ -16,7 +16,7 @@ export default function useDeepMemo<T, U>(
     clonedDep?: U;
   }>({});
   const { current } = ref;
-  if (!current || !isEqual(dep, clone ? current.clonedDep : current.dep)) {
+  if (!current.value || !isEqual(dep, clone ? current.clonedDep : current.dep)) {
     if (clone) {
       current.clonedDep = cloneDeep(dep);
     } else {
