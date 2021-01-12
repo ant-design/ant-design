@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
-import useDeepMemo from '../_util/hooks/useDeepMemo';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -36,6 +35,11 @@ export const configConsumerProps = [
   'autoInsertSpaceInButton',
   'locale',
   'pageHeader',
+  'form',
+  'virtual',
+  'input',
+  'dropdownMatchSelectWidth',
+  'space',
 ];
 
 export interface ConfigProviderProps {
@@ -148,8 +152,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     return config;
   };
 
+  const config = getConfig();
+
   // https://github.com/ant-design/ant-design/issues/27617
-  const memoedConfig = useDeepMemo(() => getConfig(), getConfig(), { clone: true });
+  const memoedConfig = React.useMemo(
+    () => getConfig(),
+    configConsumerProps.map(k => (config as Record<string, any>)[k]),
+  );
 
   let childNode = children;
   // Additional Form provider
@@ -170,7 +179,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     locale === undefined ? (
       childNode
     ) : (
-      <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+      <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
         {childNode}
       </LocaleProvider>
     );
