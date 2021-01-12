@@ -16,14 +16,13 @@ const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
     return ellipsis;
   }, [ellipsis]);
 
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    typeof ellipsis === 'object' &&
-    ellipsis &&
-    ('expandable' in ellipsis || 'rows' in ellipsis)
-  ) {
-    devWarning(false, 'Typography.Text', '`ellipsis` do not support `expandable` or `rows` props.');
-  }
+  devWarning(
+    typeof ellipsis !== 'object' ||
+      !ellipsis ||
+      (!('expandable' in ellipsis) && !('rows' in ellipsis)),
+    'Typography.Text',
+    '`ellipsis` do not support `expandable` or `rows` props.',
+  );
 
   return <Base {...restProps} ellipsis={mergedEllipsis} component="span" />;
 };
