@@ -67,7 +67,7 @@ interface InternalDrawerProps extends DrawerProps {
 }
 
 const defaultPushState: PushState = { distance: 180 };
-const defaultCloseIcon = <CloseOutlined />;
+
 const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
   (
     {
@@ -80,7 +80,7 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       level = null,
       keyboard = true,
       push = defaultPushState,
-      closeIcon = defaultCloseIcon,
+      closeIcon = <CloseOutlined />,
       bodyStyle,
       drawerStyle,
       prefixCls,
