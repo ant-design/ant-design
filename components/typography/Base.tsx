@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import copy from 'copy-to-clipboard';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';

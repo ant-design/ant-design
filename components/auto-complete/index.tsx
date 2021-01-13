@@ -1,14 +1,15 @@
 /**
  * TODO: 4.0
- *     - remove `dataSource`
- *     - `size` not work with customizeInput
- *     - customizeInput not feedback `ENTER` key since accessibility enhancement
+ *
+ * - Remove `dataSource`
+ * - `size` not work with customizeInput
+ * - CustomizeInput not feedback `ENTER` key since accessibility enhancement
  */
 
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Select, { InternalSelectProps, OptionType, RefSelectProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';

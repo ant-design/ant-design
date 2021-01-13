@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import DownOutlined from '@ant-design/icons/DownOutlined';
@@ -89,9 +89,9 @@ export interface CascaderProps {
   placeholder?: string;
   /** 输入框大小，可选 `large` `default` `small` */
   size?: SizeType;
-  /** 输入框name */
+  /** 输入框 name */
   name?: string;
-  /** 输入框id */
+  /** 输入框 id */
   id?: string;
   /** Whether has border style */
   bordered?: boolean;

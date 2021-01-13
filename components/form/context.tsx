@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import { ColProps } from '../grid/col';

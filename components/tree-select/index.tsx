@@ -7,7 +7,7 @@ import RcTreeSelect, {
   TreeSelectProps as RcTreeSelectProps,
 } from 'rc-tree-select';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import { DefaultValueType } from 'rc-tree-select/lib/interface';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import toArray from 'rc-util/lib/Children/toArray';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import CollapsePanel, { CollapsibleType } from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';

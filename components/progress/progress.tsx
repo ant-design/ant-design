@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';

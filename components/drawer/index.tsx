@@ -3,7 +3,7 @@ import RcDrawer from 'rc-drawer';
 import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import { ConfigContext, DirectionType } from '../config-provider';
 import { tuple } from '../_util/type';
 
