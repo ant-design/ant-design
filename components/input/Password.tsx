@@ -20,7 +20,7 @@ const ActionMap: Record<string, string> = {
   hover: 'onMouseOver',
 };
 
-const Password = React.forwardRef<unknown, PasswordProps>((props, ref) => {
+const Password = React.forwardRef<any, PasswordProps>((props, ref) => {
   const [visible, setVisible] = useState(false);
 
   const onVisibleChange = () => {
@@ -78,7 +78,7 @@ const Password = React.forwardRef<unknown, PasswordProps>((props, ref) => {
       className: inputClassName,
       prefixCls: inputPrefixCls,
       suffix: suffixIcon,
-    };
+    } as InputProps;
 
     if (size) {
       omittedProps.size = size;

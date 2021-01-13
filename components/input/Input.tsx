@@ -266,7 +266,7 @@ class Input extends React.Component<InputProps, InputState> {
   ) => {
     const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
     // Fix https://fb.me/react-unknown-prop
-    const otherProps = omit(this.props, [
+    const otherProps = omit(this.props as InputProps & { inputType: any }, [
       'prefixCls',
       'onPressEnter',
       'addonBefore',

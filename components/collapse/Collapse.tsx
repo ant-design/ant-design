@@ -95,8 +95,8 @@ const Collapse: CollapseInterface = props => {
       if (child.props?.disabled) {
         const key = child.key || String(index);
         const { disabled, collapsible } = child.props;
-        const childProps: CollapseProps = {
-          ...omit(child.props, 'disabled'),
+        const childProps: CollapseProps & { key: React.Key } = {
+          ...omit(child.props, ['disabled']),
           key,
           collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
         };
