@@ -20,5 +20,13 @@ function onChange(e) {
   console.log(`checked = ${e.target.checked}`);
 }
 
-ReactDOM.render(<Checkbox onChange={onChange}>Checkbox</Checkbox>, mountNode);
+ReactDOM.render(
+  <>
+    <Checkbox onChange={onChange}>Checkbox</Checkbox>
+    <Checkbox onChange={onChange} filled>
+      Checkbox Filled
+    </Checkbox>
+  </>,
+  mountNode,
+);
 ```

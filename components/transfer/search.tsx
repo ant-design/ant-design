@@ -13,6 +13,7 @@ export interface TransferSearchProps {
   value?: string;
   disabled?: boolean;
   singleClick?: boolean;
+  allowClear?: boolean;
 }
 
 export default class Search extends React.Component<TransferSearchProps, any> {
@@ -36,7 +37,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
   };
 
   render() {
-    const { placeholder, value, prefixCls, disabled, singleClick } = this.props;
+    const { placeholder, value, prefixCls, disabled, singleClick, allowClear } = this.props;
     const icon =
       value && value.length > 0 ? (
         <a className={`${prefixCls}-action`} onClick={this.handleClear}>
@@ -57,6 +58,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
             value={value}
             onChange={this.handleChange}
             disabled={disabled}
+            allowClear={allowClear}
           />
         </>
       );

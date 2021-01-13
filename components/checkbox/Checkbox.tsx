@@ -25,6 +25,7 @@ export interface AbstractCheckboxProps<T> {
   id?: string;
   autoFocus?: boolean;
   type?: string;
+  filled?: boolean;
 }
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
@@ -130,6 +131,7 @@ class Checkbox extends React.PureComponent<CheckboxProps, {}> {
     );
     const checkboxClass = classNames({
       [`${prefixCls}-indeterminate`]: indeterminate,
+      [`${prefixCls}-filled`]: checkboxProps.filled,
     });
     return (
       // eslint-disable-next-line jsx-a11y/label-has-associated-control

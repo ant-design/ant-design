@@ -79,6 +79,17 @@
       }
     }
 
+    &.@{checkbox-prefix-cls}-filled {
+      &.@{checkbox-prefix-cls}-checked {
+        .@{ant-prefix}-checkbox-inner::after {
+          border-color: @table-checkbox-color;
+        }
+      }
+      .@{checkbox-prefix-cls}-inner {
+        background-color: @table-checkbox-background;
+      }
+    }
+
     &-input {
       position: absolute;
       top: 0;

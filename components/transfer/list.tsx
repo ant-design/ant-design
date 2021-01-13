@@ -68,6 +68,7 @@ export interface TransferListProps extends TransferLocale {
   showRemove?: boolean;
   pagination?: PaginationType;
   singleClick?: boolean;
+  allowClear?: boolean;
 }
 
 interface TransferListState {
@@ -190,6 +191,7 @@ export default class TransferList extends React.PureComponent<
     disabled?: boolean,
     singleClick?: boolean,
     titleText?: string,
+    allowClear?: boolean,
   ): React.ReactNode {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -201,6 +203,7 @@ export default class TransferList extends React.PureComponent<
           value={filterValue}
           disabled={disabled}
           singleClick={singleClick}
+          allowClear={allowClear}
         />
         {singleClick && (
           <p className={`${prefixCls}-search-below-text`}>
@@ -321,6 +324,7 @@ export default class TransferList extends React.PureComponent<
       showRemove,
       pagination,
       singleClick,
+      allowClear,
     } = this.props;
 
     // Custom Layout
@@ -350,6 +354,7 @@ export default class TransferList extends React.PureComponent<
       disabled,
       singleClick,
       titleText,
+      allowClear,
     );
 
     // ================================ List Footer ================================
