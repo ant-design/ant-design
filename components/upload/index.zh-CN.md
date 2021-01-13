@@ -28,7 +28,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | defaultFileList | 默认已经上传的文件列表 | object\[] | - |  |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)） | boolean | false |  |
 | disabled | 是否禁用 | boolean | false |  |
-| fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object\[] | - |  |
+| fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | [UploadFile](#UploadFile)\[] | - |  |
 | headers | 设置上传的请求头部，IE10 以上有效 | object | - |  |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
 | isImageUrl | 自定义缩略图是否使用 &lt;img /> 标签进行显示 | (file: UploadFile) => boolean | [(内部实现)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
@@ -46,6 +46,19 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
 | onPreview | 点击文件链接或预览图标时的回调 | function(file) | - |  |
 | onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除               | function(file): boolean \| Promise | -   |  |
+
+### UploadFile
+
+继承自 File，附带额外属性用于渲染。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| uid | 唯一标识符，不设置时会自动生成 | string | - |
+| name | 文件名 | string | - |
+| url | 下载地址 | string | - |
+| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
+| percent | 上传进度 | number | - |
+| thumbUrl | 缩略图地址 | string | - |
 
 ### onChange
 

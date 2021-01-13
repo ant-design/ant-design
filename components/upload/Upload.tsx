@@ -73,6 +73,15 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     );
   }, []);
 
+  // Control mode will auto fill file uid if not provided
+  React.useEffect(() => {
+    const timestamp = Date.now();
+
+    (fileListProp || []).forEach((file, index) => {
+      file.uid = file.uid ?? `__AUTO__${timestamp}_${index}__`;
+    });
+  }, [fileListProp]);
+
   const onInternalChange = (info: UploadChangeParam) => {
     let cloneList = [...info.fileList];
 
