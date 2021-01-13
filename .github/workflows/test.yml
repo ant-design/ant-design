@@ -146,8 +146,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
         with:
-          # codecov.io requires a fetch depth > 1.
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -167,7 +166,8 @@ jobs:
       - name: coverage
         uses: codecov/codecov-action@master
         with:
-          fail_ci_if_error: true
+          fail_ci_if_error: false
+
     needs: setup
 
   react-17-node:
