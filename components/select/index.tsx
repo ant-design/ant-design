@@ -103,7 +103,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     prefixCls,
   });
 
-  const selectProps = omit(props, ['suffixIcon', 'itemIcon']);
+  const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
   const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
@@ -122,7 +122,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
 
   return (
     <RcSelect<VT>
-      ref={ref}
+      ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}

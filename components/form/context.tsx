@@ -35,7 +35,9 @@ export const FormItemContext = React.createContext<FormItemContextProps>({
 });
 
 /** Form Provider */
-export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMessages'> {}
+export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMessages'> {
+  prefixCls?: string;
+}
 
 export const FormProvider: React.FC<FormProviderProps> = props => {
   const providerProps = omit(props, ['prefixCls']);

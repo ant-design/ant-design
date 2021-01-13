@@ -304,7 +304,6 @@ class Drawer extends React.Component<InternalDrawerProps, IDrawerState> {
             'footer',
             'title',
             'push',
-            'visible',
             'width',
             'height',
           ])}

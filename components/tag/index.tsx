@@ -36,7 +36,7 @@ export interface TagType
   CheckableTag: typeof CheckableTag;
 }
 
-const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (
+const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   {
     prefixCls: customizePrefixCls,
     className,

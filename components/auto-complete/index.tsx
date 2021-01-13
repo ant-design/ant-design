@@ -116,7 +116,10 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
             prefixCls={prefixCls}
             className={classNames(`${prefixCls}-auto-complete`, className)}
             mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
-            getInputElement={getInputElement}
+            {...{
+              // Internal api
+              getInputElement,
+            }}
           >
             {optionChildren}
           </Select>
