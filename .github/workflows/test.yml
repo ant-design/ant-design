@@ -159,10 +159,7 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: test
-        run: npm test -- -w 1 --coverage
-
-      - name: coverage
-        run: bash <(curl -s https://codecov.io/bash)
+        run: npm test -- -w 1 --coverage && bash <(curl -s https://codecov.io/bash)
     needs: setup
 
   react-17-node:
