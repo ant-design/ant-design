@@ -165,7 +165,9 @@ jobs:
         run: npm test -- -w 1 --coverage
 
       - name: coverage
-        run: bash <(curl -s https://codecov.io/bash)
+        uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
     needs: setup
 
   react-17-node:
