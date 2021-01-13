@@ -164,9 +164,10 @@ jobs:
         run: npm test -- -w 1 --coverage
 
       - name: coverage
-        uses: codecov/codecov-action@master
+        uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: false
+          verbose: true
 
     needs: setup
 
