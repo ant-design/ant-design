@@ -38,8 +38,8 @@ An enterprise-class UI design language and React UI library.
 [twitter-url]: https://twitter.com/AntDesignUI
 [discussions-image]: https://img.shields.io/badge/discussions-on%20github-blue?style=flat-square
 [discussions-url]: https://github.com/ant-design/ant-design/discussions
-[bundlesize-js-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.js?label=gzip%20size%3A%20JS&compression=gzip&style=flat-square
-[bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.css?label=gzip%20size%3A%20JS&compression=gzip&style=flat-square
+[bundlesize-js-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.js?label=antd.min.js&compression=gzip&style=flat-square
+[bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.css?label=antd.min.css&compression=gzip&style=flat-square
 [unpkg-js-url]: https://unpkg.com/browse/antd/dist/antd.min.js
 [unpkg-css-url]: https://unpkg.com/browse/antd/dist/antd.min.css
 
