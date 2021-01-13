@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
+import useMemo from 'rc-util/lib/hooks/useMemo';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -151,9 +152,17 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const config = getConfig();
 
   // https://github.com/ant-design/ant-design/issues/27617
-  const memoedConfig = React.useMemo(
+  const memoedConfig = useMemo(
     () => config,
-    configConsumerProps.map(k => (config as Record<string, any>)[k]),
+    config,
+    (prevConfig: Record<string, any>, currentConfig) => {
+      const prevKeys = Object.keys(prevConfig);
+      const currentKeys = Object.keys(currentConfig);
+      return (
+        prevKeys.length !== currentKeys.length ||
+        prevKeys.some(key => prevConfig[key] !== currentConfig[key])
+      );
+    },
   );
 
   let childNode = children;
