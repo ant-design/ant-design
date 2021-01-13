@@ -119,6 +119,17 @@ function injectFilter<RecordType>(
   });
 }
 
+function flattenKeys(filters?: ColumnFilterItem[]) {
+  let keys: (string | number | boolean)[] = [];
+  (filters || []).forEach(({ value, children }) => {
+    keys.push(value);
+    if (children) {
+      keys = [...keys, ...flattenKeys(children)];
+    }
+  });
+  return keys;
+}
+
 function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
   const currentFilters: Record<string, (Key | boolean)[] | null> = {};
 
@@ -129,9 +140,10 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
     } else {
       const originKeys: ColumnFilterItem['value'][] = [];
       if (Array.isArray(filteredKeys)) {
-        filters?.forEach((filter: ColumnFilterItem) => {
-          if (filteredKeys.includes(String(filter.value))) {
-            originKeys.push(filter.value);
+        const keys = flattenKeys(filters);
+        keys?.forEach(originKey => {
+          if (filteredKeys.includes(String(originKey))) {
+            originKeys.push(originKey);
           }
         });
         currentFilters[key] = originKeys;
@@ -142,17 +154,6 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   });
 
   return currentFilters;
-}
-
-function flattenKeys(filters?: ColumnFilterItem[]) {
-  let keys: (string | number | boolean)[] = [];
-  (filters || []).forEach(({ value, children }) => {
-    keys.push(value);
-    if (children) {
-      keys = [...keys, ...flattenKeys(children)];
-    }
-  });
-  return keys;
 }
 
 export function getFilterData<RecordType>(

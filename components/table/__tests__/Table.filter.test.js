@@ -507,6 +507,7 @@ describe('Table.filter', () => {
   });
 
   it('three levels menu', () => {
+    const onChange = jest.fn();
     const filters = [
       { text: 'Upper', value: 'Upper' },
       { text: 'Lower', value: 'Lower' },
@@ -536,6 +537,7 @@ describe('Table.filter', () => {
             filters,
           },
         ],
+        onChange,
       }),
     );
     jest.useFakeTimers();
@@ -551,6 +553,10 @@ describe('Table.filter', () => {
     dropdownWrapper = getDropdownWrapper(wrapper);
     dropdownWrapper.find('MenuItem').last().simulate('click');
     dropdownWrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    onChange.mock.calls.forEach(([, currentFilters]) => {
+      const [, val] = Object.entries(currentFilters)[0];
+      expect(val).toEqual(['Jack']);
+    });
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
     dropdownWrapper.find('MenuItem').last().simulate('click');
