@@ -36,11 +36,6 @@ export const configConsumerProps = [
   'autoInsertSpaceInButton',
   'locale',
   'pageHeader',
-  'form',
-  'virtual',
-  'input',
-  'dropdownMatchSelectWidth',
-  'space',
 ];
 
 export interface ConfigProviderProps {
