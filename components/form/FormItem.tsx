@@ -204,24 +204,19 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'extra',
           'getValueFromEvent',
           'getValueProps',
-          'hasFeedback',
-          'help',
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
           'isListField',
-          'label',
           'labelAlign',
           'labelCol',
           'normalize',
           'preserve',
-          'required',
           'tooltip',
           'validateFirst',
-          'validateStatus',
           'valuePropName',
           'wrapperCol',
-          '_internalItemRender',
+          '_internalItemRender' as any,
         ])}
       >
         {/* Label */}

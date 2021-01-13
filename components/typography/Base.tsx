@@ -456,8 +456,9 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       'underline',
       'strong',
       'keyboard',
-      ...configConsumerProps,
-    ]);
+      ...(configConsumerProps as any),
+    ]) as any;
+
     const cssEllipsis = this.canUseCSSEllipsis();
     const cssTextOverflow = rows === 1 && cssEllipsis;
     const cssLineClamp = rows && rows > 1 && cssEllipsis;
@@ -519,7 +520,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                 )}
                 style={{
                   ...style,
-                  WebkitLineClamp: cssLineClamp ? rows : null,
+                  WebkitLineClamp: cssLineClamp ? rows : undefined,
                 }}
                 component={component}
                 ref={this.contentRef}
