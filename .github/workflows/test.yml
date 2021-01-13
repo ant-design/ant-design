@@ -313,7 +313,7 @@ jobs:
         run: npm run install-react-16
 
       - name: test
-        run: npm test -- -w 1 --coverage
+        run: npm test
     needs: setup
 
   react-16-node:
