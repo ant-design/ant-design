@@ -96,22 +96,18 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     parentContext,
   } = props;
 
-  const getPrefixClsWrapper = (context: ConfigConsumerProps) => (
-    suffixCls: string,
-    customizePrefixCls?: string,
-  ) => {
-    const { prefixCls } = props;
+  const getPrefixCls = React.useCallback(
+    (suffixCls: string, customizePrefixCls?: string) => {
+      const { prefixCls } = props;
 
-    if (customizePrefixCls) return customizePrefixCls;
+      if (customizePrefixCls) return customizePrefixCls;
 
-    const mergedPrefixCls = prefixCls || context.getPrefixCls('');
+      const mergedPrefixCls = prefixCls || parentContext.getPrefixCls('');
 
-    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
-  };
-
-  const getPrefixCls = React.useMemo(() => getPrefixClsWrapper(parentContext), [
-    parentContext.getPrefixCls,
-  ]);
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
+    },
+    [parentContext.getPrefixCls],
+  );
 
   const getConfig = (): ConfigConsumerProps => {
     const config = {
@@ -156,7 +152,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   // https://github.com/ant-design/ant-design/issues/27617
   const memoedConfig = React.useMemo(
-    () => getConfig(),
+    () => config,
     configConsumerProps.map(k => (config as Record<string, any>)[k]),
   );
 
