@@ -197,7 +197,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
 | columnTitle | 自定义列表选择框标题 | ReactNode | - |  |
-| columnWidth | 自定义列表选择框宽度 | string \| number | `60px` |  |
+| columnWidth | 自定义列表选择框宽度 | string \| number | `32px` |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | function(record) | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3.0 |

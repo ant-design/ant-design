@@ -190,7 +190,7 @@ Properties for row selection.
 | --- | --- | --- | --- | --- |
 | checkStrictly | Check table row precisely; parent row and children rows are not associated | boolean | true | 4.4.0 |
 | columnTitle | Set the title of the selection column | ReactNode | - |  |
-| columnWidth | Set the width of the selection column | string \| number | `60px` |  |
+| columnWidth | Set the width of the selection column | string \| number | `32px` |  |
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | function(record) | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3.0 |
