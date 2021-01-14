@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import devWarning from '../_util/devWarning';
 import Base, { BlockProps, EllipsisConfig } from './Base';
 
