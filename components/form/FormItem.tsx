@@ -7,7 +7,7 @@ import { FieldProps } from 'rc-field-form/lib/Field';
 import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -204,24 +204,19 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'extra',
           'getValueFromEvent',
           'getValueProps',
-          'hasFeedback',
-          'help',
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
           'isListField',
-          'label',
           'labelAlign',
           'labelCol',
           'normalize',
           'preserve',
-          'required',
           'tooltip',
           'validateFirst',
-          'validateStatus',
           'valuePropName',
           'wrapperCol',
-          '_internalItemRender',
+          '_internalItemRender' as any,
         ])}
       >
         {/* Label */}

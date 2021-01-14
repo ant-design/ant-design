@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import ClearableLabeledInput from './ClearableLabeledInput';
@@ -44,7 +44,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
-    const innerRef = React.useRef<RcTextArea>();
+    const innerRef = React.useRef<RcTextArea>(null);
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
     const [value, setValue] = useMergedState(props.defaultValue, {
@@ -99,7 +99,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
           [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
         })}
-        style={showCount ? null : style}
+        style={showCount ? undefined : style}
         prefixCls={prefixCls}
         onChange={handleChange}
         ref={innerRef}
