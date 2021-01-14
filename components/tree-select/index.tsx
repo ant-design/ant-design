@@ -7,7 +7,7 @@ import RcTreeSelect, {
   TreeSelectProps as RcTreeSelectProps,
 } from 'rc-tree-select';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import { DefaultValueType } from 'rc-tree-select/lib/interface';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
@@ -90,7 +90,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
   const isMultiple = !!(treeCheckable || multiple);
 
   // ===================== Icons =====================
-  const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
+  const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
     prefixCls,
@@ -105,7 +105,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
   }
 
   // ==================== Render =====================
-  const selectProps = omit(props, [
+  const selectProps = omit(props as typeof props & { itemIcon: any; switcherIcon: any }, [
     'suffixIcon',
     'itemIcon',
     'removeIcon',
@@ -130,7 +130,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}
-      ref={ref}
+      ref={ref as any}
       prefixCls={prefixCls}
       className={mergedClassName}
       listHeight={listHeight}
@@ -139,14 +139,13 @@ const InternalTreeSelect = <T extends DefaultValueType>(
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
       inputIcon={suffixIcon}
-      menuItemSelectedIcon={itemIcon}
       multiple={multiple}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
         renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
       }
-      showTreeIcon={treeIcon}
+      showTreeIcon={treeIcon as any}
       notFoundContent={mergedNotFound}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}

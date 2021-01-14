@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import { ColProps } from '../grid/col';
@@ -35,7 +35,9 @@ export const FormItemContext = React.createContext<FormItemContextProps>({
 });
 
 /** Form Provider */
-export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMessages'> {}
+export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMessages'> {
+  prefixCls?: string;
+}
 
 export const FormProvider: React.FC<FormProviderProps> = props => {
   const providerProps = omit(props, ['prefixCls']);

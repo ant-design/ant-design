@@ -1,7 +1,7 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
 import { OptionProps } from 'rc-select/lib/Option';
@@ -103,7 +103,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     prefixCls,
   });
 
-  const selectProps = omit(props, ['suffixIcon', 'itemIcon']);
+  const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
   const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
@@ -122,7 +122,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
 
   return (
     <RcSelect<VT>
-      ref={ref}
+      ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}
