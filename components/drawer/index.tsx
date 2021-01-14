@@ -143,14 +143,14 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
           }
         },
       }),
-      [],
+      [push],
     );
 
     React.useImperativeHandle(ref, () => operations, [operations]);
 
     const isDestroyOnClose = destroyOnClose && !visible;
 
-    const onDestroyTransitionEnd = React.useCallback(() => {
+    const onDestroyTransitionEnd = () => {
       if (!isDestroyOnClose) {
         return;
       }
@@ -158,7 +158,7 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
         destroyClose.current = true;
         forceUpdate();
       }
-    }, [visible, isDestroyOnClose]);
+    };
 
     const getOffsetStyle = () => {
       // https://github.com/ant-design/ant-design/issues/24287
