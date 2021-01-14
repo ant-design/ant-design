@@ -195,7 +195,7 @@
     "enquire-js": "^0.2.1",
     "enzyme": "^3.10.0",
     "enzyme-to-json": "^3.6.0",
-    "esbuild-webpack-plugin": "^1.0.0",
+    "esbuild-loader": "^2.7.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.0.0",
     "eslint-config-prettier": "^7.0.0",
