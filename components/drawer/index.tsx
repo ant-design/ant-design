@@ -102,30 +102,30 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
   ) => {
     const forceUpdate = useForceUpdate();
     const [internalPush, setPush] = React.useState(false);
-    const parentDrawer = React.useRef<DrawerRef | null>(null);
+    const parentDrawer = React.useContext(DrawerContext);
     const destroyClose = React.useRef<boolean>(false);
 
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
       // <Drawer>{show && <Drawer />}</Drawer>
-      if (visible && parentDrawer.current) {
-        parentDrawer.current.push();
+      if (visible && parentDrawer) {
+        parentDrawer.push();
       }
 
       return () => {
-        if (parentDrawer.current) {
-          parentDrawer.current.pull();
-          parentDrawer.current = null;
+        if (parentDrawer) {
+          parentDrawer.pull();
+          // parentDrawer = null;
         }
       };
     }, []);
 
     React.useEffect(() => {
-      if (parentDrawer.current) {
+      if (parentDrawer) {
         if (visible) {
-          parentDrawer.current.push();
+          parentDrawer.push();
         } else {
-          parentDrawer.current.pull();
+          parentDrawer.pull();
         }
       }
     }, [visible]);
@@ -284,49 +284,38 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       );
     };
 
+    const drawerClassName = classNames(
+      {
+        'no-mask': !mask,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
+    const offsetStyle = mask ? getOffsetStyle() : {};
+
     return (
-      <DrawerContext.Consumer>
-        {
-          // render Provider for Multi-level drawer
-          (value: DrawerRef) => {
-            parentDrawer.current = value;
-
-            const drawerClassName = classNames(
-              {
-                'no-mask': !mask,
-                [`${prefixCls}-rtl`]: direction === 'rtl',
-              },
-              className,
-            );
-            const offsetStyle = mask ? getOffsetStyle() : {};
-
-            return (
-              <DrawerContext.Provider value={operations}>
-                <RcDrawer
-                  handler={false}
-                  {...{
-                    placement,
-                    prefixCls,
-                    maskClosable,
-                    level,
-                    keyboard,
-                    children,
-                    onClose,
-                    ...rest,
-                  }}
-                  {...offsetStyle}
-                  open={visible}
-                  showMask={mask}
-                  style={getRcDrawerStyle()}
-                  className={drawerClassName}
-                >
-                  {renderBody()}
-                </RcDrawer>
-              </DrawerContext.Provider>
-            );
-          }
-        }
-      </DrawerContext.Consumer>
+      <DrawerContext.Provider value={operations}>
+        <RcDrawer
+          handler={false}
+          {...{
+            placement,
+            prefixCls,
+            maskClosable,
+            level,
+            keyboard,
+            children,
+            onClose,
+            ...rest,
+          }}
+          {...offsetStyle}
+          open={visible}
+          showMask={mask}
+          style={getRcDrawerStyle()}
+          className={drawerClassName}
+        >
+          {renderBody()}
+        </RcDrawer>
+      </DrawerContext.Provider>
     );
   },
 );
