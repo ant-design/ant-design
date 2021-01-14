@@ -119,11 +119,11 @@ exports[`Table renders empty table 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <div
                         class="ant-empty-description"
                       >
                         No Data
-                      </p>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -494,11 +494,11 @@ exports[`Table renders empty table with fixed columns 1`] = `
                             </g>
                           </svg>
                         </div>
-                        <p
+                        <div
                           class="ant-empty-description"
                         >
                           No Data
-                        </p>
+                        </div>
                       </div>
                     </div>
                   </td>
@@ -654,11 +654,11 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <div
                         class="ant-empty-description"
                       >
                         No Data
-                      </p>
+                      </div>
                     </div>
                   </td>
                 </tr>
