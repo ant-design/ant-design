@@ -5,6 +5,7 @@ import Table from '..';
 import Input from '../../input';
 import Tooltip from '../../tooltip';
 import Button from '../../button';
+import Select from '../../select';
 import ConfigProvider from '../../config-provider';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
@@ -507,6 +508,7 @@ describe('Table.filter', () => {
   });
 
   it('three levels menu', () => {
+    const onChange = jest.fn();
     const filters = [
       { text: 'Upper', value: 'Upper' },
       { text: 'Lower', value: 'Lower' },
@@ -536,6 +538,7 @@ describe('Table.filter', () => {
             filters,
           },
         ],
+        onChange,
       }),
     );
     jest.useFakeTimers();
@@ -551,6 +554,10 @@ describe('Table.filter', () => {
     dropdownWrapper = getDropdownWrapper(wrapper);
     dropdownWrapper.find('MenuItem').last().simulate('click');
     dropdownWrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    onChange.mock.calls.forEach(([, currentFilters]) => {
+      const [, val] = Object.entries(currentFilters)[0];
+      expect(val).toEqual(['Jack']);
+    });
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
     dropdownWrapper.find('MenuItem').last().simulate('click');
@@ -903,6 +910,87 @@ describe('Table.filter', () => {
     onChange.mock.calls.forEach(([, currentFilters]) => {
       const [, val] = Object.entries(currentFilters)[0];
       expect(val).toEqual(['test']);
+    });
+  });
+
+  it('should work as expected with complex custom filterDropdown', () => {
+    const onChange = jest.fn();
+    const filterDropdown = ({ setSelectedKeys, selectedKeys, confirm }) => {
+      const handleChange = selectedValues => {
+        setSelectedKeys(selectedValues);
+      };
+
+      return (
+        <div>
+          <Select
+            mode="multiple"
+            allowClear
+            labelInValue
+            style={{ width: 200 }}
+            value={selectedKeys}
+            onChange={handleChange}
+            options={[
+              {
+                value: 1,
+                label: 'Not Identified',
+              },
+              {
+                value: 2,
+                label: 'Closed',
+              },
+              {
+                value: 3,
+                label: 'Communicated',
+              },
+            ]}
+          />
+          <button className="confirm-btn" type="submit" onClick={confirm}>
+            Confirm
+          </button>
+        </div>
+      );
+    };
+    const filteredValue = [
+      {
+        value: 2,
+        label: 'Closed',
+      },
+    ];
+    const selectedValue = [
+      {
+        key: 2,
+        value: 2,
+        label: 'Closed',
+      },
+      {
+        key: 1,
+        value: 1,
+        label: 'Not Identified',
+      },
+    ];
+    const wrapper = mount(
+      createTable({
+        onChange,
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filterDropdown,
+            filteredValue,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toEqual(filteredValue);
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    wrapper.find('.ant-select-item-option').first().simulate('click');
+    wrapper.find('.confirm-btn').first().simulate('click');
+    expect(onChange).toHaveBeenCalled();
+    onChange.mock.calls.forEach(([, currentFilters]) => {
+      const [, val] = Object.entries(currentFilters)[0];
+      expect(val).toEqual(selectedValue);
     });
   });
 
