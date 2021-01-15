@@ -105,46 +105,40 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     [parentContext.getPrefixCls],
   );
 
-  const getConfig = (): ConfigConsumerProps => {
-    const config = {
-      ...parentContext,
-      csp,
-      autoInsertSpaceInButton,
-      locale: locale || legacyLocale,
-      direction,
-      space,
-      virtual,
-      dropdownMatchSelectWidth,
-      getPrefixCls,
-    };
-    if (getTargetContainer) {
-      config.getTargetContainer = getTargetContainer;
-    }
-
-    if (getPopupContainer) {
-      config.getPopupContainer = getPopupContainer;
-    }
-
-    if (renderEmpty) {
-      config.renderEmpty = renderEmpty;
-    }
-
-    if (pageHeader) {
-      config.pageHeader = pageHeader;
-    }
-
-    if (input) {
-      config.input = input;
-    }
-
-    if (form) {
-      config.form = form;
-    }
-
-    return config;
+  const config = {
+    ...parentContext,
+    csp,
+    autoInsertSpaceInButton,
+    locale: locale || legacyLocale,
+    direction,
+    space,
+    virtual,
+    dropdownMatchSelectWidth,
+    getPrefixCls,
   };
+  if (getTargetContainer) {
+    config.getTargetContainer = getTargetContainer;
+  }
 
-  const config = getConfig();
+  if (getPopupContainer) {
+    config.getPopupContainer = getPopupContainer;
+  }
+
+  if (renderEmpty) {
+    config.renderEmpty = renderEmpty;
+  }
+
+  if (pageHeader) {
+    config.pageHeader = pageHeader;
+  }
+
+  if (input) {
+    config.input = input;
+  }
+
+  if (form) {
+    config.form = form;
+  }
 
   // https://github.com/ant-design/ant-design/issues/27617
   const memoedConfig = useMemo(
