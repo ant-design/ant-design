@@ -12,9 +12,9 @@
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![david deps][david-image]][david-url] [![david devDeps][david-dev-image]][david-dev-url] [![Total alerts][lgtm-image]][lgtm-url] [![FOSSA Status][fossa-image]][fossa-url]
+[![david deps][david-image]][david-url] [![david devDeps][david-dev-image]][david-dev-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
 
-[![Follow Twitter][twitter-image]][twitter-url] [![Discussions][discussions-image]][discussions-url] [![Issues need help][help-wanted-image]][help-wanted-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![FOSSA Status][fossa-image]][fossa-url] [![Discussions][discussions-image]][discussions-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
@@ -38,6 +38,10 @@
 [twitter-url]: https://twitter.com/AntDesignUI
 [discussions-image]: https://img.shields.io/badge/discussions-on%20github-blue?style=flat-square
 [discussions-url]: https://github.com/ant-design/ant-design/discussions
+[bundlesize-js-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.js?label=antd.min.js&compression=gzip&style=flat-square
+[bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.css?label=antd.min.css&compression=gzip&style=flat-square
+[unpkg-js-url]: https://unpkg.com/browse/antd/dist/antd.min.js
+[unpkg-css-url]: https://unpkg.com/browse/antd/dist/antd.min.css
 
 </div>
 
