@@ -138,19 +138,11 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
     const { filters, filterDropdown } = column;
     if (filterDropdown) {
       currentFilters[key] = filteredKeys || null;
+    } else if (Array.isArray(filteredKeys)) {
+      const keys = flattenKeys(filters);
+      currentFilters[key] = keys.filter(originKey => filteredKeys.includes(String(originKey)));
     } else {
-      const originKeys: ColumnFilterItem['value'][] = [];
-      if (Array.isArray(filteredKeys)) {
-        const keys = flattenKeys(filters);
-        keys?.forEach(originKey => {
-          if (filteredKeys.includes(String(originKey))) {
-            originKeys.push(originKey);
-          }
-        });
-        currentFilters[key] = originKeys;
-      } else {
-        currentFilters[key] = null;
-      }
+      currentFilters[key] = null;
     }
   });
 
