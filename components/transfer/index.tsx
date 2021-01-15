@@ -71,6 +71,7 @@ export interface TransferProps {
   oneWay?: boolean;
   pagination?: PaginationType;
   singleClick?: boolean;
+  allowClear?: boolean;
 }
 
 export interface TransferLocale {
@@ -110,6 +111,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     showSearch: false,
     listStyle: () => {},
     singleClick: false,
+    allowClear: false,
   };
 
   static getDerivedStateFromProps({
@@ -385,6 +387,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
           oneWay,
           pagination,
           singleClick,
+          allowClear,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -432,6 +435,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
               singleClick={singleClick}
+              allowClear={allowClear}
               {...locale}
             />
             {singleClick ? (
@@ -477,6 +481,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
               showRemove={oneWay}
               pagination={mergedPagination}
               singleClick={singleClick}
+              allowClear={allowClear}
               {...locale}
             />
           </div>
