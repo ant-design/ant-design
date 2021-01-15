@@ -34,9 +34,10 @@ function collectFilterStates<RecordType>(
     } else if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
-        const filteredValues = Array.isArray(column.filteredValue)
-          ? column.filteredValue.map(String)
-          : column.filteredValue;
+        let filteredValues = column.filteredValue;
+        if (!('filterDropdown' in column)) {
+          filteredValues = filteredValues?.map(String) ?? filteredValues;
+        }
         filterStates.push({
           column,
           key: getColumnKey(column, columnPos),
