@@ -13,50 +13,42 @@ export interface TransferSearchProps {
   disabled?: boolean;
 }
 
-export default class Search extends React.Component<TransferSearchProps, any> {
-  static defaultProps = {
-    placeholder: '',
-  };
+export default function Search(props: TransferSearchProps) {
+  const { placeholder = '', value, prefixCls, disabled, onChange, handleClear } = props;
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { onChange } = this.props;
-    if (onChange) {
-      onChange(e);
-    }
-  };
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChange) {
+        onChange(e);
+      }
+    }, [onChange],
+  )
 
-  handleClear = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClearFn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const { handleClear, disabled } = this.props;
     if (!disabled && handleClear) {
       handleClear(e);
     }
   };
 
-  render() {
-    const { placeholder, value, prefixCls, disabled } = this.props;
-    const icon =
-      value && value.length > 0 ? (
-        <a className={`${prefixCls}-action`} onClick={this.handleClear}>
+  return (
+    <>
+      <Input
+        placeholder={placeholder}
+        className={prefixCls}
+        value={value}
+        onChange={handleChange}
+        disabled={disabled}
+      />
+      {value && value.length > 0 ? (
+        <a className={`${prefixCls}-action`} onClick={handleClearFn}>
           <CloseCircleFilled />
         </a>
       ) : (
         <span className={`${prefixCls}-action`}>
           <SearchOutlined />
         </span>
-      );
-
-    return (
-      <>
-        <Input
-          placeholder={placeholder}
-          className={prefixCls}
-          value={value}
-          onChange={this.handleChange}
-          disabled={disabled}
-        />
-        {icon}
-      </>
-    );
-  }
+      )}
+    </>  
+  )
 }
