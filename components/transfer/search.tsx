@@ -18,11 +18,10 @@ export default function Search(props: TransferSearchProps) {
 
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (onChange) {
-        onChange(e);
-      }
-    }, [onChange],
-  )
+      onChange?.(e);
+    },
+    [onChange],
+  );
 
   const handleClearFn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -50,5 +49,5 @@ export default function Search(props: TransferSearchProps) {
         </span>
       )}
     </>
-  )
+  );
 }
