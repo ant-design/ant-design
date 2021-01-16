@@ -49,6 +49,6 @@ export default function Search(props: TransferSearchProps) {
           <SearchOutlined />
         </span>
       )}
-    </>  
+    </>
   )
 }
