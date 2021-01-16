@@ -1,3 +1,4 @@
+// test
 module.exports = {
   ci: {
     collect: {
