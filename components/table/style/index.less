@@ -586,6 +586,7 @@
     .@{table-prefix-cls}-cell-fix-left-first::after,
     .@{table-prefix-cls}-cell-fix-left-last::after {
       box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+      z-index: @table-sticky-zindex;
     }
   }
 
@@ -595,6 +596,7 @@
 
       &::after {
         box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+        z-index: @table-sticky-zindex;
       }
     }
 
