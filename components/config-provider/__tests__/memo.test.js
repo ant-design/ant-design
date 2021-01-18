@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import ConfigProvider from '..';
-import { ConfigConsumer } from '../context';
+import Tooltip from '../../tooltip';
 
 // https://github.com/ant-design/ant-design/issues/27617
 describe('ConfigProvider', () => {
-  const RenderCounter = ({ config }) => {
-    const [count, setCount] = React.useState(0);
-    React.useEffect(() => setCount(c => c + 1), [config]);
-    return <div id="counter">{count}</div>;
+  const Child = ({ spy }) => {
+    React.useEffect(() => spy());
+    return <div />;
   };
 
-  const Sibling = () => (
-    <ConfigConsumer>{config => <RenderCounter config={config} />}</ConfigConsumer>
+  const Sibling = ({ spy }) => (
+    <Tooltip>
+      <Child spy={spy} />
+    </Tooltip>
   );
 
   it('should not generate new context config when render', () => {
     const MemoedSibling = React.memo(Sibling);
+    const spy = jest.fn();
     const App = () => {
       const [pageHeader, setPageHeader] = useState({ ghost: true });
       const [, forceRender] = React.useReducer(v => v + 1, 1);
@@ -33,21 +35,22 @@ describe('ConfigProvider', () => {
           >
             Change Config
           </button>
-          <MemoedSibling />
+          <MemoedSibling spy={spy} />
         </ConfigProvider>
       );
     };
 
     const wrapper = mount(<App />);
     wrapper.find('.render').simulate('click');
-    expect(wrapper.find('#counter').text()).toEqual('1');
+    expect(spy.mock.calls.length).toEqual(1);
 
     wrapper.find('.setState').simulate('click');
-    expect(wrapper.find('#counter').text()).toEqual('2');
+    expect(spy.mock.calls.length).toEqual(2);
   });
 
   it('should not generate new context config in nested ConfigProvider when render', () => {
     const MemoedSibling = React.memo(Sibling);
+    const spy = jest.fn();
     const App = () => {
       const [pageHeader, setPageHeader] = useState({ ghost: true });
       const [, forceRender] = React.useReducer(v => v + 1, 1);
@@ -65,7 +68,7 @@ describe('ConfigProvider', () => {
             >
               Change Config
             </button>
-            <MemoedSibling />
+            <MemoedSibling spy={spy} />
           </ConfigProvider>
         </ConfigProvider>
       );
@@ -73,9 +76,9 @@ describe('ConfigProvider', () => {
 
     const wrapper = mount(<App />);
     wrapper.find('.render').simulate('click');
-    expect(wrapper.find('#counter').text()).toEqual('1');
+    expect(spy.mock.calls.length).toEqual(1);
 
     wrapper.find('.setState').simulate('click');
-    expect(wrapper.find('#counter').text()).toEqual('2');
+    expect(spy.mock.calls.length).toEqual(2);
   });
 });
