@@ -25,7 +25,7 @@ timeline: true
   - 💄 调整 Table 选中列宽度至 `32px`。[#28073](https://github.com/ant-design/ant-design/pull/28073)
   - 💄 新增 `@table-border-color` less 变量。[#28903](https://github.com/ant-design/ant-design/pull/28903)
 - Transfer
-  - 🛠 穿梭框 Search 组件使用 React Hooks 重构[#28895](https://github.com/ant-design/ant-design/pull/28895) [@susiwen8](https://github.com/susiwen8)
+  - 🛠 穿梭框 Search 组件使用 React Hooks 重构。[#28895](https://github.com/ant-design/ant-design/pull/28895) [@susiwen8](https://github.com/susiwen8)
   - 🌐 增加了 German 德语翻译。[#28826](https://github.com/ant-design/ant-design/pull/28826) [@aequi42](https://github.com/aequi42)
 - Upload
   - 🐞 支持 Upload 报错提示对 Error 文本信息的捕获（Tooltip）。[#28716](https://github.com/ant-design/ant-design/pull/28716) [@wangcch](https://github.com/wangcch)
