@@ -205,7 +205,13 @@
       }
 
       &:not(:last-child) {
-        border-right: @border-width-base @border-style-base @border-color-split;
+        @border: @border-width-base @border-style-base @border-color-split;
+        border-right: @border;
+
+        .@{card-prefix-cls}-rtl & {
+          border-right: none;
+          border-left: @border;
+        }
       }
     }
   }
