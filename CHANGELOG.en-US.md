@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 4.10.3
+
+`2021-01-18`
+
+- 🐞 Fix Button not adapting to the `@btn-border-width` when loading. [#28886](https://github.com/ant-design/ant-design/pull/28886) [@jjanssen](https://github.com/jjanssen)
+- Table
+  - 💄 Add `@table-border-color` less variable. [#28903](https://github.com/ant-design/ant-design/pull/28903)
+  - 🐞 Fix that invalid params passed to `onChange` event if define custom filterDropdown and nested filters. [#28850](https://github.com/ant-design/ant-design/pull/28850) [@Meowu](https://github.com/Meowu)
+  - 💄 Tweak Table selection column width to `32px`. [#28073](https://github.com/ant-design/ant-design/pull/28073)
+- Transfer
+  - 🛠 Refactor Transfer Search with React hooks. [#28895](https://github.com/ant-design/ant-design/pull/28895) [@susiwen8](https://github.com/susiwen8)
+  - 🌐 Added German translations for the Transfer component. [#28826](https://github.com/ant-design/ant-design/pull/28826) [@aequi42](https://github.com/aequi42)
+- Upload
+  - 🐞 Support for capturing Error message for the Upload error tooltip. [#28716](https://github.com/ant-design/ant-design/pull/28716) [@wangcch](https://github.com/wangcch)
+  - 🆕 Upload auto fills `uid` of `fileList` when not provided. [#28832](https://github.com/ant-design/ant-design/pull/28832)
+- 🐞 Fix Slider `getPopupContainer` prop has no default value `document.body`. [#28865](https://github.com/ant-design/ant-design/pull/28865) [@rinick](https://github.com/rinick)
+- 🐞 Fix Empty description validateDOMNesting warning. [#28862](https://github.com/ant-design/ant-design/pull/28862)
+- 💄 Fix Tree `filterTreeNode` missing style. [#28866](https://github.com/ant-design/ant-design/pull/28866)
+- 💄 fix Badge `dot` width issue when `size="small"`. [#28854](https://github.com/ant-design/ant-design/pull/28854)
+
 ## 4.10.2
 
 `2021-01-11`
