@@ -581,6 +581,7 @@
       position: relative;
 
       &::before {
+        z-index: calc(@table-sticky-zindex + 1);
         box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
       }
     }
@@ -588,7 +589,6 @@
     .@{table-prefix-cls}-cell-fix-left-first::after,
     .@{table-prefix-cls}-cell-fix-left-last::after {
       box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
-      z-index: @table-sticky-zindex;
     }
   }
 
@@ -597,8 +597,8 @@
       position: relative;
 
       &::after {
-        box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
         z-index: @table-sticky-zindex;
+        box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
       }
     }
 
