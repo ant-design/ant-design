@@ -27,7 +27,7 @@ export const FormContext = React.createContext<FormContextProps>({
 
 /** Form Item Context. Used for Form noStyle Item error collection */
 export interface FormItemContextProps {
-  updateItemErrors: (name: string, errors: string[]) => void;
+  updateItemErrors: (name: string, errors: string[], originName?: string) => void;
 }
 
 export const FormItemContext = React.createContext<FormItemContextProps>({

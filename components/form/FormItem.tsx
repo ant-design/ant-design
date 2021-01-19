@@ -20,6 +20,8 @@ import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
 import useItemRef from './hooks/useItemRef';
 
+const NAME_SPLIT = '__SPLIT__';
+
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
@@ -115,7 +117,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   React.useEffect(
     () => () => {
       destroyRef.current = true;
-      updateItemErrors(nameRef.current.join('__SPLIT__'), []);
+      updateItemErrors(nameRef.current.join(NAME_SPLIT), []);
     },
     [],
   );
@@ -126,8 +128,13 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // Collect noStyle Field error to the top FormItem
   const updateChildItemErrors = noStyle
     ? updateItemErrors
-    : (subName: string, subErrors: string[]) => {
+    : (subName: string, subErrors: string[], originSubName: string) => {
         setInlineErrors((prevInlineErrors = {}) => {
+          // Clean up origin error when name changed
+          if (originSubName !== subName) {
+            delete prevInlineErrors[originSubName];
+          }
+
           if (!isEqual(prevInlineErrors[subName], subErrors)) {
             return {
               ...prevInlineErrors,
@@ -280,12 +287,15 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         const fieldId = getFieldId(mergedName, formName);
 
         if (noStyle) {
+          // Clean up origin one
+          const originErrorName = nameRef.current.join(NAME_SPLIT);
+
           nameRef.current = [...mergedName];
           if (fieldKey) {
             const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
             nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
           }
-          updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
+          updateItemErrors(nameRef.current.join(NAME_SPLIT), errors, originErrorName);
         }
 
         const isRequired =
