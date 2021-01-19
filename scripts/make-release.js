@@ -1,4 +1,4 @@
-/* eslint-disable no-await-in-loop no-console */
+/* eslint-disable no-await-in-loop, no-console */
 const { Octokit } = require('@octokit/rest');
 const github = require('@actions/github');
 const axios = require('axios');
