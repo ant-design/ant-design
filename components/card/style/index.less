@@ -205,12 +205,11 @@
       }
 
       &:not(:last-child) {
-        @border: @border-width-base @border-style-base @border-color-split;
-        border-right: @border;
+        border-right: @border-width-base @border-style-base @border-color-split;
 
         .@{card-prefix-cls}-rtl & {
           border-right: none;
-          border-left: @border;
+          border-left: @border-width-base @border-style-base @border-color-split;
         }
       }
     }
