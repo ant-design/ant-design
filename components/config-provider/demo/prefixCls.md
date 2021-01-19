@@ -4,7 +4,6 @@ title:
   zh-CN: 前缀
   en-US: prefixCls
 debug: true
-only: true
 ---
 
 ## zh-CN
