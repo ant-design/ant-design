@@ -1,9 +1,7 @@
-// TODO: remove this lint
-// SFC has specified a displayName, but not worked.
-/* eslint-disable react/display-name */
 import * as React from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
+import useMemo from 'rc-util/lib/hooks/useMemo';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -68,6 +66,125 @@ export interface ConfigProviderProps {
   dropdownMatchSelectWidth?: boolean;
 }
 
+interface ProviderChildrenProps extends ConfigProviderProps {
+  parentContext: ConfigConsumerProps;
+  legacyLocale: Locale;
+}
+
+const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
+  const {
+    children,
+    getTargetContainer,
+    getPopupContainer,
+    renderEmpty,
+    csp,
+    autoInsertSpaceInButton,
+    form,
+    input,
+    locale,
+    pageHeader,
+    componentSize,
+    direction,
+    space,
+    virtual,
+    dropdownMatchSelectWidth,
+    legacyLocale,
+    parentContext,
+  } = props;
+
+  const getPrefixCls = React.useCallback(
+    (suffixCls: string, customizePrefixCls?: string) => {
+      const { prefixCls } = props;
+
+      if (customizePrefixCls) return customizePrefixCls;
+
+      const mergedPrefixCls = prefixCls || parentContext.getPrefixCls('');
+
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
+    },
+    [parentContext.getPrefixCls],
+  );
+
+  const config = {
+    ...parentContext,
+    csp,
+    autoInsertSpaceInButton,
+    locale: locale || legacyLocale,
+    direction,
+    space,
+    virtual,
+    dropdownMatchSelectWidth,
+    getPrefixCls,
+  };
+  if (getTargetContainer) {
+    config.getTargetContainer = getTargetContainer;
+  }
+
+  if (getPopupContainer) {
+    config.getPopupContainer = getPopupContainer;
+  }
+
+  if (renderEmpty) {
+    config.renderEmpty = renderEmpty;
+  }
+
+  if (pageHeader) {
+    config.pageHeader = pageHeader;
+  }
+
+  if (input) {
+    config.input = input;
+  }
+
+  if (form) {
+    config.form = form;
+  }
+
+  // https://github.com/ant-design/ant-design/issues/27617
+  const memoedConfig = useMemo(
+    () => config,
+    config,
+    (prevConfig: Record<string, any>, currentConfig) => {
+      const prevKeys = Object.keys(prevConfig);
+      const currentKeys = Object.keys(currentConfig);
+      return (
+        prevKeys.length !== currentKeys.length ||
+        prevKeys.some(key => prevConfig[key] !== currentConfig[key])
+      );
+    },
+  );
+
+  let childNode = children;
+  // Additional Form provider
+  let validateMessages: ValidateMessages = {};
+
+  if (locale && locale.Form && locale.Form.defaultValidateMessages) {
+    validateMessages = locale.Form.defaultValidateMessages;
+  }
+  if (form && form.validateMessages) {
+    validateMessages = { ...validateMessages, ...form.validateMessages };
+  }
+
+  if (Object.keys(validateMessages).length > 0) {
+    childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
+  }
+
+  const childrenWithLocale =
+    locale === undefined ? (
+      childNode
+    ) : (
+      <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
+        {childNode}
+      </LocaleProvider>
+    );
+
+  return (
+    <SizeContextProvider size={componentSize}>
+      <ConfigContext.Provider value={memoedConfig}>{childrenWithLocale}</ConfigContext.Provider>
+    </SizeContextProvider>
+  );
+};
+
 const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
 } = props => {
@@ -82,110 +199,17 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
     }
   }, [props.direction]);
 
-  const getPrefixClsWrapper = (context: ConfigConsumerProps) => (
-    suffixCls: string,
-    customizePrefixCls?: string,
-  ) => {
-    const { prefixCls } = props;
-
-    if (customizePrefixCls) return customizePrefixCls;
-
-    const mergedPrefixCls = prefixCls || context.getPrefixCls('');
-
-    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
-  };
-
-  const renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
-    const {
-      children,
-      getTargetContainer,
-      getPopupContainer,
-      renderEmpty,
-      csp,
-      autoInsertSpaceInButton,
-      form,
-      input,
-      locale,
-      pageHeader,
-      componentSize,
-      direction,
-      space,
-      virtual,
-      dropdownMatchSelectWidth,
-    } = props;
-
-    const config: ConfigConsumerProps = {
-      ...context,
-      getPrefixCls: getPrefixClsWrapper(context),
-      csp,
-      autoInsertSpaceInButton,
-      locale: locale || legacyLocale,
-      direction,
-      space,
-      virtual,
-      dropdownMatchSelectWidth,
-    };
-
-    if (getTargetContainer) {
-      config.getTargetContainer = getTargetContainer;
-    }
-
-    if (getPopupContainer) {
-      config.getPopupContainer = getPopupContainer;
-    }
-
-    if (renderEmpty) {
-      config.renderEmpty = renderEmpty;
-    }
-
-    if (pageHeader) {
-      config.pageHeader = pageHeader;
-    }
-
-    if (input) {
-      config.input = input;
-    }
-
-    if (form) {
-      config.form = form;
-    }
-
-    let childNode = children;
-    // Additional Form provider
-    let validateMessages: ValidateMessages = {};
-
-    if (locale && locale.Form && locale.Form.defaultValidateMessages) {
-      validateMessages = locale.Form.defaultValidateMessages;
-    }
-    if (form && form.validateMessages) {
-      validateMessages = { ...validateMessages, ...form.validateMessages };
-    }
-
-    if (Object.keys(validateMessages).length > 0) {
-      childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
-    }
-
-    const childrenWithLocale =
-      locale === undefined ? (
-        childNode
-      ) : (
-        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-          {childNode}
-        </LocaleProvider>
-      );
-
-    return (
-      <SizeContextProvider size={componentSize}>
-        <ConfigContext.Provider value={config}>{childrenWithLocale}</ConfigContext.Provider>
-      </SizeContextProvider>
-    );
-  };
-
   return (
     <LocaleReceiver>
       {(_, __, legacyLocale) => (
         <ConfigConsumer>
-          {context => renderProvider(context, legacyLocale as Locale)}
+          {context => (
+            <ProviderChildren
+              parentContext={context}
+              legacyLocale={legacyLocale as Locale}
+              {...props}
+            />
+          )}
         </ConfigConsumer>
       )}
     </LocaleReceiver>
