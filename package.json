@@ -252,7 +252,7 @@
     "react-draggable": "^4.4.3",
     "react-github-button": "^0.1.11",
     "react-helmet-async": "^1.0.4",
-    "react-highlight-words": "^0.16.0",
+    "react-highlight-words": "^0.17.0",
     "react-infinite-scroller": "^1.2.4",
     "react-intl": "^5.3.0",
     "react-resizable": "^2.0.0",
