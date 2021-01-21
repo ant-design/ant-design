@@ -107,7 +107,7 @@ Basic text writing, including headings, body text, lists, and more.
     {
       rows: number,
       expandable: boolean,
-      suffix: string,
+      suffix: ReactNode,
       symbol: ReactNode,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
