@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import DownOutlined from '@ant-design/icons/DownOutlined';
@@ -89,9 +89,9 @@ export interface CascaderProps {
   placeholder?: string;
   /** 输入框大小，可选 `large` `default` `small` */
   size?: SizeType;
-  /** 输入框name */
+  /** 输入框 name */
   name?: string;
-  /** 输入框id */
+  /** 输入框 id */
   id?: string;
   /** Whether has border style */
   bordered?: boolean;
@@ -119,6 +119,11 @@ export interface CascaderProps {
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
   dropdownRender?: (menus: React.ReactNode) => React.ReactNode;
+
+  // Miss prop defines.
+  autoComplete?: string;
+  transitionName?: string;
+  children?: React.ReactElement;
 }
 
 export interface CascaderState {
@@ -547,26 +552,32 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
         // Fix bug of https://github.com/facebook/react/pull/5004
         // and https://fb.me/react-unknown-prop
-        const inputProps = omit(otherProps, [
-          'onChange',
-          'options',
-          'popupPlacement',
-          'transitionName',
-          'displayRender',
-          'onPopupVisibleChange',
-          'changeOnSelect',
-          'expandTrigger',
-          'popupVisible',
-          'getPopupContainer',
-          'loadData',
-          'popupClassName',
-          'filterOption',
-          'renderFilteredOption',
-          'sortFilteredOption',
-          'notFoundContent',
-          'fieldNames',
-          'bordered',
-        ]);
+        const inputProps = omit(
+          // Not know why these props left
+          otherProps as typeof otherProps & {
+            filterOption: any;
+            renderFilteredOption: any;
+            sortFilteredOption: any;
+            defaultValue: any;
+          },
+          [
+            'onChange',
+            'options',
+            'popupPlacement',
+            'transitionName',
+            'displayRender',
+            'onPopupVisibleChange',
+            'changeOnSelect',
+            'expandTrigger',
+            'popupVisible',
+            'getPopupContainer',
+            'loadData',
+            'filterOption',
+            'renderFilteredOption',
+            'sortFilteredOption',
+            'fieldNames',
+          ],
+        );
 
         let { options } = props;
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
@@ -611,12 +622,12 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           inputIcon = <DownOutlined className={arrowCls} />;
         }
 
-        const input = children || (
+        const input: React.ReactElement = children || (
           <span style={style} className={pickerCls}>
             <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
             <Input
               {...inputProps}
-              tabIndex="-1"
+              tabIndex={-1}
               ref={this.saveInput}
               prefixCls={inputPrefixCls}
               placeholder={value && value.length > 0 ? undefined : placeholder}
@@ -649,7 +660,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         );
 
         const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
-        const rest = omit(props, [
+        const rest = omit(props as typeof props & { inputIcon: any; loadingIcon: any }, [
           'inputIcon',
           'expandIcon',
           'loadingIcon',
@@ -677,7 +688,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             loadingIcon={loadingIcon}
             popupClassName={rcCascaderPopupClassName}
             popupPlacement={this.getPopupPlacement(direction)}
-            dropdownRender={dropdownRender}
+            // rc-cascader should update ts define to fix this case
+            dropdownRender={dropdownRender as any}
           >
             {input}
           </RcCascader>

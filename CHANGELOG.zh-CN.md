@@ -15,6 +15,45 @@ timeline: true
 
 ---
 
+## 4.10.3
+
+`2021-01-18`
+
+- 🐞 修复按钮在 loading 加载时 `@btn-border-width` 失效问题。[#28886](https://github.com/ant-design/ant-design/pull/28886) [@jjanssen](https://github.com/jjanssen)
+- Table
+  - 🐞 修复 Table 自定义过滤器时 `onChange` 参数 `filters` 被错误转换及为空数组的问题。[#28850](https://github.com/ant-design/ant-design/pull/28850) [@Meowu](https://github.com/Meowu)
+  - 💄 调整 Table 选中列宽度至 `32px`。[#28073](https://github.com/ant-design/ant-design/pull/28073)
+  - 💄 新增 `@table-border-color` less 变量。[#28903](https://github.com/ant-design/ant-design/pull/28903)
+- Transfer
+  - 🛠 穿梭框 Search 组件使用 React Hooks 重构。[#28895](https://github.com/ant-design/ant-design/pull/28895) [@susiwen8](https://github.com/susiwen8)
+  - 🌐 增加了 German 德语翻译。[#28826](https://github.com/ant-design/ant-design/pull/28826) [@aequi42](https://github.com/aequi42)
+- Upload
+  - 🐞 支持 Upload 报错提示对 Error 文本信息的捕获（Tooltip）。[#28716](https://github.com/ant-design/ant-design/pull/28716) [@wangcch](https://github.com/wangcch)
+  - 🆕 Upload 在 `fileList` 没有提供 `uid` 时，会自动对其进行填充。[#28832](https://github.com/ant-design/ant-design/pull/28832)
+- 🐞 修复 Slider `getPopupContainer` 属性没有默认值 `document.body` 问题。[#28865](https://github.com/ant-design/ant-design/pull/28865) [@rinick](https://github.com/rinick)
+- 🐞 修复 Empty `description` 内使用 div 会报 `validateDOMNesting` 的问题。[#28862](https://github.com/ant-design/ant-design/pull/28862)
+- 💄 修复 Tree `filterTreeNode` 高亮样式丢失的问题。[#28866](https://github.com/ant-design/ant-design/pull/28866)
+- 💄 修复 Badge `dot` 宽度样式。[#28854](https://github.com/ant-design/ant-design/pull/28854)
+
+## 4.10.2
+
+`2021-01-11`
+
+- 🐞 修复 commonjs 下引入 antd 报错的问题。[#28715](https://github.com/ant-design/ant-design/issues/28804)
+
+## 4.10.1
+
+`2021-01-10`
+
+- 🛠 优化 Select 搜索性能。[#28715](https://github.com/ant-design/ant-design/pull/28715) [@kerm1it](https://github.com/kerm1it)
+- 🐞 修复 Slider 在卸载时报 `forcePopupAlign` 错的问题。[#28699](https://github.com/ant-design/ant-design/pull/28699) [@Kerumen](https://github.com/Kerumen)
+- 🐞 修复 Transfer `dataSource` 为 immutable 数据时报 `Cannot add property key, object is not extensible` 的问题。[#28675](https://github.com/ant-design/ant-design/pull/28675)
+- 🐞 修复 Notification 使用 `useNotification` 生成的提示框关闭时高度跳动的问题。[#28660](https://github.com/ant-design/ant-design/pull/28660)
+- 🐞 修复 Drawer 和 Modal 关闭后滚动条被禁用的问题。[#28749](https://github.com/ant-design/ant-design/pull/28749)
+- 🛠 优化包体积 gzipped `2kB`。[#28678](https://github.com/ant-design/ant-design/pull/28678)
+- TypeScript
+  - 🤖 InputNumber `onChange` 的 `value` 的类型增加 `null`。[#28769](https://github.com/ant-design/ant-design/pull/28769) [@lengfangbing](https://github.com/lengfangbing)
+
 ## 4.10.0
 
 `2021-01-04`

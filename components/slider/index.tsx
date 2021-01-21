@@ -116,7 +116,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
           transitionName="zoom-down"
           key={index}
           overlayClassName={`${prefixCls}-tooltip`}
-          getPopupContainer={getTooltipPopupContainer || getPopupContainer || (() => document.body)}
+          getPopupContainer={getTooltipPopupContainer || getPopupContainer}
         >
           <RcHandle
             {...restProps}

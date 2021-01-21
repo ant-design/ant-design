@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import ResizeObserver from 'rc-resize-observer';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
@@ -269,7 +269,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
     let props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
     // Omit this since `onTestUpdatePosition` only works on test.
     if (process.env.NODE_ENV === 'test') {
-      props = omit(props, ['onTestUpdatePosition']);
+      props = omit(props as typeof props & { onTestUpdatePosition: any }, ['onTestUpdatePosition']);
     }
 
     return (

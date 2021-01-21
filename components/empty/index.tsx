@@ -69,7 +69,7 @@ const Empty: EmptyType = ({
             <div className={`${prefixCls}-image`} style={imageStyle}>
               {imageNode}
             </div>
-            {des && <p className={`${prefixCls}-description`}>{des}</p>}
+            {des && <div className={`${prefixCls}-description`}>{des}</div>}
             {children && <div className={`${prefixCls}-footer`}>{children}</div>}
           </div>
         );
