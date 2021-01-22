@@ -107,7 +107,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
     {
       rows: number,
       expandable: boolean,
-      suffix: ReactNode,
+      suffix: string,
       symbol: ReactNode,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
