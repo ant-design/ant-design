@@ -16,7 +16,8 @@ export interface PageHeaderProps {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
-  breadcrumb?: BreadcrumbProps;
+  breadcrumb?: BreadcrumbProps | JSX.Element;
+  breadcrumbRender?: (props: PageHeaderProps, defaultDom: React.ReactNode) => React.ReactNode;
   tags?: React.ReactElement<TagType> | React.ReactElement<TagType>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
@@ -72,7 +73,7 @@ const renderTitle = (
   const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   const hasHeading = title || subTitle || tags || extra;
-  // 如果 什么都没有，直接返回一个 null
+  // If there is nothing, return a null
   if (!hasHeading) {
     return null;
   }
@@ -134,6 +135,7 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
           footer,
           children,
           breadcrumb,
+          breadcrumbRender,
           className: customizeClassName,
         } = props;
         let ghost: undefined | boolean = true;
@@ -146,7 +148,23 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
         }
 
         const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-        const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
+
+        const getDefaultBreadcrumbDom = () => {
+          if ((breadcrumb as BreadcrumbProps)?.routes) {
+            return renderBreadcrumb(breadcrumb as BreadcrumbProps);
+          }
+          if (React.isValidElement(breadcrumb)) {
+            return breadcrumb;
+          }
+          return null;
+        };
+
+        const defaultBreadcrumbDom = getDefaultBreadcrumbDom();
+
+        //  support breadcrumbRender function
+        const breadcrumbDom =
+          breadcrumbRender?.(props, defaultBreadcrumbDom) || defaultBreadcrumbDom;
+
         const className = classNames(prefixCls, customizeClassName, {
           'has-breadcrumb': breadcrumbDom,
           'has-footer': footer,
