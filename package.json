@@ -178,7 +178,6 @@
     "antd-theme-generator": "^1.2.3",
     "argos-cli": "^0.3.0",
     "array-move": "^3.0.0",
-    "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "^3.0.0",
     "bisheng-plugin-description": "^0.1.4",

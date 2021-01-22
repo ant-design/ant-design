@@ -29,3 +29,4 @@ coverage
 # Scripts
 scripts/previewEditor/**/*
 jest-stare
+**/*.md
