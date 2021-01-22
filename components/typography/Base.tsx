@@ -44,7 +44,7 @@ interface EditConfig {
 interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
-  suffix?: React.ReactNode;
+  suffix?: string;
   symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
