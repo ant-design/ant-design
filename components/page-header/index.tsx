@@ -16,7 +16,7 @@ export interface PageHeaderProps {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
-  breadcrumb?: BreadcrumbProps | JSX.Element;
+  breadcrumb?: BreadcrumbProps;
   breadcrumbRender?: (props: PageHeaderProps, defaultDom: React.ReactNode) => React.ReactNode;
   tags?: React.ReactElement<TagType> | React.ReactElement<TagType>[];
   footer?: React.ReactNode;
@@ -152,9 +152,6 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
         const getDefaultBreadcrumbDom = () => {
           if ((breadcrumb as BreadcrumbProps)?.routes) {
             return renderBreadcrumb(breadcrumb as BreadcrumbProps);
-          }
-          if (React.isValidElement(breadcrumb)) {
-            return breadcrumb;
           }
           return null;
         };
