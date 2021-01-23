@@ -107,7 +107,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
     {
       rows: number,
       expandable: boolean,
-      suffix: ReactNode,
+      suffix: string,
       symbol: ReactNode,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
@@ -117,8 +117,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | ---------- | ------------------ | ------------------ | ------ | ----- |
 | expandable | 是否可展开         | boolean            | -      |       |
 | rows       | 最多显示的行数     | number             | -      |       |
-| suffix     | 自定义省略内容后缀 | ReactNode          | -      |       |
-| symbol     | 自定义省略符号     | ReactNode          | `...`  |       |
+| suffix     | 自定义省略内容后缀 | string             | -      |       |
+| symbol     | 自定义展开符号     | ReactNode          | `展开` |       |
 | onEllipsis | 触发省略时的回调   | function(ellipsis) | -      | 4.2.0 |
 | onExpand   | 点击展开时的回调   | function(event)    | -      |       |
 
