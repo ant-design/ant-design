@@ -159,11 +159,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     isRequired?: boolean,
   ): React.ReactNode {
     const thisChildren = (
-      <>
+      <React.Fragment>
         {childrenBefore}
         {baseChildren}
         {childrenAfter}
-      </>
+      </React.Fragment>
     );
     if (noStyle && !hidden) {
       return thisChildren;
