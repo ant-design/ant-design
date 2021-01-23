@@ -201,7 +201,7 @@ const Demo = () => {
         childrenBefore={<span>before</span>}
         rules={[{ required: true, message: 'Please input your childrenBefore!' }]}
       >
-        <Input style={{ width: '90%' }} />
+        <Input style={{ width: '80%' }} />
       </Form.Item>
       <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
         <Button type="primary" htmlType="submit">

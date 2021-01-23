@@ -6396,7 +6396,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           <input
             class="ant-input"
             id="validate_other_childrenBefore"
-            style="width:90%"
+            style="width:80%"
             type="text"
             value=""
           />
