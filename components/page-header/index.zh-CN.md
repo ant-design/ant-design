@@ -20,7 +20,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/6bKE0Cq0R/PageHeader.svg
 | avatar | 标题栏旁的头像 | [AvatarProps](/components/avatar/) | - |  |
 | backIcon | 自定义 back icon ，如果为 false 不渲染 back icon | ReactNode \| boolean | &lt;ArrowLeft /> |  |
 | breadcrumb | 面包屑的配置 | [Breadcrumb](/components/breadcrumb/) | - |  |
-| breadcrumbRender | 自定义面包屑区域的内容 | `(props, originBreadcrumb) => ReactNode` | - |  |
+| breadcrumbRender | 自定义面包屑区域的内容 | `(props, originBreadcrumb) => ReactNode` | - | 4.11.0 |
 | extra | 操作区，位于 title 行的行尾 | ReactNode | - |  |
 | footer | PageHeader 的页脚，一般用于渲染 TabBar | ReactNode | - |  |
 | ghost | pageHeader 的类型，将会改变背景颜色 | boolean | true |  |
