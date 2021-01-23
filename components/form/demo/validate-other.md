@@ -76,7 +76,6 @@ const Demo = () => {
           <Option value="usa">U.S.A</Option>
         </Select>
       </Form.Item>
-
       <Form.Item
         name="select-multiple"
         label="Select[multiple]"
@@ -88,18 +87,15 @@ const Demo = () => {
           <Option value="blue">Blue</Option>
         </Select>
       </Form.Item>
-
       <Form.Item label="InputNumber">
         <Form.Item name="input-number" noStyle>
           <InputNumber min={1} max={10} />
         </Form.Item>
         <span className="ant-form-text"> machines</span>
       </Form.Item>
-
       <Form.Item name="switch" label="Switch" valuePropName="checked">
         <Switch />
       </Form.Item>
-
       <Form.Item name="slider" label="Slider">
         <Slider
           marks={{
@@ -112,7 +108,6 @@ const Demo = () => {
           }}
         />
       </Form.Item>
-
       <Form.Item name="radio-group" label="Radio.Group">
         <Radio.Group>
           <Radio value="a">item 1</Radio>
@@ -120,7 +115,6 @@ const Demo = () => {
           <Radio value="c">item 3</Radio>
         </Radio.Group>
       </Form.Item>
-
       <Form.Item
         name="radio-button"
         label="Radio.Button"
@@ -132,7 +126,6 @@ const Demo = () => {
           <Radio.Button value="c">item 3</Radio.Button>
         </Radio.Group>
       </Form.Item>
-
       <Form.Item name="checkbox-group" label="Checkbox.Group">
         <Checkbox.Group>
           <Row>
@@ -169,11 +162,9 @@ const Demo = () => {
           </Row>
         </Checkbox.Group>
       </Form.Item>
-
       <Form.Item name="rate" label="Rate">
         <Rate />
       </Form.Item>
-
       <Form.Item
         name="upload"
         label="Upload"
@@ -185,7 +176,6 @@ const Demo = () => {
           <Button icon={<UploadOutlined />}>Click to upload</Button>
         </Upload>
       </Form.Item>
-
       <Form.Item label="Dragger">
         <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
           <Upload.Dragger name="files" action="/upload.do">
@@ -205,7 +195,14 @@ const Demo = () => {
       >
         <Input />
       </Form.Item>
-
+      <Form.Item
+        label="childrenBefore"
+        name="childrenBefore"
+        childrenBefore={<span>after</span>}
+        rules={[{ required: true, message: 'Please input your childrenBefore!' }]}
+      >
+        <Input style={{ width: '90%' }} />
+      </Form.Item>
       <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
         <Button type="primary" htmlType="submit">
           Submit
