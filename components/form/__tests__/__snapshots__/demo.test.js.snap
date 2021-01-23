@@ -6391,7 +6391,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span>
-            after
+            before
           </span>
           <input
             class="ant-input"

@@ -198,7 +198,7 @@ const Demo = () => {
       <Form.Item
         label="childrenBefore"
         name="childrenBefore"
-        childrenBefore={<span>after</span>}
+        childrenBefore={<span>before</span>}
         rules={[{ required: true, message: 'Please input your childrenBefore!' }]}
       >
         <Input style={{ width: '90%' }} />
