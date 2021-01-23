@@ -27,6 +27,7 @@ import {
   Checkbox,
   Row,
   Col,
+  Input,
 } from 'antd';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 
@@ -195,6 +196,14 @@ const Demo = () => {
             <p className="ant-upload-hint">Support for a single or bulk upload.</p>
           </Upload.Dragger>
         </Form.Item>
+      </Form.Item>
+      <Form.Item
+        label="childrenAfter"
+        name="childrenAfter"
+        childrenAfter={<span style={{ position: 'absolute', top: 4, paddingLeft: 4 }}>after</span>}
+        rules={[{ required: true, message: 'Please input your childrenAfter!' }]}
+      >
+        <Input />
       </Form.Item>
 
       <Form.Item wrapperCol={{ span: 12, offset: 6 }}>

@@ -49,6 +49,8 @@ export interface FormItemProps<Values = any>
   style?: React.CSSProperties;
   className?: string;
   children?: ChildrenType<Values>;
+  childrenBefore?: React.ReactNode;
+  childrenAfter?: React.ReactNode;
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
@@ -83,6 +85,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     rules,
     validateStatus,
     children,
+    childrenBefore,
+    childrenAfter,
     required,
     label,
     messageVariables,
@@ -154,8 +158,15 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     meta?: Meta,
     isRequired?: boolean,
   ): React.ReactNode {
+    const thisChildren = (
+      <>
+        {childrenBefore}
+        {baseChildren}
+        {childrenAfter}
+      </>
+    );
     if (noStyle && !hidden) {
-      return baseChildren;
+      return thisChildren;
     }
 
     // ======================== Errors ========================
@@ -245,7 +256,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           validateStatus={mergedValidateStatus}
         >
           <FormItemContext.Provider value={{ updateItemErrors: updateChildItemErrors }}>
-            {baseChildren}
+            {thisChildren}
           </FormItemContext.Provider>
         </FormItemInput>
       </Row>
