@@ -98,8 +98,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       )}-click-animating-node {
         --antd-wave-shadow-color: ${waveColor};
       }`;
-      const node = this.containerRef.current as HTMLDivElement;
-      if (node && !node.ownerDocument.body.contains(styleForPseudo)) {
+      if (!node.ownerDocument.body.contains(styleForPseudo)) {
         node.ownerDocument.body.appendChild(styleForPseudo);
       }
     }
