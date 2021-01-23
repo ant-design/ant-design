@@ -6333,6 +6333,81 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
+      class="ant-col ant-col-6 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="validate_other_childrenAfter"
+        title="childrenAfter"
+      >
+        childrenAfter
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-14 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="validate_other_childrenAfter"
+            type="text"
+            value=""
+          />
+          <span
+            style="position:absolute;top:4px;padding-left:4px"
+          >
+            after
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-6 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="validate_other_childrenBefore"
+        title="childrenBefore"
+      >
+        childrenBefore
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-14 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span>
+            after
+          </span>
+          <input
+            class="ant-input"
+            id="validate_other_childrenBefore"
+            style="width:90%"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
       class="ant-col ant-col-12 ant-col-offset-6 ant-form-item-control"
     >
       <div
