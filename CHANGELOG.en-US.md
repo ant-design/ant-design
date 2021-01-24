@@ -15,7 +15,7 @@ timeline: true
 
 ---
 
-## 4.11.0
+## 4.11.1
 
 `2021-01-24`
 
@@ -45,6 +45,12 @@ timeline: true
 - TypeScript
   - 🤖 Expose interfaces and types from default entry of antd. [#28963](https://github.com/ant-design/ant-design/pull/28963)
   - 🤖 Improve Input/Skeleton `style` definition. [#28966](https://github.com/ant-design/ant-design/pull/28966) [@yingpengsha](https://github.com/yingpengsha)
+
+## 4.11.0
+
+`2021-01-24`
+
+It is a wrong release which same as `4.10.3`, don't use it.
 
 ## 4.10.3
 

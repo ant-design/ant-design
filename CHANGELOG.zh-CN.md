@@ -15,7 +15,7 @@ timeline: true
 
 ---
 
-## 4.11.0
+## 4.11.1
 
 `2021-01-24`
 
@@ -46,6 +46,12 @@ timeline: true
 - TypeScript
   - 🤖 从 antd 默认入口中直接暴露 TypeScript 定义。[#28963](https://github.com/ant-design/ant-design/pull/28963)
   - 🤖 优化 Input/Skeleton 组件的 `style` 定义。[#28966](https://github.com/ant-design/ant-design/pull/28966) [@yingpengsha](https://github.com/yingpengsha)
+
+## 4.11.0
+
+`2021-01-24`
+
+发布失误，此版本与 `4.10.3` 无区别，不要使用这个版本。
 
 ## 4.10.3
 
