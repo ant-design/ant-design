@@ -5,6 +5,7 @@ import {
   RenderedCell as RcRenderedCell,
   ExpandableConfig,
 } from 'rc-table/lib/interface';
+import { TooltipPlacement } from '../tooltip';
 import { CheckboxProps } from '../checkbox';
 import { PaginationProps } from '../pagination';
 import { Breakpoint } from '../_util/responsiveObserve';
@@ -96,6 +97,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
   showSorterTooltip?: boolean;
+  tableTooltipPlacement?: TooltipPlacement;
 
   // Filter
   filtered?: boolean;

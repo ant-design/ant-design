@@ -6,6 +6,7 @@ import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import Spin, { SpinProps } from '../spin';
 import Pagination from '../pagination';
+import { TooltipPlacement } from '../tooltip';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -96,6 +97,7 @@ export interface TableProps<RecordType>
   };
   sortDirections?: SortOrder[];
   showSorterTooltip?: boolean;
+  tooltipPlacement?: TooltipPlacement;
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
@@ -126,6 +128,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections,
     locale,
     showSorterTooltip = true,
+    tooltipPlacement = 'top',
   } = props;
 
   devWarning(
@@ -236,7 +239,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
   };
 
-  /** Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read state out and then put it back to title render. Move these code into `hooks` but still too complex. We should provides Table props like `sorter` & `filter` to handle control in next big version. */
+  /**
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to
+   * read state out and then put it back to title render. Move these code into `hooks` but still
+   * too complex. We should provides Table props like `sorter` & `filter` to handle control in next
+   * big version.
+   */
 
   // ============================ Sorter =============================
   const onSorterChange = (
@@ -259,6 +267,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections: sortDirections || ['ascend', 'descend'],
     tableLocale,
     showSorterTooltip,
+    tooltipPlacement,
   });
   const sortedData = React.useMemo(() => getSortData(rawData, sortStates, childrenColumnName), [
     rawData,

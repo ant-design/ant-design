@@ -14,7 +14,7 @@ import {
   ColumnGroupType,
   TableLocale,
 } from '../interface';
-import Tooltip from '../../tooltip';
+import Tooltip, { TooltipPlacement } from '../../tooltip';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
 
 const ASCEND = 'ascend';
@@ -109,6 +109,7 @@ function injectSorter<RecordType>(
   defaultSortDirections: SortOrder[],
   tableLocale?: TableLocale,
   tableShowSorterTooltip?: boolean,
+  tableTooltipPlacement?: TooltipPlacement,
   pos?: string,
 ): ColumnsType<RecordType> {
   return (columns || []).map((column, index) => {
@@ -121,6 +122,7 @@ function injectSorter<RecordType>(
         newColumn.showSorterTooltip === undefined
           ? tableShowSorterTooltip
           : newColumn.showSorterTooltip;
+      const tooltipPlacement = tableTooltipPlacement || 'top';
       const columnKey = getColumnKey(newColumn, columnPos);
       const sorterState = sorterSates.find(({ key }) => key === columnKey);
       const sorterOrder = sorterState ? sorterState.sortOrder : null;
@@ -166,7 +168,7 @@ function injectSorter<RecordType>(
             </div>
           );
           return showSorterTooltip ? (
-            <Tooltip title={sortTip}>
+            <Tooltip title={sortTip} placement={tooltipPlacement}>
               <div className={`${prefixCls}-column-sorters-with-tooltip`}>{renderSortTitle}</div>
             </Tooltip>
           ) : (
@@ -208,6 +210,7 @@ function injectSorter<RecordType>(
           defaultSortDirections,
           tableLocale,
           tableShowSorterTooltip,
+          tableTooltipPlacement,
           columnPos,
         ),
       };
@@ -307,6 +310,7 @@ interface SorterConfig<RecordType> {
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
   showSorterTooltip?: boolean;
+  tooltipPlacement?: TooltipPlacement;
 }
 
 export default function useFilterSorter<RecordType>({
@@ -316,6 +320,7 @@ export default function useFilterSorter<RecordType>({
   sortDirections,
   tableLocale,
   showSorterTooltip,
+  tooltipPlacement,
 }: SorterConfig<RecordType>): [
   TransformColumns<RecordType>,
   SortState<RecordType>[],
@@ -415,6 +420,7 @@ export default function useFilterSorter<RecordType>({
       sortDirections,
       tableLocale,
       showSorterTooltip,
+      tooltipPlacement,
     );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);
