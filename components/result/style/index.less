@@ -6,19 +6,19 @@
 .@{result-prefix-cls} {
   padding: 48px 32px;
   // status color
-  &-success &-icon > .anticon {
+  &-success &-icon > .@{iconfont-css-prefix} {
     color: @success-color;
   }
 
-  &-error &-icon > .anticon {
+  &-error &-icon > .@{iconfont-css-prefix} {
     color: @error-color;
   }
 
-  &-info &-icon > .anticon {
+  &-info &-icon > .@{iconfont-css-prefix} {
     color: @info-color;
   }
 
-  &-warning &-icon > .anticon {
+  &-warning &-icon > .@{iconfont-css-prefix} {
     color: @warning-color;
   }
 
@@ -33,7 +33,7 @@
     margin-bottom: 24px;
     text-align: center;
 
-    > .anticon {
+    > .@{iconfont-css-prefix} {
       font-size: @result-icon-font-size;
     }
   }

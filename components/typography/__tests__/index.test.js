@@ -233,6 +233,32 @@ describe('Typography', () => {
         const wrapper = mount(<Base ellipsis component="p" />);
         expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
       });
+
+      describe('should tooltip support', () => {
+        function getWrapper(tooltip) {
+          return mount(
+            <Base ellipsis={{ tooltip }} component="p">
+              {fullStr}
+            </Base>,
+          );
+        }
+
+        it('boolean', async () => {
+          const wrapper = getWrapper(true);
+          await sleep(20);
+          wrapper.update();
+
+          expect(wrapper.find('Tooltip').prop('title')).toEqual(fullStr);
+        });
+
+        it('customize', async () => {
+          const wrapper = getWrapper('Bamboo is Light');
+          await sleep(20);
+          wrapper.update();
+
+          expect(wrapper.find('Tooltip').prop('title')).toEqual('Bamboo is Light');
+        });
+      });
     });
 
     describe('copyable', () => {
