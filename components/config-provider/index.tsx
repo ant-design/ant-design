@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { IconProvider } from '@ant-design/icons/lib/'; // keep last '/' since antd-tools need this
 import { FormProvider as RcFormProvider } from 'rc-field-form';
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { RenderEmptyHandler } from './renderEmpty';
-import type { Locale } from '../locale-provider';
-import LocaleProvider, { ANT_MARK } from '../locale-provider';
+import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import {
   ConfigConsumer,
@@ -14,11 +13,10 @@ import {
   DirectionType,
   ConfigConsumerProps,
 } from './context';
-import type { SizeType } from './SizeContext';
-import SizeContext, { SizeContextProvider } from './SizeContext';
+import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
-import type { RequiredMark } from '../form/Form';
+import { RequiredMark } from '../form/Form';
 
 export {
   RenderEmptyHandler,
