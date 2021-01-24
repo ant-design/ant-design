@@ -76,6 +76,7 @@ const columns = [
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | true |  |
 | showSorterTooltip | The header show next sorter direction tooltip | boolean | true |  |
+| tooltipPlacement | The position of the tooltip | [Tooltip](/components/tooltip/) | `top` |  |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |  |
 | sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
@@ -92,18 +93,17 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 
 ```jsx
 <Table
-  onRow={(record, rowIndex) => {
-    return {
+  onRow={(record, rowIndex) =>({
       onClick: event => {}, // click row
       onDoubleClick: event => {}, // double click row
       onContextMenu: event => {}, // right button click row
       onMouseEnter: event => {}, // mouse enter row
       onMouseLeave: event => {}, // mouse leave row
-    };
+    })  };
   }}
-  onHeaderRow={column => {
-    return {
+  onHeaderRow={({
       onClick: () => {}, // click header row
+    })w
     };
   }}
 />

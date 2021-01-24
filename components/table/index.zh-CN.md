@@ -83,6 +83,7 @@ const columns = [
 | scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | object | - |  |
 | showHeader | 是否显示表头 | boolean | true |  |
 | showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | true |  |
+| tooltipPlacement | tooltip 位置 | [Tooltip](/components/tooltip/) | `top` |  |
 | size | 表格大小 | `default` \| `middle` \| `small` | default |  |
 | sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
 | sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
@@ -99,18 +100,17 @@ const columns = [
 
 ```jsx
 <Table
-  onRow={record => {
-    return {
+  onRow={record =>({
       onClick: event => {}, // 点击行
       onDoubleClick: event => {},
       onContextMenu: event => {},
       onMouseEnter: event => {}, // 鼠标移入行
       onMouseLeave: event => {},
-    };
+    })  };
   }}
-  onHeaderRow={column => {
-    return {
+  onHeaderRow={({
       onClick: () => {}, // 点击表头行
+    })行
     };
   }}
 />
