@@ -90,7 +90,6 @@ export { default as Empty } from './empty';
 export type { FormInstance, FormProps, FormItemProps } from './form';
 export { default as Form } from './form';
 
-export type {} from './grid';
 export { default as Grid } from './grid';
 
 export type { InputProps } from './input';
