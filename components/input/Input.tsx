@@ -61,7 +61,7 @@ export function fixControlledValue<T>(value: T) {
   return value;
 }
 
-export const hasMaxLength = (val: number) => val >= 0;
+export const hasMaxLength = (val?: number) => typeof val !== 'undefined' && +val >= 0;
 // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
 // fix:#28733 maxlength can't constraint the value set by script, so we need to do it by hand
 export function truncateValue<T>(maxLength: number, value: T) {
@@ -144,6 +144,7 @@ export interface InputState {
   focused: boolean;
   /** `value` from prev props */
   prevValue: any;
+  inputLock: boolean;
 }
 
 class Input extends React.Component<InputProps, InputState> {
@@ -175,6 +176,7 @@ class Input extends React.Component<InputProps, InputState> {
       focused: false,
       // eslint-disable-next-line react/no-unused-state
       prevValue: props.value,
+      inputLock: false,
     };
   }
 
@@ -187,7 +189,16 @@ class Input extends React.Component<InputProps, InputState> {
   }
 
   componentDidMount() {
+    const { inputLock, value } = this.state;
+    const { maxLength } = this.props;
     this.clearPasswordValueAttribute();
+    setTimeout(() => {
+      if (!inputLock && hasMaxLength(maxLength) && maxLength === 5) {
+        this.setState({ value: truncateValue(Number(maxLength), value) }, () => {
+          console.log(this.state);
+        });
+      }
+    }, 0);
   }
 
   // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
@@ -297,6 +308,8 @@ class Input extends React.Component<InputProps, InputState> {
         onFocus={this.onFocus}
         onBlur={this.onBlur}
         onKeyDown={this.handleKeyDown}
+        onCompositionStart={this.handleCompositionStart}
+        onCompositionEnd={this.handleCompositionEnd}
         className={classNames(
           getInputClassName(prefixCls, bordered, customizeSize || size, disabled, this.direction),
           {
@@ -336,9 +349,20 @@ class Input extends React.Component<InputProps, InputState> {
     }
   };
 
+  handleCompositionStart = () => {
+    this.setState({ inputLock: true });
+  };
+
+  handleCompositionEnd = (e: React.CompositionEvent<HTMLInputElement>) => {
+    const { maxLength } = this.props;
+    const { value } = this.state;
+    this.setState({ inputLock: false });
+    e.data = hasMaxLength(maxLength) ? e.data : e.data.slice(0, maxLength! - value.length);
+  };
+
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true, maxLength } = this.props;
+    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
 
@@ -350,7 +374,8 @@ class Input extends React.Component<InputProps, InputState> {
             {...this.props}
             prefixCls={prefixCls}
             inputType="input"
-            value={truncateValue(Number(maxLength), value)}
+            // value={truncateValue(Number(maxLength), value)}
+            value={value}
             element={this.renderInput(prefixCls, size, bordered, input)}
             handleReset={this.handleReset}
             ref={this.saveClearableInput}
