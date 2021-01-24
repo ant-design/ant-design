@@ -39,7 +39,7 @@ timeline: true
 - RTL
   - 💄 修复 Card 按钮在 RTL 模式下的样式问题。[#28915](https://github.com/ant-design/ant-design/pull/28915) [@Aghosey](https://github.com/Aghosey)
 - TypeScript
-  - 🤖 更精确的 Modal.xxx 的 `type` 枚举定义。[#28997](https://github.com/ant-design/ant-design/pull/28997) [@ohhoney1](https://github.com/ohhoney1)
+  - 🤖 从 antd 默认入口中直接暴露 TypeScript 定义。[#28963](https://github.com/ant-design/ant-design/pull/28963)
   - 🤖 优化 Input/Skeleton 组件的 `style` 定义。[#28966](https://github.com/ant-design/ant-design/pull/28966) [@yingpengsha](https://github.com/yingpengsha)
 
 ## 4.10.3

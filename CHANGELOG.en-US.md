@@ -19,7 +19,7 @@ timeline: true
 
 `2021-01-24`
 
-- 💄 Layout inline sub menu add background color to help distinguish level. [#28842](https://github.com/ant-design/ant-design/pull/28842)
+- 💄 Layout inline sub menu now has grey background. [#28842](https://github.com/ant-design/ant-design/pull/28842)
 - 🆕 PageHeader supports `breadcrumbRender`. [#28999](https://github.com/ant-design/ant-design/pull/28999)
 - 🆕 Typography `ellipsis` support `tooltip` to customize tooltip when ellipsis. [#28821](https://github.com/ant-design/ant-design/pull/28821)
 - 🆕 Image support `preview.maskClassName`. [#28681](https://github.com/ant-design/ant-design/pull/28681)
@@ -27,7 +27,7 @@ timeline: true
   - 🆕 ConfigProvider supports `iconPrefixCls`. [#28924](https://github.com/ant-design/ant-design/pull/28924)
   - ⚡️ Optimize ConfigProvider props updating perfermance. [#28792](https://github.com/ant-design/ant-design/pull/28792) [@zxc0328](https://github.com/zxc0328)
 - 💄 Tweak TreeSelect filter highlight color. [#28984](https://github.com/ant-design/ant-design/pull/28984)
-- 💄 Fix Select item align style when custom `tagRender`. [#28962](https://github.com/ant-design/ant-design/pull/28962)
+- 💄 Fix Select item align style with custom `tagRender`. [#28962](https://github.com/ant-design/ant-design/pull/28962)
 - Form
   - 🐞 Fix Form.Item can not clear nested `noStyle` error message. [#28918](https://github.com/ant-design/ant-design/pull/28918)
   - 🐞 Form.Item with `preserve=false` will reset value to `initialValues` when removed. [#28908](https://github.com/ant-design/ant-design/pull/28908)
@@ -39,7 +39,7 @@ timeline: true
 - RTL
   - 💄 Fix Card actions divider style in RTL. [#28915](https://github.com/ant-design/ant-design/pull/28915) [@Aghosey](https://github.com/Aghosey)
 - TypeScript
-  - 🤖 Improve Modal.xxx `type` definition. [#28997](https://github.com/ant-design/ant-design/pull/28997) [@ohhoney1](https://github.com/ohhoney1)
+  - 🤖 Expose interfaces and types from default entry of antd. [#28963](https://github.com/ant-design/ant-design/pull/28963)
   - 🤖 Improve Input/Skeleton `style` definition. [#28966](https://github.com/ant-design/ant-design/pull/28966) [@yingpengsha](https://github.com/yingpengsha)
 
 ## 4.10.3
