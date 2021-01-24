@@ -215,10 +215,12 @@ describe('Table.sorter', () => {
     expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
   });
 
-  it('should show correct placement tooltip when set tooltipPlacement', () => {
+  it('should show correct tooltip when showSorterTooltip is an object', () => {
     // basically copied from 'hover header show sorter tooltip'
     jest.useFakeTimers();
-    const wrapper = mount(createTable({ tooltipPlacement: 'bottom' }));
+    const wrapper = mount(
+      createTable({ showSorterTooltip: { placement: 'bottom', title: 'static title' } }),
+    );
     wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();

@@ -6,7 +6,7 @@ import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import Spin, { SpinProps } from '../spin';
 import Pagination from '../pagination';
-import { TooltipPlacement } from '../tooltip';
+import { TooltipProps } from '../tooltip';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -96,8 +96,7 @@ export interface TableProps<RecordType>
     scrollToFirstRowOnChange?: boolean;
   };
   sortDirections?: SortOrder[];
-  showSorterTooltip?: boolean;
-  tooltipPlacement?: TooltipPlacement;
+  showSorterTooltip?: boolean | TooltipProps;
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
@@ -128,7 +127,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections,
     locale,
     showSorterTooltip = true,
-    tooltipPlacement = 'top',
   } = props;
 
   devWarning(
@@ -267,7 +265,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections: sortDirections || ['ascend', 'descend'],
     tableLocale,
     showSorterTooltip,
-    tooltipPlacement,
   });
   const sortedData = React.useMemo(() => getSortData(rawData, sortStates, childrenColumnName), [
     rawData,
