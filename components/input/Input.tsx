@@ -176,29 +176,24 @@ class Input extends React.Component<InputProps, InputState> {
       focused: false,
       // eslint-disable-next-line react/no-unused-state
       prevValue: props.value,
+      // eslint-disable-next-line react/no-unused-state
       inputLock: false,
     };
   }
 
-  static getDerivedStateFromProps(nextProps: InputProps, { prevValue }: InputState) {
-    const newState: Partial<InputState> = { prevValue: nextProps.value };
+  static getDerivedStateFromProps(nextProps: InputProps, { prevValue, inputLock }: InputState) {
+    const { maxLength, value } = nextProps;
+    const newState: Partial<InputState> = { prevValue: value };
     if (nextProps.value !== undefined || prevValue !== nextProps.value) {
-      newState.value = nextProps.value;
+      if (!inputLock && hasMaxLength(maxLength)) {
+        newState.value = truncateValue(Number(maxLength), value);
+      }
     }
     return newState;
   }
 
   componentDidMount() {
-    const { inputLock, value } = this.state;
-    const { maxLength } = this.props;
     this.clearPasswordValueAttribute();
-    setTimeout(() => {
-      if (!inputLock && hasMaxLength(maxLength) && maxLength === 5) {
-        this.setState({ value: truncateValue(Number(maxLength), value) }, () => {
-          console.log(this.state);
-        });
-      }
-    }, 0);
   }
 
   // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
@@ -304,6 +299,7 @@ class Input extends React.Component<InputProps, InputState> {
       <input
         autoComplete={input.autoComplete}
         {...otherProps}
+        onInput={this.handleInput}
         onChange={this.handleChange}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
@@ -334,6 +330,10 @@ class Input extends React.Component<InputProps, InputState> {
     });
   };
 
+  handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ value: e.target.value });
+  };
+
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setValue(e.target.value, this.clearPasswordValueAttribute);
     resolveOnChange(this.input, e, this.props.onChange);
@@ -350,18 +350,20 @@ class Input extends React.Component<InputProps, InputState> {
   };
 
   handleCompositionStart = () => {
+    // eslint-disable-next-line react/no-unused-state
     this.setState({ inputLock: true });
   };
 
   handleCompositionEnd = (e: React.CompositionEvent<HTMLInputElement>) => {
     const { maxLength } = this.props;
     const { value } = this.state;
+    // eslint-disable-next-line react/no-unused-state
     this.setState({ inputLock: false });
-    e.data = hasMaxLength(maxLength) ? e.data : e.data.slice(0, maxLength! - value.length);
+    e.data = hasMaxLength(maxLength) ? e.data.slice(0, maxLength! - value.length) : e.data;
   };
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
-    const { value, focused } = this.state;
+    const { focused, value } = this.state;
     const { prefixCls: customizePrefixCls, bordered = true } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
