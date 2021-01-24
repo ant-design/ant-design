@@ -176,9 +176,9 @@ export { default as Switch } from './switch';
 export type {
   TableProps,
   TablePaginationConfig,
-  ColumnGroupType,
-  ColumnType,
-  ColumnProps,
+  ColumnGroupType as TableColumnGroupType,
+  ColumnType as TableColumnType,
+  ColumnProps as TableColumnProps,
 } from './table';
 export { default as Table } from './table';
 
