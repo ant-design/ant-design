@@ -3,10 +3,10 @@ const React = require('react');
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useLayoutEffect: jest.requireActual('react').useEffect,
-}));
+// jest.mock('react', () => ({
+//   ...jest.requireActual('react'),
+//   useLayoutEffect: jest.requireActual('react').useEffect,
+// }));
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
