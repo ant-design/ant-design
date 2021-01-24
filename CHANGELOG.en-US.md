@@ -22,7 +22,11 @@ timeline: true
 - 💄 Layout inline sub menu now has grey background. [#28842](https://github.com/ant-design/ant-design/pull/28842)
 - 🆕 PageHeader supports `breadcrumbRender`. [#28999](https://github.com/ant-design/ant-design/pull/28999)
 - 🆕 Typography `ellipsis` support `tooltip` to customize tooltip when ellipsis. [#28821](https://github.com/ant-design/ant-design/pull/28821)
-- 🆕 Image support `preview.maskClassName`. [#28681](https://github.com/ant-design/ant-design/pull/28681)
+- Image
+  - 🆕 Image supports `preview.maskClassName`. [#28681](https://github.com/ant-design/ant-design/pull/28681)
+  - 🐞 Fix preview image will move after click it. [react-component/image#61](https://github.com/react-component/image/pull/61) [@simonwong](https://github.com/simonwong)
+  - 🐞 Fix Image `placeholder` disappear issue. [#28953](https://github.com/ant-design/ant-design/issues/28953)
+  - 🐞 Fix multiple Image.PreviewGroup contain same image. [#28881](https://github.com/ant-design/ant-design/issues/28881)
 - ConfigProvider
   - 🆕 ConfigProvider supports `iconPrefixCls`. [#28924](https://github.com/ant-design/ant-design/pull/28924)
   - ⚡️ Optimize ConfigProvider props updating perfermance. [#28792](https://github.com/ant-design/ant-design/pull/28792) [@zxc0328](https://github.com/zxc0328)

@@ -22,7 +22,12 @@ timeline: true
 - 💄 Layout 内联子表单添加背景颜色以更好的区分层级。[#28842](https://github.com/ant-design/ant-design/pull/28842)
 - 🆕 PageHeader 支持 `breadcrumbRender` 属性。[#28999](https://github.com/ant-design/ant-design/pull/28999)
 - 🆕 Typography `ellipsis` 属性添加 `tooltip` 支持以自定义收缩时的提示信息。[#28821](https://github.com/ant-design/ant-design/pull/28821)
-- 🆕 Image 支持配置 `preview.maskClassName`。[#28681](https://github.com/ant-design/ant-design/pull/28681)
+- Image
+  - 🆕 Image 支持配置 `preview.maskClassName`。[#28681](https://github.com/ant-design/ant-design/pull/28681)
+  - 🐞 修复预览图片会跟随鼠标移动的问题。[react-component/image#61](https://github.com/react-component/image/pull/61) [@simonwong](https://github.com/simonwong)
+  - 🐞 修复 Image `placeholder` 不显示的问题。[#28953](https://github.com/ant-design/ant-design/issues/28953)
+  - 🐞 修复多个 Image.PreviewGroup 之间图片互串的问题。[#28881](https://github.com/ant-design/ant-design/issues/28881)
+- ConfigProvider
 - ConfigProvider
   - 🆕 ConfigProvider 支持 `iconPrefixCls` 修改图标样式前缀。[#28924](https://github.com/ant-design/ant-design/pull/28924)
   - ⚡️ 优化 ConfigProvider 切换属性的性能。[#28792](https://github.com/ant-design/ant-design/pull/28792) [@zxc0328](https://github.com/zxc0328)
