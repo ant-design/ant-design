@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { IconProvider } from '@ant-design/icons/lib/'; // keep last '/' since antd-tools need this
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
@@ -38,10 +39,21 @@ export const configConsumerProps = [
   'pageHeader',
 ];
 
+// These props is used by `useContext` directly in sub component
+const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPrefixCls'>[] = [
+  'getTargetContainer',
+  'getPopupContainer',
+  'renderEmpty',
+  'pageHeader',
+  'input',
+  'form',
+];
+
 export interface ConfigProviderProps {
   getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
+  iconPrefixCls?: string;
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
@@ -74,15 +86,10 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const {
     children,
-    getTargetContainer,
-    getPopupContainer,
-    renderEmpty,
     csp,
     autoInsertSpaceInButton,
     form,
-    input,
     locale,
-    pageHeader,
     componentSize,
     direction,
     space,
@@ -90,6 +97,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     dropdownMatchSelectWidth,
     legacyLocale,
     parentContext,
+    iconPrefixCls,
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -116,29 +124,15 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     dropdownMatchSelectWidth,
     getPrefixCls,
   };
-  if (getTargetContainer) {
-    config.getTargetContainer = getTargetContainer;
-  }
 
-  if (getPopupContainer) {
-    config.getPopupContainer = getPopupContainer;
-  }
-
-  if (renderEmpty) {
-    config.renderEmpty = renderEmpty;
-  }
-
-  if (pageHeader) {
-    config.pageHeader = pageHeader;
-  }
-
-  if (input) {
-    config.input = input;
-  }
-
-  if (form) {
-    config.form = form;
-  }
+  // Pass the props used by `useContext` directly with child component.
+  // These props should merged into `config`.
+  PASSED_PROPS.forEach(propName => {
+    const propValue: any = props[propName];
+    if (propValue) {
+      (config as any)[propName] = propValue;
+    }
+  });
 
   // https://github.com/ant-design/ant-design/issues/27617
   const memoedConfig = useMemo(
@@ -169,20 +163,23 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
   }
 
-  const childrenWithLocale =
-    locale === undefined ? (
-      childNode
-    ) : (
+  if (locale) {
+    childNode = (
       <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
         {childNode}
       </LocaleProvider>
     );
+  }
 
-  return (
-    <SizeContextProvider size={componentSize}>
-      <ConfigContext.Provider value={memoedConfig}>{childrenWithLocale}</ConfigContext.Provider>
-    </SizeContextProvider>
-  );
+  if (iconPrefixCls) {
+    childNode = <IconProvider value={{ prefixCls: iconPrefixCls }}>{childNode}</IconProvider>;
+  }
+
+  if (componentSize) {
+    childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
+  }
+
+  return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
