@@ -1,0 +1,18 @@
+name: 🤖 Auto Make Release
+
+on:
+  create
+
+jobs:
+  release-helper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: make release
+        uses: actions-cool/release-helper@v1
+        with:
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          triger: 'tag'
+          changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
+          branch: 'master'
+          dingding-token: ${{ secrets.DINGDING_BOT_TOKEN }}
+          dingding-msg: 'CHANGELOG.zh-CN.md'
