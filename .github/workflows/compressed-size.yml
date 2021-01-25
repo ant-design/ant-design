@@ -15,4 +15,4 @@ jobs:
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         pattern: "./dist/**/*.min.{js,css}"
-        build-script: "dist"
+        build-script: "dist:esbuild"
