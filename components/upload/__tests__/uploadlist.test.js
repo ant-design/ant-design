@@ -494,7 +494,6 @@ describe('Upload List', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
-
   it('should support custom onClick in custom icon', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();

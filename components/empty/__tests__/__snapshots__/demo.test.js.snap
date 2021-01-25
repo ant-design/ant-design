@@ -67,11 +67,11 @@ exports[`renders ./components/empty/demo/basic.md correctly 1`] = `
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="ant-empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;
 
@@ -359,11 +359,11 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                   </g>
                 </svg>
               </div>
-              <div
+              <p
                 class="ant-empty-description"
               >
                 No Data
-              </div>
+              </p>
             </div>
           </div>
         </div>
@@ -517,11 +517,11 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                   </g>
                 </svg>
               </div>
-              <div
+              <p
                 class="ant-empty-description"
               >
                 No Data
-              </div>
+              </p>
             </div>
           </div>
         </div>
@@ -619,11 +619,11 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                               </g>
                             </svg>
                           </div>
-                          <div
+                          <p
                             class="ant-empty-description"
                           >
                             No Data
-                          </div>
+                          </p>
                         </div>
                       </td>
                     </tr>
@@ -690,11 +690,11 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                   </g>
                 </svg>
               </div>
-              <div
+              <p
                 class="ant-empty-description"
               >
                 No Data
-              </div>
+              </p>
             </div>
           </div>
         </div>
@@ -717,7 +717,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
       src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
     />
   </div>
-  <div
+  <p
     class="ant-empty-description"
   >
     <span>
@@ -728,7 +728,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
         Description
       </a>
     </span>
-  </div>
+  </p>
   <div
     class="ant-empty-footer"
   >
@@ -855,10 +855,10 @@ exports[`renders ./components/empty/demo/simple.md correctly 1`] = `
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="ant-empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;

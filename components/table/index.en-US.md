@@ -166,8 +166,8 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 Properties for expandable.
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| columnWidth | Set the width of the expand column | string \| number | - |
+| --- | --- | --- | --- | --- |
+| columnWidth | Set the width of the expand column | string \| number | - |  |
 | childrenColumnName | The column contains children to display | string | children |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
@@ -190,7 +190,7 @@ Properties for row selection.
 | --- | --- | --- | --- | --- |
 | checkStrictly | Check table row precisely; parent row and children rows are not associated | boolean | true | 4.4.0 |
 | columnTitle | Set the title of the selection column | ReactNode | - |  |
-| columnWidth | Set the width of the selection column | string \| number | `32px` |  |
+| columnWidth | Set the width of the selection column | string \| number | `60px` |  |
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | function(record) | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3.0 |
@@ -210,8 +210,8 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - |
-| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
-| y | Set vertical scrolling, can also be used to specify the height of the scroll area, could be string or number | string \| number | - |
+| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
+| y | Set vertical scrolling, can also be used to specify the height of the scroll area, could be number | number | - |
 
 ### selection
 

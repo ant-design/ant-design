@@ -67,10 +67,10 @@ exports[`ConfigProvider render empty 1`] = `
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="ant-empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;

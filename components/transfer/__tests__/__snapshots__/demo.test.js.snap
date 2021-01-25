@@ -133,11 +133,11 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -344,11 +344,11 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -1150,11 +1150,11 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -1309,11 +1309,11 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -1833,11 +1833,11 @@ Array [
                 </g>
               </svg>
             </div>
-            <div
+            <p
               class="ant-empty-description"
             >
               No Data
-            </div>
+            </p>
           </div>
         </div>
       </div>
@@ -1976,11 +1976,11 @@ Array [
                 </g>
               </svg>
             </div>
-            <div
+            <p
               class="ant-empty-description"
             >
               No Data
-            </div>
+            </p>
           </div>
         </div>
       </div>
@@ -2875,11 +2875,11 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -3066,11 +3066,11 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -4581,11 +4581,11 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>

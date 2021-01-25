@@ -3,7 +3,7 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
+const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
 
@@ -99,9 +99,8 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     config.optimization.usedExports = true;
     // use esbuild
     if (process.env.ESBUILD || process.env.CSB_REPO) {
-      config.plugins.push(new ESBuildPlugin());
-      config.optimization.minimizer[0] = new ESBuildMinifyPlugin({
-        target: 'es2015',
+      config.optimization.minimizer[0] = new EsbuildPlugin({
+        target: 'chrome49',
       });
     }
 

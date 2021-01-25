@@ -53,11 +53,11 @@ exports[`List rtl render component should be rendered correctly in RTL direction
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>

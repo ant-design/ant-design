@@ -173,8 +173,8 @@ const columns = [
 展开功能的配置。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| columnWidth | 自定义展开列宽度 | string \| number | - |
+| --- | --- | --- | --- | --- |
+| columnWidth | 自定义展开列宽度 | string \| number | - |  |
 | childrenColumnName | 指定树形结构的列名 | string | children |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
@@ -197,7 +197,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
 | columnTitle | 自定义列表选择框标题 | ReactNode | - |  |
-| columnWidth | 自定义列表选择框宽度 | string \| number | `32px` |  |
+| columnWidth | 自定义列表选择框宽度 | string \| number | `60px` |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | function(record) | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3.0 |
@@ -217,8 +217,8 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - |
-| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
-| y | 设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值 | string \| number | - |
+| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
+| y | 设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值 | number | - |
 
 ### selection
 

@@ -105,7 +105,7 @@ module.exports = {
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到类似 [less-loader](https://github.com/webpack-contrib/less-loader/) 提供的 less 变量覆盖功能。我们可以引入 [craco-antd](https://github.com/DocSpring/craco-antd) 来帮助加载 less 样式和修改变量。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到类似 [less-loader](https://github.com/webpack-contrib/less-loader/) 提供的 less 变量覆盖功能。我们可以引入 [craco-less](https://github.com/DocSpring/craco-less) 来帮助加载 less 样式和修改变量。
 
 首先把 `src/App.css` 文件修改为 `src/App.less`，然后修改样式引用为 less 文件。
 
@@ -118,24 +118,28 @@ module.exports = {
 ```diff
 /* src/App.less */
 - @import '~antd/dist/antd.css';
++ @import '~antd/dist/antd.less';
 ```
 
-然后安装 `craco-antd` 并修改 `craco.config.js` 文件如下。
+然后安装 `craco-less` 并修改 `craco.config.js` 文件如下。
 
 ```bash
-$ yarn add craco-antd
+$ yarn add craco-less
 ```
 
 ```js
-const CracoAntDesignPlugin = require('craco-antd');
+const CracoLessPlugin = require('craco-less');
 
 module.exports = {
   plugins: [
     {
-      plugin: CracoAntDesignPlugin,
+      plugin: CracoLessPlugin,
       options: {
-        customizeTheme: {
-          '@primary-color': '#1DA57A',
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: { '@primary-color': '#1DA57A' },
+            javascriptEnabled: true,
+          },
         },
       },
     },

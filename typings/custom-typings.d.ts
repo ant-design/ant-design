@@ -18,6 +18,8 @@ declare module 'jsonml.js/*';
 
 declare module 'rc-pagination/*';
 
+declare module 'omit.js';
+
 declare module 'rc-animate*';
 
 declare module 'rc-util*';

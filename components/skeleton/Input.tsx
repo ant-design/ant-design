@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from 'rc-util/lib/omit';
+import omit from 'omit.js';
 import classNames from 'classnames';
 import Element, { SkeletonElementProps } from './Element';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';

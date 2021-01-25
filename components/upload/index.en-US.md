@@ -27,7 +27,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
 | directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |  |
 | disabled | Disable upload button | boolean | false |  |
-| fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | [UploadFile](#UploadFile)\[] | - |  |
+| fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | object\[] | - |  |
 | headers | Set request headers, valid above IE10 | object | - |  |
 | iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
 | isImageUrl | Customize if render &lt;img /> in thumbnail | (file: UploadFile) => boolean | [(inside implementation)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
@@ -45,19 +45,6 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |  |
 | onPreview | A callback function, will be executed when file link or preview icon is clicked | function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  |
-
-### UploadFile
-
-Extends File with additional props.
-
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| uid | unique id. Will auto generate when not provided | string | - |
-| name | File name | string | - |
-| url | Download url | string | - |
-| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
-| percent | Upload progress percent | number | - |
-| thumbUrl | Thumb image url | string | - |
 
 ### onChange
 

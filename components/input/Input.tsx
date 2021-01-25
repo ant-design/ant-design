@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import omit from 'omit.js';
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
@@ -280,7 +280,7 @@ class Input extends React.Component<InputProps, InputState> {
   ) => {
     const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
     // Fix https://fb.me/react-unknown-prop
-    const otherProps = omit(this.props as InputProps & { inputType: any }, [
+    const otherProps = omit(this.props, [
       'prefixCls',
       'onPressEnter',
       'addonBefore',

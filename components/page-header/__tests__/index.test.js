@@ -50,14 +50,6 @@ describe('PageHeader', () => {
     expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
   });
 
-  it('pageHeader support breadcrumbRender', () => {
-    const wrapper = mount(
-      <PageHeader title="Page Title" breadcrumbRender={() => <div id="test">test</div>} />,
-    );
-    expect(wrapper.find('#test')).toHaveLength(1);
-    expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
-  });
-
   it('pageHeader do not has title', () => {
     const routes = [
       {

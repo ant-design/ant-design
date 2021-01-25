@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import omit from 'omit.js';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import CheckableTag from './CheckableTag';
@@ -36,7 +36,7 @@ export interface TagType
   CheckableTag: typeof CheckableTag;
 }
 
-const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
+const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (
   {
     prefixCls: customizePrefixCls,
     className,

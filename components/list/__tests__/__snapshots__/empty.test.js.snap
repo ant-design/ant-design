@@ -53,11 +53,11 @@ exports[`List renders empty list 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>

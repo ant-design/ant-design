@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage, { ImageProps } from 'rc-image';
 import defaultLocale from '../locale/en_US';
-import PreviewGroup, { icons } from './PreviewGroup';
+import PreviewGroup from './PreviewGroup';
 import { ConfigContext } from '../config-provider';
 
 export interface CompositionImage<P> extends React.FC<P> {
@@ -33,7 +33,6 @@ const Image: CompositionImage<ImageProps> = ({
           {imageLocale?.preview}
         </div>
       ),
-      icons,
       ...(typeof preview === 'object' ? preview : null),
     };
   }, [preview, imageLocale]);
