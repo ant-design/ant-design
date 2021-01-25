@@ -1,14 +1,15 @@
-name: Mirror
+name: 🔀 Mirror to Gitee
 
-on: [push, delete]
+on: [ push, delete, create ]
 
 jobs:
-  to_gitee:
+  git-mirror:
     runs-on: ubuntu-latest
     if: github.repository == 'ant-design/ant-design'
     steps:
-      - uses: actions/checkout@v1
-      - uses: pixta-dev/repository-mirroring-action@v1
+      - uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
         with:
-          target_repo_url: git@gitee.com:ant-design/ant-design.git
-          ssh_private_key: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+          source-repo: 'git@github.com:ant-design/ant-design.git'
+          destination-repo: 'git@gitee.com:ant-design/ant-design.git'
