@@ -15,6 +15,44 @@ timeline: true
 
 ---
 
+## 4.11.1
+
+`2021-01-24`
+
+- 💄 Layout 内联子表单添加背景颜色以更好的区分层级。[#28842](https://github.com/ant-design/ant-design/pull/28842)
+- 🆕 PageHeader 支持 `breadcrumbRender` 属性。[#28999](https://github.com/ant-design/ant-design/pull/28999)
+- 🆕 Typography `ellipsis` 属性添加 `tooltip` 支持以自定义收缩时的提示信息。[#28821](https://github.com/ant-design/ant-design/pull/28821)
+- Image
+  - 🆕 Image 支持配置 `preview.maskClassName`。[#28681](https://github.com/ant-design/ant-design/pull/28681)
+  - 🐞 修复预览图片会跟随鼠标移动的问题。[react-component/image#61](https://github.com/react-component/image/pull/61) [@simonwong](https://github.com/simonwong)
+  - 🐞 修复 Image `placeholder` 不显示的问题。[#28953](https://github.com/ant-design/ant-design/issues/28953)
+  - 🐞 修复多个 Image.PreviewGroup 之间图片互串的问题。[#28881](https://github.com/ant-design/ant-design/issues/28881)
+- ConfigProvider
+- ConfigProvider
+  - 🆕 ConfigProvider 支持 `iconPrefixCls` 修改图标样式前缀。[#28924](https://github.com/ant-design/ant-design/pull/28924)
+  - ⚡️ 优化 ConfigProvider 切换属性的性能。[#28792](https://github.com/ant-design/ant-design/pull/28792) [@zxc0328](https://github.com/zxc0328)
+- 💄 调整 TreeSelect 搜索高亮条目的颜色。[#28984](https://github.com/ant-design/ant-design/pull/28984)
+- 💄 修复 Select 自定义 `tagRender` 时不对齐的问题。[#28962](https://github.com/ant-design/ant-design/pull/28962)
+- Form
+  - 🐞 修复 Form.Item 无法正确清理嵌套的 `noStyle` 错误信息问题。[#28918](https://github.com/ant-design/ant-design/pull/28918)
+  - 🐞 Form.Item 配置 `preserve=false` 时，移除该字段将自动重置对应值为 `initialValues`。[#28908](https://github.com/ant-design/ant-design/pull/28908)
+- 🐞 修复 Button 点击效果在 Shadow Root 下不生效的问题。[#28995](https://github.com/ant-design/ant-design/pull/28995) [@rinick](https://github.com/rinick)
+- 🐞 修复 Table 自定义筛选器时未正确关闭菜单的问题。[#28688](https://github.com/ant-design/ant-design/pull/28688) [@alekye](https://github.com/alekye)
+- Less
+  - 💄 新增 less 变量 `@drawer-footer-padding-horizontal`。[#28975](https://github.com/ant-design/ant-design/pull/28975) [@yuxuan](https://github.com/yuxuan)
+  - 💄 新增 `@menu-inline-submenu-bg` 变量，且 `@menu-dark-submenu-bg` 改名为 `@menu-dark-inline-submenu-bg`。[#28842](https://github.com/ant-design/ant-design/pull/28842)
+- RTL
+  - 💄 修复 Card 按钮在 RTL 模式下的样式问题。[#28915](https://github.com/ant-design/ant-design/pull/28915) [@Aghosey](https://github.com/Aghosey)
+- TypeScript
+  - 🤖 从 antd 默认入口中直接暴露 TypeScript 定义。[#28963](https://github.com/ant-design/ant-design/pull/28963)
+  - 🤖 优化 Input/Skeleton 组件的 `style` 定义。[#28966](https://github.com/ant-design/ant-design/pull/28966) [@yingpengsha](https://github.com/yingpengsha)
+
+## 4.11.0
+
+`2021-01-24`
+
+发布失误，此版本与 `4.10.3` 无区别，不要使用这个版本。
+
 ## 4.10.3
 
 `2021-01-18`

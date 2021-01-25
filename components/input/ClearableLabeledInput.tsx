@@ -26,7 +26,7 @@ interface BasicProps {
   element: React.ReactElement;
   handleReset: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   className?: string;
-  style?: object;
+  style?: React.CSSProperties;
   disabled?: boolean;
   direction?: DirectionType;
   focused?: boolean;
