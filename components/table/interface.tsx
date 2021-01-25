@@ -67,6 +67,8 @@ export type ColumnTitle<RecordType> =
   | React.ReactNode
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
+export type TableFilterValues = (Key | boolean)[];
+
 export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
@@ -102,7 +104,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterMultiple?: boolean;
-  filteredValue?: Key[] | null;
+  filteredValue?: TableFilterValues | null;
   defaultFilteredValue?: Key[] | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
