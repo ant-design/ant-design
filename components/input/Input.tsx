@@ -376,7 +376,6 @@ class Input extends React.Component<InputProps, InputState> {
             {...this.props}
             prefixCls={prefixCls}
             inputType="input"
-            // value={truncateValue(Number(maxLength), value)}
             value={value}
             element={this.renderInput(prefixCls, size, bordered, input)}
             handleReset={this.handleReset}

@@ -27,16 +27,16 @@ describe('Input', () => {
 
   it('should prevent input if maxLength is 0', () => {
     const wrapper = mount(<Input maxLength={0} />);
-    wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper.find('input').prop('value')).toBe('');
+    wrapper.setProps({ value: '111' });
+    expect(wrapper.state('value')).toBe('');
   });
 
   it('should constraint maxLength set by script', () => {
     const wrapper = mount(<Input maxLength={3} />);
-    wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper.find('input').prop('value')).toBe('111');
-    wrapper.find('input').simulate('change', { target: { value: '2222' } });
-    expect(wrapper.find('input').prop('value')).toBe('222');
+    wrapper.setProps({ value: '111' });
+    expect(wrapper.state('value')).toBe('111');
+    wrapper.setProps({ value: '2222' });
+    expect(wrapper.state('value')).toBe('222');
   });
 
   it('select()', () => {
@@ -137,7 +137,7 @@ describe('As Form Control', () => {
     expect(wrapper.find('input').prop('value')).toBe('111');
     expect(wrapper.find('textarea').prop('value')).toBe('222');
     wrapper.find('button').simulate('click');
-    expect(wrapper.find('input').prop('value')).toBe('');
+    expect(wrapper.find('input').prop('value')).toBeUndefined();
     expect(wrapper.find('textarea').prop('value')).toBe('');
   });
 });

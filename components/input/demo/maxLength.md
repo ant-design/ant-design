@@ -22,7 +22,7 @@ const Max = ()=>{
     
     return (
         <>
-        <Input placeholder="maxLength" maxLength={5} value={value} onChange={e=>setValue(e.target.value)} />
+        <Input placeholder="maxLength" maxLength={0} value={value} onChange={e=>setValue(e.target.value)} />
         <Input.TextArea placeholder="maxLength" maxLength={5} value={value} onChange={e=>setValue(e.target.value)} showCount />
         <Button onClick={()=>setValue('123456')}> set value </Button>
         </>
