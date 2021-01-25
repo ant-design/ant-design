@@ -99,17 +99,18 @@ const columns = [
 
 ```jsx
 <Table
-  onRow={record =>({
+  onRow={record => {
+    return {
       onClick: event => {}, // 点击行
       onDoubleClick: event => {},
       onContextMenu: event => {},
       onMouseEnter: event => {}, // 鼠标移入行
       onMouseLeave: event => {},
-    })  };
+    };
   }}
-  onHeaderRow={({
+  onHeaderRow={column => {
+    return {
       onClick: () => {}, // 点击表头行
-    })行
     };
   }}
 />
