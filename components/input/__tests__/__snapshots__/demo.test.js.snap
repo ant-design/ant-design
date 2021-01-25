@@ -274,7 +274,6 @@ Array [
     class="ant-input"
     style="width:100px"
     type="text"
-    value=""
   />,
   <span
     class="ant-typography"
@@ -320,7 +319,6 @@ Array [
     <input
       class="ant-input"
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -343,7 +341,6 @@ Array [
       <input
         class="ant-input"
         type="text"
-        value=""
       />
       <span
         class="ant-input-group-addon"
@@ -918,7 +915,6 @@ Array [
     <input
       class="ant-input"
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -930,7 +926,6 @@ Array [
     class="ant-input"
     style="width:50px"
     type="text"
-    value=""
   />,
   <span
     class="ant-input-affix-wrapper"
@@ -959,7 +954,6 @@ Array [
       class="ant-input"
       placeholder="input with clear icon"
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -1047,7 +1041,6 @@ exports[`renders ./components/input/demo/basic.md correctly 1`] = `
   class="ant-input"
   placeholder="Basic usage"
   type="text"
-  value=""
 />
 `;
 
@@ -1056,7 +1049,6 @@ exports[`renders ./components/input/demo/borderless.md correctly 1`] = `
   class="ant-input ant-input-borderless"
   placeholder="Borderless"
   type="text"
-  value=""
 />
 `;
 
@@ -1068,13 +1060,11 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     class="ant-input ant-input-borderless"
     placeholder="Unbordered"
     type="text"
-    value=""
   />
   <input
     class="ant-input ant-input-lg ant-input-borderless"
     placeholder="Unbordered"
     type="text"
-    value=""
   />
   <textarea
     class="ant-input ant-input-borderless"
@@ -1115,7 +1105,6 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
       class="ant-input ant-input-borderless"
       placeholder="Unbordered"
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -1153,7 +1142,6 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     <input
       class="ant-input ant-input-borderless"
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -1173,7 +1161,6 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
       class="ant-input ant-input-disabled ant-input-borderless"
       disabled=""
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -2152,7 +2139,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       placeholder="Minimum"
       style="width:100px;text-align:center"
       type="text"
-      value=""
     />
     <input
       class="ant-input ant-input-disabled site-input-split"
@@ -2160,14 +2146,12 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       placeholder="~"
       style="width:30px;border-left:0;border-right:0;pointer-events:none"
       type="text"
-      value=""
     />
     <input
       class="ant-input site-input-right"
       placeholder="Maximum"
       style="width:100px;text-align:center"
       type="text"
-      value=""
     />
   </span>
   <br />
@@ -2370,6 +2354,38 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/input/demo/maxLength.md correctly 1`] = `
+Array [
+  <input
+    class="ant-input"
+    maxlength="5"
+    placeholder="maxLength"
+    type="text"
+    value="1234"
+  />,
+  <div
+    class="ant-input-textarea ant-input-textarea-show-count"
+    data-count="4 / 5"
+  >
+    <textarea
+      class="ant-input"
+      maxlength="5"
+      placeholder="maxLength"
+    >
+      1234
+    </textarea>
+  </div>,
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+       set value 
+    </span>
+  </button>,
+]
+`;
+
 exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2386,7 +2402,6 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
         class="ant-input"
         placeholder="input password"
         type="password"
-        value=""
       />
       <span
         class="ant-input-suffix"
@@ -2428,7 +2443,6 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
         class="ant-input"
         placeholder="input password"
         type="password"
-        value=""
       />
       <span
         class="ant-input-suffix"
@@ -2494,7 +2508,6 @@ Array [
       class="ant-input"
       placeholder="Enter your username"
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -2537,7 +2550,6 @@ Array [
     <input
       class="ant-input"
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -2559,7 +2571,6 @@ Array [
       class="ant-input ant-input-disabled"
       disabled=""
       type="text"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -2589,7 +2600,6 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
           class="ant-input"
           placeholder="input search text"
           type="text"
-          value=""
         />
         <span
           class="ant-input-group-addon"
@@ -2712,7 +2722,6 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
           class="ant-input"
           placeholder="input search text"
           type="text"
-          value=""
         />
         <span
           class="ant-input-group-addon"
@@ -2877,7 +2886,6 @@ Array [
         class="ant-input"
         placeholder="input search loading default"
         type="text"
-        value=""
       />
       <span
         class="ant-input-group-addon"
@@ -2925,7 +2933,6 @@ Array [
         class="ant-input"
         placeholder="input search loading with enterButton"
         type="text"
-        value=""
       />
       <span
         class="ant-input-group-addon"
@@ -2973,7 +2980,6 @@ Array [
         class="ant-input ant-input-lg"
         placeholder="input search text"
         type="text"
-        value=""
       />
       <span
         class="ant-input-group-addon"
@@ -3047,7 +3053,6 @@ Array [
       class="ant-input ant-input-lg"
       placeholder="large size"
       type="text"
-      value=""
     />
   </span>,
   <br />,
@@ -3082,7 +3087,6 @@ Array [
       class="ant-input"
       placeholder="default size"
       type="text"
-      value=""
     />
   </span>,
   <br />,
@@ -3117,7 +3121,6 @@ Array [
       class="ant-input ant-input-sm"
       placeholder="small size"
       type="text"
-      value=""
     />
   </span>,
 ]

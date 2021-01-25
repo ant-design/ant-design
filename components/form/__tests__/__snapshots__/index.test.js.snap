@@ -20,7 +20,6 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
             class="ant-input"
             id="light"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -49,7 +48,6 @@ exports[`Form Form item hidden should work 1`] = `
             class="ant-input"
             id="light"
             type="text"
-            value=""
           />
         </div>
       </div>

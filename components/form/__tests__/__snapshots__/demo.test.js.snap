@@ -42,7 +42,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   id="advanced_search_field-0"
                   placeholder="placeholder"
                   type="text"
-                  value=""
                 />
               </div>
             </div>
@@ -81,7 +80,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   id="advanced_search_field-1"
                   placeholder="placeholder"
                   type="text"
-                  value=""
                 />
               </div>
             </div>
@@ -120,7 +118,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   id="advanced_search_field-2"
                   placeholder="placeholder"
                   type="text"
-                  value=""
                 />
               </div>
             </div>
@@ -159,7 +156,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   id="advanced_search_field-3"
                   placeholder="placeholder"
                   type="text"
-                  value=""
                 />
               </div>
             </div>
@@ -198,7 +194,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   id="advanced_search_field-4"
                   placeholder="placeholder"
                   type="text"
-                  value=""
                 />
               </div>
             </div>
@@ -237,7 +232,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   id="advanced_search_field-5"
                   placeholder="placeholder"
                   type="text"
-                  value=""
                 />
               </div>
             </div>
@@ -336,7 +330,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
             class="ant-input"
             id="basic_username"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -373,7 +366,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
               class="ant-input"
               id="basic_password"
               type="password"
-              value=""
             />
             <span
               class="ant-input-suffix"
@@ -502,7 +494,6 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
             class="ant-input"
             id="control-hooks_note"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -669,7 +660,6 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
             class="ant-input"
             id="control-ref_note"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -1277,7 +1267,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
                 class="ant-input"
                 placeholder="unavailable choice"
                 type="text"
-                value=""
               />
             </span>
           </span>
@@ -1322,7 +1311,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
                 class="ant-input"
                 placeholder="unavailable choice"
                 type="text"
-                value=""
               />
             </span>
           </span>
@@ -1377,7 +1365,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
                 disabled=""
                 placeholder="unavailable choice"
                 type="text"
-                value=""
               />
             </span>
           </span>
@@ -1928,7 +1915,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             id="dynamic_rule_username"
             placeholder="Please input your name"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -1962,7 +1948,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             id="dynamic_rule_nickname"
             placeholder="Please input your nickname"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -2061,7 +2046,6 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             class="ant-input"
             id="basicForm_group"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -2200,7 +2184,6 @@ Array [
               class="ant-input"
               id="global_state_username"
               type="text"
-              value=""
             />
           </div>
         </div>
@@ -2270,7 +2253,6 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
               id="horizontal_login_username"
               placeholder="Username"
               type="text"
-              value=""
             />
           </span>
         </div>
@@ -2320,7 +2302,6 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
               id="horizontal_login_password"
               placeholder="Password"
               type="password"
-              value=""
             />
           </span>
         </div>
@@ -2474,7 +2455,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             class="ant-input"
             placeholder="input placeholder"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -2506,7 +2486,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             class="ant-input"
             placeholder="input placeholder"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -2571,7 +2550,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             class="ant-input"
             id="nest-messages_user_name"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -2604,7 +2582,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             class="ant-input"
             id="nest-messages_user_email"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -2740,7 +2717,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             class="ant-input"
             id="nest-messages_user_website"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -2852,7 +2828,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               id="normal_login_username"
               placeholder="Username"
               type="text"
-              value=""
             />
           </span>
         </div>
@@ -2902,7 +2877,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               id="normal_login_password"
               placeholder="Password"
               type="password"
-              value=""
             />
           </span>
         </div>
@@ -3015,7 +2989,6 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
             class="ant-input"
             id="test"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -3094,7 +3067,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             id="register_email"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -3131,7 +3103,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-input"
               id="register_password"
               type="password"
-              value=""
             />
             <span
               class="ant-input-suffix"
@@ -3196,7 +3167,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-input"
               id="register_confirm"
               type="password"
-              value=""
             />
             <span
               class="ant-input-suffix"
@@ -3281,7 +3251,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             id="register_nickname"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -3471,7 +3440,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-input"
                 id="register_phone"
                 type="text"
-                value=""
               />
             </span>
           </span>
@@ -3570,7 +3538,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-input"
                 id="register_captcha"
                 type="text"
-                value=""
               />
             </div>
             <div
@@ -3810,7 +3777,6 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
             class="ant-input"
             placeholder="input placeholder"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -3869,7 +3835,6 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
             class="ant-input"
             placeholder="input placeholder"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -4021,7 +3986,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           <input
             class="ant-input"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -6387,7 +6351,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="error"
             placeholder="unavailable choice"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -6455,7 +6418,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               id="warning"
               placeholder="Warning"
               type="text"
-              value=""
             />
           </span>
         </div>
@@ -6489,7 +6451,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="validating"
             placeholder="I'm the content is being validated"
             type="text"
-            value=""
           />
         </div>
         <span
@@ -6554,7 +6515,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="success"
             placeholder="I'm the content"
             type="text"
-            value=""
           />
         </div>
         <span
@@ -6610,7 +6570,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="warning2"
             placeholder="Warning"
             type="text"
-            value=""
           />
         </div>
         <span
@@ -6666,7 +6625,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="error2"
             placeholder="unavailable choice"
             type="text"
-            value=""
           />
         </div>
         <span
@@ -7391,7 +7349,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input"
               placeholder="with allowClear"
               type="text"
-              value=""
             />
             <span
               class="ant-input-suffix"
@@ -7475,7 +7432,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input"
               placeholder="with input password"
               type="password"
-              value=""
             />
             <span
               class="ant-input-suffix"
@@ -7562,7 +7518,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input"
               placeholder="with input password and allowClear"
               type="password"
-              value=""
             />
             <span
               class="ant-input-suffix"

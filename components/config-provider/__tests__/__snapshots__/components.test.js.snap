@@ -14137,7 +14137,6 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           <input
             class="config-input"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -14174,7 +14173,6 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
           <input
             class="config-input config-input-lg"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -14211,7 +14209,6 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
           <input
             class="config-input"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -14248,7 +14245,6 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
           <input
             class="ant-input"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -14285,7 +14281,6 @@ exports[`ConfigProvider components Form normal 1`] = `
           <input
             class="ant-input"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -14322,7 +14317,6 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           <input
             class="prefix-Form"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -14408,7 +14402,6 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     <input
       class="config-input"
       type="text"
-      value=""
     />
     <span
       class="config-input-group-wrapper config-input-search"
@@ -14419,7 +14412,6 @@ exports[`ConfigProvider components Input configProvider 1`] = `
         <input
           class="config-input"
           type="text"
-          value=""
         />
         <span
           class="config-input-group-addon"
@@ -14459,7 +14451,6 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       action="click"
       class="config-input"
       type="password"
-      value=""
     />
     <span
       class="config-input-suffix"
@@ -14503,7 +14494,6 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     <input
       class="config-input config-input-lg"
       type="text"
-      value=""
     />
     <span
       class="config-input-group-wrapper config-input-group-wrapper-lg config-input-search config-input-search-large"
@@ -14514,7 +14504,6 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
         <input
           class="config-input config-input-lg"
           type="text"
-          value=""
         />
         <span
           class="config-input-group-addon"
@@ -14554,7 +14543,6 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       action="click"
       class="config-input config-input-lg"
       type="password"
-      value=""
     />
     <span
       class="config-input-suffix"
@@ -14598,7 +14586,6 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     <input
       class="config-input"
       type="text"
-      value=""
     />
     <span
       class="config-input-group-wrapper config-input-search config-input-search-middle"
@@ -14609,7 +14596,6 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
         <input
           class="config-input"
           type="text"
-          value=""
         />
         <span
           class="config-input-group-addon"
@@ -14649,7 +14635,6 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       action="click"
       class="config-input"
       type="password"
-      value=""
     />
     <span
       class="config-input-suffix"
@@ -14693,7 +14678,6 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
     <input
       class="ant-input"
       type="text"
-      value=""
     />
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -14704,7 +14688,6 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
         <input
           class="ant-input"
           type="text"
-          value=""
         />
         <span
           class="ant-input-group-addon"
@@ -14744,7 +14727,6 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
       action="click"
       class="ant-input"
       type="password"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -14788,7 +14770,6 @@ exports[`ConfigProvider components Input normal 1`] = `
     <input
       class="ant-input"
       type="text"
-      value=""
     />
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -14799,7 +14780,6 @@ exports[`ConfigProvider components Input normal 1`] = `
         <input
           class="ant-input"
           type="text"
-          value=""
         />
         <span
           class="ant-input-group-addon"
@@ -14839,7 +14819,6 @@ exports[`ConfigProvider components Input normal 1`] = `
       action="click"
       class="ant-input"
       type="password"
-      value=""
     />
     <span
       class="ant-input-suffix"
@@ -14883,7 +14862,6 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     <input
       class="prefix-Input"
       type="text"
-      value=""
     />
     <span
       class="ant-input-group-wrapper prefix-Input"
@@ -14894,7 +14872,6 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
         <input
           class="ant-input"
           type="text"
-          value=""
         />
         <span
           class="ant-input-group-addon"
@@ -14934,7 +14911,6 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       action="click"
       class="ant-input"
       type="password"
-      value=""
     />
     <span
       class="ant-input-suffix"

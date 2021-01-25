@@ -3131,7 +3131,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
         class="ant-input"
         placeholder="Search"
         type="text"
-        value=""
       />
       <span
         class="ant-input-group-addon"

@@ -10,7 +10,6 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
     <input
       class="ant-input ant-input-rtl"
       type="text"
-      value=""
     />
     <span
       class="ant-input-group-addon"
