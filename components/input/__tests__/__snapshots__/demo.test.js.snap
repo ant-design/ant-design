@@ -2350,22 +2350,20 @@ exports[`renders ./components/input/demo/maxLength.md correctly 1`] = `
 Array [
   <input
     class="ant-input"
-    maxlength="0"
+    maxlength="5"
     placeholder="maxLength"
     type="text"
-    value=""
   />,
+  <br />,
   <div
     class="ant-input-textarea ant-input-textarea-show-count"
-    data-count="4 / 5"
+    data-count="0 / 5"
   >
     <textarea
       class="ant-input"
       maxlength="5"
       placeholder="maxLength"
-    >
-      1234
-    </textarea>
+    />
   </div>,
   <button
     class="ant-btn"
