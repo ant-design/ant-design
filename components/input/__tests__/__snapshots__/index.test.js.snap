@@ -292,7 +292,6 @@ exports[`Input rtl render component should be rendered correctly in RTL directio
 <input
   class="ant-input ant-input-rtl"
   type="text"
-  value=""
 />
 `;
 

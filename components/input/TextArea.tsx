@@ -53,22 +53,21 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const innerRef = React.useRef<RcTextArea>(null);
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
+    const [inputLock, setInputLock] = useState(false);
+
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,
+      postState: (post: any) => !inputLock ? truncateValue(Number(maxLength), post) : post,
     });
-    const [inputLock, setInputLock] = useState(false);
 
     const prevValue = React.useRef(props.value);
 
     React.useEffect(() => {
       if (props.value !== undefined || prevValue.current !== props.value) {
-        if (!inputLock) {
-          const truncVal = truncateValue(Number(maxLength), props.value);
-          setValue(truncVal);          
-          prevValue.current = truncVal;
-        }
+        setValue(props.value);
+        prevValue.current = props.value;
       }
-    }, [value,props.value, prevValue.current]);
+    }, [props.value, prevValue.current]);
 
     const handleSetValue = (val: string, callback?: () => void) => {
       if (props.value === undefined) {
@@ -77,12 +76,10 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       }
     };
 
-    const handeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setValue(e.target.value);
-    };
-
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      handleSetValue(e.target.value);
+      if (!inputLock) {
+        handleSetValue(e.target.value);
+      }
       resolveOnChange(innerRef.current as any, e, props.onChange);
     };
 
@@ -90,7 +87,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       setInputLock(true);
     };
 
-    const handleCompositionEnd = (e: React.CompositionEvent<HTMLInputElement>) => {
+    const handleCompositionEnd = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
       setInputLock(false);
       e.data = hasMaxLength(maxLength)
         ? e.data.slice(0, maxLength! - (value as string).length)
@@ -127,7 +124,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         style={showCount ? undefined : style}
         prefixCls={prefixCls}
         onChange={handleChange}
-        onInput={handeInput}
         onCompositionStart={handleCompositionStart}
         onCompositionEnd={handleCompositionEnd}
         ref={innerRef}
@@ -151,9 +147,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     // Only show text area wrapper when needed
     if (showCount) {
       // consider emoji length as-is
-      console.log(value);
-      
-      const valueLength = Math.min((value as string).length, maxLength!);
+      const val = truncateValue(Number(maxLength), value);
+      const valueLength = Math.min(val.length, maxLength ?? Infinity);
 
       let dataCount = '';
       if (typeof showCount === 'object') {

@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 13
 title:
   zh-CN: maxLength
   en-US: maxLength
@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-限制输入框长度
+在原生限制用户输入长度的基础上，同时还限制了动态赋值的长度
 
 ## en-US
 
-maxLength example.
+On the basis of natively limiting the length of user input, it also limits the length of dynamic assignment
 
 ```jsx
 import { Input ,Button} from 'antd';
@@ -24,7 +24,7 @@ const Max = ()=>{
         <>
         <Input placeholder="maxLength" maxLength={5} value={value} onChange={e=>setValue(e.target.value)} />
         <Input.TextArea placeholder="maxLength" maxLength={5} value={value} onChange={e=>setValue(e.target.value)} showCount />
-        <Button onClick={()=>setValue('123456')}> add </Button>
+        <Button onClick={()=>setValue('123456')}> set value </Button>
         </>
     )
 }
