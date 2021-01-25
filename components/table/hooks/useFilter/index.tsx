@@ -34,10 +34,9 @@ function collectFilterStates<RecordType>(
     } else if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
-        let filteredValues = column.filteredValue;
-        if (!('filterDropdown' in column)) {
-          filteredValues = filteredValues?.map(String) ?? filteredValues;
-        }
+        const filteredValues = Array.isArray(column.filteredValue)
+          ? column.filteredValue.map(String)
+          : column.filteredValue;
         filterStates.push({
           column,
           key: getColumnKey(column, columnPos),
@@ -120,6 +119,31 @@ function injectFilter<RecordType>(
   });
 }
 
+function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
+  const currentFilters: Record<string, (Key | boolean)[] | null> = {};
+
+  filterStates.forEach(({ key, filteredKeys, column }) => {
+    const { filters, filterDropdown } = column;
+    if (filterDropdown) {
+      currentFilters[key] = filteredKeys || null;
+    } else {
+      const originKeys: ColumnFilterItem['value'][] = [];
+      if (Array.isArray(filteredKeys)) {
+        filters?.forEach((filter: ColumnFilterItem) => {
+          if (filteredKeys.includes(String(filter.value))) {
+            originKeys.push(filter.value);
+          }
+        });
+        currentFilters[key] = originKeys;
+      } else {
+        currentFilters[key] = null;
+      }
+    }
+  });
+
+  return currentFilters;
+}
+
 function flattenKeys(filters?: ColumnFilterItem[]) {
   let keys: (string | number | boolean)[] = [];
   (filters || []).forEach(({ value, children }) => {
@@ -129,24 +153,6 @@ function flattenKeys(filters?: ColumnFilterItem[]) {
     }
   });
   return keys;
-}
-
-function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
-  const currentFilters: Record<string, (Key | boolean)[] | null> = {};
-
-  filterStates.forEach(({ key, filteredKeys, column }) => {
-    const { filters, filterDropdown } = column;
-    if (filterDropdown) {
-      currentFilters[key] = filteredKeys || null;
-    } else if (Array.isArray(filteredKeys)) {
-      const keys = flattenKeys(filters);
-      currentFilters[key] = keys.filter(originKey => filteredKeys.includes(String(originKey)));
-    } else {
-      currentFilters[key] = null;
-    }
-  });
-
-  return currentFilters;
 }
 
 export function getFilterData<RecordType>(

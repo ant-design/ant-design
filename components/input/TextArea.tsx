@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
-import omit from 'rc-util/lib/omit';
+import omit from 'omit.js';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useState } from 'react';
@@ -50,7 +50,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
-    const innerRef = React.useRef<RcTextArea>(null);
+    const innerRef = React.useRef<RcTextArea>();
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
     const [inputLock, setInputLock] = useState(false);
@@ -87,7 +87,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       setInputLock(true);
     };
 
-    const handleCompositionEnd = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
+    const handleCompositionEnd = (e: React.CompositionEvent<HTMLInputElement>) => {
       setInputLock(false);
       e.data = hasMaxLength(maxLength)
         ? e.data.slice(0, maxLength! - (value as string).length)
@@ -121,7 +121,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
           [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
         })}
-        style={showCount ? undefined : style}
+        style={showCount ? null : style}
         prefixCls={prefixCls}
         onChange={handleChange}
         onCompositionStart={handleCompositionStart}

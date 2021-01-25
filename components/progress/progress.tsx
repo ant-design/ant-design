@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import omit from 'omit.js';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
@@ -171,8 +171,10 @@ export default class Progress extends React.Component<ProgressProps> {
           'width',
           'gapDegree',
           'gapPosition',
+          'strokeColor',
           'strokeLinecap',
           'percent',
+          'steps',
           'success',
           'successPercent',
         ])}

@@ -3,7 +3,7 @@ import RcDrawer from 'rc-drawer';
 import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import omit from 'omit.js';
 import { ConfigContext, DirectionType } from '../config-provider';
 import { tuple } from '../_util/type';
 
@@ -304,6 +304,7 @@ class Drawer extends React.Component<InternalDrawerProps, IDrawerState> {
             'footer',
             'title',
             'push',
+            'visible',
             'width',
             'height',
           ])}

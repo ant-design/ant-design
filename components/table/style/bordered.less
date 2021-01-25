@@ -1,7 +1,7 @@
 @import './index';
 @import './size';
 
-@table-border: @border-width-base @border-style-base @table-border-color;
+@table-border: @border-width-base @border-style-base @border-color-split;
 
 .@{table-prefix-cls}.@{table-prefix-cls}-bordered {
   // ============================ Title =============================
@@ -30,7 +30,7 @@
         // ============================ Header ============================
         > thead {
           > tr:not(:last-child) > th {
-            border-bottom: @border-width-base @border-style-base @table-border-color;
+            border-bottom: @border-width-base @border-style-base @border-color-split;
           }
         }
 

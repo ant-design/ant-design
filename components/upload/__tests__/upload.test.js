@@ -350,7 +350,6 @@ describe('Upload', () => {
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toEqual(fileList.slice(0, 2));
     });
-
     it('should not be able to remove fileItem', () => {
       const file = { uid: '-3', name: 'item.jpg' };
       const fileList = [
@@ -746,23 +745,5 @@ describe('Upload', () => {
         }),
       ]);
     });
-  });
-
-  it('auto fill file uid', () => {
-    const fileList = [
-      {
-        name: 'bamboo.png',
-      },
-    ];
-
-    expect(fileList[0].uid).toBeFalsy();
-
-    mount(
-      <Upload fileList={fileList}>
-        <button type="button">upload</button>
-      </Upload>,
-    );
-
-    expect(fileList[0].uid).toBeTruthy();
   });
 });

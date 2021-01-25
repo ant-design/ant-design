@@ -33,8 +33,6 @@ Previewable image.
   onVisibleChange?: (visible, prevVisible) => void;
   getContainer?: string | HTMLElement | (() => HTMLElement); // V4.8.0
   src?: string; // V4.10.0
-  mask?: ReactNode; // V4.9.0
-  maskClassName?: string; // V4.11.0
 }
 ```
 

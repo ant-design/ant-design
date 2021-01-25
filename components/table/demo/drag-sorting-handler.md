@@ -90,7 +90,6 @@ class SortableTable extends React.Component {
   DraggableContainer = props => (
     <SortableContainer
       useDragHandle
-      disableAutoscroll
       helperClass="row-dragging"
       onSortEnd={this.onSortEnd}
       {...props}

@@ -6,7 +6,7 @@ type widthUnit = number | string;
 export interface SkeletonParagraphProps {
   prefixCls?: string;
   className?: string;
-  style?: React.CSSProperties;
+  style?: object;
   width?: widthUnit | Array<widthUnit>;
   rows?: number;
 }

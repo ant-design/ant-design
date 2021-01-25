@@ -194,11 +194,11 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <div
+                      <p
                         class="ant-empty-description"
                       >
                         No Data
-                      </div>
+                      </p>
                     </div>
                   </td>
                 </tr>

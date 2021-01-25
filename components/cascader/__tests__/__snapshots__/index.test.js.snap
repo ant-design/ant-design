@@ -639,11 +639,11 @@ exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
                 </g>
               </svg>
             </div>
-            <div
+            <p
               class="ant-empty-description"
             >
               No Data
-            </div>
+            </p>
           </div>
         </li>
       </ul>
@@ -1156,11 +1156,11 @@ exports[`Cascader should render not found content 1`] = `
                 </g>
               </svg>
             </div>
-            <div
+            <p
               class="ant-empty-description"
             >
               No Data
-            </div>
+            </p>
           </div>
         </li>
       </ul>
@@ -1225,11 +1225,11 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                 </g>
               </svg>
             </div>
-            <div
+            <p
               class="ant-empty-description"
             >
               No Data
-            </div>
+            </p>
           </div>
         </li>
       </ul>

@@ -2,10 +2,7 @@
 
 exports[`Modal render correctly 1`] = `
 <div>
-  <div
-    class="ant-scrolling-effect"
-    style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
-  >
+  <div>
     <div>
       <div
         class="ant-modal-root"
@@ -101,10 +98,7 @@ exports[`Modal render correctly 1`] = `
 
 exports[`Modal render without footer 1`] = `
 <div>
-  <div
-    class="ant-scrolling-effect"
-    style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
-  >
+  <div>
     <div>
       <div
         class="ant-modal-root"

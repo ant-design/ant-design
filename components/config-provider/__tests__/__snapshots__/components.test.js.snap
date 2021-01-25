@@ -13735,11 +13735,11 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="config-empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;
 
@@ -13810,11 +13810,11 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="config-empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;
 
@@ -13885,11 +13885,11 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="config-empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;
 
@@ -13960,11 +13960,11 @@ exports[`ConfigProvider components Empty configProvider virtual and dropdownMatc
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="ant-empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;
 
@@ -14035,11 +14035,11 @@ exports[`ConfigProvider components Empty normal 1`] = `
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="ant-empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;
 
@@ -14110,11 +14110,11 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
       </g>
     </svg>
   </div>
-  <div
+  <p
     class="prefix-Empty-description"
   >
     No Data
-  </div>
+  </p>
 </div>
 `;
 
@@ -23833,11 +23833,11 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <div
+                      <p
                         class="config-empty-description"
                       >
                         No Data
-                      </div>
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -24104,11 +24104,11 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                           </g>
                         </svg>
                       </div>
-                      <div
+                      <p
                         class="config-empty-description"
                       >
                         No Data
-                      </div>
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -24375,11 +24375,11 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                           </g>
                         </svg>
                       </div>
-                      <div
+                      <p
                         class="config-empty-description"
                       >
                         No Data
-                      </div>
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -24646,11 +24646,11 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                           </g>
                         </svg>
                       </div>
-                      <div
+                      <p
                         class="ant-empty-description"
                       >
                         No Data
-                      </div>
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -24917,11 +24917,11 @@ exports[`ConfigProvider components Table normal 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <div
+                      <p
                         class="ant-empty-description"
                       >
                         No Data
-                      </div>
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -25188,11 +25188,11 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <div
+                      <p
                         class="ant-empty-description"
                       >
                         No Data
-                      </div>
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -34707,11 +34707,11 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="config-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -34865,11 +34865,11 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="config-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -34976,11 +34976,11 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="config-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -35134,11 +35134,11 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="config-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -35245,11 +35245,11 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="config-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -35403,11 +35403,11 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="config-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -35514,11 +35514,11 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -35672,11 +35672,11 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -35783,11 +35783,11 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -35941,11 +35941,11 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -36052,11 +36052,11 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -36210,11 +36210,11 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               </g>
             </svg>
           </div>
-          <div
+          <p
             class="ant-empty-description"
           >
             No Data
-          </div>
+          </p>
         </div>
       </div>
     </div>

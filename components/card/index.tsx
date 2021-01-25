@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import omit from 'omit.js';
 import Grid from './Grid';
 import Meta from './Meta';
 import Tabs, { TabsProps } from '../tabs';

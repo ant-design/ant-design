@@ -20,7 +20,7 @@ export interface InputNumberProps
   step?: number | string;
   defaultValue?: number;
   tabIndex?: number;
-  onChange?: (value: number | string | undefined | null) => void;
+  onChange?: (value: number | string | undefined) => void;
   disabled?: boolean;
   readOnly?: boolean;
   size?: SizeType;

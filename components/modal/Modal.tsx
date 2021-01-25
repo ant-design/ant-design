@@ -110,7 +110,7 @@ export interface ModalFuncProps {
   okCancel?: boolean;
   style?: React.CSSProperties;
   maskStyle?: React.CSSProperties;
-  type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
+  type?: string;
   keyboard?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false | null;
   autoFocusButton?: null | 'ok' | 'cancel';

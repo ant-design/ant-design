@@ -5,7 +5,6 @@
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
 @tree-node-padding: (@padding-xs / 2);
-@tree-node-hightlight-color: inherit;
 
 .antTreeSwitcherIcon(@type: 'tree-default-open-icon') {
   .@{tree-prefix-cls}-switcher-icon,
@@ -90,11 +89,6 @@
 
     &-active .@{custom-tree-prefix-cls}-node-content-wrapper {
       background: @tree-node-hover-bg;
-    }
-
-    &:not(&-disabled).filter-node .@{custom-tree-prefix-cls}-title {
-      color: @tree-node-hightlight-color;
-      font-weight: 500;
     }
   }
 

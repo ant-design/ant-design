@@ -220,7 +220,7 @@ const ListItem = React.forwardRef(
     if (file.response && typeof file.response === 'string') {
       message = file.response;
     } else {
-      message = file.error?.statusText || file.error?.message || locale.uploadError;
+      message = (file.error && file.error.statusText) || locale.uploadError;
     }
     const iconAndPreview = (
       <span className={spanClassName}>
