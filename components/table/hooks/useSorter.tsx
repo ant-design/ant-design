@@ -146,15 +146,7 @@ function injectSorter<RecordType>(
       } else if (nextSortOrder === ASCEND) {
         sortTip = triggerAsc;
       }
-      let tooltipProps: TooltipProps = {
-        title: sortTip,
-      };
-      if (typeof showSorterTooltip === 'object') {
-        tooltipProps = {
-          ...tooltipProps,
-          ...showSorterTooltip,
-        };
-      }
+      const tooltipProps: TooltipProps = typeof showSorterTooltip === 'object' ? showSorterTooltip : { title: sortTip };
       newColumn = {
         ...newColumn,
         className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sorterOrder }),
