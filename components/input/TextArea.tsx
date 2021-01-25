@@ -57,7 +57,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,
-      postState: (post: any) => !inputLock ? truncateValue(Number(maxLength), post) : post,
+      postState: (post: any) => (!inputLock ? truncateValue(Number(maxLength), post) : post),
     });
 
     const prevValue = React.useRef(props.value);
@@ -87,7 +87,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       setInputLock(true);
     };
 
-    const handleCompositionEnd = (e: React.CompositionEvent<HTMLInputElement>) => {
+    const handleCompositionEnd = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
       setInputLock(false);
       e.data = hasMaxLength(maxLength)
         ? e.data.slice(0, maxLength! - (value as string).length)

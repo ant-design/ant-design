@@ -2358,10 +2358,10 @@ exports[`renders ./components/input/demo/maxLength.md correctly 1`] = `
 Array [
   <input
     class="ant-input"
-    maxlength="5"
+    maxlength="0"
     placeholder="maxLength"
     type="text"
-    value="1234"
+    value=""
   />,
   <div
     class="ant-input-textarea ant-input-textarea-show-count"
@@ -2643,12 +2643,6 @@ Array [
         <span
           class="ant-input-suffix"
         >
-          <input
-            class="ant-input"
-            placeholder="input search text"
-            type="text"
-            value=""
-          />
           <span
             aria-label="close-circle"
             class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
@@ -2763,12 +2757,6 @@ Array [
         <span
           class="ant-input-suffix"
         >
-          <input
-            class="ant-input ant-input-lg"
-            placeholder="input search text"
-            type="text"
-            value=""
-          />
           <span
             aria-label="close-circle"
             class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
@@ -2824,12 +2812,6 @@ Array [
         <span
           class="ant-input-suffix"
         >
-          <input
-            class="ant-input ant-input-lg"
-            placeholder="input search text"
-            type="text"
-            value=""
-          />
           <span
             aria-label="audio"
             class="anticon anticon-audio"
