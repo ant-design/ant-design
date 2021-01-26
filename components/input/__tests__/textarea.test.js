@@ -150,7 +150,7 @@ describe('TextArea', () => {
       expect(wrapper.find('textarea').prop('value')).toBe('👀');
       expect(textarea.prop('data-count')).toBe('1 / 1');
 
-      // fix: 当maxLength长度为2的时候，输入emoji之后showCount会显示1/2，但是不能再输入了
+      // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
       const wrapper1 = mount(<TextArea maxLength={2} showCount value="👀" />);
       const textarea1 = wrapper1.find('.ant-input-textarea');
       expect(textarea1.prop('data-count')).toBe('2 / 2');
