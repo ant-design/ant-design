@@ -18,7 +18,7 @@ import { Input, Button } from 'antd';
 import { useState } from 'react';
 
 const Max = () => {
-  const [value, setValue] = useState(undefined);
+  const [value, setValue] = useState('');
 
   return (
     <>
@@ -36,7 +36,7 @@ const Max = () => {
         onChange={e => setValue(e.target.value)}
         showCount
       />
-      <Button onClick={() => setValue(undefined)}> set value </Button>
+      <Button onClick={() => setValue('123456')}> set value </Button>
     </>
   );
 };
