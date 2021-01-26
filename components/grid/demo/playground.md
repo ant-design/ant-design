@@ -100,8 +100,10 @@ class App extends React.Component {
             tipFormatter={value => colCounts[value]}
           />
         </div>
-        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
-        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
+        <div style={{ border: '1px solid black' }}>
+          <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
+          <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
+        </div>
         <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
         <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
       </>

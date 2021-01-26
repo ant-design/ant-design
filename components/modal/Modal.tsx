@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
@@ -28,7 +29,7 @@ const getClickPosition = (e: MouseEvent) => {
 };
 
 // 只有点击事件支持从鼠标位置动画展开
-if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
+if (canUseDom()) {
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
