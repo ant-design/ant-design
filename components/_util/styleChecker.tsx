@@ -1,7 +1,9 @@
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 
+export const canUseDocElement = () => canUseDom() && window.document.documentElement;
+
 export const isStyleSupport = (styleName: string | Array<string>): boolean => {
-  if (canUseDom()) {
+  if (canUseDocElement()) {
     const styleNameList = Array.isArray(styleName) ? styleName : [styleName];
     const { documentElement } = window.document;
 
@@ -13,7 +15,7 @@ export const isStyleSupport = (styleName: string | Array<string>): boolean => {
 export const isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
 
 export const isFlexGapSupported = (() => {
-  if (!canUseDom()) {
+  if (!canUseDocElement()) {
     return false;
   }
 
