@@ -28,7 +28,7 @@ const Demo = () => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      <Space>
+      <Space wrap>
         <Button
           onClick={() => {
             inputRef.current!.focus({
@@ -74,7 +74,7 @@ const Demo = () => {
           }}
         />
       </Space>
-
+      <br />
       {input ? <Input {...sharedProps} /> : <Input.TextArea {...sharedProps} />}
     </Space>
   );

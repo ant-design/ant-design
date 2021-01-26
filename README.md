@@ -18,8 +18,8 @@ An enterprise-class UI design language and React UI library.
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
-[github-action-image]: https://github.com/ant-design/ant-design/workflows/test/badge.svg
-[github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3Atest
+[github-action-image]: https://github.com/ant-design/ant-design/workflows/%E2%9C%85%20test/badge.svg
+[github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3A%22%E2%9C%85+test%22
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
 [david-image]: https://img.shields.io/david/ant-design/ant-design?style=flat-square
