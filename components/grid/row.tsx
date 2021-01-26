@@ -95,11 +95,27 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   );
 
   // Add gutter related style
-  let rowStyle: React.CSSProperties = {};
+  let rowStyle: React.CSSProperties & {
+    '--column-gap'?: string | number;
+    '--row-gap'?: string | number;
+  } = {};
 
   if (isFlexGapSupported) {
-    rowStyle.columnGap = gutters[0]! > 0 ? gutters[0] : undefined;
-    rowStyle.rowGap = gutters[1]! > 0 ? gutters[1] : undefined;
+    rowStyle = {
+      '--column-gap': 0,
+      '--row-gap': 0,
+    };
+
+    if (gutters[0]! > 0) {
+      const gap = gutters[0];
+      rowStyle.columnGap = gap;
+      rowStyle['--column-gap'] = `${gap}px`;
+    }
+    if (gutters[1]! > 0) {
+      const gap = gutters[1];
+      rowStyle.rowGap = gap;
+      rowStyle['--row-gap'] = `${gap}px`;
+    }
   } else {
     const verticalGutter = gutters[0]! > 0 ? gutters[0] / -2 : undefined;
     const horizontalGutter = gutters[1]! > 0 ? gutters[1] / -2 : undefined;

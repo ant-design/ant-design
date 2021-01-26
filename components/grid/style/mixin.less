@@ -8,6 +8,7 @@
     display: block;
     flex: 0 0 percentage((@index / @grid-columns));
     max-width: percentage((@index / @grid-columns));
+    max-width: calc(percentage((@index / @grid-columns)) - ~'var(--column-gap)');
   }
   .@{ant-prefix}-col@{class}-push-@{index} {
     left: percentage((@index / @grid-columns));
