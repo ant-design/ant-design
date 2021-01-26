@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "[CLEAN] clean"
+npm run clean
+
 echo "[TEST ALL] check-commit"
 npm run check-commit
 

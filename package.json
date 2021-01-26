@@ -52,6 +52,7 @@
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit",
     "check-ts-demo": "node ./scripts/check-ts-demo",
+    "clean": "antd-tools run clean && rm -rf es lib coverage dist report.html",
     "prestart": "npm run version",
     "precompile": "npm run version",
     "pretest": "npm run version",
