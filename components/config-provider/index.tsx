@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IconProvider } from '@ant-design/icons/lib/'; // keep last '/' since antd-tools need this
+import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
@@ -148,6 +148,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     },
   );
 
+  const memoIconContextValue = React.useMemo(() => ({ prefixCls: iconPrefixCls }), [iconPrefixCls]);
+
   let childNode = children;
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
@@ -172,7 +174,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   if (iconPrefixCls) {
-    childNode = <IconProvider value={{ prefixCls: iconPrefixCls }}>{childNode}</IconProvider>;
+    childNode = (
+      <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
+    );
   }
 
   if (componentSize) {
