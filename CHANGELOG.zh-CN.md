@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 4.11.2
+
+`2021-01-26`
+
+- 🐞 修复 rc-trigger BuildInPlacements TypeScript 编译错误。[#29029](https://github.com/ant-design/ant-design/pull/29029) [@waiwaiku](https://github.com/waiwaiku)
+
 ## 4.11.1
 
 `2021-01-24`
