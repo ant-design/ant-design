@@ -1195,10 +1195,11 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn"
@@ -1211,7 +1212,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn"
@@ -1224,7 +1225,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn"
@@ -1237,7 +1238,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn"
@@ -1250,6 +1251,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="padding-bottom:8px"
       >
         <button
           aria-checked="true"
@@ -1268,6 +1270,12 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
         </button>
       </div>
     </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <br />
   </div>
   <div
     class="ant-space-item"
