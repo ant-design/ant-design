@@ -117,8 +117,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
       rowStyle['--row-gap'] = `${gap}px`;
     }
   } else {
-    const verticalGutter = gutters[0]! > 0 ? gutters[0] / -2 : undefined;
-    const horizontalGutter = gutters[1]! > 0 ? gutters[1] / -2 : undefined;
+    const horizontalGutter = gutters[0]! > 0 ? gutters[0] / -2 : undefined;
+    const verticalGutter = gutters[1]! > 0 ? gutters[1] / -2 : undefined;
 
     rowStyle = {
       marginLeft: horizontalGutter,
