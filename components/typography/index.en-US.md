@@ -119,7 +119,7 @@ Basic text writing, including headings, body text, lists, and more.
 | expandable | Whether to be expandable | boolean | - |  |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
-| symbol | Custom symbol of ellipsis | ReactNode | `Expand` |  |
+| symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
 | tooltip | Show tooltip when ellipsis | boolean \| ReactNode | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event) | - |  |
