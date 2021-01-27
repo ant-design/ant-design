@@ -2,14 +2,14 @@ import * as React from 'react';
 import { Key, GetRowKey } from '../interface';
 
 interface MapCache<RecordType> {
-  data?: RecordType[];
+  data?: readonly RecordType[];
   childrenColumnName?: string;
   kvMap?: Map<Key, RecordType>;
   getRowKey?: Function;
 }
 
 export default function useLazyKVMap<RecordType>(
-  data: RecordType[],
+  data: readonly RecordType[],
   childrenColumnName: string,
   getRowKey: GetRowKey<RecordType>,
 ) {
@@ -25,7 +25,7 @@ export default function useLazyKVMap<RecordType>(
       const kvMap = new Map<Key, RecordType>();
 
       /* eslint-disable no-inner-declarations */
-      function dig(records: RecordType[]) {
+      function dig(records: readonly RecordType[]) {
         records.forEach((record, index) => {
           const rowKey = getRowKey(record, index);
           kvMap.set(rowKey, record);

@@ -152,7 +152,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
   const mergedSize = customizeSize || size;
   const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
-  const rawData: RecordType[] = dataSource || EMPTY_LIST;
+  const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
@@ -236,7 +236,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
   };
 
-  /** Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read state out and then put it back to title render. Move these code into `hooks` but still too complex. We should provides Table props like `sorter` & `filter` to handle control in next big version. */
+  /**
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to
+   * read state out and then put it back to title render. Move these code into `hooks` but still
+   * too complex. We should provides Table props like `sorter` & `filter` to handle control in next
+   * big version.
+   */
 
   // ============================ Sorter =============================
   const onSorterChange = (
