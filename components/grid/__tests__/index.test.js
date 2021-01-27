@@ -93,7 +93,7 @@ describe('Grid', () => {
     });
   });
 
-  it('should work currect when gutter is array', () => {
+  it('should work current when gutter is array', () => {
     const wrapper = mount(<Row gutter={[16, 20]} />);
     expect(wrapper.find('div').prop('style')).toEqual({
       marginLeft: -8,
