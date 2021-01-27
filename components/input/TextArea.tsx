@@ -6,7 +6,13 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigContext } from '../config-provider';
-import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
+import {
+  resolveOnChange,
+  triggerFocus,
+  InputFocusOptions,
+  truncateValue,
+  hasMaxLength,
+} from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 interface ShowCountProps {
@@ -46,8 +52,10 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const innerRef = React.useRef<RcTextArea>(null);
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
+    const [inputLock, setInputLock] = React.useState(false);
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,
+      postState: (post: any) => (!inputLock ? truncateValue(Number(maxLength), post) : post),
     });
 
     const prevValue = React.useRef(props.value);
@@ -69,6 +77,20 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       handleSetValue(e.target.value);
       resolveOnChange(innerRef.current as any, e, props.onChange);
+    };
+
+    const handleCompositionStart = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
+      if (!props.onChange) {
+        e.preventDefault();
+      } else {
+        setInputLock(true);
+      }
+    };
+    const handleCompositionEnd = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
+      setInputLock(false);
+      e.data = hasMaxLength(maxLength)
+        ? e.data.slice(0, maxLength! - (value as string).length)
+        : e.data;
     };
 
     const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -101,16 +123,11 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         style={showCount ? undefined : style}
         prefixCls={prefixCls}
         onChange={handleChange}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd}
         ref={innerRef}
       />
     );
-
-    let val = fixControlledValue(value) as string;
-
-    // Max length value
-    const hasMaxLength = Number(maxLength) > 0;
-    // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
-    val = hasMaxLength ? [...val].slice(0, maxLength).join('') : val;
 
     // TextArea
     const textareaNode = (
@@ -119,7 +136,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         prefixCls={prefixCls}
         direction={direction}
         inputType="text"
-        value={val}
+        value={value}
         element={textArea}
         handleReset={handleReset}
         ref={clearableInputRef}
@@ -129,13 +146,13 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const valueLength = Math.min(val.length, maxLength ?? Infinity);
+      const valueLength = Math.min(value.length, maxLength ?? Infinity);
 
       let dataCount = '';
       if (typeof showCount === 'object') {
         dataCount = showCount.formatter({ count: valueLength, maxLength });
       } else {
-        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+        dataCount = `${valueLength}${hasMaxLength(maxLength) ? ` / ${maxLength}` : ''}`;
       }
 
       return (
