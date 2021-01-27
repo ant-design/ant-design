@@ -73,11 +73,11 @@ export interface FilterConfirmProps {
 
 export interface FilterDropdownProps {
   prefixCls: string;
-  setSelectedKeys: (selectedKeys: React.Key[]) => void;
-  selectedKeys: React.Key[];
+  setSelectedKeys: (selectedKeys: readonly React.Key[]) => void;
+  selectedKeys: readonly React.Key[];
   confirm: (param: FilterConfirmProps) => void;
   clearFilters?: () => void;
-  filters?: ColumnFilterItem[];
+  filters?: readonly ColumnFilterItem[];
   visible: boolean;
 }
 
@@ -94,30 +94,30 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
       };
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
-  sortDirections?: SortOrder[];
+  sortDirections?: readonly SortOrder[];
   showSorterTooltip?: boolean;
 
   // Filter
   filtered?: boolean;
-  filters?: ColumnFilterItem[];
+  filters?: readonly ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterMultiple?: boolean;
-  filteredValue?: Key[] | null;
-  defaultFilteredValue?: Key[] | null;
+  filteredValue?: readonly Key[] | null;
+  defaultFilteredValue?: readonly Key[] | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 
   // Responsive
-  responsive?: Breakpoint[];
+  responsive?: readonly Breakpoint[];
 }
 
 export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>;
 }
 
-export type ColumnsType<RecordType = unknown> = (
+export type ColumnsType<RecordType = unknown> = readonly (
   | ColumnGroupType<RecordType>
   | ColumnType<RecordType>
 )[];
@@ -131,7 +131,7 @@ export interface SelectionItem {
 export type SelectionSelectFn<T> = (
   record: T,
   selected: boolean,
-  selectedRows: T[],
+  selectedRows: readonly T[],
   nativeEvent: Event,
 ) => void;
 
@@ -139,17 +139,21 @@ export interface TableRowSelection<T> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
   preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
-  selectedRowKeys?: Key[];
-  onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
+  selectedRowKeys?: readonly Key[];
+  onChange?: (selectedRowKeys: readonly Key[], selectedRows: readonly T[]) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
-  onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  onSelectMultiple?: (
+    selected: boolean,
+    selectedRows: readonly T[],
+    changeRows: readonly T[],
+  ) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
-  onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  onSelectAll?: (selected: boolean, selectedRows: readonly T[], changeRows: readonly T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
-  onSelectInvert?: (selectedRowKeys: Key[]) => void;
+  onSelectInvert?: (selectedRowKeys: readonly Key[]) => void;
   onSelectNone?: () => void;
-  selections?: INTERNAL_SELECTION_ITEM[] | boolean;
+  selections?: readonly INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
@@ -168,14 +172,14 @@ export type TransformColumns<RecordType> = (
 ) => ColumnsType<RecordType>;
 
 export interface TableCurrentDataSource<RecordType> {
-  currentDataSource: RecordType[];
+  currentDataSource: readonly RecordType[];
   action: TableAction;
 }
 
 export interface SorterResult<RecordType> {
   column?: ColumnType<RecordType>;
   order?: SortOrder;
-  field?: Key | Key[];
+  field?: Key | readonly Key[];
   columnKey?: Key;
 }
 
@@ -190,5 +194,5 @@ type TablePaginationPosition =
   | 'bottomRight';
 
 export interface TablePaginationConfig extends PaginationProps {
-  position?: TablePaginationPosition[];
+  position?: readonly TablePaginationPosition[];
 }

@@ -46,7 +46,7 @@ export default function usePagination(
   total: number,
   pagination: TablePaginationConfig | false | undefined,
   onChange: (current: number, pageSize: number) => void,
-): [TablePaginationConfig, () => void] {
+): readonly [TablePaginationConfig, () => void] {
   const { total: paginationTotal = 0, ...paginationObj } =
     pagination && typeof pagination === 'object' ? pagination : {};
 

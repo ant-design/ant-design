@@ -53,11 +53,11 @@ interface ChangeEventInfo<RecordType> {
     pageSize?: number;
     total?: number;
   };
-  filters: Record<string, (Key | boolean)[] | null>;
-  sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
+  filters: Record<string, readonly (Key | boolean)[] | null>;
+  sorter: SorterResult<RecordType> | readonly SorterResult<RecordType>[];
 
-  filterStates: FilterState<RecordType>[];
-  sorterStates: SortState<RecordType>[];
+  filterStates: readonly FilterState<RecordType>[];
+  sorterStates: readonly SortState<RecordType>[];
 
   resetPagination: Function;
 }
@@ -84,8 +84,8 @@ export interface TableProps<RecordType>
 
   onChange?: (
     pagination: TablePaginationConfig,
-    filters: Record<string, (Key | boolean)[] | null>,
-    sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
+    filters: Record<string, readonly (Key | boolean)[] | null>,
+    sorter: SorterResult<RecordType> | readonly SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
   rowSelection?: TableRowSelection<RecordType>;
@@ -94,7 +94,7 @@ export interface TableProps<RecordType>
   scroll?: RcTableProps<RecordType>['scroll'] & {
     scrollToFirstRowOnChange?: boolean;
   };
-  sortDirections?: SortOrder[];
+  sortDirections?: readonly SortOrder[];
   showSorterTooltip?: boolean;
 }
 
@@ -152,7 +152,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
   const mergedSize = customizeSize || size;
   const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
-  const rawData: RecordType[] = dataSource || EMPTY_LIST;
+  const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
@@ -236,7 +236,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
   };
 
-  /** Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read state out and then put it back to title render. Move these code into `hooks` but still too complex. We should provides Table props like `sorter` & `filter` to handle control in next big version. */
+  /**
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to
+   * read state out and then put it back to title render. Move these code into `hooks` but still
+   * too complex. We should provides Table props like `sorter` & `filter` to handle control in next
+   * big version.
+   */
 
   // ============================ Sorter =============================
   const onSorterChange = (
@@ -327,7 +332,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   changeEventInfo.resetPagination = resetPagination;
 
   // ============================= Data =============================
-  const pageData = React.useMemo<RecordType[]>(() => {
+  const pageData = React.useMemo<readonly RecordType[]>(() => {
     if (pagination === false || !mergedPagination.pageSize) {
       return mergedData;
     }

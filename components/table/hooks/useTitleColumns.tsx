@@ -21,7 +21,7 @@ function fillTitle<RecordType>(
 
 export default function useTitleColumns<RecordType>(
   columnTitleProps: ColumnTitleProps<RecordType>,
-): [TransformColumns<RecordType>] {
+): readonly [TransformColumns<RecordType>] {
   const filledColumns = React.useCallback(
     (columns: ColumnsType<RecordType>) => fillTitle(columns, columnTitleProps),
     [columnTitleProps],

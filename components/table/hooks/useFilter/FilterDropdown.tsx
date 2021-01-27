@@ -23,7 +23,7 @@ import { ConfigContext } from '../../../config-provider/context';
 
 const { SubMenu, Item: MenuItem } = Menu;
 
-function hasSubMenu(filters: ColumnFilterItem[]) {
+function hasSubMenu(filters: readonly ColumnFilterItem[]) {
   return filters.some(({ children }) => children);
 }
 
@@ -34,9 +34,9 @@ function renderFilterItems({
   filterMultiple,
   locale,
 }: {
-  filters: ColumnFilterItem[];
+  filters: readonly ColumnFilterItem[];
   prefixCls: string;
-  filteredKeys: Key[];
+  filteredKeys: readonly Key[];
   filterMultiple: boolean;
   locale: TableLocale;
 }) {
@@ -139,7 +139,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const propFilteredKeys = filterState && filterState.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
-  const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
+  const onSelectKeys = ({ selectedKeys }: { selectedKeys?: readonly Key[] }) => {
     setFilteredKeysSync(selectedKeys!);
   };
 
@@ -166,7 +166,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   );
 
   // ======================= Submit ========================
-  const internalTriggerFilter = (keys: Key[] | undefined | null) => {
+  const internalTriggerFilter = (keys: readonly Key[] | undefined | null) => {
     const mergedKeys = keys && keys.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;

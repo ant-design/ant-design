@@ -39,7 +39,7 @@ function getSortFunction<RecordType>(
   return false;
 }
 
-function nextSortDirection(sortDirections: SortOrder[], current: SortOrder | null) {
+function nextSortDirection(sortDirections: readonly SortOrder[], current: SortOrder | null) {
   if (!current) {
     return sortDirections[0];
   }
@@ -104,9 +104,9 @@ function collectSortStates<RecordType>(
 function injectSorter<RecordType>(
   prefixCls: string,
   columns: ColumnsType<RecordType>,
-  sorterSates: SortState<RecordType>[],
+  sorterSates: readonly SortState<RecordType>[],
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
-  defaultSortDirections: SortOrder[],
+  defaultSortDirections: readonly SortOrder[],
   tableLocale?: TableLocale,
   tableShowSorterTooltip?: boolean,
   pos?: string,
@@ -116,7 +116,8 @@ function injectSorter<RecordType>(
     let newColumn: ColumnsType<RecordType>[number] = column;
 
     if (newColumn.sorter) {
-      const sortDirections: SortOrder[] = newColumn.sortDirections || defaultSortDirections;
+      const sortDirections: readonly SortOrder[] =
+        newColumn.sortDirections || defaultSortDirections;
       const showSorterTooltip =
         newColumn.showSorterTooltip === undefined
           ? tableShowSorterTooltip
@@ -223,8 +224,8 @@ function stateToInfo<RecordType>(sorterStates: SortState<RecordType>) {
 }
 
 function generateSorterInfo<RecordType>(
-  sorterStates: SortState<RecordType>[],
-): SorterResult<RecordType> | SorterResult<RecordType>[] {
+  sorterStates: readonly SortState<RecordType>[],
+): SorterResult<RecordType> | readonly SorterResult<RecordType>[] {
   const list = sorterStates.filter(({ sortOrder }) => sortOrder).map(stateToInfo);
 
   // =========== Legacy compatible support ===========
@@ -244,10 +245,10 @@ function generateSorterInfo<RecordType>(
 }
 
 export function getSortData<RecordType>(
-  data: RecordType[],
-  sortStates: SortState<RecordType>[],
+  data: readonly RecordType[],
+  sortStates: readonly SortState<RecordType>[],
   childrenColumnName: string,
-): RecordType[] {
+): readonly RecordType[] {
   const innerSorterStates = sortStates
     .slice()
     .sort((a, b) => (b.multiplePriority as number) - (a.multiplePriority as number));
@@ -301,10 +302,10 @@ interface SorterConfig<RecordType> {
   prefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
   onSorterChange: (
-    sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
+    sorterResult: SorterResult<RecordType> | readonly SorterResult<RecordType>[],
     sortStates: SortState<RecordType>[],
   ) => void;
-  sortDirections: SortOrder[];
+  sortDirections: readonly SortOrder[];
   tableLocale?: TableLocale;
   showSorterTooltip?: boolean;
 }
@@ -318,9 +319,9 @@ export default function useFilterSorter<RecordType>({
   showSorterTooltip,
 }: SorterConfig<RecordType>): [
   TransformColumns<RecordType>,
-  SortState<RecordType>[],
+  readonly SortState<RecordType>[],
   ColumnTitleProps<RecordType>,
-  () => SorterResult<RecordType> | SorterResult<RecordType>[],
+  () => SorterResult<RecordType> | readonly SorterResult<RecordType>[],
 ] {
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
     collectSortStates(mergedColumns, true),

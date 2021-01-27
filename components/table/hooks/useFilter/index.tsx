@@ -15,7 +15,7 @@ import FilterDropdown from './FilterDropdown';
 export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
   key: Key;
-  filteredKeys?: Key[] | null;
+  filteredKeys?: readonly Key[] | null;
   forceFiltered?: boolean;
 }
 
@@ -23,7 +23,7 @@ function collectFilterStates<RecordType>(
   columns: ColumnsType<RecordType>,
   init: boolean,
   pos?: string,
-): FilterState<RecordType>[] {
+): readonly FilterState<RecordType>[] {
   let filterStates: FilterState<RecordType>[] = [];
 
   (columns || []).forEach((column, index) => {
@@ -64,7 +64,7 @@ function injectFilter<RecordType>(
   prefixCls: string,
   dropdownPrefixCls: string,
   columns: ColumnsType<RecordType>,
-  filterStates: FilterState<RecordType>[],
+  filterStates: readonly FilterState<RecordType>[],
   triggerFilter: (filterState: FilterState<RecordType>) => void,
   getPopupContainer: GetPopupContainer | undefined,
   locale: TableLocale,
@@ -120,7 +120,7 @@ function injectFilter<RecordType>(
   });
 }
 
-function flattenKeys(filters?: ColumnFilterItem[]) {
+function flattenKeys(filters?: readonly ColumnFilterItem[]) {
   let keys: (string | number | boolean)[] = [];
   (filters || []).forEach(({ value, children }) => {
     keys.push(value);
@@ -131,8 +131,8 @@ function flattenKeys(filters?: ColumnFilterItem[]) {
   return keys;
 }
 
-function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
-  const currentFilters: Record<string, (Key | boolean)[] | null> = {};
+function generateFilterInfo<RecordType>(filterStates: readonly FilterState<RecordType>[]) {
+  const currentFilters: Record<string, readonly (Key | boolean)[] | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
     const { filters, filterDropdown } = column;
@@ -150,8 +150,8 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
 }
 
 export function getFilterData<RecordType>(
-  data: RecordType[],
-  filterStates: FilterState<RecordType>[],
+  data: readonly RecordType[],
+  filterStates: readonly FilterState<RecordType>[],
 ) {
   return filterStates.reduce((currentData, filterState) => {
     const {
@@ -178,8 +178,8 @@ interface FilterConfig<RecordType> {
   mergedColumns: ColumnsType<RecordType>;
   locale: TableLocale;
   onFilterChange: (
-    filters: Record<string, (Key | boolean)[] | null>,
-    filterStates: FilterState<RecordType>[],
+    filters: Record<string, readonly (Key | boolean)[] | null>,
+    filterStates: readonly FilterState<RecordType>[],
   ) => void;
   getPopupContainer?: GetPopupContainer;
 }
@@ -193,10 +193,10 @@ function useFilter<RecordType>({
   locale: tableLocale,
 }: FilterConfig<RecordType>): [
   TransformColumns<RecordType>,
-  FilterState<RecordType>[],
-  () => Record<string, (Key | boolean)[] | null>,
+  readonly FilterState<RecordType>[],
+  () => Record<string, readonly (Key | boolean)[] | null>,
 ] {
-  const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
+  const [filterStates, setFilterStates] = React.useState<readonly FilterState<RecordType>[]>(
     collectFilterStates(mergedColumns, true),
   );
 

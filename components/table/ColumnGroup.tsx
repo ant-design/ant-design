@@ -5,7 +5,7 @@ import { ColumnProps } from './Column';
 export interface ColumnGroupProps<RecordType> extends Omit<ColumnType<RecordType>, 'children'> {
   children:
     | React.ReactElement<ColumnProps<RecordType>>
-    | React.ReactElement<ColumnProps<RecordType>>[];
+    | readonly React.ReactElement<ColumnProps<RecordType>>[];
 }
 
 /* istanbul ignore next */

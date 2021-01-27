@@ -36,8 +36,8 @@ function getFixedType<RecordType>(column: ColumnsType<RecordType>[number]): Fixe
 
 interface UseSelectionConfig<RecordType> {
   prefixCls: string;
-  pageData: RecordType[];
-  data: RecordType[];
+  pageData: readonly RecordType[];
+  data: readonly RecordType[];
   getRowKey: GetRowKey<RecordType>;
   getRecordByKey: (key: Key) => RecordType;
   expandType: ExpandType;
@@ -54,9 +54,9 @@ export type INTERNAL_SELECTION_ITEM =
   | typeof SELECTION_NONE;
 
 function flattenData<RecordType>(
-  data: RecordType[] | undefined,
+  data: readonly RecordType[] | undefined,
   childrenColumnName: string,
-): RecordType[] {
+): readonly RecordType[] {
   let list: RecordType[] = [];
   (data || []).forEach(record => {
     list.push(record);
@@ -75,7 +75,7 @@ function flattenData<RecordType>(
 export default function useSelection<RecordType>(
   rowSelection: TableRowSelection<RecordType> | undefined,
   config: UseSelectionConfig<RecordType>,
-): [TransformColumns<RecordType>, Set<Key>] {
+): readonly [TransformColumns<RecordType>, Set<Key>] {
   const {
     preserveSelectedRowKeys,
     selectedRowKeys,
@@ -165,7 +165,7 @@ export default function useSelection<RecordType>(
       return [mergedSelectedKeys || [], []];
     }
     const { checkedKeys, halfCheckedKeys } = conductCheck(
-      mergedSelectedKeys,
+      mergedSelectedKeys as React.Key[],
       true,
       keyEntities as any,
       isCheckboxDisabled as any,
@@ -257,7 +257,7 @@ export default function useSelection<RecordType>(
       return null;
     }
 
-    const selectionList: INTERNAL_SELECTION_ITEM[] =
+    const selectionList: readonly INTERNAL_SELECTION_ITEM[] =
       selections === true ? [SELECTION_ALL, SELECTION_INVERT, SELECTION_NONE] : selections;
 
     return selectionList.map((selection: INTERNAL_SELECTION_ITEM) => {

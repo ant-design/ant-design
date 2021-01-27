@@ -5,8 +5,10 @@ export function getColumnKey<RecordType>(column: ColumnType<RecordType>, default
   if ('key' in column && column.key !== undefined && column.key !== null) {
     return column.key;
   }
-  if (column.dataIndex) {
-    return Array.isArray(column.dataIndex) ? column.dataIndex.join('.') : column.dataIndex;
+  const dataIndex = column.dataIndex as string | number | React.Key[] | undefined;
+
+  if (dataIndex) {
+    return Array.isArray(dataIndex) ? dataIndex.join('.') : dataIndex;
   }
 
   return defaultKey;
