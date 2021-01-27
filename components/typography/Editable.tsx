@@ -33,7 +33,6 @@ const Editable: React.FC<EditableProps> = ({
 }) => {
   const ref = React.useRef<any>();
 
-  const inComposition = React.useRef(false);
   const lastKeyCode = React.useRef<number>();
 
   const [current, setCurrent] = React.useState(value);
@@ -55,18 +54,7 @@ const Editable: React.FC<EditableProps> = ({
     setCurrent(target.value.replace(/[\n\r]/g, ''));
   };
 
-  const onCompositionStart = () => {
-    inComposition.current = true;
-  };
-
-  const onCompositionEnd = () => {
-    inComposition.current = false;
-  };
-
   const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
-    // We don't record keyCode when IME is using
-    if (inComposition.current) return;
-
     lastKeyCode.current = keyCode;
   };
 
@@ -82,14 +70,7 @@ const Editable: React.FC<EditableProps> = ({
     shiftKey,
   }) => {
     // Check if it's a real key
-    if (
-      lastKeyCode.current === keyCode &&
-      !inComposition.current &&
-      !ctrlKey &&
-      !altKey &&
-      !metaKey &&
-      !shiftKey
-    ) {
+    if (lastKeyCode.current === keyCode && !ctrlKey && !altKey && !metaKey && !shiftKey) {
       if (keyCode === KeyCode.ENTER) {
         confirmChange();
       } else if (keyCode === KeyCode.ESC) {
@@ -120,8 +101,6 @@ const Editable: React.FC<EditableProps> = ({
         onChange={onChange}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
-        onCompositionStart={onCompositionStart}
-        onCompositionEnd={onCompositionEnd}
         onBlur={onBlur}
         aria-label={ariaLabel}
         autoSize={autoSize}
