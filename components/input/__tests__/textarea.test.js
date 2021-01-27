@@ -144,6 +144,18 @@ describe('TextArea', () => {
       expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
+    it('should  minimize value between emoji length and maxLength', () => {
+      const wrapper = mount(<TextArea maxLength={1} showCount value="👀" />);
+      const textarea = wrapper.find('.ant-input-textarea');
+      expect(wrapper.find('textarea').prop('value')).toBe('👀');
+      expect(textarea.prop('data-count')).toBe('1 / 1');
+
+      // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
+      const wrapper1 = mount(<TextArea maxLength={2} showCount value="👀" />);
+      const textarea1 = wrapper1.find('.ant-input-textarea');
+      expect(textarea1.prop('data-count')).toBe('2 / 2');
+    });
+
     // 修改TextArea value截取规则后新增单测
     it('slice emoji', () => {
       const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
