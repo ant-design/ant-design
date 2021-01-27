@@ -1,14 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Col, Row } from '..';
 // eslint-disable-next-line no-unused-vars
-import * as styleChecker from '../../_util/styleChecker';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
+import { Col, Row } from '..';
 
-jest.mock('../../_util/styleChecker', () => ({
-  canUseDocElement: () => false,
-  isStyleSupport: () => false,
-  isFlexGapSupported: false,
-}));
+jest.mock('rc-util/lib/Dom/canUseDom', () => () => false);
 
 describe('Grid.Server', () => {
   it('use compatible gap logic', () => {
