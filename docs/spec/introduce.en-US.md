@@ -98,7 +98,7 @@ ReactDOM.render(<LinksList />, mountNode);
 - Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
 - Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
 - [Introduction to Ant Design](https://blog.logrocket.com/introduction-to-ant-design/)
-- [Build a React App with Ant Design Principles ](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
+- [Build a React App with Ant Design Principles](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
 - [Meet Antd, an enterprise React UI library](https://medium.com/javascript-in-plain-english/antd-library-what-why-useful-or-not-5fec225b639d)
 
 ## How to Contribute

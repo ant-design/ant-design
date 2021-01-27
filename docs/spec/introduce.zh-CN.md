@@ -100,7 +100,7 @@ ReactDOM.render(<LinksList />, mountNode);
 - Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
 - [漫谈 Material Design & Ant Design](http://dwbbb.com/blog/MaterialDesignAntDesign/)
 - [Introduction to Ant Design](https://blog.logrocket.com/introduction-to-ant-design/)
-- [Build a React App with Ant Design Principles ](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
+- [Build a React App with Ant Design Principles](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
 - [Meet Antd, an enterprise React UI library](https://medium.com/javascript-in-plain-english/antd-library-what-why-useful-or-not-5fec225b639d)
 
 ## 如何贡献
