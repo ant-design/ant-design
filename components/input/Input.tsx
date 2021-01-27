@@ -60,6 +60,12 @@ export function fixControlledValue<T>(value: T) {
   }
   return value;
 }
+export const hasMaxLength = (val?: number) => typeof val !== 'undefined' && +val >= 0;
+
+export function truncateValue<T>(maxLength: number, value: T) {
+  const val = fixControlledValue(value) as string;
+  return hasMaxLength(maxLength) ? [...val].slice(0, maxLength).join('') : val;
+}
 
 export function resolveOnChange(
   target: HTMLInputElement | HTMLTextAreaElement,
