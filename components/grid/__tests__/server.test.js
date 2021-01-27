@@ -1,21 +1,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import { Col, Row } from '..';
+// eslint-disable-next-line no-unused-vars
+import * as styleChecker from '../../_util/styleChecker';
+
+jest.mock('../../_util/styleChecker', () => ({
+  canUseDocElement: () => false,
+  isStyleSupport: () => false,
+  isFlexGapSupported: false,
+}));
 
 describe('Grid.Server', () => {
-  let documentElementSpy: ReturnType<typeof spyElementPrototype>;
-
-  beforeAll(() => {
-    documentElementSpy = spyElementPrototype(Document, 'documentElement', {
-      get: () => null,
-    });
-  });
-
-  afterAll(() => {
-    documentElementSpy.mockRestore();
-  });
-
   it('use compatible gap logic', () => {
     const wrapper = mount(
       <Row gutter={[8, 16]}>

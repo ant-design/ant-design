@@ -14,9 +14,7 @@ export const isStyleSupport = (styleName: string | Array<string>): boolean => {
 
 export const isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
 
-console.log(333);
 export const isFlexGapSupported = (() => {
-  console.log(222);
   if (!canUseDocElement()) {
     return false;
   }
