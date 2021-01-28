@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
@@ -35,33 +34,8 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   children,
   ...restProps
 }) => {
-  // const [animateStarted, setAnimateStarted] = useState(true);
-  // const [count, setCount] = useState(customizeCount);
-  // const [prevCount, setPrevCount] = useState(customizeCount);
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
-
-  // if (prevCount !== customizeCount) {
-  //   setAnimateStarted(true);
-  //   setPrevCount(customizeCount);
-  // }
-
-  // React.useEffect(() => {
-  //   let timeout: number;
-  //   if (animateStarted) {
-  //     // Let browser has time to reset the scroller before actually
-  //     // performing the transition.
-  //     timeout = setTimeout(() => {
-  //       setAnimateStarted(false);
-  //       setCount(customizeCount);
-  //     });
-  //   }
-  //   return () => {
-  //     if (timeout) {
-  //       clearTimeout(timeout);
-  //     }
-  //   };
-  // }, [animateStarted, customizeCount]);
 
   // ============================ Render ============================
   const newProps = {

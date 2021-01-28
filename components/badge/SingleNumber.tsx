@@ -5,9 +5,10 @@ export interface UnitNumberProps {
   prefixCls: string;
   value: number;
   offset?: number;
+  current?: boolean;
 }
 
-function UnitNumber({ prefixCls, value, offset = 0 }: UnitNumberProps) {
+function UnitNumber({ prefixCls, value, current, offset = 0 }: UnitNumberProps) {
   let style: React.CSSProperties | undefined;
 
   if (offset) {
@@ -23,7 +24,7 @@ function UnitNumber({ prefixCls, value, offset = 0 }: UnitNumberProps) {
     <p
       style={style}
       className={classNames(`${prefixCls}-only-unit`, {
-        // current: position === i,
+        current,
       })}
     >
       {value}
@@ -69,7 +70,7 @@ export default function SingleNumber(props: SingleNumberProps) {
 
   if (prevValue === value) {
     // Nothing to change
-    unitNodes = [<UnitNumber {...props} key={value} />];
+    unitNodes = [<UnitNumber {...props} key={value} current />];
     offsetStyle = {
       transition: 'none',
     };
@@ -87,7 +88,15 @@ export default function SingleNumber(props: SingleNumberProps) {
     const prevIndex = unitNumberList.findIndex(n => n % 10 === prevValue);
     unitNodes = unitNumberList.map((n, index) => {
       const singleUnit = n % 10;
-      return <UnitNumber {...props} key={n} value={singleUnit} offset={index - prevIndex} />;
+      return (
+        <UnitNumber
+          {...props}
+          key={n}
+          value={singleUnit}
+          offset={index - prevIndex}
+          current={index === prevIndex}
+        />
+      );
     });
 
     // Calculate container offset value
