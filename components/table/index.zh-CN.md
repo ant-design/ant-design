@@ -90,7 +90,7 @@ const columns = [
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  |
 | title | 表格标题 | function(currentPageData) | - |  |
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
-| onHeaderRow | 设置头部行属性 | function(column, index) | - |  |
+| onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
 
 #### onRow 用法
@@ -108,7 +108,7 @@ const columns = [
       onMouseLeave: event => {},
     };
   }}
-  onHeaderRow={column => {
+  onHeaderRow={(columns, index) => {
     return {
       onClick: () => {}, // 点击表头行
     };
