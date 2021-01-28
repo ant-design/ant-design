@@ -12,7 +12,6 @@ export interface ScrollNumberProps {
   count?: string | number | null;
   children?: React.ReactElement<HTMLElement>;
   component?: string;
-  onAnimated?: Function;
   style?: React.CSSProperties;
   title?: string | number | null;
   show: boolean;
@@ -25,7 +24,8 @@ export interface ScrollNumberState {
 
 const ScrollNumber: React.FC<ScrollNumberProps> = ({
   prefixCls: customizePrefixCls,
-  count: customizeCount,
+  // count: customizeCount,
+  count,
   className,
   motionClassName,
   style,
@@ -33,37 +33,35 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   show,
   component = 'sup',
   children,
-  onAnimated = () => {},
   ...restProps
 }) => {
-  const [animateStarted, setAnimateStarted] = useState(true);
-  const [count, setCount] = useState(customizeCount);
-  const [prevCount, setPrevCount] = useState(customizeCount);
+  // const [animateStarted, setAnimateStarted] = useState(true);
+  // const [count, setCount] = useState(customizeCount);
+  // const [prevCount, setPrevCount] = useState(customizeCount);
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
 
-  if (prevCount !== customizeCount) {
-    setAnimateStarted(true);
-    setPrevCount(customizeCount);
-  }
+  // if (prevCount !== customizeCount) {
+  //   setAnimateStarted(true);
+  //   setPrevCount(customizeCount);
+  // }
 
-  React.useEffect(() => {
-    let timeout: number;
-    if (animateStarted) {
-      // Let browser has time to reset the scroller before actually
-      // performing the transition.
-      timeout = setTimeout(() => {
-        setAnimateStarted(false);
-        setCount(customizeCount);
-        onAnimated();
-      });
-    }
-    return () => {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-    };
-  }, [animateStarted, customizeCount, onAnimated]);
+  // React.useEffect(() => {
+  //   let timeout: number;
+  //   if (animateStarted) {
+  //     // Let browser has time to reset the scroller before actually
+  //     // performing the transition.
+  //     timeout = setTimeout(() => {
+  //       setAnimateStarted(false);
+  //       setCount(customizeCount);
+  //     });
+  //   }
+  //   return () => {
+  //     if (timeout) {
+  //       clearTimeout(timeout);
+  //     }
+  //   };
+  // }, [animateStarted, customizeCount]);
 
   // ============================ Render ============================
   const newProps = {

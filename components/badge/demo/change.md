@@ -3,7 +3,6 @@ order: 4
 title:
   zh-CN: 动态
   en-US: Dynamic
-only: true
 ---
 
 ## zh-CN
