@@ -56,10 +56,21 @@ export default function SingleNumber(props: SingleNumberProps) {
   const [prevCount, setPrevCount] = React.useState(count);
 
   // ============================= Events =============================
-  const onTransitionEnd: React.TransitionEventHandler<HTMLSpanElement> = () => {
+  const onTransitionEnd = () => {
     setPrevValue(value);
     setPrevCount(count);
   };
+
+  // Fallback if transition event not support
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      onTransitionEnd();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [value]);
 
   // ============================= Render =============================
   // Render unit list

@@ -23,7 +23,6 @@ export interface ScrollNumberState {
 
 const ScrollNumber: React.FC<ScrollNumberProps> = ({
   prefixCls: customizePrefixCls,
-  // count: customizeCount,
   count,
   className,
   motionClassName,
