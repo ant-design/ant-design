@@ -98,14 +98,7 @@ export default function SingleNumber(props: SingleNumberProps) {
   }
 
   return (
-    <span
-      className={`${prefixCls}-only`}
-      style={{
-        ...offsetStyle,
-        border: '1px solid green',
-      }}
-      onTransitionEnd={onTransitionEnd}
-    >
+    <span className={`${prefixCls}-only`} style={offsetStyle} onTransitionEnd={onTransitionEnd}>
       {unitNodes}
     </span>
   );

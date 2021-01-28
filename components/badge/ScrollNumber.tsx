@@ -5,37 +5,6 @@ import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 import SingleNumber from './SingleNumber';
 
-function getNumberArray(num: string | number | undefined | null) {
-  return num
-    ? num
-        .toString()
-        .split('')
-        .reverse()
-        .map(i => {
-          const current = Number(i);
-          return isNaN(current) ? i : current;
-        })
-    : [];
-}
-
-function renderNumberList(position: number, className: string) {
-  const childrenToReturn: React.ReactElement<any>[] = [];
-  for (let i = 0; i < 30; i++) {
-    childrenToReturn.push(
-      <p
-        key={i.toString()}
-        className={classNames(className, {
-          current: position === i,
-        })}
-      >
-        {i % 10}
-      </p>,
-    );
-  }
-
-  return childrenToReturn;
-}
-
 export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
@@ -70,7 +39,6 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   const [animateStarted, setAnimateStarted] = useState(true);
   const [count, setCount] = useState(customizeCount);
   const [prevCount, setPrevCount] = useState(customizeCount);
-  const [lastCount, setLastCount] = useState(customizeCount);
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
 
@@ -80,7 +48,6 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   }
 
   React.useEffect(() => {
-    setLastCount(count);
     let timeout: number;
     if (animateStarted) {
       // Let browser has time to reset the scroller before actually
@@ -98,30 +65,6 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     };
   }, [animateStarted, customizeCount, onAnimated]);
 
-  // =========================== Function ===========================
-  const getPositionByNum = (num: number, i: number) => {
-    const currentCount = Math.abs(Number(count));
-    const lstCount = Math.abs(Number(lastCount));
-    const currentDigit = Math.abs(getNumberArray(count)[i] as number);
-    const lastDigit = Math.abs(getNumberArray(lstCount)[i] as number);
-
-    if (animateStarted) {
-      return 10 + num;
-    }
-
-    // 同方向则在同一侧切换数字
-    if (currentCount > lstCount) {
-      if (currentDigit >= lastDigit) {
-        return 10 + num;
-      }
-      return 20 + num;
-    }
-    if (currentDigit <= lastDigit) {
-      return 10 + num;
-    }
-    return num;
-  };
-
   // ============================ Render ============================
   const newProps = {
     ...restProps,
@@ -130,40 +73,6 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     className: classNames(prefixCls, className, motionClassName),
     title: title as string,
   };
-
-  const renderCurrentNumber = (num: number | string, i: number) => {
-    if (typeof num === 'number') {
-      const position = getPositionByNum(num, i);
-      const removeTransition = animateStarted || getNumberArray(lastCount)[i] === undefined;
-      return React.createElement(
-        'span',
-        {
-          className: `${prefixCls}-only`,
-          style: {
-            transition: removeTransition ? 'none' : undefined,
-            msTransform: `translateY(${-position * 100}%)`,
-            WebkitTransform: `translateY(${-position * 100}%)`,
-            transform: `translateY(${-position * 100}%)`,
-          },
-          key: i,
-        },
-        renderNumberList(position, `${prefixCls}-only-unit`),
-      );
-    }
-
-    return (
-      <span key="symbol" className={`${prefixCls}-symbol`}>
-        {num}
-      </span>
-    );
-  };
-
-  const numberNode =
-    count && Number(count) % 1 === 0
-      ? getNumberArray(count)
-          .map((num, i) => renderCurrentNumber(num, i))
-          .reverse()
-      : count;
 
   // Only integer need motion
   let numberNodes: React.ReactNode = count;
