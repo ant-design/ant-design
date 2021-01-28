@@ -81,7 +81,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const prefixCls = getPrefixCls('input', customizePrefixCls);
 
     React.useImperativeHandle(ref, () => ({
-      resizableTextArea: innerRef.current?.resizableTextArea,
+      ...(innerRef.current || {}),
       focus: (option?: InputFocusOptions) => {
         triggerFocus(innerRef.current?.resizableTextArea?.textArea, option);
       },
