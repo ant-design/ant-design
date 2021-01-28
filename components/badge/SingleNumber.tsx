@@ -55,8 +55,6 @@ export default function SingleNumber(props: SingleNumberProps) {
   const [prevValue, setPrevValue] = React.useState(value);
   const [prevCount, setPrevCount] = React.useState(count);
 
-  React.useEffect(() => {}, [value]);
-
   // ============================= Events =============================
   const onTransitionEnd: React.TransitionEventHandler<HTMLSpanElement> = () => {
     setPrevValue(value);
