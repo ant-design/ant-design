@@ -3,6 +3,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
+import SingleNumber from './SingleNumber';
 
 function getNumberArray(num: string | number | undefined | null) {
   return num
@@ -164,6 +165,22 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
           .reverse()
       : count;
 
+  // Only integer need motion
+  let numberNodes: React.ReactNode = count;
+  if (count && Number(count) % 1 === 0) {
+    const numberList = String(count).split('');
+
+    numberNodes = numberList.map((num, i) => (
+      <SingleNumber
+        prefixCls={prefixCls}
+        count={Number(count)}
+        value={Number(num)}
+        // eslint-disable-next-line react/no-array-index-key
+        key={numberList.length - i}
+      />
+    ));
+  }
+
   // allow specify the border
   // mock border-color by box-shadow for compatible with old usage:
   // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
@@ -178,7 +195,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
       className: classNames(`${prefixCls}-custom-component`, oriProps?.className, motionClassName),
     }));
   }
-  return React.createElement(component as any, newProps, numberNode);
+  return React.createElement(component as any, newProps, numberNodes);
 };
 
 export default ScrollNumber;
