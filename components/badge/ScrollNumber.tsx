@@ -38,6 +38,7 @@ function renderNumberList(position: number, className: string) {
 export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
+  motionClassName?: string;
   count?: string | number | null;
   children?: React.ReactElement<HTMLElement>;
   component?: string;
@@ -56,6 +57,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   prefixCls: customizePrefixCls,
   count: customizeCount,
   className,
+  motionClassName,
   style,
   title,
   show,
@@ -124,7 +126,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     ...restProps,
     'data-show': show,
     style,
-    className: classNames(prefixCls, className),
+    className: classNames(prefixCls, className, motionClassName),
     title: title as string,
   };
 
@@ -173,7 +175,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   }
   if (children) {
     return cloneElement(children, oriProps => ({
-      className: classNames(`${prefixCls}-custom-component`, oriProps?.className),
+      className: classNames(`${prefixCls}-custom-component`, oriProps?.className, motionClassName),
     }));
   }
   return React.createElement(component as any, newProps, numberNode);
