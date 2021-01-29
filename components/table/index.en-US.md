@@ -83,7 +83,7 @@ const columns = [
 | tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |  |
 | title | Table title renderer | function(currentPageData) | - |  |
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
-| onHeaderRow | Set props on per header row | function(column, index) | - |  |
+| onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
 
 #### onRow usage
@@ -101,7 +101,7 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
       onMouseLeave: event => {}, // mouse leave row
     };
   }}
-  onHeaderRow={column => {
+  onHeaderRow={(columns, index) => {
     return {
       onClick: () => {}, // click header row
     };

@@ -17,7 +17,6 @@ export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
   showCount?: boolean | ShowCountProps;
-  maxLength?: number;
   size?: SizeType;
 }
 
@@ -130,7 +129,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const valueLength = [...val].length;
+      const valueLength = Math.min(val.length, maxLength ?? Infinity);
 
       let dataCount = '';
       if (typeof showCount === 'object') {

@@ -176,7 +176,7 @@ export interface TableCurrentDataSource<RecordType> {
 export interface SorterResult<RecordType> {
   column?: ColumnType<RecordType>;
   order?: SortOrder;
-  field?: Key | Key[];
+  field?: Key | readonly Key[];
   columnKey?: Key;
 }
 
