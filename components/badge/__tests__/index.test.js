@@ -155,20 +155,6 @@ describe('Badge', () => {
 
     expect(wrapper.find('.ant-badge')).toHaveLength(2);
   });
-
-  it('render Badge size when contains children', () => {
-    const wrapper = mount(
-      <div>
-        <Badge size="default" count={5}>
-          <a />
-        </Badge>
-        <Badge size="small" count={5}>
-          <a />
-        </Badge>
-      </div>,
-    );
-    expect(wrapper.render()).toMatchSnapshot();
-  });
 });
 
 describe('Ribbon', () => {
