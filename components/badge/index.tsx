@@ -200,8 +200,6 @@ const Badge: CompoundedComponent = ({
             scrollNumberStyle.background = color;
           }
 
-          console.log('===>', isDot, scrollNumberCls);
-
           return (
             <ScrollNumber
               prefixCls={scrollNumberPrefixCls}
