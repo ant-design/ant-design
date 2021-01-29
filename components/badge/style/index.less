@@ -177,15 +177,25 @@
   }
 }
 
+// Safari will blink with transform when inner element has absolute style.
+.safari-fix-motion() {
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
 .@{number-prefix-cls} {
   overflow: hidden;
   &-only {
+    position: relative;
     display: inline-block;
     height: @badge-height;
     transition: all @animation-duration-slow @ease-in-out;
+    .safari-fix-motion;
+
     > p.@{number-prefix-cls}-only-unit {
       height: @badge-height;
       margin: 0;
+      .safari-fix-motion;
     }
   }
 
