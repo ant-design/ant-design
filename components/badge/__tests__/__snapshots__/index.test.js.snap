@@ -1249,157 +1249,12 @@ exports[`Badge should be compatible with borderColor style 1`] = `
   >
     <span
       class="ant-scroll-number-only"
-      style="transition: none; transform: translateY(-1400%);"
+      style="transition: none;"
     >
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        0
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        1
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        2
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        3
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        4
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        5
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        6
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        7
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        8
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        9
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        0
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        1
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        2
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        3
-      </p>
       <p
         class="ant-scroll-number-only-unit current"
       >
         4
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        5
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        6
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        7
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        8
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        9
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        0
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        1
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        2
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        3
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        4
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        5
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        6
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        7
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        8
-      </p>
-      <p
-        class="ant-scroll-number-only-unit"
-      >
-        9
       </p>
     </span>
   </sup>
@@ -1576,6 +1431,23 @@ exports[`Badge should render when count is changed 6`] = `
       </p>
     </span>
   </sup>
+</span>
+`;
+
+exports[`Badge should support offset when count is a ReactNode 1`] = `
+<span
+  class="ant-badge"
+>
+  <a
+    class="head-example"
+    href="#"
+  >
+    head
+  </a>
+  <span
+    class="ant-scroll-number-custom-component custom"
+    style="margin-top: 20px; right: -10px; color: rgb(245, 34, 45);"
+  />
 </span>
 `;
 

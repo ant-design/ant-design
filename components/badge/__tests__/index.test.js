@@ -59,8 +59,11 @@ describe('Badge', () => {
         <Badge status="error" />
       </Tooltip>,
     );
-    wrapper.find('Badge').simulate('mouseenter');
-    jest.runAllTimers();
+
+    act(() => {
+      wrapper.find('Badge').simulate('mouseenter');
+      jest.runAllTimers();
+    });
     expect(ref.current.props.visible).toBeTruthy();
   });
 
@@ -95,34 +98,34 @@ describe('Badge', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  // // https://github.com/ant-design/ant-design/issues/13694
-  // it('should support offset when count is a ReactNode', () => {
-  //   const wrapper = mount(
-  //     <Badge count={<span className="custom" style={{ color: '#f5222d' }} />} offset={[10, 20]}>
-  //       <a href="#" className="head-example">
-  //         head
-  //       </a>
-  //     </Badge>,
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
-  // });
+  // https://github.com/ant-design/ant-design/issues/13694
+  it('should support offset when count is a ReactNode', () => {
+    const wrapper = mount(
+      <Badge count={<span className="custom" style={{ color: '#f5222d' }} />} offset={[10, 20]}>
+        <a href="#" className="head-example">
+          head
+        </a>
+      </Badge>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
-  // // https://github.com/ant-design/ant-design/issues/15349
-  // it('should color style  works on Badge', () => {
-  //   const wrapper = mount(<Badge style={{ color: 'red' }} status="success" text="Success" />);
-  //   expect(wrapper.find('.ant-badge-status-text').props().style.color).toBe('red');
-  // });
+  // https://github.com/ant-design/ant-design/issues/15349
+  it('should color style  works on Badge', () => {
+    const wrapper = mount(<Badge style={{ color: 'red' }} status="success" text="Success" />);
+    expect(wrapper.find('.ant-badge-status-text').props().style.color).toBe('red');
+  });
 
-  // // https://github.com/ant-design/ant-design/issues/15799
-  // it('render correct with negative number', () => {
-  //   const wrapper = mount(
-  //     <div>
-  //       <Badge count="-10" />
-  //       <Badge count={-10} />
-  //     </div>,
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
-  // });
+  // https://github.com/ant-design/ant-design/issues/15799
+  it('render correct with negative number', () => {
+    const wrapper = mount(
+      <div>
+        <Badge count="-10" />
+        <Badge count={-10} />
+      </div>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
   // // https://github.com/ant-design/ant-design/issues/21331
   // it('render Badge status/color when contains children', () => {
