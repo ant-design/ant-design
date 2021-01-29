@@ -13916,7 +13916,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             >
               <colgroup>
                 <col
-                  class="ant-table-selection-col"
+                  class="ant-table-selections-col"
                 />
               </colgroup>
               <thead
