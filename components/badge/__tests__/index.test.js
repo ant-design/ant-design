@@ -127,48 +127,48 @@ describe('Badge', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  // // https://github.com/ant-design/ant-design/issues/21331
-  // it('render Badge status/color when contains children', () => {
-  //   const wrapper = mount(
-  //     <div>
-  //       <Badge count={5} status="success">
-  //         <a />
-  //       </Badge>
-  //       <Badge count={5} color="blue">
-  //         <a />
-  //       </Badge>
-  //       <Badge count={5} color="#08c">
-  //         <a />
-  //       </Badge>
-  //     </div>,
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
-  // });
+  // https://github.com/ant-design/ant-design/issues/21331
+  it('render Badge status/color when contains children', () => {
+    const wrapper = mount(
+      <div>
+        <Badge count={5} status="success">
+          <a />
+        </Badge>
+        <Badge count={5} color="blue">
+          <a />
+        </Badge>
+        <Badge count={5} color="#08c">
+          <a />
+        </Badge>
+      </div>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
-  // it('Badge should work when status/color is empty string', () => {
-  //   const wrapper = mount(
-  //     <>
-  //       <Badge color="" text="text" />
-  //       <Badge status="" text="text" />
-  //     </>,
-  //   );
+  it('Badge should work when status/color is empty string', () => {
+    const wrapper = mount(
+      <>
+        <Badge color="" text="text" />
+        <Badge status="" text="text" />
+      </>,
+    );
 
-  //   expect(wrapper.find('.ant-badge')).toHaveLength(2);
-  // });
+    expect(wrapper.find('.ant-badge')).toHaveLength(2);
+  });
 
-  // it('render Badge size when contains children', () => {
-  //   const wrapper = mount(
-  //     <div>
-  //       <Badge size="default" count={5}>
-  //         <a />
-  //       </Badge>
-  //       <Badge size="small" count={5}>
-  //         <a />
-  //       </Badge>
-  //     </div>,
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
-  // });
+  it('render Badge size when contains children', () => {
+    const wrapper = mount(
+      <div>
+        <Badge size="default" count={5}>
+          <a />
+        </Badge>
+        <Badge size="small" count={5}>
+          <a />
+        </Badge>
+      </div>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
 
 describe('Ribbon', () => {
