@@ -14,8 +14,7 @@ function UnitNumber({ prefixCls, value, current, offset = 0 }: UnitNumberProps) 
   if (offset) {
     style = {
       position: 'absolute',
-      transform: `translateY(${offset}00%)`,
-      top: 0,
+      top: `${offset}00%`,
       left: 0,
     };
   }
