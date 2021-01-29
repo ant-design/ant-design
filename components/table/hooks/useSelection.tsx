@@ -287,7 +287,6 @@ export default function useSelection<RecordType>(
             });
 
             const keys = Array.from(keySet);
-            setSelectedKeys(keys);
             if (onSelectInvert) {
               devWarning(
                 false,
@@ -296,6 +295,8 @@ export default function useSelection<RecordType>(
               );
               onSelectInvert(keys);
             }
+
+            setSelectedKeys(keys);
           },
         };
       }
@@ -304,10 +305,11 @@ export default function useSelection<RecordType>(
           key: 'none',
           text: tableLocale.selectNone,
           onSelect() {
-            setSelectedKeys([]);
             if (onSelectNone) {
               onSelectNone();
             }
+
+            setSelectedKeys([]);
           },
         };
       }
@@ -350,7 +352,6 @@ export default function useSelection<RecordType>(
         }
 
         const keys = Array.from(keySet);
-        setSelectedKeys(keys);
 
         if (onSelectAll) {
           onSelectAll(
@@ -359,6 +360,8 @@ export default function useSelection<RecordType>(
             changeKeys.map(k => getRecordByKey(k)),
           );
         }
+
+        setSelectedKeys(keys);
       };
 
       // ===================== Render =====================
@@ -516,7 +519,6 @@ export default function useSelection<RecordType>(
                     }
 
                     const keys = Array.from(keySet);
-                    setSelectedKeys(keys);
                     if (onSelectMultiple) {
                       onSelectMultiple(
                         !checked,
@@ -524,6 +526,8 @@ export default function useSelection<RecordType>(
                         changedKeys.map(recordKey => getRecordByKey(recordKey)),
                       );
                     }
+
+                    setSelectedKeys(keys);
                   } else {
                     // Single record selected
                     const originCheckedKeys = derivedSelectedKeys;
