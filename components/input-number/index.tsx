@@ -24,6 +24,7 @@ export interface InputNumberProps
   disabled?: boolean;
   readOnly?: boolean;
   size?: SizeType;
+  bordered?: boolean;
   formatter?: (value: number | string | undefined) => string;
   parser?: (displayValue: string | undefined) => number | string;
   decimalSeparator?: string;
@@ -45,6 +46,7 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
     className,
     size: customizeSize,
     prefixCls: customizePrefixCls,
+    bordered = true,
     readOnly,
     ...others
   } = props;
@@ -60,6 +62,7 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
       [`${prefixCls}-sm`]: mergeSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-readonly`]: readOnly,
+      [`${prefixCls}-borderless`]: !bordered,
     },
     className,
   );
