@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: make release
-        if: github.event.create.ref_type == 'tag'
+        if: github.event.ref_type == 'tag'
         uses: actions-cool/release-helper@v1
         with:
           token: ${{ secrets.ANT_BOT_TOKEN }}
