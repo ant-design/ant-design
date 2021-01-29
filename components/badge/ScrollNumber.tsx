@@ -54,7 +54,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
       <SingleNumber
         prefixCls={prefixCls}
         count={Number(count)}
-        value={Number(num)}
+        value={num}
         // eslint-disable-next-line react/no-array-index-key
         key={numberList.length - i}
       />

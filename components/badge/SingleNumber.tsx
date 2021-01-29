@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 export interface UnitNumberProps {
   prefixCls: string;
-  value: number;
+  value: string | number;
   offset?: number;
   current?: boolean;
 }
@@ -33,7 +33,7 @@ function UnitNumber({ prefixCls, value, current, offset = 0 }: UnitNumberProps) 
 
 export interface SingleNumberProps {
   prefixCls: string;
-  value: number;
+  value: string;
   count: number;
 }
 
@@ -50,7 +50,9 @@ function getOffset(start: number, end: number, unit: -1 | 1) {
 }
 
 export default function SingleNumber(props: SingleNumberProps) {
-  const { prefixCls, count, value } = props;
+  const { prefixCls, count: originCount, value: originValue } = props;
+  const value = Number(originValue);
+  const count = Math.abs(originCount);
   const [prevValue, setPrevValue] = React.useState(value);
   const [prevCount, setPrevCount] = React.useState(count);
 
@@ -76,7 +78,7 @@ export default function SingleNumber(props: SingleNumberProps) {
   let unitNodes: React.ReactElement[];
   let offsetStyle: React.CSSProperties | undefined;
 
-  if (prevValue === value) {
+  if (prevValue === value || Number.isNaN(value) || Number.isNaN(prevValue)) {
     // Nothing to change
     unitNodes = [<UnitNumber {...props} key={value} current />];
     offsetStyle = {
