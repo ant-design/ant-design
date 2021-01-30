@@ -34,7 +34,6 @@ timeline: true
   - 🐞 修复 Image `placeholder` 不显示的问题。[#28953](https://github.com/ant-design/ant-design/issues/28953)
   - 🐞 修复多个 Image.PreviewGroup 之间图片互串的问题。[#28881](https://github.com/ant-design/ant-design/issues/28881)
 - ConfigProvider
-- ConfigProvider
   - 🆕 ConfigProvider 支持 `iconPrefixCls` 修改图标样式前缀。[#28924](https://github.com/ant-design/ant-design/pull/28924)
   - ⚡️ 优化 ConfigProvider 切换属性的性能。[#28792](https://github.com/ant-design/ant-design/pull/28792) [@zxc0328](https://github.com/zxc0328)
 - 💄 调整 TreeSelect 搜索高亮条目的颜色。[#28984](https://github.com/ant-design/ant-design/pull/28984)
