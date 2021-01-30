@@ -72,10 +72,7 @@
 
       height: @select-multiple-item-height;
       margin-top: @select-multiple-item-spacing-half;
-      margin-inline-end: @input-padding-vertical-base;
       margin-bottom: @select-multiple-item-spacing-half;
-      padding-inline-start: @padding-xs;
-      padding-inline-end: (@padding-xs / 2);
       line-height: @select-multiple-item-height - @select-multiple-item-border-width * 2;
       background: @select-selection-item-bg;
       border: 1px solid @select-selection-item-border-color;
@@ -83,6 +80,9 @@
       cursor: default;
       transition: font-size 0.3s, line-height 0.3s, height 0.3s;
       user-select: none;
+      margin-inline-end: @input-padding-vertical-base;
+      padding-inline-start: @padding-xs;
+      padding-inline-end: (@padding-xs / 2);
 
       .@{select-prefix-cls}-disabled& {
         color: @select-multiple-item-disabled-color;

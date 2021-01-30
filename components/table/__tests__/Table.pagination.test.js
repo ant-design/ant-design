@@ -239,8 +239,8 @@ describe('Table.pagination', () => {
   });
 
   /**
-   * `pagination` is not designed to accept `true` value, but in practice, many people assign `true`
-   * to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
+   * `pagination` is not designed to accept `true` value, but in practice, many people assign
+   * `true` to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
    */
   it('Accepts pagination as true', () => {
     const wrapper = mount(createTable({ pagination: true }));

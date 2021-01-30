@@ -26,13 +26,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image-preview', customizePrefixCls);
-  return (
-    <RcImage.PreviewGroup
-      previewPrefixCls={prefixCls}
-      icons={icons}
-      {...props}
-    />
-  );
+  return <RcImage.PreviewGroup previewPrefixCls={prefixCls} icons={icons} {...props} />;
 };
 
 export default InternalPreviewGroup;

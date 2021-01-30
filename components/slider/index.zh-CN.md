@@ -38,9 +38,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
 
 ### range
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| draggableTrack | 范围刻度是否可被拖拽 | boolean | false | 4.10.0 |
+| 参数           | 说明                 | 类型    | 默认值 | 版本   |
+| -------------- | -------------------- | ------- | ------ | ------ |
+| draggableTrack | 范围刻度是否可被拖拽 | boolean | false  | 4.10.0 |
 
 ## 方法
 
