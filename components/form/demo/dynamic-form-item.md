@@ -122,12 +122,12 @@ ReactDOM.render(<DynamicFieldSet />, mountNode);
 
 ```css
 .dynamic-delete-button {
-  margin: 0 8px;
-  cursor: pointer;
   position: relative;
   top: 4px;
-  font-size: 24px;
+  margin: 0 8px;
   color: #999;
+  font-size: 24px;
+  cursor: pointer;
   transition: all 0.3s;
 }
 .dynamic-delete-button:hover {

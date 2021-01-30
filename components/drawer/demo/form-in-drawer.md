@@ -172,9 +172,9 @@ ReactDOM.render(<DrawerForm />, mountNode);
   bottom: 0px;
   width: 100%;
   padding: 10px 16px;
-  border-top: 1px solid #e9e9e9;
-  background: #fff;
   text-align: right;
+  background: #fff;
+  border-top: 1px solid #e9e9e9;
 }
 ```
 

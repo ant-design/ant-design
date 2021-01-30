@@ -49,11 +49,11 @@ ReactDOM.render(
 ```css
 [data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
 .site-collapse-custom-collapse .site-collapse-custom-panel {
-  background: #f7f7f7;
-  border-radius: 2px;
   margin-bottom: 24px;
-  border: 0px;
   overflow: hidden;
+  background: #f7f7f7;
+  border: 0px;
+  border-radius: 2px;
 }
 ```
 
