@@ -182,11 +182,11 @@
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
+    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
     transition: color 0.3s @ease-out; // sync input color transition
-    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
   }
 
   .@{ant-prefix}-input-textarea-show-count {
