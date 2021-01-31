@@ -18,10 +18,11 @@ timeline: true
 ## 4.11.3
 
 - ⚡️ Optimize Calling sequence of `onChange` and `onSelectAll` in `rowSelection` of Table. [#29079](https://github.com/ant-design/ant-design/pull/29079) [@kerm1it](https://github.com/kerm1it)
-- 💄 Fix Badge change `count` content to hide miss style. [#29089](https://github.com/ant-design/ant-design/pull/29089)
 - ⚡️ Optimize ConfigProvider to avoid import all icons when tree shaking is not enabled. [#29045](https://github.com/ant-design/ant-design/pull/29045)
-- 🐞 Fix Badge's digital animation problem. [#29100](https://github.com/ant-design/ant-design/pull/29100)
 - 🌐 Add en-GB missing translations for table. [#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
+- Badge
+  - 💄 Fix Badge change `count` content to hide miss style. [#29089](https://github.com/ant-design/ant-design/pull/29089)
+  - 🐞 Fix Badge's digital animation problem. [#29100](https://github.com/ant-design/ant-design/pull/29100)
 - TypeScript
   - 🤖 Table ts definition update `dataSource` to `readonly`. [#29084](https://github.com/ant-design/ant-design/pull/29084)
 
