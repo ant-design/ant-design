@@ -19,8 +19,9 @@ timeline: true
 
 - ⚡️ 优化表格 `rowSelection` 中 `onChange` 和 `onSelectAll` 的调用顺序。[#29079](https://github.com/ant-design/ant-design/pull/29079) [@kerm1it](https://github.com/kerm1it)
 - 💄 修复 Badge 修改 `count` 内容以隐藏时的样式问题。[#29089](https://github.com/ant-design/ant-design/pull/29089)
-- 🐞 Fix English grammar of Affix page。[#29069](https://github.com/ant-design/ant-design/pull/29069) [@renny-ren](https://github.com/renny-ren)
 - ⚡️ 优化 ConfigProvider 在未开启 tree shaking 的项目中引入所有图标的问题。[#29045](https://github.com/ant-design/ant-design/pull/29045)
+- 🐞 修复 Badge 的数字动画问题。[#29100](https://github.com/ant-design/ant-design/pull/29100)
+- 🌐 为表格添加 en-GB 翻译。[#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
 - TypeScript
   - 🤖 Table ts 定义更新 `dataSource` 至 `readonly`。[#29084](https://github.com/ant-design/ant-design/pull/29084)
 
