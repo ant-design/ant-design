@@ -35,6 +35,7 @@ Previewable image.
   src?: string; // V4.10.0
   mask?: ReactNode; // V4.9.0
   maskClassName?: string; // V4.11.0
+  current?: number; // V4.12.0 Only support PreviewGroup.
 }
 ```
 
