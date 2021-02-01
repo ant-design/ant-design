@@ -2,7 +2,7 @@ name: 🔀 Mirror to Gitee
 
 on:
   push:
-    branches: 
+    branches:
       - master
       - gh-pages
       - feature
