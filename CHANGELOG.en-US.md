@@ -23,7 +23,7 @@ timeline: true
 - ⚡️ Optimize ConfigProvider to avoid import all icons when tree shaking is not enabled. [#29045](https://github.com/ant-design/ant-design/pull/29045)
 - 🌐 Add en-GB missing translations for table. [#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
 - Table
-  - 🆕 The Table showSorterTooltip property supports the configuration of Tooltip. [#29002](https://github.com/ant-design/ant-design/pull/29002) [@harrisoff](https://github.com/harrisoff)
+  - 🆕  Table `showSorterTooltip` now could be a object for more configuration. [#29002](https://github.com/ant-design/ant-design/pull/29002) [@harrisoff](https://github.com/harrisoff)
   - ⚡️ Optimize Calling sequence of `onChange` and `onSelectAll` in `rowSelection` of Table. [#29079](https://github.com/ant-design/ant-design/pull/29079) [@kerm1it](https://github.com/kerm1it)
 - Badge
   - 💄 Fix Badge change `count` content to hide miss style. [#29089](https://github.com/ant-design/ant-design/pull/29089)
