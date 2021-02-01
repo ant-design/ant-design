@@ -17,13 +17,18 @@ timeline: true
 
 ## 4.12.0
 
-- 🆕 InputNumber add `keyboard` prop which could disable keyboard behavior. [#29110](https://github.com/ant-design/ant-design/pull/29110) [@kerm1it](https://github.com/kerm1it)
+- 🆕 Image.PreviewGroup add `current` prop. [#29153](https://github.com/ant-design/ant-design/pull/29153)
+- InputNumber
+  - 🆕 InputNumber support bordered prop. [#29105](https://github.com/ant-design/ant-design/pull/29105)
+  - 🆕 InputNumber add `keyboard` prop which could disable keyboard behavior. [#29110](https://github.com/ant-design/ant-design/pull/29110) [@kerm1it](https://github.com/kerm1it)
+- 💄 Darken Tag text color to enhance readability. [#29144](https://github.com/ant-design/ant-design/pull/29144)
 - 💄 Fix Row with vertical `gutter` provides additional `margin-bottom` style. [#29059](https://github.com/ant-design/ant-design/pull/29059)
+- 🐞 Fix Collapse header disappers with delay. [#29158](https://github.com/ant-design/ant-design/pull/29158)
 - 🐞 Fix the issue that showCount displays incorrect data when emoji is input. [#29057](https://github.com/ant-design/ant-design/pull/29057) [@HomyeeKing](https://github.com/HomyeeKing)
 - ⚡️ Optimize ConfigProvider to avoid import all icons when tree shaking is not enabled. [#29045](https://github.com/ant-design/ant-design/pull/29045)
 - 🌐 Add en-GB missing translations for table. [#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
 - Table
-  - 🆕  Table `showSorterTooltip` now could be a object for more configuration. [#29002](https://github.com/ant-design/ant-design/pull/29002) [@harrisoff](https://github.com/harrisoff)
+  - 🆕 Table `showSorterTooltip` now could be a object for more configuration. [#29002](https://github.com/ant-design/ant-design/pull/29002) [@harrisoff](https://github.com/harrisoff)
   - ⚡️ Optimize calling sequence of `onChange` and `onSelectAll` in `rowSelection` of Table. [#29079](https://github.com/ant-design/ant-design/pull/29079) [@kerm1it](https://github.com/kerm1it)
 - Badge
   - 💄 Fix Badge change `count` content to hide miss style. [#29089](https://github.com/ant-design/ant-design/pull/29089)
