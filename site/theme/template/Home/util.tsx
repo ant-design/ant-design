@@ -28,7 +28,7 @@ export function useSiteData<T>(endpoint: string, language?: 'cn' | 'en'): T {
   const documentVisibility = useDocumentVisibility();
 
   React.useEffect(() => {
-    if (!data && typeof fetch !== 'undefined' && documentVisibility) {
+    if (!data && typeof fetch !== 'undefined' && documentVisibility === 'visible') {
       fetch(`https://my-json-server.typicode.com/ant-design/website-data/${endpoint}`)
         .then(res => res.json())
         .then((res: any) => {
