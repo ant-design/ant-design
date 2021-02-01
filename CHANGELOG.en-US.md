@@ -15,11 +15,16 @@ timeline: true
 
 ---
 
-## 4.11.3
+## 4.12.0
 
-- ⚡️ Optimize Calling sequence of `onChange` and `onSelectAll` in `rowSelection` of Table. [#29079](https://github.com/ant-design/ant-design/pull/29079) [@kerm1it](https://github.com/kerm1it)
+- 🆕 InputNumber add `keyboard` prop to support disable keyboard behavior. [#29110](https://github.com/ant-design/ant-design/pull/29110) [@kerm1it](https://github.com/kerm1it)
+- 💄 Fix Row with vertical `gutter` provides additional `margin-bottom` style. [#29059](https://github.com/ant-design/ant-design/pull/29059)
+- 🐞 Fix the problem that Input 1/2 cannot be entered [#29057](https://github.com/ant-design/ant-design/pull/29057) [@HomyeeKing](https://github.com/HomyeeKing)
 - ⚡️ Optimize ConfigProvider to avoid import all icons when tree shaking is not enabled. [#29045](https://github.com/ant-design/ant-design/pull/29045)
 - 🌐 Add en-GB missing translations for table. [#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
+- Table
+  - 🆕 The Table showSorterTooltip property supports the configuration of Tooltip. [#29002](https://github.com/ant-design/ant-design/pull/29002) [@harrisoff](https://github.com/harrisoff)
+  - ⚡️ Optimize Calling sequence of `onChange` and `onSelectAll` in `rowSelection` of Table. [#29079](https://github.com/ant-design/ant-design/pull/29079) [@kerm1it](https://github.com/kerm1it)
 - Badge
   - 💄 Fix Badge change `count` content to hide miss style. [#29089](https://github.com/ant-design/ant-design/pull/29089)
   - 🐞 Fix Badge's digital animation problem. [#29100](https://github.com/ant-design/ant-design/pull/29100)
