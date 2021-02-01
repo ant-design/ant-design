@@ -29,7 +29,7 @@ timeline: true
   - 💄 Fix Badge change `count` content to hide miss style. [#29089](https://github.com/ant-design/ant-design/pull/29089)
   - 🐞 Fix Badge digital animation problem. [#29100](https://github.com/ant-design/ant-design/pull/29100)
 - TypeScript
-  - 🤖 Table ts definition update `dataSource` to `readonly`. [#29084](https://github.com/ant-design/ant-design/pull/29084)
+  - 🤖 Table TS definition update `dataSource` to `readonly`. [#29084](https://github.com/ant-design/ant-design/pull/29084)
 
 ## 4.11.2
 
