@@ -175,6 +175,7 @@
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "ahooks": "^2.9.4",
     "antd-img-crop": "^3.1.1",
     "antd-pro-merge-less": "^3.0.11",
     "antd-theme-generator": "^1.2.3",

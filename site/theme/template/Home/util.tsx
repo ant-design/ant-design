@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import * as React from 'react';
+import { useDocumentVisibility } from 'ahooks';
 
 export function preLoad(list: string[]) {
   if (typeof window !== 'undefined') {
@@ -24,9 +25,10 @@ export function useSiteData<T>(endpoint: string, language?: 'cn' | 'en'): T {
   };
 
   const [data, setData] = React.useState<any>(getData());
+  const documentVisibility = useDocumentVisibility();
 
   React.useEffect(() => {
-    if (!data && typeof fetch !== 'undefined') {
+    if (!data && typeof fetch !== 'undefined' && documentVisibility) {
       fetch(`https://my-json-server.typicode.com/ant-design/website-data/${endpoint}`)
         .then(res => res.json())
         .then((res: any) => {
@@ -34,7 +36,7 @@ export function useSiteData<T>(endpoint: string, language?: 'cn' | 'en'): T {
           setData(getData());
         });
     }
-  }, [endpoint]);
+  }, [endpoint, documentVisibility]);
 
   return data;
 }
