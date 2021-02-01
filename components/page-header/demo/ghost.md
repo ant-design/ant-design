@@ -50,7 +50,7 @@ ReactDOM.render(
 
 ```css
 .site-page-header-ghost-wrapper {
-  background-color: #f5f5f5;
   padding: 24px;
+  background-color: #f5f5f5;
 }
 ```
