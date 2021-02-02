@@ -24,8 +24,8 @@ timeline: true
 - 💄 Darken Tag text color to enhance readability. [#29144](https://github.com/ant-design/ant-design/pull/29144)
 - 💄 Fix Row with vertical `gutter` provides additional `margin-bottom` style. [#29059](https://github.com/ant-design/ant-design/pull/29059)
 - 🐞 Fix Collapse header disappers with delay. [#29158](https://github.com/ant-design/ant-design/pull/29158)
-- 🐞 Fix the issue that showCount displays incorrect data when emoji is input. [#29057](https://github.com/ant-design/ant-design/pull/29057) [@HomyeeKing](https://github.com/HomyeeKing)
-- ⚡️ Optimize ConfigProvider to avoid import all icons when tree shaking is not enabled. [#29045](https://github.com/ant-design/ant-design/pull/29045)
+- 🐞 Fix the problem that `showCount` display data is incorrect when Textarea input emoji. [#29057](https://github.com/ant-design/ant-design/pull/29057) [@HomyeeKing](https://github.com/HomyeeKing)
+- 📦 Optimize ConfigProvider to avoid import all icons when tree shaking is not enabled. [#29045](https://github.com/ant-design/ant-design/pull/29045)
 - 🌐 Add en-GB missing translations for table. [#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
 - Table
   - 🆕 Table `showSorterTooltip` now could be a object for more configuration. [#29002](https://github.com/ant-design/ant-design/pull/29002) [@harrisoff](https://github.com/harrisoff)
