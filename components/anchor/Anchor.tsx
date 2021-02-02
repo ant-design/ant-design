@@ -54,7 +54,7 @@ export interface AnchorProps {
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
     link: { title: React.ReactNode; href: string },
-  ) => void;
+  ) => void | boolean;
   /** Scroll to target offset value, if none, it's offsetTop prop value or 0. */
   targetOffset?: number;
   /** Listening event when scrolling change active link */
@@ -80,7 +80,7 @@ export interface AntAnchor {
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
     link: { title: React.ReactNode; href: string },
-  ) => void;
+  ) => void | boolean;
 }
 
 export default class Anchor extends React.Component<AnchorProps, AnchorState, ConfigConsumerProps> {
