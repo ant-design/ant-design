@@ -1,13 +1,23 @@
 name: 🔀 Mirror to Gitee
 
-on: [ push, delete, create ]
+on:
+  push:
+    branches:
+      - master
+      - gh-pages
+      - feature
+      - 2.x-stable
+      - 3.x-stable
+  create:
 
 jobs:
   git-mirror:
     runs-on: ubuntu-latest
     if: github.repository == 'ant-design/ant-design'
     steps:
-      - uses: wearerequired/git-mirror-action@v1
+      - name: mirror
+        if: github.event_name == 'push' || (github.event_name == 'create' && github.event.ref_type == 'tag')
+        uses: wearerequired/git-mirror-action@v1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
         with:
