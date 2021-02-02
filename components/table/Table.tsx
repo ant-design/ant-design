@@ -238,10 +238,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
 
   /**
-   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to
-   * read state out and then put it back to title render. Move these code into `hooks` but still
-   * too complex. We should provides Table props like `sorter` & `filter` to handle control in next
-   * big version.
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
+   * state out and then put it back to title render. Move these code into `hooks` but still too
+   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
    */
 
   // ============================ Sorter =============================
