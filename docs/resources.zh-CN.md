@@ -65,7 +65,7 @@ toc: false
 
 ## 文章
 
-想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://zhuanlan.zhihu.com/antdesign)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
+想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://www.zhihu.com/column/c_1310524851418480640)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
 
 ### 设计
 
@@ -86,10 +86,25 @@ toc: false
 - [体验，不只是用户的！Ant Design 在蚂蚁中台的应用](https://zhuanlan.zhihu.com/p/26846739)
 - [在用 Sketch 和 iconfont？试试 Kitchen 吧！](https://zhuanlan.zhihu.com/p/36657030)
 
+<div class="next-block-use-avatars"></div>
+
+- [![林外](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*x4_RRqpFsekAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/lyndonliu)
+- [![元尧](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kACkTa-p8cgAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/a-li-zai-nu-li)
+- [![不过](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dvVKSKtCHf0AAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/caicaicaizw)
+- [![Suki](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*q5dQQ5c64yoAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/su-gu-niang-18)
+- [![梓义](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KylFRYu1a9EAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/noideaser)
+- [![幕阑](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VFWVRJSyy4IAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/sever-li)
+- [![晴风](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1P5sRIAGCDoAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/nan-guo-xi-chuang)
+
 ### 技术
 
 - [Ant Design 色板生成算法演进之路](https://zhuanlan.zhihu.com/p/32422584)
 - [如何向开源项目提交无法解答的问题](https://zhuanlan.zhihu.com/p/25795393)
+
+<div class="next-block-use-avatars"></div>
+
+- [![偏右](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*u5M-QJGnXl4AAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/afc163)
+- [![山果](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*M2yMRK9jTZAAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/chi-zi-you)
 
 ## 致敬
 
