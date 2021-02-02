@@ -229,7 +229,7 @@ describe('Table.pagination', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/29175
-  it('should change page to max page count when pageSize change', () => {
+  it('should change page to max page count when pageSize change without pagination.total', () => {
     const onChange = jest.fn();
     const onShowSizeChange = jest.fn();
     const wrapper = mount(
@@ -248,6 +248,29 @@ describe('Table.pagination', () => {
     wrapper.find('.ant-select-item-option').at(1).simulate('click');
     const newPageSize = parseInt(wrapper.find('.ant-select-item-option').at(1).text(), 10);
     expect(onChange).toHaveBeenCalledWith(longData.length / newPageSize, 20);
+  });
+
+  it('should change page to max page count when pageSize change with pagination.total', () => {
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
+    const total = 20000;
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          current: total / 10,
+          pageSize: 10,
+          onChange,
+          total,
+          onShowSizeChange,
+        },
+        dataSource: longData,
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
+    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    const newPageSize = parseInt(wrapper.find('.ant-select-item-option').at(1).text(), 10);
+    expect(onChange).toHaveBeenCalledWith(total / newPageSize, 20);
   });
 
   // https://github.com/ant-design/ant-design/issues/29175
