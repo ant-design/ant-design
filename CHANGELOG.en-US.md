@@ -19,7 +19,7 @@ timeline: true
 
 - 🆕 Image.PreviewGroup add `current` prop. [#29153](https://github.com/ant-design/ant-design/pull/29153)
 - InputNumber
-  - 🆕 InputNumber support bordered prop. [#29105](https://github.com/ant-design/ant-design/pull/29105)
+  - 🆕 InputNumber support `bordered` prop. [#29105](https://github.com/ant-design/ant-design/pull/29105)
   - 🆕 InputNumber add `keyboard` prop which could disable keyboard behavior. [#29110](https://github.com/ant-design/ant-design/pull/29110) [@kerm1it](https://github.com/kerm1it)
 - 💄 Darken Tag text color to enhance readability. [#29144](https://github.com/ant-design/ant-design/pull/29144)
 - 💄 Fix Row with vertical `gutter` provides additional `margin-bottom` style. [#29059](https://github.com/ant-design/ant-design/pull/29059)
