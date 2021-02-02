@@ -22,6 +22,11 @@ describe('Table.pagination', () => {
     { key: 3, name: 'Jerry' },
   ];
 
+  const longData = [];
+  for (let i = 0; i < 100; i += 1) {
+    longData.push({ key: i, name: `${i}` });
+  }
+
   const pagination = { className: 'my-page', pageSize: 2 };
 
   function createTable(props) {
@@ -192,7 +197,7 @@ describe('Table.pagination', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/24913
-  it('should onChange called when pageSize change', () => {
+  it('should called onChange when pageSize change', () => {
     const onChange = jest.fn();
     const onShowSizeChange = jest.fn();
     const wrapper = mount(
@@ -221,6 +226,68 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active')).toBe(
       true,
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/29175
+  it('should change page to max page count when pageSize change', () => {
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          current: 10,
+          pageSize: 10,
+          onChange,
+          onShowSizeChange,
+        },
+        dataSource: longData,
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
+    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    const newPageSize = parseInt(wrapper.find('.ant-select-item-option').at(1).text(), 10);
+    expect(onChange).toHaveBeenCalledWith(longData.length / newPageSize, 20);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/29175
+  it('should not change page to max page if current is not greater max page when pageSize change', () => {
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          current: 4,
+          pageSize: 10,
+          onChange,
+          onShowSizeChange,
+        },
+        dataSource: longData,
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
+    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    expect(onChange).toHaveBeenCalledWith(4, 20);
+  });
+
+  it('should reset current to max page when data length is cut', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          current: 10,
+          pageSize: 10,
+          onChange,
+        },
+        dataSource: longData,
+      }),
+    );
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('10');
+    wrapper.setProps({
+      dataSource: longData.filter(item => item.key < 60),
+    });
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('6');
   });
 
   it('specify the position of pagination', () => {

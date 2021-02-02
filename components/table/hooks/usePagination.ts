@@ -71,8 +71,8 @@ export default function usePagination(
   if (!paginationTotal) {
     // Reset `current` if data length changed. Only reset when paginationObj do not have total
     const maxPage = Math.ceil(total / mergedPagination.pageSize!);
-    if (maxPage < mergedPagination.current!) {
-      mergedPagination.current = 1;
+    if (mergedPagination.current! > maxPage) {
+      mergedPagination.current = maxPage;
     }
   }
 
@@ -86,7 +86,10 @@ export default function usePagination(
   const onInternalChange: PaginationProps['onChange'] = (current, pageSize) => {
     const paginationPageSize = mergedPagination?.pageSize;
     if (pageSize && pageSize !== paginationPageSize) {
-      current = 1;
+      const maxPage = Math.ceil(total / pageSize);
+      if (current > maxPage) {
+        current = maxPage;
+      }
     }
     if (pagination) {
       pagination.onChange?.(current, pageSize);
