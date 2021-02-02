@@ -16,6 +16,7 @@ jobs:
     if: github.repository == 'ant-design/ant-design'
     steps:
       - name: mirror
+        continue-on-error: true
         if: github.event_name == 'push' || (github.event_name == 'create' && github.event.ref_type == 'tag')
         uses: wearerequired/git-mirror-action@v1
         env:
