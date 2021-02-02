@@ -24,7 +24,7 @@ timeline: true
 - 💄 加深 Tag 文字颜色以提升可读性。[#29144](https://github.com/ant-design/ant-design/pull/29144)
 - 💄 修复 Row 配置垂直 `gutter` 时会额外添加 `margin-bottom` 样式的问题。[#29059](https://github.com/ant-design/ant-design/pull/29059)
 - 🐞 修复 Collapse 标题区域隐藏延迟的问题。[#29158](https://github.com/ant-design/ant-design/pull/29158)
-- 🐞 修复 Textarea 输入 emoji 时 `showCount` 展示数据不正确的问题。[#29057](https://github.com/ant-design/ant-design/pull/29057) [@HomyeeKing](https://github.com/HomyeeKing)
+- 🐞 修复 TextArea 输入 emoji 时 `showCount` 展示数据不正确的问题。[#29057](https://github.com/ant-design/ant-design/pull/29057) [@HomyeeKing](https://github.com/HomyeeKing)
 - 📦 优化 ConfigProvider 在未开启 tree shaking 的项目中引入所有图标的问题。[#29045](https://github.com/ant-design/ant-design/pull/29045)
 - 🇬🇧 为表格添加 `en-GB` 翻译。[#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
 - Badge
@@ -34,7 +34,7 @@ timeline: true
   - 🆕 Table `showSorterTooltip` 属性支持 Tooltip 的配置。[#29002](https://github.com/ant-design/ant-design/pull/29002) [@harrisoff](https://github.com/harrisoff)
   - ⚡️ 优化 Table `rowSelection` 中 `onChange` 和 `onSelectAll` 的调用顺序。[#29079](https://github.com/ant-design/ant-design/pull/29079) [@kerm1it](https://github.com/kerm1it)
 - TypeScript
-  - 🤖 Table Typescript 定义更新 `dataSource` 至 `readonly`。[#29084](https://github.com/ant-design/ant-design/pull/29084)
+  - 🤖 更新 Table TypeScript 定义 `dataSource` 至 `readonly`。[#29084](https://github.com/ant-design/ant-design/pull/29084)
 
 ## 4.11.2
 
