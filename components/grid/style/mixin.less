@@ -7,6 +7,7 @@
   .@{ant-prefix}-col@{class}-@{index} {
     display: block;
     flex: 0 0 percentage((@index / @grid-columns));
+    min-width: 0;
     max-width: percentage((@index / @grid-columns));
     max-width: calc(percentage((@index / @grid-columns)) - ~'var(--column-gap)');
   }
