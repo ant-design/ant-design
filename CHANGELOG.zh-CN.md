@@ -25,7 +25,7 @@ timeline: true
 - 💄 修复 Row 配置垂直 `gutter` 时会额外添加 `margin-bottom` 样式的问题。[#29059](https://github.com/ant-design/ant-design/pull/29059)
 - 🐞 修复 Collapse 标题区域隐藏延迟的问题。[#29158](https://github.com/ant-design/ant-design/pull/29158)
 - 🐞 修复输入 emoji 时，showCount 展示数据不正确的问题。[#29057](https://github.com/ant-design/ant-design/pull/29057) [@HomyeeKing](https://github.com/HomyeeKing)
-- ⚡️ 优化 ConfigProvider 在未开启 tree shaking 的项目中引入所有图标的问题。[#29045](https://github.com/ant-design/ant-design/pull/29045)
+- 📦 优化 ConfigProvider 在未开启 tree shaking 的项目中引入所有图标的问题。[#29045](https://github.com/ant-design/ant-design/pull/29045)
 - 🇬🇧 为表格添加 `en-GB` 翻译。[#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
 - Badge
   - 🐞 修复 Badge 的数字动画方向问题。[#29100](https://github.com/ant-design/ant-design/pull/29100)
