@@ -88,7 +88,9 @@ export default function usePagination(
     if (pageSize && pageSize !== paginationPageSize) {
       current = 1;
     }
-    if (pagination && pagination.onChange) pagination.onChange(current, pageSize);
+    if (pagination) {
+      pagination.onChange?.(current, pageSize);
+    }
 
     refreshPagination(current, pageSize);
     onChange(current, pageSize || paginationPageSize!);
