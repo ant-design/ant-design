@@ -17,6 +17,8 @@ timeline: true
 
 ## 4.12.0
 
+`2021-02-03`
+
 - 🆕 Image.PreviewGroup 添加 `current` 属性支持受控模式。[#29153](https://github.com/ant-design/ant-design/pull/29153)
 - InputNumber
   - 🆕 InputNumber 支持 `bordered` 属性。[#29105](https://github.com/ant-design/ant-design/pull/29105)
@@ -37,6 +39,12 @@ timeline: true
   - 🤖 更新 Table TypeScript 定义 `dataSource` 至 `readonly`。[#29084](https://github.com/ant-design/ant-design/pull/29084)
 - Less
   - 💄 增加 less 变量 `@progress-info-text-color`。 [#28981](https://github.com/ant-design/ant-design/pull/28981) [@yuxuan](https://github.com/yuxuan)
+
+## 4.11.3
+
+`2021-02-03`
+
+错误的发布，与 `4.12.0` 相同，如果需要锁定版本，需要锁定到 `4.11.2`。
 
 ## 4.11.2
 

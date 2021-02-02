@@ -17,6 +17,8 @@ timeline: true
 
 ## 4.12.0
 
+`2021-02-03`
+
 - 🆕 Image.PreviewGroup add `current` prop. [#29153](https://github.com/ant-design/ant-design/pull/29153)
 - InputNumber
   - 🆕 InputNumber support `bordered` prop. [#29105](https://github.com/ant-design/ant-design/pull/29105)
@@ -37,6 +39,12 @@ timeline: true
   - 🤖 Table TS definition update `dataSource` to `readonly`. [#29084](https://github.com/ant-design/ant-design/pull/29084)
 - Less
   - 💄 Add less variable `@progress-info-text-color`. [#28981](https://github.com/ant-design/ant-design/pull/28981) [@yuxuan](https://github.com/yuxuan)
+
+## 4.11.3
+
+`2021-02-03`
+
+Wrong release is the same as `4.12.0`, if you need to lock the version, you need to lock it to `4.11.2`.
 
 ## 4.11.2
 
