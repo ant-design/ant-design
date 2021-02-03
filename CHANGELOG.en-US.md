@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.12.1
+
+`2021-02-03`
+
+- 🐞 Fix antd crash when load before page ready. [#29202](https://github.com/ant-design/ant-design/pull/29202)
+- 🐞 Fix Table pagination `current` change logic when `pageSize` changes. [#29184](https://github.com/ant-design/ant-design/pull/29184)
+
 ## 4.12.0
 
 `2021-02-03`
