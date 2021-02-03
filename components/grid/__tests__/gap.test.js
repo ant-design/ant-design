@@ -7,7 +7,7 @@ import * as styleChecker from '../../_util/styleChecker';
 jest.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
   isStyleSupport: () => true,
-  isFlexGapSupported: true,
+  detectFlexGapSupported: () => true,
 }));
 
 describe('Grid.Gap', () => {

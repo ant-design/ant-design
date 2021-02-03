@@ -12,11 +12,14 @@ export const isStyleSupport = (styleName: string | Array<string>): boolean => {
   return false;
 };
 
-export const isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
-
-export const isFlexGapSupported = (() => {
+let flexGapSupported: boolean | undefined;
+export const detectFlexGapSupported = () => {
   if (!canUseDocElement()) {
     return false;
+  }
+
+  if (flexGapSupported !== undefined) {
+    return flexGapSupported;
   }
 
   // create flex container with row-gap set
@@ -31,8 +34,8 @@ export const isFlexGapSupported = (() => {
 
   // append to the DOM (needed to obtain scrollHeight)
   document.body.appendChild(flex);
-  const isSupported = flex.scrollHeight === 1; // flex container should be 1px high from the row-gap
+  flexGapSupported = flex.scrollHeight === 1; // flex container should be 1px high from the row-gap
   document.body.removeChild(flex);
 
-  return isSupported;
-})();
+  return flexGapSupported;
+};
