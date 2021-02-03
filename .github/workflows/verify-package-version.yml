@@ -1,0 +1,17 @@
+name: Verify Package Version
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize, ready_for_review, review_requested]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.title, 'changelog')
+    steps:
+      - name: verify-version
+        uses: actions-cool/verify-package-version@v1.0.0
+        with:
+          title-include-content: 'docs'
+          title-include-version: true
+          open-comment: true
