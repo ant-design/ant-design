@@ -104,7 +104,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   );
 
   let mergedStyle: React.CSSProperties = { ...style };
-  if (gutter && !isFlexGapSupported) {
+  if (gutter && !isFlexGapSupported()) {
     mergedStyle = {
       ...(gutter[0]! > 0
         ? {

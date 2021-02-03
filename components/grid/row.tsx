@@ -100,7 +100,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     '--row-gap'?: string | number;
   } = {};
 
-  if (isFlexGapSupported) {
+  if (isFlexGapSupported()) {
     rowStyle = {
       '--column-gap': 0,
       '--row-gap': 0,
