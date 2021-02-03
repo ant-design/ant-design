@@ -34,7 +34,9 @@ const changeLogContent = fs.readFileSync(join(__dirname, '..', 'CHANGELOG.en-US.
 
 const changeLog = getChangelogByVersion(changeLogContent, version);
 if (!changeLog) {
+  console.log('\n');
   console.log(chalk.red('[check-version-md]: No changelog found for the version to be released'));
+  console.log('\n');
   process.exit(1);
 }
 
@@ -43,11 +45,15 @@ if (changeLog) {
   if (text.trim().startsWith('`') && text.trim().endsWith('`')) {
     const date = moment(text.trim().replace('`', '').replace('`', ''));
     if (date.isBetween(moment().add(-2, 'day'), moment().add(2, 'day'))) {
-      console.log('[check-version-md]: Check Passed');
+      console.log('\n');
+      console.log(chalk.blue('[check-version-md]: Check Passed'));
+      console.log('\n');
       process.exit(0);
       return;
     }
   }
+  console.log('\n');
   console.log(chalk.red('[check-version-md]: The date wrongly written'));
+  console.log('\n');
   process.exit(1);
 }
