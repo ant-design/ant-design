@@ -22,6 +22,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | --- | --- | --- | --- | --- |
 | afterVisibleChange | Callback after the animation ends when switching drawers | function(visible) | - |  |
 | bodyStyle | Style of the drawer content part | object | - |  |
+| contentWrapperStyle | Style of the drawer wrapper of content part | CSSProperties | - |  |
 | className | The class name of the container of the Drawer dialog | string | - |  |
 | closable | Whether a close (x) button is visible on top right of the Drawer dialog or not | boolean | true |  |
 | closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |

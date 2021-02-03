@@ -21,6 +21,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | --- | --- | --- | --- | --- |
 | afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | - |  |
 | bodyStyle | 可用于设置 Drawer 内容部分的样式 | CSSProperties | - |  |
+| contentWrapperStyle | 可用于设置 Drawer 包裹内容部分的样式 | CSSProperties | - |  |
 | className | 对话框外层容器的类名 | string | - |  |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |  |
 | closeIcon | 自定义关闭图标 | ReactNode | &lt;CloseOutlined /> |  |
