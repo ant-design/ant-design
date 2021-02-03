@@ -20,8 +20,9 @@ describe('Grid.Gap', () => {
 
     expect(wrapper.find('.ant-row').props().style).toEqual(
       expect.objectContaining({
-        '--column-gap': '16px',
-        '--row-gap': '8px',
+        marginLeft: -8,
+        rowGap: 8,
+        marginRight: -8,
       }),
     );
   });
