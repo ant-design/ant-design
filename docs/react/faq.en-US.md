@@ -49,7 +49,7 @@ antd use shallow compare of props to optimize performance. You should always pas
 
 ### After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
-Try `defaultValue` or `onChange` to change `value`, and please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
+Try `onChange` to change `value`, and please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
 
 ### Components are not vertically aligned when placed in single row.
 
