@@ -109,7 +109,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 你可以通过 [ConfigProvider](/components/config-provider/#Content-Security-Policy) 来配置 `nonce` 属性。
 
-### 当我指定了 `DatePicker`/`RangePicker` 的 `mode` 属性后，点击后无法选择年份/月份？
+### 当我指定了 DatePicker/RangePicker 的 `mode` 属性后，点击后无法选择年份/月份？
 
 在业务开发中，你可能有年份选择，月份范围选择，周范围选择等需求，此时你给现有组件增加了 `mode` 属性，却发现无法进行点击选择行为，面板也不会关闭。如果给面板添加 `disabledDate` 也不会相应禁用对应的年/月/周。
 
