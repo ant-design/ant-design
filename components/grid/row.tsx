@@ -8,7 +8,7 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
-import { isFlexGapSupported } from '../_util/styleChecker';
+import { detectFlexGapSupported } from '../_util/styleChecker';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
@@ -100,7 +100,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     '--row-gap'?: string | number;
   } = {};
 
-  if (isFlexGapSupported()) {
+  if (detectFlexGapSupported()) {
     rowStyle = {
       '--column-gap': '0px',
       '--row-gap': '0px',

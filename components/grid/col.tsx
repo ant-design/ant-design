@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigContext } from '../config-provider';
-import { isFlexGapSupported } from '../_util/styleChecker';
+import { detectFlexGapSupported } from '../_util/styleChecker';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -104,7 +104,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   );
 
   let mergedStyle: React.CSSProperties = { ...style };
-  if (gutter && !isFlexGapSupported()) {
+  if (gutter && !detectFlexGapSupported()) {
     mergedStyle = {
       ...(gutter[0]! > 0
         ? {

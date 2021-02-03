@@ -13,7 +13,7 @@ export const isStyleSupport = (styleName: string | Array<string>): boolean => {
 };
 
 let flexGapSupported: boolean | undefined;
-export const isFlexGapSupported = () => {
+export const detectFlexGapSupported = () => {
   if (!canUseDocElement()) {
     return false;
   }
