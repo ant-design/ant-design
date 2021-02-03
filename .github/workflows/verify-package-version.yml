@@ -12,6 +12,7 @@ jobs:
       - name: verify-version
         uses: actions-cool/verify-package-version@v1.0.0
         with:
+          token: ${{ secrets.ANT_BOT_TOKEN }}
           title-include-content: 'docs'
           title-include-version: true
           open-comment: true
