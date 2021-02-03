@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: verify-version
-        uses: actions-cool/verify-package-version@v1.1.0
+        uses: actions-cool/verify-package-version@v1.1.1
         with:
           token: ${{ secrets.ANT_BOT_TOKEN }}
           title-include-content: 'docs'
