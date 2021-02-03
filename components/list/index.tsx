@@ -231,9 +231,10 @@ function List<T>({
     const columnCount =
       currentBreakpoint && grid[currentBreakpoint] ? grid[currentBreakpoint] : grid.column;
     if (columnCount) {
+      if(!grid.gutter){grid.gutter = 0}
       return {
-        width: `${100 / columnCount}%`,
-        maxWidth: `${100 / columnCount}%`,
+        width: `calc((100% - ${(columnCount - 1)*grid.gutter}px)/${columnCount})`,
+        maxWidth: `calc((100% - ${(columnCount - 1)*grid.gutter}px)/${columnCount})`,
       };
     }
   }, [grid?.column, currentBreakpoint]);
