@@ -102,8 +102,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   if (isFlexGapSupported()) {
     rowStyle = {
-      '--column-gap': 0,
-      '--row-gap': 0,
+      '--column-gap': '0px',
+      '--row-gap': '0px',
     };
 
     if (gutters[0]! > 0) {
