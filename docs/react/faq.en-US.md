@@ -49,7 +49,7 @@ antd use shallow compare of props to optimize performance. You should always pas
 
 ### After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
-Try `onChange` to change `value`, and please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
+Try `onChange` to change `value`, and please read [React's documentation](https://reactjs.org/docs/forms.html#controlled-components).
 
 ### Components are not vertically aligned when placed in single row.
 
@@ -59,7 +59,7 @@ Try [Space](https://ant.design/components/space/) component to make them aligned
 
 Yes, antd is designed to help you develop a complete background application. To do so, we override some global styles for styling convenience, and currently these cannot be removed or changed. More info at https://github.com/ant-design/ant-design/issues/4331 .
 
-Alternatively, follow the instructions in [How to avoid modifying global styles?](docs/react/customize-theme#How-to-avoid-modifying-global-styles)
+Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#How-to-avoid-modifying-global-styles)
 
 ### I cannot install `antd` and `antd`'s dependencies in mainland China.
 
