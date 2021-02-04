@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.12.2
+
+`2021-02-04`
+
+- 💄 Make Table expand icon and checkbox same size and aligned. [#29214](https://github.com/ant-design/ant-design/pull/29214)
+- 🐞 Fix List with `gutter` makes column break line. [#29211](https://github.com/ant-design/ant-design/pull/29211)
+
 ## 4.12.1
 
 `2021-02-03`

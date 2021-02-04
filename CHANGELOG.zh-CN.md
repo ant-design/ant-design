@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.12.2
+
+`2021-02-04`
+
+- 💄 调整 Table 展开图标和选择框的大小一致并对齐。[#29214](https://github.com/ant-design/ant-design/pull/29214)
+- 🐞 修复 List 配置 `gutter` 时列会折行的问题。[#29211](https://github.com/ant-design/ant-design/pull/29211)
+
 ## 4.12.1
 
 `2021-02-03`
