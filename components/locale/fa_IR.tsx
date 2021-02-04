@@ -57,7 +57,7 @@ const localeValues: Locale = {
   },
   Text: {
     edit: 'ویرایش',
-    copy: 'کپس',
+    copy: 'کپی',
     copied: 'کپی شد',
     expand: 'توسعه',
   },
@@ -104,8 +104,8 @@ const localeValues: Locale = {
       },
       array: {
         len: 'تعداد ${label} باید ${len} باشد.',
-        min: 'تعداد ${lable} حداقل باید ${min} باشد',
-        max: 'تعداد ${lable} حداکثر باید ${max} باشد',
+        min: 'تعداد ${label} حداقل باید ${min} باشد',
+        max: 'تعداد ${label} حداکثر باید ${max} باشد',
         range: 'مقدار ${label} باید بین ${min}-${max} باشد',
       },
       pattern: {
