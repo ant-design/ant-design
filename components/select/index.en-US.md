@@ -67,7 +67,7 @@ Select component to select value from options.
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
-| onDeselect | Called when a option is deselected, param is the selected option's value. Only called for `multiple` or `tags`, effective in multiple or tags mode only | function(string \| number \| LabeledValue) | - |  |
+| onDeselect | Called when an option is deselected, param is the selected option's value. Only called for `multiple` or `tags`, effective in multiple or tags mode only | function(string \| number \| LabeledValue) | - |  |
 | onDropdownVisibleChange | Called when dropdown open | function(open) | - |  |
 | onFocus | Called when focus | function | - |  |
 | onInputKeyDown | Called when key pressed | function | - |  |
@@ -75,7 +75,7 @@ Select component to select value from options.
 | onMouseLeave | Called when mouse leave | function | - |  |
 | onPopupScroll | Called when dropdown scrolls | function | - |  |
 | onSearch | Callback function that is fired when input changed | function(value: string) | - |  |
-| onSelect | Called when a option is selected, the params are option's value (or key) and option instance | function(string \| number \| LabeledValue, option: Option) | - |  |
+| onSelect | Called when an option is selected, the params are option's value (or key) and option instance | function(string \| number \| LabeledValue, option: Option) | - |  |
 
 > Note, if you find that the drop-down menu scrolls with the page, or you need to trigger Select in other popup layers, please try to use `getPopupContainer={triggerNode => triggerNode.parentElement}` to fix the drop-down popup rendering node in the parent element of the trigger .
 
