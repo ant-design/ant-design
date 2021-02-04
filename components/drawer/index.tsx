@@ -322,27 +322,29 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
 
 Drawer.displayName = 'Drawer';
 
-const DrawerWrapper = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
-  const { prefixCls: customizePrefixCls, getContainer: customizeGetContainer } = props;
-  const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
+const DrawerWrapper: React.FC<DrawerProps> = React.forwardRef<DrawerRef, DrawerProps>(
+  (props, ref) => {
+    const { prefixCls: customizePrefixCls, getContainer: customizeGetContainer } = props;
+    const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const prefixCls = getPrefixCls('drawer', customizePrefixCls);
-  const getContainer =
-    // 有可能为 false，所以不能直接判断
-    customizeGetContainer === undefined && getPopupContainer
-      ? () => getPopupContainer(document.body)
-      : customizeGetContainer;
+    const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+    const getContainer =
+      // 有可能为 false，所以不能直接判断
+      customizeGetContainer === undefined && getPopupContainer
+        ? () => getPopupContainer(document.body)
+        : customizeGetContainer;
 
-  return (
-    <Drawer
-      {...props}
-      ref={ref}
-      prefixCls={prefixCls}
-      getContainer={getContainer}
-      direction={direction}
-    />
-  );
-});
+    return (
+      <Drawer
+        {...props}
+        ref={ref}
+        prefixCls={prefixCls}
+        getContainer={getContainer}
+        direction={direction}
+      />
+    );
+  },
+);
 
 DrawerWrapper.displayName = 'DrawerWrapper';
 
