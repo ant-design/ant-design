@@ -319,6 +319,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |
 | whitespace | 如果字段仅包含空格则校验不通过 | boolean |
 | defaultField | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则 | [rule](#Rule) |
+| fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record<string, [rule](#Rule)> |
 
 ## 从 v3 升级到 v4
 
