@@ -1,3 +1,4 @@
 {
-  "sandboxes": ["antd-reproduction-template-6e93z"]
+  "sandboxes": ["antd-reproduction-template-6e93z"],
+  "node": "14"
 }
