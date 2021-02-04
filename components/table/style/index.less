@@ -83,7 +83,7 @@
         font-weight: 500;
         text-align: left;
         background: @table-header-bg;
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s ease;
 
         &[colspan]:not([colspan='1']) {
@@ -103,7 +103,7 @@
   &-tbody {
     > tr {
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s;
 
         // ========================= Nest Table ===========================
@@ -150,7 +150,7 @@
     > tr {
       > th,
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
       }
     }
   }
@@ -351,7 +351,7 @@
       padding: 7px 8px 7px 3px;
       overflow: hidden;
       background-color: @table-filter-btns-bg;
-      border-top: @border-width-base @border-style-base @border-color-split;
+      border-top: @border-width-base @border-style-base @table-border-color;
     }
   }
 
@@ -416,19 +416,22 @@
     display: inline-flex;
     float: left;
     box-sizing: border-box;
-
-    width: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3;
-    height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3;
+    width: @expand-icon-size;
+    height: @expand-icon-size;
     padding: 0;
     color: inherit;
     line-height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base *
       3;
     background: @table-expand-icon-bg;
-    border: @border-width-base @border-style-base @border-color-split;
+    border: @border-width-base @border-style-base @table-border-color;
     border-radius: @border-radius-base;
     outline: none;
+    transform: scale((unit(@checkbox-size) / unit(@expand-icon-size)));
+    transform-origin: bottom;
     transition: all 0.3s;
     user-select: none;
+    @expand-icon-size: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 +
+      @border-width-base * 3;
 
     &:focus,
     &:hover,
@@ -614,8 +617,8 @@
       z-index: @table-sticky-zindex;
       display: flex;
       align-items: center;
-      background: lighten(@border-color-split, 80%);
-      border-top: 1px solid @border-color-split;
+      background: lighten(@table-border-color, 80%);
+      border-top: 1px solid @table-border-color;
       opacity: 0.6;
       &:hover {
         transform-origin: center bottom;

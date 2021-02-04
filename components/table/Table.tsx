@@ -1,11 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import RcTable, { Summary } from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import Spin, { SpinProps } from '../spin';
 import Pagination from '../pagination';
+import { TooltipProps } from '../tooltip';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -95,7 +96,7 @@ export interface TableProps<RecordType>
     scrollToFirstRowOnChange?: boolean;
   };
   sortDirections?: SortOrder[];
-  showSorterTooltip?: boolean;
+  showSorterTooltip?: boolean | TooltipProps;
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
@@ -152,7 +153,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
   const mergedSize = customizeSize || size;
   const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
-  const rawData: RecordType[] = dataSource || EMPTY_LIST;
+  const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);

@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import copy from 'copy-to-clipboard';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
@@ -41,13 +41,14 @@ interface EditConfig {
   autoSize?: boolean | AutoSizeType;
 }
 
-interface EllipsisConfig {
+export interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
   symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
+  tooltip?: React.ReactNode;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -287,9 +288,9 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   canUseCSSEllipsis(): boolean {
     const { clientRendered } = this.state;
     const { editable, copyable } = this.props;
-    const { rows, expandable, suffix, onEllipsis } = this.getEllipsis();
+    const { rows, expandable, suffix, onEllipsis, tooltip } = this.getEllipsis();
 
-    if (suffix) return false;
+    if (suffix || tooltip) return false;
     // Can't use css ellipsis since we need to provide the place for button
     if (editable || copyable || expandable || !clientRendered || onEllipsis) {
       return false;
@@ -441,7 +442,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { ellipsisContent, isEllipsis, expanded } = this.state;
     const { component, children, className, type, disabled, style, ...restProps } = this.props;
     const { direction } = this.context;
-    const { rows, suffix } = this.getEllipsis();
+    const { rows, suffix, tooltip } = this.getEllipsis();
 
     const prefixCls = this.getPrefixCls();
 
@@ -456,8 +457,9 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       'underline',
       'strong',
       'keyboard',
-      ...configConsumerProps,
-    ]);
+      ...(configConsumerProps as any),
+    ]) as any;
+
     const cssEllipsis = this.canUseCSSEllipsis();
     const cssTextOverflow = rows === 1 && cssEllipsis;
     const cssLineClamp = rows && rows > 1 && cssEllipsis;
@@ -485,6 +487,15 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           {suffix}
         </>
       );
+
+      // If provided tooltip, we need wrap with span to let Tooltip inject events
+      if (tooltip) {
+        textNode = (
+          <Tooltip title={tooltip === true ? children : tooltip}>
+            <span>{textNode}</span>
+          </Tooltip>
+        );
+      }
     } else {
       textNode = (
         <>
@@ -519,7 +530,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                 )}
                 style={{
                   ...style,
-                  WebkitLineClamp: cssLineClamp ? rows : null,
+                  WebkitLineClamp: cssLineClamp ? rows : undefined,
                 }}
                 component={component}
                 ref={this.contentRef}

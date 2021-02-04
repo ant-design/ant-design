@@ -104,6 +104,10 @@ Select component to select value from options.
 
 ## FAQ
 
+### Why sometime search will show 2 same option when in `tag` mode?
+
+It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
+
 ### The dropdown is closed when click `dropdownRender` area?
 
 See the instruction in [dropdownRender example](#components-select-demo-custom-dropdown-menu).

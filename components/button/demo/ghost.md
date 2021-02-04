@@ -32,7 +32,7 @@ ReactDOM.render(
 
 ```css
 .site-button-ghost-wrapper {
-  background: rgb(190, 200, 200);
   padding: 26px 16px 16px;
+  background: rgb(190, 200, 200);
 }
 ```

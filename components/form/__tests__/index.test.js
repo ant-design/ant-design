@@ -55,7 +55,7 @@ describe('Form', () => {
       );
 
       await change(wrapper, 0, '');
-      expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
+      expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
       expect(wrapper.find('.ant-form-item-has-error').length).toBeTruthy();
 
       expect(onChange).toHaveBeenCalled();

@@ -186,7 +186,7 @@
         }
 
         a:not(.@{ant-prefix}-btn),
-        > .anticon {
+        > .@{iconfont-css-prefix} {
           display: inline-block;
           width: 100%;
           color: @text-color-secondary;
@@ -198,7 +198,7 @@
           }
         }
 
-        > .anticon {
+        > .@{iconfont-css-prefix} {
           font-size: @card-action-icon-size;
           line-height: 22px;
         }
@@ -206,6 +206,11 @@
 
       &:not(:last-child) {
         border-right: @border-width-base @border-style-base @border-color-split;
+
+        .@{card-prefix-cls}-rtl & {
+          border-right: none;
+          border-left: @border-width-base @border-style-base @border-color-split;
+        }
       }
     }
   }

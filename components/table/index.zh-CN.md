@@ -82,7 +82,7 @@ const columns = [
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | - |  |
 | scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | object | - |  |
 | showHeader | 是否显示表头 | boolean | true |  |
-| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | true |  |
+| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示。当参数类型为对象时，将被设置为 Tooltip 的属性 | boolean \| [Tooltip props](/components/tooltip/) | true |  |
 | size | 表格大小 | `default` \| `middle` \| `small` | default |  |
 | sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
 | sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
@@ -90,7 +90,7 @@ const columns = [
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  |
 | title | 表格标题 | function(currentPageData) | - |  |
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
-| onHeaderRow | 设置头部行属性 | function(column, index) | - |  |
+| onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
 
 #### onRow 用法
@@ -108,7 +108,7 @@ const columns = [
       onMouseLeave: event => {},
     };
   }}
-  onHeaderRow={column => {
+  onHeaderRow={(columns, index) => {
     return {
       onClick: () => {}, // 点击表头行
     };
@@ -141,7 +141,7 @@ const columns = [
 | render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return 里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | function(text, record, index) {} | - |  |
 | responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
 | shouldCellUpdate | 自定义单元格渲染时机 | (record, prevRecord) => boolean | - | 4.3.0 |
-| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip` | boolean | true |  |
+| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip` | boolean \| [Tooltip props](/components/tooltip/#API) | true |  |
 | sortDirections | 支持的排序方式，覆盖 `Table` 中 `sortDirections`， 取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | function \| boolean | - |  |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` false | boolean \| string | - |  |
@@ -217,8 +217,8 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - |
-| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
-| y | 设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值 | number | - |
+| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
+| y | 设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值 | string \| number | - |
 
 ### selection
 

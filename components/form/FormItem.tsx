@@ -7,7 +7,7 @@ import { FieldProps } from 'rc-field-form/lib/Field';
 import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -19,6 +19,8 @@ import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
 import useItemRef from './hooks/useItemRef';
+
+const NAME_SPLIT = '__SPLIT__';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
@@ -115,7 +117,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   React.useEffect(
     () => () => {
       destroyRef.current = true;
-      updateItemErrors(nameRef.current.join('__SPLIT__'), []);
+      updateItemErrors(nameRef.current.join(NAME_SPLIT), []);
     },
     [],
   );
@@ -126,8 +128,13 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // Collect noStyle Field error to the top FormItem
   const updateChildItemErrors = noStyle
     ? updateItemErrors
-    : (subName: string, subErrors: string[]) => {
+    : (subName: string, subErrors: string[], originSubName: string) => {
         setInlineErrors((prevInlineErrors = {}) => {
+          // Clean up origin error when name changed
+          if (originSubName !== subName) {
+            delete prevInlineErrors[originSubName];
+          }
+
           if (!isEqual(prevInlineErrors[subName], subErrors)) {
             return {
               ...prevInlineErrors,
@@ -204,24 +211,19 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'extra',
           'getValueFromEvent',
           'getValueProps',
-          'hasFeedback',
-          'help',
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
           'isListField',
-          'label',
           'labelAlign',
           'labelCol',
           'normalize',
           'preserve',
-          'required',
           'tooltip',
           'validateFirst',
-          'validateStatus',
           'valuePropName',
           'wrapperCol',
-          '_internalItemRender',
+          '_internalItemRender' as any,
         ])}
       >
         {/* Label */}
@@ -285,12 +287,15 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         const fieldId = getFieldId(mergedName, formName);
 
         if (noStyle) {
+          // Clean up origin one
+          const originErrorName = nameRef.current.join(NAME_SPLIT);
+
           nameRef.current = [...mergedName];
           if (fieldKey) {
             const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
             nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
           }
-          updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
+          updateItemErrors(nameRef.current.join(NAME_SPLIT), errors, originErrorName);
         }
 
         const isRequired =

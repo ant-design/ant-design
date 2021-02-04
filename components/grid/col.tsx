@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigContext } from '../config-provider';
+import { detectFlexGapSupported } from '../_util/styleChecker';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -102,24 +103,21 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     sizeClassObj,
   );
 
-  let mergedStyle: React.CSSProperties = { ...style };
-  if (gutter) {
-    mergedStyle = {
-      ...(gutter[0]! > 0
-        ? {
-            paddingLeft: gutter[0]! / 2,
-            paddingRight: gutter[0]! / 2,
-          }
-        : {}),
-      ...(gutter[1]! > 0
-        ? {
-            paddingTop: gutter[1]! / 2,
-            paddingBottom: gutter[1]! / 2,
-          }
-        : {}),
-      ...mergedStyle,
-    };
+  const mergedStyle: React.CSSProperties = {};
+  // Horizontal gutter use padding
+  if (gutter && gutter[0] > 0) {
+    const horizontalGutter = gutter[0] / 2;
+    mergedStyle.paddingLeft = horizontalGutter;
+    mergedStyle.paddingRight = horizontalGutter;
   }
+
+  // Vertical gutter use padding when gap not support
+  if (gutter && gutter[1] > 0 && !detectFlexGapSupported()) {
+    const verticalGutter = gutter[1] / 2;
+    mergedStyle.paddingTop = verticalGutter;
+    mergedStyle.paddingBottom = verticalGutter;
+  }
+
   if (flex) {
     mergedStyle.flex = parseFlex(flex);
 
@@ -131,7 +129,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   return (
-    <div {...others} style={mergedStyle} className={classes} ref={ref}>
+    <div {...others} style={{ ...mergedStyle, ...style }} className={classes} ref={ref}>
       {children}
     </div>
   );

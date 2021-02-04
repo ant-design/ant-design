@@ -14,7 +14,7 @@ import {
   ColumnGroupType,
   TableLocale,
 } from '../interface';
-import Tooltip from '../../tooltip';
+import Tooltip, { TooltipProps } from '../../tooltip';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
 
 const ASCEND = 'ascend';
@@ -108,7 +108,7 @@ function injectSorter<RecordType>(
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
   defaultSortDirections: SortOrder[],
   tableLocale?: TableLocale,
-  tableShowSorterTooltip?: boolean,
+  tableShowSorterTooltip?: boolean | TooltipProps,
   pos?: string,
 ): ColumnsType<RecordType> {
   return (columns || []).map((column, index) => {
@@ -146,6 +146,8 @@ function injectSorter<RecordType>(
       } else if (nextSortOrder === ASCEND) {
         sortTip = triggerAsc;
       }
+      const tooltipProps: TooltipProps =
+        typeof showSorterTooltip === 'object' ? showSorterTooltip : { title: sortTip };
       newColumn = {
         ...newColumn,
         className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sorterOrder }),
@@ -166,7 +168,7 @@ function injectSorter<RecordType>(
             </div>
           );
           return showSorterTooltip ? (
-            <Tooltip title={sortTip}>
+            <Tooltip {...tooltipProps}>
               <div className={`${prefixCls}-column-sorters-with-tooltip`}>{renderSortTitle}</div>
             </Tooltip>
           ) : (
@@ -244,7 +246,7 @@ function generateSorterInfo<RecordType>(
 }
 
 export function getSortData<RecordType>(
-  data: RecordType[],
+  data: readonly RecordType[],
   sortStates: SortState<RecordType>[],
   childrenColumnName: string,
 ): RecordType[] {
@@ -306,7 +308,7 @@ interface SorterConfig<RecordType> {
   ) => void;
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
-  showSorterTooltip?: boolean;
+  showSorterTooltip?: boolean | TooltipProps;
 }
 
 export default function useFilterSorter<RecordType>({

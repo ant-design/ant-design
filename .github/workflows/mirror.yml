@@ -1,14 +1,26 @@
-name: Mirror
+name: 🔀 Mirror to Gitee
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - gh-pages
+      - feature
+      - 2.x-stable
+      - 3.x-stable
+  create:
 
 jobs:
-  to_gitee:
+  git-mirror:
     runs-on: ubuntu-latest
     if: github.repository == 'ant-design/ant-design'
     steps:
-      - uses: actions/checkout@v1
-      - uses: pixta-dev/repository-mirroring-action@v1
+      - name: mirror
+        continue-on-error: true
+        if: github.event_name == 'push' || (github.event_name == 'create' && github.event.ref_type == 'tag')
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
         with:
-          target_repo_url: git@gitee.com:ant-design/ant-design.git
-          ssh_private_key: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+          source-repo: 'git@github.com:ant-design/ant-design.git'
+          destination-repo: 'git@gitee.com:ant-design/ant-design.git'

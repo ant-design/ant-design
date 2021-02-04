@@ -5,6 +5,7 @@ import {
   RenderedCell as RcRenderedCell,
   ExpandableConfig,
 } from 'rc-table/lib/interface';
+import { TooltipProps } from '../tooltip';
 import { CheckboxProps } from '../checkbox';
 import { PaginationProps } from '../pagination';
 import { Breakpoint } from '../_util/responsiveObserve';
@@ -67,11 +68,15 @@ export type ColumnTitle<RecordType> =
   | React.ReactNode
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
+export interface FilterConfirmProps {
+  closeDropdown: boolean;
+}
+
 export interface FilterDropdownProps {
   prefixCls: string;
   setSelectedKeys: (selectedKeys: React.Key[]) => void;
   selectedKeys: React.Key[];
-  confirm: () => void;
+  confirm: (param: FilterConfirmProps) => void;
   clearFilters?: () => void;
   filters?: ColumnFilterItem[];
   visible: boolean;
@@ -91,7 +96,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
-  showSorterTooltip?: boolean;
+  showSorterTooltip?: boolean | TooltipProps;
 
   // Filter
   filtered?: boolean;
@@ -171,7 +176,7 @@ export interface TableCurrentDataSource<RecordType> {
 export interface SorterResult<RecordType> {
   column?: ColumnType<RecordType>;
   order?: SortOrder;
-  field?: Key | Key[];
+  field?: Key | readonly Key[];
   columnKey?: Key;
 }
 

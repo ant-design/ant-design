@@ -75,7 +75,7 @@ const columns = [
 | rowSelection | Row selection [config](#rowSelection) | object | - |  |
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | true |  |
-| showSorterTooltip | The header show next sorter direction tooltip | boolean | true |  |
+| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip/#API) | true |  |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |  |
 | sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
@@ -83,7 +83,7 @@ const columns = [
 | tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |  |
 | title | Table title renderer | function(currentPageData) | - |  |
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
-| onHeaderRow | Set props on per header row | function(column, index) | - |  |
+| onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
 
 #### onRow usage
@@ -101,7 +101,7 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
       onMouseLeave: event => {}, // mouse leave row
     };
   }}
-  onHeaderRow={column => {
+  onHeaderRow={(columns, index) => {
     return {
       onClick: () => {}, // click header row
     };
@@ -134,7 +134,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | function(text, record, index) {} | - |  |  |
 | responsive | The list of breakpoints at which to display this column. Always visible if not set. | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |  |
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | 4.3.0 |  |
-| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean | true |  |  |
+| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) | true |  |  |
 | sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |  |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | function \| boolean | - |  |  |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean \| string | - |  |  |
@@ -210,8 +210,8 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - |
-| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
-| y | Set vertical scrolling, can also be used to specify the height of the scroll area, could be number | number | - |
+| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
+| y | Set vertical scrolling, can also be used to specify the height of the scroll area, could be string or number | string \| number | - |
 
 ### selection
 

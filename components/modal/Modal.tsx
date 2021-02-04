@@ -9,6 +9,7 @@ import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext, DirectionType } from '../config-provider';
+import { canUseDocElement } from '../_util/styleChecker';
 
 let mousePosition: { x: number; y: number } | null;
 export const destroyFns: Array<() => void> = [];
@@ -28,7 +29,7 @@ const getClickPosition = (e: MouseEvent) => {
 };
 
 // 只有点击事件支持从鼠标位置动画展开
-if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
+if (canUseDocElement()) {
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
@@ -110,7 +111,7 @@ export interface ModalFuncProps {
   okCancel?: boolean;
   style?: React.CSSProperties;
   maskStyle?: React.CSSProperties;
-  type?: string;
+  type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false | null;
   autoFocusButton?: null | 'ok' | 'cancel';

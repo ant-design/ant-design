@@ -817,157 +817,12 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
     >
       <span
         class="config-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+        style="transition:none"
       >
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
         <p
           class="config-scroll-number-only-unit current"
         >
           5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
         </p>
       </span>
     </sup>
@@ -997,157 +852,12 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
     >
       <span
         class="config-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+        style="transition:none"
       >
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
         <p
           class="config-scroll-number-only-unit current"
         >
           5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
         </p>
       </span>
     </sup>
@@ -1177,157 +887,12 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
     >
       <span
         class="config-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+        style="transition:none"
       >
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
         <p
           class="config-scroll-number-only-unit current"
         >
           5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="config-scroll-number-only-unit"
-        >
-          9
         </p>
       </span>
     </sup>
@@ -1357,157 +922,12 @@ exports[`ConfigProvider components Badge configProvider virtual and dropdownMatc
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+        style="transition:none"
       >
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          4
-        </p>
         <p
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          9
         </p>
       </span>
     </sup>
@@ -1537,157 +957,12 @@ exports[`ConfigProvider components Badge normal 1`] = `
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+        style="transition:none"
       >
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          4
-        </p>
         <p
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="ant-scroll-number-only-unit"
-        >
-          9
         </p>
       </span>
     </sup>
@@ -1717,157 +992,12 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
     >
       <span
         class="prefix-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+        style="transition:none"
       >
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          4
-        </p>
         <p
           class="prefix-scroll-number-only-unit current"
         >
           5
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          9
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          0
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          1
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          2
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          3
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          4
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          5
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          6
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          7
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          8
-        </p>
-        <p
-          class="prefix-scroll-number-only-unit"
-        >
-          9
         </p>
       </span>
     </sup>
@@ -13735,11 +12865,11 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
       </g>
     </svg>
   </div>
-  <p
+  <div
     class="config-empty-description"
   >
     No Data
-  </p>
+  </div>
 </div>
 `;
 
@@ -13810,11 +12940,11 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
       </g>
     </svg>
   </div>
-  <p
+  <div
     class="config-empty-description"
   >
     No Data
-  </p>
+  </div>
 </div>
 `;
 
@@ -13885,11 +13015,11 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
       </g>
     </svg>
   </div>
-  <p
+  <div
     class="config-empty-description"
   >
     No Data
-  </p>
+  </div>
 </div>
 `;
 
@@ -13960,11 +13090,11 @@ exports[`ConfigProvider components Empty configProvider virtual and dropdownMatc
       </g>
     </svg>
   </div>
-  <p
+  <div
     class="ant-empty-description"
   >
     No Data
-  </p>
+  </div>
 </div>
 `;
 
@@ -14035,11 +13165,11 @@ exports[`ConfigProvider components Empty normal 1`] = `
       </g>
     </svg>
   </div>
-  <p
+  <div
     class="ant-empty-description"
   >
     No Data
-  </p>
+  </div>
 </div>
 `;
 
@@ -14110,11 +13240,11 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
       </g>
     </svg>
   </div>
-  <p
+  <div
     class="prefix-Empty-description"
   >
     No Data
-  </p>
+  </div>
 </div>
 `;
 
@@ -23857,11 +22987,11 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <div
                         class="config-empty-description"
                       >
                         No Data
-                      </p>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -24128,11 +23258,11 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <div
                         class="config-empty-description"
                       >
                         No Data
-                      </p>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -24399,11 +23529,11 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <div
                         class="config-empty-description"
                       >
                         No Data
-                      </p>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -24670,11 +23800,11 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <div
                         class="ant-empty-description"
                       >
                         No Data
-                      </p>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -24941,11 +24071,11 @@ exports[`ConfigProvider components Table normal 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <div
                         class="ant-empty-description"
                       >
                         No Data
-                      </p>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -25212,11 +24342,11 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <div
                         class="ant-empty-description"
                       >
                         No Data
-                      </p>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -34731,11 +33861,11 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="config-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -34889,11 +34019,11 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="config-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -35000,11 +34130,11 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="config-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -35158,11 +34288,11 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="config-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -35269,11 +34399,11 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="config-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -35427,11 +34557,11 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="config-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -35538,11 +34668,11 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="ant-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -35696,11 +34826,11 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="ant-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -35807,11 +34937,11 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="ant-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -35965,11 +35095,11 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="ant-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -36076,11 +35206,11 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="ant-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -36234,11 +35364,11 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               </g>
             </svg>
           </div>
-          <p
+          <div
             class="ant-empty-description"
           >
             No Data
-          </p>
+          </div>
         </div>
       </div>
     </div>

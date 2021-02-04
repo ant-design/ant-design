@@ -236,7 +236,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | getFieldError | Get the error messages by the field name | (name: [NamePath](#NamePath)) => string\[] |  |
 | getFieldInstance | Get field instance | (name: [NamePath](#NamePath)) => any | 4.4.0 |
 | getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#NamePath)\[]) => FieldError\[] |  |
-| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure | (nameList?: [NamePath](#NamePath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure. Default return mounted field value, but you can use `getFieldsValue(true)` to get all values | (nameList?: [NamePath](#NamePath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
 | getFieldValue | Get the value by the field name | (name: [NamePath](#NamePath)) => any |  |
 | isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |  |

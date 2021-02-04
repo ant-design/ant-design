@@ -112,11 +112,11 @@ ReactDOM.render(<InfiniteListExample />, mountNode);
 
 ```css
 .demo-infinite-container {
+  height: 300px;
+  padding: 8px 24px;
+  overflow: auto;
   border: 1px solid #e8e8e8;
   border-radius: 4px;
-  overflow: auto;
-  padding: 8px 24px;
-  height: 300px;
 }
 .demo-loading-container {
   position: absolute;

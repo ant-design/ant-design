@@ -116,7 +116,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
           transitionName="zoom-down"
           key={index}
           overlayClassName={`${prefixCls}-tooltip`}
-          getPopupContainer={getTooltipPopupContainer || getPopupContainer || (() => document.body)}
+          getPopupContainer={getTooltipPopupContainer || getPopupContainer}
         >
           <RcHandle
             {...restProps}
@@ -145,13 +145,13 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     if (direction === 'rtl' && !restProps.vertical) {
       restProps.reverse = !restProps.reverse;
     }
-  
+
     // extrack draggableTrack from range={{ ... }}
     let draggableTrack: boolean | undefined;
     if (typeof range === 'object') {
       draggableTrack = range.draggableTrack;
     }
-  
+
     if (range) {
       return (
         <RcRange

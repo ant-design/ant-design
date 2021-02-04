@@ -350,6 +350,7 @@ describe('Upload', () => {
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toEqual(fileList.slice(0, 2));
     });
+
     it('should not be able to remove fileItem', () => {
       const file = { uid: '-3', name: 'item.jpg' };
       const fileList = [

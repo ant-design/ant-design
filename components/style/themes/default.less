@@ -532,10 +532,11 @@
 // --
 @progress-default-color: @processing-color;
 @progress-remaining-color: @background-color-base;
-@progress-text-color: @text-color;
+@progress-info-text-color: @progress-text-color;
 @progress-radius: 100px;
 @progress-steps-item-bg: #f3f3f3;
 @progress-text-font-size: 1em;
+@progress-text-color: @text-color; // This is for circle text color, should be renamed better
 @progress-circle-text-font-size: 1em;
 // Menu
 // ---
@@ -546,6 +547,7 @@
 @menu-bg: @component-background;
 @menu-popup-bg: @component-background;
 @menu-item-color: @text-color;
+@menu-inline-submenu-bg: @background-color-light;
 @menu-highlight-color: @primary-color;
 @menu-highlight-danger-color: @error-color;
 @menu-item-active-bg: @primary-1;
@@ -567,7 +569,7 @@
 @menu-dark-danger-color: @error-color;
 @menu-dark-bg: @layout-header-background;
 @menu-dark-arrow-color: #fff;
-@menu-dark-submenu-bg: #000c17;
+@menu-dark-inline-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
 @menu-dark-item-active-danger-bg: @error-color;
@@ -599,6 +601,7 @@
 @table-padding-horizontal-md: (@table-padding-horizontal / 2);
 @table-padding-vertical-sm: (@table-padding-vertical / 2);
 @table-padding-horizontal-sm: (@table-padding-horizontal / 2);
+@table-border-color: @border-color-split;
 @table-border-radius-base: @border-radius-base;
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;

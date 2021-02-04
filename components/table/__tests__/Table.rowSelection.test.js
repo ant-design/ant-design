@@ -178,8 +178,13 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires change & select events', () => {
-    const handleChange = jest.fn();
-    const handleSelect = jest.fn();
+    const order = [];
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
+    const handleSelect = jest.fn().mockImplementation(() => {
+      order.push('onSelect');
+    });
     const rowSelection = {
       onChange: handleChange,
       onSelect: handleSelect,
@@ -197,12 +202,22 @@ describe('Table.rowSelection', () => {
     expect(handleSelect.mock.calls[0][1]).toEqual(true);
     expect(handleSelect.mock.calls[0][2]).toEqual([{ key: 3, name: 'Jerry' }]);
     expect(handleSelect.mock.calls[0][3].type).toBe('change');
+    expect(order).toEqual(['onSelect', 'onChange']);
   });
 
   it('fires selectMulti event', () => {
-    const handleSelectMulti = jest.fn();
-    const handleSelect = jest.fn();
+    const order = [];
+    const handleSelectMulti = jest.fn().mockImplementation(() => {
+      order.push('onSelectMultiple');
+    });
+    const handleSelect = jest.fn().mockImplementation(() => {
+      order.push('onSelect');
+    });
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
     const rowSelection = {
+      onChange: handleChange,
       onSelect: handleSelect,
       onSelectMultiple: handleSelectMulti,
     };
@@ -238,11 +253,27 @@ describe('Table.rowSelection', () => {
         nativeEvent: { shiftKey: true },
       });
     expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
+
+    expect(order).toEqual([
+      'onSelect',
+      'onChange',
+      'onSelectMultiple',
+      'onChange',
+      'onSelectMultiple',
+      'onChange',
+    ]);
   });
 
   it('fires selectAll event', () => {
-    const handleSelectAll = jest.fn();
+    const order = [];
+    const handleSelectAll = jest.fn().mockImplementation(() => {
+      order.push('onSelectAll');
+    });
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
     const rowSelection = {
+      onChange: handleChange,
       onSelectAll: handleSelectAll,
     };
     const wrapper = mount(createTable({ rowSelection }));
@@ -252,6 +283,8 @@ describe('Table.rowSelection', () => {
       .first()
       .simulate('change', { target: { checked: true } });
     expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
+
+    expect(order).toEqual(['onSelectAll', 'onChange']);
 
     wrapper
       .find('input')
@@ -283,8 +316,15 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires selectInvert event', () => {
-    const handleSelectInvert = jest.fn();
+    const order = [];
+    const handleSelectInvert = jest.fn().mockImplementation(() => {
+      order.push('onSelectInvert');
+    });
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
     const rowSelection = {
+      onChange: handleChange,
       onSelectInvert: handleSelectInvert,
       selections: true,
     };
@@ -297,11 +337,20 @@ describe('Table.rowSelection', () => {
     dropdownWrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
 
     expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
+
+    expect(order).toEqual(['onChange', 'onSelectInvert', 'onChange']);
   });
 
   it('fires selectNone event', () => {
-    const handleSelectNone = jest.fn();
+    const order = [];
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
+    const handleSelectNone = jest.fn().mockImplementation(() => {
+      order.push('onSelectNone');
+    });
     const rowSelection = {
+      onChange: handleChange,
       onSelectNone: handleSelectNone,
       selections: true,
     };
@@ -314,6 +363,7 @@ describe('Table.rowSelection', () => {
     dropdownWrapper.find('.ant-dropdown-menu-item').last().simulate('click');
 
     expect(handleSelectNone).toHaveBeenCalled();
+    expect(order).toEqual(['onChange', 'onSelectNone', 'onChange']);
   });
 
   it('fires selection event', () => {

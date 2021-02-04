@@ -76,6 +76,13 @@ const Badge: CompoundedComponent = ({
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
   }, [mergedCount, isZero, showZero, showAsDot]);
 
+  // Count should be cache in case hidden change it
+  const countRef = useRef(count);
+  if (!isHidden) {
+    countRef.current = count;
+  }
+  const livingCount = countRef.current;
+
   // We need cache count since remove motion should not change count display
   const displayCountRef = useRef(mergedCount);
   if (!isHidden) {
@@ -111,7 +118,8 @@ const Badge: CompoundedComponent = ({
   // =============================== Render ===============================
   // >>> Title
   const titleNode =
-    title ?? (typeof count === 'string' || typeof count === 'number' ? count : undefined);
+    title ??
+    (typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined);
 
   // >>> Status Text
   const statusTextNode =
@@ -119,9 +127,9 @@ const Badge: CompoundedComponent = ({
 
   // >>> Display Component
   const displayNode =
-    !count || typeof count !== 'object'
+    !livingCount || typeof livingCount !== 'object'
       ? undefined
-      : cloneElement(count, oriProps => ({
+      : cloneElement(livingCount, oriProps => ({
           style: {
             ...mergedStyle,
             ...oriProps.style,
@@ -196,7 +204,8 @@ const Badge: CompoundedComponent = ({
             <ScrollNumber
               prefixCls={scrollNumberPrefixCls}
               show={!isHidden}
-              className={classNames(motionClassName, scrollNumberCls)}
+              motionClassName={motionClassName}
+              className={scrollNumberCls}
               count={displayCount}
               title={titleNode}
               style={scrollNumberStyle}
