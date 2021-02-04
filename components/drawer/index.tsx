@@ -320,6 +320,8 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
   },
 );
 
+Drawer.displayName = 'Drawer';
+
 const DrawerWrapper = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
   const { prefixCls: customizePrefixCls, getContainer: customizeGetContainer } = props;
   const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
