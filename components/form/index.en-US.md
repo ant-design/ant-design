@@ -316,6 +316,8 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |
 | validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |
 | whitespace | Failed if only has whitespace | boolean |
+| defaultField | Validate rule for all array elements, valid when `type` is `array` | [rule](#Rule) |
+| fields | Validate rule for child elements, valid when `type` is `array` or `object` | Record<string, [rule](#Rule)> |
 
 ## Migrate to v4
 
