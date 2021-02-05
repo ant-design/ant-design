@@ -3,13 +3,14 @@ import Drawer from '..';
 
 describe('Drawer.typescript', () => {
   it('Drawer', () => {
+    const onClose = jest.fn();
     const wrapper = (
       <Drawer
         title="Basic Drawer"
         placement="right"
         closable={false}
         onClose={onClose}
-        visible={visible}
+        visible={false}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
