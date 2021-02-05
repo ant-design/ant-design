@@ -324,7 +324,9 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(3);
     expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-spin-container').childAt(2).find('.ant-pagination')).toHaveLength(1);
-    wrapper.setProps({ pagination: { position: ['none', 'none'] } });
+    wrapper.setProps({ pagination: { position: ['invalid'] } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination: { position: ['invalid', 'invalid'] } });
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
   });
 
