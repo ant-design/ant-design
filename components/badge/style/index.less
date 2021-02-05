@@ -190,12 +190,12 @@
     display: inline-block;
     height: @badge-height;
     transition: all @animation-duration-slow @ease-in-out;
-    .safari-fix-motion;
+    .safari-fix-motion();
 
     > p.@{number-prefix-cls}-only-unit {
       height: @badge-height;
       margin: 0;
-      .safari-fix-motion;
+      .safari-fix-motion();
     }
   }
 

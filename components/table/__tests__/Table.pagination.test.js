@@ -325,12 +325,12 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-spin-container').childAt(2).find('.ant-pagination')).toHaveLength(1);
     wrapper.setProps({ pagination: { position: ['invalid'] } });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
   });
 
   /**
-   * `pagination` is not designed to accept `true` value, but in practice, many people assign `true`
-   * to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
+   * `pagination` is not designed to accept `true` value, but in practice, many people assign
+   * `true` to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
    */
   it('Accepts pagination as true', () => {
     const wrapper = mount(createTable({ pagination: true }));

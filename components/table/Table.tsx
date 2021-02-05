@@ -238,9 +238,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
 
   /**
-   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
-   * state out and then put it back to title render. Move these code into `hooks` but still too
-   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to
+   * read state out and then put it back to title render. Move these code into `hooks` but still
+   * too complex. We should provides Table props like `sorter` & `filter` to handle control in next
+   * big version.
    */
 
   // ============================ Sorter =============================
@@ -440,17 +441,14 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     );
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     if (mergedPagination.position !== null && Array.isArray(mergedPagination.position)) {
-      const topPos = mergedPagination.position.find(p => p.indexOf('top') !== -1);
-      const bottomPos = mergedPagination.position.find(p => p.indexOf('bottom') !== -1);
-      if (!topPos && !bottomPos) {
-        bottomPaginationNode = renderPagination(defaultPosition);
-      } else {
-        if (topPos) {
-          topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
-        }
-        if (bottomPos) {
-          bottomPaginationNode = renderPagination(bottomPos!.toLowerCase().replace('bottom', ''));
-        }
+      const paginationPosition = mergedPagination.position;
+      const topPos = paginationPosition.find(p => p.includes('top'));
+      const bottomPos = paginationPosition.find(p => p.includes('bottom'));
+      if (topPos) {
+        topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
+      }
+      if (bottomPos) {
+        bottomPaginationNode = renderPagination(bottomPos!.toLowerCase().replace('bottom', ''));
       }
     } else {
       bottomPaginationNode = renderPagination(defaultPosition);
