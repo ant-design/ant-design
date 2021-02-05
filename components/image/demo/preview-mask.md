@@ -42,8 +42,8 @@ ReactDOM.render(<ImageDemo />, mountNode);
 
 ```css
 .customize-mask {
-  opacity: 1;
   font-size: 20px;
+  opacity: 1;
 }
 .customize-mask .anticon {
   font-size: 32px;

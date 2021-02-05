@@ -1,0 +1,19 @@
+name: Verify Package Version
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize, ready_for_review]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.title, 'changelog')
+    steps:
+      - uses: actions/checkout@v2
+      - name: verify-version
+        uses: actions-cool/verify-package-version@v1.1.1
+        with:
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          title-include-content: 'docs'
+          title-include-version: true
+          open-comment: true

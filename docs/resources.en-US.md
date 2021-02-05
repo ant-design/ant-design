@@ -21,7 +21,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
   - Sketch Symbols File for Mobile
-  - http://p.tb.cn/rmsportal_3436_AntDesignMobile_20Template_20V1.0.sketch
+  - https://gw.alipayobjects.com/os/bmw-prod/d6266aef-25b7-4892-b275-ce214121831c.sketch
 - Ant Design Pro
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - Common Templates and Pages
@@ -69,7 +69,7 @@ Please find below some of the design resources and tools about Ant Design that w
 
 ## Articles
 
-Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. Also welcome to follow [Ant Design Official Column](https://zhuanlan.zhihu.com/antdesign). There are often the latest sharing and discussions on related topics under the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
+Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. Also welcome to follow [Ant Design Official Column](https://www.zhihu.com/column/c_1310524851418480640). There are often the latest sharing and discussions on related topics under the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
 
 ## Reference
 

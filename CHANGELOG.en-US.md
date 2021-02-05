@@ -15,6 +15,51 @@ timeline: true
 
 ---
 
+## 4.12.2
+
+`2021-02-04`
+
+- 💄 Make Table expand icon and checkbox same size and aligned. [#29214](https://github.com/ant-design/ant-design/pull/29214)
+- 🐞 Fix List with `gutter` makes column break line. [#29211](https://github.com/ant-design/ant-design/pull/29211)
+
+## 4.12.1
+
+`2021-02-03`
+
+- 🐞 Fix antd crash when load before page ready. [#29202](https://github.com/ant-design/ant-design/pull/29202)
+- 🐞 Fix Table pagination `current` change logic when `pageSize` changes. [#29184](https://github.com/ant-design/ant-design/pull/29184)
+
+## 4.12.0
+
+`2021-02-03`
+
+- 🆕 Image.PreviewGroup add `current` prop. [#29153](https://github.com/ant-design/ant-design/pull/29153)
+- InputNumber
+  - 🆕 InputNumber support `bordered` prop. [#29105](https://github.com/ant-design/ant-design/pull/29105)
+  - 🆕 InputNumber add `keyboard` prop which could disable keyboard behavior. [#29110](https://github.com/ant-design/ant-design/pull/29110) [@kerm1it](https://github.com/kerm1it)
+- 💄 Darken Tag text color to enhance readability. [#29144](https://github.com/ant-design/ant-design/pull/29144)
+- 💄 Fix Row with vertical `gutter` provides additional `margin-bottom` style. [#29059](https://github.com/ant-design/ant-design/pull/29059)
+- 🐞 Fix Collapse header disappers with delay. [#29158](https://github.com/ant-design/ant-design/pull/29158)
+- 🐞 Fix the problem that `showCount` display data is incorrect when TextArea input emoji. [#29057](https://github.com/ant-design/ant-design/pull/29057) [@HomyeeKing](https://github.com/HomyeeKing)
+- 📦 Optimize ConfigProvider to avoid import all icons when tree shaking is not enabled. [#29045](https://github.com/ant-design/ant-design/pull/29045)
+- 🌐 Add en-GB missing translations for table. [#29131](https://github.com/ant-design/ant-design/pull/29131) [@eberjoe](https://github.com/eberjoe)
+- Table
+  - 🆕 Table `showSorterTooltip` now could be a object for more configuration. [#29002](https://github.com/ant-design/ant-design/pull/29002) [@harrisoff](https://github.com/harrisoff)
+  - ⚡️ Optimize calling sequence of `onChange` and `onSelectAll` in `rowSelection` of Table. [#29079](https://github.com/ant-design/ant-design/pull/29079) [@kerm1it](https://github.com/kerm1it)
+- Badge
+  - 💄 Fix Badge change `count` content to hide miss style. [#29089](https://github.com/ant-design/ant-design/pull/29089)
+  - 🐞 Fix Badge digital animation problem. [#29100](https://github.com/ant-design/ant-design/pull/29100)
+- TypeScript
+  - 🤖 Table TS definition update `dataSource` to `readonly`. [#29084](https://github.com/ant-design/ant-design/pull/29084)
+- Less
+  - 💄 Add less variable `@progress-info-text-color`. [#28981](https://github.com/ant-design/ant-design/pull/28981) [@yuxuan](https://github.com/yuxuan)
+
+## 4.11.3
+
+`2021-02-03`
+
+Wrong release is the same as `4.12.0`, if you need to lock the version, you need to lock it to `4.11.2`.
+
 ## 4.11.2
 
 `2021-01-26`

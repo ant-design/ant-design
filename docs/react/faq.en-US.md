@@ -49,7 +49,7 @@ antd use shallow compare of props to optimize performance. You should always pas
 
 ### After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
-Try `defaultValue` or `onChange` to change `value`, and please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
+Try `onChange` to change `value`, and please read [React's documentation](https://reactjs.org/docs/forms.html#controlled-components).
 
 ### Components are not vertically aligned when placed in single row.
 
@@ -59,7 +59,7 @@ Try [Space](https://ant.design/components/space/) component to make them aligned
 
 Yes, antd is designed to help you develop a complete background application. To do so, we override some global styles for styling convenience, and currently these cannot be removed or changed. More info at https://github.com/ant-design/ant-design/issues/4331 .
 
-Alternatively, follow the instructions in [How to avoid modifying global styles?](docs/react/customize-theme#How-to-avoid-modifying-global-styles-?)
+Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#How-to-avoid-modifying-global-styles)
 
 ### I cannot install `antd` and `antd`'s dependencies in mainland China.
 
@@ -116,7 +116,7 @@ Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to indepent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](https://ant.design/components/message/#components-message-demo-hooks), [notification.useNotification](https://ant.design/components/notification/#Why-I-can-not-access-context,-redux-in-notification) and [Modal.useModal](https://ant.design/components/modal/#Why-I-can-not-access-context,-redux-in-Modal.xxx).
+1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-notification) and [Modal.useModal](/components/modal/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-Modal.xxx).
 
 2. Use `message.config`, `notification.config` and `Modal.config` to config `prefixCls` globally.
 

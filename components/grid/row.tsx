@@ -8,7 +8,7 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
-import { isFlexGapSupported } from '../_util/styleChecker';
+import { detectFlexGapSupported } from '../_util/styleChecker';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
@@ -95,37 +95,19 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   );
 
   // Add gutter related style
-  let rowStyle: React.CSSProperties & {
-    '--column-gap'?: string | number;
-    '--row-gap'?: string | number;
-  } = {};
+  const rowStyle: React.CSSProperties = {};
+  const horizontalGutter = gutters[0] > 0 ? gutters[0] / -2 : undefined;
+  const verticalGutter = gutters[1] > 0 ? gutters[1] / -2 : undefined;
 
-  if (isFlexGapSupported) {
-    rowStyle = {
-      '--column-gap': 0,
-      '--row-gap': 0,
-    };
+  rowStyle.marginLeft = horizontalGutter;
+  rowStyle.marginRight = horizontalGutter;
 
-    if (gutters[0]! > 0) {
-      const gap = gutters[0];
-      rowStyle.columnGap = gap;
-      rowStyle['--column-gap'] = `${gap}px`;
-    }
-    if (gutters[1]! > 0) {
-      const gap = gutters[1];
-      rowStyle.rowGap = gap;
-      rowStyle['--row-gap'] = `${gap}px`;
-    }
+  if (detectFlexGapSupported()) {
+    // Set gap direct if flex gap support
+    [, rowStyle.rowGap] = gutters;
   } else {
-    const horizontalGutter = gutters[0]! > 0 ? gutters[0] / -2 : undefined;
-    const verticalGutter = gutters[1]! > 0 ? gutters[1] / -2 : undefined;
-
-    rowStyle = {
-      marginLeft: horizontalGutter,
-      marginRight: horizontalGutter,
-      marginTop: verticalGutter,
-      marginBottom: verticalGutter,
-    };
+    rowStyle.marginTop = verticalGutter;
+    rowStyle.marginBottom = verticalGutter;
   }
 
   return (

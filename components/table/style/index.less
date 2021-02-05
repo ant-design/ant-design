@@ -416,9 +416,8 @@
     display: inline-flex;
     float: left;
     box-sizing: border-box;
-
-    width: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3;
-    height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3;
+    width: @expand-icon-size;
+    height: @expand-icon-size;
     padding: 0;
     color: inherit;
     line-height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base *
@@ -427,8 +426,12 @@
     border: @border-width-base @border-style-base @table-border-color;
     border-radius: @border-radius-base;
     outline: none;
+    transform: scale((unit(@checkbox-size) / unit(@expand-icon-size)));
+    transform-origin: bottom;
     transition: all 0.3s;
     user-select: none;
+    @expand-icon-size: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 +
+      @border-width-base * 3;
 
     &:focus,
     &:hover,
