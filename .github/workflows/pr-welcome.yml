@@ -16,6 +16,6 @@ jobs:
           comment: |
             Hi @${{ github.event.pull_request.user.login }}. The issue mentioned in this PR needs to be confirmed with the designer or core team. This PR is temporarily not accepted. Thank you again for your contribution! 😊
 
-            你好 @${{ github.event.pull_request.user.login }}。这个 PR 提及的 issue 需要和设计师或核心团队进行确认，暂时不接受 PR，再次感谢你的贡献 😊 ！  
+            你好 @${{ github.event.pull_request.user.login }}。这个 PR 提及的 issue 需要和设计师或核心团队进行确认，暂时不接受 PR，再次感谢你的贡献！😊   
           emoji: 'heart'
           close: true
