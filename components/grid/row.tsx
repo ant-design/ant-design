@@ -8,7 +8,6 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
-import { detectFlexGapSupported } from '../_util/styleChecker';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
@@ -101,14 +100,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   rowStyle.marginLeft = horizontalGutter;
   rowStyle.marginRight = horizontalGutter;
-
-  if (detectFlexGapSupported()) {
-    // Set gap direct if flex gap support
-    [, rowStyle.rowGap] = gutters;
-  } else {
-    rowStyle.marginTop = verticalGutter;
-    rowStyle.marginBottom = verticalGutter;
-  }
+  rowStyle.marginTop = verticalGutter;
+  rowStyle.marginBottom = verticalGutter;
 
   return (
     <RowContext.Provider value={{ gutter: gutters, wrap }}>

@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigContext } from '../config-provider';
-import { detectFlexGapSupported } from '../_util/styleChecker';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -111,8 +110,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     mergedStyle.paddingRight = horizontalGutter;
   }
 
-  // Vertical gutter use padding when gap not support
-  if (gutter && gutter[1] > 0 && !detectFlexGapSupported()) {
+  // Vertical gutter use padding
+  if (gutter && gutter[1] > 0) {
     const verticalGutter = gutter[1] / 2;
     mergedStyle.paddingTop = verticalGutter;
     mergedStyle.paddingBottom = verticalGutter;
