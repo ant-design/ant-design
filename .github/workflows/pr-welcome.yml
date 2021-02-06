@@ -1,0 +1,21 @@
+name: PR Welcome
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened]
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-cool/pr-welcome@v1.0.0
+        with:
+          token: ${{ secrets.ANT_BOT_TOKEN }}
+          refuse-issue-label: '🎱 Collaborate PR only'
+          need-creator-authority: 'write'
+          comment: |
+            Hi @${{ github.event.pull_request.user.login }}. The issue mentioned in this PR needs to be confirmed with the designer or core team. This PR is temporarily not accepted. Thank you again for your contribution! 😊
+
+            你好 @${{ github.event.pull_request.user.login }}。这个 PR 提及的 issue 需要和设计师或核心团队进行确认，暂时不接受 PR，再次感谢你的贡献！😊   
+          emoji: 'heart'
+          close: true
