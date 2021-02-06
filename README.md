@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://ant.design">
     <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
-  </a>
+  </a>2
 </p>
 
 <h1 align="center">Ant Design</h1>
@@ -69,7 +69,7 @@ English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 | IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 ## 📦 Install
-
+2
 ```bash
 npm install antd
 ```
