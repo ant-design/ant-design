@@ -5,6 +5,7 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import useCacheErrors from './hooks/useCacheErrors';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { FormItemPrefixContext } from './context';
+import { ConfigContext } from '../config-provider';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
@@ -23,6 +24,7 @@ export default function ErrorList({
 }: ErrorListProps) {
   const forceUpdate = useForceUpdate();
   const { prefixCls, status } = React.useContext(FormItemPrefixContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const [visible, cacheErrors] = useCacheErrors(
     errors,
@@ -58,12 +60,13 @@ export default function ErrorList({
   }, [visible, status]);
 
   const baseClassName = `${prefixCls}-item-explain`;
+  const rootPrefixCls = getPrefixCls();
 
   return (
     <CSSMotion
       motionDeadline={500}
       visible={visible}
-      motionName="show-help"
+      motionName={`${rootPrefixCls}-show-help`}
       onLeaveEnd={() => {
         onDomErrorVisibleChange?.(false);
       }}

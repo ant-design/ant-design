@@ -58,7 +58,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
 
     const { prefixCls: customizePrefixCls, className, theme, expandIcon } = this.props;
     const defaultMotions = {
-      horizontal: { motionName: 'slide-up' },
+      horizontal: { motionName: `${rootPrefixCls}-slide-up` },
       inline: collapseMotion,
       other: { motionName: `${rootPrefixCls}-zoom-big` },
     };
