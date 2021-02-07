@@ -444,7 +444,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     if (position !== null && Array.isArray(position)) {
       const topPos = position.find(p => p.indexOf('top') !== -1);
       const bottomPos = position.find(p => p.indexOf('bottom') !== -1);
-      const isDisable = position.every(p => p === 'none');
+      const isDisable = position.every(p => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);
       }
