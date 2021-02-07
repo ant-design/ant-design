@@ -15,6 +15,7 @@ import {
   TableLocale,
   GetPopupContainer,
   FilterConfirmProps,
+  TableFilterValues,
 } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
@@ -36,7 +37,7 @@ function renderFilterItems({
 }: {
   filters: ColumnFilterItem[];
   prefixCls: string;
-  filteredKeys: Key[];
+  filteredKeys: TableFilterValues;
   filterMultiple: boolean;
   locale: TableLocale;
 }) {
@@ -139,7 +140,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const propFilteredKeys = filterState && filterState.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
-  const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
+  const onSelectKeys = ({ selectedKeys }: { selectedKeys?: TableFilterValues }) => {
     setFilteredKeysSync(selectedKeys!);
   };
 
@@ -166,7 +167,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   );
 
   // ======================= Submit ========================
-  const internalTriggerFilter = (keys: Key[] | undefined | null) => {
+  const internalTriggerFilter = (keys: TableFilterValues | undefined | null) => {
     const mergedKeys = keys && keys.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
