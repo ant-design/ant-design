@@ -440,18 +440,19 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       />
     );
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
-    if (mergedPagination.position !== null && Array.isArray(mergedPagination.position)) {
-      const topPos = mergedPagination.position.find(p => p.indexOf('top') !== -1);
-      const bottomPos = mergedPagination.position.find(p => p.indexOf('bottom') !== -1);
-      if (!topPos && !bottomPos) {
+    const { position } = mergedPagination;
+    if (position !== null && Array.isArray(position)) {
+      const topPos = position.find(p => p.indexOf('top') !== -1);
+      const bottomPos = position.find(p => p.indexOf('bottom') !== -1);
+      const isDisable = position.every(p => `${p}` === 'none');
+      if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);
-      } else {
-        if (topPos) {
-          topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
-        }
-        if (bottomPos) {
-          bottomPaginationNode = renderPagination(bottomPos!.toLowerCase().replace('bottom', ''));
-        }
+      }
+      if (topPos) {
+        topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
+      }
+      if (bottomPos) {
+        bottomPaginationNode = renderPagination(bottomPos!.toLowerCase().replace('bottom', ''));
       }
     } else {
       bottomPaginationNode = renderPagination(defaultPosition);
