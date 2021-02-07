@@ -78,13 +78,13 @@ describe('message.config', () => {
 
   it('should be able to config prefixCls', () => {
     message.config({
-      rootPrefixCls: 'prefix-test',
+      prefixCls: 'prefix-test',
     });
     message.info('last');
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-message-notice').length).toBe(1);
+    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
     message.config({
-      rootPrefixCls: 'ant',
+      prefixCls: 'ant-message',
     });
   });
 

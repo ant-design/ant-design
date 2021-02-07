@@ -18,7 +18,8 @@ let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
-let localPrefixCls = 'ant';
+let rootLocalPrefixCls = 'ant';
+let localPrefixCls = 'ant-message';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
@@ -31,6 +32,7 @@ export function getKeyThenIncreaseKey() {
 export interface ConfigOptions {
   top?: number;
   duration?: number;
+  prefixCls?: string;
   rootPrefixCls?: string;
   getContainer?: () => HTMLElement;
   transitionName?: string;
@@ -47,7 +49,10 @@ function setMessageConfig(options: ConfigOptions) {
     defaultDuration = options.duration;
   }
   if (options.rootPrefixCls !== undefined) {
-    localPrefixCls = options.rootPrefixCls;
+    rootLocalPrefixCls = options.rootPrefixCls;
+  }
+  if (options.prefixCls !== undefined) {
+    localPrefixCls = options.prefixCls;
   }
   if (options.getContainer !== undefined) {
     getContainer = options.getContainer;
@@ -67,15 +72,17 @@ function setMessageConfig(options: ConfigOptions) {
 
 function getRCNotificationInstance(
   args: ArgsProps,
-  callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
+  callback: (info: {
+    prefixCls: string;
+    rootPrefixCls: string;
+    instance: RCNotificationInstance;
+  }) => void,
 ) {
-  const rootPrefixCls = args.prefixCls || localPrefixCls;
-  const prefixCls = `${rootPrefixCls}-message`;
+  const prefixCls = args.prefixCls || localPrefixCls;
+  const rootPrefixCls = args.rootPrefixCls || rootLocalPrefixCls;
+
   if (messageInstance) {
-    callback({
-      prefixCls,
-      instance: messageInstance,
-    });
+    callback({ prefixCls, rootPrefixCls, instance: messageInstance });
     return;
   }
   RCNotification.newInstance(
@@ -88,17 +95,11 @@ function getRCNotificationInstance(
     },
     (instance: any) => {
       if (messageInstance) {
-        callback({
-          prefixCls,
-          instance: messageInstance,
-        });
+        callback({ prefixCls, rootPrefixCls, instance: messageInstance });
         return;
       }
       messageInstance = instance;
-      callback({
-        prefixCls,
-        instance,
-      });
+      callback({ prefixCls, rootPrefixCls, instance });
     },
   );
 }
@@ -123,6 +124,7 @@ export interface ArgsProps {
   duration: number | null;
   type: NoticeType;
   prefixCls?: string;
+  rootPrefixCls?: string;
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
