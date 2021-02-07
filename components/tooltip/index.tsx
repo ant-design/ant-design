@@ -215,6 +215,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     children,
   } = props;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
   let tempVisible = visible;
   // Hide tooltip when there is no title
   if (!('visible' in props) && isNoTitle()) {
@@ -256,6 +258,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
+      transitionName={`${rootPrefixCls}-${props.transitionName}`}
     >
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>

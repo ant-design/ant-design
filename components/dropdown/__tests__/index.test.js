@@ -20,7 +20,7 @@ describe('Dropdown', () => {
 
   it('overlay is function and has custom transitionName', () => {
     const wrapper = mount(
-      <Dropdown overlay={() => <div>menu</div>} transitionName="move-up" visible>
+      <Dropdown overlay={() => <div>menu</div>} transitionName="ant-move-up" visible>
         <button type="button">button</button>
       </Dropdown>,
     );

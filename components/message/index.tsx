@@ -18,7 +18,7 @@ let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
-let localPrefixCls = 'ant-message';
+let localPrefixCls = 'ant';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
@@ -31,7 +31,7 @@ export function getKeyThenIncreaseKey() {
 export interface ConfigOptions {
   top?: number;
   duration?: number;
-  prefixCls?: string;
+  rootPrefixCls?: string;
   getContainer?: () => HTMLElement;
   transitionName?: string;
   maxCount?: number;
@@ -46,8 +46,8 @@ function setMessageConfig(options: ConfigOptions) {
   if (options.duration !== undefined) {
     defaultDuration = options.duration;
   }
-  if (options.prefixCls !== undefined) {
-    localPrefixCls = options.prefixCls;
+  if (options.rootPrefixCls !== undefined) {
+    localPrefixCls = options.rootPrefixCls;
   }
   if (options.getContainer !== undefined) {
     getContainer = options.getContainer;
@@ -69,7 +69,8 @@ function getRCNotificationInstance(
   args: ArgsProps,
   callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
 ) {
-  const prefixCls = args.prefixCls || localPrefixCls;
+  const rootPrefixCls = args.prefixCls || localPrefixCls;
+  const prefixCls = `${rootPrefixCls}-message`;
   if (messageInstance) {
     callback({
       prefixCls,
@@ -79,8 +80,8 @@ function getRCNotificationInstance(
   }
   RCNotification.newInstance(
     {
-      prefixCls,
-      transitionName,
+      prefixCls: `${prefixCls}-message`,
+      transitionName: `${rootPrefixCls}-${transitionName}`,
       style: { top: defaultTop }, // 覆盖原来的样式
       getContainer,
       maxCount,

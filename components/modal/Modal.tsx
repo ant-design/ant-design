@@ -185,6 +185,8 @@ const Modal: ModalInterface = props => {
   } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
       {renderFooter}
@@ -213,6 +215,8 @@ const Modal: ModalInterface = props => {
       onClose={handleCancel}
       closeIcon={closeIconToRender}
       focusTriggerAfterClose={focusTriggerAfterClose}
+      transitionName={`${rootPrefixCls}-${props.transitionName}`}
+      maskTransitionName={`${rootPrefixCls}-${props.maskTransitionName}`}
     />
   );
 };

@@ -95,7 +95,7 @@ describe('message.config', () => {
     message.info('last');
     expect(document.querySelectorAll('.move-up-enter').length).toBe(0);
     message.config({
-      transitionName: 'move-up',
+      transitionName: 'ant-move-up',
     });
   });
 });

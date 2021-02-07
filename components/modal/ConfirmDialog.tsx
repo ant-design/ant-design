@@ -56,8 +56,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
-  const transitionName = props.transitionName || 'zoom';
-  const maskTransitionName = props.maskTransitionName || 'fade';
+  const transitionName = `${rootPrefixCls}-${props.transitionName || 'zoom'}`;
+  const maskTransitionName = `${rootPrefixCls}-${props.maskTransitionName || 'fade'}`;
 
   const classString = classNames(
     contentPrefixCls,

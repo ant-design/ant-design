@@ -124,6 +124,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
     },
     className,
   );
+  const rootPrefixCls = getPrefixCls();
 
   return (
     <RcTreeSelect
@@ -150,8 +151,8 @@ const InternalTreeSelect = <T extends DefaultValueType>(
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
-      choiceTransitionName={choiceTransitionName}
-      transitionName={transitionName}
+      choiceTransitionName={`${rootPrefixCls}-${choiceTransitionName}`}
+      transitionName={`${rootPrefixCls}-${transitionName}`}
     />
   );
 };

@@ -1,7 +1,8 @@
 .zoom-motion(@className, @keyframeName, @duration: @animation-duration-base) {
+  @name: ~'@{ant-prefix}-@{className}';
   .make-motion(@className, @keyframeName, @duration);
-  .@{className}-enter,
-  .@{className}-appear {
+  .@{name}-enter,
+  .@{name}-appear {
     transform: scale(0); // need this by yiminghe
     opacity: 0;
     animation-timing-function: @ease-out-circ;
@@ -10,7 +11,7 @@
       transform: none;
     }
   }
-  .@{className}-leave {
+  .@{name}-leave {
     animation-timing-function: @ease-in-out-circ;
   }
 }
