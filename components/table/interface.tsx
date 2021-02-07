@@ -189,8 +189,7 @@ type TablePaginationPosition =
   | 'topRight'
   | 'bottomLeft'
   | 'bottomCenter'
-  | 'bottomRight'
-  | 'none';
+  | 'bottomRight';
 
 export interface TablePaginationConfig extends PaginationProps {
   position?: TablePaginationPosition[];
