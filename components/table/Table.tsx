@@ -18,7 +18,6 @@ import {
   ColumnsType,
   TableCurrentDataSource,
   SorterResult,
-  Key,
   GetPopupContainer,
   ExpandableConfig,
   ExpandType,
@@ -26,6 +25,7 @@ import {
   SortOrder,
   TableLocale,
   TableAction,
+  TableFilterValues,
 } from './interface';
 import useSelection, {
   SELECTION_ALL,
@@ -54,7 +54,7 @@ interface ChangeEventInfo<RecordType> {
     pageSize?: number;
     total?: number;
   };
-  filters: Record<string, (Key | boolean)[] | null>;
+  filters: Record<string, TableFilterValues | null>;
   sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
 
   filterStates: FilterState<RecordType>[];
@@ -85,7 +85,7 @@ export interface TableProps<RecordType>
 
   onChange?: (
     pagination: TablePaginationConfig,
-    filters: Record<string, (Key | boolean)[] | null>,
+    filters: Record<string, TableFilterValues | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
@@ -236,9 +236,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
 
   /**
-   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
-   * state out and then put it back to title render. Move these code into `hooks` but still too
-   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to
+   * read state out and then put it back to title render. Move these code into `hooks` but still
+   * too complex. We should provides Table props like `sorter` & `filter` to handle control in next
+   * big version.
    */
 
   // ============================ Sorter =============================
@@ -273,7 +274,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================ Filter ============================
   const onFilterChange = (
-    filters: Record<string, (Key | boolean)[]>,
+    filters: Record<string, TableFilterValues>,
     filterStates: FilterState<RecordType>[],
   ) => {
     triggerOnChange(

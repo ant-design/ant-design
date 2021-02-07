@@ -54,7 +54,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   }
 
   const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
-
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
 
