@@ -440,12 +440,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       />
     );
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
-    const position = mergedPagination.position;
+    const { position } = mergedPagination;
     if (position !== null && Array.isArray(position)) {
       const topPos = position.find(p => p.indexOf('top') !== -1);
       const bottomPos = position.find(p => p.indexOf('bottom') !== -1);
-      const pagination = position.every(p => p === 'none');
-      if (!topPos && !bottomPos && !pagination) {
+      const isDisable = position.every(p => p === 'none');
+      if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);
       }
       if (topPos) {
