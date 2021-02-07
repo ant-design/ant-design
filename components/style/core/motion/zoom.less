@@ -1,6 +1,6 @@
 .zoom-motion(@className, @keyframeName, @duration: @animation-duration-base) {
   @name: ~'@{ant-prefix}-@{className}';
-  .make-motion(@className, @keyframeName, @duration);
+  .make-motion(@name, @keyframeName, @duration);
   .@{name}-enter,
   .@{name}-appear {
     transform: scale(0); // need this by yiminghe

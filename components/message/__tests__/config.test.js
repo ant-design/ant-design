@@ -78,13 +78,13 @@ describe('message.config', () => {
 
   it('should be able to config prefixCls', () => {
     message.config({
-      prefixCls: 'prefix-test',
+      rootPrefixCls: 'prefix-test',
     });
     message.info('last');
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    expect(document.querySelectorAll('.prefix-test-message-notice').length).toBe(1);
     message.config({
-      prefixCls: 'ant-message',
+      rootPrefixCls: 'ant',
     });
   });
 
@@ -93,7 +93,7 @@ describe('message.config', () => {
       transitionName: '',
     });
     message.info('last');
-    expect(document.querySelectorAll('.move-up-enter').length).toBe(0);
+    expect(document.querySelectorAll('.ant-move-up-enter').length).toBe(0);
     message.config({
       transitionName: 'ant-move-up',
     });

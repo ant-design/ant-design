@@ -80,7 +80,7 @@ function getRCNotificationInstance(
   }
   RCNotification.newInstance(
     {
-      prefixCls: `${prefixCls}-message`,
+      prefixCls,
       transitionName: `${rootPrefixCls}-${transitionName}`,
       style: { top: defaultTop }, // 覆盖原来的样式
       getContainer,

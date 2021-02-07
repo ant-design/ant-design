@@ -130,7 +130,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
   const prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
   const overlayClassNames = classNames(prefixClsConfirm, overlayClassName);
 
@@ -150,7 +149,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       overlay={overlay}
       overlayClassName={overlayClassNames}
       ref={ref as any}
-      transitionName={`${rootPrefixCls}-${props.transitionName}`}
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
