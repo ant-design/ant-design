@@ -21,7 +21,6 @@ const topOptions = [
   { label: 'topCenter', value: 'topCenter' },
   { label: 'topRight', value: 'topRight' },
   { label: 'none', value: 'none' },
-  { label: 'invalid', value: 'invalid' },
 ];
 
 const bottomOptions = [
@@ -29,7 +28,6 @@ const bottomOptions = [
   { label: 'bottomCenter', value: 'bottomCenter' },
   { label: 'bottomRight', value: 'bottomRight' },
   { label: 'none', value: 'none' },
-  { label: 'invalid', value: 'invalid' },
 ];
 
 const columns = [
