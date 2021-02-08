@@ -10,6 +10,7 @@ import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/but
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext, DirectionType } from '../config-provider';
 import { canUseDocElement } from '../_util/styleChecker';
+import { getTransitionName } from '../_util/motion';
 
 let mousePosition: { x: number; y: number } | null;
 export const destroyFns: Array<() => void> = [];
@@ -185,6 +186,8 @@ const Modal: ModalInterface = props => {
   } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
       {renderFooter}
@@ -213,6 +216,8 @@ const Modal: ModalInterface = props => {
       onClose={handleCancel}
       closeIcon={closeIconToRender}
       focusTriggerAfterClose={focusTriggerAfterClose}
+      transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+      maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
     />
   );
 };
@@ -221,8 +226,6 @@ Modal.useModal = useModal;
 
 Modal.defaultProps = {
   width: 520,
-  transitionName: 'zoom',
-  maskTransitionName: 'fade',
   confirmLoading: false,
   visible: false,
   okType: 'primary' as LegacyButtonType,

@@ -8,6 +8,7 @@ import { cloneElement, isValidElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { PresetColorType, PresetColorTypes } from '../_util/colors';
 import { LiteralUnion } from '../_util/type';
+import { getTransitionName } from '../_util/motion';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -215,6 +216,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     children,
   } = props;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
   let tempVisible = visible;
   // Hide tooltip when there is no title
   if (!('visible' in props) && isNoTitle()) {
@@ -256,6 +259,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
+      transitionName={getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName)}
     >
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
@@ -266,7 +270,6 @@ Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
   placement: 'top' as TooltipPlacement,
-  transitionName: 'zoom-big-fast',
   mouseEnterDelay: 0.1,
   mouseLeaveDelay: 0.1,
   arrowPointAtCenter: false,

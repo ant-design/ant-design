@@ -1,11 +1,12 @@
 .slide-motion(@className, @keyframeName) {
-  .make-motion(@className, @keyframeName);
-  .@{className}-enter,
-  .@{className}-appear {
+  @name: ~'@{ant-prefix}-@{className}';
+  .make-motion(@name, @keyframeName);
+  .@{name}-enter,
+  .@{name}-appear {
     opacity: 0;
     animation-timing-function: @ease-out-quint;
   }
-  .@{className}-leave {
+  .@{name}-leave {
     animation-timing-function: @ease-in-quint;
   }
 }

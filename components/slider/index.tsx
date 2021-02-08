@@ -107,13 +107,15 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       } = props;
       const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
       const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
+      const rootPrefixCls = getPrefixCls();
+
       return (
         <SliderTooltip
           prefixCls={tooltipPrefixCls}
           title={tipFormatter ? tipFormatter(value) : ''}
           visible={visible}
           placement={getTooltipPlacement(tooltipPlacement, vertical)}
-          transitionName="zoom-down"
+          transitionName={`${rootPrefixCls}-zoom-down`}
           key={index}
           overlayClassName={`${prefixCls}-tooltip`}
           getPopupContainer={getTooltipPopupContainer || getPopupContainer}
