@@ -21,6 +21,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { replaceElement } from '../_util/reactNode';
+import { getTransitionName } from '../_util/motion';
 
 export interface CascaderOptionType {
   value?: string | number;
@@ -254,7 +255,6 @@ function getEmptyNode(
 
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
-    transitionName: 'slide-up',
     options: [],
     disabled: false,
     allowClear: true,
@@ -691,7 +691,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             popupPlacement={this.getPopupPlacement(direction)}
             // rc-cascader should update ts define to fix this case
             dropdownRender={dropdownRender as any}
-            transitionName={`${rootPrefixCls}-${props.transitionName}`}
+            transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
           >
             {input}
           </RcCascader>

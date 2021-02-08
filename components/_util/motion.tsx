@@ -21,4 +21,11 @@ const collapseMotion: CSSMotionProps = {
   motionDeadline: 500,
 };
 
+const getTransitionName = (rootPrefixCls: string, motion: string, transitionName?: string) => {
+  if (transitionName !== undefined) {
+    return transitionName;
+  }
+  return `${rootPrefixCls}-${motion}`;
+};
+export { getTransitionName };
 export default collapseMotion;

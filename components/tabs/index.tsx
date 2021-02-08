@@ -51,8 +51,8 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
   return (
     <RcTabs
       direction={direction}
-      {...props}
       moreTransitionName={`${rootPrefixCls}-slide-up`}
+      {...props}
       className={classNames(
         {
           [`${prefixCls}-${size}`]: size,

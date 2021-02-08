@@ -21,6 +21,7 @@ let key = 1;
 let rootLocalPrefixCls = 'ant';
 let localPrefixCls = 'ant-message';
 let transitionName = 'move-up';
+let hasTransitionName = false;
 let getContainer: () => HTMLElement;
 let maxCount: number;
 let rtl = false;
@@ -60,6 +61,7 @@ function setMessageConfig(options: ConfigOptions) {
   if (options.transitionName !== undefined) {
     transitionName = options.transitionName;
     messageInstance = null; // delete messageInstance for new transitionName
+    hasTransitionName = true;
   }
   if (options.maxCount !== undefined) {
     maxCount = options.maxCount;
@@ -88,7 +90,7 @@ function getRCNotificationInstance(
   RCNotification.newInstance(
     {
       prefixCls,
-      transitionName: `${rootPrefixCls}-${transitionName}`,
+      transitionName: hasTransitionName ? transitionName : `${rootPrefixCls}-${transitionName}`,
       style: { top: defaultTop }, // 覆盖原来的样式
       getContainer,
       maxCount,

@@ -93,7 +93,7 @@ describe('message.config', () => {
       transitionName: '',
     });
     message.info('last');
-    expect(document.querySelectorAll('.ant-move-up-enter').length).toBe(0);
+    expect(document.querySelectorAll('.move-up-enter').length).toBe(0);
     message.config({
       transitionName: 'ant-move-up',
     });
