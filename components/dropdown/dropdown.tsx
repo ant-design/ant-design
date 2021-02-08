@@ -65,14 +65,15 @@ const Dropdown: DropdownInterface = props => {
   );
 
   const getTransitionName = () => {
+    const rootPrefixCls = getPrefixCls();
     const { placement = '', transitionName } = props;
     if (transitionName !== undefined) {
       return transitionName;
     }
     if (placement.indexOf('top') >= 0) {
-      return 'slide-down';
+      return `${rootPrefixCls}-slide-down`;
     }
-    return 'slide-up';
+    return `${rootPrefixCls}-slide-up`;
   };
 
   const renderOverlay = (prefixCls: string) => {

@@ -10,6 +10,7 @@ import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
+import { getTransitionName } from '../_util/motion';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -138,6 +139,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       {(popconfirmLocale: PopconfirmLocale) => renderOverlay(prefixCls, popconfirmLocale)}
     </LocaleReceiver>
   );
+  const rootPrefixCls = getPrefixCls();
 
   return (
     <Tooltip
@@ -149,6 +151,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       overlay={overlay}
       overlayClassName={overlayClassNames}
       ref={ref as any}
+      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', props.transitionName)}
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
@@ -163,7 +166,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 });
 
 Popconfirm.defaultProps = {
-  transitionName: 'zoom-big',
   placement: 'top' as PopconfirmProps['placement'],
   trigger: 'click' as PopconfirmProps['trigger'],
   okType: 'primary' as PopconfirmProps['okType'],

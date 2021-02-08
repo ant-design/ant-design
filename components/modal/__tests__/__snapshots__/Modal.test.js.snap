@@ -11,7 +11,7 @@ exports[`Modal render correctly 1`] = `
         class="ant-modal-root"
       >
         <div
-          class="ant-modal-mask fade-appear fade-appear-start fade"
+          class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
         />
         <div
           class="ant-modal-wrap"
@@ -19,7 +19,7 @@ exports[`Modal render correctly 1`] = `
           tabindex="-1"
         >
           <div
-            class="ant-modal zoom-appear zoom-appear-prepare zoom"
+            class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
             role="document"
             style="width: 520px;"
           >
@@ -110,7 +110,7 @@ exports[`Modal render without footer 1`] = `
         class="ant-modal-root"
       >
         <div
-          class="ant-modal-mask fade-appear fade-appear-start fade"
+          class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
         />
         <div
           class="ant-modal-wrap"
@@ -118,7 +118,7 @@ exports[`Modal render without footer 1`] = `
           tabindex="-1"
         >
           <div
-            class="ant-modal zoom-appear zoom-appear-prepare zoom"
+            class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
             role="document"
             style="width: 520px;"
           >
@@ -185,7 +185,7 @@ exports[`Modal support closeIcon 1`] = `
   class="ant-modal-root"
 >
   <div
-    class="ant-modal-mask fade-appear fade-appear-start fade"
+    class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
   />
   <div
     class="ant-modal-wrap"
@@ -193,7 +193,7 @@ exports[`Modal support closeIcon 1`] = `
     tabindex="-1"
   >
     <div
-      class="ant-modal zoom-appear zoom-appear-prepare zoom"
+      class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
       role="document"
       style="width: 520px;"
     >

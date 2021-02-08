@@ -334,7 +334,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                           </span>
                           <div>
                             <div
-                              class="ant-tooltip zoom-big-fast-appear zoom-big-fast-appear-prepare zoom-big-fast"
+                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
                               style="opacity: 0; pointer-events: none;"
                             >
                               <div
@@ -817,7 +817,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+                            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
                             style="opacity: 0; pointer-events: none;"
                           >
                             <div
@@ -1049,7 +1049,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+                            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
                             style="opacity: 0; pointer-events: none;"
                           >
                             <div

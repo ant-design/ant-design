@@ -40,6 +40,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
       showAdd: hideAdd !== true,
     };
   }
+  const rootPrefixCls = getPrefixCls();
 
   devWarning(
     !('onPrevClick' in props) && !('onNextClick' in props),
@@ -50,8 +51,8 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
   return (
     <RcTabs
       direction={direction}
+      moreTransitionName={`${rootPrefixCls}-slide-up`}
       {...props}
-      moreTransitionName="slide-up"
       className={classNames(
         {
           [`${prefixCls}-${size}`]: size,

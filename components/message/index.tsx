@@ -18,8 +18,10 @@ let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
+let rootLocalPrefixCls = 'ant';
 let localPrefixCls = 'ant-message';
 let transitionName = 'move-up';
+let hasTransitionName = false;
 let getContainer: () => HTMLElement;
 let maxCount: number;
 let rtl = false;
@@ -32,6 +34,7 @@ export interface ConfigOptions {
   top?: number;
   duration?: number;
   prefixCls?: string;
+  rootPrefixCls?: string;
   getContainer?: () => HTMLElement;
   transitionName?: string;
   maxCount?: number;
@@ -46,6 +49,9 @@ function setMessageConfig(options: ConfigOptions) {
   if (options.duration !== undefined) {
     defaultDuration = options.duration;
   }
+  if (options.rootPrefixCls !== undefined) {
+    rootLocalPrefixCls = options.rootPrefixCls;
+  }
   if (options.prefixCls !== undefined) {
     localPrefixCls = options.prefixCls;
   }
@@ -55,6 +61,7 @@ function setMessageConfig(options: ConfigOptions) {
   if (options.transitionName !== undefined) {
     transitionName = options.transitionName;
     messageInstance = null; // delete messageInstance for new transitionName
+    hasTransitionName = true;
   }
   if (options.maxCount !== undefined) {
     maxCount = options.maxCount;
@@ -67,37 +74,34 @@ function setMessageConfig(options: ConfigOptions) {
 
 function getRCNotificationInstance(
   args: ArgsProps,
-  callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
+  callback: (info: {
+    prefixCls: string;
+    rootPrefixCls: string;
+    instance: RCNotificationInstance;
+  }) => void,
 ) {
   const prefixCls = args.prefixCls || localPrefixCls;
+  const rootPrefixCls = args.rootPrefixCls || rootLocalPrefixCls;
+
   if (messageInstance) {
-    callback({
-      prefixCls,
-      instance: messageInstance,
-    });
+    callback({ prefixCls, rootPrefixCls, instance: messageInstance });
     return;
   }
   RCNotification.newInstance(
     {
       prefixCls,
-      transitionName,
+      transitionName: hasTransitionName ? transitionName : `${rootPrefixCls}-${transitionName}`,
       style: { top: defaultTop }, // 覆盖原来的样式
       getContainer,
       maxCount,
     },
     (instance: any) => {
       if (messageInstance) {
-        callback({
-          prefixCls,
-          instance: messageInstance,
-        });
+        callback({ prefixCls, rootPrefixCls, instance: messageInstance });
         return;
       }
       messageInstance = instance;
-      callback({
-        prefixCls,
-        instance,
-      });
+      callback({ prefixCls, rootPrefixCls, instance });
     },
   );
 }
@@ -122,6 +126,7 @@ export interface ArgsProps {
   duration: number | null;
   type: NoticeType;
   prefixCls?: string;
+  rootPrefixCls?: string;
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
