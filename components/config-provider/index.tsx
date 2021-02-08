@@ -86,19 +86,18 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 export const defaultPrefixCls = 'ant';
 let globalPrefixCls = defaultPrefixCls;
 
-export const globalConfig = (params?: Pick<ConfigProviderProps, 'prefixCls'>) => {
-  if (params) {
-    if (params.prefixCls !== undefined) {
-      globalPrefixCls = params.prefixCls;
-    }
+const globalConfig = (params: Pick<ConfigProviderProps, 'prefixCls'>) => {
+  if (params.prefixCls !== undefined) {
+    globalPrefixCls = params.prefixCls;
   }
-  return {
-    getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-      if (customizePrefixCls) return customizePrefixCls;
-      return suffixCls ? `${globalPrefixCls}-${suffixCls}` : globalPrefixCls;
-    },
-  };
 };
+
+export const globalGetConfig = () => ({
+  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
+    if (customizePrefixCls) return customizePrefixCls;
+    return suffixCls ? `${globalPrefixCls}-${suffixCls}` : globalPrefixCls;
+  },
+});
 
 const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const {
