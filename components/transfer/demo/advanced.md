@@ -56,6 +56,12 @@ class App extends React.Component {
     </Button>
   );
 
+  renderLeftFooter = () => (
+    <Button size="small" style={{ float: 'right', margin: 5 }}>
+      leftFooter
+    </Button>
+  );
+
   render() {
     return (
       <Transfer
@@ -70,6 +76,7 @@ class App extends React.Component {
         onChange={this.handleChange}
         render={item => `${item.title}-${item.description}`}
         footer={this.renderFooter}
+        leftFooter={this.renderLeftFooter}
       />
     );
   }

@@ -28,6 +28,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 | disabled | 是否禁用 | boolean | false |  |
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue, option): boolean | - |  |
 | footer | 底部渲染函数 | (props) => ReactNode | - |  |
+| leftFooter | 左侧底部渲染函数 | (props) => ReactNode | - |  |
+| rightFooter | 右侧底部渲染函数 | (props) => ReactNode | - |  |
 | listStyle | 两个穿梭框的自定义样式 | object\|({direction: `left` \| `right`}) => object | - |  |
 | locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` } |  |
 | oneWay | 展示为单向样式 | boolean | false | 4.3.0 |

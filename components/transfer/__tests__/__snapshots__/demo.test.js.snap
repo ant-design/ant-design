@@ -150,7 +150,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         type="button"
       >
         <span>
-          reload
+          leftFooter
         </span>
       </button>
     </div>

@@ -78,6 +78,8 @@ export interface TransferProps<RecordType> {
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
+  leftFooter?: (props: TransferListProps<RecordType>) => React.ReactNode;
+  rightFooter?: (props: TransferListProps<RecordType>) => React.ReactNode;
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
@@ -395,6 +397,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
         const titles = this.getTitles(locale);
         const selectAllLabels = this.props.selectAllLabels || [];
+        const leftFooter = this.props.leftFooter || footer;
+        const rightFooter = this.props.rightFooter || footer;
         return (
           <div className={cls} style={style}>
             <List<KeyWise<RecordType>>
@@ -411,7 +415,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               render={render}
               showSearch={showSearch}
               renderList={children}
-              footer={footer}
+              footer={leftFooter}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
               direction="left"
@@ -448,7 +452,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               render={render}
               showSearch={showSearch}
               renderList={children}
-              footer={footer}
+              footer={rightFooter}
               onScroll={this.handleRightScroll}
               disabled={disabled}
               direction="right"

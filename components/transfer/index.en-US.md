@@ -25,6 +25,8 @@ One or more elements can be selected from either column, one click on the proper
 | disabled | Whether disabled transfer | boolean | false |  |
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean | - |  |
 | footer | A function used for rendering the footer | (props) => ReactNode | - |  |
+| leftFooter | A function used for rendering the left footer | (props) => ReactNode | - |  |
+| rightFooter | A function used for rendering the right footer | (props) => ReactNode | - |  |
 | listStyle | A custom CSS style used for rendering the transfer columns | object \| ({direction: `left` \| `right`}) => object | - |  |
 | locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `The list is empty`, searchPlaceholder: `Search here` } |  |
 | oneWay | Display as single direction style | boolean | false | 4.3.0 |
