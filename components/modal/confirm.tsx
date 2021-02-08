@@ -7,6 +7,7 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
+import { globalGetConfig } from '../config-provider';
 
 let defaultRootPrefixCls = 'ant';
 
@@ -50,19 +51,24 @@ export default function confirm(config: ModalFuncProps) {
     }
   }
 
-  function render({ okText, cancelText, prefixCls, ...props }: any) {
+  function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      *
      * Sync render blocks React event. Let's make this async.
      */
+
+    const { getPrefixCls } = globalGetConfig();
+    const prefixCls = getPrefixCls('modal', customizePrefixCls);
+    const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
+
     setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
       ReactDOM.render(
         <ConfirmDialog
           {...props}
-          prefixCls={prefixCls || `${getRootPrefixCls()}-modal`}
-          rootPrefixCls={getRootPrefixCls()}
+          prefixCls={prefixCls}
+          rootPrefixCls={rootPrefixCls}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
