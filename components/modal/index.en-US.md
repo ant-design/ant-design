@@ -168,3 +168,7 @@ return (
 ### How to disable motion?
 
 You can config `transitionName=""` and `maskTransitionName=""` to remove motion class. But you should note that these prop is internal usage which we don't promise exist in next major version.
+
+### How to set prefixCls ？
+
+You can config [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)

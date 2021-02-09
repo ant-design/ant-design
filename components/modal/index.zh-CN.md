@@ -169,3 +169,7 @@ return (
 ### 如何关闭 Modal 动画？
 
 你可以通过 `transitionName=""` 和 `maskTransitionName=""` 去除动画 CSS，但是需要注意的是。该方法为内部方法，我们不保证下个大版本重构时该属性会被保留。
+
+### 如何设置 prefixCls ？
+
+你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
