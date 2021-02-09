@@ -172,6 +172,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
+
     const input = wrapper.find('input');
     expect(input.prop('aria-describedby')).toBe('test_help');
     const help = wrapper.find('.ant-form-item-explain');
@@ -201,6 +202,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
+
     const input = wrapper.find('input');
     expect(input.prop('aria-describedby')).toBe('form_test_help');
     const help = wrapper.find('.ant-form-item-explain');
