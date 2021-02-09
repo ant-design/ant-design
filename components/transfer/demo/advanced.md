@@ -50,17 +50,13 @@ class App extends React.Component {
     this.setState({ targetKeys });
   };
 
-  renderFooter = () => (
-    <Button size="small" style={{ float: 'right', margin: 5 }} onClick={this.getMock}>
-      reload
-    </Button>
-  );
-
-  renderLeftFooter = () => (
-    <Button size="small" style={{ float: 'right', margin: 5 }}>
-      leftFooter
-    </Button>
-  );
+  renderFooter = {
+    left: () => (
+      <Button size="small" style={{ float: 'right', margin: 5 }} onClick={this.getMock}>
+        reload
+      </Button>
+    ),
+  };
 
   render() {
     return (
@@ -76,7 +72,6 @@ class App extends React.Component {
         onChange={this.handleChange}
         render={item => `${item.title}-${item.description}`}
         footer={this.renderFooter}
-        leftFooter={this.renderLeftFooter}
       />
     );
   }

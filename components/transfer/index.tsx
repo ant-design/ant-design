@@ -58,7 +58,6 @@ export interface TransferLocale {
   removeAll: string;
   removeCurrent: string;
 }
-
 export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
@@ -77,9 +76,12 @@ export interface TransferProps<RecordType> {
   showSearch?: boolean;
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
-  leftFooter?: (props: TransferListProps<RecordType>) => React.ReactNode;
-  rightFooter?: (props: TransferListProps<RecordType>) => React.ReactNode;
+  footer?:
+    | ((props: TransferListProps<RecordType>) => React.ReactNode)
+    | {
+        left?: (props: TransferListProps<RecordType>) => React.ReactNode;
+        right?: (props: TransferListProps<RecordType>) => React.ReactNode;
+      };
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
@@ -397,8 +399,21 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
         const titles = this.getTitles(locale);
         const selectAllLabels = this.props.selectAllLabels || [];
-        const leftFooter = this.props.leftFooter || footer;
-        const rightFooter = this.props.rightFooter || footer;
+
+        // 底部渲染判断，兼容传入reactNode或对象
+        let leftFooter;
+        let rightFooter;
+        if (typeof footer === 'object') {
+          if (footer.left) {
+            leftFooter = footer.left;
+          }
+          if (footer.right) {
+            rightFooter = footer.right;
+          }
+        } else if (footer) {
+          leftFooter = footer;
+          rightFooter = footer;
+        }
         return (
           <div className={cls} style={style}>
             <List<KeyWise<RecordType>>
