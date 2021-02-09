@@ -172,6 +172,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
+
     const input = wrapper.find('input');
     expect(input.prop('aria-describedby')).toBe('test_help');
     const help = wrapper.find('.ant-form-item-explain');
@@ -186,10 +187,31 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
+
     const input = wrapper.find('input');
     expect(input.prop('aria-describedby')).toBe('form_test_help');
     const help = wrapper.find('.ant-form-item-explain');
     expect(help.prop('id')).toBe('form_test_help');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'Invalid number' } });
+    await sleep(800);
+    wrapper.update();
+
+    const inputChanged = wrapper.find('input');
+    expect(inputChanged.prop('aria-describedby')).toBe('test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('test_help');
   });
 
   describe('scrollToField', () => {
