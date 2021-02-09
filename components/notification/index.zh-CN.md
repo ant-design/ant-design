@@ -99,6 +99,6 @@ return (
 
 **异同：**通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
-### 如何设置 prefixCls ？
+### 静态方法如何设置 prefixCls ？
 
 你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
