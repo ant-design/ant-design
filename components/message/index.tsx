@@ -11,6 +11,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
+import { globalConfig } from '../config-provider';
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
@@ -18,8 +19,7 @@ let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
-let rootLocalPrefixCls = 'ant';
-let localPrefixCls = 'ant-message';
+let localPrefixCls = '';
 let transitionName = 'move-up';
 let hasTransitionName = false;
 let getContainer: () => HTMLElement;
@@ -49,9 +49,7 @@ function setMessageConfig(options: ConfigOptions) {
   if (options.duration !== undefined) {
     defaultDuration = options.duration;
   }
-  if (options.rootPrefixCls !== undefined) {
-    rootLocalPrefixCls = options.rootPrefixCls;
-  }
+
   if (options.prefixCls !== undefined) {
     localPrefixCls = options.prefixCls;
   }
@@ -80,8 +78,10 @@ function getRCNotificationInstance(
     instance: RCNotificationInstance;
   }) => void,
 ) {
-  const prefixCls = args.prefixCls || localPrefixCls;
-  const rootPrefixCls = args.rootPrefixCls || rootLocalPrefixCls;
+  const { prefixCls: customizePrefixCls } = args;
+  const { getPrefixCls } = globalConfig();
+  const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
+  const rootPrefixCls = getPrefixCls(undefined, args.rootPrefixCls);
 
   if (messageInstance) {
     callback({ prefixCls, rootPrefixCls, instance: messageInstance });

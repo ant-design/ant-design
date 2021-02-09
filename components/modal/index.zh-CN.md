@@ -142,18 +142,6 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
-### Modal.config() `4.5.0+`
-
-类似 `message.config()`，全局设置 `Modal.confirm` 等方法的属性（如 `prefixCls`）。
-
-> 此方法只对 `Modal.confirm|success|info|error|warning` 等**静态方法**生效，`<Modal />` 的调用方式是读取 ConfigProvider 的设置。
-
-```jsx
-Modal.config({
-  rootPrefixCls: 'ant',
-});
-```
-
 ## FAQ
 
 ### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls` 配置？
@@ -181,3 +169,7 @@ return (
 ### 如何关闭 Modal 动画？
 
 你可以通过 `transitionName=""` 和 `maskTransitionName=""` 去除动画 CSS，但是需要注意的是。该方法为内部方法，我们不保证下个大版本重构时该属性会被保留。
+
+### 静态方法如何设置 prefixCls ？
+
+你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>) 进行设置。
