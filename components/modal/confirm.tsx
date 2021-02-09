@@ -57,13 +57,13 @@ export default function confirm(config: ModalFuncProps) {
      *
      * Sync render blocks React event. Let's make this async.
      */
-
-    const { getPrefixCls } = globalGetConfig();
-    const prefixCls = getPrefixCls('modal', customizePrefixCls);
-    const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
-
     setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
+      const { getPrefixCls } = globalGetConfig();
+      // 由于 Modal.config 设置的是 rootPrefixCls 这里与其它组件写法不同
+      const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
+      const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+
       ReactDOM.render(
         <ConfirmDialog
           {...props}
@@ -158,8 +158,6 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   };
 }
 
-export function globalConfig({ rootPrefixCls }: { rootPrefixCls?: string }) {
-  if (rootPrefixCls) {
-    defaultRootPrefixCls = rootPrefixCls;
-  }
+export function globalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
+  defaultRootPrefixCls = rootPrefixCls;
 }
