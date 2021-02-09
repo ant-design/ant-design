@@ -86,7 +86,7 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 export const defaultPrefixCls = 'ant';
 let globalPrefixCls = defaultPrefixCls;
 
-const globalConfig = (params: Pick<ConfigProviderProps, 'prefixCls'>) => {
+const setGlobalConfig = (params: Pick<ConfigProviderProps, 'prefixCls'>) => {
   if (params.prefixCls !== undefined) {
     globalPrefixCls = params.prefixCls;
   }
@@ -205,7 +205,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
-  config: typeof globalConfig;
+  config: typeof setGlobalConfig;
 } = props => {
   React.useEffect(() => {
     if (props.direction) {
@@ -238,6 +238,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
 /** @private internal usage. do not use in your production */
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
-ConfigProvider.config = globalConfig;
+ConfigProvider.config = setGlobalConfig;
 
 export default ConfigProvider;

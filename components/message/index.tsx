@@ -19,7 +19,7 @@ let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
-let localPrefixCls = 'ant-message';
+let localPrefixCls = '';
 let transitionName = 'move-up';
 let hasTransitionName = false;
 let getContainer: () => HTMLElement;

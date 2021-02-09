@@ -9,7 +9,7 @@ import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 import { globalGetConfig } from '../config-provider';
 
-let defaultRootPrefixCls = 'ant';
+let defaultRootPrefixCls = '';
 
 function getRootPrefixCls() {
   return defaultRootPrefixCls;
