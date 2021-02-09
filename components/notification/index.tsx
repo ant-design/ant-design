@@ -20,7 +20,7 @@ const notificationInstance: {
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
-let defaultPrefixCls = '';
+let defaultPrefixCls = 'ant-notification';
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
 let defaultCloseIcon: React.ReactNode;
@@ -125,7 +125,7 @@ function getNotificationInstance(
   const cacheInstance = notificationInstance[cacheKey];
   if (cacheInstance) {
     Promise.resolve(cacheInstance).then(instance => {
-      callback({ prefixCls, instance });
+      callback({ prefixCls: `${prefixCls}-notice`, instance });
     });
 
     return;
