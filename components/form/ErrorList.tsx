@@ -87,12 +87,11 @@ export default function ErrorList({
           )}
           key="help"
           id={`${fieldId}_help`}
+          role="alert"
         >
           {memoErrors.map((error, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <div key={index} role="alert">
-              {error}
-            </div>
+            <div key={index}>{error}</div>
           ))}
         </div>
       )}
