@@ -91,7 +91,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
     expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
     message.config({
-      prefixCls: '', // 清空可以设置为空，ant 默认值在 ConfigProvider 设置
+      prefixCls: '', // can be set to empty, ant default value is set in ConfigProvider
     });
   });
 
