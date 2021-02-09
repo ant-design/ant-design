@@ -36,6 +36,7 @@ export interface FormItemInputProps {
   extra?: React.ReactNode;
   status?: ValidateStatus;
   help?: React.ReactNode;
+  fieldId?: string;
 }
 
 const iconMap: { [key: string]: any } = {
@@ -58,6 +59,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     validateStatus,
     extra,
     help,
+    fieldId,
   } = props;
   const baseClassName = `${prefixCls}-item`;
 
@@ -91,6 +93,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   const errorListDom = (
     <FormItemPrefixContext.Provider value={formItemContext}>
       <ErrorList
+        fieldId={fieldId}
         errors={errors}
         warnings={warnings}
         help={help}

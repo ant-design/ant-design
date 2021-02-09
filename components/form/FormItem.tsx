@@ -282,6 +282,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           status={mergedValidateStatus}
           validateStatus={mergedValidateStatus}
           help={help}
+          fieldId={fieldId}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
             {baseChildren}
@@ -377,6 +378,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           const childProps = { ...children.props, ...mergedControl };
           if (!childProps.id) {
             childProps.id = fieldId;
+          }
+
+          if (props.help) {
+            const describedby = `${fieldId}_help`;
+            childProps['aria-describedby'] = describedby;
           }
 
           if (supportRef(children)) {
