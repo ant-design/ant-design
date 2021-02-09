@@ -120,7 +120,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
     expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
     notification.config({
-      prefixCls: 'ant-notification',
+      prefixCls: '',
     });
   });
 
