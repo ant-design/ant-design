@@ -11,7 +11,9 @@ const EMPTY_LIST: React.ReactNode[] = [];
 
 export interface ErrorListProps {
   errors?: React.ReactNode[];
-  /** @private Internal Usage. Do not use in your production */
+  /** @private Internal usage. Do not use in your production */
+  fieldId?: string;
+  /** @private Internal usage. Do not use in your production */
   help?: React.ReactNode;
   /** @private Internal Usage. Do not use in your production */
   onDomErrorVisibleChange?: (visible: boolean) => void;
@@ -21,6 +23,7 @@ export default function ErrorList({
   errors = EMPTY_LIST,
   help,
   onDomErrorVisibleChange,
+  fieldId,
 }: ErrorListProps) {
   const forceUpdate = useForceUpdate();
   const { prefixCls, status } = React.useContext(FormItemPrefixContext);
@@ -83,6 +86,7 @@ export default function ErrorList({
             motionClassName,
           )}
           key="help"
+          id={`${fieldId}_help`}
         >
           {memoErrors.map((error, index) => (
             // eslint-disable-next-line react/no-array-index-key

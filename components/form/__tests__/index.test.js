@@ -164,6 +164,34 @@ describe('Form', () => {
     );
   });
 
+  it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('test_help');
+  });
+
+  it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
+    const wrapper = mount(
+      <Form name="form">
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('form_test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('form_test_help');
+  });
+
   describe('scrollToField', () => {
     function test(name, genForm) {
       it(name, () => {
