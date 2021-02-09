@@ -139,16 +139,6 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
-### Modal.config() `4.5.0+`
-
-Like `message.config()`, `Modal.config()` could set `Modal.confirm` props globally (such as `prefixCls`), and it will affect `Modal.confirm|success|info|error|warning` **static methods only**.
-
-```jsx
-Modal.config({
-  rootPrefixCls: 'ant',
-});
-```
-
 ## FAQ
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?

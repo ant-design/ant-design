@@ -55,6 +55,16 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | space | Set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 
+### ConfigProvider.config() `4.13.0+`
+
+setting `Modal`、`messge`、`Notification` rootPrefixCls
+
+```jsx
+ConfigProvider.config({
+  prefixCls: 'ant',
+});
+```
+
 ## FAQ
 
 #### How to contribute a new language?

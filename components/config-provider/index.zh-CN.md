@@ -56,6 +56,16 @@ export default () => (
 | space | 设置 Space 的 `size`，参考 [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 
+### ConfigProvider.config() `4.13.0+`
+
+设置 `Modal`、`messge`、`Notification` rootPrefixCls
+
+```jsx
+ConfigProvider.config({
+  prefixCls: 'ant',
+});
+```
+
 ## FAQ
 
 #### 如何增加一个新的语言包？

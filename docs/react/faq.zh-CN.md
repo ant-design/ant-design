@@ -132,17 +132,11 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
 
-2. 使用 `message.config`、`notification.config` 和 `Modal.config` 方法全局设置 `prefixCls`。
+2. 使用 `ConfigProvider.config` 方法全局设置 `prefixCls`。
 
 ```js
-message.config({
-  prefixCls: 'ant-message',
-});
-notification.config({
-  prefixCls: 'ant-notification',
-});
-Modal.config({
-  rootPrefixCls: 'ant', // 因为 Modal.confirm 里有 button，所以 `prefixCls: 'ant-modal'` 不够用。
+ConfigProvider.config({
+  prefixCls: 'ant',
 });
 ```
 
