@@ -144,7 +144,7 @@ function getNotificationInstance(
   notificationInstance[cacheKey] = new Promise(resolve => {
     Notification.newInstance(
       {
-        prefixCls: `${prefixCls}-notice`,
+        prefixCls,
         className: notificationClass,
         style: getPlacementStyle(placement, top, bottom),
         getContainer,
@@ -153,7 +153,7 @@ function getNotificationInstance(
       notification => {
         resolve(notification);
         callback({
-          prefixCls,
+          prefixCls: `${prefixCls}-notice`,
           instance: notification,
         });
       },
