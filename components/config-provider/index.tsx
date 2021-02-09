@@ -92,7 +92,7 @@ const setGlobalConfig = (params: Pick<ConfigProviderProps, 'prefixCls'>) => {
   }
 };
 
-export const globalGetConfig = () => ({
+export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;
     return suffixCls ? `${globalPrefixCls}-${suffixCls}` : globalPrefixCls;

@@ -11,7 +11,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
-import { globalGetConfig } from '../config-provider';
+import { globalConfig } from '../config-provider';
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
@@ -79,7 +79,7 @@ function getRCNotificationInstance(
   }) => void,
 ) {
   const { prefixCls: customizePrefixCls } = args;
-  const { getPrefixCls } = globalGetConfig();
+  const { getPrefixCls } = globalConfig();
   const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
   const rootPrefixCls = getPrefixCls(undefined, args.rootPrefixCls);
 

@@ -8,7 +8,7 @@ import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
-import { globalGetConfig } from '../config-provider';
+import { globalConfig } from '../config-provider';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -118,7 +118,7 @@ function getNotificationInstance(
     closeIcon = defaultCloseIcon,
     prefixCls: customizePrefixCls,
   } = args;
-  const { getPrefixCls } = globalGetConfig();
+  const { getPrefixCls } = globalConfig();
   const prefixCls = getPrefixCls('notification', customizePrefixCls || defaultPrefixCls);
 
   const cacheKey = `${prefixCls}-${placement}`;

@@ -7,7 +7,7 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
-import { globalGetConfig } from '../config-provider';
+import { globalConfig } from '../config-provider';
 
 let defaultRootPrefixCls = '';
 
@@ -59,8 +59,8 @@ export default function confirm(config: ModalFuncProps) {
      */
     setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
-      const { getPrefixCls } = globalGetConfig();
-      // 由于 Modal.config 设置的是 rootPrefixCls 这里与其它组件写法不同
+      const { getPrefixCls } = globalConfig();
+      // because Modal.config  set rootPrefixCls, which is different from other components
       const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
 
@@ -158,6 +158,6 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   };
 }
 
-export function globalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
+export function modalGlobalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
   defaultRootPrefixCls = rootPrefixCls;
 }
