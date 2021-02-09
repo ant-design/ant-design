@@ -83,6 +83,7 @@ export default function ErrorList({
           <div
             className={classNames(baseClassName, holderClassName, rootClassName)}
             style={holderStyle}
+            role="alert"
             id={`${fieldId}_help`}
           >
             <CSSMotionList
@@ -103,7 +104,6 @@ export default function ErrorList({
                 return (
                   <div
                     key={key}
-                    role="alert"
                     className={classNames(itemClassName, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}
