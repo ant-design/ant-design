@@ -23,8 +23,8 @@ timeline: true
 - 🐞 Fix TextArea `showCount` should not be interactive. [#29245](https://github.com/ant-design/ant-design/pull/29245)
 - 🐞 Fix abnormal background color for `multiple` and `disabled` Select in dark. [#29242](https://github.com/ant-design/ant-design/pull/29242)
 - 🛠 Refactor Drawer with React hooks. [#29229](https://github.com/ant-design/ant-design/pull/29229)
-- 🌐 Add `ru_RU` locale text for Image. [#29271](https://github.com/ant-design/ant-design/pull/29271) [@mumiao](https://github.com/mumiao)
-- 🌐 Add `fa_IR` locale text for DatePicker, Form, Table, TimePicker and Transfer. [#29232](https://github.com/ant-design/ant-design/pull/29232) [@amiralitaheri](https://github.com/amiralitaheri)
+- 🇷🇺 Add `ru_RU` locale text for Image. [#29271](https://github.com/ant-design/ant-design/pull/29271) [@mumiao](https://github.com/mumiao)
+- 🇮🇷 Add `fa_IR` locale text for DatePicker, Form, Table, TimePicker and Transfer. [#29232](https://github.com/ant-design/ant-design/pull/29232) [@amiralitaheri](https://github.com/amiralitaheri)
 - TypeScript
   - 🤖 Fix type definition for Table FilterDropdownProps `confirm` parameter. [#29241](https://github.com/ant-design/ant-design/pull/29241) [@mumiao](https://github.com/mumiao)
 
