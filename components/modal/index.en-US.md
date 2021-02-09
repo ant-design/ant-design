@@ -171,4 +171,4 @@ You can config `transitionName=""` and `maskTransitionName=""` to remove motion 
 
 ### How to set static methods prefixCls ？
 
-You can config [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
+You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
