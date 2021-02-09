@@ -117,3 +117,7 @@ return (
 ```
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
+
+### How to set static methods prefixCls ？
+
+You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)

@@ -8,6 +8,7 @@ import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
+import { globalConfig } from '../config-provider';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -19,7 +20,7 @@ const notificationInstance: {
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
-let defaultPrefixCls = 'ant-notification';
+let defaultPrefixCls = '';
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
 let defaultCloseIcon: React.ReactNode;
@@ -115,34 +116,35 @@ function getNotificationInstance(
     bottom,
     getContainer = defaultGetContainer,
     closeIcon = defaultCloseIcon,
+    prefixCls: customizePrefixCls,
   } = args;
-  const outerPrefixCls = args.prefixCls || defaultPrefixCls;
-  const prefixCls = `${outerPrefixCls}-notice`;
+  const { getPrefixCls } = globalConfig();
+  const prefixCls = getPrefixCls('notification', customizePrefixCls || defaultPrefixCls);
 
-  const cacheKey = `${outerPrefixCls}-${placement}`;
+  const cacheKey = `${prefixCls}-${placement}`;
   const cacheInstance = notificationInstance[cacheKey];
   if (cacheInstance) {
     Promise.resolve(cacheInstance).then(instance => {
-      callback({ prefixCls, instance });
+      callback({ prefixCls: `${prefixCls}-notice`, instance });
     });
 
     return;
   }
 
   const closeIconToRender = (
-    <span className={`${outerPrefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${outerPrefixCls}-close-icon`} />}
+    <span className={`${prefixCls}-close-x`}>
+      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
     </span>
   );
 
-  const notificationClass = classNames(`${outerPrefixCls}-${placement}`, {
-    [`${outerPrefixCls}-rtl`]: rtl === true,
+  const notificationClass = classNames(`${prefixCls}-${placement}`, {
+    [`${prefixCls}-rtl`]: rtl === true,
   });
 
   notificationInstance[cacheKey] = new Promise(resolve => {
     Notification.newInstance(
       {
-        prefixCls: outerPrefixCls,
+        prefixCls,
         className: notificationClass,
         style: getPlacementStyle(placement, top, bottom),
         getContainer,
@@ -151,7 +153,7 @@ function getNotificationInstance(
       notification => {
         resolve(notification);
         callback({
-          prefixCls,
+          prefixCls: `${prefixCls}-notice`,
           instance: notification,
         });
       },

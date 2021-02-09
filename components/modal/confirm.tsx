@@ -7,8 +7,9 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
+import { globalConfig } from '../config-provider';
 
-let defaultRootPrefixCls = 'ant';
+let defaultRootPrefixCls = '';
 
 function getRootPrefixCls() {
   return defaultRootPrefixCls;
@@ -50,7 +51,7 @@ export default function confirm(config: ModalFuncProps) {
     }
   }
 
-  function render({ okText, cancelText, prefixCls, ...props }: any) {
+  function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      *
@@ -58,11 +59,16 @@ export default function confirm(config: ModalFuncProps) {
      */
     setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
+      const { getPrefixCls } = globalConfig();
+      // because Modal.config  set rootPrefixCls, which is different from other components
+      const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
+      const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+
       ReactDOM.render(
         <ConfirmDialog
           {...props}
-          prefixCls={prefixCls || `${getRootPrefixCls()}-modal`}
-          rootPrefixCls={getRootPrefixCls()}
+          prefixCls={prefixCls}
+          rootPrefixCls={rootPrefixCls}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
@@ -152,8 +158,6 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   };
 }
 
-export function globalConfig({ rootPrefixCls }: { rootPrefixCls?: string }) {
-  if (rootPrefixCls) {
-    defaultRootPrefixCls = rootPrefixCls;
-  }
+export function modalGlobalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
+  defaultRootPrefixCls = rootPrefixCls;
 }

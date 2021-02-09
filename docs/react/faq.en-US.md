@@ -118,17 +118,11 @@ Static methods like message/notification/Modal.confirm are not using the same re
 
 1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-notification) and [Modal.useModal](/components/modal/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-Modal.xxx).
 
-2. Use `message.config`, `notification.config` and `Modal.config` to config `prefixCls` globally.
+2. Use `ConfigProvider.config` to config `prefixCls` globally.
 
 ```js
-message.config({
-  prefixCls: 'ant-message',
-});
-notification.config({
-  prefixCls: 'ant-notification',
-});
-Modal.config({
-  rootPrefixCls: 'ant',
+ConfigProvider.config({
+  prefixCls: 'ant',
 });
 ```
 
