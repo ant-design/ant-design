@@ -258,6 +258,34 @@ describe('Form', () => {
     expect(input.prop('aria-required')).toBe('true');
   });
 
+  it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_extra');
+    const extra = wrapper.find('.ant-form-item-extra');
+    expect(extra.prop('id')).toBe('test_extra');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="This is a help" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_help test_extra');
+  });
+
   describe('scrollToField', () => {
     function test(name, genForm) {
       it(name, () => {

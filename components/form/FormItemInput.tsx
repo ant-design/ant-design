@@ -109,7 +109,11 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
 
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
-  const extraDom = extra ? <div className={`${baseClassName}-extra`}>{extra}</div> : null;
+  const extraDom = extra ? (
+    <div className={`${baseClassName}-extra`} id={`${fieldId}_extra`}>
+      {extra}
+    </div>
+  ) : null;
 
   const dom =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (

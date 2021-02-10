@@ -360,9 +360,15 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             childProps.id = fieldId;
           }
 
-          if (props.help || errors.length > 0) {
-            const describedby = `${fieldId}_help`;
-            childProps['aria-describedby'] = describedby;
+          if (props.help || errors.length > 0 || props.extra) {
+            const describedbyArr = [];
+            if (props.help || errors.length > 0) {
+              describedbyArr.push(`${fieldId}_help`);
+            }
+            if (props.extra) {
+              describedbyArr.push(`${fieldId}_extra`);
+            }
+            childProps['aria-describedby'] = describedbyArr.join(' ');
           }
 
           if (errors.length > 0) {
