@@ -369,6 +369,10 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             childProps['aria-invalid'] = 'true';
           }
 
+          if (isRequired) {
+            childProps['aria-required'] = 'true';
+          }
+
           if (supportRef(children)) {
             childProps.ref = getItemRef(mergedName, children);
           }
