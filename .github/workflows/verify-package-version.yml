@@ -7,7 +7,7 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.title, 'changelog')
+    if: contains(github.event.pull_request.title, 'changelog') || contains(github.event.pull_request.title, 'release')
     steps:
       - uses: actions/checkout@v2
       - name: verify-version
