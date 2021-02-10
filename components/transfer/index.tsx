@@ -76,12 +76,10 @@ export interface TransferProps<RecordType> {
   showSearch?: boolean;
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?:
-    | ((props: TransferListProps<RecordType>) => React.ReactNode)
-    | {
-        left?: (props: TransferListProps<RecordType>) => React.ReactNode;
-        right?: (props: TransferListProps<RecordType>) => React.ReactNode;
-      };
+  footer?: (props: TransferListProps<RecordType>) => React.ReactNode | {
+    left?: React.ReactNode;
+    right?: React.ReactNode;
+  })
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
