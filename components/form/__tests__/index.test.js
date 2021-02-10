@@ -232,6 +232,32 @@ describe('Form', () => {
     expect(inputChanged.prop('aria-invalid')).toBe('true');
   });
 
+  it('input element should have the prop aria-required when the prop `required` is true', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" required>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when there is a rule with required', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-required')).toBe('true');
+  });
+
   describe('scrollToField', () => {
     function test(name, genForm) {
       it(name, () => {
