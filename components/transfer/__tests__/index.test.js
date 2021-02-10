@@ -559,7 +559,7 @@ describe('immutable data', () => {
   });
 });
 
-describe('footer render', () => {
+describe('footer render left and right', () => {
   // https://github.com/ant-design/ant-design/issues/28082
   it('currently render footer', () => {
     const defaultFooter = {
