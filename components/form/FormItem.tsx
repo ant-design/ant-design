@@ -385,6 +385,10 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             childProps['aria-describedby'] = describedby;
           }
 
+          if (errors.length > 0) {
+            childProps['aria-invalid'] = 'true';
+          }
+
           if (supportRef(children)) {
             childProps.ref = getItemRef(mergedName, children);
           }
