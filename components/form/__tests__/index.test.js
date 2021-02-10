@@ -214,6 +214,24 @@ describe('Form', () => {
     expect(help.prop('id')).toBe('test_help');
   });
 
+  it('input element should have the prop aria-invalid when there are errors', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'Invalid number' } });
+    await sleep(800);
+    wrapper.update();
+
+    const inputChanged = wrapper.find('input');
+    expect(inputChanged.prop('aria-invalid')).toBe('true');
+  });
+
   describe('scrollToField', () => {
     function test(name, genForm) {
       it(name, () => {
@@ -646,9 +664,7 @@ describe('Form', () => {
     await sleep(100);
     wrapper.update();
     await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('role')).toBe(
-      'alert',
-    );
+    expect(wrapper.find('.ant-form-item-explain').getDOMNode().getAttribute('role')).toBe('alert');
   });
 
   it('return same form instance', () => {
