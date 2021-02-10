@@ -19,10 +19,10 @@ timeline: true
 
 `2021-02-09`
 
+- 🛠 Refactor Drawer with React hooks. [#29229](https://github.com/ant-design/ant-design/pull/29229)
 - 🐞 Fix Table pagination not disappear when `pagination.position` is `['none', 'none']`. [#29256](https://github.com/ant-design/ant-design/pull/29256) [@mumiao](https://github.com/mumiao)
 - 🐞 Fix TextArea `showCount` should not be interactive. [#29245](https://github.com/ant-design/ant-design/pull/29245)
 - 🐞 Fix abnormal background color for `multiple` and `disabled` Select in dark. [#29242](https://github.com/ant-design/ant-design/pull/29242)
-- 🛠 Refactor Drawer with React hooks. [#29229](https://github.com/ant-design/ant-design/pull/29229)
 - 🇷🇺 Add `ru_RU` locale text for Image. [#29271](https://github.com/ant-design/ant-design/pull/29271) [@mumiao](https://github.com/mumiao)
 - 🇮🇷 Add `fa_IR` locale text for DatePicker, Form, Table, TimePicker and Transfer. [#29232](https://github.com/ant-design/ant-design/pull/29232) [@amiralitaheri](https://github.com/amiralitaheri)
 - TypeScript
