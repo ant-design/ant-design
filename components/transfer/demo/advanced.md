@@ -50,13 +50,13 @@ class App extends React.Component {
     this.setState({ targetKeys });
   };
 
-  renderFooter = {
+  renderFooter = () => ({
     left: () => (
       <Button size="small" style={{ float: 'right', margin: 5 }} onClick={this.getMock}>
         reload
       </Button>
     ),
-  };
+  });
 
   render() {
     return (
