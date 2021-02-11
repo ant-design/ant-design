@@ -103,10 +103,15 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     </FormItemPrefixContext.Provider>
   );
 
+  const extraProps: { id?: string } = {};
+
+  if (fieldId) {
+    extraProps.id = `${fieldId}_extra`;
+  }
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
   const extraDom = extra ? (
-    <div className={`${baseClassName}-extra`} id={`${fieldId}_extra`}>
+    <div {...extraProps} className={`${baseClassName}-extra`}>
       {extra}
     </div>
   ) : null;

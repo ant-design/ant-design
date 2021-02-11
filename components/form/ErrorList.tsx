@@ -60,7 +60,12 @@ export default function ErrorList({
       ...warnings.map((warning, index) => toErrorEntity(warning, 'warning', 'warning', index)),
     ];
   }, [help, helpStatus, errors, warnings]);
+  
+  const helpProps: { id?: string } = {};
 
+  if (fieldId) {
+    helpProps.id = `${fieldId}_help`;
+  }
   return (
     <CSSMotion
       {...collapseMotion}
@@ -79,10 +84,10 @@ export default function ErrorList({
 
         return (
           <div
+            {...helpProps}
             className={classNames(baseClassName, holderClassName, rootClassName)}
             style={holderStyle}
             role="alert"
-            id={`${fieldId}_help`}
           >
             <CSSMotionList
               keys={fullKeyList}
