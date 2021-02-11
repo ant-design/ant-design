@@ -76,7 +76,7 @@ export interface FilterDropdownProps {
   prefixCls: string;
   setSelectedKeys: (selectedKeys: React.Key[]) => void;
   selectedKeys: React.Key[];
-  confirm: (param: FilterConfirmProps) => void;
+  confirm: (param?: FilterConfirmProps) => void;
   clearFilters?: () => void;
   filters?: ColumnFilterItem[];
   visible: boolean;
