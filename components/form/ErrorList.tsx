@@ -64,6 +64,11 @@ export default function ErrorList({
 
   const baseClassName = `${prefixCls}-item-explain`;
   const rootPrefixCls = getPrefixCls();
+  const helpProps: { id?: string } = {};
+
+  if (fieldId) {
+    helpProps.id = `${fieldId}_help`;
+  }
 
   return (
     <CSSMotion
@@ -78,6 +83,7 @@ export default function ErrorList({
     >
       {({ className: motionClassName }: { className?: string }) => (
         <div
+          {...helpProps}
           className={classNames(
             baseClassName,
             {
@@ -86,7 +92,6 @@ export default function ErrorList({
             motionClassName,
           )}
           key="help"
-          id={`${fieldId}_help`}
           role="alert"
         >
           {memoErrors.map((error, index) => (

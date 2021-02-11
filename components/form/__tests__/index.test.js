@@ -179,6 +179,21 @@ describe('Form', () => {
     expect(help.prop('id')).toBe('test_help');
   });
 
+  it('input element should not have the prop aria-describedby pointing to the help id when there is a help message and name is not defined', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBeUndefined();
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBeUndefined();
+  });
+
   it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
     const wrapper = mount(
       <Form name="form">
@@ -271,6 +286,21 @@ describe('Form', () => {
     expect(input.prop('aria-describedby')).toBe('test_extra');
     const extra = wrapper.find('.ant-form-item-extra');
     expect(extra.prop('id')).toBe('test_extra');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBeUndefined();
+    const extra = wrapper.find('.ant-form-item-extra');
+    expect(extra.prop('id')).toBeUndefined();
   });
 
   it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
