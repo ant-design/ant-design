@@ -13381,10 +13381,10 @@ exports[`ConfigProvider components Form configProvider 1`] = `
       </div>
       <div
         class="config-form-item-explain config-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="config-form-item-explain-error"
-          role="alert"
         >
           Bamboo is Light
         </div>
@@ -13419,10 +13419,10 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
       </div>
       <div
         class="config-form-item-explain config-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="config-form-item-explain-error"
-          role="alert"
         >
           Bamboo is Light
         </div>
@@ -13457,10 +13457,10 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
       </div>
       <div
         class="config-form-item-explain config-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="config-form-item-explain-error"
-          role="alert"
         >
           Bamboo is Light
         </div>
@@ -13495,10 +13495,10 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Bamboo is Light
         </div>
@@ -13533,10 +13533,10 @@ exports[`ConfigProvider components Form normal 1`] = `
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Bamboo is Light
         </div>
@@ -13571,10 +13571,10 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
       </div>
       <div
         class="prefix-Form-item-explain prefix-Form-item-explain-connected"
+        role="alert"
       >
         <div
           class="prefix-Form-item-explain-error"
-          role="alert"
         >
           Bamboo is Light
         </div>
