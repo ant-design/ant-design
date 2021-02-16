@@ -20,7 +20,7 @@ function ariaConvert(wrapper: CheerIO) {
   const matches = new Map();
 
   function process(entry: CheerIOElement) {
-    if (entry.type === 'text') {
+    if (entry.type === 'text' || entry.type === 'comment') {
       return;
     }
     const { attribs, children } = entry;
