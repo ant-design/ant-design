@@ -4,6 +4,7 @@ import Dropdown from '..';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Dropdown', () => {
   mountTest(() => (
@@ -34,5 +35,28 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
     expect(wrapper).toMatchRenderedSnapshot();
+  });
+
+  it('support Menu expandIcon', async () => {
+    const props = {
+      overlay: (
+        <Menu expandIcon={<span id="customExpandIcon" />}>
+          <Menu.Item>foo</Menu.Item>
+          <Menu.SubMenu title="SubMenu">
+            <Menu.Item>foo</Menu.Item>
+          </Menu.SubMenu>
+        </Menu>
+      ),
+      visible: true,
+      getPopupContainer: node => node,
+    };
+
+    const wrapper = mount(
+      <Dropdown {...props}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    await sleep(500);
+    expect(wrapper.find(Dropdown).find('#customExpandIcon').length).toBe(1);
   });
 });
