@@ -69,6 +69,7 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: npm run site
+        id: site
         run: npm run site
 
       - name: upload site artifact
@@ -77,3 +78,13 @@ jobs:
           name: site-${{ github.event.pull_request.number }}
           path: _site/
           retention-days: 5
+
+      - name: The job has failed
+        if: steps.site.outcome != 'success'
+        uses: actions-cool/maintain-one-comment@v1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            <img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
