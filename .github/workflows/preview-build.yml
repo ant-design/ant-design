@@ -71,5 +71,20 @@ jobs:
           comment-id: ${{ steps.find_comment.outputs.comments[0].id }}
           body: '<!-- AUTO_PREVIEW_HOOK -->Update'
 
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
       - name: npm run site
         run: npm run site
