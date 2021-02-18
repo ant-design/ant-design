@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@v1.0.0
+        uses: actions-cool/maintain-one-comment@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -81,7 +81,7 @@ jobs:
 
       - name: The job has failed
         if: steps.site.outcome != 'success'
-        uses: actions-cool/maintain-one-comment@v1.0.0
+        uses: actions-cool/maintain-one-comment@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
