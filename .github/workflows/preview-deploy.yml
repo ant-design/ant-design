@@ -40,7 +40,7 @@ jobs:
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
 
       - name: The job has failed
-        if: steps.deploy.outcome != 'success'
+        if: ${{ failure() }}
         uses: actions-cool/maintain-one-comment@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

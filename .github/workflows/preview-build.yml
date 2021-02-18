@@ -80,7 +80,7 @@ jobs:
           retention-days: 5
 
       - name: The job has failed
-        if: steps.site.outcome != 'success'
+        if: ${{ failure() }}
         uses: actions-cool/maintain-one-comment@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
