@@ -66,6 +66,18 @@ jobs:
       - name: upload site artifact
         uses: actions/upload-artifact@v2
         with:
-          name: site-${{ github.event.pull_request.number }}
+          name: site
           path: _site/
           retention-days: 5
+
+      # Upload PR id for next workflow use
+      - name: Save PR number
+        if: ${{ always() }}
+        run: echo ${{ github.event.number }} > ./pr-id.txt
+
+      - name: Upload PR number
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: pr
+          path: ./pr-id.txt
