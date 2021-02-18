@@ -10,15 +10,6 @@ jobs:
     name: prepare preview
     runs-on: ubuntu-latest
     steps:
-      - name: update status comment
-        uses: actions-cool/maintain-one-comment@v1.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            ![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)
-            <!-- AUTO_PREVIEW_HOOK -->
-          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
-
       - name: checkout
         uses: actions/checkout@master
 
@@ -78,13 +69,3 @@ jobs:
           name: site-${{ github.event.pull_request.number }}
           path: _site/
           retention-days: 5
-
-      - name: The job has failed
-        if: ${{ failure() }}
-        uses: actions-cool/maintain-one-comment@v1.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            <img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
-            <!-- AUTO_PREVIEW_HOOK -->
-          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
