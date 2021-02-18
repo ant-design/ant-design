@@ -50,7 +50,7 @@ jobs:
         with:
           actions: 'find-comments'
           token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
+          issue-number: ${{ github.event.pull_request.number }}
           body-includes: '<!-- AUTO_PREVIEW_HOOK -->'
 
       - name: create comment
@@ -59,7 +59,7 @@ jobs:
         with:
           actions: 'create-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
+          issue-number: ${{ github.event.pull_request.number }}
           body: '<!-- AUTO_PREVIEW_HOOK -->Create'
 
       - name: update comment
