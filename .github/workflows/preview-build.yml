@@ -76,3 +76,4 @@ jobs:
         with:
           name: site-${{ github.event.pull_request.number }}
           path: _site/
+          retention-days: 5

@@ -12,6 +12,9 @@ jobs:
   deploy-site:
     name: deploy preview
     runs-on: ubuntu-latest
+    if: >
+      ${{ github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: download site artifact
         uses: actions/download-artifact@v2
