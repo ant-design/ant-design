@@ -319,9 +319,14 @@ export default class TransferList<
     } = this.props;
 
     // Custom Layout
+
+    // 区分footer函数返回结果是否含有source/target，再结合左右渲染不同footer
     const tempDom = footer && footer(this.props);
     let footerDom;
     if (tempDom) {
+      if (!(tempDom as footerRender).source && !(tempDom as footerRender).target) {
+        footerDom = tempDom;
+      }
       if (direction === 'left') {
         if ((tempDom as footerRender).source) {
           footerDom = (tempDom as footerRender).source;
@@ -330,6 +335,7 @@ export default class TransferList<
         footerDom = (tempDom as footerRender).target;
       }
     }
+
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-pagination`]: pagination,
       [`${prefixCls}-with-footer`]: footerDom,
