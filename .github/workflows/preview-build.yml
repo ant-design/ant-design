@@ -1,0 +1,75 @@
+# Each PR will build preview site that help to check code is work as expect.
+# This is pre task that will trigger another one for post publish surge site.
+
+name: Preview Build
+
+on: pull_request
+
+jobs:
+  # Prepare node modules. Reuse cache if available
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: cache package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only
+
+      - name: hack for single file
+        run: |
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
+          cp package-lock.json package-temp-dir
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
+
+  build-site:
+    name: build site
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: find exist comment
+        uses: actions-cool/issues-helper@v2.1.1
+        id: find_comment
+        with:
+          actions: 'find-comments'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body-includes: '<!-- AUTO_PREVIEW_HOOK -->'
+
+      - name: create comment
+        if: ${{ steps.find_comment.outputs.comments.length == 0 }}
+        uses: actions-cool/issues-helper@v2.1.1
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: '<!-- AUTO_PREVIEW_HOOK -->Create'
+
+      - name: update comment
+        if: ${{ steps.find_comment.outputs.comments.length == 1 }}
+        uses: actions-cool/issues-helper@v2.1.1
+        with:
+          actions: 'update-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          comment-id: ${{ steps.find_comment.outputs.comments[0].id }}
+          body: '<!-- AUTO_PREVIEW_HOOK -->Update'
+
+      - name: npm run site
+        run: npm run site
