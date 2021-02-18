@@ -16,9 +16,16 @@ jobs:
       ${{ github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success' }}
     steps:
+      # - name: download site artifact
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: site-${{ github.event.workflow_run.pull_requests[0].number }}
+
       - name: download site artifact
-        uses: actions/download-artifact@v2
+        uses: dawidd6/action-download-artifact@v2
         with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          workflow_conclusion: success
           name: site-${{ github.event.workflow_run.pull_requests[0].number }}
 
       - name: check out what I have
