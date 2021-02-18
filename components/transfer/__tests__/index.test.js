@@ -559,17 +559,17 @@ describe('immutable data', () => {
   });
 });
 
-describe('footer render left and right', () => {
+describe('footer render source and target', () => {
   // https://github.com/ant-design/ant-design/issues/28082
   it('currently render footer', () => {
-    const defaultFooter = {
-      left: () => (
-        <Button size="small" className="leftFooter">
+    const defaultFooter = () => ({
+      source: (
+        <Button size="small" className="sourceFooter">
           reload
         </Button>
       ),
-    };
+    });
     const wrapper = mount(<Transfer footer={defaultFooter} />);
-    expect(wrapper.exists('.leftFooter')).toEqual(true);
+    expect(wrapper.exists('.sourceFooter')).toEqual(true);
   });
 });
