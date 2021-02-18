@@ -1,0 +1,27 @@
+# Each PR will build preview site that help to check code is work as expect.
+
+name: Preview Deploy
+
+on:
+  workflow_run:
+    workflows: ["Preview Build"]
+    types:
+      - completed
+
+jobs:
+  deploy-site:
+    name: deploy site
+    runs-on: ubuntu-latest
+    steps:
+      - name: download site artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: site-${{ github.event.workflow_run.pull_requests[0].number }}
+
+      - name: check out what I have
+        run: ls -al
+
+      # - name: upload surge service
+      #   run: |
+      #     export DEPLOY_DOMAIN=https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh
+      #     npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}

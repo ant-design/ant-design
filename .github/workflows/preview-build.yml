@@ -59,7 +59,7 @@ jobs:
           actions: 'create-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
-          body: '<!-- AUTO_PREVIEW_HOOK --><!-- Create -->\n![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)'
+          body: '![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif) <!-- AUTO_PREVIEW_HOOK -->'
 
       - name: update comment
         if: ${{ steps.find_comment.outputs.comments.length == 1 }}
@@ -68,7 +68,7 @@ jobs:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
           comment-id: ${{ steps.find_comment.outputs.comments[0].id }}
-          body: '<!-- AUTO_PREVIEW_HOOK --><!-- Update -->\n![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)'
+          body: '![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif) <!-- AUTO_PREVIEW_HOOK -->'
 
       - name: checkout
         uses: actions/checkout@master
@@ -88,7 +88,8 @@ jobs:
       - name: npm run site
         run: npm run site
 
-      - name: upload surge service
-        run: |
-          export DEPLOY_DOMAIN=https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh
-          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+      - name: upload site artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: site-${{ github.event.pull_request.number }}
+          path: _site/
