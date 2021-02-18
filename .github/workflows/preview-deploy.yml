@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy-site:
-    name: deploy site
+    name: deploy preview
     runs-on: ubuntu-latest
     steps:
       - name: download site artifact
