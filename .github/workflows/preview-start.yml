@@ -21,3 +21,10 @@ jobs:
             ![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)
             <!-- AUTO_PREVIEW_HOOK -->
           body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+
+      - name: test id
+        id: pr
+        run: echo "::set-output name=id::233"
+
+      - name: get
+        run: echo "This is ${{ steps.pr.outputs.id }}"

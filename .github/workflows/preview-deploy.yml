@@ -26,7 +26,7 @@ jobs:
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "::set-output id=$(<pr-id.txt)"
+        run: echo "::set-output name=id::$(<pr-id.txt)"
 
       # Download site artifact
       - name: download site artifact
@@ -80,7 +80,7 @@ jobs:
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "::set-output id=$(<pr-id.txt)"
+        run: echo "::set-output name=id::$(<pr-id.txt)"
 
       - name: The job has failed
         uses: actions-cool/maintain-one-comment@v1.1.0
