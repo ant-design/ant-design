@@ -1,4 +1,8 @@
 # When `preview-build` start. Leave a message on the PR
+#
+# 🚨🚨🚨 Important 🚨🚨🚨
+# Never do any `checkout` or `npm install` action!
+# `pull_request_target` will enable PR to access the secrets!
 
 name: Preview Start
 
