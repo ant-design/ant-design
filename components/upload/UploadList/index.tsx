@@ -97,9 +97,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   };
 
   const onInternalClose = (file: UploadFile) => {
-    if (onRemove) {
-      onRemove(file);
-    }
+    onRemove?.(file);
   };
 
   const internalIconRender = (file: UploadFile) => {

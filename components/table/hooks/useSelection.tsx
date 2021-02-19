@@ -231,9 +231,7 @@ export default function useSelection<RecordType>(
 
       setMergedSelectedKeys(availableKeys);
 
-      if (onSelectionChange) {
-        onSelectionChange(availableKeys, records);
-      }
+      onSelectionChange?.(availableKeys, records);
     },
     [setMergedSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
@@ -305,10 +303,7 @@ export default function useSelection<RecordType>(
           key: 'none',
           text: tableLocale.selectNone,
           onSelect() {
-            if (onSelectNone) {
-              onSelectNone();
-            }
-
+            onSelectNone?.();
             setSelectedKeys([]);
           },
         };
@@ -353,13 +348,11 @@ export default function useSelection<RecordType>(
 
         const keys = Array.from(keySet);
 
-        if (onSelectAll) {
-          onSelectAll(
-            !checkedCurrentAll,
-            keys.map(k => getRecordByKey(k)),
-            changeKeys.map(k => getRecordByKey(k)),
-          );
-        }
+        onSelectAll?.(
+          !checkedCurrentAll,
+          keys.map(k => getRecordByKey(k)),
+          changeKeys.map(k => getRecordByKey(k)),
+        );
 
         setSelectedKeys(keys);
       };
@@ -378,9 +371,7 @@ export default function useSelection<RecordType>(
                   <Menu.Item
                     key={key || index}
                     onClick={() => {
-                      if (onSelectionClick) {
-                        onSelectionClick(recordKeys);
-                      }
+                      onSelectionClick?.(recordKeys);
                     }}
                   >
                     {text}
@@ -519,13 +510,11 @@ export default function useSelection<RecordType>(
                     }
 
                     const keys = Array.from(keySet);
-                    if (onSelectMultiple) {
-                      onSelectMultiple(
-                        !checked,
-                        keys.map(recordKey => getRecordByKey(recordKey)),
-                        changedKeys.map(recordKey => getRecordByKey(recordKey)),
-                      );
-                    }
+                    onSelectMultiple?.(
+                      !checked,
+                      keys.map(recordKey => getRecordByKey(recordKey)),
+                      changedKeys.map(recordKey => getRecordByKey(recordKey)),
+                    );
 
                     setSelectedKeys(keys);
                   } else {

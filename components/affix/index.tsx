@@ -215,9 +215,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
     // Test if `updatePosition` called
     if (process.env.NODE_ENV === 'test') {
       const { onTestUpdatePosition } = this.props as any;
-      if (onTestUpdatePosition) {
-        onTestUpdatePosition();
-      }
+      onTestUpdatePosition?.();
     }
   };
 
