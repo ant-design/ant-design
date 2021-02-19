@@ -22,8 +22,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       setValue(val);
     }
     const { onChange } = props;
-    if (val !== lastValue) {
-      onChange?.(ev);
+    if (onChange && val !== lastValue) {
+      onChange(ev);
     }
   };
 

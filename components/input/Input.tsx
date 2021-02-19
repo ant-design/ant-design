@@ -317,8 +317,8 @@ class Input extends React.Component<InputProps, InputState> {
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
-    if (e.keyCode === 13) {
-      onPressEnter?.(e);
+    if (onPressEnter && e.keyCode === 13) {
+      onPressEnter(e);
     }
     onKeyDown?.(e);
   };

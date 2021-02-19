@@ -196,8 +196,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
     }
 
     newState.lastAffix = !!newState.affixStyle;
-    if (lastAffix !== newState.lastAffix) {
-      onChange?.(newState.lastAffix);
+    if (onChange && lastAffix !== newState.lastAffix) {
+      onChange(newState.lastAffix);
     }
 
     this.setState(newState as AffixState);
