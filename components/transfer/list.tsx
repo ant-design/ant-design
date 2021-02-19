@@ -319,9 +319,7 @@ export default class TransferList<
     } = this.props;
 
     // Custom Layout
-
     // Distinguish different footer
-
     const tempDom = footer && footer(this.props);
     let footerDom;
     if (tempDom) {
