@@ -39,7 +39,7 @@ export interface RenderedItem<RecordType> {
 }
 
 type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNode;
-type footerRender = {
+type FooterRender = {
   source?: React.ReactNode;
   target?: React.ReactNode;
 };
@@ -62,7 +62,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   itemUnit: string;
   itemsUnit: string;
   renderList?: RenderListFunction<RecordType>;
-  footer?: (props: TransferListProps<RecordType>) => React.ReactNode | footerRender;
+  footer?: (props: TransferListProps<RecordType>) => React.ReactNode | FooterRender;
   onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
   direction: TransferDirection;
@@ -322,16 +322,18 @@ export default class TransferList<
     // Distinguish different footer
     const tempDom = footer && footer(this.props);
     let footerDom;
+    function isFooterRender(obj: any): obj is FooterRender {
+      return obj.source || obj.target;
+    }
     if (tempDom) {
-      if (!(tempDom as footerRender).source && !(tempDom as footerRender).target) {
-        footerDom = tempDom;
-      }
-      if (direction === 'left') {
-        if ((tempDom as footerRender).source) {
-          footerDom = (tempDom as footerRender).source;
+      if (isFooterRender(tempDom)) {
+        if (direction === 'left') {
+          footerDom = tempDom.source;
+        } else {
+          footerDom = tempDom.target;
         }
-      } else if ((tempDom as footerRender).target) {
-        footerDom = (tempDom as footerRender).target;
+      } else {
+        footerDom = tempDom;
       }
     }
 
