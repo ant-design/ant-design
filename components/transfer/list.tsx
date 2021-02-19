@@ -320,7 +320,8 @@ export default class TransferList<
 
     // Custom Layout
 
-    // 区分footer函数返回结果是否含有source/target，再结合左右渲染不同footer
+    // Distinguish different footer
+
     const tempDom = footer && footer(this.props);
     let footerDom;
     if (tempDom) {
