@@ -14,5 +14,5 @@ jobs:
           forbid-paths: '.github/, scripts/'
           skip-verify-authority: 'write'
           comment: |
-            Hi @${{ github.event.pull_request.user.login }}. Thank you very much for contribution. The path `.github/` is only maintained by team members. This current PR will be closed and @ant-design/ant-design-collaborator will also review this PR.
+            Hi @${{ github.event.pull_request.user.login }}. Thank you very much for contribution. The path `.github/` or `scripts/` is only maintained by team members. This current PR will be closed and @ant-design/ant-design-collaborator will also review this PR.
           close: true
