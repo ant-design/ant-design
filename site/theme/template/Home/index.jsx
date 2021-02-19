@@ -101,6 +101,7 @@ function getStyle() {
 }
 
 function Home(props) {
+  console.log('Hello')
   return (
     <DocumentTitle title={`Ant Design - ${props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
       <div className="main-wrapper">
