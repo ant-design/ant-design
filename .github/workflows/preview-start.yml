@@ -1,0 +1,23 @@
+# When `preview-build` start. Leave a message on the PR
+#
+# 🚨🚨🚨 Important 🚨🚨🚨
+# Never do any `checkout` or `npm install` action!
+# `pull_request_target` will enable PR to access the secrets!
+
+name: Preview Start
+
+on: pull_request_target
+
+jobs:
+  preview-start:
+    name: start preview info
+    runs-on: ubuntu-latest
+    steps:
+      - name: update status comment
+        uses: actions-cool/maintain-one-comment@v1.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            ![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
