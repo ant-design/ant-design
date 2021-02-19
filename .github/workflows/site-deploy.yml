@@ -1,4 +1,4 @@
-# When publish a release. This workflow will trigger and deploy to site
+# When publish a release. This workflow will trigger and deploy to site.
 
 name: Deploy website
 on:
