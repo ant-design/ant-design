@@ -2,14 +2,12 @@
 
 name: Deploy website
 on:
-  release:
-    types: [published]
-    branches:
-      - master
+  create
 
 jobs:
   setup:
     runs-on: ubuntu-latest
+    if: github.event.ref_type == 'tag'
     steps:
       - name: checkout
         uses: actions/checkout@master
