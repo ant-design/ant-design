@@ -6,7 +6,7 @@ const fs = require('fs-extra');
 const chalk = require('chalk');
 const { spawn } = require('child_process');
 
-(async () => {
+(async () => {t
   console.time('Execution...');
 
   const demoFiles = glob.sync(path.join(process.cwd(), 'components/**/demo/*.md'));
