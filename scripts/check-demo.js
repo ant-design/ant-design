@@ -11,4 +11,4 @@ for (const url of demoFiles) {
   if (meta.only) {
     throw Error(`there is a 'only': ${url}`);
   }
-}
+};
