@@ -1,0 +1,46 @@
+name: UI Upload
+
+on:
+  workflow_run:
+    workflows: ["UI"]
+    types:
+      - completed
+
+jobs:
+  upload-ui:
+    name: deploy preview
+    runs-on: ubuntu-latest
+    if: >
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Download commit artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: commit
+
+      - name: Save commit id
+        id: commit
+        run: echo "::set-output name=id::$(<commit.txt)"
+
+      - name: Download branch artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: branch
+
+      - name: Save branch id
+        id: branch
+        run: echo "::set-output name=id::$(<branch.txt)"
+
+      - name: Download snapshots artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          workflow_conclusion: success
+          name: snapshots
+
+      - name: Upload argos-ci
+        id: deploy
+        run: |
+          npx argos upload imageSnapshots --token ${{ secrets.ARGOS_TOKEN }} --branch ${{ steps.branch.outputs.id }} --commit ${{ steps.commit.outputs.id }}

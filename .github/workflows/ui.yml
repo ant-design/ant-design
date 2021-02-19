@@ -1,0 +1,66 @@
+name: UI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: install
+        run: npm install
+
+      - name: test
+        run: npm run test-image
+
+      - name: upload snapshots artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: snapshots
+          path: imageSnapshots/
+          retention-days: 3
+
+      - name: Save commit
+        if: github.event_name == 'pull_request' && github.base_ref == 'master'
+        run: echo ${{ github.event.pull_request.head.sha }} > ./commit.txt
+
+      - name: Save commit
+        if: github.event_name == 'push'
+        run: echo ${{ github.sha }} > ./commit.txt
+
+      - name: Upload commit
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: commit
+          path: ./commit.txt
+
+      - name: Save branch
+        if: github.event_name == 'pull_request' && github.base_ref == 'master'
+        run: echo pull/${{ github.event.pull_request.number }}/merge > ./branch.txt
+
+      - name: Save branch
+        if: github.event_name == 'push'
+        run: echo ${GITHUB_REF##*/} > ./branch.txt
+
+      - name: Upload branch
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: branch
+          path: ./branch.txt
+
+      - name: argos-ci
+        # argos-ci only support base branch, so we should expect master
+        if: github.event_name == 'pull_request_target' && github.base_ref == 'master'
+        run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch pull/${{ github.event.pull_request.number }}/merge --commit ${{ github.event.pull_request.head.sha }}
+
+      - name: argos-ci
+        if: github.event_name == 'push'
+        run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch ${GITHUB_REF##*/} --commit ${{ github.sha }}
