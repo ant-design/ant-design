@@ -1,0 +1,18 @@
+name: Verify Files modify
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize, ready_for_review]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: verify-version
+        uses: actions-cool/verify-files-modify@v1.0.0
+        with:
+          forbid-paths: '.github/, scripts/'
+          skip-verify-authority: 'write'
+          comment: |
+            Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution. The path `.github/` or `scripts/` is only maintained by team members. This current PR will be closed and @ant-design/ant-design-collaborator will help on this.
+          close: true
