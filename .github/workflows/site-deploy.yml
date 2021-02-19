@@ -1,0 +1,30 @@
+# When `preview-build` start. Leave a message on the PR
+
+name: Deploy website
+on:
+  release:
+    types: [published]
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+
+    - name: install
+      run: npm install
+
+    - name: build
+      run: npm run predeploy
+
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./_site
+      with:
+        emptyCommits: false
