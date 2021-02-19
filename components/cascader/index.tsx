@@ -312,9 +312,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       this.setState({ value });
     }
     const { onChange } = this.props;
-    if (onChange) {
-      onChange(value, selectedOptions);
-    }
+    onChange?.(value, selectedOptions);
   };
 
   getLabel() {
@@ -359,9 +357,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
 
     const { onPopupVisibleChange } = this.props;
-    if (onPopupVisibleChange) {
-      onPopupVisibleChange(popupVisible);
-    }
+    onPopupVisibleChange?.(popupVisible);
   };
 
   handleInputBlur = () => {

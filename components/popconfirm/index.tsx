@@ -61,25 +61,17 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       setVisible(value);
     }
 
-    if (props.onVisibleChange) {
-      props.onVisibleChange(value, e);
-    }
+    props.onVisibleChange?.(value, e);
   };
 
   const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
     settingVisible(false, e);
-
-    if (props.onConfirm) {
-      props.onConfirm.call(this, e);
-    }
+    props.onConfirm?.call(this, e);
   };
 
   const onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     settingVisible(false, e);
-
-    if (props.onCancel) {
-      props.onCancel.call(this, e);
-    }
+    props.onCancel?.call(this, e);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {

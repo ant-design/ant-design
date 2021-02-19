@@ -127,9 +127,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
-    if (onFilterDropdownVisibleChange) {
-      onFilterDropdownVisibleChange(newVisible);
-    }
+    onFilterDropdownVisibleChange?.(newVisible);
   };
 
   const mergedVisible =
