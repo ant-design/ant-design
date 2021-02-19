@@ -43,6 +43,7 @@ const BlockContent: React.FC<BlockContentProps> = ({ title, children, extra }) =
 );
 
 const Home = (props: { location: any }) => {
+  console.log('hello');
   const { location } = props;
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
