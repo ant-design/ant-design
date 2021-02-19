@@ -235,9 +235,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       this.setState({
         activeLink: link,
       });
-      if (onChange) {
-        onChange(link);
-      }
+      onChange?.(link);
     }
   };
 

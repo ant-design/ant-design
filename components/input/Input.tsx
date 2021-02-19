@@ -68,23 +68,24 @@ export function resolveOnChange(
     | React.MouseEvent<HTMLElement, MouseEvent>,
   onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
 ) {
-  if (onChange) {
-    let event = e;
-    if (e.type === 'click') {
-      // click clear icon
-      event = Object.create(e);
-      event.target = target;
-      event.currentTarget = target;
-      const originalInputValue = target.value;
-      // change target ref value cause e.target.value should be '' when clear input
-      target.value = '';
-      onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
-      // reset target ref value
-      target.value = originalInputValue;
-      return;
-    }
-    onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
+  if (!onChange) {
+    return;
   }
+  let event = e;
+  if (e.type === 'click') {
+    // click clear icon
+    event = Object.create(e);
+    event.target = target;
+    event.currentTarget = target;
+    const originalInputValue = target.value;
+    // change target ref value cause e.target.value should be '' when clear input
+    target.value = '';
+    onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
+    // reset target ref value
+    target.value = originalInputValue;
+    return;
+  }
+  onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
 }
 
 export function getInputClassName(
@@ -230,17 +231,13 @@ class Input extends React.Component<InputProps, InputState> {
   onFocus: React.FocusEventHandler<HTMLInputElement> = e => {
     const { onFocus } = this.props;
     this.setState({ focused: true }, this.clearPasswordValueAttribute);
-    if (onFocus) {
-      onFocus(e);
-    }
+    onFocus?.(e);
   };
 
   onBlur: React.FocusEventHandler<HTMLInputElement> = e => {
     const { onBlur } = this.props;
     this.setState({ focused: false }, this.clearPasswordValueAttribute);
-    if (onBlur) {
-      onBlur(e);
-    }
+    onBlur?.(e);
   };
 
   setValue(value: string, callback?: () => void) {
@@ -320,12 +317,10 @@ class Input extends React.Component<InputProps, InputState> {
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
-    if (e.keyCode === 13 && onPressEnter) {
-      onPressEnter(e);
+    if (e.keyCode === 13) {
+      onPressEnter?.(e);
     }
-    if (onKeyDown) {
-      onKeyDown(e);
-    }
+    onKeyDown?.(e);
   };
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {

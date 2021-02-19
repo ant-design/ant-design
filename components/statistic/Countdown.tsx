@@ -60,8 +60,8 @@ class Countdown extends React.Component<CountdownProps, {}> {
       this.countdownId = undefined;
 
       const timestamp = getTime(value);
-      if (onFinish && timestamp < Date.now()) {
-        onFinish();
+      if (timestamp < Date.now()) {
+        onFinish?.();
       }
     }
   };

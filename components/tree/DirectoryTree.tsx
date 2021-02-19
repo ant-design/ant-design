@@ -112,11 +112,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       setExpandedKeys(keys);
     }
     // Call origin function
-    if (props.onExpand) {
-      return props.onExpand(keys, info);
-    }
-
-    return undefined;
+    return props.onExpand?.(keys, info);
   };
 
   const onClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
@@ -127,9 +123,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       onDebounceExpand(event, node);
     }
 
-    if (props.onClick) {
-      props.onClick(event, node);
-    }
+    props.onClick?.(event, node);
   };
 
   const onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
@@ -140,9 +134,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       onDebounceExpand(event, node);
     }
 
-    if (props.onDoubleClick) {
-      props.onDoubleClick(event, node);
-    }
+    props.onDoubleClick?.(event, node);
   };
 
   const onSelect = (
@@ -202,9 +194,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     }
 
-    if (props.onSelect) {
-      props.onSelect(newSelectedKeys, newEvent);
-    }
+    props.onSelect?.(newSelectedKeys, newEvent);
     if (!('selectedKeys' in props)) {
       setSelectedKeys(newSelectedKeys);
     }

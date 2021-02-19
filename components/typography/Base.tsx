@@ -189,10 +189,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
     const { onExpand } = this.getEllipsis();
     this.setState({ expanded: true });
-
-    if (onExpand) {
-      (onExpand as React.MouseEventHandler<HTMLElement>)(e);
-    }
+    (onExpand as React.MouseEventHandler<HTMLElement>)?.(e);
   };
 
   // ================ Edit ================
@@ -202,10 +199,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   onEditChange = (value: string) => {
     const { onChange } = this.getEditable();
-    if (onChange) {
-      onChange(value);
-    }
-
+    onChange?.(value);
     this.triggerEdit(false);
   };
 

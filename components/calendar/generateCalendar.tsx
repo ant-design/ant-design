@@ -135,9 +135,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     // ====================== Events ======================
     const triggerPanelChange = (date: DateType, newMode: CalendarMode) => {
-      if (onPanelChange) {
-        onPanelChange(date, newMode);
-      }
+      onPanelChange?.(date, newMode);
     };
 
     const triggerChange = (date: DateType) => {
@@ -152,9 +150,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           triggerPanelChange(date, mergedMode);
         }
 
-        if (onChange) {
-          onChange(date);
-        }
+        onChange?.(date);
       }
     };
 
@@ -166,9 +162,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const onInternalSelect = (date: DateType) => {
       triggerChange(date);
 
-      if (onSelect) {
-        onSelect(date);
-      }
+      onSelect?.(date);
     };
 
     // ====================== Locale ======================

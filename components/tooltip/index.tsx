@@ -150,8 +150,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     if (!('visible' in props)) {
       setVisible(isNoTitle() ? false : vis);
     }
-    if (props.onVisibleChange && !isNoTitle()) {
-      props.onVisibleChange(vis);
+    if (!isNoTitle()) {
+      props.onVisibleChange?.(vis);
     }
   };
 

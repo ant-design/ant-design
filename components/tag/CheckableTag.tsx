@@ -27,12 +27,8 @@ const CheckableTag: React.FC<CheckableTagProps> = ({
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    if (onChange) {
-      onChange(!checked);
-    }
-    if (onClick) {
-      onClick(e);
-    }
+    onChange?.(!checked);
+    onClick?.(e);
   };
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
