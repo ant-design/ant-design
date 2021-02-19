@@ -43,4 +43,4 @@ jobs:
       - name: Upload argos-ci
         id: deploy
         run: |
-          npx argos upload imageSnapshots --token ${{ secrets.ARGOS_TOKEN }} --branch ${{ steps.branch.outputs.id }} --commit ${{ steps.commit.outputs.id }}
+          npx argos-cli upload ./ --token ${{ secrets.ARGOS_TOKEN }} --branch ${{ steps.branch.outputs.id }} --commit ${{ steps.commit.outputs.id }}
