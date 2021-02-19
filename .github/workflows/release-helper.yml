@@ -1,0 +1,18 @@
+name: Release Helper
+
+on:
+  create
+
+jobs:
+  release-helper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: make release
+        if: github.event.ref_type == 'tag'
+        uses: actions-cool/release-helper@v1
+        with:
+          triger: 'tag'
+          changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
+          branch: 'master'
+          dingding-token: ${{ secrets.DINGDING_BOT_TOKEN }}
+          dingding-msg: 'CHANGELOG.zh-CN.md'
