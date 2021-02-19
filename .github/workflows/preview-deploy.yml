@@ -40,6 +40,7 @@ jobs:
         id: deploy
         run: |
           export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
+          echo "[${{ steps.pr.outputs.id }}] $DEPLOY_DOMAIN"
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: update status comment
