@@ -2,7 +2,7 @@ name: PR Refuse
 
 on:
   pull_request_target:
-    types: [opened, edited, reopened]
+    types: [opened, edited]
 
 jobs:
   refuse:
