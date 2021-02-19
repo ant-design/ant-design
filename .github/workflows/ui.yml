@@ -55,12 +55,3 @@ jobs:
         with:
           name: branch
           path: ./branch.txt
-
-      - name: argos-ci
-        # argos-ci only support base branch, so we should expect master
-        if: github.event_name == 'pull_request_target' && github.base_ref == 'master'
-        run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch pull/${{ github.event.pull_request.number }}/merge --commit ${{ github.event.pull_request.head.sha }}
-
-      - name: argos-ci
-        if: github.event_name == 'push'
-        run: npm run argos -- --token ${{ secrets.ARGOS_TOKEN }} --branch ${GITHUB_REF##*/} --commit ${{ github.sha }}
