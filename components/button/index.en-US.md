@@ -7,7 +7,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 
 To trigger an operation.
 
-## When To Use123
+## When To Use
 
 A button means an operation (or a series of operations). Clicking a button will trigger corresponding business logic.
 
