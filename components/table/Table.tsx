@@ -263,10 +263,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     tableLocale,
     showSorterTooltip,
   });
-  const sortedData = React.useMemo(() => getSortData(rawData, sortStates, childrenColumnName), [
-    rawData,
-    sortStates,
-  ]);
 
   changeEventInfo.sorter = getSorters();
   changeEventInfo.sorterStates = sortStates;
@@ -294,7 +290,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     onFilterChange,
     getPopupContainer,
   });
-  const mergedData = getFilterData(sortedData, filterStates);
+  
+  const mergedData =  React.useMemo(() => getFilterData(getSortData(rawData, sortStates, childrenColumnName), filterStates), [
+    rawData,
+    sortStates,
+    filterStates,
+  ]);
 
   changeEventInfo.filters = getFilters();
   changeEventInfo.filterStates = filterStates;
