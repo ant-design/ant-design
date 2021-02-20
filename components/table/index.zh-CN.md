@@ -205,7 +205,7 @@ const columns = [
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | function(checked, record, index, originNode) {} | - | 4.1.0 |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] \| number\[] | \[] |  |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true |  |
-| type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |  |
+| type | 多选/单选 | `checkbox` \| `radio` | `checkbox` |  |
 | onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows) | - |  |
 | onSelect | 用户手动选择/取消选择某行的回调 | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | function(selected, selectedRows, changeRows) | - |  |
