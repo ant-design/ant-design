@@ -161,6 +161,7 @@ exports[`renders ./components/input-number/demo/borderless.md correctly 1`] = `
 exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
 <div
   class="ant-input-number"
+  style="width:400px"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -226,11 +227,12 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     <input
       aria-valuemax="10"
       aria-valuemin="0"
+      aria-valuenow="1"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
-      step="0.1"
-      value=""
+      step="9.03e-30"
+      value="1.00000000000000000000000000000000"
     />
   </div>
 </div>
