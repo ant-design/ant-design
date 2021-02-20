@@ -32,6 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 | readOnly | 只读 | boolean | false | - |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
 | step | 每次改变步数，可以为小数 | number \| string | 1 | - |
+| stringMode | 字符值模式，开启后支持高精度小数。同时 `onChange` 将返回 string 类型 | boolean | false | 4.13.0 |
 | value | 当前值 | number | - | - |
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - |
 | onPressEnter | 按下回车的回调 | function(e) | - | - |
