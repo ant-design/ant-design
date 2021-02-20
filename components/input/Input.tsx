@@ -156,7 +156,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   clearableInput: ClearableLabeledInput;
 
-  removePasswordTimeout: number;
+  removePasswordTimeout: any;
 
   direction: DirectionType = 'ltr';
 
