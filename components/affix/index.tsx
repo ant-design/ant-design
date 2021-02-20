@@ -60,7 +60,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   fixedNode: HTMLDivElement;
 
-  private timeout: number;
+  private timeout: any;
 
   context: ConfigConsumerProps;
 
