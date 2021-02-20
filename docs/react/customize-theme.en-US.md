@@ -75,7 +75,7 @@ Note:
 
 ### Customize in Umi
 
-You can easily use [theme](https://umijs.org/config/#theme) field in [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45) (Umi) file of your project root directory if you are using [Umi](http://umijs.org/), which could be an object or a javascript file path.
+You can easily use [theme](https://umijs.org/config/#theme) field in `.umirc.ts` file of your project root directory if you are using [Umi](http://umijs.org/), which could be an object or a javascript file path.
 
 ```js
 "theme": {
