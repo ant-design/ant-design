@@ -142,16 +142,12 @@ const Modal: ModalInterface = props => {
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
-    if (onCancel) {
-      onCancel(e);
-    }
+    onCancel?.(e);
   };
 
   const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onOk } = props;
-    if (onOk) {
-      onOk(e);
-    }
+    onOk?.(e);
   };
 
   const renderFooter = (locale: ModalLocale) => {

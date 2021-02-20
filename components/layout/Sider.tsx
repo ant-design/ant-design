@@ -98,18 +98,14 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>(
       if (!('collapsed' in props)) {
         setCollapsed(value);
       }
-      if (onCollapse) {
-        onCollapse(value, type);
-      }
+      onCollapse?.(value, type);
     };
 
     // ========================= Responsive =========================
     const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>();
     responsiveHandlerRef.current = (mql: MediaQueryListEvent | MediaQueryList) => {
       setBelow(mql.matches);
-      if (onBreakpoint) {
-        onBreakpoint(mql.matches);
-      }
+      onBreakpoint?.(mql.matches);
 
       if (collapsed !== mql.matches) {
         handleSetCollapsed(mql.matches, 'responsive');

@@ -17,7 +17,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
   const [loading, setLoading] = React.useState<ButtonProps['loading']>(false);
 
   React.useEffect(() => {
-    let timeoutId: number;
+    let timeoutId: any;
     if (props.autoFocus) {
       const $this = ref.current as HTMLInputElement;
       timeoutId = setTimeout(() => $this.focus());

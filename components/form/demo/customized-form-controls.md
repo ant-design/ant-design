@@ -42,9 +42,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
   const [currency, setCurrency] = useState<Currency>('rmb');
 
   const triggerChange = (changedValue: { number?: number; currency?: Currency }) => {
-    if (onChange) {
-      onChange({ number, currency, ...value, ...changedValue });
-    }
+    onChange?.({ number, currency, ...value, ...changedValue });
   };
 
   const onNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
