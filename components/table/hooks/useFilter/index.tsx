@@ -6,8 +6,8 @@ import {
   ColumnTitleProps,
   Key,
   TableLocale,
-  FilterValues,
-  FilterKeys,
+  FilterValue,
+  FilterKey,
   GetPopupContainer,
   ColumnFilterItem,
 } from '../../interface';
@@ -17,7 +17,7 @@ import FilterDropdown from './FilterDropdown';
 export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
   key: Key;
-  filteredKeys?: FilterKeys;
+  filteredKeys?: FilterKey;
   forceFiltered?: boolean;
 }
 
@@ -124,7 +124,7 @@ function injectFilter<RecordType>(
 }
 
 function flattenKeys(filters?: ColumnFilterItem[]) {
-  let keys: FilterValues = [];
+  let keys: FilterValue = [];
   (filters || []).forEach(({ value, children }) => {
     keys.push(value);
     if (children) {
@@ -135,7 +135,7 @@ function flattenKeys(filters?: ColumnFilterItem[]) {
 }
 
 function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
-  const currentFilters: Record<string, FilterValues | null> = {};
+  const currentFilters: Record<string, FilterValue | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
     const { filters, filterDropdown } = column;
@@ -181,7 +181,7 @@ interface FilterConfig<RecordType> {
   mergedColumns: ColumnsType<RecordType>;
   locale: TableLocale;
   onFilterChange: (
-    filters: Record<string, FilterValues | null>,
+    filters: Record<string, FilterValue | null>,
     filterStates: FilterState<RecordType>[],
   ) => void;
   getPopupContainer?: GetPopupContainer;
@@ -197,7 +197,7 @@ function useFilter<RecordType>({
 }: FilterConfig<RecordType>): [
   TransformColumns<RecordType>,
   FilterState<RecordType>[],
-  () => Record<string, FilterValues | null>,
+  () => Record<string, FilterValue | null>,
 ] {
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
     collectFilterStates(mergedColumns, true),
