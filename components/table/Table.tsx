@@ -25,7 +25,7 @@ import {
   SortOrder,
   TableLocale,
   TableAction,
-  TableFilterValues,
+  FilterValues,
 } from './interface';
 import useSelection, {
   SELECTION_ALL,
@@ -54,7 +54,7 @@ interface ChangeEventInfo<RecordType> {
     pageSize?: number;
     total?: number;
   };
-  filters: Record<string, TableFilterValues | null>;
+  filters: Record<string, FilterValues | null>;
   sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
 
   filterStates: FilterState<RecordType>[];
@@ -85,7 +85,7 @@ export interface TableProps<RecordType>
 
   onChange?: (
     pagination: TablePaginationConfig,
-    filters: Record<string, TableFilterValues | null>,
+    filters: Record<string, FilterValues | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
@@ -274,7 +274,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================ Filter ============================
   const onFilterChange = (
-    filters: Record<string, TableFilterValues>,
+    filters: Record<string, FilterValues>,
     filterStates: FilterState<RecordType>[],
   ) => {
     triggerOnChange(
