@@ -43,7 +43,7 @@ function collectFilterStates<RecordType>(
         filterStates.push({
           column,
           key: getColumnKey(column, columnPos),
-          filteredKeys: filteredValues as FilterKeys,
+          filteredKeys: filteredValues as FilterKey,
           forceFiltered: column.filtered,
         });
       } else {
@@ -53,7 +53,7 @@ function collectFilterStates<RecordType>(
           key: getColumnKey(column, columnPos),
           filteredKeys: (init && column.defaultFilteredValue
             ? column.defaultFilteredValue!
-            : undefined) as FilterKeys,
+            : undefined) as FilterKey,
           forceFiltered: column.filtered,
         });
       }
