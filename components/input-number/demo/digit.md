@@ -23,7 +23,7 @@ function onChange(value: string) {
 ReactDOM.render(
   <InputNumber<string>
     style={{ width: 400 }}
-    defaultValue={1}
+    defaultValue="1"
     min={0}
     max={10}
     step={0.00000000000000000000000000000903}
