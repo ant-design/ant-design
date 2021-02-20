@@ -1,0 +1,25 @@
+# Current release process:
+# 1. `npm run pub` will call antd-tools `run pub`
+# 2. antd-tools `run pub` will generate a new tag
+# 3. antd-tools `run pub` will trigger `npm publish` at the same time
+# 4. Then the new tag will trigger this current action
+# 5. The action will generate a new release, and publish DingDing notification at the same time
+
+name: Release Helper
+
+on:
+  create
+
+jobs:
+  release-helper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: make release
+        if: github.event.ref_type == 'tag'
+        uses: actions-cool/release-helper@v1
+        with:
+          triger: 'tag'
+          changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
+          branch: 'master'
+          dingding-token: ${{ secrets.DINGDING_BOT_TOKEN }}
+          dingding-msg: 'CHANGELOG.zh-CN.md'
