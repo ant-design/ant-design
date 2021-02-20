@@ -3,9 +3,6 @@ const React = require('react');
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
-// Hack for `useLayoutEffect` to skip annoying useLayoutEffect warning
-React.useLayoutEffect = React.useEffect;
-
 // jest.mock('react', () => ({
 //   ...jest.requireActual('react'),
 //   useLayoutEffect: jest.requireActual('react').useEffect,
