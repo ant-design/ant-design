@@ -14108,6 +14108,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     class="config-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
@@ -14134,6 +14135,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
@@ -14164,12 +14166,8 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     class="config-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
-      max="9007199254740991"
-      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14186,6 +14184,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     class="config-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
@@ -14212,6 +14211,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
@@ -14242,12 +14242,8 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     class="config-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
-      max="9007199254740991"
-      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14264,6 +14260,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     class="config-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
@@ -14290,6 +14287,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
@@ -14320,12 +14318,8 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     class="config-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
-      max="9007199254740991"
-      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14342,6 +14336,7 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
     class="ant-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
@@ -14368,6 +14363,7 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
@@ -14398,12 +14394,8 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
-      max="9007199254740991"
-      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14420,6 +14412,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
@@ -14446,6 +14439,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
@@ -14476,12 +14470,8 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
-      max="9007199254740991"
-      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14498,6 +14488,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     class="prefix-InputNumber-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="prefix-InputNumber-handler prefix-InputNumber-handler-up"
       role="button"
@@ -14524,6 +14515,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="prefix-InputNumber-handler prefix-InputNumber-handler-down"
       role="button"
@@ -14554,12 +14546,8 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     class="prefix-InputNumber-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="prefix-InputNumber-input"
-      max="9007199254740991"
-      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
