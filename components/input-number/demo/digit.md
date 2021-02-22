@@ -22,11 +22,11 @@ function onChange(value: string) {
 
 ReactDOM.render(
   <InputNumber<string>
-    style={{ width: 400 }}
+    style={{ width: 200 }}
     defaultValue="1"
     min="0"
     max="10"
-    step="0.00000000000000000000000000000903"
+    step="0.00000000000001"
     onChange={onChange}
     stringMode
   />,
