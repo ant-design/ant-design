@@ -1,0 +1,19 @@
+# Used to merge master/feature branches with each other
+name: PR Check CI
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-cool/check-pr-ci@v1.0.0
+        with:
+          filter-label: 'BranchAutoMerge'
+          filter-creator-authority: 'write'
+          success-review: true
+          success-merge: true
+          merge-method: 'merge'
+          merge-title: 'chore: auto merge branchs (#${number})'
