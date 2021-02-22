@@ -24,12 +24,10 @@ export interface DebounceSelectProps<ValueType = any>
   debounceTimeout?: number;
 }
 
-function DebounceSelect<ValueType = any>({
-  fetchOptions,
-  debounceTimeout = 800,
-  ...props
-}: DebounceSelectProps) {
-  const [fetching, setFetching] = React.useState();
+function DebounceSelect<
+  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any
+>({ fetchOptions, debounceTimeout = 800, ...props }: DebounceSelectProps) {
+  const [fetching, setFetching] = React.useState(false);
   const [options, setOptions] = React.useState<ValueType[]>([]);
   const fetchRef = React.useRef(0);
 
@@ -78,10 +76,12 @@ async function fetchUserList(username: string): Promise<UserValue[]> {
   return fetch('https://randomuser.me/api/?results=5')
     .then(response => response.json())
     .then(body =>
-      body.results.map(user => ({
-        label: `${user.name.first} ${user.name.last}`,
-        value: user.login.username,
-      })),
+      body.results.map(
+        (user: { name: { first: string; last: string }; login: { username: string } }) => ({
+          label: `${user.name.first} ${user.name.last}`,
+          value: user.login.username,
+        }),
+      ),
     );
 }
 
