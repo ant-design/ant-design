@@ -126,7 +126,7 @@ module.exports = {
 
 方式一：使用 Umi 3
 
-如果你在使用 [Umi 3](http://umijs.org/zh/)，仅需两步：
+如果你在使用 [Umi 3](http://umijs.org/zh-CN)，仅需两步：
 
 1. 安装 `@umijs/plugin-antd` 插件;
 
