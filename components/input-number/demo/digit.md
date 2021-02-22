@@ -24,9 +24,9 @@ ReactDOM.render(
   <InputNumber<string>
     style={{ width: 400 }}
     defaultValue="1"
-    min={0}
-    max={10}
-    step={0.00000000000000000000000000000903}
+    min="0"
+    max="10"
+    step="0.00000000000000000000000000000903"
     onChange={onChange}
     stringMode
   />,
