@@ -92,7 +92,7 @@ const Demo = () => {
     if (value.number > 0) {
       return Promise.resolve();
     }
-    return Promise.reject('Price must be greater than zero!');
+    return Promise.reject(new Error('Price must be greater than zero!'));
   };
 
   return (

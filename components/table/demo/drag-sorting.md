@@ -26,7 +26,7 @@ const type = 'DragableBodyRow';
 
 const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
   const ref = React.useRef();
-  const [{ isOver, dropClassName }, drop] = useDrop({
+  const [{ isOver, dropClassName }, drop] = useDrop(() => ({
     accept: type,
     collect: monitor => {
       const { index: dragIndex } = monitor.getItem() || {};
@@ -41,13 +41,13 @@ const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => 
     drop: item => {
       moveRow(item.index, index);
     },
-  });
-  const [, drag] = useDrag({
+  }));
+  const [, drag] = useDrag(() => ({
     item: { type, index },
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
-  });
+  }));
   drop(drag(ref));
   return (
     <tr
