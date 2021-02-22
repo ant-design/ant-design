@@ -9,6 +9,21 @@ const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWP
 describe('Image', () => {
   mountTest(Image);
   rtlTest(Image);
+  it('Default preview props set false', () => {
+    const wrapper = mount(<Image src={src} preview={false} />);
+
+    expect(wrapper.find('Image').at(0).prop('preview')).toBe(false);
+    expect(wrapper.find('Image').at(1).prop('preview')).toBe(false);
+  });
+  it('Default Group preview props set false', () => {
+    const wrapper = mount(
+      <Image.PreviewGroup preview={false}>
+        <Image src={src} />
+      </Image.PreviewGroup>,
+    );
+    expect(wrapper.find('Group').prop('preview')).toBe(false);
+  });
+
   it('Default preview props', () => {
     const wrapper = mount(<Image src={src} preview={{ visible: true }} />);
 
