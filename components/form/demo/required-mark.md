@@ -24,7 +24,7 @@ const FormLayoutDemo = () => {
   const [form] = Form.useForm();
   const [requiredMark, setRequiredMarkType] = useState<RequiredMark>('optional');
 
-  const onRequiredTypeChange = ({ requiredMarkValue }: { requiredMark: RequiredMark }) => {
+  const onRequiredTypeChange = ({ requiredMarkValue }: { requiredMarkValue: RequiredMark }) => {
     setRequiredMarkType(requiredMarkValue);
   };
 
