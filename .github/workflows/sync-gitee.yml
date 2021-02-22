@@ -11,7 +11,7 @@ on:
   create:
 
 jobs:
-  git-mirror:
+  mirror:
     runs-on: ubuntu-latest
     if: github.repository == 'ant-design/ant-design'
     steps:
