@@ -13,33 +13,25 @@ title:
 
 Control keyboard behavior by `keyboard`.
 
-```jsx
-import { InputNumber, Button } from 'antd';
+```tsx
+import { InputNumber, Checkbox, Space } from 'antd';
 
-class App extends React.Component {
-  state = {
-    keyboard: true,
-  };
-
-  toggle = () => {
-    this.setState({
-      keyboard: !this.state.keyboard,
-    });
-  };
-
-  render() {
-    return (
-      <>
-        <InputNumber min={1} max={10} keyboard={this.state.keyboard} defaultValue={3} />
-        <div style={{ marginTop: 20 }}>
-          <Button onClick={this.toggle} type="primary">
-            Toggle keyboard
-          </Button>
-        </div>
-      </>
-    );
-  }
-}
+const App = () => {
+  const [keyboard, setKeyboard] = React.useState(true);
+  return (
+    <Space>
+      <InputNumber min={1} max={10} keyboard={keyboard} defaultValue={3} />
+      <Checkbox
+        onChange={() => {
+          setKeyboard(!keyboard);
+        }}
+        checked={keyboard}
+      >
+        Toggle keyboard
+      </Checkbox>
+    </Space>
+  );
+};
 
 ReactDOM.render(<App />, mountNode);
 ```

@@ -8,6 +8,7 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
     class="ant-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
@@ -34,6 +35,7 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
@@ -64,12 +66,8 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
-      max="9007199254740991"
-      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
