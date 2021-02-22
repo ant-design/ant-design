@@ -11,9 +11,9 @@ const EMPTY_LIST: React.ReactNode[] = [];
 
 export interface ErrorListProps {
   errors?: React.ReactNode[];
-  /** @private Internal usage. Do not use in your production */
+  /** @private Internal Usage. Do not use in your production */
   help?: React.ReactNode;
-  /** @private Internal usage. Do not use in your production */
+  /** @private Internal Usage. Do not use in your production */
   onDomErrorVisibleChange?: (visible: boolean) => void;
 }
 

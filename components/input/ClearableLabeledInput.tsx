@@ -45,7 +45,7 @@ interface ClearableInputProps extends BasicProps {
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
-  /** @private Do not use out of this class. We do not promise this is always keep. */
+  /** @private Do Not use out of this class. We do not promise this is always keep. */
   private containerRef = React.createRef<HTMLSpanElement>();
 
   onInputMouseUp: React.MouseEventHandler = e => {
