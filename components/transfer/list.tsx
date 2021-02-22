@@ -39,7 +39,10 @@ export interface RenderedItem<RecordType> {
 }
 
 type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNode;
-
+type FooterRender = {
+  source?: React.ReactNode;
+  target?: React.ReactNode;
+};
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   titleText: React.ReactNode;
@@ -59,7 +62,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   itemUnit: string;
   itemsUnit: string;
   renderList?: RenderListFunction<RecordType>;
-  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
+  footer?: (props: TransferListProps<RecordType>) => React.ReactNode | FooterRender;
   onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
   direction: TransferDirection;
@@ -312,10 +315,27 @@ export default class TransferList<
       showSelectAll,
       showRemove,
       pagination,
+      direction,
     } = this.props;
 
     // Custom Layout
-    const footerDom = footer && footer(this.props);
+    // Distinguish different footer
+    const tempDom = footer && footer(this.props);
+    let footerDom;
+    function isFooterRender(obj: any): obj is FooterRender {
+      return obj.source || obj.target;
+    }
+    if (tempDom) {
+      if (isFooterRender(tempDom)) {
+        if (direction === 'left') {
+          footerDom = tempDom.source;
+        } else {
+          footerDom = tempDom.target;
+        }
+      } else {
+        footerDom = tempDom;
+      }
+    }
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-pagination`]: pagination,
