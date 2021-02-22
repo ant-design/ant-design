@@ -148,7 +148,7 @@ We have some official themes, try them out and give us some feedback!
 
 Method 1: using Umi 3
 
-If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
+If you're using [Umi 3](http://umijs.org), which only need two steps:
 
 1. Install `@umijs/plugin-antd` plugin;
 
