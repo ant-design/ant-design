@@ -21,6 +21,7 @@ const layout = {
   wrapperCol: { span: 16 },
 };
 
+/* eslint-disable no-template-curly-in-string */
 const validateMessages = {
   required: '${label} is required!',
   types: {
@@ -31,6 +32,7 @@ const validateMessages = {
     range: '${label} must be between ${min} and ${max}',
   },
 };
+/* eslint-enable no-template-curly-in-string */
 
 const Demo = () => {
   const onFinish = (values: any) => {

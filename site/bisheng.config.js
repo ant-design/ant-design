@@ -76,7 +76,11 @@ module.exports = {
 
       // Resolve use react hook fail when yarn link or npm link
       // https://github.com/webpack/webpack/issues/8607#issuecomment-453068938
-      config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') };
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'react/jsx-runtime': require.resolve('react/jsx-runtime'),
+        react: require.resolve('react'),
+      };
     } else if (process.env.ESBUILD) {
       // use esbuild
       config.plugins.push(new ESBuildPlugin());
