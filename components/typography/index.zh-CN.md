@@ -29,7 +29,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | strong | 是否加粗 | boolean | false |  |
-| type | 文本类型 | `primary` \| `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
+| type | 文本类型 | `primary` \| `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 \| primary: 4.13.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 
 ### Typography.Title
