@@ -28,7 +28,7 @@ Basic text writing, including headings, body text, lists, and more.
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | mark | Marked style | boolean | false |  |
 | strong | Bold style | boolean | false |  |
-| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
+| type | Content type | `primary` \| `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 \| primary: 4.13.0 |
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
 

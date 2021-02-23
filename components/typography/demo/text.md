@@ -21,6 +21,7 @@ const { Text, Link } = Typography;
 ReactDOM.render(
   <Space direction="vertical">
     <Text>Ant Design (default)</Text>
+    <Text type="primary">Ant Design (primary)</Text>
     <Text type="secondary">Ant Design (secondary)</Text>
     <Text type="success">Ant Design (success)</Text>
     <Text type="warning">Ant Design (warning)</Text>
