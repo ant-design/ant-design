@@ -148,25 +148,17 @@ We have some official themes, try them out and give us some feedback!
 
 Method 1: using Umi 3
 
-If you're using [Umi 3](http://umijs.org), which only need two steps:
+If you're using [Umi 3](http://umijs.org):
 
-1. Install `@umijs/plugin-antd` plugin;
-
-   ```bash
-   $ npm i @umijs/plugin-antd -D
-   ```
-
-2. set `dark` or `compact` to `true`.
-
-   ```js
-   // .umirc.ts or config/config.ts
-   export default {
-     antd: {
-       dark: true, // active dark theme
-       compact: true, // active compact theme
-     },
-   },
-   ```
+```js
+// .umirc.ts or config/config.ts
+export default {
+  antd: {
+    dark: true, // active dark theme
+    compact: true, // active compact theme
+  },
+},
+```
 
 Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) or [antd/dist/antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less) in the style file:
 

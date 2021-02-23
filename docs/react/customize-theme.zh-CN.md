@@ -126,25 +126,17 @@ module.exports = {
 
 方式一：使用 Umi 3
 
-如果你在使用 [Umi 3](http://umijs.org/zh-CN)，仅需两步：
+如果你在使用 [Umi 3](http://umijs.org/zh-CN)：
 
-1. 安装 `@umijs/plugin-antd` 插件;
-
-   ```bash
-   $ npm i @umijs/plugin-antd -D
-   ```
-
-2. 配置 `dark` 和 `compact`。
-
-   ```js
-   // .umirc.ts or config/config.ts
-   export default {
-     antd: {
-       dark: true, // 开启暗色主题
-       compact: true, // 开启紧凑主题
-     },
-   },
-   ```
+```js
+// .umirc.ts or config/config.ts
+export default {
+  antd: {
+    dark: true, // 开启暗色主题
+    compact: true, // 开启紧凑主题
+  },
+},
+```
 
 方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) 或 [antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less)。
 
