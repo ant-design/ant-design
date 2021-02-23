@@ -134,7 +134,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
 
   // ===================== Select Keys =====================
-  const propFilteredKeys = filterState && filterState.filteredKeys;
+  const propFilteredKeys = filterState?.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {

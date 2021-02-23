@@ -16,38 +16,42 @@ By using custom components, we can integrate table with react-dnd to implement d
 ```jsx
 import React, { useState, useCallback, useRef } from 'react';
 import { Table } from 'antd';
-import { DndProvider, useDrag, useDrop, createDndContext } from 'react-dnd';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
-
-const RNDContext = createDndContext(HTML5Backend);
 
 const type = 'DragableBodyRow';
 
 const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
   const ref = React.useRef();
-  const [{ isOver, dropClassName }, drop] = useDrop({
-    accept: type,
-    collect: monitor => {
-      const { index: dragIndex } = monitor.getItem() || {};
-      if (dragIndex === index) {
-        return {};
-      }
-      return {
-        isOver: monitor.isOver(),
-        dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
-      };
-    },
-    drop: item => {
-      moveRow(item.index, index);
-    },
-  });
-  const [, drag] = useDrag({
-    item: { type, index },
-    collect: monitor => ({
-      isDragging: monitor.isDragging(),
+  const [{ isOver, dropClassName }, drop] = useDrop(
+    () => ({
+      accept: type,
+      collect: monitor => {
+        const { index: dragIndex } = monitor.getItem() || {};
+        if (dragIndex === index) {
+          return {};
+        }
+        return {
+          isOver: monitor.isOver(),
+          dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
+        };
+      },
+      drop: item => {
+        moveRow(item.index, index);
+      },
     }),
-  });
+    [index],
+  );
+  const [, drag] = useDrag(
+    () => ({
+      item: { type, index },
+      collect: monitor => ({
+        isDragging: monitor.isDragging(),
+      }),
+    }),
+    [],
+  );
   drop(drag(ref));
   return (
     <tr
@@ -120,10 +124,8 @@ const DragSortingTable: React.FC = () => {
     [data],
   );
 
-  const manager = useRef(RNDContext);
-
   return (
-    <DndProvider manager={manager.current.dragDropManager}>
+    <DndProvider backend={HTML5Backend}>
       <Table
         columns={columns}
         dataSource={data}

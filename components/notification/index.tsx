@@ -282,7 +282,7 @@ export interface NotificationApi extends NotificationInstance {
   useNotification: () => [NotificationInstance, React.ReactElement];
 }
 
-/** @private test only function. Not work on production */
+/** @private test Only function. Not work on production */
 export const getInstance = async (cacheKey: string) =>
   process.env.NODE_ENV === 'test' ? notificationInstance[cacheKey] : null;
 

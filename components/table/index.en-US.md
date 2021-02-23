@@ -67,7 +67,7 @@ const columns = [
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | function(currentPageData) | - |  |
 | getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
-| loading | Loading status of table | boolean \| [object](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |  |
+| loading | Loading status of table | boolean \| [Spin Props](/components/spin/#API) | false |  |
 | locale | The i18n text including filter, sort, empty text, etc | object | filterConfirm: `Ok` <br> filterReset: `Reset` <br> emptyText: `No Data` <br> [Default](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |  |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |  |
 | rowClassName | Row's className | function(record, index): string | - |  |

@@ -18,7 +18,6 @@ import {
   ColumnsType,
   TableCurrentDataSource,
   SorterResult,
-  Key,
   GetPopupContainer,
   ExpandableConfig,
   ExpandType,
@@ -26,6 +25,7 @@ import {
   SortOrder,
   TableLocale,
   TableAction,
+  FilterValue,
 } from './interface';
 import useSelection, {
   SELECTION_ALL,
@@ -54,7 +54,7 @@ interface ChangeEventInfo<RecordType> {
     pageSize?: number;
     total?: number;
   };
-  filters: Record<string, (Key | boolean)[] | null>;
+  filters: Record<string, FilterValue | null>;
   sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
 
   filterStates: FilterState<RecordType>[];
@@ -85,7 +85,7 @@ export interface TableProps<RecordType>
 
   onChange?: (
     pagination: TablePaginationConfig,
-    filters: Record<string, (Key | boolean)[] | null>,
+    filters: Record<string, FilterValue | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
@@ -273,7 +273,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================ Filter ============================
   const onFilterChange = (
-    filters: Record<string, (Key | boolean)[]>,
+    filters: Record<string, FilterValue>,
     filterStates: FilterState<RecordType>[],
   ) => {
     triggerOnChange(

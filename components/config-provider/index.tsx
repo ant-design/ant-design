@@ -235,7 +235,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   );
 };
 
-/** @private internal usage. do not use in your production */
+/** @private internal Usage. do not use in your production */
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;

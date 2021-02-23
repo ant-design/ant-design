@@ -32,7 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 | locale | 默认文案设置，目前包括空数据文案 | object | {emptyText: `暂无数据`} |  |
 | pagination | 对应的 `pagination` 配置, 设置 false 不显示 | boolean \| object | false |  |
 | renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项 | (item) => ReactNode | - |  |
-| rowKey | 当 `renderItem` 自定义渲染列表项有效时，自定义每一行的 `key` 的获取方式  | ((item: T) => string) | `list-item-${index}`  |  |
+| rowKey | 当 `renderItem` 自定义渲染列表项有效时，自定义每一行的 `key` 的获取方式 | ((item: T) => string) | `list-item-${index}` |  |
 | size | list 的尺寸 | `default` \| `large` \| `small` | `default` |  |
 | split | 是否展示分割线 | boolean | true |  |
 
