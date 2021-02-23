@@ -127,7 +127,7 @@ module.exports = {
 
 ### Customize Theme
 
-According to the [Customize Theme documentation](/docs/react/customize-theme), we need to modify less variables via loader like [less-loader](https://github.com/webpack/less-loader). We can use [craco-less](https://github.com/DocSpring/craco-less) to achieve that,
+According to the [Customize Theme documentation](/docs/react/customize-theme), we need to modify less variables via loader like [less-loader](https://github.com/webpack/less-loader). We can use [craco-antd](https://github.com/DocSpring/craco-antd) to achieve that,
 
 First we should modify `src/App.css` to `src/App.less`, then import less file instead.
 
@@ -143,25 +143,23 @@ First we should modify `src/App.css` to `src/App.less`, then import less file in
 + @import '~antd/dist/antd.less';
 ```
 
-Then install `craco-less` and modify `craco.config.js` like below.
+Then install `craco-antd` and modify `craco.config.js` like below.
 
 ```bash
-$ yarn add craco-less
+$ yarn add craco-antd
 ```
 
 ```js
-const CracoLessPlugin = require('craco-less');
+const CracoLessPlugin = require('craco-antd');
 
 module.exports = {
   plugins: [
     {
       plugin: CracoLessPlugin,
       options: {
-        lessLoaderOptions: {
-          lessOptions: {
-            modifyVars: { '@primary-color': '#1DA57A' },
-            javascriptEnabled: true,
-          },
+        customizeTheme: {
+          "@primary-color": "#1DA57A",
+          "@link-color": "#1DA57A",
         },
       },
     },
