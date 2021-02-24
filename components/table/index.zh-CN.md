@@ -69,6 +69,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#Column)\[] | - |  |
+| commonColumn | column 的公共配置描述，选项内容会添加至 columns 属性中的每一项，columns 属性优先级更高 | [ColumnsType](#Column) | - | 4.12.3 |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  |

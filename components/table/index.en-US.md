@@ -62,6 +62,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | false |  |
 | columns | Columns of table | [ColumnsType](#Column)\[] | - |  |
+| commonColumn | common property of column, property of commonColumn will add to each property of columns, property in columns has a higher priority | [ColumnsType](#Column) | - | 4.12.3 |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |  |
 | dataSource | Data record array to be displayed | object\[] | - |  |
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
