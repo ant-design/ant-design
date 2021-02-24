@@ -6,16 +6,16 @@ on:
     - cron: "*/10 * * * *"
 
 jobs:
-  check:
+  pr-check-ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/check-pr-ci@v1.2.0
+      - uses: actions-cool/check-pr-ci@v1.2.1
         with:
           filter-label: 'BranchAutoMerge'
           filter-creator-authority: 'write'
           filter-head-ref: 'master, feature, master-merge-feature, feature-merge-master'
           filter-support-fork: false
-          skip-run-names: 'deploy preview'
+          skip-run-names: 'deploy preview, pr-check-ci'
           success-review: true
           success-merge: true
           merge-method: 'merge'
