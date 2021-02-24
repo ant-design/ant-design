@@ -9,12 +9,13 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/check-pr-ci@v1.1.0
+      - uses: actions-cool/check-pr-ci@v1.2.0
         with:
           filter-label: 'BranchAutoMerge'
           filter-creator-authority: 'write'
           filter-head-ref: 'master, feature, master-merge-feature, feature-merge-master'
           filter-support-fork: false
+          skip-run-names: 'deploy preview'
           success-review: true
           success-merge: true
           merge-method: 'merge'
