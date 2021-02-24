@@ -142,7 +142,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const mergedColumns = React.useMemo(() => {
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
     let originColumns = columns || convertChildrenToColumns(children);
-    const addProp = (col: ColumnType<RecordType> | ColumnGroupType<RecordType>) => {
+    const addProp = function (col: ColumnType<RecordType> | ColumnGroupType<RecordType>) {
       if ('children' in col && col.children) {
         col.children = col.children.map(colChild => (colChild = addProp(colChild)));
       }
