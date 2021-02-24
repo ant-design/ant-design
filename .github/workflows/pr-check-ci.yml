@@ -9,7 +9,7 @@ jobs:
   pr-check-ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/check-pr-ci@v1.2.1
+      - uses: actions-cool/check-pr-ci@v1.2.2
         with:
           filter-label: 'BranchAutoMerge'
           filter-creator-authority: 'write'
