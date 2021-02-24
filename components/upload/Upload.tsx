@@ -203,34 +203,56 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     setDragState(e.type);
   };
 
-  const beforeUpload = (file: RcFile, fileListArgs: RcFile[]) => {
-    const { beforeUpload: beforeUploadProp } = props;
-    if (!beforeUploadProp) {
-      return true;
-    }
-    const result = beforeUploadProp(file, fileListArgs);
-    if (result === false) {
-      // Get unique file list
-      const uniqueList: UploadFile<any>[] = [];
-      getFileList()
-        .concat(fileListArgs.map(fileToObject))
-        .forEach(f => {
-          if (uniqueList.every(uf => uf.uid !== f.uid)) {
-            uniqueList.push(f);
-          }
-        });
+  const mergedBeforeUpload = async (file: RcFile, fileListArgs: RcFile[]) => {
+    const { beforeUpload, transformFile } = props;
 
-      onInternalChange({
-        file,
-        fileList: uniqueList,
-      });
-      return false;
+    let parsedFile: File | Blob | string = file;
+    if (beforeUpload) {
+      const result = await beforeUpload(file, fileListArgs);
+
+      if (result === false) {
+        return false;
+      }
+
+      if (typeof result === 'object' && result) {
+        parsedFile = result;
+      }
     }
-    if (result && (result as PromiseLike<any>).then) {
-      return result;
+
+    if (transformFile) {
+      parsedFile = await transformFile(parsedFile as any);
     }
-    return true;
+
+    return parsedFile as RcFile;
+
+    // if (!beforeUpload) {
+    //   return true;
+    // }
+
+    // const result = beforeUpload(file, fileListArgs);
+    // if (result === false) {
+    //   // Get unique file list
+    //   const uniqueList: UploadFile<any>[] = [];
+    //   getFileList()
+    //     .concat(fileListArgs.map(fileToObject))
+    //     .forEach(f => {
+    //       if (uniqueList.every(uf => uf.uid !== f.uid)) {
+    //         uniqueList.push(f);
+    //       }
+    //     });
+
+    //   onInternalChange({
+    //     file,
+    //     fileList: uniqueList,
+    //   });
+    //   return false;
+    // }
+    // if (result && (result as PromiseLike<any>).then) {
+    //   return result;
+    // }
+    // return true;
   };
+
   // Test needs
   React.useImperativeHandle(ref, () => ({
     onStart,
@@ -253,7 +275,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onSuccess,
     ...props,
     prefixCls,
-    beforeUpload,
+    beforeUpload: mergedBeforeUpload,
     onChange: undefined,
   };
 
