@@ -141,15 +141,15 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const screens = useBreakpoint();
   const mergedColumns = React.useMemo(() => {
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
-    let originColums = columns || convertChildrenToColumns(children);
+    let originColumns = columns || convertChildrenToColumns(children);
     const addProp = (col: ColumnType<RecordType> | ColumnGroupType<RecordType>) => {
       if ('children' in col && col.children) {
         col.children = col.children.map(colChild => (colChild = addProp(colChild)));
       }
       return { ...commonColumn, ...col };
     };
-    originColums = originColums.map(col => (col = addProp(col)));
-    return originColums.filter(
+    originColumns = originColumns.map(col => (col = addProp(col)));
+    return originColumns.filter(
       (c: ColumnType<RecordType>) =>
         !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
     );
