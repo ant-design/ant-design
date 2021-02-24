@@ -99,8 +99,17 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   };
 
   const onBatchStart = (nextFileList: RcFile[]) => {
+    // Nothing to do since no file need upload
+    if (!nextFileList.length) {
+      return;
+    }
+
+    const objectFileList = nextFileList.map(fileToObject);
+
     onInternalChange({
-      fileList: nextFileList,
+      // Compatible for origin usage since it always get file before
+      file: objectFileList[0],
+      fileList: objectFileList,
     });
   };
 
@@ -272,6 +281,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
   const rcUploadProps = {
+    onBatchStart,
     onStart,
     onError,
     onProgress,
@@ -347,12 +357,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           onDragLeave={onFileDrop}
           style={style}
         >
-          <RcUpload
-            {...rcUploadProps}
-            onBatchStart={onBatchStart}
-            ref={upload}
-            className={`${prefixCls}-btn`}
-          >
+          <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>
