@@ -22,7 +22,7 @@ export function wrapFile(file: RcFile | UploadFile): UploadFile {
   };
 
   if (typeof Proxy !== 'undefined') {
-    const data = new Map<string | number | symbol, any>(Object.entries(filledProps));
+    const data = new Map<string | symbol, any>(Object.entries(filledProps));
 
     return new Proxy(file, {
       get(target, key) {
