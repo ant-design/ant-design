@@ -14,7 +14,7 @@ import {
   UploadType,
   UploadListType,
 } from './interface';
-import { T, fileToObject, getFileItem, removeFileItem } from './utils';
+import { T, wrapFile, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
@@ -84,8 +84,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     });
   }, [fileList]);
 
-  const onInternalChange = (info: UploadChangeParam) => {
-    let cloneList = [...info.fileList];
+  const onInternalChange = (
+    file: UploadFile,
+    changedFileList: UploadFile[],
+    event?: { percent: number },
+  ) => {
+    let cloneList = [...changedFileList];
 
     // Cut to match count
     if (maxCount === 1) {
@@ -96,10 +100,16 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
     setMergedFileList(cloneList);
 
-    onChange?.({
-      ...info,
+    const changeInfo: UploadChangeParam = {
+      file,
       fileList: cloneList,
-    });
+    };
+
+    if (event) {
+      changeInfo.event = event;
+    }
+
+    onChange?.(changeInfo);
   };
 
   const onBatchStart: RcUploadProps['onBatchStart'] = batchFileInfoList => {
@@ -111,7 +121,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       return;
     }
 
-    const objectFileList = filteredFileInfoList.map(info => fileToObject(info.file as RcFile));
+    const objectFileList = filteredFileInfoList.map(info => wrapFile(info.file));
 
     // Concat new files with prev files
     const newFileList = [...mergedFileList];
@@ -121,20 +131,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       }
     });
 
-    onInternalChange({
-      // [Legacy] This file is filled by `beforeUpload` before.
-      // We move start status in `onBatchStart` instead which means we only trigger one file.
-      // It's strange since the first trigger of file is File instance
-      // but next will be a wrapped object.
-      // Seems always return wrapped object is more make sense.
-      // https://github.com/ant-design/ant-design/issues/10293
-      file: filteredFileInfoList[0]?.file,
-      fileList: newFileList,
-    });
+    onInternalChange(filteredFileInfoList[0]?.file, newFileList);
   };
 
   const onStart = (file: RcFile) => {
-    const targetItem = fileToObject(file);
+    const targetItem = wrapFile(file);
     targetItem.status = 'uploading';
 
     const nextFileList = [...mergedFileList];
@@ -146,10 +147,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       nextFileList[fileIndex] = targetItem;
     }
 
-    onInternalChange({
-      file: targetItem,
-      fileList: nextFileList,
-    });
+    onInternalChange(targetItem, nextFileList);
   };
 
   const onSuccess = (response: any, file: UploadFile, xhr: any) => {
@@ -168,10 +166,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.status = 'done';
     targetItem.response = response;
     targetItem.xhr = xhr;
-    onInternalChange({
-      file: { ...targetItem },
-      fileList: [...mergedFileList],
-    });
+    onInternalChange(wrapFile(targetItem), [...mergedFileList]);
   };
 
   const onProgress = (e: { percent: number }, file: UploadFile) => {
@@ -181,11 +176,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       return;
     }
     targetItem.percent = e.percent;
-    onInternalChange({
-      event: e,
-      file: { ...targetItem },
-      fileList: [...mergedFileList],
-    });
+    onInternalChange(wrapFile(targetItem), [...mergedFileList], e);
   };
 
   const onError = (error: Error, response: any, file: UploadFile) => {
@@ -197,10 +188,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.error = error;
     targetItem.response = response;
     targetItem.status = 'error';
-    onInternalChange({
-      file: { ...targetItem },
-      fileList: [...mergedFileList],
-    });
+    onInternalChange(wrapFile(targetItem), [...mergedFileList]);
   };
 
   const handleRemove = (file: UploadFile) => {
@@ -214,7 +202,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       const removedFileList = removeFileItem(file, mergedFileList);
 
       if (removedFileList) {
-        currentFile = { ...file, status: 'removed' };
+        currentFile = wrapFile(file);
+        currentFile.status = 'removed';
         mergedFileList?.forEach(item => {
           const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
           if (item[matchKey] === currentFile[matchKey]) {
@@ -223,10 +212,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         });
         upload.current?.abort(currentFile);
 
-        onInternalChange({
-          file: currentFile,
-          fileList: removedFileList,
-        });
+        onInternalChange(currentFile, removedFileList);
       }
     });
   };
