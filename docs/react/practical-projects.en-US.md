@@ -5,7 +5,7 @@ title: Real project with umi
 
 In real project development, you may need data flow solutions such as Redux or MobX. Ant Design React is a UI library that can be used with data flow solutions and application frameworks in any React ecosystem. Based on the business scenario, we launched a pluggable enterprise-level application framework umi, which is recommended for use in the project.
 
-And [umi](https://umijs.org) is a routing-based framework that supports [next.js-like conventional routing](https://umijs.org/docs/convention-routing) and various advanced routing functions, such as [routing-level on-demand loading](https://umijs.org/config#dynamicimport). With a complete [plugin system](https://umijs.org/plugins/api) that covers every life cycle from source code to build product, umi is able to support various functional extensions and business needs; meanwhile [Umi UI](https://umijs.org/zh-CN/docs/use-umi-ui) is provided to enhance the development experience and development efficiency through Visual Aided Programming (VAP).
+And [umi](https://umijs.org) is a routing-based framework that supports [next.js-like conventional routing](https://umijs.org/docs/convention-routing) and various advanced routing functions, such as [routing-level on-demand loading](https://umijs.org/config#dynamicimport). With a complete [plugin system](https://umijs.org/plugins/api) that covers every life cycle from source code to build product, umi is able to support various functional extensions and business needs; meanwhile [Umi UI](https://umijs.org/docs/use-umi-ui) is provided to enhance the development experience and development efficiency through Visual Aided Programming (VAP).
 
 > You may also be interested in [Ant Design Pro](https://pro.ant.design/), an Out-of-box UI solution for enterprise applications based on umi, dva and ant design.
 
@@ -17,20 +17,11 @@ It is recommended to use yarn to create an application and execute the following
 
 ```bash
 $ mkdir myapp && cd myapp
-$ yarn create umi
+$ yarn create @umijs/umi-app
 $ yarn
 ```
 
-> If you use npm, you can execute `npx create-umi` with the same effect.
-
-## Install presets
-
-Execute the following command, install presets(including the antd, dva, locale plugins):
-
-```bash
-# 或 npm i @umijs/preset-react -D
-$ yarn add @umijs/preset-react -D
-```
+> If you use npm, you can execute `npx @umijs/create-umi-app` with the same effect.
 
 > And if you want to use a fixed version of antd, you can install additional antd dependency in your project, and the antd dependencies declared in package.json will be used first.
 

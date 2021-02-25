@@ -17,22 +17,13 @@ title: 项目实战
 
 ```bash
 $ mkdir myapp && cd myapp
-$ yarn create umi
+$ yarn create @umijs/umi-app
 $ yarn
 ```
 
-> 如果你使用 npm，可执行 `npx create-umi`，效果一致。
+> 如果你使用 npm，可执行 `npx @umijs/create-umi-app`，效果一致。
 
-## 安装插件集
-
-执行以下命令，安装插件集（包括 antd、dva、国际化等常用插件）：
-
-```bash
-# 或 npm i @umijs/preset-react -D
-$ yarn add @umijs/preset-react -D
-```
-
-> 插件默认使用 `"antd": "^4.0.0"`，如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，`package.json` 里声明的 antd 依赖会被优先使用。
+> 默认使用 `"antd": "^4.0.0"`，如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，`package.json` 里声明的 antd 依赖会被优先使用。
 
 ## 新建路由
 
