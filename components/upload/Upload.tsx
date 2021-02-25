@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RcUpload from 'rc-upload';
+import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import Dragger from './Dragger';
@@ -20,6 +20,8 @@ import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
+
+const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export { UploadProps };
 
@@ -98,13 +100,16 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     });
   };
 
-  const onBatchStart = (batchFileList: RcFile[]) => {
+  const onBatchStart: RcUploadProps['onBatchStart'] = batchFileInfoList => {
+    // Skip file which marked as `LIST_IGNORE`, these file will not add to file list
+    const filteredFileInfoList = batchFileInfoList.filter(info => info.parsedFile !== LIST_IGNORE);
+
     // Nothing to do since no file need upload
-    if (!batchFileList.length) {
+    if (!filteredFileInfoList.length) {
       return;
     }
 
-    const objectFileList = batchFileList.map(fileToObject);
+    const objectFileList = filteredFileInfoList.map(info => fileToObject(info.file as RcFile));
 
     // Concat new files with prev files
     const newFileList = [...mergedFileList];
@@ -234,8 +239,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         return false;
       }
 
-      if (typeof result === 'object' && result) {
-        parsedFile = result;
+      if ((typeof result === 'object' || (result as any) === LIST_IGNORE) && result) {
+        parsedFile = result as File;
       }
     }
 
@@ -381,11 +386,14 @@ interface CompoundedComponent
     React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
   > {
   Dragger: typeof Dragger;
+  LIST_IGNORE: {};
 }
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;
 
 Upload.Dragger = Dragger;
+
+Upload.LIST_IGNORE = LIST_IGNORE;
 
 Upload.displayName = 'Upload';
 
