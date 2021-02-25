@@ -1543,18 +1543,18 @@ describe('Table.filter', () => {
         address: 'Sidney No. 1 Lake Park',
       },
     ];
-    const Test = () => (
-      <Table onChange={onChange} rowKey="name" columns={columns} dataSource={data} />
+
+    const wrapper = mount(
+      <Table onChange={onChange} rowKey="name" columns={columns} dataSource={data} />,
     );
-    const wrapper = mount(<Test />);
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
-    wrapper.find('FilterDropdown').find('MenuItem').first().simulate('click');
+    wrapper.find('FilterDropdown').find('MenuItem').at(0).simulate('click');
     wrapper.find('.ant-btn-primary').first().simulate('click');
     expect(onChange.mock.calls[0][0].current).toBe(1);
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
-    wrapper.find('FilterDropdown').find('MenuItem').last().simulate('click');
+    wrapper.find('FilterDropdown').find('MenuItem').at(1).simulate('click');
     wrapper.find('.ant-btn-primary').first().simulate('click');
-    expect(onChange.mock.calls[0][0].current).toBe(1);
+    expect(onChange.mock.calls[1][0].current).toBe(1);
   });
 });
