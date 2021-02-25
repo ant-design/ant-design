@@ -78,7 +78,9 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     const timestamp = Date.now();
 
     (fileList || []).forEach((file, index) => {
-      file.uid = file.uid ?? `__AUTO__${timestamp}_${index}__`;
+      if (!file.uid) {
+        file.uid = `__AUTO__${timestamp}_${index}__`;
+      }
     });
   }, [fileList]);
 
