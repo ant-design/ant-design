@@ -181,7 +181,7 @@ describe('Upload List', () => {
   it('handle error', done => {
     let wrapper;
     const onChange = ({ file }) => {
-      if (file.status !== 'uploading') {
+      if (file.status === 'error') {
         expect(wrapper.render()).toMatchSnapshot();
         done();
       }
@@ -202,7 +202,7 @@ describe('Upload List', () => {
     });
   });
 
-  it('does concat filelist when beforeUpload returns false', () => {
+  it.only('does concat fileList when beforeUpload returns false', async () => {
     const handleChange = jest.fn();
     const ref = React.createRef();
     const wrapper = mount(
@@ -221,6 +221,8 @@ describe('Upload List', () => {
         files: [{ name: 'foo.png' }],
       },
     });
+
+    await sleep();
 
     expect(ref.current.fileList.length).toBe(fileList.length + 1);
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
