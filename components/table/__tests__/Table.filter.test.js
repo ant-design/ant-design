@@ -1529,7 +1529,7 @@ describe('Table.filter', () => {
         sortDirections: ['descend'],
       },
     ];
-    const data = [
+    const dataSource = [
       {
         key: '1',
         name: 'John Brown',
@@ -1545,7 +1545,7 @@ describe('Table.filter', () => {
     ];
 
     const wrapper = mount(
-      <Table onChange={onChange} rowKey="name" columns={columns} dataSource={data} />,
+      <Table onChange={onChange} rowKey="name" columns={columns} dataSource={dataSource} />,
     );
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('FilterDropdown').find('MenuItem').at(0).simulate('click');
