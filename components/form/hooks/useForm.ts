@@ -45,7 +45,17 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
 
           if (node) {
-            scrollIntoView(node, {
+            let levelCount = 8;
+            let newNode: HTMLElement = node;
+            // find dom that's classname is ant-form-item-control
+            while (levelCount) {
+              newNode = newNode.parentElement as HTMLElement;
+              if (newNode.className.includes('ant-form-item-control')) {
+                break;
+              }
+              levelCount--;
+            }
+            scrollIntoView(newNode || node, {
               scrollMode: 'if-needed',
               block: 'nearest',
               ...options,
