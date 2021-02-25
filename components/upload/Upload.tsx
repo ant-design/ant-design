@@ -102,7 +102,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const onBatchStart: RcUploadProps['onBatchStart'] = batchFileInfoList => {
     // Skip file which marked as `LIST_IGNORE`, these file will not add to file list
-    const filteredFileInfoList = batchFileInfoList.filter(info => info.parsedFile !== LIST_IGNORE);
+    const filteredFileInfoList = batchFileInfoList.filter(info => !(info.file as any)[LIST_IGNORE]);
 
     // Nothing to do since no file need upload
     if (!filteredFileInfoList.length) {
@@ -239,7 +239,17 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         return false;
       }
 
-      if ((typeof result === 'object' || (result as any) === LIST_IGNORE) && result) {
+      // Hack for LIST_IGNORE, we add additional info to remove from the list
+      delete (file as any)[LIST_IGNORE];
+      if ((result as any) === LIST_IGNORE) {
+        Object.defineProperty(file, LIST_IGNORE, {
+          value: true,
+          configurable: true,
+        });
+        return false;
+      }
+
+      if (typeof result === 'object' && result) {
         parsedFile = result as File;
       }
     }
