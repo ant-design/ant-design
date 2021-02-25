@@ -78,6 +78,10 @@ npm install antd
 yarn add antd
 ```
 
+```bash
+bower install antd
+```
+
 ## 🔨 Usage
 
 ```jsx
