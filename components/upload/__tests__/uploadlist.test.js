@@ -202,7 +202,7 @@ describe('Upload List', () => {
     });
   });
 
-  it.only('does concat fileList when beforeUpload returns false', async () => {
+  it('does concat fileList when beforeUpload returns false', async () => {
     const handleChange = jest.fn();
     const ref = React.createRef();
     const wrapper = mount(
