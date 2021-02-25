@@ -35,6 +35,19 @@ export function wrapFile(file: RcFile | UploadFile): UploadFile {
         data.set(key, value);
         return true;
       },
+      has(target, prop) {
+        return data.has(prop) || prop in target;
+      },
+      ownKeys(target) {
+        const keys = [...Object.keys(target), ...data.keys()];
+        return [...new Set(keys)];
+      },
+      getOwnPropertyDescriptor() {
+        return {
+          enumerable: true,
+          configurable: true,
+        };
+      },
     });
   }
 
