@@ -120,8 +120,13 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     });
 
     onInternalChange({
-      // Compatible for origin usage since it always get file before
-      file: objectFileList[0],
+      // [Legacy] This file is filled by `beforeUpload` before.
+      // We move start status in `onBatchStart` instead which means we only trigger one file.
+      // It's strange since the first trigger of file is File instance
+      // but next will be a wrapped object.
+      // Seems always return wrapped object is more make sense.
+      // https://github.com/ant-design/ant-design/issues/10293
+      file: filteredFileInfoList[0]?.file,
       fileList: newFileList,
     });
   };
