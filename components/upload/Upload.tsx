@@ -98,18 +98,26 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     });
   };
 
-  const onBatchStart = (nextFileList: RcFile[]) => {
+  const onBatchStart = (batchFileList: RcFile[]) => {
     // Nothing to do since no file need upload
-    if (!nextFileList.length) {
+    if (!batchFileList.length) {
       return;
     }
 
-    const objectFileList = nextFileList.map(fileToObject);
+    const objectFileList = batchFileList.map(fileToObject);
+
+    // Concat new files with prev files
+    const newFileList = [...mergedFileList];
+    objectFileList.forEach(fileObj => {
+      if (newFileList.every(existFile => existFile.uid !== fileObj.uid)) {
+        newFileList.push(fileObj);
+      }
+    });
 
     onInternalChange({
       // Compatible for origin usage since it always get file before
       file: objectFileList[0],
-      fileList: objectFileList,
+      fileList: newFileList,
     });
   };
 
@@ -236,33 +244,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     }
 
     return parsedFile as RcFile;
-
-    // if (!beforeUpload) {
-    //   return true;
-    // }
-
-    // const result = beforeUpload(file, fileListArgs);
-    // if (result === false) {
-    //   // Get unique file list
-    //   const uniqueList: UploadFile<any>[] = [];
-    //   getFileList()
-    //     .concat(fileListArgs.map(fileToObject))
-    //     .forEach(f => {
-    //       if (uniqueList.every(uf => uf.uid !== f.uid)) {
-    //         uniqueList.push(f);
-    //       }
-    //     });
-
-    //   onInternalChange({
-    //     file,
-    //     fileList: uniqueList,
-    //   });
-    //   return false;
-    // }
-    // if (result && (result as PromiseLike<any>).then) {
-    //   return result;
-    // }
-    // return true;
   };
 
   // Test needs
