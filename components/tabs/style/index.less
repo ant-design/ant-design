@@ -134,8 +134,9 @@
     border: 0;
     outline: none;
     cursor: pointer;
-
-    &:last-of-type {
+    // last child is div.ant-tabs-ink-bar, so it is invalid.
+    // and last-of-type(and nth-last-child) is invalid for className(eg: .ant-tabs-tab), just valid for HTML Tag(eg: div).
+    &:nth-last-child(2) {
       margin-right: 0;
       margin-left: 0;
     }
