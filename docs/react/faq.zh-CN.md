@@ -29,7 +29,7 @@ https://ant.design/components/select/#Select-props
 
 ### 如何修改 Ant Design 的默认主题？
 
-可以参考[定制主题](/docs/react/customize-theme) 。
+可以参考[定制主题](/docs/react/customize-theme)。
 
 ### 如何修改 Ant Design 组件的默认样式？
 
