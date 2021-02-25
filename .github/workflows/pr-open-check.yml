@@ -1,4 +1,4 @@
-name: PR Refuse
+name: PR Open Check
 
 on:
   pull_request_target:
