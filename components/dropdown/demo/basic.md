@@ -20,17 +20,17 @@ import { DownOutlined } from '@ant-design/icons';
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
         1st menu item
       </a>
     </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+    <Menu.Item icon={<DownOutlined />} disabled>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
         2nd menu item
       </a>
     </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+    <Menu.Item disabled>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
         3rd menu item
       </a>
     </Menu.Item>
