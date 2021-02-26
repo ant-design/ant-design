@@ -929,14 +929,17 @@ describe('Upload List', () => {
   });
 
   it('[deprecated] should support transformFile', done => {
+    let wrapper;
+
     const handleTransformFile = jest.fn();
     const onChange = ({ file }) => {
       if (file.status === 'done') {
         expect(handleTransformFile).toHaveBeenCalled();
+        wrapper.unmount();
         done();
       }
     };
-    const wrapper = mount(
+    wrapper = mount(
       <Upload
         action="http://jsonplaceholder.typicode.com/posts/"
         transformFile={handleTransformFile}
