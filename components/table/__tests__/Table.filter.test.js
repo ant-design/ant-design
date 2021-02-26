@@ -1508,4 +1508,53 @@ describe('Table.filter', () => {
 
     expect(wrapper.find('.ant-table-filter-column')).toHaveLength(3);
   });
+  it('should pagination.current be 1 after filtering', () => {
+    const onChange = jest.fn();
+    const columns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        filters: [
+          {
+            text: 'Jim',
+            value: 'Jim',
+          },
+          {
+            text: 'Joe',
+            value: 'Joe',
+          },
+        ],
+        onFilter: (value, record) => record.name.indexOf(value) === 0,
+        sorter: (a, b) => a.name.length - b.name.length,
+        sortDirections: ['descend'],
+      },
+    ];
+    const dataSource = [
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+      },
+      {
+        key: '2',
+        name: 'Joe Black',
+        age: 32,
+        address: 'Sidney No. 1 Lake Park',
+      },
+    ];
+
+    const wrapper = mount(
+      <Table onChange={onChange} rowKey="name" columns={columns} dataSource={dataSource} />,
+    );
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('FilterDropdown').find('MenuItem').at(0).simulate('click');
+    wrapper.find('.ant-btn-primary').first().simulate('click');
+    expect(onChange.mock.calls[0][0].current).toBe(1);
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('FilterDropdown').find('MenuItem').at(1).simulate('click');
+    wrapper.find('.ant-btn-primary').first().simulate('click');
+    expect(onChange.mock.calls[1][0].current).toBe(1);
+  });
 });
