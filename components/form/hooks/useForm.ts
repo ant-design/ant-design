@@ -21,6 +21,21 @@ function toNamePathStr(name: NamePath) {
   return namePath.join('_');
 }
 
+function getFormItemCtrl(node: HTMLElement): HTMLElement {
+  const prefixCls = 'ant-form';
+  let levelCount = 8;
+  let newNode: HTMLElement = node;
+  // find dom that's classname is ant-form-item-control
+  while (levelCount) {
+    newNode = newNode.parentElement as HTMLElement;
+    if (newNode?.className.includes(`${prefixCls}-item-control`)) {
+      break;
+    }
+    levelCount--;
+  }
+  return newNode || node;
+}
+
 export default function useForm<Values = any>(form?: FormInstance<Values>): [FormInstance<Values>] {
   const [rcForm] = useRcForm();
   const itemsRef = React.useRef<Record<string, React.ReactElement>>({});
@@ -45,7 +60,8 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
 
           if (node) {
-            scrollIntoView(node, {
+            const newNode = getFormItemCtrl(node);
+            scrollIntoView(newNode, {
               scrollMode: 'if-needed',
               block: 'nearest',
               ...options,
