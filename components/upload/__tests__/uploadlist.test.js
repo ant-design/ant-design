@@ -2,8 +2,8 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Upload from '..';
-// import UploadList from '../UploadList';
-// import Form from '../../form';
+import UploadList from '../UploadList';
+import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
 import { sleep } from '../../../tests/utils';
@@ -389,276 +389,276 @@ describe('Upload List', () => {
     });
   });
 
-  // it('should non-image format file preview', () => {
-  //   const list = [
-  //     {
-  //       name: 'not-image',
-  //       status: 'done',
-  //       uid: '-3',
-  //       url: 'https://cdn.xxx.com/aaa.zip',
-  //       thumbUrl: 'data:application/zip;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
-  //       originFileObj: new File([], 'aaa.zip'),
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-4',
-  //       url: 'https://cdn.xxx.com/aaa',
-  //     },
-  //     {
-  //       name: 'not-image',
-  //       status: 'done',
-  //       uid: '-5',
-  //       url: 'https://cdn.xxx.com/aaa.xx',
-  //     },
-  //     {
-  //       name: 'not-image',
-  //       status: 'done',
-  //       uid: '-6',
-  //       url: 'https://cdn.xxx.com/aaa.png/xx.xx',
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-7',
-  //       url: 'https://cdn.xxx.com/xx.xx/aaa.png',
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-8',
-  //       url: 'https://cdn.xxx.com/xx.xx/aaa.png',
-  //       thumbUrl: 'data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-9',
-  //       url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=123',
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-10',
-  //       url: 'https://cdn.xxx.com/xx.xx/aaa.png#anchor',
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-11',
-  //       url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot',
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-12',
-  //       url:
-  //         'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
-  //       type: 'image/png',
-  //     },
-  //   ];
+  it('should non-image format file preview', () => {
+    const list = [
+      {
+        name: 'not-image',
+        status: 'done',
+        uid: '-3',
+        url: 'https://cdn.xxx.com/aaa.zip',
+        thumbUrl: 'data:application/zip;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
+        originFileObj: new File([], 'aaa.zip'),
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'not-image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa.xx',
+      },
+      {
+        name: 'not-image',
+        status: 'done',
+        uid: '-6',
+        url: 'https://cdn.xxx.com/aaa.png/xx.xx',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-7',
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-8',
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png',
+        thumbUrl: 'data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-9',
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=123',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-10',
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png#anchor',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-11',
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-12',
+        url:
+          'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
+        type: 'image/png',
+      },
+    ];
 
-  //   const wrapper = mount(
-  //     <Upload listType="picture" defaultFileList={list}>
-  //       <button type="button">upload</button>
-  //     </Upload>,
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
-  // });
+    const wrapper = mount(
+      <Upload listType="picture" defaultFileList={list}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
-  // it('should support showRemoveIcon and showPreviewIcon', () => {
-  //   const list = [
-  //     {
-  //       name: 'image',
-  //       status: 'uploading',
-  //       uid: '-4',
-  //       url: 'https://cdn.xxx.com/aaa',
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-5',
-  //       url: 'https://cdn.xxx.com/aaa',
-  //     },
-  //   ];
+  it('should support showRemoveIcon and showPreviewIcon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
 
-  //   const wrapper = mount(
-  //     <Upload
-  //       listType="picture"
-  //       defaultFileList={list}
-  //       showUploadList={{
-  //         showRemoveIcon: false,
-  //         showPreviewIcon: false,
-  //       }}
-  //     >
-  //       <button type="button">upload</button>
-  //     </Upload>,
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
-  // });
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: false,
+          showPreviewIcon: false,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
-  // it('should support custom onClick in custom icon', async () => {
-  //   const handleRemove = jest.fn();
-  //   const handleChange = jest.fn();
-  //   const myClick = jest.fn();
-  //   const wrapper = mount(
-  //     <Upload
-  //       listType="picture-card"
-  //       defaultFileList={fileList}
-  //       onRemove={handleRemove}
-  //       onChange={handleChange}
-  //       showUploadList={{
-  //         showRemoveIcon: true,
-  //         removeIcon: (
-  //           <i className="custom-delete" onClick={myClick}>
-  //             RM
-  //           </i>
-  //         ),
-  //       }}
-  //     >
-  //       <button type="button">upload</button>
-  //     </Upload>,
-  //   );
-  //   wrapper.find('.custom-delete').at(0).simulate('click');
-  //   expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
-  //   expect(myClick).toHaveBeenCalled();
-  //   wrapper.find('.custom-delete').at(1).simulate('click');
-  //   expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
-  //   expect(myClick).toHaveBeenCalled();
-  //   await sleep();
-  //   expect(handleChange.mock.calls.length).toBe(2);
-  // });
+  it('should support custom onClick in custom icon', async () => {
+    const handleRemove = jest.fn();
+    const handleChange = jest.fn();
+    const myClick = jest.fn();
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={fileList}
+        onRemove={handleRemove}
+        onChange={handleChange}
+        showUploadList={{
+          showRemoveIcon: true,
+          removeIcon: (
+            <i className="custom-delete" onClick={myClick}>
+              RM
+            </i>
+          ),
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper.find('.custom-delete').at(0).simulate('click');
+    expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
+    expect(myClick).toHaveBeenCalled();
+    wrapper.find('.custom-delete').at(1).simulate('click');
+    expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
+    expect(myClick).toHaveBeenCalled();
+    await sleep();
+    expect(handleChange.mock.calls.length).toBe(2);
+  });
 
-  // it('should support removeIcon and downloadIcon', () => {
-  //   const list = [
-  //     {
-  //       name: 'image',
-  //       status: 'uploading',
-  //       uid: '-4',
-  //       url: 'https://cdn.xxx.com/aaa',
-  //     },
-  //     {
-  //       name: 'image',
-  //       status: 'done',
-  //       uid: '-5',
-  //       url: 'https://cdn.xxx.com/aaa',
-  //     },
-  //   ];
+  it('should support removeIcon and downloadIcon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
 
-  //   const wrapper = mount(
-  //     <Upload
-  //       listType="picture"
-  //       defaultFileList={list}
-  //       showUploadList={{
-  //         showRemoveIcon: true,
-  //         showDownloadIcon: true,
-  //         removeIcon: () => <i>RM</i>,
-  //         downloadIcon: <i>DL</i>,
-  //       }}
-  //     >
-  //       <button type="button">upload</button>
-  //     </Upload>,
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: true,
+          showDownloadIcon: true,
+          removeIcon: () => <i>RM</i>,
+          downloadIcon: <i>DL</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
 
-  //   const wrapper2 = mount(
-  //     <Upload
-  //       listType="picture"
-  //       defaultFileList={list}
-  //       showUploadList={{
-  //         showRemoveIcon: true,
-  //         showDownloadIcon: true,
-  //         removeIcon: <i>RM</i>,
-  //         downloadIcon: () => <i>DL</i>,
-  //       }}
-  //     >
-  //       <button type="button">upload</button>
-  //     </Upload>,
-  //   );
-  //   expect(wrapper2.render()).toMatchSnapshot();
-  // });
+    const wrapper2 = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: true,
+          showDownloadIcon: true,
+          removeIcon: <i>RM</i>,
+          downloadIcon: () => <i>DL</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper2.render()).toMatchSnapshot();
+  });
 
-  // // https://github.com/ant-design/ant-design/issues/7762
-  // it('work with form validation', async () => {
-  //   let formRef;
+  // https://github.com/ant-design/ant-design/issues/7762
+  it('work with form validation', async () => {
+    let formRef;
 
-  //   const TestForm = () => {
-  //     const [form] = Form.useForm();
-  //     formRef = form;
+    const TestForm = () => {
+      const [form] = Form.useForm();
+      formRef = form;
 
-  //     return (
-  //       <Form form={form}>
-  //         <Form.Item
-  //           name="file"
-  //           valuePropName="fileList"
-  //           getValueFromEvent={e => e.fileList}
-  //           rules={[
-  //             {
-  //               required: true,
-  //               validator: (rule, value, callback) => {
-  //                 if (!value || value.length === 0) {
-  //                   callback('file required');
-  //                 } else {
-  //                   callback();
-  //                 }
-  //               },
-  //             },
-  //           ]}
-  //         >
-  //           <Upload beforeUpload={() => false}>
-  //             <button type="button">upload</button>
-  //           </Upload>
-  //         </Form.Item>
-  //       </Form>
-  //     );
-  //   };
+      return (
+        <Form form={form}>
+          <Form.Item
+            name="file"
+            valuePropName="fileList"
+            getValueFromEvent={e => e.fileList}
+            rules={[
+              {
+                required: true,
+                validator: (rule, value, callback) => {
+                  if (!value || value.length === 0) {
+                    callback('file required');
+                  } else {
+                    callback();
+                  }
+                },
+              },
+            ]}
+          >
+            <Upload beforeUpload={() => false}>
+              <button type="button">upload</button>
+            </Upload>
+          </Form.Item>
+        </Form>
+      );
+    };
 
-  //   const wrapper = mount(<TestForm />);
+    const wrapper = mount(<TestForm />);
 
-  //   wrapper.find(Form).simulate('submit');
-  //   await sleep();
-  //   expect(formRef.getFieldError(['file'])).toEqual(['file required']);
+    wrapper.find(Form).simulate('submit');
+    await sleep();
+    expect(formRef.getFieldError(['file'])).toEqual(['file required']);
 
-  //   wrapper.find('input').simulate('change', {
-  //     target: {
-  //       files: [{ name: 'foo.png' }],
-  //     },
-  //   });
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ name: 'foo.png' }],
+      },
+    });
 
-  //   wrapper.find(Form).simulate('submit');
-  //   await sleep();
-  //   expect(formRef.getFieldError(['file'])).toEqual([]);
-  // });
+    wrapper.find(Form).simulate('submit');
+    await sleep();
+    expect(formRef.getFieldError(['file'])).toEqual([]);
+  });
 
-  // it('return when prop onPreview not exists', () => {
-  //   const ref = React.createRef();
-  //   mount(<UploadList ref={ref} />);
-  //   expect(ref.current.handlePreview()).toBe(undefined);
-  // });
+  it('return when prop onPreview not exists', () => {
+    const ref = React.createRef();
+    mount(<UploadList ref={ref} />);
+    expect(ref.current.handlePreview()).toBe(undefined);
+  });
 
-  // it('return when prop onDownload not exists', () => {
-  //   const file = new File([''], 'test.txt', { type: 'text/plain' });
-  //   const items = [{ uid: 'upload-list-item', url: '' }];
-  //   const ref = React.createRef();
-  //   mount(
-  //     <UploadList
-  //       ref={ref}
-  //       items={items}
-  //       locale={{ downloadFile: '' }}
-  //       showUploadList={{ showDownloadIcon: true }}
-  //     />,
-  //   );
-  //   expect(ref.current.handleDownload(file)).toBe(undefined);
-  // });
+  it('return when prop onDownload not exists', () => {
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const ref = React.createRef();
+    mount(
+      <UploadList
+        ref={ref}
+        items={items}
+        locale={{ downloadFile: '' }}
+        showUploadList={{ showDownloadIcon: true }}
+      />,
+    );
+    expect(ref.current.handleDownload(file)).toBe(undefined);
+  });
 
-  // it('previewFile should work correctly', async () => {
-  //   const file = new File([''], 'test.txt', { type: 'text/plain' });
-  //   const items = [{ uid: 'upload-list-item', url: '' }];
-  //   const wrapper = mount(
-  //     <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
-  //   );
-  //   return wrapper.props().previewFile(file);
-  // });
+  it('previewFile should work correctly', async () => {
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
+    );
+    return wrapper.props().previewFile(file);
+  });
 
   // it('downloadFile should work correctly', async () => {
   //   const file = new File([''], 'test.txt', { type: 'text/plain' });
