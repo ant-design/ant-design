@@ -19,7 +19,6 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import useForceUpdate from '../_util/hooks/useForceUpdate';
 
 const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -55,7 +54,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   });
 
   const [dragState, setDragState] = React.useState<string>('drop');
-  const forceUpdate = useForceUpdate();
 
   const upload = React.useRef<any>();
 
@@ -262,7 +260,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onError,
     fileList: mergedFileList,
     upload: upload.current,
-    forceUpdate,
   }));
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
