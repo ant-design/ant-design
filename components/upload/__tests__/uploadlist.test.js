@@ -1037,5 +1037,7 @@ describe('Upload List', () => {
     };
     const wrapper = mount(<UploadList locale={{}} items={fileList} itemRender={itemRender} />);
     expect(wrapper.render()).toMatchSnapshot();
+
+    wrapper.unmount();
   });
 });

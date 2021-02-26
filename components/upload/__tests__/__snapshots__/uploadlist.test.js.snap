@@ -107,6 +107,31 @@ exports[`Upload List handle error 1`] = `
 </span>
 `;
 
+exports[`Upload List itemRender 1`] = `
+<div
+  class="ant-upload-list ant-upload-list-text"
+>
+  <div
+    class="ant-upload-list-text-container"
+  >
+    <span
+      class="custom-item-render"
+    >
+      uid:-1 name: xxx.png status: removed url: https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png  1/2
+    </span>
+  </div>
+  <div
+    class="ant-upload-list-text-container"
+  >
+    <span
+      class="custom-item-render"
+    >
+      uid:-2 name: yyy.png status: removed url: https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png  2/2
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Upload List should be uploading when upload a file 1`] = `
 <span
   class=""
