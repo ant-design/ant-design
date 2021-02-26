@@ -518,6 +518,29 @@ describe('Upload List', () => {
     wrapper.unmount();
   });
 
+  it('not crash when uploading not provides percent', async () => {
+    jest.useFakeTimers();
+
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={[
+          {
+            name: 'bamboo.png',
+            status: 'uploading',
+          },
+        ]}
+      />,
+    );
+
+    jest.runAllTimers();
+    wrapper.update();
+
+    wrapper.unmount();
+
+    jest.useRealTimers();
+  });
+
   it('should support showRemoveIcon and showPreviewIcon', () => {
     const list = [
       {
