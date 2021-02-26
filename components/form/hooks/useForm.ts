@@ -23,17 +23,20 @@ function toNamePathStr(name: NamePath) {
 
 function getFormItemCtrl(node: HTMLElement): HTMLElement {
   const prefixCls = 'ant-form';
+  let newNode: HTMLElement | null = node.parentElement;
+  let rtNode: HTMLElement | null = null;
   let levelCount = 8;
-  let newNode: HTMLElement = node;
-  // find dom that's classname is ant-form-item-control
-  while (levelCount) {
-    newNode = newNode.parentElement as HTMLElement;
+  do {
+    if (!newNode) return node;
+    // find dom that's classname include ant-form-item-control
     if (newNode?.className.includes(`${prefixCls}-item-control`)) {
+      rtNode = newNode;
       break;
     }
+    newNode = newNode.parentElement;
     levelCount--;
-  }
-  return newNode || node;
+  } while (levelCount);
+  return rtNode || node;
 }
 
 export default function useForm<Values = any>(form?: FormInstance<Values>): [FormInstance<Values>] {
