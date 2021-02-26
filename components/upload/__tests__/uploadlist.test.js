@@ -1116,4 +1116,24 @@ describe('Upload List', () => {
 
     wrapper.unmount();
   });
+
+  it('LIST_IGNORE should not add in list', async () => {
+    const beforeUpload = jest.fn(() => Upload.LIST_IGNORE);
+    const wrapper = mount(<Upload beforeUpload={beforeUpload} />);
+
+    act(() => {
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [{ file: 'foo.png' }],
+        },
+      });
+    });
+
+    await sleep();
+
+    expect(beforeUpload).toHaveBeenCalled();
+    expect(wrapper.find('UploadList').props().items).toHaveLength(0);
+
+    wrapper.unmount();
+  });
 });
