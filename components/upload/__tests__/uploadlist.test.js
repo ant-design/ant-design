@@ -182,16 +182,10 @@ describe('Upload List', () => {
     });
   });
 
-  it('handle error', done => {
-    let wrapper;
-    const onChange = ({ file }) => {
-      if (file.status === 'error') {
-        expect(wrapper.render()).toMatchSnapshot();
-        wrapper.unmount();
-        done();
-      }
-    };
-    wrapper = mount(
+  it('handle error', async () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
       <Upload
         action="http://jsonplaceholder.typicode.com/posts/"
         onChange={onChange}
@@ -205,6 +199,35 @@ describe('Upload List', () => {
         files: [{ name: 'foo.png' }],
       },
     });
+
+    // Wait twice since `errorRequest` also use timeout for mock
+    await sleep();
+    await sleep();
+
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({
+          status: 'error',
+        }),
+      }),
+    );
+
+    wrapper.update();
+    expect(wrapper.render()).toMatchSnapshot();
+
+    // Error message
+    jest.useFakeTimers();
+    wrapper.find('.ant-upload-list-item').simulate('mouseEnter');
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    jest.useRealTimers();
+
+    expect(wrapper.find('Trigger').state().popupVisible).toBeTruthy();
+
+    wrapper.unmount();
   });
 
   it('does concat fileList when beforeUpload returns false', async () => {
@@ -493,6 +516,29 @@ describe('Upload List', () => {
     expect(wrapper.render()).toMatchSnapshot();
 
     wrapper.unmount();
+  });
+
+  it('not crash when uploading not provides percent', async () => {
+    jest.useFakeTimers();
+
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={[
+          {
+            name: 'bamboo.png',
+            status: 'uploading',
+          },
+        ]}
+      />,
+    );
+
+    jest.runAllTimers();
+    wrapper.update();
+
+    wrapper.unmount();
+
+    jest.useRealTimers();
   });
 
   it('should support showRemoveIcon and showPreviewIcon', () => {
@@ -1113,6 +1159,26 @@ describe('Upload List', () => {
     };
     const wrapper = mount(<UploadList locale={{}} items={fileList} itemRender={itemRender} />);
     expect(wrapper.render()).toMatchSnapshot();
+
+    wrapper.unmount();
+  });
+
+  it('LIST_IGNORE should not add in list', async () => {
+    const beforeUpload = jest.fn(() => Upload.LIST_IGNORE);
+    const wrapper = mount(<Upload beforeUpload={beforeUpload} />);
+
+    act(() => {
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [{ file: 'foo.png' }],
+        },
+      });
+    });
+
+    await sleep();
+
+    expect(beforeUpload).toHaveBeenCalled();
+    expect(wrapper.find('UploadList').props().items).toHaveLength(0);
 
     wrapper.unmount();
   });
