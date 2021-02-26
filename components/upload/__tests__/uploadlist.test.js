@@ -182,16 +182,10 @@ describe('Upload List', () => {
     });
   });
 
-  it('handle error', done => {
-    let wrapper;
-    const onChange = ({ file }) => {
-      if (file.status === 'error') {
-        expect(wrapper.render()).toMatchSnapshot();
-        wrapper.unmount();
-        done();
-      }
-    };
-    wrapper = mount(
+  it('handle error', async () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
       <Upload
         action="http://jsonplaceholder.typicode.com/posts/"
         onChange={onChange}
@@ -205,6 +199,35 @@ describe('Upload List', () => {
         files: [{ name: 'foo.png' }],
       },
     });
+
+    // Wait twice since `errorRequest` also use timeout for mock
+    await sleep();
+    await sleep();
+
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({
+          status: 'error',
+        }),
+      }),
+    );
+
+    wrapper.update();
+    expect(wrapper.render()).toMatchSnapshot();
+
+    // Error message
+    jest.useFakeTimers();
+    wrapper.find('.ant-upload-list-item').simulate('mouseEnter');
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    jest.useRealTimers();
+
+    expect(wrapper.find('Trigger').state().popupVisible).toBeTruthy();
+
+    wrapper.unmount();
   });
 
   it('does concat fileList when beforeUpload returns false', async () => {
