@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import Upload from '..';
 import Form from '../../form';
-import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
+import { T, wrapFile, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -291,11 +291,29 @@ describe('Upload', () => {
       expect(res).toBe(true);
     });
 
-    it('should be able to copy file instance', () => {
-      const file = new File([], 'aaa.zip');
-      const copiedFile = fileToObject(file);
-      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
-        expect(key in copiedFile).toBe(true);
+    describe('wrapFile', () => {
+      it('should be able to copy file instance when Proxy not support', () => {
+        const file = new File([], 'aaa.zip');
+
+        const OriginProxy = global.Proxy;
+        global.Proxy = undefined;
+
+        const copiedFile = wrapFile(file);
+        ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
+          expect(key in copiedFile).toBe(true);
+        });
+
+        global.Proxy = OriginProxy;
+      });
+
+      it('Proxy support', () => {
+        const file = new File([], 'aaa.zip');
+
+        const copiedFile = wrapFile(file);
+        console.log(Object.keys(copiedFile));
+        ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
+          expect(key in copiedFile).toBe(true);
+        });
       });
     });
 
@@ -617,15 +635,20 @@ describe('Upload', () => {
 
         switch (callTimes) {
           case 1:
+            expect(file.status).toBe(undefined);
+            break;
+
           case 2:
+          case 3:
+            console.log('===>', file.status);
             expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 0 }));
             break;
 
-          case 3:
+          case 4:
             expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 100 }));
             break;
 
-          case 4:
+          case 5:
             expect(file).toEqual(expect.objectContaining({ status: 'done', percent: 100 }));
             break;
 

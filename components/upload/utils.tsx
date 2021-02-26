@@ -4,11 +4,13 @@ export function T() {
   return true;
 }
 
-// Fix IE file.status problem
-// via coping a new Object
-export function fileToObject(file: RcFile): UploadFile {
-  return {
-    ...file,
+/**
+ * Wrap file with Proxy to provides more info. Will fallback to object if Proxy not support.
+ *
+ * Origin comment: Fix IE file.status problem via coping a new Object
+ */
+export function wrapFile(file: RcFile | UploadFile): UploadFile {
+  const filledProps = {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
     name: file.name,
@@ -17,6 +19,41 @@ export function fileToObject(file: RcFile): UploadFile {
     uid: file.uid,
     percent: 0,
     originFileObj: file,
+  };
+
+  if (typeof Proxy !== 'undefined') {
+    const data = new Map<string | symbol, any>(Object.entries(filledProps));
+
+    return new Proxy(file, {
+      get(target, key) {
+        if (data.has(key)) {
+          return data.get(key);
+        }
+        return (target as any)[key];
+      },
+      set(_, key, value) {
+        data.set(key, value);
+        return true;
+      },
+      has(target, prop) {
+        return data.has(prop) || prop in target;
+      },
+      ownKeys(target) {
+        const keys = [...Object.keys(target), ...data.keys()];
+        return [...new Set(keys)];
+      },
+      getOwnPropertyDescriptor() {
+        return {
+          enumerable: true,
+          configurable: true,
+        };
+      },
+    });
+  }
+
+  return {
+    ...file,
+    ...filledProps,
   } as UploadFile;
 }
 
