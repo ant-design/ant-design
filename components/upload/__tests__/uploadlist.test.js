@@ -1000,7 +1000,7 @@ describe('Upload List', () => {
       );
     };
 
-    mount(<MyUpload />);
+    const wrapper = mount(<MyUpload />);
 
     // Mock async update in a frame
     const files = ['light', 'bamboo', 'little'];
@@ -1019,6 +1019,8 @@ describe('Upload List', () => {
 
     jest.runAllTimers();
     expect(uploadRef.current.fileList).toHaveLength(files.length);
+
+    wrapper.unmount();
 
     jest.useRealTimers();
   });
