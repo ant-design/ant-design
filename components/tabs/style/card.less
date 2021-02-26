@@ -31,6 +31,9 @@
       .@{tab-prefix-cls}-tab:not(:last-of-type) {
         margin-right: @tabs-card-gutter;
       }
+      .@{tab-prefix-cls}-tab:nth-last-child(2) {
+        margin-right: 0;
+      }
     }
   }
 
@@ -66,6 +69,9 @@
     > div > .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-tab:not(:last-of-type) {
         margin-bottom: @tabs-card-gutter;
+      }
+      .@{tab-prefix-cls}-tab:nth-last-child(2) {
+        margin-bottom: 0;
       }
     }
   }
