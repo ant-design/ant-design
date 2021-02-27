@@ -18,10 +18,3 @@ jobs:
             你好 @${{ github.event.pull_request.user.login }}。这个 PR 提及的 issue 需要和设计师或核心团队进行确认，暂时不接受 PR，再次感谢你的贡献！😊   
           pr-emoji: 'heart'
           close: true
-
-  welcome:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions-cool/pr-welcome@v1.1.2
-        with:
-          pr-emoji: '+1, heart'
