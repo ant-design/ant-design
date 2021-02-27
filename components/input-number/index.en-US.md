@@ -29,6 +29,7 @@ When a numeric value needs to be provided.
 | readOnly | If readonly the input | boolean | false | - |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
+| stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
 | value | The current value | number | - | - |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
@@ -44,3 +45,13 @@ When a numeric value needs to be provided.
 ## Notes
 
 Per issues [#21158](https://github.com/ant-design/ant-design/issues/21158), [#17344](https://github.com/ant-design/ant-design/issues/17344), [#9421](https://github.com/ant-design/ant-design/issues/9421), and [documentation about inputs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#Using_number_inputs), it appears this community does not support native inclusion of the `type="number"` in the `<Input />` attributes, so please feel free to include it as needed, and be aware that it is heavily suggested that server side validation be utilized, as client side validation can be edited by power users.
+
+## FAQ
+
+### Why `value` can exceed `min` or `max` in control?
+
+Developer handle data by their own in control. It will make data out of sync if InputNumber change display value. It also cause potential data issues when use in form.
+
+### Why dynamic change `min` or `max` which makes `value` out of range will not trigger `onChange`?
+
+`onChange` is user trigger event. Auto trigger will makes form lib can not detect data modify source.

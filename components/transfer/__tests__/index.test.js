@@ -558,3 +558,31 @@ describe('immutable data', () => {
     expect(wrapper).toMatchRenderedSnapshot();
   });
 });
+
+describe('footer render source and target', () => {
+  // https://github.com/ant-design/ant-design/issues/28082
+  it('currently render footer', () => {
+    const differentFooter = () => ({
+      source: (
+        <Button size="small" className="sourceFooter">
+          reload
+        </Button>
+      ),
+      target: (
+        <Button size="small" className="targetFooter">
+          reload
+        </Button>
+      ),
+    });
+    const defaultFooter = () => (
+      <Button size="small" className="defaultFooter">
+        reload
+      </Button>
+    );
+    const wrapper = mount(<Transfer footer={differentFooter} />);
+    const wrapper2 = mount(<Transfer footer={defaultFooter} />);
+    expect(wrapper.exists('.sourceFooter')).toEqual(true);
+    expect(wrapper.exists('.targetFooter')).toEqual(true);
+    expect(wrapper2.exists('.defaultFooter')).toEqual(true);
+  });
+});

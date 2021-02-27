@@ -1,5 +1,6 @@
 import * as React from 'react';
-import RcUpload from 'rc-upload';
+import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
@@ -13,19 +14,19 @@ import {
   UploadType,
   UploadListType,
 } from './interface';
-import { T, fileToObject, getFileItem, removeFileItem } from './utils';
+import { T, wrapFile, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import useForceUpdate from '../_util/hooks/useForceUpdate';
-import useFreshState from './useFreshState';
+
+const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export { UploadProps };
 
 const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
   const {
-    fileList: fileListProp,
+    fileList,
     defaultFileList,
     onRemove,
     showUploadList,
@@ -48,14 +49,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     maxCount,
   } = props;
 
-  const [dragState, setDragState] = React.useState<string>('drop');
-  const forceUpdate = useForceUpdate();
+  const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
+    value: fileList,
+  });
 
-  // Refresh always use fresh data
-  const [getFileList, setFileList] = useFreshState<UploadFile<any>[]>(
-    fileListProp || defaultFileList || [],
-    fileListProp,
-  );
+  const [dragState, setDragState] = React.useState<string>('drop');
 
   const upload = React.useRef<any>();
 
@@ -77,13 +75,19 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   React.useEffect(() => {
     const timestamp = Date.now();
 
-    (fileListProp || []).forEach((file, index) => {
-      file.uid = file.uid ?? `__AUTO__${timestamp}_${index}__`;
+    (fileList || []).forEach((file, index) => {
+      if (!file.uid) {
+        file.uid = `__AUTO__${timestamp}_${index}__`;
+      }
     });
-  }, [fileListProp]);
+  }, [fileList]);
 
-  const onInternalChange = (info: UploadChangeParam) => {
-    let cloneList = [...info.fileList];
+  const onInternalChange = (
+    file: UploadFile,
+    changedFileList: UploadFile[],
+    event?: { percent: number },
+  ) => {
+    let cloneList = [...changedFileList];
 
     // Cut to match count
     if (maxCount === 1) {
@@ -92,19 +96,47 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       cloneList = cloneList.slice(0, maxCount);
     }
 
-    setFileList(cloneList);
+    setMergedFileList(cloneList);
 
-    onChange?.({
-      ...info,
+    const changeInfo: UploadChangeParam = {
+      file,
       fileList: cloneList,
+    };
+
+    if (event) {
+      changeInfo.event = event;
+    }
+
+    onChange?.(changeInfo);
+  };
+
+  const onBatchStart: RcUploadProps['onBatchStart'] = batchFileInfoList => {
+    // Skip file which marked as `LIST_IGNORE`, these file will not add to file list
+    const filteredFileInfoList = batchFileInfoList.filter(info => !(info.file as any)[LIST_IGNORE]);
+
+    // Nothing to do since no file need upload
+    if (!filteredFileInfoList.length) {
+      return;
+    }
+
+    const objectFileList = filteredFileInfoList.map(info => wrapFile(info.file));
+
+    // Concat new files with prev files
+    const newFileList = [...mergedFileList];
+    objectFileList.forEach(fileObj => {
+      if (newFileList.every(existFile => existFile.uid !== fileObj.uid)) {
+        newFileList.push(fileObj);
+      }
     });
+
+    onInternalChange(filteredFileInfoList[0]?.file, newFileList);
   };
 
   const onStart = (file: RcFile) => {
-    const targetItem = fileToObject(file);
+    const targetItem = wrapFile(file);
     targetItem.status = 'uploading';
 
-    const nextFileList = getFileList().concat();
+    const nextFileList = [...mergedFileList];
 
     const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === targetItem.uid);
     if (fileIndex === -1) {
@@ -113,10 +145,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       nextFileList[fileIndex] = targetItem;
     }
 
-    onInternalChange({
-      file: targetItem,
-      fileList: nextFileList,
-    });
+    onInternalChange(targetItem, nextFileList);
   };
 
   const onSuccess = (response: any, file: UploadFile, xhr: any) => {
@@ -127,7 +156,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     } catch (e) {
       /* do nothing */
     }
-    const targetItem = getFileItem(file, getFileList());
+    const targetItem = getFileItem(file, mergedFileList);
     // removed
     if (!targetItem) {
       return;
@@ -135,28 +164,21 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.status = 'done';
     targetItem.response = response;
     targetItem.xhr = xhr;
-    onInternalChange({
-      file: { ...targetItem },
-      fileList: getFileList().concat(),
-    });
+    onInternalChange(wrapFile(targetItem), [...mergedFileList]);
   };
 
   const onProgress = (e: { percent: number }, file: UploadFile) => {
-    const targetItem = getFileItem(file, getFileList());
+    const targetItem = getFileItem(file, mergedFileList);
     // removed
     if (!targetItem) {
       return;
     }
     targetItem.percent = e.percent;
-    onInternalChange({
-      event: e,
-      file: { ...targetItem },
-      fileList: getFileList().concat(),
-    });
+    onInternalChange(wrapFile(targetItem), [...mergedFileList], e);
   };
 
   const onError = (error: Error, response: any, file: UploadFile) => {
-    const targetItem = getFileItem(file, getFileList());
+    const targetItem = getFileItem(file, mergedFileList);
     // removed
     if (!targetItem) {
       return;
@@ -164,10 +186,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.error = error;
     targetItem.response = response;
     targetItem.status = 'error';
-    onInternalChange({
-      file: { ...targetItem },
-      fileList: getFileList().concat(),
-    });
+    onInternalChange(wrapFile(targetItem), [...mergedFileList]);
   };
 
   const handleRemove = (file: UploadFile) => {
@@ -178,12 +197,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         return;
       }
 
-      const fileList = getFileList();
-      const removedFileList = removeFileItem(file, fileList);
+      const removedFileList = removeFileItem(file, mergedFileList);
 
       if (removedFileList) {
-        currentFile = { ...file, status: 'removed' };
-        fileList?.forEach(item => {
+        currentFile = wrapFile(file);
+        currentFile.status = 'removed';
+        mergedFileList?.forEach(item => {
           const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
           if (item[matchKey] === currentFile[matchKey]) {
             item.status = 'removed';
@@ -191,10 +210,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         });
         upload.current?.abort(currentFile);
 
-        onInternalChange({
-          file: currentFile,
-          fileList: removedFileList,
-        });
+        onInternalChange(currentFile, removedFileList);
       }
     });
   };
@@ -203,43 +219,47 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     setDragState(e.type);
   };
 
-  const beforeUpload = (file: RcFile, fileListArgs: RcFile[]) => {
-    const { beforeUpload: beforeUploadProp } = props;
-    if (!beforeUploadProp) {
-      return true;
-    }
-    const result = beforeUploadProp(file, fileListArgs);
-    if (result === false) {
-      // Get unique file list
-      const uniqueList: UploadFile<any>[] = [];
-      getFileList()
-        .concat(fileListArgs.map(fileToObject))
-        .forEach(f => {
-          if (uniqueList.every(uf => uf.uid !== f.uid)) {
-            uniqueList.push(f);
-          }
-        });
+  const mergedBeforeUpload = async (file: RcFile, fileListArgs: RcFile[]) => {
+    const { beforeUpload, transformFile } = props;
 
-      onInternalChange({
-        file,
-        fileList: uniqueList,
-      });
-      return false;
+    let parsedFile: File | Blob | string = file;
+    if (beforeUpload) {
+      const result = await beforeUpload(file, fileListArgs);
+
+      if (result === false) {
+        return false;
+      }
+
+      // Hack for LIST_IGNORE, we add additional info to remove from the list
+      delete (file as any)[LIST_IGNORE];
+      if ((result as any) === LIST_IGNORE) {
+        Object.defineProperty(file, LIST_IGNORE, {
+          value: true,
+          configurable: true,
+        });
+        return false;
+      }
+
+      if (typeof result === 'object' && result) {
+        parsedFile = result as File;
+      }
     }
-    if (result && (result as PromiseLike<any>).then) {
-      return result;
+
+    if (transformFile) {
+      parsedFile = await transformFile(parsedFile as any);
     }
-    return true;
+
+    return parsedFile as RcFile;
   };
+
   // Test needs
   React.useImperativeHandle(ref, () => ({
     onStart,
     onSuccess,
     onProgress,
     onError,
-    fileList: getFileList(),
+    fileList: mergedFileList,
     upload: upload.current,
-    forceUpdate,
   }));
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -247,13 +267,14 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
   const rcUploadProps = {
+    onBatchStart,
     onStart,
     onError,
     onProgress,
     onSuccess,
     ...props,
     prefixCls,
-    beforeUpload,
+    beforeUpload: mergedBeforeUpload,
     onChange: undefined,
   };
 
@@ -277,7 +298,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           return (
             <UploadList
               listType={listType}
-              items={getFileList(true)}
+              items={mergedFileList}
               previewFile={previewFile}
               onPreview={onPreview}
               onDownload={onDownload}
@@ -306,7 +327,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       prefixCls,
       {
         [`${prefixCls}-drag`]: true,
-        [`${prefixCls}-drag-uploading`]: getFileList().some(file => file.status === 'uploading'),
+        [`${prefixCls}-drag-uploading`]: mergedFileList.some(file => file.status === 'uploading'),
         [`${prefixCls}-drag-hover`]: dragState === 'dragover',
         [`${prefixCls}-disabled`]: disabled,
         [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -365,11 +386,14 @@ interface CompoundedComponent
     React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
   > {
   Dragger: typeof Dragger;
+  LIST_IGNORE: {};
 }
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;
 
 Upload.Dragger = Dragger;
+
+Upload.LIST_IGNORE = LIST_IGNORE;
 
 Upload.displayName = 'Upload';
 

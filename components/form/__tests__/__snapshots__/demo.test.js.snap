@@ -2640,6 +2640,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
+                aria-disabled="false"
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
@@ -2666,6 +2667,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-disabled="false"
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
@@ -2696,13 +2698,9 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
-                aria-valuemax="9007199254740991"
-                aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
                 id="nest-messages_user_age"
-                max="9007199254740991"
-                min="-9007199254740991"
                 role="spinbutton"
                 step="1"
                 value=""
@@ -4347,6 +4345,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
+                aria-disabled="false"
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
@@ -4373,6 +4372,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-disabled="false"
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
@@ -4403,12 +4403,8 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
-                aria-valuemax="9007199254740991"
-                aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
-                max="9007199254740991"
-                min="-9007199254740991"
                 role="spinbutton"
                 step="1"
                 value=""
@@ -5243,6 +5239,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
+                aria-disabled="false"
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
@@ -5269,6 +5266,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-disabled="false"
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
@@ -5305,8 +5303,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 autocomplete="off"
                 class="ant-input-number-input"
                 id="validate_other_input-number"
-                max="10"
-                min="1"
                 role="spinbutton"
                 step="1"
                 value="3"
@@ -7267,6 +7263,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
+                aria-disabled="false"
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
@@ -7293,6 +7290,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-disabled="false"
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
@@ -7323,12 +7321,8 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
-                aria-valuemax="9007199254740991"
-                aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
-                max="9007199254740991"
-                min="-9007199254740991"
                 role="spinbutton"
                 step="1"
                 value=""
@@ -7675,6 +7669,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
+                aria-disabled="false"
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
@@ -7701,6 +7696,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-disabled="false"
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
@@ -7736,8 +7732,6 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-valuenow="11"
                 autocomplete="off"
                 class="ant-input-number-input"
-                max="12"
-                min="8"
                 role="spinbutton"
                 step="1"
                 value="11"
