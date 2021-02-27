@@ -73,8 +73,10 @@ describe('Form.typescript', () => {
       <Form<FormValues>>
         <Form.Item<FormValues>>
           {({ getFieldsValue }) => {
-            const values: FormValues = getFieldsValue();
+            const values = getFieldsValue();
             expect(values).toBeTruthy();
+            expect(values.username).toBeTruthy();
+            expect(values.path1?.path2).toBeTruthy();
             return null;
           }}
         </Form.Item>
