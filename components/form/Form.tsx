@@ -9,8 +9,9 @@ import { ColProps } from '../grid/col';
 import { ConfigContext } from '../config-provider';
 import { FormContext, FormContextProps } from './context';
 import { FormLabelAlign } from './interface';
-import useForm, { FormInstance } from './hooks/useForm';
+import useForm, { FormInstance, getNodeByClass } from './hooks/useForm';
 import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
+import { toArray, getFieldId } from './util';
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -85,6 +86,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   const [wrapForm] = useForm(form);
   const { __INTERNAL__ } = wrapForm;
   __INTERNAL__.name = name;
+  __INTERNAL__.prefixCls = prefixCls;
 
   const formContextValue = useMemo<FormContextProps>(
     () => ({
@@ -111,7 +113,17 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       if (typeof scrollToFirstError === 'object') {
         defaultScrollToFirstError = scrollToFirstError;
       }
-      wrapForm.scrollToField(errorInfo.errorFields[0].name, defaultScrollToFirstError);
+
+      const namePath = toArray(errorInfo.errorFields[0].name);
+      const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
+      const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+      if (node) {
+        const formDom = getNodeByClass(node, prefixCls);
+        const errorNode: HTMLElement | null = formDom
+          ? formDom.querySelector(`.${prefixCls}-item-explain-error`)
+          : null;
+        wrapForm.scrollToField(errorNode || node, defaultScrollToFirstError);
+      }
     }
   };
 

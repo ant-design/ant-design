@@ -190,7 +190,7 @@ describe('Form', () => {
           block: 'start',
         });
 
-        const inputNode = document.querySelector('.ant-form-item-control-input-content');
+        const inputNode = document.querySelector('.ant-form-item-control');
         expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
           block: 'start',
           scrollMode: 'if-needed',
@@ -238,7 +238,7 @@ describe('Form', () => {
     expect(scrollIntoView).not.toHaveBeenCalled();
     wrapper.find('form').simulate('submit');
     await sleep(50);
-    const inputNode = document.querySelector('.ant-form-item-control-input-content');
+    const inputNode = document.querySelector('.ant-form-item-control');
     expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
       block: 'center',
       scrollMode: 'if-needed',
