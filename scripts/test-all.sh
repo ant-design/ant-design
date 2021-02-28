@@ -1,8 +1,5 @@
 #!/bin/sh
 
-echo "[CLEAN] clean"
-npm run clean
-
 echo "[TEST ALL] test changlog"
 node ./scripts/check-version-md.js
 
@@ -12,12 +9,15 @@ npm run check-commit
 echo "[TEST ALL] lint"
 npm run lint
 
-echo "[TEST ALL] dist"
-npm run dist
+if [ "$1" != "--skip-build" ]; then
+  echo "[TEST ALL] dist"
+  npm run dist
 
-echo "[TEST ALL] compile"
-npm run compile
-
+  echo "[TEST ALL] compile"
+  npm run compile
+else
+  echo "Skip build..."	
+fi
 
 echo "[TEST ALL] dekko dist"
 node ./tests/dekko/dist.test.js

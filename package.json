@@ -59,7 +59,7 @@
     "predist": "npm run version",
     "presite": "npm run version",
     "color-less": "node ./scripts/generate-color-less",
-    "compile": "antd-tools run compile",
+    "compile": "npm run clean && antd-tools run compile",
     "compile:less": "antd-tools run compile:less",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
