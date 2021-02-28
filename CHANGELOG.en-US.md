@@ -15,6 +15,33 @@ timeline: true
 
 ---
 
+## 4.13.0
+
+`2021-02-28`
+
+- 🐞 Fix Table `pagination.current` display error when result of filter is empty. [#29386](https://github.com/ant-design/ant-design/pull/29386) [@jinchaofs](https://github.com/jinchaofs)
+- 🐞 Fix Anchor throws error when `target` don't return a html element. [#29523](https://github.com/ant-design/ant-design/pull/29523) [@bcd337](https://github.com/bcd337)
+- 🆕 Upload support `beforeUpload` return `Upload.LIST_IGNORE` to skip item added in UploadList. [#29474](https://github.com/ant-design/ant-design/pull/29474)
+- 🐞 Fix Steps with small size that icon shift up `1px`. [#29484](https://github.com/ant-design/ant-design/pull/29484)
+- Select
+  - 🐞 Fix Select `mode="tags"` large size (41px => 40px). [#29437](https://github.com/ant-design/ant-design/pull/29437)
+  - 📖 Update Select debounce demo to create DebounceSelect component for easy usage. [#29414](https://github.com/ant-design/ant-design/pull/29414)
+- Dropdown
+  - 🐞 Fix Dropdown menu item lost disable style with icon. [#29433](https://github.com/ant-design/ant-design/pull/29433)
+  - 🐞 Fix Dropdown menu not support `expandIcon`. [#29338](https://github.com/ant-design/ant-design/pull/29338)
+- 🔥 InputNumber support `stringMode` for high precision `step`. `value` in control out of range shows warning style instead of changing it. Dynamic update `min` &amp; `max` will not trigger `onChange` anymore. [#29373](https://github.com/ant-design/ant-design/pull/29373)
+- 🆕 Image support config motion name. [#29394](https://github.com/ant-design/ant-design/pull/29394) [@crazyair](https://github.com/crazyair)
+- ConfigProvider
+  - 🆕 ConfigProvider support global statistic config to support some statistic function call. [#29285](https://github.com/ant-design/ant-design/pull/29285) [@crazyair](https://github.com/crazyair)
+  - 🆕 Motion related css `className` prepend `ant-` prefix to avoid naming conflict. [#29268](https://github.com/ant-design/ant-design/pull/29268) [@crazyair](https://github.com/crazyair)
+- 🆕 Form.List nest multiple level Form.Item support `preserve` prop. [#29267](https://github.com/ant-design/ant-design/pull/29267)
+- 🆕 Drawer support `contentWrapperStyle`. [#29219](https://github.com/ant-design/ant-design/pull/29219) [@kerm1it](https://github.com/kerm1it)
+- 🆕 Layout.Sider added ref support. [#29169](https://github.com/ant-design/ant-design/pull/29169) [@qramilq](https://github.com/qramilq)
+
+- TypeScript
+  - 🤖 Fix Form.Item generic definition issue. [#29397](https://github.com/ant-design/ant-design/pull/29397) [@mumiao](https://github.com/mumiao)
+  - 🤖 Optimize Table `filter` definition. [#29385](https://github.com/ant-design/ant-design/pull/29385) [@mumiao](https://github.com/mumiao)
+
 ## 4.12.3
 
 `2021-02-10`
