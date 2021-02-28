@@ -82,26 +82,26 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 ### Select Methods
 
-| 名称    | 说明     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 取消焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称 | 说明 | 版本 |
+| --- | --- | --- |
+| blur() | 取消焦点 |  |
+| focus() | 获取焦点 |  |
 
 ### Option props
 
-| 参数      | 说明                              | 类型             | 默认值 | 版本 |
-| --------- | --------------------------------- | ---------------- | ------ | ---- |
-| className | Option 器类名                     | string           | -      |      |
-| disabled  | 是否禁用                          | boolean          | false  |      |
-| title     | 选中该 Option 后，Select 的 title | string           | -      |      |
-| value     | 默认根据此属性值进行筛选          | string \| number | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| className | Option 器类名 | string | - |  |
+| disabled | 是否禁用 | boolean | false |  |
+| title | 选中该 Option 后，Select 的 title | string | - |  |
+| value | 默认根据此属性值进行筛选 | string \| number | - |  |
 
 ### OptGroup props
 
-| 参数  | 说明 | 类型                    | 默认值 | 版本 |
-| ----- | ---- | ----------------------- | ------ | ---- |
-| key   | Key  | string                  | -      |      |
-| label | 组名 | string \| React.Element | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| key | Key | string | - |  |
+| label | 组名 | string \| React.Element | - |  |
 
 ## FAQ
 
