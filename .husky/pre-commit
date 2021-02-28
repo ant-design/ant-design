@@ -1,0 +1,1 @@
+pretty-quick --staged
