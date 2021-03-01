@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
 import { placements as Placements } from 'rc-tooltip/lib/placements';
@@ -133,13 +134,10 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     ConfigContext,
   );
 
-  const [visible, setVisible] = React.useState(!!props.visible || !!props.defaultVisible);
-
-  React.useEffect(() => {
-    if ('visible' in props) {
-      setVisible(props.visible!);
-    }
-  }, [props.visible]);
+  const [visible, setVisible] = useMergedState(false, {
+    value: props.visible,
+    defaultValue: props.defaultVisible,
+  });
 
   const isNoTitle = () => {
     const { title, overlay } = props;
@@ -147,9 +145,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   };
 
   const onVisibleChange = (vis: boolean) => {
-    if (!('visible' in props)) {
-      setVisible(isNoTitle() ? false : vis);
-    }
+    setVisible(isNoTitle() ? false : vis);
+
     if (!isNoTitle()) {
       props.onVisibleChange?.(vis);
     }
@@ -259,7 +256,10 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName)}
+      motion={{
+        motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
+        motionDeadline: 1000,
+      }}
     >
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
