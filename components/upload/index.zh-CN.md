@@ -53,12 +53,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| uid | 唯一标识符，不设置时会自动生成 | string | - |
 | name | 文件名 | string | - |
-| url | 下载地址 | string | - |
-| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
 | percent | 上传进度 | number | - |
+| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
 | thumbUrl | 缩略图地址 | string | - |
+| uid | 唯一标识符，不设置时会自动生成 | string | - |
+| url | 下载地址 | string | - |
 
 ### onChange
 

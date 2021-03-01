@@ -147,9 +147,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 ### ColumnGroup
 
-| Property | Description               | Type      | Default |
-| -------- | ------------------------- | --------- | ------- |
-| title    | Title of the column group | ReactNode | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| title | Title of the column group | ReactNode | - |
 
 ### pagination
 
@@ -167,8 +167,8 @@ Properties for expandable.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| columnWidth | Set the width of the expand column | string \| number | - |
 | childrenColumnName | The column contains children to display | string | children |
+| columnWidth | Set the width of the expand column | string \| number | - |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |

@@ -52,12 +52,12 @@ Extends File with additional props.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| uid | unique id. Will auto generate when not provided | string | - |
 | name | File name | string | - |
-| url | Download url | string | - |
-| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
 | percent | Upload progress percent | number | - |
+| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
 | thumbUrl | Thumb image url | string | - |
+| uid | unique id. Will auto generate when not provided | string | - |
+| url | Download url | string | - |
 
 ### onChange
 
