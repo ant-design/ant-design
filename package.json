@@ -143,7 +143,7 @@
     "rc-table": "~7.13.0",
     "rc-tabs": "~11.7.0",
     "rc-textarea": "~0.3.0",
-    "rc-tooltip": "~5.0.0",
+    "rc-tooltip": "~5.1.0",
     "rc-tree": "~4.1.0",
     "rc-tree-select": "~4.3.0",
     "rc-trigger": "^5.2.1",
