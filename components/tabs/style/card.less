@@ -28,11 +28,11 @@
   &.@{tab-prefix-cls}-bottom {
     > .@{tab-prefix-cls}-nav,
     > div > .@{tab-prefix-cls}-nav {
-      .@{tab-prefix-cls}-tab:not(:last-of-type) {
-        margin-right: @tabs-card-gutter;
+      .@{tab-prefix-cls}-tab {
+        margin-left: @tabs-card-gutter;
       }
-      .@{tab-prefix-cls}-tab:nth-last-child(2) {
-        margin-right: 0;
+      .@{tab-prefix-cls}-tab:first-of-type {
+        margin-left: 0;
       }
     }
   }
@@ -67,11 +67,11 @@
   &.@{tab-prefix-cls}-right {
     > .@{tab-prefix-cls}-nav,
     > div > .@{tab-prefix-cls}-nav {
-      .@{tab-prefix-cls}-tab:not(:last-of-type) {
-        margin-bottom: @tabs-card-gutter;
+      .@{tab-prefix-cls}-tab {
+        margin-top: @tabs-card-gutter;
       }
-      .@{tab-prefix-cls}-tab:nth-last-child(2) {
-        margin-bottom: 0;
+      .@{tab-prefix-cls}-tab:first-of-type {
+        margin-top: 0;
       }
     }
   }

@@ -196,11 +196,9 @@
     }
   }
 
-  // last child is div.ant-tabs-ink-bar, so it is invalid.
-  // and :last-of-type(and nth-last-child) just valid for HTML Tag(eg: div).
-  &-nav &-tab:nth-last-child(2) {
+  &-nav &-tab:first-of-type {
+    margin-top: 0;
     margin-right: 0;
-    margin-bottom: 0;
     margin-left: 0;
   }
 
