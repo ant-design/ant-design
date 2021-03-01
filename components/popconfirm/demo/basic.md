@@ -3,7 +3,6 @@ order: 0
 title:
   zh-CN: 基本
   en-US: Basic
-only: true
 ---
 
 ## zh-CN
@@ -15,11 +14,27 @@ only: true
 The basic example.
 
 ```jsx
-import { Popconfirm, Button } from 'antd';
+import { Popconfirm, message } from 'antd';
+
+function confirm(e) {
+  console.log(e);
+  message.success('Click on Yes');
+}
+
+function cancel(e) {
+  console.log(e);
+  message.error('Click on No');
+}
 
 ReactDOM.render(
-  <Popconfirm visible title="123">
-    <Button type="primary">Button</Button>
+  <Popconfirm
+    title="Are you sure to delete this task?"
+    onConfirm={confirm}
+    onCancel={cancel}
+    okText="Yes"
+    cancelText="No"
+  >
+    <a href="#">Delete</a>
   </Popconfirm>,
   mountNode,
 );
