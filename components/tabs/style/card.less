@@ -67,11 +67,8 @@
   &.@{tab-prefix-cls}-right {
     > .@{tab-prefix-cls}-nav,
     > div > .@{tab-prefix-cls}-nav {
-      .@{tab-prefix-cls}-tab {
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
         margin-top: @tabs-card-gutter;
-      }
-      .@{tab-prefix-cls}-tab:first-of-type {
-        margin-top: 0;
       }
     }
   }

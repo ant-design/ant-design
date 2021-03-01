@@ -127,7 +127,6 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    margin: @tabs-horizontal-margin;
     padding: @tabs-horizontal-padding;
     font-size: @tabs-title-font-size;
     background: transparent;
@@ -196,10 +195,8 @@
     }
   }
 
-  &-nav &-tab:first-of-type {
-    margin-top: 0;
-    margin-right: 0;
-    margin-left: 0;
+  &-tab + &-tab {
+    margin: @tabs-horizontal-margin;
   }
 
   // =========================== TabPanes ===========================

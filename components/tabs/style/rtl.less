@@ -56,15 +56,10 @@
     &.@{tab-prefix-cls}-bottom {
       > .@{tab-prefix-cls}-nav,
       > div > .@{tab-prefix-cls}-nav {
-        .@{tab-prefix-cls}-tab {
+        .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
           .@{tab-prefix-cls}-rtl& {
             margin-right: 0;
             margin-left: @tabs-card-gutter;
-          }
-        }
-        .@{tab-prefix-cls}-tab:first-of-type {
-          .@{tab-prefix-cls}-rtl& {
-            margin-left: 0;
           }
         }
       }
