@@ -28,11 +28,8 @@
   &.@{tab-prefix-cls}-bottom {
     > .@{tab-prefix-cls}-nav,
     > div > .@{tab-prefix-cls}-nav {
-      .@{tab-prefix-cls}-tab {
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
         margin-left: @tabs-card-gutter;
-      }
-      .@{tab-prefix-cls}-tab:first-of-type {
-        margin-left: 0;
       }
     }
   }
