@@ -73,6 +73,17 @@ describe('TimePicker', () => {
     expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
   });
 
+  it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
+    const popupClassName = 'myCustomClassName';
+    const wrapper = mount(
+      <TimePicker.RangePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        popupClassName={popupClassName}
+      />,
+    );
+    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
+  });
+
   it('should support bordered', () => {
     const wrapper = mount(
       <TimePicker
