@@ -6,6 +6,7 @@ import Modal from '..';
 import { destroyFns } from '../Modal';
 import { sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import { resetWarned } from 'rc-util/lib/warning';
 
 const { confirm } = Modal;
 
@@ -482,10 +483,17 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('should be able to config rootPrefixCls', () => {
+    resetWarned();
+
     jest.useFakeTimers();
+
     Modal.config({
       rootPrefixCls: 'my',
     });
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] Modal.config is deprecated. Please use ConfigProvider.config instead.',
+    );
+
     confirm({
       title: 'title',
     });

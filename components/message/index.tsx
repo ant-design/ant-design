@@ -34,7 +34,6 @@ export interface ConfigOptions {
   top?: number;
   duration?: number;
   prefixCls?: string;
-  rootPrefixCls?: string;
   getContainer?: () => HTMLElement;
   transitionName?: string;
   maxCount?: number;
