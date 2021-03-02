@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import ReactDOMServer from 'react-dom/server';
+import { mount, render } from 'enzyme';
 import { Col, Row } from '..';
 // eslint-disable-next-line no-unused-vars
 import * as styleChecker from '../../_util/styleChecker';
@@ -25,5 +26,28 @@ describe('Grid.Gap', () => {
         marginRight: -8,
       }),
     );
+  });
+
+  it('not break ssr', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const Demo = () => (
+      <Row gutter={[16, 8]}>
+        <Col />
+      </Row>
+    );
+
+    const div = document.createElement('div');
+
+    const ssrTxt = ReactDOMServer.renderToString(<Demo />);
+    div.innerHTML = ssrTxt;
+
+    const wrapper = mount(<Demo />, { hydrateIn: div });
+
+    expect(warnSpy).not.toHaveBeenCalled();
+
+    warnSpy.mockRestore();
+
+    wrapper.unmount();
   });
 });

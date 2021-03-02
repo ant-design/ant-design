@@ -8,7 +8,7 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
-import useFlexGutterSupport from './hooks/useFlexGutterSupport';
+import useFlexGapSupport from './hooks/useFlexGapSupport';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
@@ -46,7 +46,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     xxl: true,
   });
 
-  const supportFlexGutter = useFlexGutterSupport();
+  const supportFlexGap = useFlexGapSupport();
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
@@ -106,7 +106,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   rowStyle.marginLeft = horizontalGutter;
   rowStyle.marginRight = horizontalGutter;
 
-  if (supportFlexGutter) {
+  if (supportFlexGap) {
     // Set gap direct if flex gap support
     [, rowStyle.rowGap] = gutters;
   } else {
@@ -114,10 +114,10 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginBottom = verticalGutter;
   }
 
-  const rowContext = React.useMemo(() => ({ gutter: gutters, wrap, supportFlexGutter }), [
+  const rowContext = React.useMemo(() => ({ gutter: gutters, wrap, supportFlexGap }), [
     gutters,
     wrap,
-    supportFlexGutter,
+    supportFlexGap,
   ]);
 
   return (
