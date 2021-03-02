@@ -135,4 +135,32 @@ describe('Modal.hook', () => {
 
     expect(wrapper.find('.ant-modal-confirm-title').text()).toEqual('Bamboo');
   });
+
+  it('destroy before render', () => {
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      const openBrokenModal = React.useCallback(() => {
+        const instance = modal.info({
+          title: 'Light',
+        });
+
+        instance.destroy();
+      }, [modal]);
+
+      return (
+        <div className="App">
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+            Test hook modal
+          </div>
+        </div>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    wrapper.find('.open-hook-modal-btn').simulate('click');
+
+    expect(wrapper.exists('.ant-modal-confirm-title')).toBeFalsy();
+  });
 });
