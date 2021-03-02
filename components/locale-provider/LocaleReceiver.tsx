@@ -30,9 +30,13 @@ export default class LocaleReceiver extends React.Component<LocaleReceiverProps>
       defaultLocale || (defaultLocaleData as LocaleInterface)[componentName || 'global'];
     const antLocale = this.context;
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
+
+    const _locale = typeof locale === 'function' ? locale() : locale;
+
     return {
-      ...(typeof locale === 'function' ? locale() : locale),
       ...(localeFromContext || {}),
+      ..._locale,
+      lang: { ...localeFromContext.lang, ..._locale.lang },
     };
   }
 
