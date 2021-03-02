@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigContext } from '../config-provider';
-import { detectFlexGapSupported } from '../_util/styleChecker';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -48,7 +47,7 @@ function parseFlex(flex: FlexType): string {
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { gutter, wrap } = React.useContext(RowContext);
+  const { gutter, wrap, supportFlexGutter } = React.useContext(RowContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -112,7 +111,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   // Vertical gutter use padding when gap not support
-  if (gutter && gutter[1] > 0 && !detectFlexGapSupported()) {
+  if (gutter && gutter[1] > 0 && !supportFlexGutter) {
     const verticalGutter = gutter[1] / 2;
     mergedStyle.paddingTop = verticalGutter;
     mergedStyle.paddingBottom = verticalGutter;
