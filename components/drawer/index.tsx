@@ -40,6 +40,7 @@ export interface DrawerProps {
   drawerStyle?: React.CSSProperties;
   headerStyle?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
+  contentWrapperStyle?: React.CSSProperties;
   title?: React.ReactNode;
   visible?: boolean;
   width?: number | string;

@@ -11,6 +11,9 @@ describe('Drawer.typescript', () => {
         closable={false}
         onClose={onClose}
         visible={false}
+        contentWrapperStyle={{
+          background: '#f00',
+        }}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
