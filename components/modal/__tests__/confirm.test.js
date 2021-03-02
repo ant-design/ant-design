@@ -2,6 +2,7 @@ import TestUtils, { act } from 'react-dom/test-utils';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { resetWarned } from 'rc-util/lib/warning';
 import Modal from '..';
 import { destroyFns } from '../Modal';
 import { sleep } from '../../../tests/utils';
@@ -482,10 +483,17 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('should be able to config rootPrefixCls', () => {
+    resetWarned();
+
     jest.useFakeTimers();
+
     Modal.config({
       rootPrefixCls: 'my',
     });
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] Modal.config is deprecated. Please use ConfigProvider.config instead.',
+    );
+
     confirm({
       title: 'title',
     });
