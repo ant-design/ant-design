@@ -76,6 +76,25 @@ describe('message.config', () => {
       duration: 3,
     });
   });
+
+  it('customize prefix should auto get transition prefixCls', () => {
+    message.config({
+      prefixCls: 'light-message',
+    });
+
+    message.info('bamboo');
+
+    expect(getInstance().config).toEqual(
+      expect.objectContaining({
+        transitionName: 'light-move-up',
+      }),
+    );
+
+    message.config({
+      prefixCls: '',
+    });
+  });
+
   it('should be able to global config rootPrefixCls', () => {
     ConfigProvider.config({ prefixCls: 'prefix-test' });
     message.info('last');

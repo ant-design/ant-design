@@ -79,31 +79,36 @@ function getRCNotificationInstance(
   }) => void,
 ) {
   const { prefixCls: customizePrefixCls } = args;
-  const { getPrefixCls } = globalConfig();
+  const { getPrefixCls, getRootPrefixCls } = globalConfig();
   const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
-  const rootPrefixCls = getPrefixCls(undefined, args.rootPrefixCls);
+  const rootPrefixCls = getRootPrefixCls(args.rootPrefixCls, prefixCls);
 
   if (messageInstance) {
     callback({ prefixCls, rootPrefixCls, instance: messageInstance });
     return;
   }
-  RCNotification.newInstance(
-    {
-      prefixCls,
-      transitionName: hasTransitionName ? transitionName : `${rootPrefixCls}-${transitionName}`,
-      style: { top: defaultTop }, // 覆盖原来的样式
-      getContainer,
-      maxCount,
-    },
-    (instance: any) => {
-      if (messageInstance) {
-        callback({ prefixCls, rootPrefixCls, instance: messageInstance });
-        return;
-      }
-      messageInstance = instance;
-      callback({ prefixCls, rootPrefixCls, instance });
-    },
-  );
+
+  const instanceConfig = {
+    prefixCls,
+    transitionName: hasTransitionName ? transitionName : `${rootPrefixCls}-${transitionName}`,
+    style: { top: defaultTop }, // 覆盖原来的样式
+    getContainer,
+    maxCount,
+  };
+
+  RCNotification.newInstance(instanceConfig, (instance: any) => {
+    if (messageInstance) {
+      callback({ prefixCls, rootPrefixCls, instance: messageInstance });
+      return;
+    }
+    messageInstance = instance;
+
+    if (process.env.NODE_ENV === 'test') {
+      (messageInstance as any).config = instanceConfig;
+    }
+
+    callback({ prefixCls, rootPrefixCls, instance });
+  });
 }
 
 export interface ThenableArgument {
