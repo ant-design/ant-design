@@ -85,7 +85,6 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   const [wrapForm] = useForm(form);
   const { __INTERNAL__ } = wrapForm;
   __INTERNAL__.name = name;
-  __INTERNAL__.prefixCls = prefixCls;
 
   const formContextValue = useMemo<FormContextProps>(
     () => ({
@@ -116,7 +115,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       }
       let errorNode: HTMLElement | null = null;
       if (formRef.current) {
-        errorNode = formRef.current.querySelector(`.${prefixCls}-item-explain-error`);
+        errorNode = formRef.current.querySelector('[data-scroll="form-item-error-alert"]');
       }
       wrapForm.scrollToField(errorNode || errorInfo.errorFields[0].name, defaultScrollToFirstError);
     }

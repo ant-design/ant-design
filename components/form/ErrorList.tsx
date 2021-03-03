@@ -86,7 +86,7 @@ export default function ErrorList({
         >
           {memoErrors.map((error, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <div key={index} role="alert">
+            <div key={index} role="alert" data-scroll="form-item-error-alert">
               {error}
             </div>
           ))}

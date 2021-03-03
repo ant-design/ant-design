@@ -10,7 +10,6 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   __INTERNAL__: {
     /** No! Do not use this in your code! */
     name?: string;
-    prefixCls?: string;
     /** No! Do not use this in your code! */
     itemRef: (name: InternalNamePath) => (node: React.ReactElement) => void;
   };
@@ -22,14 +21,14 @@ function toNamePathStr(name: NamePath) {
   return namePath.join('_');
 }
 
-export function getNodeByClass(node: HTMLElement, className: string): HTMLElement {
+export function getNodeByDataScroll(node: HTMLElement, dataScroll: string): HTMLElement {
   let newNode: HTMLElement | null = node.parentElement;
   let rtNode: HTMLElement | null = null;
   let levelCount = 8;
   do {
     if (!newNode) return node;
     // find dom that's classname include ant-form-item-control
-    if (newNode?.className.split(' ').includes(className)) {
+    if (newNode?.dataset?.scroll === dataScroll) {
       rtNode = newNode;
       break;
     }
@@ -68,7 +67,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           }
 
           if (node) {
-            const newNode = getNodeByClass(node, `${wrapForm.__INTERNAL__.prefixCls}-item-control`);
+            const newNode = getNodeByDataScroll(node, 'form-item');
             scrollIntoView(newNode, {
               scrollMode: 'if-needed',
               block: 'nearest',
