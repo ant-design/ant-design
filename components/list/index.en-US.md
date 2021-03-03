@@ -23,7 +23,7 @@ A list can be used to display content related to a single subject. The content c
 | footer | List footer renderer | ReactNode | - |  |
 | grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | [object](#List-grid-props) | - |  |
 | header | List header renderer | ReactNode | - |  |
-| itemLayout | The layout of list, default is `horizontal`, If a vertical list is desired, set the itemLayout property to `vertical` | string | - |  |
+| itemLayout | The layout of list | `horizontal` \| `vertical` | `horizontal` |  |
 | loading | Shows a loading indicator while the contents of the list are being fetched | boolean \| [SpinProps](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | Shows a load more content | ReactNode | - |  |
 | locale | The i18n text including empty text | object | {emptyText: `No Data`} |  |
