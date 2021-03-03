@@ -9,9 +9,8 @@ import { ColProps } from '../grid/col';
 import { ConfigContext } from '../config-provider';
 import { FormContext, FormContextProps } from './context';
 import { FormLabelAlign } from './interface';
-import useForm, { FormInstance, getNodeByClass } from './hooks/useForm';
+import useForm, { FormInstance } from './hooks/useForm';
 import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
-import { toArray, getFieldId } from './util';
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -104,6 +103,8 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
 
   React.useImperativeHandle(ref, () => wrapForm);
 
+  const formRef = React.useRef<HTMLElement>();
+
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
     onFinishFailed?.(errorInfo);
 
@@ -113,17 +114,11 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       if (typeof scrollToFirstError === 'object') {
         defaultScrollToFirstError = scrollToFirstError;
       }
-
-      const namePath = toArray(errorInfo.errorFields[0].name);
-      const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-      const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
-      if (node) {
-        const formDom = getNodeByClass(node, prefixCls);
-        const errorNode: HTMLElement | null = formDom
-          ? formDom.querySelector(`.${prefixCls}-item-explain-error`)
-          : null;
-        wrapForm.scrollToField(errorNode || node, defaultScrollToFirstError);
+      let errorNode: HTMLElement | null = null;
+      if (formRef.current) {
+        errorNode = formRef.current.querySelector(`.${prefixCls}-item-explain-error`);
       }
+      wrapForm.scrollToField(errorNode || errorInfo.errorFields[0].name, defaultScrollToFirstError);
     }
   };
 
@@ -137,6 +132,9 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
           onFinishFailed={onInternalFinishFailed}
           form={wrapForm}
           className={formClassName}
+          getFormDom={(formDom: HTMLElement) => {
+            formRef.current = formDom;
+          }}
         />
       </FormContext.Provider>
     </SizeContextProvider>

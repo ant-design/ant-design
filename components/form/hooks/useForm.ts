@@ -57,9 +57,9 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
             }
           },
         },
-        scrollToField: (name: string | HTMLElement, options: ScrollOptions = {}) => {
+        scrollToField: (name: InternalNamePath | HTMLElement, options: ScrollOptions = {}) => {
           let node: HTMLElement | null = null;
-          if (typeof name === 'string') {
+          if (Array.isArray(name)) {
             const namePath = toArray(name);
             const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
             node = fieldId ? document.getElementById(fieldId) : null;
