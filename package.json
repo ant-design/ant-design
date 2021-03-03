@@ -233,7 +233,7 @@
     "lz-string": "^1.4.4",
     "mockdate": "^3.0.0",
     "node-fetch": "^2.6.0",
-    "open": "^7.0.3",
+    "open": "^8.0.1",
     "prettier": "^2.2.0",
     "prettier-plugin-jsdoc": "^0.3.0",
     "pretty-quick": "^3.0.0",
