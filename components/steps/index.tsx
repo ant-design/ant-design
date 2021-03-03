@@ -97,7 +97,7 @@ const Steps: StepsType = props => {
   return (
     <RcSteps
       icons={icons}
-      {...omit(props, ['percent'])}
+      {...omit(props, ['percent', 'responsive'])}
       direction={getDirection()}
       stepIcon={stepIconRender}
       prefixCls={prefixCls}
