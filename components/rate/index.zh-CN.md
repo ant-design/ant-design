@@ -36,7 +36,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/R5uiIWmxe/Rate.svg
 
 ## 方法
 
-| 名称    | 描述     |
-| ------- | -------- |
-| blur()  | 移除焦点 |
+| 名称 | 描述 |
+| --- | --- |
+| blur() | 移除焦点 |
 | focus() | 获取焦点 |

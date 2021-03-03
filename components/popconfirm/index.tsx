@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
@@ -39,27 +40,16 @@ export interface PopconfirmLocale {
 }
 
 const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
-  const [visible, setVisible] = React.useState(props.visible);
-
-  React.useEffect(() => {
-    if ('visible' in props) {
-      setVisible(props.visible);
-    }
-  }, [props.visible]);
-
-  React.useEffect(() => {
-    if ('defaultVisible' in props) {
-      setVisible(props.defaultVisible);
-    }
-  }, [props.defaultVisible]);
+  const [visible, setVisible] = useMergedState(false, {
+    value: props.visible,
+    defaultValue: props.defaultVisible,
+  });
 
   const settingVisible = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    if (!('visible' in props)) {
-      setVisible(value);
-    }
+    setVisible(value);
 
     props.onVisibleChange?.(value, e);
   };

@@ -58,6 +58,7 @@ export interface TransferLocale {
   removeAll: string;
   removeCurrent: string;
 }
+
 export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
@@ -76,14 +77,7 @@ export interface TransferProps<RecordType> {
   showSearch?: boolean;
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?: (
-    props: TransferListProps<RecordType>,
-  ) =>
-    | React.ReactNode
-    | {
-        source?: React.ReactNode;
-        target?: React.ReactNode;
-      };
+  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;

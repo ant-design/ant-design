@@ -27,7 +27,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | [RecordType extends TransferItem = TransferItem](https://git.io/vMM64)\[] | \[] |  |
 | disabled | 是否禁用 | boolean | false |  |
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue, option): boolean | - |  |
-| footer | 底部渲染函数 | (props) => ReactNode \| { source: ReactNode, target: ReactNode } | - | { source: ReactNode, target: ReactNode }: 4.12.3 |
+| footer | 底部渲染函数 | (props) => ReactNode | - |  |
 | listStyle | 两个穿梭框的自定义样式 | object\|({direction: `left` \| `right`}) => object | - |  |
 | locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` } |  |
 | oneWay | 展示为单向样式 | boolean | false | 4.3.0 |
@@ -49,14 +49,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 
 Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数：
 
-| 参数            | 说明           | 类型                                 | 版本 |
-| --------------- | -------------- | ------------------------------------ | ---- |
-| direction       | 渲染列表的方向 | `left` \| `right`                    |      |
-| disabled        | 是否禁用列表   | boolean                              |      |
-| filteredItems   | 过滤后的数据   | RecordType\[]                        |      |
-| selectedKeys    | 选中的条目     | string\[]                            |      |
-| onItemSelect    | 勾选条目       | (key: string, selected: boolean)     |      |
-| onItemSelectAll | 勾选一组条目   | (keys: string\[], selected: boolean) |      |
+| 参数 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| direction | 渲染列表的方向 | `left` \| `right` |  |
+| disabled | 是否禁用列表 | boolean |  |
+| filteredItems | 过滤后的数据 | RecordType\[] |  |
+| selectedKeys | 选中的条目 | string\[] |  |
+| onItemSelect | 勾选条目 | (key: string, selected: boolean) |  |
+| onItemSelectAll | 勾选一组条目 | (keys: string\[], selected: boolean) |  |
 
 #### 参考示例
 

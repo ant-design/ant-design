@@ -154,9 +154,9 @@ const columns = [
 
 ### ColumnGroup
 
-| 参数  | 说明         | 类型      | 默认值 |
-| ----- | ------------ | --------- | ------ |
-| title | 列头显示文字 | ReactNode | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| title | 列头显示文字 | ReactNode | - |
 
 ### pagination
 
@@ -174,8 +174,8 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| columnWidth | 自定义展开列宽度 | string \| number | - |
 | childrenColumnName | 指定树形结构的列名 | string | children |
+| columnWidth | 自定义展开列宽度 | string \| number | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
 | expandedRowClassName | 展开行的 className | function(record, index, indent): string | - |
@@ -222,11 +222,11 @@ const columns = [
 
 ### selection
 
-| 参数     | 说明                       | 类型                        | 默认值 |
-| -------- | -------------------------- | --------------------------- | ------ |
-| key      | React 需要的 key，建议设置 | string                      | -      |
-| text     | 选择项显示的文字           | ReactNode                   | -      |
-| onSelect | 选择项点击回调             | function(changeableRowKeys) | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| key | React 需要的 key，建议设置 | string | - |
+| text | 选择项显示的文字 | ReactNode | - |
+| onSelect | 选择项点击回调 | function(changeableRowKeys) | - |
 
 ## 在 TypeScript 中使用
 

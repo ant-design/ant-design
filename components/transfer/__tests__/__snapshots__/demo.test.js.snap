@@ -216,7 +216,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-list ant-transfer-list-with-footer"
     style="width:250px;height:300px"
   >
     <div
@@ -351,6 +351,19 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-transfer-list-footer"
+    >
+      <button
+        class="ant-btn ant-btn-sm"
+        style="float:right;margin:5px"
+        type="button"
+      >
+        <span>
+          reload
+        </span>
+      </button>
     </div>
   </div>
 </div>

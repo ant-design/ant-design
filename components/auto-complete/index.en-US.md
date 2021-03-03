@@ -42,10 +42,10 @@ When there is a need for autocomplete functionality.
 
 ## Methods
 
-| Name    | Description  | Version |
-| ------- | ------------ | ------- |
-| blur()  | Remove focus |         |
-| focus() | Get focus    |         |
+| Name | Description | Version |
+| --- | --- | --- |
+| blur() | Remove focus |  |
+| focus() | Get focus |  |
 
 ## FAQ
 

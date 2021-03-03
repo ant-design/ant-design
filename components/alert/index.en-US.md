@@ -30,7 +30,7 @@ Alert component for feedback.
 
 ### Alert.ErrorBoundary
 
-| Property    | Description                      | Type      | Default           | Version |
-| ----------- | -------------------------------- | --------- | ----------------- | ------- |
-| description | Custom error description to show | ReactNode | {{ error stack }} |         |
-| message     | Custom error message to show     | ReactNode | {{ error }}       |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| description | Custom error description to show | ReactNode | {{ error stack }} |  |
+| message | Custom error message to show | ReactNode | {{ error }} |  |

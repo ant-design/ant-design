@@ -37,13 +37,13 @@ To input a value in a range.
 
 ### range
 
-| Property       | Description                     | Type    | Default | Version |
-| -------------- | ------------------------------- | ------- | ------- | ------- |
-| draggableTrack | Whether range track can be drag | boolean | false   | 4.10.0  |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| draggableTrack | Whether range track can be drag | boolean | false | 4.10.0 |
 
 ## Methods
 
-| Name    | Description  | Version |
-| ------- | ------------ | ------- |
-| blur()  | Remove focus |         |
-| focus() | Get focus    |         |
+| Name | Description | Version |
+| --- | --- | --- |
+| blur() | Remove focus |  |
+| focus() | Get focus |  |
