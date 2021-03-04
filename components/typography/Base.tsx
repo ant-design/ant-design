@@ -37,6 +37,8 @@ interface EditConfig {
   tooltip?: boolean | React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
+  onCancel?: () => void;
+  onEnd?: () => void;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
 }
@@ -210,6 +212,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   onEditCancel = () => {
+    this.getEditable().onCancel?.();
     this.triggerEdit(false);
   };
 
@@ -416,12 +419,13 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
-    const { maxLength, autoSize } = this.getEditable();
+    const { maxLength, autoSize, onEnd = () => {} } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
         onSave={this.onEditChange}
         onCancel={this.onEditCancel}
+        onEnd={onEnd}
         prefixCls={this.getPrefixCls()}
         className={className}
         style={style}
