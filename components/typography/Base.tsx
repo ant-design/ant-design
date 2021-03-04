@@ -419,7 +419,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
-    const { maxLength, autoSize, onEnd = () => {} } = this.getEditable();
+    const { maxLength, autoSize, onEnd } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
