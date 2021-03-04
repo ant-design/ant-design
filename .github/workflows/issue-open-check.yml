@@ -8,8 +8,13 @@ jobs:
   check-issue:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions-cool/check-user-permission@v1.0.0
+        id: checkUser
+        with:
+          require: 'write'
+
       - name: check invalid
-        if: contains(github.event.issue.body, 'ant-design-issue-helper') == false
+        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.result == 'false') 
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment,add-labels,close-issue'
