@@ -157,6 +157,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
     const targetItem = wrapFile(file);
     targetItem.status = 'done';
+    targetItem.percent = 100;
     targetItem.response = response;
     targetItem.xhr = xhr;
 
