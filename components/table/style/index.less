@@ -497,8 +497,13 @@
     }
 
     // https://github.com/ant-design/ant-design/issues/25573
-    .@{descriptions-prefix-cls}-view table {
-      width: auto;
+    .@{descriptions-prefix-cls}-view {
+      display: flex;
+
+      table {
+        flex: auto;
+        width: auto;
+      }
     }
   }
 
