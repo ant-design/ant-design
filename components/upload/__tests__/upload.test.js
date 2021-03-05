@@ -635,12 +635,12 @@ describe('Upload', () => {
 
         switch (callTimes) {
           case 1:
+            expect(e.file.originFileObj).toBeTruthy();
             expect(file.status).toBe(undefined);
             break;
 
           case 2:
           case 3:
-            console.log('===>', file.status);
             expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 0 }));
             break;
 

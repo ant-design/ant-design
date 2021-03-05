@@ -129,7 +129,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       }
     });
 
-    onInternalChange(filteredFileInfoList[0]?.file, newFileList);
+    onInternalChange(objectFileList[0], newFileList);
   };
 
   const onStart = (file: RcFile) => {
