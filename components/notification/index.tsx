@@ -189,19 +189,33 @@ export interface ArgsProps {
 }
 
 function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
-  const duration = args.duration === undefined ? defaultDuration : args.duration;
+  const {
+    duration: durationArg,
+    icon,
+    type,
+    description,
+    message,
+    btn,
+    onClose,
+    onClick,
+    key,
+    style,
+    className,
+  } = args;
+
+  const duration = durationArg === undefined ? defaultDuration : durationArg;
 
   let iconNode: React.ReactNode = null;
-  if (args.icon) {
+  if (icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{args.icon}</span>;
-  } else if (args.type) {
-    iconNode = React.createElement(typeToIcon[args.type] || null, {
-      className: `${prefixCls}-icon ${prefixCls}-icon-${args.type}`,
+  } else if (type) {
+    iconNode = React.createElement(typeToIcon[type] || null, {
+      className: `${prefixCls}-icon ${prefixCls}-icon-${type}`,
     });
   }
 
   const autoMarginTag =
-    !args.description && iconNode ? (
+    !description && iconNode ? (
       <span className={`${prefixCls}-message-single-line-auto-margin`} />
     ) : null;
 
@@ -211,19 +225,21 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
         {iconNode}
         <div className={`${prefixCls}-message`}>
           {autoMarginTag}
-          {args.message}
+          {message}
         </div>
-        <div className={`${prefixCls}-description`}>{args.description}</div>
-        {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
+        <div className={`${prefixCls}-description`}>{description}</div>
+        {btn ? <span className={`${prefixCls}-btn`}>{btn}</span> : null}
       </div>
     ),
     duration,
     closable: true,
-    onClose: args.onClose,
-    onClick: args.onClick,
-    key: args.key,
-    style: args.style || {},
-    className: args.className,
+    onClose,
+    onClick,
+    key,
+    style: style || {},
+    className: classNames(className, {
+      [`${prefixCls}-${type}`]: type != null,
+    }),
   };
 }
 
