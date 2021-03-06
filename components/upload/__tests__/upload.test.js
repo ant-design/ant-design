@@ -308,9 +308,7 @@ describe('Upload', () => {
 
       it('Proxy support', () => {
         const file = new File([], 'aaa.zip');
-
         const copiedFile = wrapFile(file);
-        console.log(Object.keys(copiedFile));
         ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
           expect(key in copiedFile).toBe(true);
         });
