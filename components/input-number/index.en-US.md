@@ -25,7 +25,7 @@ When a numeric value needs to be provided.
 | max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
 | parser | Specifies the value extracted from formatter | function(string): number | - | - |
-| precision | The precision of input value | number | - | - |
+| precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - |
 | readOnly | If readonly the input | boolean | false | - |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
@@ -37,10 +37,10 @@ When a numeric value needs to be provided.
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |
 
 ## Notes
 

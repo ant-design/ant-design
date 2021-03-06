@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.13.1
+
+`2021-03-06`
+
+- 🐞 修复 `message.config` 配置 `prefixCls` 时丢失淡入淡出动画的问题。[#29574](https://github.com/ant-design/ant-design/pull/29574)
+- 🐞 修复 Tooltip 在某些情况下设置 `visible` 为 `true` 却无法交互的问题。[#29555](https://github.com/ant-design/ant-design/pull/29555)
+- 🐞 修复多页面使用 ConfigProvider 切换时 `locale` 会丢失的问题。[#29570](https://github.com/ant-design/ant-design/pull/29570)
+- 🐞 修复 Modal 的 hooks 在渲染前调用 `update` 与 `destroy` 无效的问题。[#29584](https://github.com/ant-design/ant-design/pull/29584)
+- 🐞 修复 Grid ssr 时报错 `Prop style did not match`。[#29586](https://github.com/ant-design/ant-design/pull/29586)
+- 🐞 修复小号 Select `tags` 模式的光标错位问题。[#29561](https://github.com/ant-design/ant-design/pull/29561)
+- 🐞 修复 Carousel `dotPosition` 导致 `pauseOnHover` 失效的问题。[#29587](https://github.com/ant-design/ant-design/pull/29587) [@zgoby](https://github.com/zgoby)
+- 🐞 修复 Steps 使用 `responsive` 时控制台抛出警告的问题。[#29599](https://github.com/ant-design/ant-design/pull/29599)
+- 🐞 修复 Upload `onChange` 参数 `file.originFileObj` 返回嵌套 Proxy 对象的问题。[#29614](https://github.com/ant-design/ant-design/pull/29614)
+- 🐞 修复 Descriptions 在 Table 下没有 100% 宽度的问题。[#29630](https://github.com/ant-design/ant-design/pull/29630)
+- TypeScript
+  - 🤖 修复 Drawer `contentWrapperStyle` 属性类型声明。[#29571](https://github.com/ant-design/ant-design/pull/29571)
+
 ## 4.13.0
 
 `2021-02-28`

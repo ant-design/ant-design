@@ -308,9 +308,7 @@ describe('Upload', () => {
 
       it('Proxy support', () => {
         const file = new File([], 'aaa.zip');
-
         const copiedFile = wrapFile(file);
-        console.log(Object.keys(copiedFile));
         ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
           expect(key in copiedFile).toBe(true);
         });
@@ -635,12 +633,12 @@ describe('Upload', () => {
 
         switch (callTimes) {
           case 1:
+            expect(e.file.originFileObj).toBeTruthy();
             expect(file.status).toBe(undefined);
             break;
 
           case 2:
           case 3:
-            console.log('===>', file.status);
             expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 0 }));
             break;
 

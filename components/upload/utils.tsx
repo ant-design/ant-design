@@ -57,6 +57,17 @@ export function wrapFile(file: RcFile | UploadFile): UploadFile {
   } as UploadFile;
 }
 
+export function replaceFileList(file: UploadFile<any>, fileList: UploadFile<any>[]) {
+  const nextFileList = [...fileList];
+  const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === file.uid);
+  if (fileIndex === -1) {
+    nextFileList.push(file);
+  } else {
+    nextFileList[fileIndex] = file;
+  }
+  return nextFileList;
+}
+
 export function getFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   return fileList.filter(item => item[matchKey] === file[matchKey])[0];

@@ -1045,14 +1045,18 @@ describe('Upload List', () => {
 
   it('[deprecated] should support transformFile', done => {
     let wrapper;
+    let lastFile;
 
     const handleTransformFile = jest.fn();
     const onChange = ({ file }) => {
       if (file.status === 'done') {
+        expect(file).not.toBe(lastFile);
         expect(handleTransformFile).toHaveBeenCalled();
         wrapper.unmount();
         done();
       }
+
+      lastFile = file;
     };
     wrapper = mount(
       <Upload

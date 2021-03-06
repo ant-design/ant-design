@@ -14,7 +14,7 @@ import {
   UploadType,
   UploadListType,
 } from './interface';
-import { T, wrapFile, getFileItem, removeFileItem } from './utils';
+import { T, wrapFile, getFileItem, removeFileItem, replaceFileList } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
@@ -129,21 +129,14 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       }
     });
 
-    onInternalChange(filteredFileInfoList[0]?.file, newFileList);
+    onInternalChange(objectFileList[0], newFileList);
   };
 
   const onStart = (file: RcFile) => {
     const targetItem = wrapFile(file);
     targetItem.status = 'uploading';
 
-    const nextFileList = [...mergedFileList];
-
-    const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === targetItem.uid);
-    if (fileIndex === -1) {
-      nextFileList.push(targetItem);
-    } else {
-      nextFileList[fileIndex] = targetItem;
-    }
+    const nextFileList = replaceFileList(targetItem, mergedFileList);
 
     onInternalChange(targetItem, nextFileList);
   };
@@ -156,37 +149,52 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     } catch (e) {
       /* do nothing */
     }
-    const targetItem = getFileItem(file, mergedFileList);
+
     // removed
-    if (!targetItem) {
+    if (!getFileItem(file, mergedFileList)) {
       return;
     }
+
+    const targetItem = wrapFile(file);
     targetItem.status = 'done';
+    targetItem.percent = 100;
     targetItem.response = response;
     targetItem.xhr = xhr;
-    onInternalChange(wrapFile(targetItem), [...mergedFileList]);
+
+    const nextFileList = replaceFileList(targetItem, mergedFileList);
+
+    onInternalChange(targetItem, nextFileList);
   };
 
   const onProgress = (e: { percent: number }, file: UploadFile) => {
-    const targetItem = getFileItem(file, mergedFileList);
     // removed
-    if (!targetItem) {
+    if (!getFileItem(file, mergedFileList)) {
       return;
     }
+
+    const targetItem = wrapFile(file);
+    targetItem.status = 'uploading';
     targetItem.percent = e.percent;
-    onInternalChange(wrapFile(targetItem), [...mergedFileList], e);
+
+    const nextFileList = replaceFileList(targetItem, mergedFileList);
+
+    onInternalChange(targetItem, nextFileList, e);
   };
 
   const onError = (error: Error, response: any, file: UploadFile) => {
-    const targetItem = getFileItem(file, mergedFileList);
     // removed
-    if (!targetItem) {
+    if (!getFileItem(file, mergedFileList)) {
       return;
     }
+
+    const targetItem = wrapFile(file);
     targetItem.error = error;
     targetItem.response = response;
     targetItem.status = 'error';
-    onInternalChange(wrapFile(targetItem), [...mergedFileList]);
+
+    const nextFileList = replaceFileList(targetItem, mergedFileList);
+
+    onInternalChange(targetItem, nextFileList);
   };
 
   const handleRemove = (file: UploadFile) => {

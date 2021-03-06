@@ -11,20 +11,10 @@ import zhCN from '../zh_CN';
 class Demo extends React.Component {
   static defaultProps = {};
 
-  constructor(props) {
-    super(props);
-    console.log('constructor', props.type);
-  }
-
   componentDidMount() {
     if (this.props.type === 'dashboard') {
       Modal.confirm({ title: 'Hello World!' });
     }
-    console.log('componentDidMount', this.props.type);
-  }
-
-  componentWillUnmount() {
-    console.log('componentWillUnmount', this.props.type);
   }
 
   render() {
