@@ -85,7 +85,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | label | Label text | ReactNode | - |  |
 | labelAlign | The text align of label | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
-| messageVariables | default validate filed info | Record&lt;string, string> | - | 4.7.0 |
+| messageVariables | default validate field info | Record&lt;string, string> | - | 4.7.0 |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | normalize | Normalize value from component value before passing to Form instance. Do not support async | (value, prevValue, prevValues) => any | - |  |
 | noStyle | No style for `true`, used as a pure field control | boolean | false |  |
@@ -111,13 +111,13 @@ After wrapped by `Form.Item` with `name` property, `value`(or other property def
 
 Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#components-form-demo-register).
 
-`dependencies` shouldn't be used together with `shouldUpdate`. Since it may cause chaos in updating logic.
+`dependencies` shouldn't be used together with `shouldUpdate`, since it may result in conflicting update logic.
 
 `dependencies` supports `Form.Item` with render props children since `4.5.0`.
 
 ### shouldUpdate
 
-Form updates only the modified field-related components for performance optimization purposes by incremental update. In most cases, you only need to write code or do validation with the [`dependencies`](#dependencies) property. In some specific cases, such as when a new field option appears with a filed value changed, or you just want to keep some area updating by form update, you can modify the update logic of Form.Item via the `shouldUpdate`.
+Form updates only the modified field-related components for performance optimization purposes by incremental update. In most cases, you only need to write code or do validation with the [`dependencies`](#dependencies) property. In some specific cases, such as when a new field option appears with a field value changed, or you just want to keep some area updating by form update, you can modify the update logic of Form.Item via the `shouldUpdate`.
 
 When `shouldUpdate` is `true`, any Form update will cause the Form.Item to be re-rendered. This is very helpful for custom rendering some areas:
 
@@ -187,7 +187,7 @@ Provides array management for fields.
 </Form.List>
 ```
 
-Note: You should not config Form.Item `initialValue` under Form.List. It always should be configured by Form.List `initialValue` or Form `initialValues`.
+Note: You should not configure Form.Item `initialValue` under Form.List. It always should be configured by Form.List `initialValue` or Form `initialValues`.
 
 ## operation
 
@@ -296,7 +296,7 @@ validateFields()
 
 #### Rule
 
-Rule support config object, and also support function to get config object:
+Rule supports a config object, or a function returning config object:
 
 ```tsx
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
@@ -355,7 +355,7 @@ validator(rule, value, callback) => {
 }
 ```
 
-### How does name fill value when it's array?
+### How does `name` fill value when it's an array?
 
 `name` will fill value by array order. When there exists number in it and no related field in form store, it will auto convert field to array. If you want to keep it as object, use string like: `['1', 'name']`.
 
@@ -373,7 +373,7 @@ Components inside Form.Item with name property will turn into controlled mode, w
 
 `ref` only receives the mounted instance. please ref React official doc: <https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs>
 
-### Why `resetFields` will re-mount component?
+### Why will `resetFields` re-mount component?
 
 `resetFields` will re-mount component under Field to clean up customize component side effects (like async data, cached state, etc.). It's by design.
 
@@ -384,7 +384,7 @@ In most case, we always recommend to use Form `initialValues`. Use Item `initial
 1. Form `initialValues` is the first priority
 2. Field `initialValue` is secondary \*. Does not work when multiple Item with same `name` setting the `initialValue`
 
-### Why `onFieldsChange` triggers three times on change when field sets `rules`?
+### Why does `onFieldsChange` trigger three times on change when field sets `rules`?
 
 Validating is also part of the value updating. It pass follow steps:
 
@@ -394,11 +394,11 @@ Validating is also part of the value updating. It pass follow steps:
 
 In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
 
-### Why Form.List do not support `label` and need ErrorList to show errors?
+### Why doesn't Form.List support `label` and need ErrorList to show errors?
 
 Form.List use renderProps which mean internal structure is flexible. Thus `label` and `error` can not have best place. If you want to use antd `label`, you can wrap with Form.Item instead.
 
-### Why Form.Item `dependencies` can not work on Form.List field?
+### Why can't Form.Item `dependencies` work on Form.List field?
 
 Your name path should also contain Form.List `name`:
 
@@ -417,7 +417,7 @@ Your name path should also contain Form.List `name`:
 
 dependencies should be `['users', 0, 'name']`
 
-### Why `normalize` do not support async?
+### Why doesn't `normalize` support async?
 
 React can not get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
 
