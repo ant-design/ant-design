@@ -85,7 +85,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | label | Label text | ReactNode | - |  |
 | labelAlign | The text align of label | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
-| messageVariables | default validate field info | Record&lt;string, string> | - | 4.7.0 |
+| messageVariables | The default validate field info | Record&lt;string, string> | - | 4.7.0 |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | normalize | Normalize value from component value before passing to Form instance. Do not support async | (value, prevValue, prevValues) => any | - |  |
 | noStyle | No style for `true`, used as a pure field control | boolean | false |  |
