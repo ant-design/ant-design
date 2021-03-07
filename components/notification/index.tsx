@@ -238,7 +238,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
     key,
     style: style || {},
     className: classNames(className, {
-      [`${prefixCls}-${type}`]: type != null,
+      [`${prefixCls}-${type}`]: !!type,
     }),
   };
 }
