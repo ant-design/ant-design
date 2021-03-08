@@ -18,7 +18,6 @@ import React, { useState } from 'react';
 import {
   Form,
   Input,
-  Tooltip,
   Cascader,
   Select,
   Row,
@@ -27,7 +26,6 @@ import {
   Button,
   AutoComplete,
 } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
