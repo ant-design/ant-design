@@ -18,7 +18,6 @@ import React, { useState } from 'react';
 import {
   Form,
   Input,
-  Tooltip,
   Cascader,
   Select,
   Row,
@@ -27,7 +26,6 @@ import {
   Button,
   AutoComplete,
 } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -188,14 +186,8 @@ const RegistrationForm = () => {
 
       <Form.Item
         name="nickname"
-        label={
-          <span>
-            Nickname&nbsp;
-            <Tooltip title="What do you want others to call you?">
-              <QuestionCircleOutlined />
-            </Tooltip>
-          </span>
-        }
+        label="Nickname"
+        tooltip="What do you want others to call you?"
         rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
       >
         <Input />

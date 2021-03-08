@@ -14,45 +14,39 @@ title:
 The most basic usage.
 
 ```jsx
+import { useState } from 'react';
 import { TreeSelect } from 'antd';
 
 const { TreeNode } = TreeSelect;
 
-class Demo extends React.Component {
-  state = {
-    value: undefined,
+const Demo = () => {
+  const [value, setValue] = useState(undefined);
+  const onChange = () => {
+    setValue(value);
   };
-
-  onChange = value => {
-    console.log(value);
-    this.setState({ value });
-  };
-
-  render() {
-    return (
-      <TreeSelect
-        showSearch
-        style={{ width: '100%' }}
-        value={this.state.value}
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-        placeholder="Please select"
-        allowClear
-        treeDefaultExpandAll
-        onChange={this.onChange}
-      >
-        <TreeNode value="parent 1" title="parent 1">
-          <TreeNode value="parent 1-0" title="parent 1-0">
-            <TreeNode value="leaf1" title="my leaf" />
-            <TreeNode value="leaf2" title="your leaf" />
-          </TreeNode>
-          <TreeNode value="parent 1-1" title="parent 1-1">
-            <TreeNode value="sss" title={<b style={{ color: '#08c' }}>sss</b>} />
-          </TreeNode>
+  return (
+    <TreeSelect
+      showSearch
+      style={{ width: '100%' }}
+      value={value}
+      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+      placeholder="Please select"
+      allowClear
+      treeDefaultExpandAll
+      onChange={onChange}
+    >
+      <TreeNode value="parent 1" title="parent 1">
+        <TreeNode value="parent 1-0" title="parent 1-0">
+          <TreeNode value="leaf1" title="leaf1" />
+          <TreeNode value="leaf2" title="leaf2" />
         </TreeNode>
-      </TreeSelect>
-    );
-  }
-}
+        <TreeNode value="parent 1-1" title="parent 1-1">
+          <TreeNode value="leaf3" title={<b style={{ color: '#08c' }}>leaf3</b>} />
+        </TreeNode>
+      </TreeNode>
+    </TreeSelect>
+  );
+};
 
 ReactDOM.render(<Demo />, mountNode);
 ```
