@@ -188,14 +188,8 @@ const RegistrationForm = () => {
 
       <Form.Item
         name="nickname"
-        label={
-          <span>
-            Nickname&nbsp;
-            <Tooltip title="What do you want others to call you?">
-              <QuestionCircleOutlined />
-            </Tooltip>
-          </span>
-        }
+        label="Nickname"
+        tooltip="What do you want others to call you?"
         rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
       >
         <Input />
