@@ -54,7 +54,7 @@ This demo shows three typical usages:
 See the `Customized Form Controls` demo below for more advanced usage.
 
 ```jsx
-import { Form, Input, Select, Tooltip, Button } from 'antd';
+import { Form, Input, Select, Tooltip, Button, Space, Typography } from 'antd';
 
 const { Option } = Select;
 
@@ -66,18 +66,18 @@ const Demo = () => {
   return (
     <Form name="complex-form" onFinish={onFinish} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
       <Form.Item label="Username">
-        <Form.Item
-          name="username"
-          noStyle
-          rules={[{ required: true, message: 'Username is required' }]}
-        >
-          <Input style={{ width: 160 }} placeholder="Please input" />
-        </Form.Item>
-        <Tooltip title="Useful information">
-          <a href="#API" style={{ margin: '0 8px' }}>
-            Need Help?
-          </a>
-        </Tooltip>
+        <Space>
+          <Form.Item
+            name="username"
+            noStyle
+            rules={[{ required: true, message: 'Username is required' }]}
+          >
+            <Input style={{ width: 160 }} placeholder="Please input" />
+          </Form.Item>
+          <Tooltip title="Useful information">
+            <Typography.Link href="#API">Need Help?</Typography.Link>
+          </Tooltip>
+        </Space>
       </Form.Item>
       <Form.Item label="Address">
         <Input.Group compact>

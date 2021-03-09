@@ -4,63 +4,61 @@ import { FormattedMessage } from 'react-intl';
 import { DownOutlined } from '@ant-design/icons';
 import { SharedProps } from './interface';
 
-export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
-  return (
-    <Menu.ItemGroup key="ecosystem" title={<FormattedMessage id="app.header.menu.ecosystem" />}>
-      <Menu.Item key="charts">
+export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactNode {
+  return [
+    <Menu.Item key="charts">
+      <a
+        href="https://charts.ant.design"
+        className="header-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FormattedMessage id="app.header.menu.charts" />
+      </a>
+    </Menu.Item>,
+    <Menu.Item key="pro">
+      <a
+        href="http://pro.ant.design"
+        className="header-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FormattedMessage id="app.header.menu.pro.v4" />
+      </a>
+    </Menu.Item>,
+    <Menu.Item key="ng">
+      <a
+        href="http://ng.ant.design"
+        className="header-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ant Design of Angular
+      </a>
+    </Menu.Item>,
+    <Menu.Item key="vue">
+      <a
+        href="http://vue.ant.design"
+        className="header-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ant Design of Vue
+      </a>
+    </Menu.Item>,
+    isZhCN ? (
+      <Menu.Item key="course" className="hide-in-home-page">
         <a
-          href="https://charts.ant.design"
+          href="https://www.yuque.com/ant-design/course"
           className="header-link"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FormattedMessage id="app.header.menu.charts" />
+          Ant Design 实战教程
         </a>
       </Menu.Item>
-      <Menu.Item key="pro">
-        <a
-          href="http://pro.ant.design"
-          className="header-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FormattedMessage id="app.header.menu.pro.v4" />
-        </a>
-      </Menu.Item>
-      <Menu.Item key="ng">
-        <a
-          href="http://ng.ant.design"
-          className="header-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ant Design of Angular
-        </a>
-      </Menu.Item>
-      <Menu.Item key="vue">
-        <a
-          href="http://vue.ant.design"
-          className="header-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ant Design of Vue
-        </a>
-      </Menu.Item>
-      {isZhCN ? (
-        <Menu.Item key="course" className="hide-in-home-page">
-          <a
-            href="https://www.yuque.com/ant-design/course"
-            className="header-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ant Design 实战教程
-          </a>
-        </Menu.Item>
-      ) : null}
-    </Menu.ItemGroup>
-  );
+    ) : null,
+  ];
 }
 
 export default (props: SharedProps) => {
