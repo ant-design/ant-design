@@ -236,7 +236,7 @@
     "prettier-plugin-jsdoc": "^0.3.0",
     "pretty-quick": "^3.0.0",
     "querystring": "^0.2.0",
-    "rc-footer": "^0.6.3",
+    "rc-footer": "^0.6.6",
     "rc-queue-anim": "^1.6.12",
     "rc-scroll-anim": "^2.5.8",
     "rc-tween-one": "^2.4.1",
