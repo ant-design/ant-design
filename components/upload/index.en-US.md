@@ -104,3 +104,7 @@ Please set property `url` of each item in `fileList` to control content of link.
 ### How to use `customRequest`?
 
 See <https://github.com/react-component/upload#customrequest>.
+
+### Why `fileList` in control will not trigger `onChange` `status` update when file not in the list?
+
+`onChange` only trigger when file in the list, it will ignore left events when removed from the list. Please note that there exist bug which makes event still trigger even the file is not in the list before `4.13.0`.
