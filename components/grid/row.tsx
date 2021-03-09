@@ -120,9 +120,11 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     supportFlexGap,
   ]);
 
+  const nodeStyle = style && style.margin ? { ...style } : { ...rowStyle, ...style };
+
   return (
     <RowContext.Provider value={rowContext}>
-      <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
+      <div {...others} className={classes} style={nodeStyle} ref={ref}>
         {children}
       </div>
     </RowContext.Provider>
