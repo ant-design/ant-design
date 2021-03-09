@@ -244,7 +244,7 @@
     "react": "^17.0.1",
     "react-color": "^2.17.3",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dnd": "^13.0.0",
+    "react-dnd": "^14.0.1",
     "react-dnd-html5-backend": "^12.1.0",
     "react-dom": "^17.0.1",
     "react-draggable": "^4.4.3",
