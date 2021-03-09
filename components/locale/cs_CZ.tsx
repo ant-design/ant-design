@@ -18,7 +18,7 @@ const localeValues: Locale = {
     filterConfirm: 'Potvrdit',
     filterReset: 'Obnovit',
     filterEmptyText: 'Žádné filtry',
-    selectAll: 'Vybrat všehchny řádky na současné stránce',
+    selectAll: 'Vybrat všechny řádky na současné stránce',
     selectInvert: 'Invertovat výběr na současné stránce',
     selectionAll: 'Vybrat všechny řádky',
     sortTitle: 'Řadit',
