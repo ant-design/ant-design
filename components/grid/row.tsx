@@ -103,13 +103,15 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const horizontalGutter = gutters[0] > 0 ? gutters[0] / -2 : undefined;
   const verticalGutter = gutters[1] > 0 ? gutters[1] / -2 : undefined;
 
-  rowStyle.marginLeft = horizontalGutter;
-  rowStyle.marginRight = horizontalGutter;
+  if (horizontalGutter) {
+    rowStyle.marginLeft = horizontalGutter;
+    rowStyle.marginRight = horizontalGutter;
+  }
 
   if (supportFlexGap) {
     // Set gap direct if flex gap support
     [, rowStyle.rowGap] = gutters;
-  } else {
+  } else if (verticalGutter) {
     rowStyle.marginTop = verticalGutter;
     rowStyle.marginBottom = verticalGutter;
   }
@@ -120,11 +122,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     supportFlexGap,
   ]);
 
-  const nodeStyle = style && style.margin ? { ...style } : { ...rowStyle, ...style };
-
   return (
     <RowContext.Provider value={rowContext}>
-      <div {...others} className={classes} style={nodeStyle} ref={ref}>
+      <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}
       </div>
     </RowContext.Provider>
