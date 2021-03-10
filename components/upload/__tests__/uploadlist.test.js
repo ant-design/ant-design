@@ -1186,4 +1186,12 @@ describe('Upload List', () => {
 
     wrapper.unmount();
   });
+
+  it('Not crash when fileList is null', () => {
+    const defaultWrapper = mount(<Upload defaultFileList={null} />);
+    defaultWrapper.unmount();
+
+    const wrapper = mount(<Upload fileList={null} />);
+    wrapper.unmount();
+  });
 });
