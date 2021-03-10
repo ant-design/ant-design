@@ -271,6 +271,14 @@ const DesignPage = (props: { location: any }) => {
                       (<FormattedMessage id="app.implementation.community" />)
                     </span>
                   </li>
+                  <li>
+                    <a href="https://antblazor.com/" target="_blank" rel="noopener noreferrer">
+                      Ant Design of Blazor
+                    </a>
+                    <span style={smallStyle}>
+                      (<FormattedMessage id="app.implementation.community" />)
+                    </span>
+                  </li>
                 </ul>
               </Col>
               <Col xs={24} sm={12} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>

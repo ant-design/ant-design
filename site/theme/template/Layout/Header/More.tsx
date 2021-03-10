@@ -80,6 +80,22 @@ export function getEcosystemGroup(): Exclude<MenuProps['items'], undefined> {
       ),
       key: 'vue',
     },
+    {
+      label: (
+        <a
+          href="https://antblazor.com"
+          className="header-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ant Design of Blazor
+          <span style={smallStyle}>
+            (<FormattedMessage id="app.implementation.community" />)
+          </span>
+        </a>
+      ),
+      key: 'vue',
+    },
   ];
 }
 
