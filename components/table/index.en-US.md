@@ -121,6 +121,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |  |
 | defaultFilteredValue | Default filtered values | string\[] | - |  |  |
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |  |
+| editable | Whether column can be edited | boolean | false |  |  |
 | ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |  |
 | filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => ReactNode | - |  |  |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |  |
