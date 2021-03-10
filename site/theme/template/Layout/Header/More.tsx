@@ -46,7 +46,7 @@ export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactNode {
         Ant Design of Vue
       </a>
     </Menu.Item>,
-    <Menu.Item key="vue">
+    <Menu.Item key="blazor">
       <a
         href="https://antblazor.com"
         className="header-link"
