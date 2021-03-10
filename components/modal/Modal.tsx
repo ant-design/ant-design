@@ -224,6 +224,8 @@ Modal.defaultProps = {
   width: 520,
   confirmLoading: false,
   visible: false,
+  transitionName: 'zoom',
+  maskTransitionName: 'fade',
   okType: 'primary' as LegacyButtonType,
 };
 
