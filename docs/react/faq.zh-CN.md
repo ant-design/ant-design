@@ -15,13 +15,13 @@ title: FAQ
 
 该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
 
-https://ant.design/components/select/#Select-props
+可以参考 [Select 属性](/components/select/#Select-props)
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会跟随滚动条上下移动？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/select-cn/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/config-provider-cn/#API)）
+使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/select/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/config-provider-cn/#API)）
 
 并且保证 parentElement 是 `position: relative` 或 `position: absolute`。
 
