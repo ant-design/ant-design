@@ -51,6 +51,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
     value: fileList,
+    postState: list => list ?? [],
   });
 
   const [dragState, setDragState] = React.useState<string>('drop');
