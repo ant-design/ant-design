@@ -90,6 +90,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       autoSize: boolean | { minRows: number, maxRows: number },
       onStart: function,
       onChange: function(string),
+      onCancel: function,
+      onEnd: function,
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -101,6 +103,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | tooltip | 自定义提示文本，为 false 时关闭 | boolean \| ReactNode | `编辑` | 4.6.0 |
 | onChange | 文本域编辑时触发 | function(event) | - |  |
 | onStart | 进入编辑中状态时触发 | function | - |  |
+| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
+| onEnd | 按 ENTER 结束编辑状态时触发 | function | - |  |
 
 ### ellipsis
 
