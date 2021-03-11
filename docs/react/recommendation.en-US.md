@@ -12,6 +12,7 @@ title: Third-Party Libraries
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
 | Layout | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](http://whoisandy.github.io/react-blocks/) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | Drag and drop | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
+| Dock Panel | [rc-dock](https://github.com/ticlo/rc-dock) |
 | Code Editor | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/superRaytin/react-monaco-editor) |
 | Rich Text Editor | [react-quill](https://github.com/zenoamaro/react-quill) [braft-editor](https://github.com/margox/braft-editor) |
 | JSON Viewer | [react-json-view](https://github.com/mac-s-g/react-json-view) |

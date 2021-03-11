@@ -12,6 +12,7 @@ title: 社区精选组件
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](https://github.com/whoisandy/react-blocks) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | 拖拽 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
+| 可拖拽窗口 | [rc-dock](https://github.com/ticlo/rc-dock) |
 | 代码编辑器 | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/superRaytin/react-monaco-editor) |
 | 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) [braft-editor](https://github.com/margox/braft-editor) |
 | JSON 显示器 | [react-json-view](https://github.com/mac-s-g/react-json-view) |
