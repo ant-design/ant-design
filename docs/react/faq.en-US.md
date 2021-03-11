@@ -21,7 +21,7 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ### How do I prevent `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolling with the page?
 
-Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](https://ant.design/components/select-cn/#Select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](https://ant.design/components/config-provider-cn/#API))
+Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/select/#Select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/config-provider/#API))
 
 And make sure that parentElement is `position: relative` or `position: absolute`.
 
