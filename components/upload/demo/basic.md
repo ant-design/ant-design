@@ -3,7 +3,6 @@ order: 0
 title:
   zh-CN: 点击上传
   en-US: Upload by clicking
-only: true
 ---
 
 ## zh-CN
@@ -17,7 +16,6 @@ Classic mode. File selection dialog pops up when upload button is clicked.
 ```jsx
 import { Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { cloneDeep } from 'lodash';
 
 const props = {
   name: 'file',
@@ -26,9 +24,6 @@ const props = {
     authorization: 'authorization-text',
   },
   onChange(info) {
-    window.file = info.file;
-    window.cloneDeep = cloneDeep;
-
     if (info.file.status !== 'uploading') {
       console.log(info.file, info.fileList);
     }
