@@ -80,7 +80,7 @@ describe('AutoComplete', () => {
     console.warn.mockRestore();
   });
 
-  fit('should not override custom input className', () => {
+  it('should not override custom input className', () => {
     const wrapper = mount(
       <AutoComplete>
         <Input className="custom" />
