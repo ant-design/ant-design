@@ -4,12 +4,14 @@ export function T() {
   return true;
 }
 
+type WrapFile = RcFile | UploadFile;
+
 /**
  * Wrap file with Proxy to provides more info. Will fallback to object if Proxy not support.
  *
  * Origin comment: Fix IE file.status problem via coping a new Object
  */
-export function wrapFile(file: RcFile | UploadFile): UploadFile {
+export function wrapFile(file: WrapFile): UploadFile {
   const filledProps = {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
@@ -24,12 +26,16 @@ export function wrapFile(file: RcFile | UploadFile): UploadFile {
   if (typeof Proxy !== 'undefined') {
     const data = new Map<string | symbol, any>(Object.entries(filledProps));
 
+    const getValue = (key: string | symbol) => {
+      if (data.has(key)) {
+        return data.get(key);
+      }
+      return (file as any)[key];
+    };
+
     return new Proxy(file, {
-      get(target, key) {
-        if (data.has(key)) {
-          return data.get(key);
-        }
-        return (target as any)[key];
+      get(_, key) {
+        return getValue(key);
       },
       set(_, key, value) {
         data.set(key, value);
@@ -42,11 +48,39 @@ export function wrapFile(file: RcFile | UploadFile): UploadFile {
         const keys = [...Object.keys(target), ...data.keys()];
         return [...new Set(keys)];
       },
-      getOwnPropertyDescriptor() {
-        return {
-          enumerable: true,
-          configurable: true,
-        };
+
+      /**
+       * Lodash cloneDeep will use `Object.create(Object.getPrototypeOf(file))` which do not map to
+       * the correct context. We need do a sub class to make skip fetch the context and still
+       * instance of File. ref: https://github.com/ant-design/ant-design/issues/29646
+       */
+      getPrototypeOf() {
+        class ProxyFile extends File {}
+
+        const fileProtoKeys = Object.keys(File.prototype);
+
+        [...fileProtoKeys, 'size', 'type'].forEach(key => {
+          Object.defineProperty(ProxyFile.prototype, key, {
+            // Get will never reach but we provide fallback here
+            /* istanbul ignore next */
+            get: () => getValue(key),
+          });
+        });
+
+        return ProxyFile.prototype;
+      },
+      getOwnPropertyDescriptor(target, prop) {
+        if (data.has(prop)) {
+          return {
+            value: data.get(prop),
+            writable: true,
+            enumerable: true,
+            configurable: true,
+          };
+        }
+
+        const descriptor = Object.getOwnPropertyDescriptor(target, prop);
+        return descriptor;
       },
     });
   }
