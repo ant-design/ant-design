@@ -10,7 +10,7 @@ title: Third-Party Libraries
 | Visualization and charts | [AntV Data Visualization](https://antv.vision/en) [🔥 AntV Charting Library](https://g2plot.antv.vision/en) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
 | React Hooks Library | [ahooks](https://github.com/alibaba/hooks) |
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
-| Layout | [rc-dock](https://github.com/ticlo/rc-dock) [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) [react-grid-system](https://github.com/sealninja/react-grid-system) |
+| Layout |[react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) [react-grid-system](https://github.com/sealninja/react-grid-system) [rc-dock](https://github.com/ticlo/rc-dock) |
 | Drag and drop | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
 | Code Editor | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/superRaytin/react-monaco-editor) |
 | Rich Text Editor | [react-quill](https://github.com/zenoamaro/react-quill) [braft-editor](https://github.com/margox/braft-editor) |
