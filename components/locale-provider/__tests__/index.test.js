@@ -32,6 +32,7 @@ import etEE from '../et_EE';
 import faIR from '../fa_IR';
 import fiFI from '../fi_FI';
 import frBE from '../fr_BE';
+import frFR from '../fr_CA';
 import frFR from '../fr_FR';
 import gaIE from '../ga_IE';
 import glES from '../gl_ES';
@@ -93,6 +94,7 @@ const locales = [
   faIR,
   fiFI,
   frBE,
+  frCA,
   frFR,
   gaIE,
   glES,
