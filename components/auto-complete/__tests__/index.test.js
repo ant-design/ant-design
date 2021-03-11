@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import AutoComplete from '..';
+import Input from '../../input';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -77,5 +78,14 @@ describe('AutoComplete', () => {
     expect(console.warn).not.toBeCalled();
     // eslint-disable-next-line no-console
     console.warn.mockRestore();
+  });
+
+  fit('should not override custom input className', () => {
+    const wrapper = mount(
+      <AutoComplete>
+        <Input className="custom" />
+      </AutoComplete>,
+    );
+    expect(wrapper.find('input').hasClass('custom')).toBe(true);
   });
 });
