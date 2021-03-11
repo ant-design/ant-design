@@ -26,12 +26,12 @@ export function wrapFile(file: WrapFile): UploadFile {
   if (typeof Proxy !== 'undefined') {
     const data = new Map<string | symbol, any>(Object.entries(filledProps));
 
-    function getValue(key: string | symbol) {
+    const getValue = (key: string | symbol) => {
       if (data.has(key)) {
         return data.get(key);
       }
       return (file as any)[key];
-    }
+    };
 
     return new Proxy(file, {
       get(_, key) {
