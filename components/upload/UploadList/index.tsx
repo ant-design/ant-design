@@ -178,6 +178,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   // const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
 
   let motionConfig: Omit<CSSMotionListProps, 'onVisibleChanged'> = {
+    motionDeadline: 2000,
     motionName: `${prefixCls}-${animationDirection}`,
     keys: motionKeyList,
     motionAppear,

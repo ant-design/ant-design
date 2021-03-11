@@ -1,8 +1,8 @@
 ---
 order: 8
 title:
-  zh-CN: ErrorBoundary
-  en-US: React 错误处理
+  zh-CN: React 错误处理
+  en-US: ErrorBoundary
 ---
 
 ## zh-CN
