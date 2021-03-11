@@ -26,12 +26,16 @@ export function wrapFile(file: WrapFile): UploadFile {
   if (typeof Proxy !== 'undefined') {
     const data = new Map<string | symbol, any>(Object.entries(filledProps));
 
+    function getValue(key: string | symbol) {
+      if (data.has(key)) {
+        return data.get(key);
+      }
+      return (file as any)[key];
+    }
+
     return new Proxy(file, {
-      get(target, key) {
-        if (data.has(key)) {
-          return data.get(key);
-        }
-        return (target as any)[key];
+      get(_, key) {
+        return getValue(key);
       },
       set(_, key, value) {
         data.set(key, value);
@@ -44,10 +48,24 @@ export function wrapFile(file: WrapFile): UploadFile {
         const keys = [...Object.keys(target), ...data.keys()];
         return [...new Set(keys)];
       },
-      // https://github.com/ant-design/ant-design/issues/29646
-      // Hack to makes lodash not clone as File
+
+      /**
+       * Lodash cloneDeep will use `Object.create(Object.getPrototypeOf(file))` which do not map to
+       * the correct context. We need do a sub class to make skip fetch the context and still
+       * instance of File. ref: https://github.com/ant-design/ant-design/issues/29646
+       */
       getPrototypeOf() {
-        return null;
+        class ProxyFile extends File {}
+
+        const fileProtoKeys = Object.keys(File.prototype);
+
+        [...fileProtoKeys, 'size', 'type'].forEach(key => {
+          Object.defineProperty(ProxyFile.prototype, key, {
+            get: () => getValue(key),
+          });
+        });
+
+        return ProxyFile.prototype;
       },
       getOwnPropertyDescriptor(target, prop) {
         if (data.has(prop)) {

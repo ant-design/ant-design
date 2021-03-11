@@ -133,7 +133,7 @@ describe('Upload', () => {
     });
   });
 
-  it('should not stop upload when return value of beforeUpload is false', done => {
+  it.only('should not stop upload when return value of beforeUpload is false', done => {
     const fileList = [
       {
         uid: 'bar',
