@@ -810,9 +810,10 @@ describe('Upload', () => {
     await sleep();
 
     const { file } = onChange.mock.calls[0][0];
-    const keys = new Set(Object.keys(cloneDeep(file)));
+    const clone = cloneDeep(file);
+
     ['uid', 'name', 'lastModified', 'lastModifiedDate', 'size', 'type'].forEach(key => {
-      expect(keys.has(key)).toBeTruthy();
+      expect(key in clone).toBeTruthy();
     });
   });
 });
