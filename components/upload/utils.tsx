@@ -4,12 +4,14 @@ export function T() {
   return true;
 }
 
+type WrapFile = RcFile | UploadFile;
+
 /**
  * Wrap file with Proxy to provides more info. Will fallback to object if Proxy not support.
  *
  * Origin comment: Fix IE file.status problem via coping a new Object
  */
-export function wrapFile(file: RcFile | UploadFile): UploadFile {
+export function wrapFile(file: WrapFile): UploadFile {
   const filledProps = {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
@@ -42,11 +44,23 @@ export function wrapFile(file: RcFile | UploadFile): UploadFile {
         const keys = [...Object.keys(target), ...data.keys()];
         return [...new Set(keys)];
       },
-      getOwnPropertyDescriptor() {
-        return {
-          enumerable: true,
-          configurable: true,
-        };
+      // https://github.com/ant-design/ant-design/issues/29646
+      // Hack to makes lodash not clone as File
+      getPrototypeOf() {
+        return null;
+      },
+      getOwnPropertyDescriptor(target, prop) {
+        if (data.has(prop)) {
+          return {
+            value: data.get(prop),
+            writable: true,
+            enumerable: true,
+            configurable: true,
+          };
+        }
+
+        const descriptor = Object.getOwnPropertyDescriptor(target, prop);
+        return descriptor;
       },
     });
   }

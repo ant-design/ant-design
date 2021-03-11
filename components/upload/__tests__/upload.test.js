@@ -3,6 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
+import { cloneDeep } from 'lodash';
 import Upload from '..';
 import Form from '../../form';
 import { T, wrapFile, getFileItem, removeFileItem } from '../utils';
@@ -785,5 +786,33 @@ describe('Upload', () => {
     );
 
     expect(fileList[0].uid).toBeTruthy();
+  });
+
+  it('Proxy should support deepClone', async () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      <Upload onChange={onChange}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          new File(['foo'], 'foo.png', {
+            type: 'image/png',
+          }),
+        ],
+      },
+    });
+
+    await sleep();
+
+    const { file } = onChange.mock.calls[0][0];
+    const keys = new Set(Object.keys(cloneDeep(file)));
+    ['uid', 'name', 'lastModified', 'lastModifiedDate', 'size', 'type'].forEach(key => {
+      expect(keys.has(key)).toBeTruthy();
+    });
   });
 });
