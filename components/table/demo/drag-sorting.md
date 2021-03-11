@@ -45,7 +45,8 @@ const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => 
   );
   const [, drag] = useDrag(
     () => ({
-      item: { type, index },
+      type,
+      item: { index },
       collect: monitor => ({
         isDragging: monitor.isDragging(),
       }),
