@@ -812,6 +812,10 @@ describe('Upload', () => {
     const { file } = onChange.mock.calls[0][0];
     const clone = cloneDeep(file);
 
+    expect(Object.getOwnPropertyDescriptor(file, 'name')).toEqual(
+      expect.objectContaining({ value: 'foo.png' }),
+    );
+
     ['uid', 'name', 'lastModified', 'lastModifiedDate', 'size', 'type'].forEach(key => {
       expect(key in clone).toBeTruthy();
     });

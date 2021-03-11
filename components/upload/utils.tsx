@@ -61,6 +61,8 @@ export function wrapFile(file: WrapFile): UploadFile {
 
         [...fileProtoKeys, 'size', 'type'].forEach(key => {
           Object.defineProperty(ProxyFile.prototype, key, {
+            // Get will never reach but we provide fallback here
+            /* istanbul ignore next */
             get: () => getValue(key),
           });
         });
