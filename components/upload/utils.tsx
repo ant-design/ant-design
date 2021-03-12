@@ -1,18 +1,8 @@
 import { RcFile, UploadFile } from './interface';
 
-export function T() {
-  return true;
-}
-
-type WrapFile = RcFile | UploadFile;
-
-/**
- * Wrap file with Proxy to provides more info. Will fallback to object if Proxy not support.
- *
- * Origin comment: Fix IE file.status problem via coping a new Object
- */
-export function wrapFile(file: WrapFile): UploadFile {
-  const filledProps = {
+export function file2Obj(file: RcFile): UploadFile {
+  return {
+    ...file,
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
     name: file.name,
@@ -22,76 +12,10 @@ export function wrapFile(file: WrapFile): UploadFile {
     percent: 0,
     originFileObj: file,
   };
-
-  if (typeof Proxy !== 'undefined') {
-    const data = new Map<string | symbol, any>(Object.entries(filledProps));
-
-    const getValue = (key: string | symbol) => {
-      if (data.has(key)) {
-        return data.get(key);
-      }
-      return (file as any)[key];
-    };
-
-    return new Proxy(file, {
-      get(_, key) {
-        return getValue(key);
-      },
-      set(_, key, value) {
-        data.set(key, value);
-        return true;
-      },
-      has(target, prop) {
-        return data.has(prop) || prop in target;
-      },
-      ownKeys(target) {
-        const keys = [...Object.keys(target), ...data.keys()];
-        return [...new Set(keys)];
-      },
-
-      /**
-       * Lodash cloneDeep will use `Object.create(Object.getPrototypeOf(file))` which do not map to
-       * the correct context. We need do a sub class to make skip fetch the context and still
-       * instance of File. ref: https://github.com/ant-design/ant-design/issues/29646
-       */
-      getPrototypeOf() {
-        class ProxyFile extends File {}
-
-        const fileProtoKeys = Object.keys(File.prototype);
-
-        [...fileProtoKeys, 'size', 'type'].forEach(key => {
-          Object.defineProperty(ProxyFile.prototype, key, {
-            // Get will never reach but we provide fallback here
-            /* istanbul ignore next */
-            get: () => getValue(key),
-          });
-        });
-
-        return ProxyFile.prototype;
-      },
-      getOwnPropertyDescriptor(target, prop) {
-        if (data.has(prop)) {
-          return {
-            value: data.get(prop),
-            writable: true,
-            enumerable: true,
-            configurable: true,
-          };
-        }
-
-        const descriptor = Object.getOwnPropertyDescriptor(target, prop);
-        return descriptor;
-      },
-    });
-  }
-
-  return {
-    ...file,
-    ...filledProps,
-  } as UploadFile;
 }
 
-export function replaceFileList(file: UploadFile<any>, fileList: UploadFile<any>[]) {
+/** Upload fileList. Replace file if exist or just push into it. */
+export function updateFileList(file: UploadFile<any>, fileList: UploadFile<any>[]) {
   const nextFileList = [...fileList];
   const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === file.uid);
   if (fileIndex === -1) {
@@ -102,7 +26,7 @@ export function replaceFileList(file: UploadFile<any>, fileList: UploadFile<any>
   return nextFileList;
 }
 
-export function getFileItem(file: UploadFile, fileList: UploadFile[]) {
+export function getFileItem(file: RcFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   return fileList.filter(item => item[matchKey] === file[matchKey])[0];
 }

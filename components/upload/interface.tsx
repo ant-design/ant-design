@@ -1,17 +1,18 @@
 import * as React from 'react';
-import { UploadRequestOption as RcCustomRequestOptions } from 'rc-upload/lib/interface';
+import {
+  RcFile as OriRcFile,
+  UploadRequestOption as RcCustomRequestOptions,
+} from 'rc-upload/lib/interface';
 import { ProgressProps } from '../progress';
+
+export interface RcFile extends OriRcFile {
+  readonly lastModifiedDate: Date;
+}
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
 export interface HttpRequestHeader {
   [key: string]: string;
-}
-
-export interface RcFile extends File {
-  uid: string;
-  readonly lastModifiedDate: Date;
-  readonly webkitRelativePath: string;
 }
 
 export interface UploadFile<T = any> {
@@ -25,7 +26,7 @@ export interface UploadFile<T = any> {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  originFileObj?: File | Blob;
+  originFileObj: RcFile;
   response?: T;
   error?: any;
   linkProps?: any;
