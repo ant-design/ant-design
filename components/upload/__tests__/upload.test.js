@@ -457,17 +457,16 @@ describe('Upload', () => {
     let wrapper;
 
     const props = {
-      onRemove: () =>
-        new Promise(
-          resolve =>
-            setTimeout(() => {
-              wrapper.update();
-              expect(props.fileList).toHaveLength(1);
-              expect(props.fileList[0].status).toBe('uploading');
-              resolve(true);
-            }),
-          100,
-        ),
+      onRemove: async () => {
+        await act(async () => {
+          await sleep(100);
+          wrapper.update();
+          expect(props.fileList).toHaveLength(1);
+          expect(props.fileList[0].status).toBe('uploading');
+        });
+
+        return true;
+      },
       fileList: [
         {
           uid: '-1',
