@@ -6,7 +6,7 @@ import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import Upload from '..';
 import Form from '../../form';
-import { T, wrapFile, getFileItem, removeFileItem } from '../utils';
+import { getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -286,36 +286,6 @@ describe('Upload', () => {
   });
 
   describe('util', () => {
-    // https://github.com/react-component/upload/issues/36
-    it('should T() return true', () => {
-      const res = T();
-      expect(res).toBe(true);
-    });
-
-    describe('wrapFile', () => {
-      it('should be able to copy file instance when Proxy not support', () => {
-        const file = new File([], 'aaa.zip');
-
-        const OriginProxy = global.Proxy;
-        global.Proxy = undefined;
-
-        const copiedFile = wrapFile(file);
-        ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
-          expect(key in copiedFile).toBe(true);
-        });
-
-        global.Proxy = OriginProxy;
-      });
-
-      it('Proxy support', () => {
-        const file = new File([], 'aaa.zip');
-        const copiedFile = wrapFile(file);
-        ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
-          expect(key in copiedFile).toBe(true);
-        });
-      });
-    });
-
     it('should be able to get fileItem', () => {
       const file = { uid: '-1', name: 'item.jpg' };
       const fileList = [
@@ -344,7 +314,7 @@ describe('Upload', () => {
       expect(targetItem).toEqual(fileList.slice(1));
     });
 
-    it('remove fileItem and fileList with immuable data', () => {
+    it('remove fileItem and fileList with immutable data', () => {
       const file = { uid: '-3', name: 'item3.jpg' };
       const fileList = produce(
         [
