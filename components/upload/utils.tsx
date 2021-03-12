@@ -14,7 +14,8 @@ export function file2Obj(file: RcFile): UploadFile {
   };
 }
 
-export function replaceFileList(file: UploadFile<any>, fileList: UploadFile<any>[]) {
+/** Upload fileList. Replace file if exist or just push into it. */
+export function updateFileList(file: UploadFile<any>, fileList: UploadFile<any>[]) {
   const nextFileList = [...fileList];
   const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === file.uid);
   if (fileIndex === -1) {

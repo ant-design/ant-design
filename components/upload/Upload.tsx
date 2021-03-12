@@ -14,7 +14,7 @@ import {
   UploadType,
   UploadListType,
 } from './interface';
-import { file2Obj, getFileItem, removeFileItem, replaceFileList } from './utils';
+import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
@@ -156,14 +156,17 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     const objectFileList = filteredFileInfoList.map(info => file2Obj(info.file as RcFile));
 
     // Concat new files with prev files
-    const newFileList = [...mergedFileList];
-    objectFileList.forEach((fileObj, index) => {
-      if (newFileList.every(existFile => existFile.uid !== fileObj.uid)) {
-        newFileList.push(fileObj);
-      }
+    let newFileList = [...mergedFileList];
 
+    objectFileList.forEach(fileObj => {
+      // Replace file if exist
+      newFileList = updateFileList(fileObj, newFileList);
+    });
+
+    objectFileList.forEach((fileObj, index) => {
       // Repeat trigger `onChange` event for compatible
       let triggerFileObj: UploadFile = fileObj;
+
       if (!filteredFileInfoList[index].parsedFile) {
         // `beforeUpload` return false
         const { originFileObj } = fileObj;
@@ -201,7 +204,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.response = response;
     targetItem.xhr = xhr;
 
-    const nextFileList = replaceFileList(targetItem, mergedFileList);
+    const nextFileList = updateFileList(targetItem, mergedFileList);
 
     onInternalChange(targetItem, nextFileList);
   };
@@ -216,7 +219,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.status = 'uploading';
     targetItem.percent = e.percent;
 
-    const nextFileList = replaceFileList(targetItem, mergedFileList);
+    const nextFileList = updateFileList(targetItem, mergedFileList);
 
     onInternalChange(targetItem, nextFileList, e);
   };
@@ -232,7 +235,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.response = response;
     targetItem.status = 'error';
 
-    const nextFileList = replaceFileList(targetItem, mergedFileList);
+    const nextFileList = updateFileList(targetItem, mergedFileList);
 
     onInternalChange(targetItem, nextFileList);
   };
@@ -269,6 +272,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   // Test needs
   React.useImperativeHandle(ref, () => ({
+    onBatchStart,
     onSuccess,
     onProgress,
     onError,

@@ -555,20 +555,35 @@ describe('Upload', () => {
   it('should replace file when targetItem already exists', () => {
     const fileList = [{ uid: 'file', name: 'file' }];
     const ref = React.createRef();
-    mount(
+    const wrapper = mount(
       <Upload ref={ref} defaultFileList={fileList}>
         <button type="button">upload</button>
       </Upload>,
     );
-    ref.current.onStart({
+
+    const newFile = {
       uid: 'file',
       name: 'file1',
+    };
+
+    act(() => {
+      ref.current.onBatchStart([
+        {
+          file: newFile,
+          parsedFile: newFile,
+        },
+      ]);
     });
+
+    wrapper.update();
+
     expect(ref.current.fileList.length).toBe(1);
     expect(ref.current.fileList[0].originFileObj).toEqual({
       name: 'file1',
       uid: 'file',
     });
+
+    wrapper.unmount();
   });
 
   it('warning if set `value`', () => {
