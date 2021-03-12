@@ -28,8 +28,8 @@ exports[`Upload List handle error 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container ant-upload-animate-appear ant-upload-animate-appear-start ant-upload-animate"
-      style="height: 0px; opacity: 0;"
+      class="ant-upload-list-text-container ant-upload-animate-appear ant-upload-animate-appear-active ant-upload-animate"
+      style="height: 0px; opacity: 1;"
     >
       <div
         class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-text"
