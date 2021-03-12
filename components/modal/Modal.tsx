@@ -102,6 +102,7 @@ export interface ModalFuncProps {
   cancelButtonProps?: ButtonProps;
   centered?: boolean;
   width?: string | number;
+  footer?: React.ReactNode;
   okText?: React.ReactNode;
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;

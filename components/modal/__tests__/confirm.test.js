@@ -75,6 +75,17 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
   });
 
+  it('should not render footer when footer is null', () => {
+    jest.useFakeTimers();
+    confirm({
+      content: 'some descriptions',
+      footer: null,
+    });
+    jest.runAllTimers();
+    expect(document.querySelector('.ant-modal-confirm-btns')).toBe(null);
+    jest.useRealTimers();
+  });
+
   it('trigger onCancel once when click on cancel button', () => {
     const onCancel = jest.fn();
     const onOk = jest.fn();

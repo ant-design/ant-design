@@ -38,6 +38,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     closeIcon,
     modalRender,
     focusTriggerAfterClose,
+    footer,
   } = props;
 
   devWarning(
@@ -113,19 +114,23 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
             <div className={`${contentPrefixCls}-content`}>{props.content}</div>
           </div>
         </ConfigProvider>
-        <div className={`${contentPrefixCls}-btns`}>
-          {cancelButton}
-          <ActionButton
-            type={okType}
-            actionFn={onOk}
-            closeModal={close}
-            autoFocus={autoFocusButton === 'ok'}
-            buttonProps={okButtonProps}
-            prefixCls={`${rootPrefixCls}-btn`}
-          >
-            {okText}
-          </ActionButton>
-        </div>
+        {footer === undefined ? (
+          <div className={`${contentPrefixCls}-btns`}>
+            {cancelButton}
+            <ActionButton
+              type={okType}
+              actionFn={onOk}
+              closeModal={close}
+              autoFocus={autoFocusButton === 'ok'}
+              buttonProps={okButtonProps}
+              prefixCls={`${rootPrefixCls}-btn`}
+            >
+              {okText}
+            </ActionButton>
+          </div>
+        ) : (
+          footer
+        )}
       </div>
     </Dialog>
   );

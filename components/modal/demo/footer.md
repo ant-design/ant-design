@@ -18,7 +18,7 @@ A more complex example which define a customized footer button bar. The dialog w
 You could set `footer` to `null` if you don't need default footer buttons.
 
 ```jsx
-import { Modal, Button } from 'antd';
+import { Modal, Button, Space } from 'antd';
 
 class App extends React.Component {
   state = {
@@ -43,10 +43,26 @@ class App extends React.Component {
     this.setState({ visible: false });
   };
 
+  openConfirmWithoutFooter = () => {
+    Modal.confirm({
+      content: (
+        <>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </>
+      ),
+      maskClosable: true,
+      footer: null,
+    });
+  };
+
   render() {
     const { visible, loading } = this.state;
     return (
-      <>
+      <Space>
         <Button type="primary" onClick={this.showModal}>
           Open Modal with customized footer
         </Button>
@@ -79,7 +95,11 @@ class App extends React.Component {
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Modal>
-      </>
+
+        <Button type="primary" onClick={this.openConfirmWithoutFooter}>
+          Confirm without footer
+        </Button>
+      </Space>
     );
   }
 }
