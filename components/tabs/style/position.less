@@ -99,18 +99,17 @@
 
       // >>>>>>>>>>> Tab
       .@{tab-prefix-cls}-tab {
-        margin: @tabs-vertical-margin;
         padding: @tabs-vertical-padding;
         text-align: center;
-
-        &:last-of-type {
-          margin-bottom: 0;
-        }
 
         &-active .@{tab-prefix-cls}-tab-btn {
           font-weight: normal;
           text-shadow: 0 0 0.25px @tabs-active-color;
         }
+      }
+
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+        margin: @tabs-vertical-margin;
       }
 
       // >>>>>>>>>>> Nav

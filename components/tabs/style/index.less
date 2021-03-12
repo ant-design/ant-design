@@ -127,18 +127,12 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    margin: @tabs-horizontal-margin;
     padding: @tabs-horizontal-padding;
     font-size: @tabs-title-font-size;
     background: transparent;
     border: 0;
     outline: none;
     cursor: pointer;
-
-    &:last-of-type {
-      margin-right: 0;
-      margin-left: 0;
-    }
 
     &-btn,
     &-remove {
@@ -199,6 +193,10 @@
     .@{iconfont-css-prefix} {
       margin-right: @margin-sm;
     }
+  }
+
+  &-tab + &-tab {
+    margin: @tabs-horizontal-margin;
   }
 
   // =========================== TabPanes ===========================

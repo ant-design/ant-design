@@ -28,8 +28,8 @@
   &.@{tab-prefix-cls}-bottom {
     > .@{tab-prefix-cls}-nav,
     > div > .@{tab-prefix-cls}-nav {
-      .@{tab-prefix-cls}-tab:not(:last-of-type) {
-        margin-right: @tabs-card-gutter;
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+        margin-left: @tabs-card-gutter;
       }
     }
   }
@@ -64,8 +64,8 @@
   &.@{tab-prefix-cls}-right {
     > .@{tab-prefix-cls}-nav,
     > div > .@{tab-prefix-cls}-nav {
-      .@{tab-prefix-cls}-tab:not(:last-of-type) {
-        margin-bottom: @tabs-card-gutter;
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+        margin-top: @tabs-card-gutter;
       }
     }
   }
