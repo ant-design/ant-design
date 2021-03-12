@@ -114,14 +114,39 @@ exports[`renders ./components/modal/demo/dark.md correctly 1`] = `
 `;
 
 exports[`renders ./components/modal/demo/footer.md correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
 >
-  <span>
-    Open Modal with customized footer
-  </span>
-</button>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Modal with customized footer
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  />
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Confirm without footer
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
