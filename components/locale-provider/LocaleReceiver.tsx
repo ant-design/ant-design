@@ -2,6 +2,8 @@ import * as React from 'react';
 import defaultLocaleData from './default';
 import LocaleContext from './context';
 import { Locale } from '.';
+import merge from 'lodash/merge';
+import cloneDeep from 'lodash/cloneDeep';
 
 export interface LocaleReceiverProps {
   componentName?: string;
@@ -33,11 +35,7 @@ export default class LocaleReceiver extends React.Component<LocaleReceiverProps>
 
     const _locale = typeof locale === 'function' ? locale() : locale;
 
-    return {
-      ...(localeFromContext || {}),
-      ..._locale,
-      lang: { ...localeFromContext.lang, ..._locale.lang },
-    };
+    return merge(cloneDeep(localeFromContext), _locale);
   }
 
   getLocaleCode() {
@@ -66,10 +64,9 @@ export function useLocaleReceiver<T extends LocaleComponent>(
     const locale = defaultLocale || defaultLocaleData[componentName || 'global'];
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
 
-    return {
-      ...(typeof locale === 'function' ? (locale as Function)() : locale),
-      ...(localeFromContext || {}),
-    };
+    const _locale = typeof locale === 'function' ? (locale as Function)() : locale;
+
+    return merge(cloneDeep(localeFromContext), _locale);
   }, [componentName, defaultLocale, antLocale]);
 
   return [componentLocale];
