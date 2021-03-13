@@ -108,3 +108,7 @@ See <https://github.com/react-component/upload#customrequest>.
 ### Why `fileList` in control will not trigger `onChange` `status` update when file not in the list?
 
 `onChange` only trigger when file in the list, it will ignore left events when removed from the list. Please note that there exist bug which makes event still trigger even the file is not in the list before `4.13.0`.
+
+### Why sometime `onChange` return File object and sometime return { originFileObj: File }?
+
+For compatible case, we return File object when `beforeUpload` return `false`. It will merge to `{ originFileObj: File }` in next major version. Current version is compatible to get origin file by `info.file.originFileObj`. You can change this before major release.
