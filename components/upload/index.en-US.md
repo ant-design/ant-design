@@ -33,7 +33,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | isImageUrl | Customize if render &lt;img /> in thumbnail | (file: UploadFile) => boolean | [(inside implementation)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
 | itemRender | Custom item of uploadList | (originNode: ReactElement, file: UploadFile, fileList?: object\[]) => React.ReactNode | - | 4.7.0 |
 | listType | Built-in stylesheets, support for three types: `text`, `picture` or `picture-card` | string | `text` |  |
-| maxCount | Limit the number of uploaded files. Will replace current one when `maxCount` is `1` | number | - |  |
+| maxCount | Limit the number of uploaded files. Will replace current one when `maxCount` is `1` | number | - | 4.10.0 |
 | method | The http method of upload request | string | `post` |  |
 | multiple | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false |  |
 | name | The name of uploading file | string | `file` |  |
