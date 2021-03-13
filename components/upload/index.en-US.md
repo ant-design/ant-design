@@ -35,6 +35,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | listType | Built-in stylesheets, support for three types: `text`, `picture` or `picture-card` | string | `text` |  |
 | method | The http method of upload request | string | `post` |  |
 | multiple | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false |  |
+| maxCount | Limit the number of uploaded files. Will replace current one when `maxCount` is `1` | number | - |  |
 | name | The name of uploading file | string | `file` |  |
 | openFileDialogOnClick | Click open file dialog | boolean | true |  |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |

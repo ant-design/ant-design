@@ -36,6 +36,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | listType | 上传列表的内建样式，支持三种基本样式 `text`, `picture` 和 `picture-card` | string | `text` |  |
 | method | 上传请求的 http method | string | `post` |  |
 | multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件 | boolean | false |  |
+| maxCount | 限制上传数量。当为 1 时，始终用最新上传的文件代替当前 | number | - |  |
 | name | 发到后台的文件参数名 | string | `file` |  |
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true |  |
 | previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
