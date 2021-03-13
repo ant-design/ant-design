@@ -25,7 +25,10 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
 }
 
 function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...props }: TabsProps) {
-  const { prefixCls: customizePrefixCls } = props;
+  const { 
+    prefixCls: customizePrefixCls,
+    moreIcon = <EllipsisOutlined />,
+  } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
 
@@ -63,7 +66,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
         className,
       )}
       editable={editable}
-      moreIcon={<EllipsisOutlined />}
+      moreIcon={moreIcon}
       prefixCls={prefixCls}
     />
   );
