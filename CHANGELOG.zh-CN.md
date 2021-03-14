@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 4.14.0
+
+`2021-03-14`
+
+- Upload
+  - 🆕 Upload `onChange` 改回原本行为（before Upload false 返回原始文件，其余场景返回封装对象）。现在你始终可以通过 `onChange.info.originFileObj` 获得原始文件。为了未来升级，请优先使用该方式访问原始文。[#29737](https://github.com/ant-design/ant-design/pull/29737)
+  - 🐞 修复 Upload `onChange` 参数 `file` 不能被 lodash `cloneDeep` 的问题。[#29718](https://github.com/ant-design/ant-design/pull/29718)
+  - 🐞 修复 Upload 当 `fileList` 为 `null` 时崩溃的问题。[#29702](https://github.com/ant-design/ant-design/pull/29702)
+  - 💄 Upload 添加 2 秒时限以防止开发者手工移除动画样式时导致动画卡住的问题。[#29686](https://github.com/ant-design/ant-design/pull/29686)
+- 🆕 为不同的 Notification 类型添加相应默认类名。[#29634](https://github.com/ant-design/ant-design/pull/29634) [@n0ruSh](https://github.com/n0ruSh)
+- 🆕 Typography editable 新增 `onCancel` 和 `onEnd` 回调。[#29615](https://github.com/ant-design/ant-design/pull/29615) [@jueinin](https://github.com/jueinin)
+- Tabs
+  - 🆕 Tabs 新增 `moreIcon` 参数。[#29744](https://github.com/ant-design/ant-design/pull/29744) [@tianyuan233](https://github.com/tianyuan233)
+  - 🐞 修复 Tabs 设置 `centered` 后居中位置偏移。[#29495](https://github.com/ant-design/ant-design/pull/29495) [@jinchaofs](https://github.com/jinchaofs)
+- 🐞 Form 表单现在可以自动响应 reset 事件。[#29752](https://github.com/ant-design/ant-design/pull/29752) [@jueinin](https://github.com/jueinin)
+- 🐞 修复 AutoComplete 自定义 input 上 `className` 属性丢失的问题。[#29725](https://github.com/ant-design/ant-design/pull/29725)
+- 💄 修复 Row 设置 `margin` 样式时控制台警告的问题。[#29688](https://github.com/ant-design/ant-design/pull/29688)
+- 🐞 修复 Modal 页脚里使用 href 按钮导致的间距丢失问题。[#29681](https://github.com/ant-design/ant-design/pull/29681) [@n0ruSh](https://github.com/n0ruSh)
+- 💄 修复 Input 组件配置附件元素时禁用样式异常的问题。[#29670](https://github.com/ant-design/ant-design/pull/29670)
+- 💄 优化 Form.Item 提示信息的鼠标显示样式。[#29650](https://github.com/ant-design/ant-design/pull/29650)
+- 🇨🇿 修复 cs_CZ 语言环境中的错字。 [#29675](https://github.com/ant-design/ant-design/pull/29675) [@jvaclavik](https://github.com/jvaclavik)
+- 🇨🇦 添加 fr_CA 语言。[#29748](https://github.com/ant-design/ant-design/pull/29748) [@liufenghua808](https://github.com/liufenghua808)
+
 ## 4.13.1
 
 `2021-03-06`
