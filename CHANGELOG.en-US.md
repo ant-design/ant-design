@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.14.0
+
+`2021-03-14`
+
+- 🐞 Fix Tabs `centered` prop is not actually center. [#29495](https://github.com/ant-design/ant-design/pull/29495) [@jinchaofs](https://github.com/jinchaofs)
+- 🐞 Fix AutoComplete custom input `className` missing. [#29725](https://github.com/ant-design/ant-design/pull/29725)
+- 💄 Fixed console warning when setting `margin` style on Row. [#29688](https://github.com/ant-design/ant-design/pull/29688)
+- Upload
+  - 🐞 Fix Upload `onChange` params `file` can not `cloneDeep` by lodash. [#29718](https://github.com/ant-design/ant-design/pull/29718)
+  - 🐞 Fix Upload crash when `fileList` is `null`. [#29702](https://github.com/ant-design/ant-design/pull/29702)
+  - 💄 Upload motion add 2s deadline to avoid developer manually remove motion makes hanging. [#29686](https://github.com/ant-design/ant-design/pull/29686)
+- 🐞 Fix the bug that Modal footer buttons not spaced properly when using href in button. [#29681](https://github.com/ant-design/ant-design/pull/29681) [@n0ruSh](https://github.com/n0ruSh)
+- 💄 Fixed the error style where the `disabled` Input has affix elements. [#29670](https://github.com/ant-design/ant-design/pull/29670)
+- 💄 Optimize the cursor style of Form.Item tooltip info. [#29650](https://github.com/ant-design/ant-design/pull/29650)
+- - 🌐 fix typo in cs-CZ locale. [#29675](https://github.com/ant-design/ant-design/pull/29675) [@jvaclavik](https://github.com/jvaclavik)
+
 ## 4.13.1
 
 `2021-03-06`
