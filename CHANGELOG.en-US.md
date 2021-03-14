@@ -21,7 +21,7 @@ timeline: true
 
 - 🐞 Fix Tabs `centered` prop is not actually center. [#29495](https://github.com/ant-design/ant-design/pull/29495) [@jinchaofs](https://github.com/jinchaofs)
 - 🐞 Fix AutoComplete custom input `className` missing. [#29725](https://github.com/ant-design/ant-design/pull/29725)
-- 💄 Fixed console warning when setting `margin` style on Row. [#29688](https://github.com/ant-design/ant-design/pull/29688)
+- 💄 Fix console warning when setting `margin` style on Row. [#29688](https://github.com/ant-design/ant-design/pull/29688)
 - Upload
   - 🐞 Fix Upload `onChange` params `file` can not `cloneDeep` by lodash. [#29718](https://github.com/ant-design/ant-design/pull/29718)
   - 🐞 Fix Upload crash when `fileList` is `null`. [#29702](https://github.com/ant-design/ant-design/pull/29702)
