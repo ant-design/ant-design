@@ -21,7 +21,7 @@ timeline: true
 
 - Tabs
   - 🆕 Tabs 新增 `moreIcon` 参数。[#29744](https://github.com/ant-design/ant-design/pull/29744) [@tianyuan233](https://github.com/tianyuan233)
-  - 🐞 修复 Tabs 设置 `centered` 后居中位置有便宜。[#29495](https://github.com/ant-design/ant-design/pull/29495) [@jinchaofs](https://github.com/jinchaofs)
+  - 🐞 修复 Tabs 设置 `centered` 后居中位置偏移。[#29495](https://github.com/ant-design/ant-design/pull/29495) [@jinchaofs](https://github.com/jinchaofs)
 - 🐞 form 表单现在可以自动响应 reset 事件。[#29752](https://github.com/ant-design/ant-design/pull/29752) [@jueinin](https://github.com/jueinin)
 - 🐞 修复 AutoComplete 自定义 input 上 `className` 属性丢失的问题。[#29725](https://github.com/ant-design/ant-design/pull/29725)
 - 💄 修复 Row 设置 `margin` 样式时控制台警告的问题。[#29688](https://github.com/ant-design/ant-design/pull/29688)
@@ -33,8 +33,8 @@ timeline: true
 - 🐞 修复 Modal 页脚里使用 href 按钮导致的间距丢失问题。[#29681](https://github.com/ant-design/ant-design/pull/29681) [@n0ruSh](https://github.com/n0ruSh)
 - 💄 修复 Input 组件配置附件元素时禁用样式异常的问题。[#29670](https://github.com/ant-design/ant-design/pull/29670)
 - 💄 优化 Form.Item 提示信息的鼠标显示样式。[#29650](https://github.com/ant-design/ant-design/pull/29650)
-- 🌐 修复 cs-CZ 语言环境中的错字。 [#29675](https://github.com/ant-design/ant-design/pull/29675) [@jvaclavik](https://github.com/jvaclavik)
-- 🌐 添加 fr_CA 语言。[#29748](https://github.com/ant-design/ant-design/pull/29748) [@yoyo83](https://github.com/yoyo837)
+- 🇨🇿 修复 cs_CZ 语言环境中的错字。 [#29675](https://github.com/ant-design/ant-design/pull/29675) [@jvaclavik](https://github.com/jvaclavik)
+- 🇨🇦 添加 fr_CA 语言。[#29748](https://github.com/ant-design/ant-design/pull/29748) [@yoyo83](https://github.com/yoyo837)
 
 ## 4.13.1
 
