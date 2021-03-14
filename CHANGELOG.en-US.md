@@ -27,7 +27,7 @@ timeline: true
   - 🐞 Fix Upload crash when `fileList` is `null`. [#29702](https://github.com/ant-design/ant-design/pull/29702)
   - 💄 Upload motion add 2s deadline to avoid developer manually remove motion makes hanging. [#29686](https://github.com/ant-design/ant-design/pull/29686)
 - 🐞 Fix the bug that Modal footer buttons not spaced properly when using href in button. [#29681](https://github.com/ant-design/ant-design/pull/29681) [@n0ruSh](https://github.com/n0ruSh)
-- 💄 Fixed the error style where the `disabled` Input has affix elements. [#29670](https://github.com/ant-design/ant-design/pull/29670)
+- 💄 Fix the error style where the `disabled` Input has affix elements. [#29670](https://github.com/ant-design/ant-design/pull/29670)
 - 💄 Optimize the cursor style of Form.Item tooltip info. [#29650](https://github.com/ant-design/ant-design/pull/29650)
 - 🌐 Fix typo in cs-CZ locale. [#29675](https://github.com/ant-design/ant-design/pull/29675) [@jvaclavik](https://github.com/jvaclavik)
 
