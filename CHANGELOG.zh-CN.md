@@ -34,7 +34,7 @@ timeline: true
 - 💄 修复 Input 组件配置附件元素时禁用样式异常的问题。[#29670](https://github.com/ant-design/ant-design/pull/29670)
 - 💄 优化 Form.Item 提示信息的鼠标显示样式。[#29650](https://github.com/ant-design/ant-design/pull/29650)
 - 🌐 修复 cs-CZ 语言环境中的错字。 [#29675](https://github.com/ant-design/ant-design/pull/29675) [@jvaclavik](https://github.com/jvaclavik)
-- 🌐 添加 fr_CA 语言。[#29748](https://github.com/ant-design/ant-design/pull/29748)[@yoyo837] (https://github.com/yoyo837)
+- 🌐 添加 fr_CA 语言。[#29748](https://github.com/ant-design/ant-design/pull/29748) [@yoyo83](https://github.com/yoyo837)
 
 ## 4.13.1
 
