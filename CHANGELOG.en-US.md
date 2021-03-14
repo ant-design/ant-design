@@ -19,7 +19,7 @@ timeline: true
 
 `2021-03-14`
 
-- 🆕 Typography editable supports `onCancel` and `onEnd`. [#29615](https://github.com/ant-design/ant-design/pull/29615)
+- 🆕 Typography editable supports `onCancel` and `onEnd`. [#29615](https://github.com/ant-design/ant-design/pull/29615) [@jueinin](https://github.com/jueinin)
 - Tabs
   - 🐞 Fix Tabs `centered` prop is not actually center. [#29495](https://github.com/ant-design/ant-design/pull/29495) [@jinchaofs](https://github.com/jinchaofs)
   - 🆕 Tabs support `moreIcon`. [#29744](https://github.com/ant-design/ant-design/pull/29744) [@tianyuan233](https://github.com/tianyuan233)
