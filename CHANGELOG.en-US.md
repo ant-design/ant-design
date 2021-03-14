@@ -34,6 +34,7 @@ timeline: true
 - 💄 Fix the error style where the `disabled` Input has affix elements. [#29670](https://github.com/ant-design/ant-design/pull/29670)
 - 💄 Optimize the cursor style of Form.Item tooltip info. [#29650](https://github.com/ant-design/ant-design/pull/29650)
 - 🌐 Fix typo in cs-CZ locale. [#29675](https://github.com/ant-design/ant-design/pull/29675) [@jvaclavik](https://github.com/jvaclavik)
+- 🌐 Add fr_CA locale. [#29748](https://github.com/ant-design/ant-design/pull/29748)[@yoyo837] (https://github.com/yoyo837)
 
 ## 4.13.1
 
