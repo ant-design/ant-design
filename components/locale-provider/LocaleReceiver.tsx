@@ -1,9 +1,9 @@
 import * as React from 'react';
+import merge from 'lodash/merge';
+import cloneDeep from 'lodash/cloneDeep';
 import defaultLocaleData from './default';
 import LocaleContext from './context';
 import { Locale } from '.';
-import merge from 'lodash/merge';
-import cloneDeep from 'lodash/cloneDeep';
 
 export interface LocaleReceiverProps {
   componentName?: string;
