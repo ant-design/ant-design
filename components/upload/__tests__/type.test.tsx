@@ -27,4 +27,23 @@ describe('Upload.typescript', () => {
     );
     expect(upload).toBeTruthy();
   });
+
+  it('beforeUpload', () => {
+    const upload = (
+      <Upload
+        beforeUpload={file => {
+          if (file.type === 'image/png') {
+            return true;
+          }
+          if (file.type === 'image/webp') {
+            return Promise.resolve(file);
+          }
+          return Upload.LIST_IGNORE;
+        }}
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    expect(upload).toBeTruthy();
+  });
 });
