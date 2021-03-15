@@ -20,7 +20,7 @@ timeline: true
 `2021-03-14`
 
 - Upload
-  - 🆕 Upload `onChange` 改回原本行为（before Upload false 返回原始文件，其余场景返回封装对象）。现在你始终可以通过 `onChange.info.originFileObj` 获得原始文件。为了未来升级，请优先使用该方式访问原始文。[#29737](https://github.com/ant-design/ant-design/pull/29737)
+  - 🆕 Upload `onChange` 改回原本行为（`beforeUpload` 返回时 false 参数返回原始文件，其余场景返回封装对象）。现在你始终可以通过 `onChange.info.originFileObj` 获得原始文件。为了未来升级，请优先使用该方式访问原始文件。[#29737](https://github.com/ant-design/ant-design/pull/29737)
   - 🐞 修复 Upload `onChange` 参数 `file` 不能被 lodash `cloneDeep` 的问题。[#29718](https://github.com/ant-design/ant-design/pull/29718)
   - 🐞 修复 Upload 当 `fileList` 为 `null` 时崩溃的问题。[#29702](https://github.com/ant-design/ant-design/pull/29702)
   - 💄 Upload 添加 2 秒时限以防止开发者手工移除动画样式时导致动画卡住的问题。[#29686](https://github.com/ant-design/ant-design/pull/29686)
