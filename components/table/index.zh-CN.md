@@ -155,9 +155,9 @@ const columns = [
 
 ### ColumnGroup
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 列头显示文字 | ReactNode | - |
+| 参数  | 说明         | 类型      | 默认值 |
+| ----- | ------------ | --------- | ------ |
+| title | 列头显示文字 | ReactNode | -      |
 
 ### pagination
 
@@ -218,16 +218,16 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - |
-| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
+| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content), 如果您的浏览器核心基于 Chrome 89+, 应避免使用`max-content` | string \| number \| true | - |
 | y | 设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值 | string \| number | - |
 
 ### selection
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| key | React 需要的 key，建议设置 | string | - |
-| text | 选择项显示的文字 | ReactNode | - |
-| onSelect | 选择项点击回调 | function(changeableRowKeys) | - |
+| 参数     | 说明                       | 类型                        | 默认值 |
+| -------- | -------------------------- | --------------------------- | ------ |
+| key      | React 需要的 key，建议设置 | string                      | -      |
+| text     | 选择项显示的文字           | ReactNode                   | -      |
+| onSelect | 选择项点击回调             | function(changeableRowKeys) | -      |
 
 ## 在 TypeScript 中使用
 
