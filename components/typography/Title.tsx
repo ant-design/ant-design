@@ -1,17 +1,17 @@
 import * as React from 'react';
 import devWarning from '../_util/devWarning';
 import Base, { BlockProps } from './Base';
-import { tupleNum } from '../_util/type';
+import { tupleNum, Omit } from '../_util/type';
 
 const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4, 5);
 
-type Remove<T, K> = {
-  [P in Exclude<keyof T, K>]: T[P];
-};
-
-export interface TitleProps extends Remove<BlockProps, 'strong'> {
-  level?: typeof TITLE_ELE_LIST[number];
-}
+export type TitleProps = Omit<
+  BlockProps & {
+    level?: typeof TITLE_ELE_LIST[number];
+    onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
+  },
+  'strong'
+>;
 
 const Title: React.FC<TitleProps> = props => {
   const { level = 1, ...restProps } = props;
