@@ -58,12 +58,11 @@ Array [
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading ant-switch-loading-icon"
+        class="anticon anticon-loading anticon-spin ant-switch-loading-icon"
         role="img"
       >
         <svg
           aria-hidden="true"
-          class="anticon-spin"
           data-icon="loading"
           fill="currentColor"
           focusable="false"
@@ -94,12 +93,11 @@ Array [
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading ant-switch-loading-icon"
+        class="anticon anticon-loading anticon-spin ant-switch-loading-icon"
         role="img"
       >
         <svg
           aria-hidden="true"
-          class="anticon-spin"
           data-icon="loading"
           fill="currentColor"
           focusable="false"
@@ -205,7 +203,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="check"
           fill="currentColor"
           focusable="false"

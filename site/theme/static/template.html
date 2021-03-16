@@ -79,9 +79,7 @@
     </script>
   </head>
   <body>
-    <div id="react-content">
-      {{ content | safe }}
-    </div>
+    <div id="react-content">{{ content | safe }}</div>
     {% for jsFile in manifest["js"] %}
     <script src="{{ root }}{{ jsFile }}"></script>
     {% endfor %}

@@ -29,10 +29,15 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
   const colorInPreset = isPresetColor(color);
-  const ribbonCls = classNames(prefixCls, className, `${prefixCls}-placement-${placement}`, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-color-${color}`]: colorInPreset,
-  });
+  const ribbonCls = classNames(
+    prefixCls,
+    `${prefixCls}-placement-${placement}`,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-color-${color}`]: colorInPreset,
+    },
+    className,
+  );
   const colorStyle: React.CSSProperties = {};
   const cornerColorStyle: React.CSSProperties = {};
   if (color && !colorInPreset) {
@@ -43,7 +48,7 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
     <div className={`${prefixCls}-wrapper`}>
       {children}
       <div className={ribbonCls} style={{ ...colorStyle, ...style }}>
-        {text}
+        <span className={`${prefixCls}-text`}>{text}</span>
         <div className={`${prefixCls}-corner`} style={cornerColorStyle} />
       </div>
     </div>

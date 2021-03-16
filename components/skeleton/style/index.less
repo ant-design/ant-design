@@ -8,6 +8,7 @@
 @skeleton-button-prefix-cls: ~'@{skeleton-prefix-cls}-button';
 @skeleton-input-prefix-cls: ~'@{skeleton-prefix-cls}-input';
 @skeleton-image-prefix-cls: ~'@{skeleton-prefix-cls}-image';
+@skeleton-block-radius: 4px;
 
 .@{skeleton-prefix-cls} {
   display: table;
@@ -35,6 +36,7 @@
       height: @skeleton-title-height;
       margin-top: @margin-md;
       background: @skeleton-color;
+      border-radius: @skeleton-block-radius;
 
       + .@{skeleton-paragraph-prefix-cls} {
         margin-top: @skeleton-title-paragraph-margin-top;
@@ -50,6 +52,7 @@
         height: @skeleton-paragraph-li-height;
         list-style: none;
         background: @skeleton-color;
+        border-radius: @skeleton-block-radius;
 
         &:last-child:not(:first-child):not(:nth-child(2)) {
           width: 61%;

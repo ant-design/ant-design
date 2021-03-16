@@ -17,9 +17,9 @@ Following the Ant Design specification, we developed a React UI library `antd` t
   vertical-align: middle;
 }
 .pic-plus span {
-  font-size: 30px;
-  color: #aaa;
   margin: 0 20px;
+  color: #aaa;
+  font-size: 30px;
 }
 </style>
 
@@ -46,9 +46,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 Polyfills are needed for IE browsers. We recommend [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](http://umijs.org/).
 
-`antd@3.x` supports both React 15 and 16 but we strongly suggest React 16 for better performance and fewer bugs.
-
-> We drop support of IE8 after `antd@2.0`, IE9/10 after `antd@4.0`,
+> We drop support of IE8 after `antd@2.0`, We drop support of React 15 and IE9/10 after `antd@4.0`,
 
 ## Version
 
@@ -102,7 +100,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-`antd` provides a built-in ts definition, don't install @types/antd`.
+`antd` provides a built-in ts definition, don't install `@types/antd`.
 
 ## Links
 
@@ -152,6 +150,6 @@ If you'd like to help us improve antd, just create a [Pull Request](https://gith
 
 ## Need Help?
 
-For questions on how to use antd, please post questions to [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag. If you're not finding what you need on stackoverflow, you can find us on [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) as well.
+For questions on how to use antd, please post questions to [GitHub Discussions](https://github.com/ant-design/ant-design/discussions) using the `Q&A` tag or [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag.
 
 As always, we encourage experienced users to help those who are not familiar with `antd`!

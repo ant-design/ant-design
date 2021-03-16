@@ -45,6 +45,6 @@ exports[`Grid should render Row 1`] = `
 exports[`Grid when typeof gutter is object array in large screen 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-20px;margin-right:-20px;margin-top:-200px;margin-bottom:200px"
+  style="margin-left:-20px;margin-right:-20px;margin-top:-200px;margin-bottom:-200px"
 />
 `;

@@ -5,7 +5,7 @@ title: Use in TypeScript
 
 Let's create a TypeScript project by using `create-react-app`, then import `antd` step by step.
 
-> We build `antd` based on latest stable version of TypeScript (`>=3.8.4`), please make sure your project dependency matches it.
+> We build `antd` based on latest stable version of TypeScript (`>=4.0.0`), please make sure your project dependency matches it.
 
 ---
 
@@ -153,7 +153,7 @@ By adding `modifyVars` option of [less-loader](https://github.com/webpack/less-l
 
 We provide built-in dark theme and compact theme in antd, you can reference to [Use dark or compact theme](/docs/react/customize-theme#Use-dark-or-compact-theme).
 
-> You could also try [react-scripts-rewired](https://github.com/timarney/react-app-rewired) and [customize-cra](https://github.com/arackaf/customize-cra) to customize create-react-app webpack config like craco did.
+> You could also try [react-app-rewired](https://github.com/timarney/react-app-rewired) and [customize-cra](https://github.com/arackaf/customize-cra) to customize create-react-app webpack config like craco did.
 
 ## Alternative ways
 

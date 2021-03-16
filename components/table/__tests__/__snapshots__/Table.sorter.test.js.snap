@@ -30,7 +30,6 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-up"
                   fill="currentColor"
                   focusable="false"
@@ -50,7 +49,6 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -124,7 +122,6 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-up"
                                 fill="currentColor"
                                 focusable="false"
@@ -144,7 +141,6 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
@@ -204,7 +200,6 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -248,7 +243,6 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"

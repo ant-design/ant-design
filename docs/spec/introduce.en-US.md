@@ -59,6 +59,11 @@ const LinksList = () => (
       <a href="http://vue.ant.design" target="_blank">Ant Design of Vue</a>
     </li>
     <li>
+      <a href="https://ant-design-blazor.github.io/" target="_blank">
+        Ant Design Blazor
+      </a>
+    </li>
+    <li>
       <a href="https://ecomfe.github.io/santd" target="_blank">
         San UI Toolkit for Ant Design
       </a>
@@ -66,15 +71,6 @@ const LinksList = () => (
     <li>
       <a href="https://github.com/priornix/antizer" target="_blank">
         antizer (ClojureScript)
-      </a>
-    </li>
-    <li>
-      <a href="https://ant-design-blazor.github.io/" target="_blank">
-        ant-design-blazor/ant-design-blazor
-      </a>
-      <span class="ant-divider ant-divider-vertical" />
-      <a href="https://append-it.github.io/ant-design-blazor/" target="_blank">
-        append-it/ant-design-blazor
       </a>
     </li>
   </ul>
@@ -101,7 +97,9 @@ ReactDOM.render(<LinksList />, mountNode);
 
 - Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
 - Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
-- Hackernoon: [Interesting JavaScript Libraries born in China](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
+- [Introduction to Ant Design](https://blog.logrocket.com/introduction-to-ant-design/)
+- [Build a React App with Ant Design Principles](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
+- [Meet Antd, an enterprise React UI library](https://medium.com/javascript-in-plain-english/antd-library-what-why-useful-or-not-5fec225b639d)
 
 ## How to Contribute
 

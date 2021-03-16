@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext, useRef } from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
@@ -6,12 +7,12 @@ import { FieldProps } from 'rc-field-form/lib/Field';
 import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
-import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
+import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
 import { toArray, getFieldId } from './util';
@@ -19,12 +20,14 @@ import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
 import useItemRef from './hooks/useItemRef';
 
+const NAME_SPLIT = '__SPLIT__';
+
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
-type RenderChildren = (form: FormInstance) => React.ReactNode;
-type RcFieldProps = Omit<FieldProps, 'children'>;
-type ChildrenType = RenderChildren | React.ReactNode;
+type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
+type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
+type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
 interface MemoInputProps {
   value: any;
@@ -34,23 +37,26 @@ interface MemoInputProps {
 
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
-  (prev, next) => {
-    return prev.value === next.value && prev.update === next.update;
-  },
+  (prev, next) => prev.value === next.value && prev.update === next.update,
 );
 
-export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
+export interface FormItemProps<Values = any>
+  extends FormItemLabelProps,
+    FormItemInputProps,
+    RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
-  children?: ChildrenType;
+  children?: ChildrenType<Values>;
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   required?: boolean;
   hidden?: boolean;
-
+  initialValue?: any;
+  messageVariables?: Record<string, string>;
+  tooltip?: LabelTooltipType;
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
 }
@@ -62,7 +68,7 @@ function hasValidName(name?: NamePath): Boolean {
   return !(name === undefined || name === null);
 }
 
-function FormItem(props: FormItemProps): React.ReactElement {
+function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
     fieldKey,
@@ -79,20 +85,20 @@ function FormItem(props: FormItemProps): React.ReactElement {
     children,
     required,
     label,
+    messageVariables,
     trigger = 'onChange',
     validateTrigger,
     hidden,
     ...restProps
   } = props;
-  const destroyRef = React.useRef(false);
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName } = React.useContext(FormContext);
-  const { updateItemErrors } = React.useContext(FormItemContext);
+  const destroyRef = useRef(false);
+  const { getPrefixCls } = useContext(ConfigContext);
+  const { name: formName, requiredMark } = useContext(FormContext);
+  const { updateItemErrors } = useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
-  const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
-  const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
+  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
@@ -105,15 +111,16 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const hasName = hasValidName(name);
 
   // Cache Field NamePath
-  const nameRef = React.useRef<(string | number)[]>([]);
+  const nameRef = useRef<(string | number)[]>([]);
 
   // Should clean up if Field removed
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(
+    () => () => {
       destroyRef.current = true;
-      updateItemErrors(nameRef.current.join('__SPLIT__'), []);
-    };
-  }, []);
+      updateItemErrors(nameRef.current.join(NAME_SPLIT), []);
+    },
+    [],
+  );
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
@@ -121,8 +128,13 @@ function FormItem(props: FormItemProps): React.ReactElement {
   // Collect noStyle Field error to the top FormItem
   const updateChildItemErrors = noStyle
     ? updateItemErrors
-    : (subName: string, subErrors: string[]) => {
+    : (subName: string, subErrors: string[], originSubName: string) => {
         setInlineErrors((prevInlineErrors = {}) => {
+          // Clean up origin error when name changed
+          if (originSubName !== subName) {
+            delete prevInlineErrors[originSubName];
+          }
+
           if (!isEqual(prevInlineErrors[subName], subErrors)) {
             return {
               ...prevInlineErrors,
@@ -174,10 +186,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = 'success';
     }
 
-    if (domErrorVisible && help) {
-      prevValidateStatusRef.current = mergedValidateStatus;
-    }
-
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: domErrorVisible || help,
@@ -188,8 +196,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-      [`${prefixCls}-item-has-error-leave`]:
-        !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
       [`${prefixCls}-item-hidden`]: hidden,
     };
@@ -205,32 +211,36 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'extra',
           'getValueFromEvent',
           'getValueProps',
-          'hasFeedback',
-          'help',
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
           'isListField',
-          'label',
           'labelAlign',
           'labelCol',
           'normalize',
           'preserve',
-          'required',
+          'tooltip',
           'validateFirst',
-          'validateStatus',
           'valuePropName',
           'wrapperCol',
+          '_internalItemRender' as any,
         ])}
       >
         {/* Label */}
-        <FormItemLabel htmlFor={fieldId} required={isRequired} {...props} prefixCls={prefixCls} />
+        <FormItemLabel
+          htmlFor={fieldId}
+          required={isRequired}
+          requiredMark={requiredMark}
+          {...props}
+          prefixCls={prefixCls}
+        />
         {/* Input Group */}
         <FormItemInput
           {...props}
           {...meta}
           errors={mergedErrors}
           prefixCls={prefixCls}
+          status={mergedValidateStatus}
           onDomErrorVisibleChange={setDomErrorVisible}
           validateStatus={mergedValidateStatus}
         >
@@ -245,16 +255,19 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const isRenderProps = typeof children === 'function';
 
   // Record for real component render
-  const updateRef = React.useRef(0);
+  const updateRef = useRef(0);
   updateRef.current += 1;
 
   if (!hasName && !isRenderProps && !dependencies) {
     return renderLayout(children) as JSX.Element;
   }
 
-  const variables: Record<string, string> = {};
+  let variables: Record<string, string> = {};
   if (typeof label === 'string') {
     variables.label = label;
+  }
+  if (messageVariables) {
+    variables = { ...variables, ...messageVariables };
   }
 
   return (
@@ -274,12 +287,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
         const fieldId = getFieldId(mergedName, formName);
 
         if (noStyle) {
+          // Clean up origin one
+          const originErrorName = nameRef.current.join(NAME_SPLIT);
+
           nameRef.current = [...mergedName];
           if (fieldKey) {
             const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
             nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
           }
-          updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
+          updateItemErrors(nameRef.current.join(NAME_SPLIT), errors, originErrorName);
         }
 
         const isRequired =

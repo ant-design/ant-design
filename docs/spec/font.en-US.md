@@ -81,7 +81,7 @@ The choice of font weight is also based on the principles of order, stability, a
 Text will be difficult to read if it is too close to the background color. To achieve barrier-free design, we follow the WCAG standard, which maintains an AAA level of contrast ratio, i.e. 7:1 or more between body text, title, and background color.
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/jPbEabWakVQHosHxhQPR.png" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PdFFQr2NXyUAAAAAAAAAAAAAARQnAQ" />
 </div>
 
 ## Advanced Tips

@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import Tooltip from '..';
 import Button from '../../button';
 import Switch from '../../switch';
@@ -14,6 +15,12 @@ import rtlTest from '../../../tests/shared/rtlTest';
 describe('Tooltip', () => {
   mountTest(Tooltip);
   rtlTest(Tooltip);
+
+  beforeAll(() => {
+    spyElementPrototype(HTMLElement, 'offsetParent', {
+      get: () => ({}),
+    });
+  });
 
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();
@@ -331,5 +338,14 @@ describe('Tooltip', () => {
     button.simulate('mouseenter');
     await sleep(600);
     expect(ref.current.getPopupDomNode().className).toContain('ant-tooltip');
+  });
+
+  it('should pass overlayInnerStyle through to the inner component', () => {
+    const wrapper = mount(
+      <Tooltip overlayInnerStyle={{ color: 'red' }} title="xxxxx" visible>
+        <div />
+      </Tooltip>,
+    );
+    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().style.color).toBe('red');
   });
 });

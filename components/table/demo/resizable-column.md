@@ -3,6 +3,7 @@ order: 27
 title:
   en-US: Resizable column
   zh-CN: 可伸缩列
+debug: true
 ---
 
 ## zh-CN
@@ -141,11 +142,11 @@ ReactDOM.render(<Demo />, mountNode);
 
 #components-table-demo-resizable-column .react-resizable-handle {
   position: absolute;
+  right: -5px;
+  bottom: 0;
+  z-index: 1;
   width: 10px;
   height: 100%;
-  bottom: 0;
-  right: -5px;
   cursor: col-resize;
-  z-index: 1;
 }
 ```

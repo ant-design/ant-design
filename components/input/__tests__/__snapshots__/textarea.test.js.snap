@@ -11,13 +11,12 @@ exports[`TextArea allowClear should change type when click 1`] = `
   </textarea>
   <span
     aria-label="close-circle"
-    class="anticon anticon-close-circle ant-input-textarea-clear-icon"
+    class="anticon anticon-close-circle ant-input-clear-icon"
     role="button"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -42,13 +41,12 @@ exports[`TextArea allowClear should change type when click 2`] = `
   />
   <span
     aria-label="close-circle"
-    class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
     role="button"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -73,13 +71,12 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   />
   <span
     aria-label="close-circle"
-    class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
     role="button"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -104,13 +101,12 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   />
   <span
     aria-label="close-circle"
-    class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
     role="button"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -135,13 +131,12 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   />
   <span
     aria-label="close-circle"
-    class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
     role="button"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -166,13 +161,12 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   />
   <span
     aria-label="close-circle"
-    class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
     role="button"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -197,13 +191,12 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   />
   <span
     aria-label="close-circle"
-    class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
     role="button"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -228,13 +221,12 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   />
   <span
     aria-label="close-circle"
-    class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
     role="button"
     tabindex="-1"
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -261,5 +253,11 @@ exports[`TextArea should support maxLength 1`] = `
 <textarea
   class="ant-input"
   maxlength="10"
+/>
+`;
+
+exports[`TextArea should support size 1`] = `
+<textarea
+  class="ant-input ant-input-lg"
 />
 `;

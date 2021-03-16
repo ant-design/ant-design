@@ -61,13 +61,13 @@ class Avatar extends React.Component {
   };
 
   render() {
+    const { loading, imageUrl } = this.state;
     const uploadButton = (
       <div>
-        {this.state.loading ? <LoadingOutlined /> : <PlusOutlined />}
-        <div className="ant-upload-text">Upload</div>
+        {loading ? <LoadingOutlined /> : <PlusOutlined />}
+        <div style={{ marginTop: 8 }}>Upload</div>
       </div>
     );
-    const { imageUrl } = this.state;
     return (
       <Upload
         name="avatar"

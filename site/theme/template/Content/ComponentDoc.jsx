@@ -122,8 +122,7 @@ class ComponentDoc extends React.Component {
           rightChildren.push(demoElem);
         }
       });
-    const expandTriggerClass = classNames({
-      'code-box-expand-trigger': true,
+    const expandTriggerClass = classNames('code-box-expand-trigger', {
       'code-box-expand-trigger-active': expandAll,
     });
 
@@ -131,7 +130,13 @@ class ComponentDoc extends React.Component {
       const { title } = demo.meta;
       const localizeTitle = title[locale] || title;
       return (
-        <li key={demo.meta.id} title={localizeTitle}>
+        <li
+          key={demo.meta.id}
+          title={localizeTitle}
+          className={classNames({
+            'toc-debug': demo.meta.debug,
+          })}
+        >
           <a href={`#${demo.meta.id}`}>{localizeTitle}</a>
         </li>
       );

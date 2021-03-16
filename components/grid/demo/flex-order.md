@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-通过 Order 来改变元素的排序。
+通过 `order` 来改变元素的排序。
 
 ## en-US
 
-To change the element sort by order.
+To change the element sort by `order`.
 
 ```jsx
 import { Row, Col, Divider } from 'antd';

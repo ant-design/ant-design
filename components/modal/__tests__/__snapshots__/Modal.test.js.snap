@@ -2,21 +2,24 @@
 
 exports[`Modal render correctly 1`] = `
 <div>
-  <div>
+  <div
+    class="ant-scrolling-effect"
+    style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+  >
     <div>
       <div
         class="ant-modal-root"
       >
         <div
-          class="ant-modal-mask fade-appear"
+          class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
         />
         <div
-          class="ant-modal-wrap "
+          class="ant-modal-wrap"
           role="dialog"
           tabindex="-1"
         >
           <div
-            class="ant-modal zoom-appear"
+            class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
             role="document"
             style="width: 520px;"
           >
@@ -43,7 +46,6 @@ exports[`Modal render correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -99,21 +101,24 @@ exports[`Modal render correctly 1`] = `
 
 exports[`Modal render without footer 1`] = `
 <div>
-  <div>
+  <div
+    class="ant-scrolling-effect"
+    style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+  >
     <div>
       <div
         class="ant-modal-root"
       >
         <div
-          class="ant-modal-mask fade-appear"
+          class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
         />
         <div
-          class="ant-modal-wrap "
+          class="ant-modal-wrap"
           role="dialog"
           tabindex="-1"
         >
           <div
-            class="ant-modal zoom-appear"
+            class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
             role="document"
             style="width: 520px;"
           >
@@ -140,7 +145,6 @@ exports[`Modal render without footer 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -181,15 +185,15 @@ exports[`Modal support closeIcon 1`] = `
   class="ant-modal-root"
 >
   <div
-    class="ant-modal-mask fade-appear"
+    class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
   />
   <div
-    class="ant-modal-wrap "
+    class="ant-modal-wrap"
     role="dialog"
     tabindex="-1"
   >
     <div
-      class="ant-modal zoom-appear"
+      class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
       role="document"
       style="width: 520px;"
     >

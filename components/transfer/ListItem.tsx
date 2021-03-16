@@ -1,25 +1,25 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import { TransferItem, TransferLocale } from '.';
+import { KeyWiseTransferItem, TransferLocale } from '.';
 import defaultLocale from '../locale/default';
 import Checkbox from '../checkbox';
 import TransButton from '../_util/transButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
-type ListItemProps = {
+type ListItemProps<RecordType> = {
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
   checked?: boolean;
   prefixCls: string;
-  onClick: (item: TransferItem) => void;
-  onRemove?: (item: TransferItem) => void;
-  item: TransferItem;
+  onClick: (item: RecordType) => void;
+  onRemove?: (item: RecordType) => void;
+  item: RecordType;
   showRemove?: boolean;
 };
 
-const ListItem = (props: ListItemProps) => {
+const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<RecordType>) => {
   const {
     renderedText,
     renderedEl,

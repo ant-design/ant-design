@@ -5,7 +5,7 @@ title: 在 TypeScript 中使用
 
 使用 `create-react-app` 一步步地创建一个 TypeScript 项目，并引入 antd。
 
-> `antd` 基于最新稳定版本的 TypeScript（`>=3.8.4`），请确保项目中使用匹配的版本。
+> `antd` 基于最新稳定版本的 TypeScript（`>=4.0.0`），请确保项目中使用匹配的版本。
 
 ---
 
@@ -105,7 +105,7 @@ module.exports = {
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到类似 [less-loader](https://github.com/webpack-contrib/less-loader/) 提供的 less 变量覆盖功能。我们可以引入 [craco-less](https://github.com/DocSpring/craco-less) 来帮助加载 less 样式和修改变量。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到类似 [less-loader](https://github.com/webpack-contrib/less-loader/) 提供的 less 变量覆盖功能。我们可以引入 [craco-antd](https://github.com/DocSpring/craco-antd) 来帮助加载 less 样式和修改变量。
 
 首先把 `src/App.css` 文件修改为 `src/App.less`，然后修改样式引用为 less 文件。
 
@@ -118,28 +118,24 @@ module.exports = {
 ```diff
 /* src/App.less */
 - @import '~antd/dist/antd.css';
-+ @import '~antd/dist/antd.less';
 ```
 
-然后安装 `craco-less` 并修改 `craco.config.js` 文件如下。
+然后安装 `craco-antd` 并修改 `craco.config.js` 文件如下。
 
 ```bash
-$ yarn add craco-less
+$ yarn add craco-antd
 ```
 
 ```js
-const CracoLessPlugin = require('craco-less');
+const CracoAntDesignPlugin = require('craco-antd');
 
 module.exports = {
   plugins: [
     {
-      plugin: CracoLessPlugin,
+      plugin: CracoAntDesignPlugin,
       options: {
-        lessLoaderOptions: {
-          lessOptions: {
-            modifyVars: { '@primary-color': '#1DA57A' },
-            javascriptEnabled: true,
-          },
+        customizeTheme: {
+          '@primary-color': '#1DA57A',
         },
       },
     },
@@ -151,7 +147,7 @@ module.exports = {
 
 antd 内建了深色主题和紧凑主题，你可以参照 [使用暗色主题和紧凑主题](/docs/react/customize-theme#使用暗色主题和紧凑主题) 进行接入。
 
-> 同样，你可以使用 [react-scripts-rewired](https://github.com/timarney/react-app-rewired) 和 [customize-cra](https://github.com/arackaf/customize-cra) 来自定义 create-react-app 的 webpack 配置。
+> 同样，你可以使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) 和 [customize-cra](https://github.com/arackaf/customize-cra) 来自定义 create-react-app 的 webpack 配置。
 
 ## 其他方案
 

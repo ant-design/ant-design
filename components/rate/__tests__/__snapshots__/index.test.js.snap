@@ -26,7 +26,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -50,7 +49,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -86,7 +84,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -110,7 +107,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -146,7 +142,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -170,7 +165,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -206,7 +200,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -230,7 +223,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -266,7 +258,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"
@@ -290,7 +281,6 @@ exports[`Rate rtl render component should be rendered correctly in RTL direction
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"

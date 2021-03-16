@@ -1,17 +1,28 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import { ConfigConsumerProps, ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
+import Item from './Item';
+
+export const SpaceContext = React.createContext({
+  latestIndex: 0,
+  horizontalSize: 0,
+  verticalSize: 0,
+});
+
+export type SpaceSize = SizeType | number;
 
 export interface SpaceProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  size?: SizeType | number;
+  size?: SpaceSize | [SpaceSize, SpaceSize];
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
+  split?: React.ReactNode;
+  wrap?: boolean;
 }
 
 const spaceSize = {
@@ -20,10 +31,12 @@ const spaceSize = {
   large: 24,
 };
 
+function getNumberSize(size: SpaceSize) {
+  return typeof size === 'string' ? spaceSize[size] : size || 0;
+}
+
 const Space: React.FC<SpaceProps> = props => {
-  const { getPrefixCls, space, direction: directionConfig }: ConfigConsumerProps = React.useContext(
-    ConfigContext,
-  );
+  const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
     size = space?.size || 'small',
@@ -32,13 +45,23 @@ const Space: React.FC<SpaceProps> = props => {
     children,
     direction = 'horizontal',
     prefixCls: customizePrefixCls,
+    split,
+    style,
+    wrap = false,
     ...otherProps
   } = props;
 
-  const items = toArray(children);
-  const len = items.length;
+  const [horizontalSize, verticalSize] = React.useMemo(
+    () =>
+      ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map(item =>
+        getNumberSize(item),
+      ),
+    [size],
+  );
 
-  if (len === 0) {
+  const childNodes = toArray(children, { keepEmpty: true });
+
+  if (childNodes.length === 0) {
     return null;
   }
 
@@ -58,25 +81,42 @@ const Space: React.FC<SpaceProps> = props => {
 
   const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
+  // Calculate latest one
+  let latestIndex = 0;
+  const nodes = childNodes.map((child, i) => {
+    if (child !== null && child !== undefined) {
+      latestIndex = i;
+    }
+
+    /* eslint-disable react/no-array-index-key */
+    return (
+      <Item
+        className={itemClassName}
+        key={`${itemClassName}-${i}`}
+        direction={direction}
+        index={i}
+        marginDirection={marginDirection}
+        split={split}
+        wrap={wrap}
+      >
+        {child}
+      </Item>
+    );
+    /* eslint-enable */
+  });
+
   return (
-    <div className={cn} {...otherProps}>
-      {items.map((child, i) => (
-        <div
-          className={itemClassName}
-          // eslint-disable-next-line react/no-array-index-key
-          key={`${itemClassName}-${i}`}
-          style={
-            i === len - 1
-              ? {}
-              : {
-                  [direction === 'vertical' ? 'marginBottom' : marginDirection]:
-                    typeof size === 'string' ? spaceSize[size] : size,
-                }
-          }
-        >
-          {child}
-        </div>
-      ))}
+    <div
+      className={cn}
+      style={{
+        ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
+        ...style,
+      }}
+      {...otherProps}
+    >
+      <SpaceContext.Provider value={{ horizontalSize, verticalSize, latestIndex }}>
+        {nodes}
+      </SpaceContext.Provider>
     </div>
   );
 };

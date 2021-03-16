@@ -39,7 +39,7 @@ export default function NotFound(props: NotFoundProps) {
     for (let i = 0; i < directLinks.length; i += 1) {
       const matchPath = directLinks[i];
       if (pathname.includes(matchPath)) {
-        router.replace(utils.getLocalizedPathname(`/${DIRECT_MAP[matchPath]}`, isZhCN));
+        router.replace(utils.getLocalizedPathname(`/${DIRECT_MAP[matchPath]}`, isZhCN).pathname);
       }
     }
   }, []);

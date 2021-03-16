@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collapse could override default openAnimation 1`] = `
+exports[`Collapse could override default openMotion 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-left"
 >
@@ -20,7 +20,6 @@ exports[`Collapse could override default openAnimation 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -69,7 +68,6 @@ exports[`Collapse should render extra node of panel 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -110,7 +108,6 @@ exports[`Collapse should render extra node of panel 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"

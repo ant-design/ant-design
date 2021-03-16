@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
-import { isValidElement } from '../_util/reactNode';
+import { isValidElement, cloneElement } from '../_util/reactNode';
 
 export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   icon?: React.ReactNode;
@@ -15,16 +15,6 @@ export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
 
 export default class MenuItem extends React.Component<MenuItemProps> {
   static isMenuItem = true;
-
-  private menuItem: this;
-
-  onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
-    this.menuItem.onKeyDown(e);
-  };
-
-  saveMenuItem = (menuItem: this) => {
-    this.menuItem = menuItem;
-  };
 
   renderItemChildren(inlineCollapsed: boolean) {
     const { icon, children, level, rootPrefixCls } = this.props;
@@ -73,15 +63,22 @@ export default class MenuItem extends React.Component<MenuItemProps> {
             >
               <Item
                 {...rest}
-                className={classNames(className, {
-                  [`${rootPrefixCls}-item-danger`]: danger,
-                  [`${rootPrefixCls}-item-only-child`]:
-                    (icon ? childrenLength + 1 : childrenLength) === 1,
-                })}
+                className={classNames(
+                  {
+                    [`${rootPrefixCls}-item-danger`]: danger,
+                    [`${rootPrefixCls}-item-only-child`]:
+                      (icon ? childrenLength + 1 : childrenLength) === 1,
+                  },
+                  className,
+                )}
                 title={title}
-                ref={this.saveMenuItem}
               >
-                {icon}
+                {cloneElement(icon, {
+                  className: classNames(
+                    isValidElement(icon) ? icon.props?.className : '',
+                    `${rootPrefixCls}-item-icon`,
+                  ),
+                })}
                 {this.renderItemChildren(inlineCollapsed)}
               </Item>
             </Tooltip>

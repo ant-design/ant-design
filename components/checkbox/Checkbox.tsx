@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
-import CheckboxGroup, { GroupContext } from './Group';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { GroupContext } from './Group';
+import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 
 export interface AbstractCheckboxProps<T> {
@@ -25,10 +25,7 @@ export interface AbstractCheckboxProps<T> {
   id?: string;
   autoFocus?: boolean;
   type?: string;
-}
-
-export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
-  indeterminate?: boolean;
+  skipGroup?: boolean;
 }
 
 export interface CheckboxChangeEventTarget extends CheckboxProps {
@@ -42,114 +39,92 @@ export interface CheckboxChangeEvent {
   nativeEvent: MouseEvent;
 }
 
-class Checkbox extends React.PureComponent<CheckboxProps, {}> {
-  static Group: typeof CheckboxGroup;
+export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
+  indeterminate?: boolean;
+}
 
-  static __ANT_CHECKBOX = true;
+const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, CheckboxProps> = (
+  {
+    prefixCls: customizePrefixCls,
+    className,
+    children,
+    indeterminate = false,
+    style,
+    onMouseEnter,
+    onMouseLeave,
+    skipGroup = false,
+    ...restProps
+  },
+  ref,
+) => {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const checkboxGroup = React.useContext(GroupContext);
 
-  static defaultProps = {
-    indeterminate: false,
-  };
+  const prevValue = React.useRef(restProps.value);
 
-  static contextType = GroupContext;
-
-  context: any;
-
-  private rcCheckbox: any;
-
-  componentDidMount() {
-    const { value } = this.props;
-    this.context?.registerValue(value);
-
+  React.useEffect(() => {
+    checkboxGroup?.registerValue(restProps.value);
     devWarning(
-      'checked' in this.props || this.context || !('value' in this.props),
+      'checked' in restProps || !!checkboxGroup || !('value' in restProps),
       'Checkbox',
       '`value` is not a valid prop, do you mean `checked`?',
     );
-  }
+  }, []);
 
-  componentDidUpdate({ value: prevValue }: CheckboxProps) {
-    const { value } = this.props;
-    if (value !== prevValue) {
-      this.context?.cancelValue(prevValue);
-      this.context?.registerValue(value);
+  React.useEffect(() => {
+    if (skipGroup) {
+      return;
     }
-  }
-
-  componentWillUnmount() {
-    const { value } = this.props;
-    this.context?.cancelValue(value);
-  }
-
-  saveCheckbox = (node: any) => {
-    this.rcCheckbox = node;
-  };
-
-  focus() {
-    this.rcCheckbox.focus();
-  }
-
-  blur() {
-    this.rcCheckbox.blur();
-  }
-
-  renderCheckbox = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { props, context } = this;
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      children,
-      indeterminate,
-      style,
-      onMouseEnter,
-      onMouseLeave,
-      ...restProps
-    } = props;
-    const checkboxGroup = context;
-    const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
-    const checkboxProps: CheckboxProps = { ...restProps };
-    if (checkboxGroup) {
-      checkboxProps.onChange = (...args) => {
-        if (restProps.onChange) {
-          restProps.onChange(...args);
-        }
-        checkboxGroup.toggleOption({ label: children, value: props.value });
-      };
-      checkboxProps.name = checkboxGroup.name;
-      checkboxProps.checked = checkboxGroup.value.indexOf(props.value) !== -1;
-      checkboxProps.disabled = props.disabled || checkboxGroup.disabled;
+    if (restProps.value !== prevValue.current) {
+      checkboxGroup?.cancelValue(prevValue.current);
+      checkboxGroup?.registerValue(restProps.value);
     }
-    const classString = classNames(className, {
+    return () => checkboxGroup?.cancelValue(restProps.value);
+  }, [restProps.value]);
+
+  const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
+  const checkboxProps: CheckboxProps = { ...restProps };
+  if (checkboxGroup && !skipGroup) {
+    checkboxProps.onChange = (...args) => {
+      if (restProps.onChange) {
+        restProps.onChange(...args);
+      }
+      if (checkboxGroup.toggleOption) {
+        checkboxGroup.toggleOption({ label: children, value: restProps.value });
+      }
+    };
+    checkboxProps.name = checkboxGroup.name;
+    checkboxProps.checked = checkboxGroup.value.indexOf(restProps.value) !== -1;
+    checkboxProps.disabled = restProps.disabled || checkboxGroup.disabled;
+  }
+  const classString = classNames(
+    {
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
       [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
-    });
-    const checkboxClass = classNames({
-      [`${prefixCls}-indeterminate`]: indeterminate,
-    });
-    return (
-      // eslint-disable-next-line jsx-a11y/label-has-associated-control
-      <label
-        className={classString}
-        style={style}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        <RcCheckbox
-          {...checkboxProps}
-          prefixCls={prefixCls}
-          className={checkboxClass}
-          ref={this.saveCheckbox}
-        />
-        {children !== undefined && <span>{children}</span>}
-      </label>
-    );
-  };
+    },
+    className,
+  );
+  const checkboxClass = classNames({
+    [`${prefixCls}-indeterminate`]: indeterminate,
+  });
+  return (
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
+    <label
+      className={classString}
+      style={style}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <RcCheckbox {...checkboxProps} prefixCls={prefixCls} className={checkboxClass} ref={ref} />
+      {children !== undefined && <span>{children}</span>}
+    </label>
+  );
+};
 
-  render() {
-    return <ConfigConsumer>{this.renderCheckbox}</ConfigConsumer>;
-  }
-}
+const Checkbox = React.forwardRef<unknown, CheckboxProps>(InternalCheckbox);
+
+Checkbox.displayName = 'Checkbox';
 
 export default Checkbox;

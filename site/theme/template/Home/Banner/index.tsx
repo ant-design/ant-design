@@ -10,7 +10,8 @@ import Logo from './Logo';
 import './index.less';
 import SiteContext from '../../Layout/SiteContext';
 
-export default function Banner() {
+const Banner = (props: { location: any }) => {
+  const { location } = props;
   const { isMobile } = React.useContext(SiteContext);
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
@@ -18,7 +19,7 @@ export default function Banner() {
   let qrNode: React.ReactElement | null = null;
   if (isMobile) {
     qrNode = (
-      <a href="http://antd4.antfin.com/">
+      <a href="https://antd4.antfin.com">
         <img
           alt="mobile"
           src="https://gw.alipayobjects.com/zos/basement_prod/d2fa63a8-3e9d-4f59-80c7-1fd1d0cd9118.svg"
@@ -74,12 +75,12 @@ export default function Banner() {
           {isZhCN && <div className="banner-qr">{qrNode}</div>}
 
           <div className="home-banner-content-operations">
-            <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+            <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}>
               <Button type="primary" shape="round">
                 <FormattedMessage id="app.home.getting-started" />
               </Button>
             </Link>
-            <Link to={getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+            <Link to={getLocalizedPathname('/docs/spec/introduce', isZhCN, location.query)}>
               <Button shape="round" ghost>
                 <FormattedMessage id="app.home.design-language" />
               </Button>
@@ -89,4 +90,6 @@ export default function Banner() {
       </div>
     </div>
   );
-}
+};
+
+export default Banner;

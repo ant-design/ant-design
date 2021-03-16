@@ -4,17 +4,18 @@
 @carousel-prefix-cls: ~'@{ant-prefix}-carousel';
 
 .@{carousel-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   .slick-slider {
     position: relative;
     display: block;
     box-sizing: border-box;
-    -webkit-touch-callout: none;
     -ms-touch-action: pan-y;
     touch-action: pan-y;
+    -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
   }
+
   .slick-list {
     position: relative;
     display: block;
@@ -56,9 +57,11 @@
       }
     }
   }
+
   .slick-slider .slick-track,
   .slick-slider .slick-list {
     transform: translate3d(0, 0, 0);
+    touch-action: pan-y;
   }
 
   .slick-track {
@@ -81,6 +84,7 @@
       visibility: hidden;
     }
   }
+
   .slick-slide {
     display: none;
     float: left;
@@ -90,6 +94,7 @@
     img {
       display: block;
     }
+
     &.slick-loading img {
       display: none;
     }
@@ -180,6 +185,7 @@
     }
     &-top {
       top: 12px;
+      bottom: auto;
     }
     li {
       position: relative;

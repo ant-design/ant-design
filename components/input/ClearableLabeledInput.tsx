@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { tuple } from '../_util/type';
 import { InputProps, getInputClassName } from './Input';
+import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 
@@ -12,9 +13,11 @@ export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
   return !!(props.prefix || props.suffix || props.allowClear);
 }
 
-/**
- * This basic props required for input and textarea.
- */
+function hasAddon(props: InputProps | ClearableInputProps) {
+  return !!(props.addonBefore || props.addonAfter);
+}
+
+/** This basic props required for input and textarea. */
 interface BasicProps {
   prefixCls: string;
   inputType: typeof ClearableInputType[number];
@@ -23,55 +26,51 @@ interface BasicProps {
   element: React.ReactElement;
   handleReset: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   className?: string;
-  style?: object;
+  style?: React.CSSProperties;
   disabled?: boolean;
-  direction?: any;
+  direction?: DirectionType;
   focused?: boolean;
   readOnly?: boolean;
   bordered: boolean;
 }
 
-/**
- * This props only for input.
- */
+/** This props only for input. */
 interface ClearableInputProps extends BasicProps {
   size?: SizeType;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
-  triggerFocus: () => void;
+  triggerFocus?: () => void;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
-  /** @private Do not use out of this class. We do not promise this is always keep. */
+  /** @private Do Not use out of this class. We do not promise this is always keep. */
   private containerRef = React.createRef<HTMLSpanElement>();
 
   onInputMouseUp: React.MouseEventHandler = e => {
     if (this.containerRef.current?.contains(e.target as Element)) {
       const { triggerFocus } = this.props;
-      triggerFocus();
+      triggerFocus?.();
     }
   };
 
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, readOnly, inputType, handleReset } = this.props;
-
+    const { allowClear, value, disabled, readOnly, handleReset } = this.props;
     if (!allowClear) {
       return null;
     }
-
     const needClear = !disabled && !readOnly && value;
-    const className =
-      inputType === ClearableInputType[0]
-        ? `${prefixCls}-textarea-clear-icon`
-        : `${prefixCls}-clear-icon`;
+    const className = `${prefixCls}-clear-icon`;
     return (
       <CloseCircleFilled
         onClick={handleReset}
-        className={classNames(className, {
-          [`${className}-hidden`]: !needClear,
-        })}
+        className={classNames(
+          {
+            [`${className}-hidden`]: !needClear,
+          },
+          className,
+        )}
         role="button"
       />
     );
@@ -114,7 +113,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
     const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
-    const affixWrapperCls = classNames(className, `${prefixCls}-affix-wrapper`, {
+    const affixWrapperCls = classNames(`${prefixCls}-affix-wrapper`, {
       [`${prefixCls}-affix-wrapper-focused`]: focused,
       [`${prefixCls}-affix-wrapper-disabled`]: disabled,
       [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
@@ -123,6 +122,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
       [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
       [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+      // className will go to addon wrapper
+      [`${className}`]: !hasAddon(this.props) && className,
     });
     return (
       <span
@@ -145,7 +146,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement) {
     const { addonBefore, addonAfter, style, size, className, direction } = this.props;
     // Not wrap when there is not addons
-    if (!addonBefore && !addonAfter) {
+    if (!hasAddon(this.props)) {
       return labeledElement;
     }
 
@@ -156,16 +157,19 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     ) : null;
     const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
-    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
-      [wrapperClassName]: addonBefore || addonAfter,
+    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, {
       [`${wrapperClassName}-rtl`]: direction === 'rtl',
     });
 
-    const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
-      [`${prefixCls}-group-wrapper-sm`]: size === 'small',
-      [`${prefixCls}-group-wrapper-lg`]: size === 'large',
-      [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-    });
+    const mergedGroupClassName = classNames(
+      `${prefixCls}-group-wrapper`,
+      {
+        [`${prefixCls}-group-wrapper-sm`]: size === 'small',
+        [`${prefixCls}-group-wrapper-lg`]: size === 'large',
+        [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
@@ -188,12 +192,13 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       });
     }
     const affixWrapperCls = classNames(
-      className,
       `${prefixCls}-affix-wrapper`,
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
       {
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+        // className will go to addon wrapper
+        [`${className}`]: !hasAddon(this.props) && className,
       },
     );
     return (

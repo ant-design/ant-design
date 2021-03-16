@@ -34,6 +34,7 @@ const ComponentOverview = ({
     meta: { title },
     content,
   },
+  location,
   utils: { toReactComponent },
 }) => {
   const { locale, formatMessage } = useIntl();
@@ -48,8 +49,16 @@ const ComponentOverview = ({
   );
   const [search, setSearch] = useState('');
 
+  // keydown.enter goto first component
+  const sectionRef = React.createRef();
+  const onKeyDown = event => {
+    if (event.keyCode === 13 && search.trim().length) {
+      sectionRef.current?.querySelector('.components-overview-card')?.click();
+    }
+  };
+
   return (
-    <section className="markdown">
+    <section className="markdown" ref={sectionRef}>
       <Helmet encodeSpecialCharacters={false}>
         <title>{documentTitle}</title>
         <meta property="og:title" content={documentTitle} />
@@ -66,6 +75,7 @@ const ComponentOverview = ({
           setSearch(e.target.value);
           reportSearch(e.target.value);
         }}
+        onKeyDown={onKeyDown}
         autoFocus // eslint-disable-line jsx-a11y/no-autofocus
         suffix={<SearchOutlined />}
       />
@@ -79,16 +89,14 @@ const ComponentOverview = ({
               component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
               (component.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
           );
-          return (
+          return components.length ? (
             <div key={group.title} className="components-overview">
-              {components.length > 0 && (
-                <Title level={2} className="components-overview-group-title">
-                  <Space align="center">
-                    {group.title}
-                    <Tag style={{ display: 'block' }}>{components.length}</Tag>
-                  </Space>
-                </Title>
-              )}
+              <Title level={2} className="components-overview-group-title">
+                <Space align="center">
+                  {group.title}
+                  <Tag style={{ display: 'block' }}>{components.length}</Tag>
+                </Space>
+              </Title>
               <Row gutter={[24, 24]}>
                 {components
                   .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
@@ -96,7 +104,7 @@ const ComponentOverview = ({
                     const url = `${component.filename
                       .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
                       .toLowerCase()}/`;
-                    const href = getLocalizedPathname(url, locale === 'zh-CN');
+                    const href = getLocalizedPathname(url, locale === 'zh-CN', location.query);
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
                         <Link to={href} onClick={() => onClickCard(href)}>
@@ -119,7 +127,7 @@ const ComponentOverview = ({
                   })}
               </Row>
             </div>
-          );
+          ) : null;
         })}
     </section>
   );

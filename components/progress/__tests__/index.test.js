@@ -2,11 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Progress from '..';
 import { handleGradient, sortGradient } from '../Line';
+import ProgressSteps from '../Steps';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Progress', () => {
-
   mountTest(Progress);
   rtlTest(Progress);
 
@@ -108,7 +108,7 @@ describe('Progress', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890ff, #1890ff)');
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890FF, #1890FF)');
     expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test 0%)',
     );
@@ -168,23 +168,40 @@ describe('Progress', () => {
     );
   });
 
+  it('steps should support trailColor', () => {
+    const wrapper = mount(<Progress steps={5} percent={20} trailColor="#1890ee" />);
+    expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 238)',
+    );
+  });
+
+  it('should display correct step', () => {
+    const wrapper = mount(<Progress steps={9} percent={22.22} />);
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(2);
+    wrapper.setProps({ percent: 33.33 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(3);
+    wrapper.setProps({ percent: 44.44 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(4);
+  });
+
+  it('steps should have default percent 0', () => {
+    const wrapper = mount(<ProgressSteps />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('should warnning if use `progress` in success', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
-      <Progress percent={60} success={{ progress: 30 }} />,
-    );
+    mount(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
-  })
+  });
 
-  it ('should warnning if use `progress` in success in type Circle', () => {
+  it('should warnning if use `progress` in success in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
-      <Progress percent={60} success={{ progress: 30 }} type="circle"/>,
-    );
+    mount(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
-  })
+  });
 });

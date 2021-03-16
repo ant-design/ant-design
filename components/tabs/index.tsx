@@ -25,7 +25,10 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
 }
 
 function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...props }: TabsProps) {
-  const { prefixCls: customizePrefixCls } = props;
+  const { 
+    prefixCls: customizePrefixCls,
+    moreIcon = <EllipsisOutlined />,
+  } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
 
@@ -40,6 +43,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
       showAdd: hideAdd !== true,
     };
   }
+  const rootPrefixCls = getPrefixCls();
 
   devWarning(
     !('onPrevClick' in props) && !('onNextClick' in props),
@@ -50,16 +54,19 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
   return (
     <RcTabs
       direction={direction}
+      moreTransitionName={`${rootPrefixCls}-slide-up`}
       {...props}
-      moreTransitionName="slide-up"
-      className={classNames(className, {
-        [`${prefixCls}-${size}`]: size,
-        [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
-        [`${prefixCls}-editable-card`]: type === 'editable-card',
-        [`${prefixCls}-centered`]: centered,
-      })}
+      className={classNames(
+        {
+          [`${prefixCls}-${size}`]: size,
+          [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
+          [`${prefixCls}-editable-card`]: type === 'editable-card',
+          [`${prefixCls}-centered`]: centered,
+        },
+        className,
+      )}
       editable={editable}
-      moreIcon={<EllipsisOutlined />}
+      moreIcon={moreIcon}
       prefixCls={prefixCls}
     />
   );

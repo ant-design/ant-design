@@ -5,7 +5,7 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:import/typescript',
-    'prettier/react',
+    'plugin:markdown/recommended',
   ],
   env: {
     browser: true,
@@ -20,7 +20,7 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn'],
+  plugins: ['react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
@@ -32,7 +32,28 @@ module.exports = {
       },
     },
     {
-      files: ['*.md'],
+      // In v2, explicitly apply eslint-plugin-markdown's `markdown`
+      // processor on any Markdown files you want to lint.
+      files: ['components/*/demo/*.md'],
+      processor: 'markdown/markdown',
+    },
+    {
+      // In v2, configuration for fenced code blocks is separate from the
+      // containing Markdown file. Each code block has a virtual filename
+      // appended to the Markdown file's path.
+      files: [
+        'components/*/demo/*.md/*.ts',
+        'components/*/demo/*.md/*.tsx',
+        'components/*/demo/*.md/*.js',
+        'components/*/demo/*.md/*.jsx',
+      ],
+      // Configuration for fenced code blocks goes with the override for
+      // the code block's virtual filename, for example:
+      parserOptions: {
+        ecmaFeatures: {
+          impliedStrict: true,
+        },
+      },
       globals: {
         React: true,
         ReactDOM: true,
@@ -44,10 +65,12 @@ module.exports = {
         'no-plusplus': 0,
         'eol-last': 0,
         'no-script-url': 0,
+        'default-case': 0,
         'prefer-rest-params': 0,
         'react/no-access-state-in-setstate': 0,
         'react/destructuring-assignment': 0,
         'react/no-multi-comp': 0,
+        'react/no-array-index-key': 0,
         'jsx-a11y/href-no-hash': 0,
         'import/no-extraneous-dependencies': 0,
         'jsx-a11y/control-has-associated-label': 0,
@@ -113,11 +136,22 @@ module.exports = {
 
     'jest/no-test-callback': 0,
     'jest/expect-expect': 0,
+    'jest/no-done-callback': 0,
+    'jest/valid-title': 0,
+    'jest/no-conditional-expect': 0,
 
     'unicorn/better-regex': 2,
-    'unicorn/prefer-trim-start-end': 2,
+    'unicorn/prefer-string-trim-start-end': 2,
     'unicorn/expiring-todo-comments': 2,
     'unicorn/no-abusive-eslint-disable': 2,
+
+    // https://github.com/typescript-eslint/typescript-eslint/issues/2540#issuecomment-692866111
+    'no-use-before-define': 0,
+    '@typescript-eslint/no-use-before-define': 2,
+    'no-shadow': 0,
+    '@typescript-eslint/no-shadow': [2, { ignoreTypeValueShadow: true }],
+    // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
+    'no-undef': 0,
   },
   globals: {
     gtag: true,

@@ -6,8 +6,8 @@
 @form-item-prefix-cls: ~'@{ant-prefix}-form-item';
 
 .@{input-number-prefix-cls} {
-  .reset-component;
-  .input;
+  .reset-component();
+  .input();
 
   display: inline-block;
   width: 90px;
@@ -72,6 +72,12 @@
     }
   }
 
+  &-readonly {
+    .@{input-number-prefix-cls}-handler-wrap {
+      display: none;
+    }
+  }
+
   &-input {
     width: 100%;
     height: @input-height-base - 2px;
@@ -128,11 +134,14 @@
     .@{input-number-prefix-cls}-handler {
       .@{input-number-prefix-cls}-handler-up-inner,
       .@{input-number-prefix-cls}-handler-down-inner {
-        .iconfont-size-under-12px(7px);
-
         min-width: auto;
         margin-right: 0;
+        font-size: 7px;
       }
+    }
+
+    .@{input-number-prefix-cls}-borderless & {
+      border-left-width: 0;
     }
   }
 
@@ -170,6 +179,9 @@
     &:hover {
       height: 60% !important;
     }
+    .@{input-number-prefix-cls}-borderless & {
+      border-top-width: 0;
+    }
   }
 
   &-handler-up-disabled,
@@ -180,6 +192,17 @@
   &-handler-up-disabled:hover &-handler-up-inner,
   &-handler-down-disabled:hover &-handler-down-inner {
     color: @disabled-color;
+  }
+
+  &-borderless {
+    box-shadow: none;
+  }
+
+  // ===================== Out Of Range =====================
+  &-out-of-range {
+    input {
+      color: @error-color;
+    }
   }
 }
 

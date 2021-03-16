@@ -15,8 +15,8 @@
 @form-font-height: ceil(@font-size-base * @line-height-base);
 
 .@{form-prefix-cls} {
-  .reset-component;
-  .reset-form;
+  .reset-component();
+  .reset-form();
 
   .@{form-prefix-cls}-text {
     display: inline-block;
@@ -49,15 +49,15 @@
 }
 
 .explainAndExtraDistance(@num) when (@num < 0) {
-  margin-top: floor(@num);
-  margin-bottom: floor(@num);
+  margin-top: ceil(@num);
+  margin-bottom: ceil(@num);
 }
 
 // ================================================================
 // =                             Item                             =
 // ================================================================
 .@{form-item-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
@@ -66,7 +66,9 @@
     margin-bottom: 0;
   }
 
-  &-hidden {
+  &-hidden,
+  &-hidden.@{ant-prefix}-row {
+    // https://github.com/ant-design/ant-design/issues/26141
     display: none;
   }
 
@@ -99,7 +101,8 @@
         vertical-align: top;
       }
 
-      &.@{form-item-prefix-cls}-required::before {
+      // Required mark
+      &.@{form-item-prefix-cls}-required:not(.@{form-item-prefix-cls}-required-mark-optional)::before {
         display: inline-block;
         margin-right: 4px;
         color: @label-required-color;
@@ -111,6 +114,25 @@
         .@{form-prefix-cls}-hide-required-mark & {
           display: none;
         }
+      }
+
+      // Optional mark
+      .@{form-item-prefix-cls}-optional {
+        display: inline-block;
+        margin-left: @margin-xss;
+        color: @text-color-secondary;
+
+        .@{form-prefix-cls}-hide-required-mark & {
+          display: none;
+        }
+      }
+
+      // Optional mark
+      .@{form-item-prefix-cls}-tooltip {
+        color: @text-color-secondary;
+        cursor: help;
+        writing-mode: horizontal-tb;
+        margin-inline-start: @margin-xss;
       }
 
       &::after {
@@ -161,22 +183,29 @@
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
-    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
     transition: color 0.3s @ease-out; // sync input color transition
+    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
+  }
+
+  .@{ant-prefix}-input-textarea-show-count {
+    &::after {
+      margin-bottom: -22px;
+    }
   }
 }
 
 .show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
-  .make-motion(@className, @keyframeName, @duration);
-  .@{className}-enter,
-  .@{className}-appear {
+  @name: ~'@{ant-prefix}-@{className}';
+  .make-motion(@name, @keyframeName, @duration);
+  .@{name}-enter,
+  .@{name}-appear {
     opacity: 0;
     animation-timing-function: @ease-in-out;
   }
-  .@{className}-leave {
+  .@{name}-leave {
     animation-timing-function: @ease-in-out;
   }
 }

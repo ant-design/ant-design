@@ -82,6 +82,18 @@ Ok, you should now see a blue primary button displayed on the page. Next you can
 
 We are successfully running antd components now, go build your own application!
 
+## Test with Jest
+
+`create-react-app` comes with `jest` built in. Jest does not support `esm` modules, and Ant Design uses them. In order to test your Ant Design application with Jest you have to add the following to your `package.json` :
+
+```json
+"jest": {
+  "transformIgnorePatterns": [
+    "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$"
+  ]
+}
+```
+
 ## Advanced Guides
 
 In the real world, we usually have to modify default webpack config for custom needs such as themes. We can achieve that by using [craco](https://github.com/gsoft-inc/craco) which is one of create-react-app's custom config solutions.
@@ -161,7 +173,7 @@ By adding `modifyVars` option of [less-loader](https://github.com/webpack/less-l
 
 We provide built-in dark theme and compact theme in antd, you can reference to [Use dark or compact theme](/docs/react/customize-theme#Use-dark-or-compact-theme).
 
-> You could also try [react-scripts-rewired](https://github.com/timarney/react-app-rewired) and [customize-cra](https://github.com/arackaf/customize-cra) to customize create-react-app webpack config like craco did.
+> You could also try [react-app-rewired](https://github.com/timarney/react-app-rewired) and [customize-cra](https://github.com/arackaf/customize-cra) to customize create-react-app webpack config like craco did.
 
 ## eject
 

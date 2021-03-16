@@ -7,7 +7,7 @@ import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
 
-const RadioGroup = React.forwardRef<unknown, RadioGroupProps>((props, ref) => {
+const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -33,7 +33,7 @@ const RadioGroup = React.forwardRef<unknown, RadioGroupProps>((props, ref) => {
       className = '',
       options,
       optionType,
-      buttonStyle,
+      buttonStyle = 'outline' as RadioGroupButtonStyle,
       disabled,
       children,
       size: customizeSize,
@@ -53,7 +53,6 @@ const RadioGroup = React.forwardRef<unknown, RadioGroupProps>((props, ref) => {
           // 此处类型自动推导为 string
           return (
             <Radio
-              ref={ref}
               key={option}
               prefixCls={optionsPrefixCls}
               disabled={disabled}
@@ -67,7 +66,6 @@ const RadioGroup = React.forwardRef<unknown, RadioGroupProps>((props, ref) => {
         // 此处类型自动推导为 { label: string value: string }
         return (
           <Radio
-            ref={ref}
             key={`radio-group-value-options-${option.value}`}
             prefixCls={optionsPrefixCls}
             disabled={option.disabled || disabled}
@@ -98,6 +96,7 @@ const RadioGroup = React.forwardRef<unknown, RadioGroupProps>((props, ref) => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         id={id}
+        ref={ref}
       >
         {childrenToRender}
       </div>
@@ -117,9 +116,5 @@ const RadioGroup = React.forwardRef<unknown, RadioGroupProps>((props, ref) => {
     </RadioGroupContextProvider>
   );
 });
-
-RadioGroup.defaultProps = {
-  buttonStyle: 'outline' as RadioGroupButtonStyle,
-};
 
 export default React.memo(RadioGroup);

@@ -153,6 +153,19 @@ describe('Radio Group', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should forward ref', () => {
+    let radioGroupRef;
+    const wrapper = mount(
+      createRadioGroupByOption({
+        ref: ref => {
+          radioGroupRef = ref;
+        },
+      }),
+    );
+
+    expect(radioGroupRef).toBe(wrapper.children().getDOMNode());
+  });
+
   describe('value is null or undefined', () => {
     it('use `defaultValue` when `value` is undefined', () => {
       const options = [{ label: 'Bamboo', value: 'bamboo' }];

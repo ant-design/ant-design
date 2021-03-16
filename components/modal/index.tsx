@@ -6,7 +6,7 @@ import confirm, {
   withError,
   withConfirm,
   ModalStaticFunctions,
-  globalConfig,
+  modalGlobalConfig,
 } from './confirm';
 
 export { ActionButtonProps } from './ActionButton';
@@ -16,9 +16,10 @@ function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));
 }
 
-type Modal = typeof OriginModal &
-  ModalStaticFunctions & { destroyAll: () => void; config: typeof globalConfig };
-const Modal = OriginModal as Modal;
+type ModalType = typeof OriginModal &
+  ModalStaticFunctions & { destroyAll: () => void; config: typeof modalGlobalConfig };
+
+const Modal = OriginModal as ModalType;
 
 Modal.info = function infoFn(props: ModalFuncProps) {
   return confirm(withInfo(props));
@@ -49,6 +50,6 @@ Modal.destroyAll = function destroyAllFn() {
   }
 };
 
-Modal.config = globalConfig;
+Modal.config = modalGlobalConfig;
 
 export default Modal;

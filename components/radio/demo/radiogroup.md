@@ -16,29 +16,23 @@ A group of radio components.
 ```jsx
 import { Radio } from 'antd';
 
-class App extends React.Component {
-  state = {
-    value: 1,
-  };
+const App = () => {
+  const [value, setValue] = React.useState(1);
 
-  onChange = e => {
+  const onChange = e => {
     console.log('radio checked', e.target.value);
-    this.setState({
-      value: e.target.value,
-    });
+    setValue(e.target.value);
   };
 
-  render() {
-    return (
-      <Radio.Group onChange={this.onChange} value={this.state.value}>
-        <Radio value={1}>A</Radio>
-        <Radio value={2}>B</Radio>
-        <Radio value={3}>C</Radio>
-        <Radio value={4}>D</Radio>
-      </Radio.Group>
-    );
-  }
-}
+  return (
+    <Radio.Group onChange={onChange} value={value}>
+      <Radio value={1}>A</Radio>
+      <Radio value={2}>B</Radio>
+      <Radio value={3}>C</Radio>
+      <Radio value={4}>D</Radio>
+    </Radio.Group>
+  );
+};
 
 ReactDOM.render(<App />, mountNode);
 ```

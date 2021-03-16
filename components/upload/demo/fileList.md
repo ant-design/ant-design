@@ -64,9 +64,7 @@ class MyUpload extends React.Component {
     };
     return (
       <Upload {...props} fileList={this.state.fileList}>
-        <Button>
-          <UploadOutlined /> Upload
-        </Button>
+        <Button icon={<UploadOutlined />}>Upload</Button>
       </Upload>
     );
   }

@@ -43,7 +43,7 @@ title:
 
 ### 海兔默认资产颜色
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*t4D6QaFM2DAAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0Dv9Rrp7GtMAAAAAAAAAAAAAARQnAQ" />
 
 通过搜资调研，我们发现在企业级产品中。色彩的使用上蓝色，白色会占很大的比重。我们选取了色板中最具科技感，且代表着探索，钻研感的极客蓝作为我们的主色。
 
@@ -51,7 +51,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U5L-RKWlmJcAAAAAAAAAAABkARQnAQ" />
 
-基于 Adobe Color 的三元取色工具，和 3D 立体马赛克球，结合我们自己的海兔色板。可以轻松得到了我们 Dedult 版本的基础色板。
+基于 Adobe Color 的三元取色工具，和 3D 立体马赛克球，结合我们自己的海兔色板。可以轻松得到了我们默认版本的基础色板。
 
 <br />
 

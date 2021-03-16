@@ -44,7 +44,7 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
 
 exports[`Radio should render correctly 1`] = `
 <label
-  class="customized ant-radio-wrapper"
+  class="ant-radio-wrapper customized"
 >
   <span
     class="ant-radio"

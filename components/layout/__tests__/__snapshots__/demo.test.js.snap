@@ -148,12 +148,11 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         >
           <span
             aria-label="user"
-            class="anticon anticon-user"
+            class="anticon anticon-user ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -177,12 +176,11 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         >
           <span
             aria-label="video-camera"
-            class="anticon anticon-video-camera"
+            class="anticon anticon-video-camera ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="video-camera"
               fill="currentColor"
               focusable="false"
@@ -206,12 +204,11 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         >
           <span
             aria-label="upload"
-            class="anticon anticon-upload"
+            class="anticon anticon-upload ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -246,7 +243,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="menu-fold"
           fill="currentColor"
           focusable="false"
@@ -467,12 +463,11 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="user"
-            class="anticon anticon-user"
+            class="anticon anticon-user ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -496,12 +491,11 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="video-camera"
-            class="anticon anticon-video-camera"
+            class="anticon anticon-video-camera ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="video-camera"
               fill="currentColor"
               focusable="false"
@@ -525,12 +519,11 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="upload"
-            class="anticon anticon-upload"
+            class="anticon anticon-upload ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -554,12 +547,11 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="bar-chart"
-            class="anticon anticon-bar-chart"
+            class="anticon anticon-bar-chart ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="bar-chart"
               fill="currentColor"
               focusable="false"
@@ -583,12 +575,11 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="cloud"
-            class="anticon anticon-cloud"
+            class="anticon anticon-cloud ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="cloud"
               fill="currentColor"
               focusable="false"
@@ -612,12 +603,11 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="appstore"
-            class="anticon anticon-appstore"
+            class="anticon anticon-appstore ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="appstore"
               fill="currentColor"
               focusable="false"
@@ -641,12 +631,11 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="team"
-            class="anticon anticon-team"
+            class="anticon anticon-team ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="team"
               fill="currentColor"
               focusable="false"
@@ -670,12 +659,11 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="shop"
-            class="anticon anticon-shop"
+            class="anticon anticon-shop ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="shop"
               fill="currentColor"
               focusable="false"
@@ -843,12 +831,11 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         >
           <span
             aria-label="user"
-            class="anticon anticon-user"
+            class="anticon anticon-user ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -872,12 +859,11 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         >
           <span
             aria-label="video-camera"
-            class="anticon anticon-video-camera"
+            class="anticon anticon-video-camera ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="video-camera"
               fill="currentColor"
               focusable="false"
@@ -901,12 +887,11 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         >
           <span
             aria-label="upload"
-            class="anticon anticon-upload"
+            class="anticon anticon-upload ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="upload"
               fill="currentColor"
               focusable="false"
@@ -930,12 +915,11 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         >
           <span
             aria-label="user"
-            class="anticon anticon-user"
+            class="anticon anticon-user ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -1009,12 +993,11 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         >
           <span
             aria-label="pie-chart"
-            class="anticon anticon-pie-chart"
+            class="anticon anticon-pie-chart ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="pie-chart"
               fill="currentColor"
               focusable="false"
@@ -1038,12 +1021,11 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         >
           <span
             aria-label="desktop"
-            class="anticon anticon-desktop"
+            class="anticon anticon-desktop ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="desktop"
               fill="currentColor"
               focusable="false"
@@ -1078,7 +1060,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="user"
                 fill="currentColor"
                 focusable="false"
@@ -1118,7 +1099,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="team"
                 fill="currentColor"
                 focusable="false"
@@ -1141,18 +1121,17 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           <div />
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child"
+          class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
         >
           <span
             aria-label="file"
-            class="anticon anticon-file"
+            class="anticon anticon-file ant-menu-item-icon"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="file"
               fill="currentColor"
               focusable="false"
@@ -1165,7 +1144,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span />
+          <span>
+            Files
+          </span>
         </li>
       </ul>
     </div>
@@ -1180,7 +1161,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -1582,7 +1562,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       style="padding:24px 0"
     >
       <aside
-        class="site-layout-background ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark site-layout-background"
         style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
@@ -1612,7 +1592,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="user"
                     fill="currentColor"
                     focusable="false"
@@ -1685,7 +1664,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="laptop"
                     fill="currentColor"
                     focusable="false"
@@ -1725,7 +1703,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -1881,7 +1858,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     class="ant-layout"
   >
     <aside
-      class="site-layout-background ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark site-layout-background"
       style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
@@ -1911,7 +1888,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="user"
                   fill="currentColor"
                   focusable="false"
@@ -1984,7 +1960,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="laptop"
                   fill="currentColor"
                   focusable="false"
@@ -2024,7 +1999,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="notification"
                   fill="currentColor"
                   focusable="false"

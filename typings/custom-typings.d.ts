@@ -18,8 +18,6 @@ declare module 'jsonml.js/*';
 
 declare module 'rc-pagination/*';
 
-declare module 'omit.js';
-
 declare module 'rc-animate*';
 
 declare module 'rc-util*';
@@ -36,8 +34,6 @@ declare module 'rc-tabs*';
 
 declare module 'rc-tree/lib/util';
 
-declare module 'rc-input-number';
-
 declare module 'rc-collapse';
 
 declare module 'rc-dialog';
@@ -46,19 +42,9 @@ declare module 'rc-rate';
 
 declare module 'rc-queue-anim';
 
-declare module 'rc-slider';
-
-declare module 'rc-slider/lib/Slider';
-
-declare module 'rc-slider/lib/Range';
-
-declare module 'rc-slider/lib/Handle';
-
 declare module 'rc-steps';
 
 declare module 'rc-switch';
-
-declare module 'rc-upload';
 
 declare module '*.json' {
   const value: any;

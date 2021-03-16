@@ -113,10 +113,13 @@ const Pagination: React.FC<PaginationProps> = ({
     const locale = { ...contextLocale, ...customLocale };
     const isSmall = size === 'small' || !!(xs && !size && restProps.responsive);
     const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
-    const extendedClassName = classNames(className, {
-      mini: isSmall,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+    const extendedClassName = classNames(
+      {
+        mini: isSmall,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     return (
       <RcPagination

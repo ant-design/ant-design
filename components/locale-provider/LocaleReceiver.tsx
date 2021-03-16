@@ -1,6 +1,7 @@
 import * as React from 'react';
 import defaultLocaleData from './default';
 import LocaleContext from './context';
+import { Locale } from '.';
 
 export interface LocaleReceiverProps {
   componentName?: string;
@@ -48,4 +49,24 @@ export default class LocaleReceiver extends React.Component<LocaleReceiverProps>
   render() {
     return this.props.children(this.getLocale(), this.getLocaleCode(), this.context);
   }
+}
+
+type LocaleComponent = keyof Locale;
+export function useLocaleReceiver<T extends LocaleComponent>(
+  componentName: T,
+  defaultLocale?: Locale[T] | Function,
+): [Locale[T]] {
+  const antLocale = React.useContext(LocaleContext);
+
+  const componentLocale = React.useMemo(() => {
+    const locale = defaultLocale || defaultLocaleData[componentName || 'global'];
+    const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
+
+    return {
+      ...(typeof locale === 'function' ? (locale as Function)() : locale),
+      ...(localeFromContext || {}),
+    };
+  }, [componentName, defaultLocale, antLocale]);
+
+  return [componentLocale];
 }

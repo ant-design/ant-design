@@ -43,8 +43,8 @@ ReactDOM.render(
 
 ```css
 .site-dropdown-context-menu {
-  background: #f7f7f7;
   color: #777;
+  background: #f7f7f7;
 }
 ```
 

@@ -42,42 +42,51 @@ const BlockContent: React.FC<BlockContentProps> = ({ title, children, extra }) =
   </div>
 );
 
-export default function Home() {
+const Home = (props: { location: any }) => {
+  const { location } = props;
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
+
+  const getLink = () => {
+    const path = getLocalizedPathname('/docs/resources', isZhCN, location.query, {
+      zhCN: '文章',
+      enUS: 'Articles',
+    });
+    const { pathname, query } = path;
+    const pathnames = pathname.split('#');
+    if ('direction' in query) {
+      return `${pathnames[0]}?direction=rtl#${pathnames[1]}`;
+    }
+    return path;
+  };
 
   return (
     <div className="home-container">
       <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
-      <Banner />
+      <Banner location={location} />
       <div style={{ maxWidth: 1256, margin: '0 auto' }}>
         <BlockContent title={<FormattedMessage id="app.home.recommend" />}>
           <RecommendPage />
         </BlockContent>
 
         <BlockContent title={<FormattedMessage id="app.home.design-and-framework" />}>
-          <DesignPage />
+          <DesignPage location={location} />
         </BlockContent>
 
-        {isZhCN ? (
-          <BlockContent
-            title={<FormattedMessage id="app.home.more" />}
-            extra={
-              <Link
-                to={getLocalizedPathname('/docs/resources', isZhCN, {
-                  zhCN: '文章',
-                  enUS: 'Articles',
-                })}
-              >
-                <FormattedMessage id="app.home.view-more" />
-              </Link>
-            }
-          >
-            <MorePage />
-          </BlockContent>
-        ) : null}
+        <BlockContent
+          title={<FormattedMessage id="app.home.more" />}
+          extra={
+            <Link to={getLink()} target="_blank">
+              <FormattedMessage id="app.home.view-more" />
+            </Link>
+          }
+        >
+          <MorePage />
+        </BlockContent>
       </div>
-      <Footer />
+      <Footer location={location} />
     </div>
   );
-}
+};
+
+export default Home;

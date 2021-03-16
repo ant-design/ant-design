@@ -40,6 +40,44 @@ describe('Slider', () => {
     expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
   });
 
+  it('when step is null, thumb can only be slided to the specific mark', () => {
+    const intentionallyWrongValue = 40;
+    const marks = {
+      0: '0',
+      48: '48',
+      100: '100',
+    };
+
+    const wrapper = mount(
+      <Slider marks={marks} defaultValue={intentionallyWrongValue} step={null} tooltipVisible />,
+    );
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 48);
+  });
+
+  it('when step is not null, thumb can be slided to the multiples of step', () => {
+    const marks = {
+      0: '0',
+      48: '48',
+      100: '100',
+    };
+
+    const wrapper = mount(<Slider marks={marks} defaultValue={49} step={1} tooltipVisible />);
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 49);
+  });
+
+  it('when step is undefined, thumb can be slided to the multiples of step', () => {
+    const marks = {
+      0: '0',
+      48: '48',
+      100: '100',
+    };
+
+    const wrapper = mount(
+      <Slider marks={marks} defaultValue={49} step={undefined} tooltipVisible />,
+    );
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 49);
+  });
+
   it('should render in RTL direction', () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
@@ -68,6 +106,11 @@ describe('Slider', () => {
   it('tipFormatter should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
       mount(<Slider value={value} tooltipVisible />);
+    });
+  });
+  it('step should not crash with undefined value', () => {
+    [undefined, null].forEach(value => {
+      mount(<Slider step={value} tooltipVisible />);
     });
   });
 });

@@ -104,7 +104,6 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -148,7 +147,6 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -253,7 +251,6 @@ exports[`Table.pagination renders pagination correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -308,7 +305,6 @@ exports[`Table.pagination renders pagination correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -433,7 +429,6 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -477,7 +472,6 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"

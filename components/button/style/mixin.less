@@ -2,7 +2,7 @@
 // ------------------------
 .button-size(@height; @padding-horizontal; @font-size; @border-radius) {
   @padding-vertical: max(
-    round((@height - @font-size * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+    (round(((@height - @font-size * @line-height-base) / 2) * 10) / 10) - @border-width-base,
     0
   );
   height: @height;
@@ -390,15 +390,15 @@
 }
 // round button
 .btn-round(@btnClassName: btn) {
-  .button-size(@btn-circle-size; @btn-circle-size / 2; @font-size-base; @btn-circle-size);
+  .button-size(@btn-circle-size; (@btn-circle-size / 2); @font-size-base; @btn-circle-size);
   &.@{btnClassName}-lg {
     .button-size(
-      @btn-circle-size-lg; @btn-circle-size-lg / 2; @btn-font-size-lg; @btn-circle-size-lg
+      @btn-circle-size-lg; (@btn-circle-size-lg / 2); @btn-font-size-lg; @btn-circle-size-lg
     );
   }
   &.@{btnClassName}-sm {
     .button-size(
-      @btn-circle-size-sm; @btn-circle-size-sm / 2; @font-size-base; @btn-circle-size-sm
+      @btn-circle-size-sm; (@btn-circle-size-sm / 2); @font-size-base; @btn-circle-size-sm
     );
   }
 }

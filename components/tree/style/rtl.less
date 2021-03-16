@@ -9,6 +9,14 @@
 .@{tree-prefix-cls} {
   &-rtl {
     direction: rtl;
+    .@{tree-prefix-cls}-node-content-wrapper[draggable='true'] {
+      .@{tree-prefix-cls}-drop-indicator {
+        &::after {
+          right: -6px;
+          left: unset;
+        }
+      }
+    }
   }
 
   // ===================== TreeNode =====================
@@ -19,11 +27,11 @@
   }
 
   // >>> Switcher
-  & &-switcher {
+  &-switcher {
     &_close {
       .@{tree-prefix-cls}-switcher-icon {
         svg {
-          .@{tree-prefix-cls}-rtl& {
+          .@{tree-prefix-cls}-rtl & {
             transform: rotate(90deg);
           }
         }
@@ -38,7 +46,7 @@
         &::before {
           .@{tree-prefix-cls}-rtl& {
             right: auto;
-            left: -@tree-title-height / 2;
+            left: -(@tree-title-height / 2) - 1px;
             border-right: none;
             border-left: 1px solid @border-color-base;
           }
@@ -47,7 +55,7 @@
     }
   }
   // >>> Checkbox
-  & &-checkbox {
+  &-checkbox {
     .@{tree-prefix-cls}-rtl& {
       margin: ((@tree-title-height - @checkbox-size) / 2) 0 0 8px;
     }
@@ -56,7 +64,7 @@
 
 .@{select-tree-prefix-cls} {
   // >>> Checkbox
-  & &-checkbox {
+  &-checkbox {
     .@{tree-prefix-cls}-select-dropdown-rtl & {
       margin: ((@tree-title-height - @checkbox-size) / 2) 0 0 8px;
     }

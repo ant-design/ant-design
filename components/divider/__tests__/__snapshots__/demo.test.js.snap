@@ -13,6 +13,17 @@ Array [
     style="border-color:#7cb305"
   />,
   <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
+    role="separator"
+    style="border-color:#7cb305"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Text
+    </span>
+  </div>,
+  <div
     class="ant-divider ant-divider-vertical"
     role="separator"
     style="height:60px;border-color:#7cb305"

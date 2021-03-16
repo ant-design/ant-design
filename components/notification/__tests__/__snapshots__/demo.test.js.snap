@@ -64,7 +64,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="radius-upleft"
             fill="currentColor"
             focusable="false"
@@ -96,7 +95,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="radius-upright"
             fill="currentColor"
             focusable="false"
@@ -137,7 +135,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="radius-bottomleft"
             fill="currentColor"
             focusable="false"
@@ -169,7 +166,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="radius-bottomright"
             fill="currentColor"
             focusable="false"
@@ -211,7 +207,6 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="radius-upleft"
             fill="currentColor"
             focusable="false"
@@ -243,7 +238,6 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="radius-upright"
             fill="currentColor"
             focusable="false"
@@ -284,7 +278,6 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="radius-bottomleft"
             fill="currentColor"
             focusable="false"
@@ -316,7 +309,6 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="radius-bottomright"
             fill="currentColor"
             focusable="false"

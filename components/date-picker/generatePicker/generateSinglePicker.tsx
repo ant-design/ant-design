@@ -102,6 +102,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             ? getTimeProps({ format, ...this.props, picker: mergedPicker })
             : {}),
         };
+        const rootPrefixCls = getPrefixCls();
 
         return (
           <SizeContext.Consumer>
@@ -117,15 +118,18 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   }
                   clearIcon={<CloseCircleFilled />}
                   allowClear
-                  transitionName="slide-up"
+                  transitionName={`${rootPrefixCls}-slide-up`}
                   {...additionalProps}
                   {...restProps}
                   {...additionalOverrideProps}
                   locale={locale!.lang}
-                  className={classNames(className, {
-                    [`${prefixCls}-${mergedSize}`]: mergedSize,
-                    [`${prefixCls}-borderless`]: !bordered,
-                  })}
+                  className={classNames(
+                    {
+                      [`${prefixCls}-${mergedSize}`]: mergedSize,
+                      [`${prefixCls}-borderless`]: !bordered,
+                    },
+                    className,
+                  )}
                   prefixCls={prefixCls}
                   getPopupContainer={customizeGetPopupContainer || getPopupContainer}
                   generateConfig={generateConfig}

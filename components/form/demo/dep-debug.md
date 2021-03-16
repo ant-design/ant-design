@@ -3,6 +3,7 @@ order: 99
 title:
   zh-CN: Dep Debug
   en-US: Dep Debug
+debug: true
 ---
 
 ## zh-CN
@@ -30,10 +31,10 @@ const Demo = () => {
       }}
     >
       <Form.Item noStyle dependencies={['debug1']}>
-        {() => {
-          return acc++;
+        {
+          () => acc++
           // return <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>;
-        }}
+        }
       </Form.Item>
       <Form.Item label="debug1" name="debug1">
         <Input />

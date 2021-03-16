@@ -16,59 +16,46 @@ Asynchronously close a modal dialog when a the OK button is pressed. For example
 ```jsx
 import { Modal, Button } from 'antd';
 
-class App extends React.Component {
-  state = {
-    ModalText: 'Content of the modal',
-    visible: false,
-    confirmLoading: false,
+const App = () => {
+  const [visible, setVisible] = React.useState(false);
+  const [confirmLoading, setConfirmLoading] = React.useState(false);
+  const [modalText, setModalText] = React.useState('Content of the modal');
+
+  const showModal = () => {
+    setVisible(true);
   };
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  handleOk = () => {
-    this.setState({
-      ModalText: 'The modal will be closed after two seconds',
-      confirmLoading: true,
-    });
+  const handleOk = () => {
+    setModalText('The modal will be closed after two seconds');
+    setConfirmLoading(true);
     setTimeout(() => {
-      this.setState({
-        visible: false,
-        confirmLoading: false,
-      });
+      setVisible(false);
+      setConfirmLoading(false);
     }, 2000);
   };
 
-  handleCancel = () => {
+  const handleCancel = () => {
     console.log('Clicked cancel button');
-    this.setState({
-      visible: false,
-    });
+    setVisible(false);
   };
 
-  render() {
-    const { visible, confirmLoading, ModalText } = this.state;
-    return (
-      <>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal with async logic
-        </Button>
-        <Modal
-          title="Title"
-          visible={visible}
-          onOk={this.handleOk}
-          confirmLoading={confirmLoading}
-          onCancel={this.handleCancel}
-        >
-          <p>{ModalText}</p>
-        </Modal>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Button type="primary" onClick={showModal}>
+        Open Modal with async logic
+      </Button>
+      <Modal
+        title="Title"
+        visible={visible}
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+      >
+        <p>{modalText}</p>
+      </Modal>
+    </>
+  );
+};
 
 ReactDOM.render(<App />, mountNode);
 ```
