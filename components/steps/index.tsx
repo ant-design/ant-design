@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import RcSteps from 'rc-steps';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
@@ -18,6 +18,7 @@ export interface StepsProps {
   labelPlacement?: 'horizontal' | 'vertical';
   prefixCls?: string;
   progressDot?: boolean | Function;
+  responsive?: boolean;
   size?: 'default' | 'small';
   status?: 'wait' | 'process' | 'finish' | 'error';
   style?: React.CSSProperties;
@@ -42,13 +43,14 @@ interface StepsType extends React.FC<StepsProps> {
 }
 
 const Steps: StepsType = props => {
-  const { percent, size, className, direction } = props;
+  const { percent, size, className, direction, responsive } = props;
   const { xs } = useBreakpoint();
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
-  const getDirection = React.useCallback(() => {
-    return xs ? 'vertical' : direction;
-  }, [xs, direction]);
+  const getDirection = React.useCallback(() => (responsive && xs ? 'vertical' : direction), [
+    xs,
+    direction,
+  ]);
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
   const iconPrefix = getPrefixCls('', props.iconPrefix);
@@ -95,7 +97,7 @@ const Steps: StepsType = props => {
   return (
     <RcSteps
       icons={icons}
-      {...omit(props, ['percent'])}
+      {...omit(props, ['percent', 'responsive'])}
       direction={getDirection()}
       stepIcon={stepIconRender}
       prefixCls={prefixCls}

@@ -32,6 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | --- | --- | --- | --- | --- |
 | defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 | string\[] | - |  |
 | defaultSelectedKeys | 初始选中的菜单项 key 数组 | string\[] | - |  |
+| expandIcon | 自定义展开图标 | ReactNode \| `(props: SubMenuProps & { isSubMenu: boolean }) => ReactNode` | - | 4.9.0 |
 | forceSubMenuRender | 在子菜单展示之前就渲染进 DOM | boolean | false |  |
 | inlineCollapsed | inline 时菜单是否收起状态 | boolean | - |  |
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |  |

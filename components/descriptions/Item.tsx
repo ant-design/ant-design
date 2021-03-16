@@ -5,6 +5,8 @@ export interface DescriptionsItemProps {
   className?: string;
   style?: React.CSSProperties;
   label?: React.ReactNode;
+  labelStyle?: React.CSSProperties;
+  contentStyle?: React.CSSProperties;
   children: React.ReactNode;
   span?: number;
 }

@@ -5,7 +5,7 @@
 @number-prefix-cls: ~'@{ant-prefix}-scroll-number';
 
 .@{badge-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   display: inline-block;
@@ -23,7 +23,7 @@
     white-space: nowrap;
     text-align: center;
     background: @badge-color;
-    border-radius: @badge-height / 2;
+    border-radius: (@badge-height / 2);
     box-shadow: 0 0 0 1px @shadow-color-inverse;
     a,
     a:hover {
@@ -37,7 +37,7 @@
     padding: 0;
     font-size: @badge-font-size-sm;
     line-height: @badge-height-sm;
-    border-radius: @badge-height-sm / 2;
+    border-radius: (@badge-height-sm / 2);
   }
 
   &-multiple-words {
@@ -47,6 +47,7 @@
   &-dot {
     z-index: @zindex-badge;
     width: @badge-dot-size;
+    min-width: @badge-dot-size;
     height: @badge-dot-size;
     background: @highlight-color;
     border-radius: 100%;
@@ -124,24 +125,39 @@
 
   &-zoom-appear,
   &-zoom-enter {
-    animation: antZoomBadgeIn 0.3s @ease-out-back;
+    animation: antZoomBadgeIn @animation-duration-slow @ease-out-back;
     animation-fill-mode: both;
   }
 
   &-zoom-leave {
-    animation: antZoomBadgeOut 0.3s @ease-in-back;
+    animation: antZoomBadgeOut @animation-duration-slow @ease-in-back;
     animation-fill-mode: both;
   }
 
   &-not-a-wrapper {
+    .@{badge-prefix-cls}-zoom-appear,
+    .@{badge-prefix-cls}-zoom-enter {
+      animation: antNoWrapperZoomBadgeIn @animation-duration-slow @ease-out-back;
+    }
+
+    .@{badge-prefix-cls}-zoom-leave {
+      animation: antNoWrapperZoomBadgeOut @animation-duration-slow @ease-in-back;
+    }
+
     &:not(.@{badge-prefix-cls}-status) {
       vertical-align: middle;
     }
 
+    .@{number-prefix-cls}-custom-component {
+      transform: none;
+    }
+
+    .@{number-prefix-cls}-custom-component,
     .@{ant-prefix}-scroll-number {
       position: relative;
       top: auto;
       display: block;
+      transform-origin: 50% 50%;
     }
 
     .@{badge-prefix-cls}-count {
@@ -161,15 +177,25 @@
   }
 }
 
+// Safari will blink with transform when inner element has absolute style.
+.safari-fix-motion() {
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
 .@{number-prefix-cls} {
   overflow: hidden;
   &-only {
+    position: relative;
     display: inline-block;
     height: @badge-height;
-    transition: all 0.3s @ease-in-out;
+    transition: all @animation-duration-slow @ease-in-out;
+    .safari-fix-motion;
+
     > p.@{number-prefix-cls}-only-unit {
       height: @badge-height;
       margin: 0;
+      .safari-fix-motion;
     }
   }
 
@@ -194,6 +220,26 @@
   }
   100% {
     transform: scale(0) translate(50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes antNoWrapperZoomBadgeIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes antNoWrapperZoomBadgeOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
     opacity: 0;
   }
 }

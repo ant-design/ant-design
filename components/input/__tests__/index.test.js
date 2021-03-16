@@ -74,6 +74,15 @@ describe('Input', () => {
       wrapper.unmount();
     });
   });
+
+  it('set mouse cursor position', () => {
+    const defaultValue = '11111';
+    const valLength = defaultValue.length;
+    const wrapper = mount(<Input autoFocus defaultValue={defaultValue} />);
+    wrapper.instance().setSelectionRange(valLength, valLength);
+    expect(wrapper.instance().input.selectionStart).toEqual(5);
+    expect(wrapper.instance().input.selectionEnd).toEqual(5);
+  });
 });
 
 describe('prefix and suffix', () => {

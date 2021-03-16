@@ -6,7 +6,7 @@ export default function usePatchElement(): [
 ] {
   const [elements, setElements] = React.useState<React.ReactElement[]>([]);
 
-  function patchElement(element: React.ReactElement) {
+  const patchElement = React.useCallback((element: React.ReactElement) => {
     // append a new element to elements (and create a new ref)
     setElements(originElements => [...originElements, element]);
 
@@ -15,7 +15,7 @@ export default function usePatchElement(): [
     return () => {
       setElements(originElements => originElements.filter(ele => ele !== element));
     };
-  }
+  }, []);
 
   return [elements, patchElement];
 }

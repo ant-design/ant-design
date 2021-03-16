@@ -47,7 +47,7 @@
 
 // multiple
 @select-multiple-item-border-width: 1px;
-@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
+@select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
 @select-multiple-padding: max(
   @input-padding-vertical-base - @select-multiple-item-border-width -
     @select-multiple-item-spacing-half,
@@ -66,16 +66,13 @@
   // ======================== Selections ========================
   .@{select-prefix-cls}-selection-item {
     .@{select-prefix-cls}-rtl& {
-      margin-right: 0;
-      margin-left: @input-padding-vertical-base;
-      padding: 0 @padding-xs 0 (@padding-xs / 2);
       text-align: right;
     }
     // It's ok not to do this, but 24px makes bottom narrow in view should adjust
     &-content {
       .@{select-prefix-cls}-rtl& {
         margin-right: 0;
-        margin-left: @padding-xs / 2;
+        margin-left: (@padding-xs / 2);
         text-align: right;
       }
     }
@@ -83,22 +80,10 @@
 
   // ========================== Input ==========================
   .@{select-prefix-cls}-selection-search {
-    .@{select-prefix-cls}-rtl& {
-      margin-right: @select-multiple-padding / 2;
-      margin-left: @input-padding-vertical-base;
-    }
-
     &-mirror {
       .@{select-prefix-cls}-rtl& {
         right: 0;
         left: auto;
-      }
-    }
-
-    &:first-child > .@{select-prefix-cls}-selection-search-input {
-      .@{select-prefix-cls}-rtl& {
-        margin-right: 5px !important;
-        margin-left: 0 !important;
       }
     }
   }
@@ -157,18 +142,6 @@
     }
   }
 
-  // ========================== Input ==========================
-  // We only change the style of non-customize input which is only support by `combobox` mode.
-
-  // Not customize
-  &:not(.@{select-prefix-cls}-customize-input) {
-    .@{select-prefix-cls}-selector {
-      .@{select-prefix-cls}-rtl& {
-        padding: 0 @input-padding-horizontal-base;
-      }
-    }
-  }
-
   // ============================================================
   // ==                          Size                          ==
   // ============================================================
@@ -179,7 +152,7 @@
       // With arrow should provides `padding-right` to show the arrow
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
         .@{select-prefix-cls}-rtl& {
-          right: 0;
+          right: @input-padding-horizontal-sm - 1px;
         }
       }
 

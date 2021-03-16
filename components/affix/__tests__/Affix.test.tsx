@@ -221,6 +221,8 @@ describe('Affix Render', () => {
                 getBoundingClientRect: () => ({ width: 99, height: 99 }),
               } as Element,
               contentRect: {} as DOMRect,
+              borderBoxSize: [],
+              contentBoxSize: [],
             },
           ],
           ({} as unknown) as ResizeObserver,

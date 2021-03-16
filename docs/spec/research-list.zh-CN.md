@@ -60,7 +60,7 @@ title: 列表页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3KMbRrbjvzkAAAAAAAAAAABkARQnAQ">
 
-**什么时候使用** 
+**什么时候使用**
 
 提供每条条目的概览信息，点击列表可导航至条目详情。页面内常提供统计功能，供用户了解总体进展。可作为简易版的工作台使用。
 
@@ -68,7 +68,7 @@ title: 列表页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*coEVT7uElCUAAAAAAAAAAABkARQnAQ">
 
-**什么时候使用** 
+**什么时候使用**
 
 用户无需以特定顺序浏览条目，将每个条目以富有吸引力的方式呈现。
 
@@ -76,11 +76,11 @@ title: 列表页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yW4QQKNi_0QAAAAAAAAAAABkARQnAQ">
 
-**什么时候使用** 
+**什么时候使用**
 
 以搜索为主寻找特定条目信息，通过关键词一次性在众多主题下的条目中搜寻结果。可对大量不同种类的内容进行搜索和筛选，满足对模糊目标的查找需求。
 
-**涉及哪些操作** 
+**涉及哪些操作**
 
 筛选、搜索
 
@@ -88,11 +88,11 @@ title: 列表页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aJxDR6oP19gAAAAAAAAAAABkARQnAQ">
 
-**什么时候使用** 
+**什么时候使用**
 
 成员管理是用于展示和管理某对象中所包含的成员的基本信息和权限信息的页面，管理操作通常包括添加成员、删除成员、成员角色与权限赋予等。
 
-**涉及哪些操作** 
+**涉及哪些操作**
 
 筛选、删除等
 

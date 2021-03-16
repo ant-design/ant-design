@@ -11,6 +11,7 @@ export interface BreadcrumbItemProps {
   overlay?: DropDownProps['overlay'];
   dropdownProps?: DropDownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
+  className?: string;
 }
 interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
   __ANT_BREADCRUMB_ITEM: boolean;
@@ -25,10 +26,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  /**
-   * if overlay is have
-   * Wrap a DropDown
-   */
+  /** If overlay is have Wrap a DropDown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (overlay) {
       return (

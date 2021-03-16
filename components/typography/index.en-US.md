@@ -93,6 +93,8 @@ Basic text writing, including headings, body text, lists, and more.
       autoSize: boolean | { minRows: number, maxRows: number },
       onStart: function,
       onChange: function(string),
+      onCancel: function,
+      onEnd: function,
     }
 
 | Property | Description | Type | Default | Version |
@@ -102,8 +104,12 @@ Basic text writing, including headings, body text, lists, and more.
 | icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
 | tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
+| onCancel | Called when type ESC to exit editable state | function | - |  |
 | onChange | Called when input at textarea | function(event) | - |  |
+| onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
 | onStart | Called when enter editable state | function | - |  |
+| onCancel | Called when type ESC to exit editable state | function | - |  |
+| onEnd | Called when type ENTER to exit editable state | function | - |  |
 
 ### ellipsis
 
@@ -112,6 +118,7 @@ Basic text writing, including headings, body text, lists, and more.
       expandable: boolean,
       suffix: string,
       symbol: ReactNode,
+      tooltip: boolean | ReactNode,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
     }
@@ -120,8 +127,9 @@ Basic text writing, including headings, body text, lists, and more.
 | --- | --- | --- | --- | --- |
 | expandable | Whether to be expandable | boolean | - |  |
 | rows | Max rows of content | number | - |  |
-| suffix | Suffix of ellipsis content | ReactNode | - |  |
-| symbol | Custom `...` symbol of ellipsis | ReactNode | `...` |  |
+| suffix | Suffix of ellipsis content | string | - |  |
+| symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
+| tooltip | Show tooltip when ellipsis | boolean \| ReactNode | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event) | - |  |
 

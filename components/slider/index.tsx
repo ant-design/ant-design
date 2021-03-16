@@ -59,13 +59,17 @@ export interface SliderSingleProps extends SliderBaseProps {
 }
 
 export interface SliderRangeProps extends SliderBaseProps {
-  range: true;
+  range: true | SliderRange;
   value?: [number, number];
   defaultValue?: [number, number];
   onChange?: (value: [number, number]) => void;
   onAfterChange?: (value: [number, number]) => void;
   handleStyle?: React.CSSProperties[];
   trackStyle?: React.CSSProperties[];
+}
+
+interface SliderRange {
+  draggableTrack?: boolean;
 }
 
 export type Visibles = { [index: number]: boolean };
@@ -76,9 +80,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     const [visibles, setVisibles] = React.useState<Visibles>({});
 
     const toggleTooltipVisible = (index: number, visible: boolean) => {
-      setVisibles((prev: Visibles) => {
-        return { ...prev, [index]: visible };
-      });
+      setVisibles((prev: Visibles) => ({ ...prev, [index]: visible }));
     };
 
     const getTooltipPlacement = (tooltipPlacement?: TooltipPlacement, vertical?: boolean) => {
@@ -105,16 +107,18 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       } = props;
       const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
       const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
+      const rootPrefixCls = getPrefixCls();
+
       return (
         <SliderTooltip
           prefixCls={tooltipPrefixCls}
           title={tipFormatter ? tipFormatter(value) : ''}
           visible={visible}
           placement={getTooltipPlacement(tooltipPlacement, vertical)}
-          transitionName="zoom-down"
+          transitionName={`${rootPrefixCls}-zoom-down`}
           key={index}
           overlayClassName={`${prefixCls}-tooltip`}
-          getPopupContainer={getTooltipPopupContainer || getPopupContainer || (() => document.body)}
+          getPopupContainer={getTooltipPopupContainer || getPopupContainer}
         >
           <RcHandle
             {...restProps}
@@ -138,15 +142,24 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     const cls = classNames(className, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
+
     // make reverse default on rtl direction
     if (direction === 'rtl' && !restProps.vertical) {
       restProps.reverse = !restProps.reverse;
     }
+
+    // extrack draggableTrack from range={{ ... }}
+    let draggableTrack: boolean | undefined;
+    if (typeof range === 'object') {
+      draggableTrack = range.draggableTrack;
+    }
+
     if (range) {
       return (
         <RcRange
           {...(restProps as SliderRangeProps)}
           step={restProps.step!}
+          draggableTrack={draggableTrack}
           className={cls}
           ref={ref}
           handle={(info: HandleGeneratorInfo) =>

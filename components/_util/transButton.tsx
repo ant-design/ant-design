@@ -1,5 +1,6 @@
 /**
  * Wrap of sub component which need use as Button capacity (like Icon component).
+ *
  * This helps accessibility reader to tread as a interactive button to operation.
  */
 import * as React from 'react';

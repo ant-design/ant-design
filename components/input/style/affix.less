@@ -8,7 +8,7 @@
     .input();
     display: inline-flex;
 
-    &:hover {
+    &:not(&-disabled):hover {
       .hover();
       z-index: 1;
       .@{ant-prefix}-input-search-with-button & {

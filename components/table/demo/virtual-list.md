@@ -20,12 +20,12 @@ import ResizeObserver from 'rc-resize-observer';
 import classNames from 'classnames';
 import { Table } from 'antd';
 
-function VirtualTable(props) {
+function VirtualTable(props: Parameters<typeof Table>[0]) {
   const { columns, scroll } = props;
   const [tableWidth, setTableWidth] = useState(0);
 
-  const widthColumnCount = columns.filter(({ width }) => !width).length;
-  const mergedColumns = columns.map(column => {
+  const widthColumnCount = columns!.filter(({ width }) => !width).length;
+  const mergedColumns = columns!.map(column => {
     if (column.width) {
       return column;
     }
@@ -69,28 +69,36 @@ function VirtualTable(props) {
         ref={gridRef}
         className="virtual-grid"
         columnCount={mergedColumns.length}
-        columnWidth={index => {
+        columnWidth={(index: number) => {
           const { width } = mergedColumns[index];
-          return totalHeight > scroll.y && index === mergedColumns.length - 1
-            ? width - scrollbarSize - 1
-            : width;
+          return totalHeight > scroll!.y! && index === mergedColumns.length - 1
+            ? (width as number) - scrollbarSize - 1
+            : (width as number);
         }}
-        height={scroll.y}
+        height={scroll!.y as number}
         rowCount={rawData.length}
         rowHeight={() => 54}
         width={tableWidth}
-        onScroll={({ scrollLeft }) => {
+        onScroll={({ scrollLeft }: { scrollLeft: number }) => {
           onScroll({ scrollLeft });
         }}
       >
-        {({ columnIndex, rowIndex, style }) => (
+        {({
+          columnIndex,
+          rowIndex,
+          style,
+        }: {
+          columnIndex: number;
+          rowIndex: number;
+          style: React.CSSProperties;
+        }) => (
           <div
             className={classNames('virtual-table-cell', {
               'virtual-table-cell-last': columnIndex === mergedColumns.length - 1,
             })}
             style={style}
           >
-            {rawData[rowIndex][mergedColumns[columnIndex].dataIndex]}
+            {(rawData[rowIndex] as any)[(mergedColumns as any)[columnIndex].dataIndex]}
           </div>
         )}
       </Grid>

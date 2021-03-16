@@ -4,14 +4,14 @@ type: 模板文档
 order: 2
 title: 工作台
 ---
+
 工作台常被作为应用的主页，是一个为用户提供便利的交通枢纽。工作台提供常用信息入口，以中心辐射的方式导航至应用的各功能模块；呈现用户当前需要关注的信息，缩短获取关键信息的路径；同时允许用户在工作台直接操作一些高频任务。
 
 ---
 
 ## 设计目标
 
-用户侧：提供处理和查看信息的捷径，并为用户提供必要的帮助；<br/>
-产品侧：与用户更好地沟通，适当宣传产品的新动向等运营内容。
+用户侧：提供处理和查看信息的捷径，并为用户提供必要的帮助；<br/> 产品侧：与用户更好地沟通，适当宣传产品的新动向等运营内容。
 
 ## 设计原则
 
@@ -53,6 +53,7 @@ title: 工作台
 - 提供基于角色的差异化视图。
 
 #### 模板 - 新手引导
+
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*LQBmQauTEAsAAAAAAAAAAABkARQnAQ">
 
 **什么时候使用**
@@ -76,23 +77,25 @@ title: 工作台
 这类页面一般会提供两类导航形式。<br/>
 
 ① 用户知道他想要使用的功能，需要利用导航获取。例如：
+
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xlYoTIf8NpwAAAAAAAAAAABkARQnAQ">
 </div>
 
 ② 发现类导航，用户须完成某任务，但不知道使用哪个功能来完成。例如：
+
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9nKdRJBAu8sAAAAAAAAAAABkARQnAQ">
 </div>
 
 #### 按照使用频次布置内容
+
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1tfiR5-xKUQAAAAAAAAAAABkARQnAQ">
 
 用户在日常工作中最常使用的内容，按照使用频次将内容布置以下各区域。
 
 #### 考虑异常状态
+
 详见异常页
 
 > 另，关于是否应该推荐用户个性化定制，这部分内容尚在探索中。
-
-

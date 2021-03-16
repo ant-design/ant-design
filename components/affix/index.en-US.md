@@ -9,7 +9,7 @@ Wrap Affix around another component to make it stick the viewport.
 
 ## When To Use
 
-On longer web pages, its helpful for some content to stick to the viewport. This is common for menus and actions.
+On longer web pages, it's helpful to stick component into the viewport. This is common for menus and actions.
 
 Please note that Affix should not cover other content on the page, especially when the size of the viewport is small.
 

@@ -58,12 +58,12 @@ describe('TextArea', () => {
     const wrapper = mount(
       <TextArea onKeyDown={fakeHandleKeyDown} onPressEnter={fakeHandlePressEnter} />,
     );
-    /** keyCode 65 is A */
+    /** KeyCode 65 is A */
     wrapper.find('textarea').simulate('keydown', { keyCode: 65 });
     expect(fakeHandleKeyDown).toHaveBeenCalledTimes(1);
     expect(fakeHandlePressEnter).toHaveBeenCalledTimes(0);
 
-    /** keyCode 13 is Enter */
+    /** KeyCode 13 is Enter */
     wrapper.find('textarea').simulate('keydown', { keyCode: 13 });
     expect(fakeHandleKeyDown).toHaveBeenCalledTimes(2);
     expect(fakeHandlePressEnter).toHaveBeenCalledTimes(1);
@@ -144,6 +144,18 @@ describe('TextArea', () => {
       expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
+    it('should  minimize value between emoji length and maxLength', () => {
+      const wrapper = mount(<TextArea maxLength={1} showCount value="👀" />);
+      const textarea = wrapper.find('.ant-input-textarea');
+      expect(wrapper.find('textarea').prop('value')).toBe('👀');
+      expect(textarea.prop('data-count')).toBe('1 / 1');
+
+      // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
+      const wrapper1 = mount(<TextArea maxLength={2} showCount value="👀" />);
+      const textarea1 = wrapper1.find('.ant-input-textarea');
+      expect(textarea1.prop('data-count')).toBe('2 / 2');
+    });
+
     // 修改TextArea value截取规则后新增单测
     it('slice emoji', () => {
       const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
@@ -165,12 +177,35 @@ describe('TextArea', () => {
       expect(wrapper.find('.ant-input').hasClass('bamboo')).toBeFalsy();
       expect(wrapper.find('.ant-input').props().style.background).toBeFalsy();
     });
+
+    it('count formatter', () => {
+      const wrapper = mount(
+        <TextArea
+          maxLength={5}
+          showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+          value="12345678"
+        />,
+      );
+      const textarea = wrapper.find('.ant-input-textarea');
+      expect(wrapper.find('textarea').prop('value')).toBe('12345');
+      expect(textarea.prop('data-count')).toBe('5, 5');
+    });
   });
 
   it('should support size', async () => {
     const wrapper = mount(<TextArea size="large" />);
     expect(wrapper.find('textarea').hasClass('ant-input-lg')).toBe(true);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('set mouse cursor position', () => {
+    const defaultValue = '11111';
+    const valLength = defaultValue.length;
+    const ref = React.createRef();
+    mount(<TextArea autoFocus ref={ref} defaultValue={defaultValue} />);
+    ref.current.resizableTextArea.textArea.setSelectionRange(valLength, valLength);
+    expect(ref.current.resizableTextArea.textArea.selectionStart).toEqual(5);
+    expect(ref.current.resizableTextArea.textArea.selectionEnd).toEqual(5);
   });
 });
 

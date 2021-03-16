@@ -84,20 +84,20 @@ ReactDOM.render(
 
 ```css
 .events {
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 .events .ant-badge-status {
-  overflow: hidden;
-  white-space: nowrap;
   width: 100%;
-  text-overflow: ellipsis;
+  overflow: hidden;
   font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .notes-month {
-  text-align: center;
   font-size: 28px;
+  text-align: center;
 }
 .notes-month section {
   font-size: 28px;

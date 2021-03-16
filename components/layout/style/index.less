@@ -18,9 +18,10 @@
 
   &&-has-sider {
     flex-direction: row;
+
     > .@{layout-prefix-cls},
     > .@{layout-prefix-cls}-content {
-      overflow-x: hidden;
+      width: 0; // https://segmentfault.com/a/1190000019498300
     }
   }
 
@@ -101,7 +102,7 @@
         width: @layout-zero-trigger-width;
         height: @layout-zero-trigger-height;
         color: @layout-trigger-color;
-        font-size: @layout-zero-trigger-width / 2;
+        font-size: (@layout-zero-trigger-width / 2);
         line-height: @layout-zero-trigger-height;
         text-align: center;
         background: @layout-sider-background;

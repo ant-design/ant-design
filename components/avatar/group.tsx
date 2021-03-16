@@ -37,11 +37,11 @@ const Group: React.FC<GroupProps> = props => {
   );
 
   const { children, maxPopoverPlacement = 'top' } = props;
-  const childrenWithProps = toArray(children).map((child, index) => {
-    return cloneElement(child, {
+  const childrenWithProps = toArray(children).map((child, index) =>
+    cloneElement(child, {
       key: `avatar-key-${index}`,
-    });
-  });
+    }),
+  );
 
   const numOfChildren = childrenWithProps.length;
   if (maxCount && maxCount < numOfChildren) {

@@ -5,7 +5,7 @@
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 
 .@{dropdown-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: absolute;
   top: -9999px;
@@ -15,9 +15,9 @@
 
   &::before {
     position: absolute;
-    top: -7px;
+    top: -@popover-distance + @popover-arrow-width;
     right: 0;
-    bottom: -7px;
+    bottom: -@popover-distance + @popover-arrow-width;
     left: -7px;
     z-index: -9999;
     opacity: 0.0001;
@@ -71,7 +71,7 @@
     height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
     background: transparent;
     border-style: solid;
-    border-width: sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2;
+    border-width: (sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2);
     transform: rotate(45deg);
   }
 
@@ -225,6 +225,23 @@
           background-color: @dropdown-menu-submenu-disabled-bg;
           cursor: not-allowed;
         }
+
+        > .@{iconfont-css-prefix} + span > a,
+        > a {
+          position: relative;
+          color: @disabled-color;
+          pointer-events: none;
+
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: not-allowed;
+            content: '';
+          }
+        }
       }
 
       &-divider {
@@ -235,11 +252,11 @@
         background-color: @border-color-split;
       }
 
-      .@{dropdown-prefix-cls}-menu-submenu-arrow {
+      .@{dropdown-prefix-cls}-menu-submenu-expand-icon {
         position: absolute;
         right: @padding-xs;
 
-        &-icon {
+        .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
           margin-right: 0 !important;
           color: @text-color-secondary;
           font-size: 10px;

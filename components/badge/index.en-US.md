@@ -30,7 +30,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 
 ### Badge.Ribbon (4.5.0+)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | color | Customize Ribbon color | string | - |  |
 | placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |

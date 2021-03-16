@@ -5,7 +5,7 @@
 @pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
 .@{pagination-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   ul,
   ol {
@@ -241,7 +241,7 @@
       vertical-align: top;
 
       input {
-        .input;
+        .input();
 
         width: 50px;
         margin: 0 8px;
@@ -350,7 +350,7 @@
       line-height: @pagination-item-size-sm;
 
       input {
-        .input-sm;
+        .input-sm();
 
         width: 44px;
       }

@@ -49,7 +49,7 @@ function getUnitString(unit: ContentUnit[]): string {
   return Array.isArray(last) ? getUnitString(last) : (last as string);
 }
 
-function toList([, ...items]: ContentUnit[]): ContentUnit[] {
+function toCardList([, ...items]: ContentUnit[]): ContentUnit[] {
   return [
     'div',
     { className: 'ant-row resource-cards', style: 'margin: -12px -12px 0 -12px' },
@@ -101,11 +101,18 @@ function toList([, ...items]: ContentUnit[]): ContentUnit[] {
 function injectCards(content: ContentUnit[]): ContentUnit[] {
   const newContent: ContentUnit[] = [];
 
+  const isClassNameType = (unit: any, className: string) =>
+    Array.isArray(unit) && (unit[1] as any).class === className;
+
   for (let i = 0; i < content.length; i += 1) {
     const unit = content[i];
 
-    if (Array.isArray(unit) && (unit[1] as any).class === 'next-block-use-cards') {
-      newContent.push(toList(content[i + 1] as any));
+    if (isClassNameType(unit, 'next-block-use-cards')) {
+      newContent.push(toCardList(content[i + 1] as any));
+
+      i += 1;
+    } else if (isClassNameType(unit, 'next-block-use-avatars')) {
+      newContent.push(['div', { className: 'resource-avatars' }, content[i + 1]]);
 
       i += 1;
     } else {

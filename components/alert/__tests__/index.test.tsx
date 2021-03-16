@@ -1,6 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Alert from '..';
+import Button from '../../button';
 import Tooltip from '../../tooltip';
 import Popconfirm from '../../popconfirm';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -34,6 +35,25 @@ describe('Alert', () => {
     expect(onClose).toHaveBeenCalled();
   });
 
+  describe('action of Alert', () => {
+    it('custom action', () => {
+      const wrapper = render(
+        <Alert
+          message="Success Tips"
+          type="success"
+          showIcon
+          action={
+            <Button size="small" type="text">
+              UNDO
+            </Button>
+          }
+          closable
+        />,
+      );
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
   describe('data and aria props', () => {
     it('sets data attributes on input', () => {
       const wrapper = mount(<Alert data-test="test-id" data-id="12345" message={null} />);
@@ -55,8 +75,7 @@ describe('Alert', () => {
     });
   });
 
-  const testIt = process.env.REACT === '15' ? it.skip : it;
-  testIt('ErrorBoundary', () => {
+  it('ErrorBoundary', () => {
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
@@ -66,7 +85,7 @@ describe('Alert', () => {
       </ErrorBoundary>,
     );
     // eslint-disable-next-line jest/no-standalone-expect
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.text()).toContain('ReferenceError: NotExisted is not defined');
   });
 
   it('could be used with Tooltip', async () => {

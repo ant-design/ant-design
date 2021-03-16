@@ -2,13 +2,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import produce from 'immer';
+import { cloneDeep } from 'lodash';
 import Upload from '..';
 import Form from '../../form';
-import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
+import { getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Upload', () => {
   mountTest(Upload);
@@ -283,20 +286,6 @@ describe('Upload', () => {
   });
 
   describe('util', () => {
-    // https://github.com/react-component/upload/issues/36
-    it('should T() return true', () => {
-      const res = T();
-      expect(res).toBe(true);
-    });
-
-    it('should be able to copy file instance', () => {
-      const file = new File([], 'aaa.zip');
-      const copiedFile = fileToObject(file);
-      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
-        expect(key in copiedFile).toBe(true);
-      });
-    });
-
     it('should be able to get fileItem', () => {
       const file = { uid: '-1', name: 'item.jpg' };
       const fileList = [
@@ -323,6 +312,30 @@ describe('Upload', () => {
       ];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toEqual(fileList.slice(1));
+    });
+
+    it('remove fileItem and fileList with immutable data', () => {
+      const file = { uid: '-3', name: 'item3.jpg' };
+      const fileList = produce(
+        [
+          {
+            uid: '-1',
+            name: 'item.jpg',
+          },
+          {
+            uid: '-2',
+            name: 'item2.jpg',
+          },
+        ],
+        draftState => {
+          draftState.push({
+            uid: '-3',
+            name: 'item3.jpg',
+          });
+        },
+      );
+      const targetItem = removeFileItem(file, fileList);
+      expect(targetItem).toEqual(fileList.slice(0, 2));
     });
 
     it('should not be able to remove fileItem', () => {
@@ -414,17 +427,16 @@ describe('Upload', () => {
     let wrapper;
 
     const props = {
-      onRemove: () =>
-        new Promise(
-          resolve =>
-            setTimeout(() => {
-              wrapper.update();
-              expect(props.fileList).toHaveLength(1);
-              expect(props.fileList[0].status).toBe('uploading');
-              resolve(true);
-            }),
-          100,
-        ),
+      onRemove: async () => {
+        await act(async () => {
+          await sleep(100);
+          wrapper.update();
+          expect(props.fileList).toHaveLength(1);
+          expect(props.fileList[0].status).toBe('uploading');
+        });
+
+        return true;
+      },
       fileList: [
         {
           uid: '-1',
@@ -512,20 +524,35 @@ describe('Upload', () => {
   it('should replace file when targetItem already exists', () => {
     const fileList = [{ uid: 'file', name: 'file' }];
     const ref = React.createRef();
-    mount(
+    const wrapper = mount(
       <Upload ref={ref} defaultFileList={fileList}>
         <button type="button">upload</button>
       </Upload>,
     );
-    ref.current.onStart({
+
+    const newFile = {
       uid: 'file',
       name: 'file1',
+    };
+
+    act(() => {
+      ref.current.onBatchStart([
+        {
+          file: newFile,
+          parsedFile: newFile,
+        },
+      ]);
     });
+
+    wrapper.update();
+
     expect(ref.current.fileList.length).toBe(1);
     expect(ref.current.fileList[0].originFileObj).toEqual({
       name: 'file1',
       uid: 'file',
     });
+
+    wrapper.unmount();
   });
 
   it('warning if set `value`', () => {
@@ -627,6 +654,149 @@ describe('Upload', () => {
           files: [{ file: 'foo.png' }],
         },
       });
+    });
+  });
+
+  describe('maxCount', () => {
+    it('replace when only 1', async () => {
+      const onChange = jest.fn();
+      const fileList = [
+        {
+          uid: 'bar',
+          name: 'bar.png',
+        },
+      ];
+
+      const props = {
+        action: 'http://upload.com',
+        fileList,
+        onChange,
+        maxCount: 1,
+      };
+
+      const wrapper = mount(
+        <Upload {...props}>
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [
+            new File(['foo'], 'foo.png', {
+              type: 'image/png',
+            }),
+          ],
+        },
+      });
+
+      await sleep(20);
+
+      expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
+      expect(onChange.mock.calls[0][0].fileList[0]).toEqual(
+        expect.objectContaining({
+          name: 'foo.png',
+        }),
+      );
+    });
+
+    it('maxCount > 1', async () => {
+      const onChange = jest.fn();
+      const fileList = [
+        {
+          uid: 'bar',
+          name: 'bar.png',
+        },
+      ];
+
+      const props = {
+        action: 'http://upload.com',
+        fileList,
+        onChange,
+        maxCount: 2,
+      };
+
+      const wrapper = mount(
+        <Upload {...props}>
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [
+            new File(['foo'], 'foo.png', {
+              type: 'image/png',
+            }),
+            new File(['invisible'], 'invisible.png', {
+              type: 'image/png',
+            }),
+          ],
+        },
+      });
+
+      await sleep(20);
+
+      expect(onChange.mock.calls[0][0].fileList).toHaveLength(2);
+      expect(onChange.mock.calls[0][0].fileList).toEqual([
+        expect.objectContaining({
+          name: 'bar.png',
+        }),
+        expect.objectContaining({
+          name: 'foo.png',
+        }),
+      ]);
+    });
+  });
+
+  it('auto fill file uid', () => {
+    const fileList = [
+      {
+        name: 'bamboo.png',
+      },
+    ];
+
+    expect(fileList[0].uid).toBeFalsy();
+
+    mount(
+      <Upload fileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    expect(fileList[0].uid).toBeTruthy();
+  });
+
+  it('Proxy should support deepClone', async () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      <Upload onChange={onChange}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          new File(['foo'], 'foo.png', {
+            type: 'image/png',
+          }),
+        ],
+      },
+    });
+
+    await sleep();
+
+    const { file } = onChange.mock.calls[0][0];
+    const clone = cloneDeep(file);
+
+    expect(Object.getOwnPropertyDescriptor(file, 'name')).toEqual(
+      expect.objectContaining({ value: 'foo.png' }),
+    );
+
+    ['uid', 'name', 'lastModified', 'lastModifiedDate', 'size', 'type'].forEach(key => {
+      expect(key in clone).toBeTruthy();
     });
   });
 });

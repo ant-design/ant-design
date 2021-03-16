@@ -1275,7 +1275,7 @@ exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
                   fill-opacity="0"
                   stroke-linecap="round"
                   stroke-width="4"
-                  style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                  style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                 />
                 <path
                   class="ant-progress-circle-path"
@@ -1287,7 +1287,7 @@ exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
                   stroke=""
                   stroke-linecap="round"
                   stroke-width="4"
-                  style="stroke-dasharray:180.95573684677208px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                  style="stroke-dasharray:180.95573684677208px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                 />
               </svg>
               <span
@@ -1508,7 +1508,7 @@ Array [
                     fill-opacity="0"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                   <path
                     class="ant-progress-circle-path"
@@ -1520,7 +1520,7 @@ Array [
                     stroke=""
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                 </svg>
                 <span
@@ -1681,7 +1681,7 @@ Array [
                     fill-opacity="0"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                   <path
                     class="ant-progress-circle-path"
@@ -1693,7 +1693,7 @@ Array [
                     stroke=""
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                 </svg>
                 <span
@@ -1854,7 +1854,7 @@ Array [
                     fill-opacity="0"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                   <path
                     class="ant-progress-circle-path"
@@ -1866,7 +1866,7 @@ Array [
                     stroke=""
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                 </svg>
                 <span
@@ -2027,7 +2027,7 @@ Array [
                     fill-opacity="0"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                   <path
                     class="ant-progress-circle-path"
@@ -2039,7 +2039,7 @@ Array [
                     stroke=""
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                 </svg>
                 <span

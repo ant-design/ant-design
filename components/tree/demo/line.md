@@ -84,31 +84,27 @@ const treeData = [
 ];
 
 const Demo: React.FC<{}> = () => {
-  const [showLine, setShowLine] = useState(true);
-  const [showIcon, setShowIcon] = useState(false);
-  const [showLeafIcon, setShowLeafIcon] = useState(true);
+  const [showLine, setShowLine] = useState<boolean | { showLeafIcon: boolean }>(true);
+  const [showIcon, setShowIcon] = useState<boolean>(false);
+  const [showLeafIcon, setShowLeafIcon] = useState<boolean>(true);
 
-  const onSelect = (selectedKeys, info) => {
+  const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('selected', selectedKeys, info);
   };
 
-  const onSetLeafIcon = checked => {
+  const onSetLeafIcon = (checked: boolean) => {
     setShowLeafIcon(checked);
     setShowLine({ showLeafIcon: checked });
   };
 
-  const onSetShowLine = checked => {
-    if (checked) {
-      showLeafIcon ? setShowLine(checked) : setShowLine({ showLeafIcon });
-    } else {
-      setShowLine(checked);
-    }
+  const onSetShowLine = (checked: boolean) => {
+    setShowLine(checked ? { showLeafIcon } : false);
   };
 
   return (
     <div>
       <div style={{ marginBottom: 16 }}>
-        showLine: <Switch checked={showLine} onChange={onSetShowLine} />
+        showLine: <Switch checked={!!showLine} onChange={onSetShowLine} />
         <br />
         <br />
         showIcon: <Switch checked={showIcon} onChange={setShowIcon} />

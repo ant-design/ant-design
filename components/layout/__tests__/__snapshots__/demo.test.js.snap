@@ -148,7 +148,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         >
           <span
             aria-label="user"
-            class="anticon anticon-user"
+            class="anticon anticon-user ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -176,7 +176,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         >
           <span
             aria-label="video-camera"
-            class="anticon anticon-video-camera"
+            class="anticon anticon-video-camera ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -204,7 +204,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         >
           <span
             aria-label="upload"
-            class="anticon anticon-upload"
+            class="anticon anticon-upload ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -463,7 +463,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="user"
-            class="anticon anticon-user"
+            class="anticon anticon-user ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -491,7 +491,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="video-camera"
-            class="anticon anticon-video-camera"
+            class="anticon anticon-video-camera ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -519,7 +519,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="upload"
-            class="anticon anticon-upload"
+            class="anticon anticon-upload ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -547,7 +547,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="bar-chart"
-            class="anticon anticon-bar-chart"
+            class="anticon anticon-bar-chart ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -575,7 +575,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="cloud"
-            class="anticon anticon-cloud"
+            class="anticon anticon-cloud ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -603,7 +603,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="appstore"
-            class="anticon anticon-appstore"
+            class="anticon anticon-appstore ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -631,7 +631,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="team"
-            class="anticon anticon-team"
+            class="anticon anticon-team ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -659,7 +659,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         >
           <span
             aria-label="shop"
-            class="anticon anticon-shop"
+            class="anticon anticon-shop ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -831,7 +831,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         >
           <span
             aria-label="user"
-            class="anticon anticon-user"
+            class="anticon anticon-user ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -859,7 +859,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         >
           <span
             aria-label="video-camera"
-            class="anticon anticon-video-camera"
+            class="anticon anticon-video-camera ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -887,7 +887,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         >
           <span
             aria-label="upload"
-            class="anticon anticon-upload"
+            class="anticon anticon-upload ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -915,7 +915,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         >
           <span
             aria-label="user"
-            class="anticon anticon-user"
+            class="anticon anticon-user ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -993,7 +993,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         >
           <span
             aria-label="pie-chart"
-            class="anticon anticon-pie-chart"
+            class="anticon anticon-pie-chart ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -1021,7 +1021,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         >
           <span
             aria-label="desktop"
-            class="anticon anticon-desktop"
+            class="anticon anticon-desktop ant-menu-item-icon"
             role="img"
           >
             <svg
@@ -1127,7 +1127,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         >
           <span
             aria-label="file"
-            class="anticon anticon-file"
+            class="anticon anticon-file ant-menu-item-icon"
             role="img"
           >
             <svg

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Checkbox, { CheckboxChangeEvent } from './Checkbox';
 import { ConfigContext } from '../config-provider';
 
@@ -64,8 +64,8 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
     }
   }, [restProps.value]);
 
-  const getOptions = () => {
-    return options.map(option => {
+  const getOptions = () =>
+    options.map(option => {
       if (typeof option === 'string') {
         return {
           label: option,
@@ -74,7 +74,6 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
       }
       return option;
     });
-  };
 
   const cancelValue = (val: string) => {
     setRegisteredValues(prevValues => prevValues.filter(v => v !== val));
@@ -95,18 +94,16 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
     if (!('value' in restProps)) {
       setValue(newValue);
     }
-    if (onChange) {
-      const opts = getOptions();
-      onChange(
-        newValue
-          .filter(val => registeredValues.indexOf(val) !== -1)
-          .sort((a, b) => {
-            const indexA = opts.findIndex(opt => opt.value === a);
-            const indexB = opts.findIndex(opt => opt.value === b);
-            return indexA - indexB;
-          }),
-      );
-    }
+    const opts = getOptions();
+    onChange?.(
+      newValue
+        .filter(val => registeredValues.indexOf(val) !== -1)
+        .sort((a, b) => {
+          const indexA = opts.findIndex(opt => opt.value === a);
+          const indexB = opts.findIndex(opt => opt.value === b);
+          return indexA - indexB;
+        }),
+    );
   };
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);

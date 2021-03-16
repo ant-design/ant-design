@@ -13,7 +13,7 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 
 ## API
 
-| Property | Description | Type | Default Value |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | delay | Specifies a delay in milliseconds for loading state (prevent flush) | number (milliseconds) | - |
 | indicator | React node of the spinning indicator | ReactNode | - |

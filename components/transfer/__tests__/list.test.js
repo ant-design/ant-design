@@ -28,7 +28,7 @@ describe('Transfer.List', () => {
   it('should render correctly', () => {
     const wrapper = mount(<List {...listCommonProps} />);
     wrapper.update();
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('should check top Checkbox while all available items are checked', () => {

@@ -1,10 +1,21 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { sleep } from '../../../tests/utils';
+import { resetWarned } from '../../_util/devWarning';
 
 describe('Collapse', () => {
   // eslint-disable-next-line global-require
   const Collapse = require('..').default;
+
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
 
   it('should support remove expandIcon', () => {
     const wrapper = mount(
@@ -57,9 +68,9 @@ describe('Collapse', () => {
     expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
   });
 
-  it('could override default openAnimation', () => {
+  it('could override default openMotion', () => {
     const wrapper = mount(
-      <Collapse openAnimation={{}}>
+      <Collapse openMotion={{}}>
         <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
@@ -67,5 +78,27 @@ describe('Collapse', () => {
     );
     wrapper.find('.ant-collapse-header').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should trigger warning and keep compatibility when using disabled in Panel', () => {
+    resetWarned();
+    const wrapper = mount(
+      <Collapse>
+        <Collapse.Panel disabled header="This is panel header 1" key="1">
+          content
+        </Collapse.Panel>
+      </Collapse>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Collapse.Panel] `disabled` is deprecated. Please use `collapsible="disabled"` instead.',
+    );
+
+    expect(wrapper.find('.ant-collapse-header-text').exists()).toBeFalsy();
+
+    expect(wrapper.find('.ant-collapse-item-disabled').length).toBe(1);
+
+    wrapper.find('.ant-collapse-header').simulate('click');
+    expect(wrapper.find('.ant-collapse-item-active').length).toBe(0);
   });
 });

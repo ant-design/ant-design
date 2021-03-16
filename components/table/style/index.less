@@ -15,13 +15,12 @@
 .@{table-prefix-cls}-wrapper {
   clear: both;
   max-width: 100%;
-  .clearfix;
+  .clearfix();
 }
 
 .@{table-prefix-cls} {
-  .reset-component;
+  .reset-component();
   position: relative;
-  z-index: 0;
   font-size: @table-font-size;
   background: @table-bg;
   border-radius: @border-radius-base;
@@ -84,7 +83,7 @@
         font-weight: 500;
         text-align: left;
         background: @table-header-bg;
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s ease;
 
         &[colspan]:not([colspan='1']) {
@@ -104,7 +103,7 @@
   &-tbody {
     > tr {
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s;
 
         // ========================= Nest Table ===========================
@@ -151,7 +150,7 @@
     > tr {
       > th,
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
       }
     }
   }
@@ -313,7 +312,7 @@
 
   // Dropdown
   &-filter-dropdown {
-    .reset-component;
+    .reset-component();
 
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
@@ -352,7 +351,7 @@
       padding: 7px 8px 7px 3px;
       overflow: hidden;
       background-color: @table-filter-btns-bg;
-      border-top: @border-width-base @border-style-base @border-color-split;
+      border-top: @border-width-base @border-style-base @table-border-color;
     }
   }
 
@@ -374,13 +373,17 @@
 
   &-selection {
     position: relative;
+    display: inline-flex;
+    flex-direction: column;
 
     &-extra {
       position: absolute;
       top: 0;
-      right: @table-selection-extra-right;
+      z-index: 1;
       cursor: pointer;
       transition: all 0.3s;
+      margin-inline-start: 100%;
+      padding-inline-start: @padding-xss;
 
       .@{iconfont-css-prefix} {
         color: @table-header-icon-color;
@@ -413,20 +416,22 @@
     display: inline-flex;
     float: left;
     box-sizing: border-box;
-
-    width: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base * 3;
-    height: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base * 3;
+    width: @expand-icon-size;
+    height: @expand-icon-size;
     padding: 0;
     color: inherit;
-    line-height: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base *
+    line-height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base *
       3;
-    // vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
     background: @table-expand-icon-bg;
-    border: @border-width-base @border-style-base @border-color-split;
+    border: @border-width-base @border-style-base @table-border-color;
     border-radius: @border-radius-base;
     outline: none;
+    transform: scale((unit(@checkbox-size) / unit(@expand-icon-size)));
+    transform-origin: bottom;
     transition: all 0.3s;
     user-select: none;
+    @expand-icon-size: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 +
+      @border-width-base * 3;
 
     &:focus,
     &:hover,
@@ -443,7 +448,7 @@
     }
 
     &::before {
-      top: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
+      top: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       right: 3px;
       left: 3px;
       height: @border-width-base;
@@ -452,7 +457,7 @@
     &::after {
       top: 3px;
       bottom: 3px;
-      left: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
+      left: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       width: @border-width-base;
       transform: rotate(90deg);
     }
@@ -477,8 +482,8 @@
     }
 
     .@{table-prefix-cls}-row-indent + & {
-      margin-top: (@font-size-base * @line-height-base - @border-width-base * 3) / 2 -
-        ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
+      margin-top: ((@font-size-base * @line-height-base - @border-width-base * 3) / 2) -
+        ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       margin-right: @padding-xs;
     }
   }
@@ -492,8 +497,13 @@
     }
 
     // https://github.com/ant-design/ant-design/issues/25573
-    .@{descriptions-prefix-cls}-view table {
-      width: auto;
+    .@{descriptions-prefix-cls}-view {
+      display: flex;
+
+      table {
+        flex: auto;
+        width: auto;
+      }
     }
   }
 
@@ -612,8 +622,8 @@
       z-index: @table-sticky-zindex;
       display: flex;
       align-items: center;
-      background: lighten(@border-color-split, 80%);
-      border-top: 1px solid @border-color-split;
+      background: lighten(@table-border-color, 80%);
+      border-top: 1px solid @table-border-color;
       opacity: 0.6;
       &:hover {
         transform-origin: center bottom;

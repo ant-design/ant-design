@@ -216,6 +216,4 @@ export function getMetaDescription(jml?: any[] | null) {
   return paragraph;
 }
 
-export const getThemeConfig = () => {
-  return themeConfig;
-};
+export const getThemeConfig = () => themeConfig;

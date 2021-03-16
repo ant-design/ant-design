@@ -7,21 +7,15 @@
 .picker-padding(@input-height, @font-size, @padding-horizontal) {
   // font height probably 22.0001， So use floor better
   @font-height: floor(@font-size * @line-height-base) + 2;
-  @padding-top: max((@input-height - @font-height) / 2, 0);
+  @padding-top: max(((@input-height - @font-height) / 2), 0);
   @padding-bottom: max(@input-height - @font-height - @padding-top, 0);
   padding: @padding-top @padding-horizontal @padding-bottom;
 }
 
 .@{picker-prefix-cls} {
-  @vertical-fix-base: @input-height-base - ceil(@font-size-base * @line-height-base) - 2 *
-    @input-padding-vertical-base - 2 * @border-width-base;
-  @vertical-fix-lg: @input-height-lg - ceil(@font-size-lg * @line-height-base) - 2 *
-    @input-padding-vertical-lg - 2 * @border-width-base;
-  @vertical-fix-sm: @input-height-sm - ceil(@font-size-base * @line-height-base) - 2 *
-    @input-padding-vertical-sm - 2 * @border-width-base;
   @arrow-size: 10px;
 
-  .reset-component;
+  .reset-component();
   .picker-padding(@input-height-base, @font-size-base, @input-padding-horizontal-base);
   position: relative;
   display: inline-flex;
@@ -113,7 +107,7 @@
 
   &-suffix {
     align-self: center;
-    margin-left: @padding-xs / 2;
+    margin-left: (@padding-xs / 2);
     color: @disabled-color;
     line-height: 1;
     pointer-events: none;
@@ -217,7 +211,7 @@
 
   // ======================= Dropdown =======================
   &-dropdown {
-    .reset-component;
+    .reset-component();
     position: absolute;
     z-index: @zindex-picker;
 
@@ -227,7 +221,7 @@
 
     &-placement-bottomLeft {
       .@{picker-prefix-cls}-range-arrow {
-        top: @arrow-size / 2 - @arrow-size / 3;
+        top: (@arrow-size / 2) - (@arrow-size / 3);
         display: block;
         transform: rotate(-45deg);
       }
@@ -235,7 +229,7 @@
 
     &-placement-topLeft {
       .@{picker-prefix-cls}-range-arrow {
-        bottom: @arrow-size / 2 - @arrow-size / 3;
+        bottom: (@arrow-size / 2) - (@arrow-size / 3);
         display: block;
         transform: rotate(135deg);
       }
@@ -276,15 +270,15 @@
 
   // Time picker with additional style
   &-dropdown &-panel > &-time-panel {
-    padding-top: @padding-xs / 2;
+    padding-top: (@padding-xs / 2);
   }
 
   // ======================== Ranges ========================
   &-ranges {
     margin-bottom: 0;
-    padding: @padding-xs / 2 @padding-sm;
+    padding: (@padding-xs / 2) @padding-sm;
     overflow: hidden;
-    line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
+    line-height: @picker-text-height - 2 * @border-width-base - (@padding-xs / 2);
     text-align: left;
     list-style: none;
 
@@ -326,7 +320,7 @@
       right: @border-width-base;
       width: @arrow-size;
       height: @arrow-size;
-      border: @arrow-size / 2 solid @border-color-split;
+      border: (@arrow-size / 2) solid @border-color-split;
       border-color: @calendar-bg @calendar-bg transparent transparent;
       content: '';
     }

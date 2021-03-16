@@ -4,7 +4,7 @@ import classNames from 'classnames';
 export interface SkeletonElementProps {
   prefixCls?: string;
   className?: string;
-  style?: object;
+  style?: React.CSSProperties;
   size?: 'large' | 'small' | 'default' | number;
   shape?: 'circle' | 'square' | 'round';
   active?: boolean;

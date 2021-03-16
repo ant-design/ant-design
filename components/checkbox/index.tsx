@@ -1,3 +1,4 @@
+import * as React from 'react';
 import InternalCheckbox, { CheckboxProps } from './Checkbox';
 import Group from './Group';
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import TransitionEvents from '@ant-design/css-animation/lib/Event';
 import { supportRef, composeRef } from 'rc-util/lib/ref';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
@@ -12,7 +11,7 @@ function isHidden(element: HTMLElement) {
   if (process.env.NODE_ENV === 'test') {
     return false;
   }
-  return !element || element.offsetParent === null;
+  return !element || element.offsetParent === null || element.hidden;
 }
 
 function isNotGrey(color: string) {
@@ -99,15 +98,17 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       )}-click-animating-node {
         --antd-wave-shadow-color: ${waveColor};
       }`;
-      if (!document.body.contains(styleForPseudo)) {
-        document.body.appendChild(styleForPseudo);
+      if (!node.ownerDocument.body.contains(styleForPseudo)) {
+        node.ownerDocument.body.appendChild(styleForPseudo);
       }
     }
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    TransitionEvents.addStartEventListener(node, this.onTransitionStart);
-    TransitionEvents.addEndEventListener(node, this.onTransitionEnd);
+    ['transition', 'animation'].forEach(name => {
+      node.addEventListener(`${name}start`, this.onTransitionStart);
+      node.addEventListener(`${name}end`, this.onTransitionEnd);
+    });
   };
 
   onTransitionStart = (e: AnimationEvent) => {
@@ -190,8 +191,10 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
-    TransitionEvents.removeStartEventListener(node, this.onTransitionStart);
-    TransitionEvents.removeEndEventListener(node, this.onTransitionEnd);
+    ['transition', 'animation'].forEach(name => {
+      node.removeEventListener(`${name}start`, this.onTransitionStart);
+      node.removeEventListener(`${name}end`, this.onTransitionEnd);
+    });
   }
 
   renderWave = ({ csp }: ConfigConsumerProps) => {

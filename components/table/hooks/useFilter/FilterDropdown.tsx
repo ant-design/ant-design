@@ -8,7 +8,14 @@ import Checkbox from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
+import {
+  ColumnType,
+  ColumnFilterItem,
+  Key,
+  TableLocale,
+  GetPopupContainer,
+  FilterConfirmProps,
+} from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
@@ -120,16 +127,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
-    if (onFilterDropdownVisibleChange) {
-      onFilterDropdownVisibleChange(newVisible);
-    }
+    onFilterDropdownVisibleChange?.(newVisible);
   };
 
   const mergedVisible =
     typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
 
   // ===================== Select Keys =====================
-  const propFilteredKeys = filterState && filterState.filteredKeys;
+  const propFilteredKeys = filterState?.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
@@ -151,16 +156,15 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const onMenuClick = () => {
     window.clearTimeout(openRef.current);
   };
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(
+    () => () => {
       window.clearTimeout(openRef.current);
-    };
-  }, []);
+    },
+    [],
+  );
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[] | undefined | null) => {
-    triggerVisible(false);
-
     const mergedKeys = keys && keys.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
@@ -178,12 +182,19 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onConfirm = () => {
+    triggerVisible(false);
     internalTriggerFilter(getFilteredKeysSync());
   };
 
   const onReset = () => {
     setFilteredKeysSync([]);
+    triggerVisible(false);
     internalTriggerFilter([]);
+  };
+
+  const doFilter = (param: FilterConfirmProps = { closeDropdown: true }) => {
+    triggerVisible(!param.closeDropdown);
+    internalTriggerFilter(getFilteredKeysSync());
   };
 
   const onVisibleChange = (newVisible: boolean) => {
@@ -212,7 +223,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       prefixCls: `${dropdownPrefixCls}-custom`,
       setSelectedKeys: (selectedKeys: Key[]) => onSelectKeys({ selectedKeys }),
       selectedKeys: getFilteredKeysSync(),
-      confirm: onConfirm,
+      confirm: doFilter,
       clearFilters: onReset,
       filters: column.filters,
       visible: mergedVisible,

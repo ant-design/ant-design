@@ -16,9 +16,7 @@ export interface EmptyProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  /**
-   * @since 3.16.0
-   */
+  /** @since 3.16.0 */
   imageStyle?: React.CSSProperties;
   image?: React.ReactNode;
   description?: React.ReactNode;
@@ -71,7 +69,7 @@ const Empty: EmptyType = ({
             <div className={`${prefixCls}-image`} style={imageStyle}>
               {imageNode}
             </div>
-            {des && <p className={`${prefixCls}-description`}>{des}</p>}
+            {des && <div className={`${prefixCls}-description`}>{des}</div>}
             {children && <div className={`${prefixCls}-footer`}>{children}</div>}
           </div>
         );

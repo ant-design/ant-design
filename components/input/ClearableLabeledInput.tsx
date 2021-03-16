@@ -17,9 +17,7 @@ function hasAddon(props: InputProps | ClearableInputProps) {
   return !!(props.addonBefore || props.addonAfter);
 }
 
-/**
- * This basic props required for input and textarea.
- */
+/** This basic props required for input and textarea. */
 interface BasicProps {
   prefixCls: string;
   inputType: typeof ClearableInputType[number];
@@ -28,7 +26,7 @@ interface BasicProps {
   element: React.ReactElement;
   handleReset: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   className?: string;
-  style?: object;
+  style?: React.CSSProperties;
   disabled?: boolean;
   direction?: DirectionType;
   focused?: boolean;
@@ -36,9 +34,7 @@ interface BasicProps {
   bordered: boolean;
 }
 
-/**
- * This props only for input.
- */
+/** This props only for input. */
 interface ClearableInputProps extends BasicProps {
   size?: SizeType;
   suffix?: React.ReactNode;
@@ -49,7 +45,7 @@ interface ClearableInputProps extends BasicProps {
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
-  /** @private Do not use out of this class. We do not promise this is always keep. */
+  /** @private Do Not use out of this class. We do not promise this is always keep. */
   private containerRef = React.createRef<HTMLSpanElement>();
 
   onInputMouseUp: React.MouseEventHandler = e => {

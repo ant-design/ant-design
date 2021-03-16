@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import Checkbox from '../checkbox';
@@ -42,7 +42,7 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
-  titleText: string;
+  titleText: React.ReactNode;
   dataSource: RecordType[];
   filterOption?: (filterText: string, item: RecordType) => boolean;
   style?: React.CSSProperties;
@@ -52,7 +52,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
-  /** render item */
+  /** Render item */
   render?: (item: RecordType) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;

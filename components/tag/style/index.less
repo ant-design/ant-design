@@ -4,7 +4,7 @@
 @tag-prefix-cls: ~'@{ant-prefix}-tag';
 
 .@{tag-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   display: inline-block;
   height: auto;
@@ -16,7 +16,6 @@
   background: @tag-default-bg;
   border: @border-width-base @border-style-base @border-color-base;
   border-radius: @border-radius-base;
-  cursor: default;
   opacity: 1;
   transition: all 0.3s;
 
@@ -89,8 +88,9 @@
     @lightColor: '@{color}-1';
     @lightBorderColor: '@{color}-3';
     @darkColor: '@{color}-6';
+    @textColor: '@{color}-7';
     &-@{color} {
-      color: @@darkColor;
+      color: @@textColor;
       background: @@lightColor;
       border-color: @@lightBorderColor;
     }

@@ -13,10 +13,11 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
   prefixCls?: string;
-  title: React.ReactNode;
+  title?: React.ReactNode;
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
   breadcrumb?: BreadcrumbProps;
+  breadcrumbRender?: (props: PageHeaderProps, defaultDom: React.ReactNode) => React.ReactNode;
   tags?: React.ReactElement<TagType> | React.ReactElement<TagType>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
@@ -40,9 +41,7 @@ const renderBack = (
         <div className={`${prefixCls}-back`}>
           <TransButton
             onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-              if (onBack) {
-                onBack(e);
-              }
+              onBack?.(e);
             }}
             className={`${prefixCls}-back-button`}
             aria-label={back}
@@ -55,9 +54,7 @@ const renderBack = (
   );
 };
 
-const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
-  return <Breadcrumb {...breadcrumb} />;
-};
+const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => <Breadcrumb {...breadcrumb} />;
 
 const getBackIcon = (props: PageHeaderProps, direction: DirectionType = 'ltr') => {
   if (props.backIcon !== undefined) {
@@ -74,7 +71,7 @@ const renderTitle = (
   const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   const hasHeading = title || subTitle || tags || extra;
-  // 如果 什么都没有，直接返回一个 null
+  // If there is nothing, return a null
   if (!hasHeading) {
     return null;
   }
@@ -118,9 +115,9 @@ const renderFooter = (prefixCls: string, footer: React.ReactNode) => {
   return null;
 };
 
-const renderChildren = (prefixCls: string, children: React.ReactNode) => {
-  return <div className={`${prefixCls}-content`}>{children}</div>;
-};
+const renderChildren = (prefixCls: string, children: React.ReactNode) => (
+  <div className={`${prefixCls}-content`}>{children}</div>
+);
 
 const PageHeader: React.FC<PageHeaderProps> = props => {
   const [compact, updateCompact] = React.useState(false);
@@ -136,6 +133,7 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
           footer,
           children,
           breadcrumb,
+          breadcrumbRender,
           className: customizeClassName,
         } = props;
         let ghost: undefined | boolean = true;
@@ -148,7 +146,20 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
         }
 
         const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-        const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
+
+        const getDefaultBreadcrumbDom = () => {
+          if ((breadcrumb as BreadcrumbProps)?.routes) {
+            return renderBreadcrumb(breadcrumb as BreadcrumbProps);
+          }
+          return null;
+        };
+
+        const defaultBreadcrumbDom = getDefaultBreadcrumbDom();
+
+        //  support breadcrumbRender function
+        const breadcrumbDom =
+          breadcrumbRender?.(props, defaultBreadcrumbDom) || defaultBreadcrumbDom;
+
         const className = classNames(prefixCls, customizeClassName, {
           'has-breadcrumb': breadcrumbDom,
           'has-footer': footer,

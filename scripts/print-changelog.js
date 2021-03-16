@@ -34,7 +34,7 @@ const MAINTAINERS = [
   'hengkx',
   'Rustin-Liu',
   'fireairforce',
-  'Kermit-Xuan',
+  'kerm1it',
 ].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
@@ -199,9 +199,9 @@ async function printLog() {
   console.log('\n');
   console.log(chalk.yellow('🇨🇳 Chinese changelog:'));
   console.log('\n');
-  printPR('chinese', chinese => {
-    return chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`;
-  });
+  printPR('chinese', chinese =>
+    chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`,
+  );
 
   console.log('\n-----\n');
 

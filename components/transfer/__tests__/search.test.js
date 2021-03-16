@@ -34,9 +34,9 @@ describe('Transfer.Search', () => {
 
   it('should show cross icon when input value exists', () => {
     const wrapper = mount(<Search value="" />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toMatchRenderedSnapshot();
     wrapper.setProps({ value: 'a' });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('onSearch', () => {

@@ -139,7 +139,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 在数据可视化中，我们根据用户的意识层次及每层次对应的目标，将交互动作拆解成“数据获取、信息加工、知识流转”三层。其匹配“概览第一，聚焦过滤，再按需查看详情”的可视化信息检索箴言。亦符合人类寻求信息的基本逻辑：先大体，再局部，然后聚焦兴趣点进行探索，这是一个由表及里的过程。
 
-更多交互式图表内容请前往 [AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/principles/interact)
+更多交互式图表内容请前往 [AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/language/interact)
 
 ## 设计资源
 

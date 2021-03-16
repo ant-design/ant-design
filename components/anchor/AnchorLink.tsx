@@ -41,9 +41,7 @@ class AnchorLink extends React.Component<AnchorLinkProps, any, AntAnchor> {
   handleClick = (e: React.MouseEvent<HTMLElement>) => {
     const { scrollTo, onClick } = this.context;
     const { href, title } = this.props;
-    if (onClick) {
-      onClick(e, { title, href });
-    }
+    onClick?.(e, { title, href });
     scrollTo(href);
   };
 

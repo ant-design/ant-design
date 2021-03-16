@@ -5,7 +5,7 @@ title: Use in TypeScript
 
 Let's create a TypeScript project by using `create-react-app`, then import `antd` step by step.
 
-> We build `antd` based on latest stable version of TypeScript (`>=3.8.4`), please make sure your project dependency matches it.
+> We build `antd` based on latest stable version of TypeScript (`>=4.0.0`), please make sure your project dependency matches it.
 
 ---
 

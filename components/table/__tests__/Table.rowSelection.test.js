@@ -178,8 +178,13 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires change & select events', () => {
-    const handleChange = jest.fn();
-    const handleSelect = jest.fn();
+    const order = [];
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
+    const handleSelect = jest.fn().mockImplementation(() => {
+      order.push('onSelect');
+    });
     const rowSelection = {
       onChange: handleChange,
       onSelect: handleSelect,
@@ -197,12 +202,22 @@ describe('Table.rowSelection', () => {
     expect(handleSelect.mock.calls[0][1]).toEqual(true);
     expect(handleSelect.mock.calls[0][2]).toEqual([{ key: 3, name: 'Jerry' }]);
     expect(handleSelect.mock.calls[0][3].type).toBe('change');
+    expect(order).toEqual(['onSelect', 'onChange']);
   });
 
   it('fires selectMulti event', () => {
-    const handleSelectMulti = jest.fn();
-    const handleSelect = jest.fn();
+    const order = [];
+    const handleSelectMulti = jest.fn().mockImplementation(() => {
+      order.push('onSelectMultiple');
+    });
+    const handleSelect = jest.fn().mockImplementation(() => {
+      order.push('onSelect');
+    });
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
     const rowSelection = {
+      onChange: handleChange,
       onSelect: handleSelect,
       onSelectMultiple: handleSelectMulti,
     };
@@ -238,11 +253,27 @@ describe('Table.rowSelection', () => {
         nativeEvent: { shiftKey: true },
       });
     expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
+
+    expect(order).toEqual([
+      'onSelect',
+      'onChange',
+      'onSelectMultiple',
+      'onChange',
+      'onSelectMultiple',
+      'onChange',
+    ]);
   });
 
   it('fires selectAll event', () => {
-    const handleSelectAll = jest.fn();
+    const order = [];
+    const handleSelectAll = jest.fn().mockImplementation(() => {
+      order.push('onSelectAll');
+    });
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
     const rowSelection = {
+      onChange: handleChange,
       onSelectAll: handleSelectAll,
     };
     const wrapper = mount(createTable({ rowSelection }));
@@ -252,6 +283,8 @@ describe('Table.rowSelection', () => {
       .first()
       .simulate('change', { target: { checked: true } });
     expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
+
+    expect(order).toEqual(['onSelectAll', 'onChange']);
 
     wrapper
       .find('input')
@@ -283,9 +316,42 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires selectInvert event', () => {
-    const handleSelectInvert = jest.fn();
+    const order = [];
+    const handleSelectInvert = jest.fn().mockImplementation(() => {
+      order.push('onSelectInvert');
+    });
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
     const rowSelection = {
+      onChange: handleChange,
       onSelectInvert: handleSelectInvert,
+      selections: true,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    const checkboxes = wrapper.find('input');
+
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
+
+    expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
+
+    expect(order).toEqual(['onChange', 'onSelectInvert', 'onChange']);
+  });
+
+  it('fires selectNone event', () => {
+    const order = [];
+    const handleChange = jest.fn().mockImplementation(() => {
+      order.push('onChange');
+    });
+    const handleSelectNone = jest.fn().mockImplementation(() => {
+      order.push('onSelectNone');
+    });
+    const rowSelection = {
+      onChange: handleChange,
+      onSelectNone: handleSelectNone,
       selections: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
@@ -296,7 +362,8 @@ describe('Table.rowSelection', () => {
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     dropdownWrapper.find('.ant-dropdown-menu-item').last().simulate('click');
 
-    expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
+    expect(handleSelectNone).toHaveBeenCalled();
+    expect(order).toEqual(['onChange', 'onSelectNone', 'onChange']);
   });
 
   it('fires selection event', () => {
@@ -1057,6 +1124,37 @@ describe('Table.rowSelection', () => {
         expect(getIndeterminateSelection(wrapper)).toEqual([]);
         expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
       });
+
+      it('should support `childrenColumnName`', () => {
+        const onChange = jest.fn();
+
+        const table = createTable({
+          dataSource: [
+            {
+              key: 0,
+              name: 'Jack',
+              childList: [
+                { key: 1, name: 'Light' },
+                { key: 2, name: 'Bamboo' },
+              ],
+            },
+          ],
+          expandable: {
+            childrenColumnName: 'childList',
+            defaultExpandAllRows: true,
+          },
+          rowSelection: {
+            checkStrictly: false,
+            onChange,
+          },
+        });
+        const wrapper = mount(table);
+        const checkboxes = wrapper.find('input');
+        expect(checkboxes).toHaveLength(1 + 3);
+
+        checkboxes.at(1).simulate('change', { target: { checked: true } });
+        expect(getSelections(wrapper)).toEqual([0, 1, 2]);
+      });
     });
     it('warns when set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured data.', () => {
       resetWarned();
@@ -1130,6 +1228,44 @@ describe('Table.rowSelection', () => {
         ['light', 'bamboo'],
         [{ name: 'light' }, { name: 'bamboo' }],
       );
+    });
+
+    it('works with receive selectedRowKeys fron [] to undefined', () => {
+      const onChange = jest.fn();
+      const dataSource = [{ name: 'Jack' }];
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: [0] }}
+          rowKey="name"
+        />,
+      );
+
+      wrapper.setProps({ rowSelection: { onChange, selectedRowKeys: undefined } });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+    });
+
+    it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
+      const onChange = jest.fn();
+      const dataSource = [{ name: 'Jack' }];
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: [0], type: 'radio' }}
+          rowKey="name"
+        />,
+      );
+
+      wrapper.setProps({ rowSelection: { onChange, selectedRowKeys: undefined, type: 'radio' } });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
     });
   });
 });

@@ -1,24 +1,29 @@
 import * as React from 'react';
 import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
-import omit from 'omit.js';
+import ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { composeRef } from 'rc-util/lib/ref';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigContext } from '../config-provider';
-import { fixControlledValue, resolveOnChange } from './Input';
+import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+
+interface ShowCountProps {
+  formatter: (args: { count: number; maxLength?: number }) => string;
+}
 
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
-  showCount?: boolean;
-  maxLength?: number;
+  showCount?: boolean | ShowCountProps;
   size?: SizeType;
 }
 
-export interface TextAreaRef extends HTMLTextAreaElement {
-  resizableTextArea: any;
+export interface TextAreaRef {
+  focus: (options?: InputFocusOptions) => void;
+  blur: () => void;
+  resizableTextArea?: ResizableTextArea;
 }
 
 const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
@@ -38,7 +43,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
-    const innerRef = React.useRef<TextAreaRef>();
+    const innerRef = React.useRef<RcTextArea>(null);
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
     const [value, setValue] = useMergedState(props.defaultValue, {
@@ -63,17 +68,25 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       handleSetValue(e.target.value);
-      resolveOnChange(innerRef.current!, e, props.onChange);
+      resolveOnChange(innerRef.current as any, e, props.onChange);
     };
 
     const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
       handleSetValue('', () => {
         innerRef.current?.focus();
       });
-      resolveOnChange(innerRef.current!, e, props.onChange);
+      resolveOnChange(innerRef.current as any, e, props.onChange);
     };
 
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+
+    React.useImperativeHandle(ref, () => ({
+      resizableTextArea: innerRef.current?.resizableTextArea,
+      focus: (option?: InputFocusOptions) => {
+        triggerFocus(innerRef.current?.resizableTextArea?.textArea, option);
+      },
+      blur: () => innerRef.current?.blur(),
+    }));
 
     const textArea = (
       <RcTextArea
@@ -85,10 +98,10 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
           [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
         })}
-        style={showCount ? null : style}
+        style={showCount ? undefined : style}
         prefixCls={prefixCls}
         onChange={handleChange}
-        ref={composeRef(ref, innerRef)}
+        ref={innerRef}
       />
     );
 
@@ -116,8 +129,14 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const valueLength = [...val].length;
-      const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      const valueLength = Math.min(val.length, maxLength ?? Infinity);
+
+      let dataCount = '';
+      if (typeof showCount === 'object') {
+        dataCount = showCount.formatter({ count: valueLength, maxLength });
+      } else {
+        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      }
 
       return (
         <div

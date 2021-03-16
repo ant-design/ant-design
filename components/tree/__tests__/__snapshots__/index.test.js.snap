@@ -14,6 +14,19 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -28,6 +41,10 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -53,6 +70,10 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
               switcherIcon
@@ -74,6 +95,10 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -135,6 +160,19 @@ exports[`Tree showLine is object type should render correctly 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -149,6 +187,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -447,6 +489,19 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -461,6 +516,10 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -548,6 +607,19 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position: relative;"
   >
@@ -562,6 +634,10 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >

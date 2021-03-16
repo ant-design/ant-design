@@ -27,19 +27,9 @@ const customIcons = {
 
 ReactDOM.render(
   <>
-    <Rate
-      defaultValue={2}
-      character={({ index }) => {
-        return index + 1;
-      }}
-    />
+    <Rate defaultValue={2} character={({ index }) => index + 1} />
     <br />
-    <Rate
-      defaultValue={3}
-      character={({ index }) => {
-        return customIcons[index + 1];
-      }}
-    />
+    <Rate defaultValue={3} character={({ index }) => customIcons[index + 1]} />
   </>,
   mountNode,
 );

@@ -33,7 +33,7 @@ const tailLayout = {
 const Demo = () => {
   const [form] = Form.useForm();
 
-  const onGenderChange = value => {
+  const onGenderChange = (value: string) => {
     switch (value) {
       case 'male':
         form.setFieldsValue({ note: 'Hi, man!' });
@@ -43,11 +43,10 @@ const Demo = () => {
         return;
       case 'other':
         form.setFieldsValue({ note: 'Hi there!' });
-        return;
     }
   };
 
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log(values);
   };
 
@@ -82,13 +81,13 @@ const Demo = () => {
         noStyle
         shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
       >
-        {({ getFieldValue }) => {
-          return getFieldValue('gender') === 'other' ? (
+        {({ getFieldValue }) =>
+          getFieldValue('gender') === 'other' ? (
             <Form.Item name="customizeGender" label="Customize Gender" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
-          ) : null;
-        }}
+          ) : null
+        }
       </Form.Item>
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">

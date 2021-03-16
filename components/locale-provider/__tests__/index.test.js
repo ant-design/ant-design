@@ -32,6 +32,7 @@ import etEE from '../et_EE';
 import faIR from '../fa_IR';
 import fiFI from '../fi_FI';
 import frBE from '../fr_BE';
+import frCA from '../fr_CA';
 import frFR from '../fr_FR';
 import gaIE from '../ga_IE';
 import glES from '../gl_ES';
@@ -44,6 +45,7 @@ import idID from '../id_ID';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
 import jaJP from '../ja_JP';
+import kkKZ from '../kk_KZ';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
 import kmrIQ from '../kmr_IQ';
@@ -92,6 +94,7 @@ const locales = [
   faIR,
   fiFI,
   frBE,
+  frCA,
   frFR,
   gaIE,
   glES,
@@ -103,6 +106,7 @@ const locales = [
   isIS,
   itIT,
   jaJP,
+  kkKZ,
   knIN,
   koKR,
   kmrIQ,

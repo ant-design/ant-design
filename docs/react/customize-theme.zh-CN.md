@@ -75,7 +75,7 @@ module.exports = {
 
 ### 在 Umi 里配置主题
 
-如果你在使用 [Umi](http://umijs.org/zh/)，那么可以很方便地在项目根目录的 [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45)（Umi）文件中 [theme](https://umijs.org/zh/config/#theme) 字段进行主题配置。`theme` 可以配置为一个对象或文件路径。
+如果你在使用 [Umi](http://umijs.org/zh/)，那么可以很方便地在项目根目录的 `.umirc.ts` 或 [config/config.ts](https://github.com/ant-design/ant-design-pro/blob/v5/config/config.ts) 文件中 [theme](https://umijs.org/zh-CN/config#theme) 字段进行主题配置。`theme` 可以配置为一个对象或文件路径。
 
 ```js
 "theme": {
@@ -126,25 +126,17 @@ module.exports = {
 
 方式一：使用 Umi 3
 
-如果你在使用 [Umi 3](http://umijs.org/zh/)，仅需两步：
+如果你在使用 [Umi 3](http://umijs.org/zh-CN)：
 
-1. 安装 `@umijs/plugin-antd` 插件;
-
-   ```bash
-   $ npm i @umijs/plugin-antd -D
-   ```
-
-2. 配置 `dark` 和 `compact`。
-
-   ```js
-   // .umirc.ts or config/config.ts
-   export default {
-     antd: {
-       dark: true, // 开启暗色主题
-       compact: true, // 开启紧凑主题
-     },
-   },
-   ```
+```js
+// .umirc.ts or config/config.ts
+export default {
+  antd: {
+    dark: true, // 开启暗色主题
+    compact: true, // 开启紧凑主题
+  },
+},
+```
 
 方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) 或 [antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less)。
 

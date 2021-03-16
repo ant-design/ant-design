@@ -9,7 +9,7 @@
 @notification-margin-edge: 24px;
 
 .@{notification-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: fixed;
   z-index: @zindex-notification;
@@ -155,9 +155,9 @@
 
   &-fade-enter,
   &-fade-appear {
-    opacity: 0;
     .notification-fade-effect();
 
+    opacity: 0;
     animation-play-state: paused;
   }
 
@@ -206,8 +206,6 @@
   0% {
     max-height: 150px;
     margin-bottom: @notification-margin-bottom;
-    padding-top: @notification-padding-vertical;
-    padding-bottom: @notification-padding-vertical;
     opacity: 1;
   }
   100% {

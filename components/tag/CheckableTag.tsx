@@ -7,8 +7,9 @@ export interface CheckableTagProps {
   className?: string;
   style?: React.CSSProperties;
   /**
-   * @description       it is an absolute controlled component and has no uncontrolled mode.
-   * @description.zh-CN 该组件为完全受控组件，不支持非受控用法。
+   * It is an absolute controlled component and has no uncontrolled mode.
+   *
+   * .zh-cn 该组件为完全受控组件，不支持非受控用法。
    */
   checked: boolean;
   onChange?: (checked: boolean) => void;
@@ -26,12 +27,8 @@ const CheckableTag: React.FC<CheckableTagProps> = ({
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    if (onChange) {
-      onChange(!checked);
-    }
-    if (onClick) {
-      onClick(e);
-    }
+    onChange?.(!checked);
+    onClick?.(e);
   };
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);

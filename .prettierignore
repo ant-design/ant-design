@@ -21,13 +21,12 @@ yarn-error.log
 *.snap
 components/*/*.js
 components/*/*.jsx
-components/*/*.md
-docs/**/*.md
 .gitignore
 .npmignore
 .prettierignore
 .DS_Store
 .editorconfig
 .eslintignore
+.history
 **/*.yml
 components/style/color/*.less

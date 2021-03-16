@@ -11,6 +11,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
+import { globalConfig } from '../config-provider';
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
@@ -18,8 +19,9 @@ let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
-let localPrefixCls = 'ant-message';
+let localPrefixCls = '';
 let transitionName = 'move-up';
+let hasTransitionName = false;
 let getContainer: () => HTMLElement;
 let maxCount: number;
 let rtl = false;
@@ -46,6 +48,7 @@ function setMessageConfig(options: ConfigOptions) {
   if (options.duration !== undefined) {
     defaultDuration = options.duration;
   }
+
   if (options.prefixCls !== undefined) {
     localPrefixCls = options.prefixCls;
   }
@@ -55,6 +58,7 @@ function setMessageConfig(options: ConfigOptions) {
   if (options.transitionName !== undefined) {
     transitionName = options.transitionName;
     messageInstance = null; // delete messageInstance for new transitionName
+    hasTransitionName = true;
   }
   if (options.maxCount !== undefined) {
     maxCount = options.maxCount;
@@ -67,49 +71,51 @@ function setMessageConfig(options: ConfigOptions) {
 
 function getRCNotificationInstance(
   args: ArgsProps,
-  callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
+  callback: (info: {
+    prefixCls: string;
+    rootPrefixCls: string;
+    instance: RCNotificationInstance;
+  }) => void,
 ) {
-  const prefixCls = args.prefixCls || localPrefixCls;
+  const { prefixCls: customizePrefixCls } = args;
+  const { getPrefixCls, getRootPrefixCls } = globalConfig();
+  const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
+  const rootPrefixCls = getRootPrefixCls(args.rootPrefixCls, prefixCls);
+
   if (messageInstance) {
-    callback({
-      prefixCls,
-      instance: messageInstance,
-    });
+    callback({ prefixCls, rootPrefixCls, instance: messageInstance });
     return;
   }
-  RCNotification.newInstance(
-    {
-      prefixCls,
-      transitionName,
-      style: { top: defaultTop }, // 覆盖原来的样式
-      getContainer,
-      maxCount,
-    },
-    (instance: any) => {
-      if (messageInstance) {
-        callback({
-          prefixCls,
-          instance: messageInstance,
-        });
-        return;
-      }
-      messageInstance = instance;
-      callback({
-        prefixCls,
-        instance,
-      });
-    },
-  );
+
+  const instanceConfig = {
+    prefixCls,
+    transitionName: hasTransitionName ? transitionName : `${rootPrefixCls}-${transitionName}`,
+    style: { top: defaultTop }, // 覆盖原来的样式
+    getContainer,
+    maxCount,
+  };
+
+  RCNotification.newInstance(instanceConfig, (instance: any) => {
+    if (messageInstance) {
+      callback({ prefixCls, rootPrefixCls, instance: messageInstance });
+      return;
+    }
+    messageInstance = instance;
+
+    if (process.env.NODE_ENV === 'test') {
+      (messageInstance as any).config = instanceConfig;
+    }
+
+    callback({ prefixCls, rootPrefixCls, instance });
+  });
 }
 
 export interface ThenableArgument {
   (val: any): void;
 }
 
-export interface MessageType {
+export interface MessageType extends PromiseLike<any> {
   (): void;
-  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<void>;
-  promise: Promise<void>;
 }
 
 const typeToIcon = {
@@ -124,11 +130,13 @@ export interface ArgsProps {
   duration: number | null;
   type: NoticeType;
   prefixCls?: string;
+  rootPrefixCls?: string;
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
@@ -150,6 +158,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
       </div>
     ),
     onClose: args.onClose,
+    onClick: args.onClick,
   };
 }
 
@@ -247,9 +256,7 @@ export interface MessageApi extends MessageInstance {
   useMessage(): [MessageInstance, React.ReactElement];
 }
 
-/** @private test only function. Not work on production */
-export const getInstance = () => {
-  return process.env.NODE_ENV === 'test' ? messageInstance : null;
-};
+/** @private test Only function. Not work on production */
+export const getInstance = () => (process.env.NODE_ENV === 'test' ? messageInstance : null);
 
 export default api as MessageApi;

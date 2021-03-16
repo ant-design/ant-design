@@ -70,11 +70,11 @@ We suggest the following formats:
 
 To the users, the accuracy of time is not so important as the immediacy of the information. In the console platform, relative time is generally used for message and notification. And users tend to pay more attention to the unit of time, instead of working out the specific time point of publication.
 
-| Time                 | Display form                              |
-| -------------------- | ----------------------------------------- |
-| Less than 1 minute   | just now                                  |
-| Less than 1 hour     | N minutes ago                             |
-| Within 24 hours      | N hours ago                               |
+| Time                 | Display form                                |
+| -------------------- | ------------------------------------------- |
+| Less than 1 minute   | just now                                    |
+| Less than 1 hour     | N minutes ago                               |
+| Within 24 hours      | N hours ago                                 |
 | Longer than 24 hours | `MM-DD HH:MM`, e.g. "12-08 08:00"           |
 | Longer than one year | `YYYY-MM-DD HH:MM`，e.g. "2019-12-08 08:00" |
 

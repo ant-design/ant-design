@@ -31,7 +31,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` | true | 4.6.0 |
-| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean | false |  |
+| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
 | validateTrigger | 统一设置字段校验规则 | string \| string\[] | `onChange` | 4.3.0 |
@@ -88,14 +88,14 @@ const validateMessages = {
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
 | messageVariables | 默认验证字段的信息 | Record&lt;string, string> | - | 4.7.0 |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
-| normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
+| normalize | 组件获取值后进行转换，再放入 Form 中。不支持异步 | (value, prevValue, prevValues) => any | - |  |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)\[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
 | tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | - | 4.7.0 |
-| trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
+| trigger | 设置收集字段值变更的时机。点击[此处](#components-form-demo-customized-form-controls)查看示例 | string | `onChange` |  |
 | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 | validateTrigger | 设置字段校验的时机 | string \| string\[] | `onChange` |  |
@@ -169,24 +169,24 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| children | 渲染函数 | (fields: Field\[], operation: { add, remove, move }) => React.ReactNode | - |  |
+| children | 渲染函数 | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
+| initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | any\[] | - | 4.9.0 |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
 | rules | 校验规则，仅支持自定义规则。需要配合 [ErrorList](#Form.ErrorList) 一同使用。 | { validator, message }\[] | - | 4.7.0 |
 
 ```tsx
 <Form.List>
-  {fields => (
-    <div>
-      {fields.map(field => (
-        <Form.Item {...field}>
-          <Input />
-        </Form.Item>
-      ))}
-    </div>
-  )}
-  1
+  {fields =>
+    fields.map(field => (
+      <Form.Item {...field}>
+        <Input />
+      </Form.Item>
+    ))
+  }
 </Form.List>
 ```
+
+注意：Form.List 下的字段不应该配置 `initialValue`，你始终应该通过 Form.List 的 `initialValue` 或者 Form 的 `initialValues` 来配置。
 
 ## operation
 
@@ -200,7 +200,7 @@ Form.List 渲染表单相关操作函数。
 
 ## Form.ErrorList
 
-4.7.0 新增。错误展示组件，仅限配合 Form.List 的 rules 一同使用。
+4.7.0 新增。错误展示组件，仅限配合 Form.List 的 rules 一同使用。参考[示例](#components-form-demo-dynamic-form-item)。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -235,7 +235,7 @@ Form.List 渲染表单相关操作函数。
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string\[] |  |
 | getFieldInstance | 获取对应字段实例 | (name: [NamePath](#NamePath)) => any | 4.4.0 |
 | getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)\[]) => FieldError\[] |  |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | (nameList?: [NamePath](#NamePath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |  |
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |  |
@@ -269,7 +269,7 @@ validateFields()
           password: 'password',
         },
         errorFields: [
-          { password: ['username'], errors: ['Please input your Password!'] },
+          { name: ['password'], errors: ['Please input your Password!'] },
         ],
         outOfDate: false,
       }
@@ -303,7 +303,9 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 | 名称 | 说明 | 类型 |
 | --- | --- | --- |
+| defaultField | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则 | [rule](#Rule) |
 | enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any\[] |
+| fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#Rule)> |
 | len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
 | max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
 | message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |
@@ -414,6 +416,10 @@ Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
 
 依赖则是：`['users', 0, 'name']`
 
+### 为什么 `normalize` 不能是异步方法？
+
+React 中异步更新会导致受控组件交互行为异常。当用户交互触发 `onChange` 后，通过异步改变值会导致组件 `value` 不会立刻更新，使得组件呈现假死状态。如果你需要异步触发变更，请通过自定义组件实现内部异步状态。
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
@@ -422,3 +428,9 @@ Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
     color: rgba(255,255,255,.3);
   }
 </style>
+
+### 自定义表单控件 `scrollToFirstError` 和 `scrollToField` 失效？
+
+类似问题：[#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
+
+滚动依赖于表单控件元素上绑定的 `id` 字段，如果自定义控件没有将 `id` 赋到正确的元素上，这个功能将失效。你可以参考这个 [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js)。
