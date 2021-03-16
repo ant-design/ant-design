@@ -102,6 +102,7 @@ const Demo = () => {
       <Table
         rowSelection={{
           type: selectionType,
+          defaultSelectedRowKeys: ['1'],
           ...rowSelection,
         }}
         columns={columns}
