@@ -31,6 +31,7 @@ Basic text writing, including headings, body text, lists, and more.
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 
 ### Typography.Title
 
@@ -47,6 +48,7 @@ Basic text writing, including headings, body text, lists, and more.
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 
 ### Typography.Paragraph
 
@@ -63,6 +65,7 @@ Basic text writing, including headings, body text, lists, and more.
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 
 ### copyable
 
