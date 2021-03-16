@@ -4,6 +4,7 @@ import Base, { BlockProps } from './Base';
 
 export interface TextProps extends BlockProps {
   ellipsis?: boolean;
+  onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
