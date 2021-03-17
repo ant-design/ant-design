@@ -64,7 +64,7 @@
     &-header {
       display: flex;
       flex: none;
-      align-items: center;
+      align-items: baseline;
       height: @transfer-header-height;
       // border-top is on the transfer dom. We should minus 1px for this
       padding: (@transfer-header-vertical-padding - 1px) @control-padding-horizontal
@@ -123,10 +123,9 @@
       list-style: none;
       &-item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         min-height: @transfer-item-height;
         padding: @transfer-item-padding-vertical @control-padding-horizontal;
-        overflow: hidden;
         line-height: @transfer-item-height - 2 * @transfer-item-padding-vertical;
         transition: all 0.3s;
 
