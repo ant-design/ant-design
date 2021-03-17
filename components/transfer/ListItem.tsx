@@ -72,7 +72,11 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
         liProps.onClick = disabled || item.disabled ? undefined : () => onClick(item);
         return (
           <li {...liProps}>
-            <Checkbox checked={checked} disabled={disabled || item.disabled} />
+            <Checkbox
+              className={`${prefixCls}-checkbox`}
+              checked={checked}
+              disabled={disabled || item.disabled}
+            />
             {labelNode}
           </li>
         );
