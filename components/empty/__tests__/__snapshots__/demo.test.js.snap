@@ -271,7 +271,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox"
@@ -429,7 +429,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox"
