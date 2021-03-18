@@ -102,8 +102,6 @@ module.exports = {
     'app.footer.ant-design': '蚂蚁 UI 体系',
     'app.footer.yuque': '语雀',
     'app.footer.yuque.slogan': '专业的云端知识库',
-    'app.footer.fengdie': '云凤蝶',
-    'app.footer.fengdie.slogan': '企业级应用制作平台',
     'app.footer.antv.slogan': '数据可视化解决方案',
     'app.footer.egg.slogan': '企业级 Node.js 框架',
     'app.footer.zhihu': 'Ant Design 专栏',
