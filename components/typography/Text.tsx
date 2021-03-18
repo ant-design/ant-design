@@ -5,7 +5,6 @@ import Base, { BlockProps, EllipsisConfig } from './Base';
 
 export interface TextProps extends BlockProps {
   ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
-  onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {

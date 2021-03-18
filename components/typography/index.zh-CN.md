@@ -31,7 +31,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
-| onClick | 点击按钮时的回调 | (event) => void | - |  |
+| onClick | 点击 Text 时的回调 | (event) => void | - |  |
 
 ### Typography.Title
 
@@ -48,7 +48,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
-| onClick | 点击按钮时的回调 | (event) => void | - |  |
+| onClick | 点击 Title 时的回调 | (event) => void | - |  |
 
 ### Typography.Paragraph
 
@@ -65,7 +65,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
-| onClick | 点击按钮时的回调 | (event) => void | - |  |
+| onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
 
 ### copyable
 
