@@ -4,7 +4,7 @@ import devWarning from '../_util/devWarning';
 import Base, { BlockProps, EllipsisConfig } from './Base';
 
 export interface TextProps extends BlockProps {
-  ellipsis?: boolean;
+  ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
