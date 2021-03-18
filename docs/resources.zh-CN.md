@@ -158,7 +158,7 @@ toc: false
   - 深度理解 SAP、Salesforce、Google 等设计体系，能提出自己独到见解并落实到实践中，加加加分。
 - 岗位职责：
   - 参与[蚂蚁链](https://blockchain.antgroup.com/)、人工智能、数据平台等企业级产品的设计工作；
-  - 参与[语雀](https://www.yuque.com/)、[云凤蝶](https://www.yunfengdie.com/)等创新产品的设计工作；
+  - 参与[语雀](https://www.yuque.com/) 等创新产品的设计工作；
   - 参与 Ant Design 的打磨，将其建设成全球卓越的设计体系。
   - 参与 AntV 的打磨，将其建设成全球一流的数据可视化体系。
 - One More Thing ❤️ ：
