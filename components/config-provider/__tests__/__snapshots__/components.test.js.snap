@@ -33761,7 +33761,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper"
+        class="config-checkbox-wrapper config-transfer-list-checkbox"
       >
         <span
           class="config-checkbox"
@@ -33919,7 +33919,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper"
+        class="config-checkbox-wrapper config-transfer-list-checkbox"
       >
         <span
           class="config-checkbox"
@@ -34030,7 +34030,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper"
+        class="config-checkbox-wrapper config-transfer-list-checkbox"
       >
         <span
           class="config-checkbox"
@@ -34188,7 +34188,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper"
+        class="config-checkbox-wrapper config-transfer-list-checkbox"
       >
         <span
           class="config-checkbox"
@@ -34299,7 +34299,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper"
+        class="config-checkbox-wrapper config-transfer-list-checkbox"
       >
         <span
           class="config-checkbox"
@@ -34457,7 +34457,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper"
+        class="config-checkbox-wrapper config-transfer-list-checkbox"
       >
         <span
           class="config-checkbox"
@@ -34568,7 +34568,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -34726,7 +34726,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -34837,7 +34837,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -34995,7 +34995,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -35106,7 +35106,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       class="prefix-Transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper prefix-Transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -35264,7 +35264,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       class="prefix-Transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper prefix-Transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"

@@ -27,11 +27,10 @@
 // 一般状态
 .@{radio-prefix-cls}-wrapper {
   .reset-component();
-
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: baseline;
   margin-right: @radio-wrapper-margin-right;
-  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -41,9 +40,6 @@
   position: relative;
   top: @radio-top;
   display: inline-block;
-  line-height: 1;
-  white-space: nowrap;
-  vertical-align: text-bottom;
   outline: none;
   cursor: pointer;
 
