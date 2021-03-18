@@ -67,7 +67,6 @@ export interface BlockProps extends TypographyProps {
   delete?: boolean;
   strong?: boolean;
   keyboard?: boolean;
-  onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 function wrapperDecorations(
