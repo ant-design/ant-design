@@ -19,7 +19,7 @@ jobs:
           pr-emoji: 'heart'
           close: true
 
-  check:
+  check-changelog:
     runs-on: ubuntu-latest
     steps:
       - name: check fill
@@ -27,5 +27,10 @@ jobs:
         with:
           filter-start: '|'
           require-include: '🇺🇸 English, 🇨🇳 Chinese'
-          comment-body: '请填写 changelog'
+          comment-body: |
+            Please fill in the changelog in the PR. 
+            Write with a **developer-oriented perspective** and **narrative method**, without describing the details of the repair, **describing the problem and the impact on the developer**; **describing the user-first site problem**, not your solution.
+
+            请填写 PR 中的 changelog。
+            请用**面向开发者的角度**和**叙述方式撰写**，不描述修复细节，**描述问题和对开发者的影响**；**描述用户第一现场的问题**，而非你的解决方式。
           skip-title-start: 'docs'
