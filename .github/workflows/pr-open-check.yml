@@ -32,21 +32,11 @@ jobs:
               - Write with a **developer-oriented perspective** and **narrative method**, without describing the details of the repair
               - **Describing the problem and the impact on the developer**
               - **describing the user-first site problem**, not your solution
-              - Example1:
-                - ❌ Fix the dom structure problem of component Typography.
-                - ✅ Refactored and simplified the dom structure of List Item, and fixed the problem of missing content spaces in Item.
-              - Example2:
-                - ❌ Fix the path problem of style files under lib.
-                - ✅ Fix the issue that some component styles are missing.
+              - Refer: https://ant.design/changelog#4.9.0
 
             - 🚨 请填写 PR 中的 changelog
               - 请用**面向开发者的角度**和**叙述方式撰写**，不描述修复细节
               - **描述问题和对开发者的影响**
               - **描述用户第一现场的问题**，而非你的解决方式
-              - 例子1：
-                - ❌ 修复组件 Typography 的 dom 结构问题。
-                - ✅ 重构并简化了 List Item 的 dom 结构，并且修复了 Item 中内容空格丢失的问题。
-              - 例子2：
-                - ❌ 修复 lib 下样式文件路径问题。
-                - ✅ 修复部分组件样式丢失的问题。
+              - 参考：https://ant.design/changelog-cn#4.9.0
           skip-title-start: 'docs, chore, test, ci'
