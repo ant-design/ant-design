@@ -101,7 +101,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | icon | 自定义编辑图标 | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | 编辑中文本域最大长度 | number | - | 4.4.0 |
 | tooltip | 自定义提示文本，为 false 时关闭 | boolean \| ReactNode | `编辑` | 4.6.0 |
+| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
 | onChange | 文本域编辑时触发 | function(event) | - |  |
+| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | onStart | 进入编辑中状态时触发 | function | - |  |
 | onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - |  |
@@ -118,15 +120,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       onEllipsis: function(ellipsis),
     }
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| expandable | 是否可展开 | boolean | - |  |
-| rows | 最多显示的行数 | number | - |  |
-| suffix | 自定义省略内容后缀 | string | - |  |
-| symbol | 自定义展开描述文案 | ReactNode | `展开` |  |
-| tooltip | 省略时，展示提示信息 | boolean \| ReactNode | - | 4.11.0 |
-| onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
-| onExpand | 点击展开时的回调 | function(event) | - |  |
+| 参数       | 说明                 | 类型                 | 默认值 | 版本   |
+| ---------- | -------------------- | -------------------- | ------ | ------ |
+| expandable | 是否可展开           | boolean              | -      |        |
+| rows       | 最多显示的行数       | number               | -      |        |
+| suffix     | 自定义省略内容后缀   | string               | -      |        |
+| symbol     | 自定义展开描述文案   | ReactNode            | `展开` |        |
+| tooltip    | 省略时，展示提示信息 | boolean \| ReactNode | -      | 4.11.0 |
+| onEllipsis | 触发省略时的回调     | function(ellipsis)   | -      | 4.2.0  |
+| onExpand   | 点击展开时的回调     | function(event)      | -      |        |
 
 ## FAQ
 

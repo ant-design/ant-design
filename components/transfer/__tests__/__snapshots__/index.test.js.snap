@@ -11,7 +11,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-rtl"
+        class="ant-checkbox-wrapper ant-checkbox-rtl ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -169,7 +169,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-rtl"
+        class="ant-checkbox-wrapper ant-checkbox-rtl ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -280,7 +280,7 @@ exports[`Transfer should render correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox ant-checkbox-checked"
@@ -333,7 +333,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -356,7 +356,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox ant-checkbox-disabled"
@@ -438,7 +438,7 @@ exports[`Transfer should render correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -490,7 +490,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox"
@@ -525,7 +525,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -578,7 +578,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
           title="a"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox"
@@ -662,7 +662,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -715,7 +715,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
           title="c"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox"
@@ -740,7 +740,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
           title="b"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox"
@@ -777,7 +777,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -830,7 +830,7 @@ exports[`Transfer should support render value and label in item 1`] = `
           title="title value"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox"
@@ -914,7 +914,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -1025,7 +1025,7 @@ exports[`immutable data dataSource is frozen 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"
@@ -1077,7 +1077,7 @@ exports[`immutable data dataSource is frozen 1`] = `
           class="ant-transfer-list-content-item"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
               class="ant-checkbox"
@@ -1159,7 +1159,7 @@ exports[`immutable data dataSource is frozen 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
           class="ant-checkbox"

@@ -103,8 +103,6 @@ module.exports = {
     'app.footer.ant-design': 'UI Design Language',
     'app.footer.yuque': 'YuQue',
     'app.footer.yuque.slogan': 'Write your document as a team',
-    'app.footer.fengdie': 'FengDie',
-    'app.footer.fengdie.slogan': 'Console Applications Builder',
     'app.footer.antv.slogan': 'Data Visualization',
     'app.footer.egg.slogan': 'Enterprise Node.js Framework',
     'app.footer.zhihu': 'Ant Design Blog',

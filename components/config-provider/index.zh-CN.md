@@ -58,7 +58,7 @@ export default () => (
 
 ### ConfigProvider.config() `4.13.0+`
 
-设置 `Modal`、`messge`、`Notification` rootPrefixCls
+设置 `Modal`、`Message`、`Notification` rootPrefixCls。
 
 ```jsx
 ConfigProvider.config({
