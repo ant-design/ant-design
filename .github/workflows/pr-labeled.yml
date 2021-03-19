@@ -8,8 +8,8 @@ jobs:
   pr-labeled:
     runs-on: ubuntu-latest
     steps:
-      - name: help wanted
-        if: github.event.label.name == 'PR: Need fill changelog'
+      - name: pr need changelog
+        if: github.event.label.name == 'PR need fill changelog'
         uses: actions-cool/issues-helper@v2.1.2
         with:
           actions: 'create-comment'
