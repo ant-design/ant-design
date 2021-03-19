@@ -111,7 +111,7 @@ export default () => {
   } else {
     const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
 
-    content = yearList.length ? ( 
+    content = yearList.length ? (
       <Tabs>
         {yearList.map(year => {
           const showAuthors = String(moment().year()) === year;
