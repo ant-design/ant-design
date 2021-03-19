@@ -67,40 +67,11 @@ toc: false
 
 想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://www.zhihu.com/column/c_1310524851418480640)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
 
-### 设计
+```__react
+import Articles from '../site/theme/template/Resources/Articles';
 
-- [Ant Design 4.0：创造快乐工作](https://zhuanlan.zhihu.com/p/269913164)
-- [「自然交互」Ant Design 设计价值观解析](https://zhuanlan.zhihu.com/p/44809866)
-- [这几个 Ant Design 色彩的小知识，我猜你不知道！](https://zhuanlan.zhihu.com/p/268168773)
-- [2020，贴地飞行的 AntV 设计](https://zhuanlan.zhihu.com/p/308495829)
-- [Ant Design 设计工程化——SEE Conf 分享（含视频）](https://zhuanlan.zhihu.com/p/344336425)
-- [AntV 图可视分析解决方案（设计篇）— SEE Conf 分享](https://zhuanlan.zhihu.com/p/345721015)
-
-<div class="next-block-use-avatars"></div>
-
-- [![林外](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*x4_RRqpFsekAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/lyndonliu)
-- [![元尧](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kACkTa-p8cgAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/a-li-zai-nu-li)
-- [![不过](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dvVKSKtCHf0AAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/caicaicaizw)
-- [![Suki](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*q5dQQ5c64yoAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/su-gu-niang-18)
-- [![梓义](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KylFRYu1a9EAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/noideaser)
-- [![幕阑](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VFWVRJSyy4IAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/sever-li)
-- [![晴风](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1P5sRIAGCDoAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/nan-guo-xi-chuang)
-
-### 技术
-
-- [Ant Design 4.0 的一些杂事儿 - Overflow 篇](https://zhuanlan.zhihu.com/p/340673293)
-- [AntV 图可视分析解决方案，来啦～](https://zhuanlan.zhihu.com/p/309424089)
-- [html2sketch：一名设计工程师的 C2D 探索之路](https://zhuanlan.zhihu.com/p/312306021)
-- [发布 Umi 3.2.0 — 可能是西湖区最好用的 SSR 框架](https://zhuanlan.zhihu.com/p/141988506)
-- [Tensorflow.js 海量图标，毫秒级识别！](https://zhuanlan.zhihu.com/p/128669062)
-- [Ant Design 4.0 的一些杂事儿 - Select 篇](https://zhuanlan.zhihu.com/p/102555441)
-
-<div class="next-block-use-avatars"></div>
-
-- [![偏右](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*u5M-QJGnXl4AAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/afc163)
-- [![山果](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*M2yMRK9jTZAAAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/chi-zi-you)
-- [![闻冰](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KC8xTqp-ZW8AAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/kong-gu-2013)
-- [![豆酱](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MTHITbU2un4AAAAAAAAAAAAAARQnAQ)](https://www.zhihu.com/people/smith-jiang)
+ReactDOM.render(<Articles />, mountNode);
+```
 
 ## 致敬
 
