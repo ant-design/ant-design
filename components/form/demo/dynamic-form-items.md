@@ -27,30 +27,27 @@ const Demo = () => {
       <Form.List name="users">
         {(fields, { add, remove }) => (
           <>
-            {fields.map(field => {
-              const {key, ...restField} = field;
-              return ((
-                <Space key={field.key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
-                  <Form.Item
-                    {...restField}
-                    name={[field.name, 'first']}
-                    fieldKey={[field.fieldKey, 'first']}
-                    rules={[{ required: true, message: 'Missing first name' }]}
-                  >
-                    <Input placeholder="First Name" />
-                  </Form.Item>
-                  <Form.Item
-                    {...restField}
-                    name={[field.name, 'last']}
-                    fieldKey={[field.fieldKey, 'last']}
-                    rules={[{ required: true, message: 'Missing last name' }]}
-                  >
-                    <Input placeholder="Last Name" />
-                  </Form.Item>
-                  <MinusCircleOutlined onClick={() => remove(field.name)} />
-                </Space>
-              ));
-            })}
+            {fields.map(({ key, name, fieldKey, ...restField }) => (
+              <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
+                <Form.Item
+                  {...restField}
+                  name={[name, 'first']}
+                  fieldKey={[fieldKey, 'first']}
+                  rules={[{ required: true, message: 'Missing first name' }]}
+                >
+                  <Input placeholder="First Name" />
+                </Form.Item>
+                <Form.Item
+                  {...restField}
+                  name={[name, 'last']}
+                  fieldKey={[fieldKey, 'last']}
+                  rules={[{ required: true, message: 'Missing last name' }]}
+                >
+                  <Input placeholder="Last Name" />
+                </Form.Item>
+                <MinusCircleOutlined onClick={() => remove(name)} />
+              </Space>
+            ))}
             <Form.Item>
               <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
                 Add field
