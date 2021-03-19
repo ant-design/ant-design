@@ -18,7 +18,7 @@ describe('ConfigProvider.Icon', () => {
 
   it('basic', () => {
     const wrapper = mount(
-      <ConfigProvider iconPrefixCls="bamboo" csp="light">
+      <ConfigProvider iconPrefixCls="bamboo" csp={{ nonce: 'light' }}>
         <SmileOutlined />
       </ConfigProvider>,
     );
@@ -32,11 +32,11 @@ describe('ConfigProvider.Icon', () => {
   it('nest', () => {
     const Checker = () => {
       const { csp } = React.useContext(IconContext);
-      return <div id="csp">{csp}</div>;
+      return <div id="csp">{csp.nonce}</div>;
     };
 
     const wrapper = mount(
-      <ConfigProvider iconPrefixCls="bamboo" csp="light">
+      <ConfigProvider iconPrefixCls="bamboo" csp={{ nonce: 'light' }}>
         <ConfigProvider>
           <SmileOutlined />
           <Checker />

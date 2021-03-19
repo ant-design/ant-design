@@ -96,9 +96,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
         --antd-wave-shadow-color: ${waveColor};
       }`,
         'antd-wave',
-        {
-          csp: this.csp?.nonce,
-        },
+        { csp: this.csp },
       );
     }
     if (insertExtraNode) {
