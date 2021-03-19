@@ -22,6 +22,7 @@ export interface SpaceProps {
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
+  splitForceRender?: boolean;
   wrap?: boolean;
 }
 
@@ -48,6 +49,7 @@ const Space: React.FC<SpaceProps> = props => {
     split,
     style,
     wrap = false,
+    splitForceRender,
     ...otherProps
   } = props;
 
@@ -98,6 +100,7 @@ const Space: React.FC<SpaceProps> = props => {
         marginDirection={marginDirection}
         split={split}
         wrap={wrap}
+        splitForceRender={splitForceRender}
       >
         {child}
       </Item>

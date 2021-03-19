@@ -8,6 +8,7 @@ export interface ItemProps {
   direction?: 'horizontal' | 'vertical';
   marginDirection: 'marginLeft' | 'marginRight';
   split?: string | React.ReactNode;
+  splitForceRender?: boolean;
   wrap?: boolean;
 }
 
@@ -19,8 +20,20 @@ export default function Item({
   children,
   split,
   wrap,
+  splitForceRender,
 }: ItemProps) {
+  const [hidden, setHidden] = React.useState(false);
   const { horizontalSize, verticalSize, latestIndex } = React.useContext(SpaceContext);
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (split && !splitForceRender && wrapperRef.current) {
+      const { clientHeight, clientWidth } = wrapperRef.current;
+      if (!clientHeight && !clientWidth) {
+        setHidden(true);
+      }
+    }
+  }, []);
 
   let style: React.CSSProperties = {};
 
@@ -35,13 +48,13 @@ export default function Item({
     };
   }
 
-  if (children === null || children === undefined) {
+  if (children === null || children === undefined || hidden) {
     return null;
   }
 
   return (
     <>
-      <div className={className} style={style}>
+      <div ref={wrapperRef} className={className} style={style}>
         {children}
       </div>
       {index < latestIndex && split && (
