@@ -255,7 +255,7 @@
     "react-intl": "^5.3.0",
     "react-resizable": "^2.0.0",
     "react-router-dom": "^5.0.1",
-    "react-sortable-hoc": "^1.11.0",
+    "react-sortable-hoc": "^2.0.0",
     "react-sticky": "^6.0.3",
     "react-test-renderer": "^17.0.1",
     "react-text-loop": "^2.3.0",
