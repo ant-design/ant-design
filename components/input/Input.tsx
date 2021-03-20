@@ -6,7 +6,10 @@ import Search from './Search';
 import TextArea from './TextArea';
 import Password from './Password';
 import { Omit, LiteralUnion } from '../_util/type';
-import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
+import ClearableLabeledInput, {
+  hasPrefixSuffix,
+  ClearableLabeledInputRef,
+} from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
@@ -132,218 +135,206 @@ export function triggerFocus(
   }
 }
 
-export interface InputState {
-  value: any;
-  focused: boolean;
-  /** `value` from prev props */
-  prevValue: any;
+const renderInput = (
+  ref: React.LegacyRef<HTMLInputElement> | undefined,
+  prefixCls: string,
+  contextSize: SizeType | undefined,
+  bordered: boolean,
+  input: ConfigConsumerProps['input'] = {},
+  direction: DirectionType,
+  onBlur: React.FocusEventHandler<HTMLInputElement>,
+  onFocus: React.FocusEventHandler<HTMLInputElement>,
+  onChange: React.ChangeEventHandler<HTMLInputElement>,
+  onKeyDown: React.KeyboardEventHandler<HTMLInputElement>,
+  parentProps: InputProps,
+) => {
+  const { className, addonBefore, addonAfter, size: customizeSize, disabled } = parentProps;
+  // Fix https://fb.me/react-unknown-prop
+  const otherProps = omit(parentProps as InputProps & { inputType: any }, [
+    'prefixCls',
+    'onPressEnter',
+    'addonBefore',
+    'addonAfter',
+    'prefix',
+    'suffix',
+    'allowClear',
+    // Input elements must be either controlled or uncontrolled,
+    // specify either the value prop, or the defaultValue prop, but not both.
+    'defaultValue',
+    'size',
+    'inputType',
+    'bordered',
+  ]);
+  const inputClassName = classNames(
+    getInputClassName(prefixCls, bordered, customizeSize || contextSize, disabled, direction),
+    {
+      [className!]: className && !addonBefore && !addonAfter,
+    },
+  );
+
+  return (
+    <input
+      autoComplete={input.autoComplete}
+      {...otherProps}
+      ref={ref}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
+      className={inputClassName}
+    />
+  );
+};
+
+interface SetSelectionRangeFun {
+  (start: number, end: number, SelectDirection?: 'forward' | 'backward' | 'none'): void;
+}
+export interface InputRef {
+  input: HTMLInputElement | null;
+  clearableInput: ClearableLabeledInputRef | null;
+  blur: () => void;
+  focus: (option?: InputFocusOptions) => void;
+  select: () => void;
+  setSelectionRange: SetSelectionRangeFun;
 }
 
-class Input extends React.Component<InputProps, InputState> {
-  static Group: typeof Group;
+interface CompoundedComponent
+  extends React.ForwardRefExoticComponent<InputProps & React.RefAttributes<InputRef>> {
+  Group: typeof Group;
+  Search: typeof Search;
+  TextArea: typeof TextArea;
+  Password: typeof Password;
+}
 
-  static Search: typeof Search;
+const Input = React.forwardRef((props, ref) => {
+  const propsValue = typeof props.value === 'undefined' ? props.defaultValue : props.value;
+  const [value, originSetValue] = React.useState<any>(propsValue);
+  const [focused, setFocused] = React.useState(false);
+  /** `value` from prev props */
+  const [prevValue, setPrevValue] = React.useState<any>(props.value);
 
-  static TextArea: typeof TextArea;
+  const input = React.useRef<HTMLInputElement>(null);
+  const clearableInput = React.useRef<ClearableLabeledInputRef>(null);
 
-  static Password: typeof Password;
+  const direction = React.useRef<DirectionType>('ltr');
+  const removePasswordTimeout = React.useRef<any>();
 
-  static defaultProps = {
-    type: 'text',
-  };
+  const valueChangeTaskQueue = React.useRef<(() => void)[]>([]);
 
-  input: HTMLInputElement;
+  const nextHasPrefixSuffix = hasPrefixSuffix(props);
+  const preveHasPrefixSuffix = React.useRef(nextHasPrefixSuffix);
 
-  clearableInput: ClearableLabeledInput;
-
-  removePasswordTimeout: any;
-
-  direction: DirectionType = 'ltr';
-
-  constructor(props: InputProps) {
-    super(props);
-    const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
-    this.state = {
-      value,
-      focused: false,
-      // eslint-disable-next-line react/no-unused-state
-      prevValue: props.value,
-    };
+  if (preveHasPrefixSuffix.current !== nextHasPrefixSuffix) {
+    preveHasPrefixSuffix.current = nextHasPrefixSuffix;
+    devWarning(
+      input.current !== document.activeElement,
+      'Input',
+      `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
+    );
   }
 
-  static getDerivedStateFromProps(nextProps: InputProps, { prevValue }: InputState) {
-    const newState: Partial<InputState> = { prevValue: nextProps.value };
-    if (nextProps.value !== undefined || prevValue !== nextProps.value) {
-      newState.value = nextProps.value;
-    }
-    return newState;
-  }
-
-  componentDidMount() {
-    this.clearPasswordValueAttribute();
-  }
-
-  // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
-  // We keep an empty function here.
-  componentDidUpdate() {}
-
-  getSnapshotBeforeUpdate(prevProps: InputProps) {
-    if (hasPrefixSuffix(prevProps) !== hasPrefixSuffix(this.props)) {
-      devWarning(
-        this.input !== document.activeElement,
-        'Input',
-        `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
-      );
-    }
-    return null;
-  }
-
-  componentWillUnmount() {
-    if (this.removePasswordTimeout) {
-      clearTimeout(this.removePasswordTimeout);
-    }
-  }
-
-  focus = (option?: InputFocusOptions) => {
-    triggerFocus(this.input, option);
-  };
-
-  blur() {
-    this.input.blur();
-  }
-
-  setSelectionRange(start: number, end: number, direction?: 'forward' | 'backward' | 'none') {
-    this.input.setSelectionRange(start, end, direction);
-  }
-
-  select() {
-    this.input.select();
-  }
-
-  saveClearableInput = (input: ClearableLabeledInput) => {
-    this.clearableInput = input;
-  };
-
-  saveInput = (input: HTMLInputElement) => {
-    this.input = input;
-  };
-
-  onFocus: React.FocusEventHandler<HTMLInputElement> = e => {
-    const { onFocus } = this.props;
-    this.setState({ focused: true }, this.clearPasswordValueAttribute);
-    onFocus?.(e);
-  };
-
-  onBlur: React.FocusEventHandler<HTMLInputElement> = e => {
-    const { onBlur } = this.props;
-    this.setState({ focused: false }, this.clearPasswordValueAttribute);
-    onBlur?.(e);
-  };
-
-  setValue(value: string, callback?: () => void) {
-    if (this.props.value === undefined) {
-      this.setState({ value }, callback);
+  const setValue = (newValue: string, callback?: () => void) => {
+    if (props.value === undefined) {
+      originSetValue(newValue);
+      if (callback) valueChangeTaskQueue.current.push(callback);
     } else {
       callback?.();
     }
-  }
-
-  handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    this.setValue('', () => {
-      this.focus();
-    });
-    resolveOnChange(this.input, e, this.props.onChange);
   };
 
-  renderInput = (
-    prefixCls: string,
-    size: SizeType | undefined,
-    bordered: boolean,
-    input: ConfigConsumerProps['input'] = {},
-  ) => {
-    const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
-    // Fix https://fb.me/react-unknown-prop
-    const otherProps = omit(this.props as InputProps & { inputType: any }, [
-      'prefixCls',
-      'onPressEnter',
-      'addonBefore',
-      'addonAfter',
-      'prefix',
-      'suffix',
-      'allowClear',
-      // Input elements must be either controlled or uncontrolled,
-      // specify either the value prop, or the defaultValue prop, but not both.
-      'defaultValue',
-      'size',
-      'inputType',
-      'bordered',
-    ]);
-    return (
-      <input
-        autoComplete={input.autoComplete}
-        {...otherProps}
-        onChange={this.handleChange}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-        onKeyDown={this.handleKeyDown}
-        className={classNames(
-          getInputClassName(prefixCls, bordered, customizeSize || size, disabled, this.direction),
-          {
-            [className!]: className && !addonBefore && !addonAfter,
-          },
-        )}
-        ref={this.saveInput}
-      />
-    );
+  const blur = () => {
+    if (input.current) input.current.blur();
   };
 
-  clearPasswordValueAttribute = () => {
+  const focus = (option?: InputFocusOptions) => {
+    if (input.current) triggerFocus(input.current, option);
+  };
+
+  const select = () => {
+    if (input.current) input.current.select();
+  };
+
+  const setSelectionRange: SetSelectionRangeFun = (start, end, SelectDirection) => {
+    if (input.current) input.current.setSelectionRange(start, end, SelectDirection);
+  };
+
+  const clearPasswordValueAttribute = () => {
     // https://github.com/ant-design/ant-design/issues/20541
-    this.removePasswordTimeout = setTimeout(() => {
+    removePasswordTimeout.current = setTimeout(() => {
       if (
-        this.input &&
-        this.input.getAttribute('type') === 'password' &&
-        this.input.hasAttribute('value')
+        input.current &&
+        input.current.getAttribute('type') === 'password' &&
+        input.current.hasAttribute('value')
       ) {
-        this.input.removeAttribute('value');
+        input.current.removeAttribute('value');
       }
     });
   };
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setValue(e.target.value, this.clearPasswordValueAttribute);
-    resolveOnChange(this.input, e, this.props.onChange);
+  const onFocus: React.FocusEventHandler<HTMLInputElement> = e => {
+    setFocused(true);
+    props.onFocus?.(e);
   };
 
-  handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const { onPressEnter, onKeyDown } = this.props;
+  const onBlur: React.FocusEventHandler<HTMLInputElement> = e => {
+    setFocused(false);
+    props.onBlur?.(e);
+  };
+
+  const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    setValue('', focus);
+    if (input.current) resolveOnChange(input.current, e, props.onChange);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value, clearPasswordValueAttribute);
+    if (input.current) resolveOnChange(input.current, e, props.onChange);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const { onPressEnter, onKeyDown } = props;
     if (onPressEnter && e.keyCode === 13) {
       onPressEnter(e);
     }
     onKeyDown?.(e);
   };
 
-  renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
-    const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
+  const renderComponent = ({
+    getPrefixCls,
+    direction: customDirection,
+    input: customInput,
+  }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, bordered = true } = props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
-    this.direction = direction;
+    direction.current = customDirection;
 
     return (
       <SizeContext.Consumer>
         {size => (
           <ClearableLabeledInput
             size={size}
-            {...this.props}
+            {...props}
             prefixCls={prefixCls}
             inputType="input"
             value={fixControlledValue(value)}
-            element={this.renderInput(prefixCls, size, bordered, input)}
-            handleReset={this.handleReset}
-            ref={this.saveClearableInput}
-            direction={direction}
+            element={renderInput(
+              input,
+              prefixCls,
+              size,
+              bordered,
+              customInput,
+              direction.current,
+              onBlur,
+              onFocus,
+              handleChange,
+              handleKeyDown,
+              props,
+            )}
+            handleReset={handleReset}
+            ref={clearableInput}
+            direction={direction.current}
             focused={focused}
-            triggerFocus={this.focus}
+            triggerFocus={focus}
             bordered={bordered}
           />
         )}
@@ -351,9 +342,45 @@ class Input extends React.Component<InputProps, InputState> {
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
-  }
-}
+  React.useImperativeHandle(ref, () => ({
+    input: input.current,
+    clearableInput: clearableInput.current,
+    blur,
+    focus,
+    select,
+    setSelectionRange,
+  }));
+
+  React.useEffect(() => {
+    clearPasswordValueAttribute();
+    return () => {
+      if (removePasswordTimeout.current) {
+        clearTimeout(removePasswordTimeout.current);
+      }
+    };
+  }, []);
+
+  React.useEffect(() => {
+    valueChangeTaskQueue.current.forEach(callback => callback());
+    valueChangeTaskQueue.current = [];
+  }, [value]);
+
+  React.useEffect(() => {
+    clearPasswordValueAttribute();
+  }, [focused]);
+
+  React.useEffect(() => {
+    setPrevValue(prevValue);
+    if (props.value !== undefined || props.value !== prevValue) {
+      originSetValue(props.value);
+    }
+  }, [props.value]);
+
+  return <ConfigConsumer>{renderComponent}</ConfigConsumer>;
+}) as CompoundedComponent;
+
+Input.defaultProps = {
+  type: 'text',
+};
 
 export default Input;

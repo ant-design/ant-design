@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import Input from '..';
+import Input, { InputRef } from '..';
 
 const { TextArea } = Input;
 
@@ -30,7 +30,7 @@ describe('Input.Focus', () => {
   });
 
   it('start', () => {
-    const ref = React.createRef<Input>();
+    const ref = React.createRef<InputRef>();
     mount(<Input ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'start' });
 
@@ -39,7 +39,7 @@ describe('Input.Focus', () => {
   });
 
   it('end', () => {
-    const ref = React.createRef<Input>();
+    const ref = React.createRef<InputRef>();
     mount(<Input ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'end' });
 
