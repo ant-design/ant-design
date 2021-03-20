@@ -4,7 +4,7 @@ import ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
 import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import ClearableLabeledInput from './ClearableLabeledInput';
+import ClearableLabeledInput, { ClearableLabeledInputRef } from './ClearableLabeledInput';
 import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
@@ -44,7 +44,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const size = React.useContext(SizeContext);
 
     const innerRef = React.useRef<RcTextArea>(null);
-    const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
+    const clearableInputRef = React.useRef<ClearableLabeledInputRef>(null);
 
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,

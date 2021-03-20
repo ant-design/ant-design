@@ -18,7 +18,7 @@ describe('Input', () => {
     errorSpy.mockRestore();
   });
 
-  focusTest(Input);
+  focusTest(Input, { refFocus: true });
   mountTest(Input);
   mountTest(Input.Group);
 
@@ -31,8 +31,9 @@ describe('Input', () => {
   });
 
   it('select()', () => {
-    const wrapper = mount(<Input />);
-    wrapper.instance().select();
+    const ref = React.createRef();
+    mount(<Input ref={ref} />);
+    ref.current.select();
   });
 
   it('should support size', () => {
@@ -76,12 +77,13 @@ describe('Input', () => {
   });
 
   it('set mouse cursor position', () => {
+    const ref = React.createRef();
     const defaultValue = '11111';
     const valLength = defaultValue.length;
-    const wrapper = mount(<Input autoFocus defaultValue={defaultValue} />);
-    wrapper.instance().setSelectionRange(valLength, valLength);
-    expect(wrapper.instance().input.selectionStart).toEqual(5);
-    expect(wrapper.instance().input.selectionEnd).toEqual(5);
+    mount(<Input autoFocus defaultValue={defaultValue} ref={ref} />);
+    ref.current.setSelectionRange(valLength, valLength);
+    expect(ref.current.input.selectionStart).toEqual(5);
+    expect(ref.current.input.selectionEnd).toEqual(5);
   });
 });
 
