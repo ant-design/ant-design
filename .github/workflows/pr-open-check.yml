@@ -26,7 +26,7 @@ jobs:
         uses: actions-cool/pr-check-fill@v1.1.0
         with:
           filter-start: '|'
-          require-include: '🇺🇸 English, 🇨🇳 Chinese'
+          require-include: '🇺🇸 English, 🇨🇳 Chinese, 🇺🇸 英文, 🇨🇳 中文'
           comment-body: |
             - 🚨 Please fill changelog in the PR
               - Write with a **developer-oriented perspective** and **narrative method**, without describing the details of the repair
