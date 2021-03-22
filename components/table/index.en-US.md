@@ -113,37 +113,38 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 
 One of the Table `columns` prop for describing the table's columns, Column has the same API.
 
-| Property | Description | Type | Default | Version |  |
-| --- | --- | --- | --- | --- | --- |
-| align | The specify which way that column is aligned | `left` \| `right` \| `center` | `left` |  |  |
-| className | The className of this column | string | - |  |  |
-| colSpan | Span of this column's title | number | - |  |  |
-| dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |  |
-| defaultFilteredValue | Default filtered values | string\[] | - |  |  |
-| defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |  |
-| ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |  |
-| filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => ReactNode | - |  |  |
-| filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |  |
-| filtered | Whether the `dataSource` is filtered | boolean | false |  |  |
-| filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |  |
-| filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |  |
-| filterMultiple | Whether multiple filters can be selected | boolean | true |  |  |
-| filters | Filter menu config | object\[] | - |  |  |
-| fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean \| string | false |  |  |
-| key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |  |
-| render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | function(text, record, index) {} | - |  |  |
-| responsive | The list of breakpoints at which to display this column. Always visible if not set. | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |  |
-| shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | 4.3.0 |  |
-| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) | true |  |  |
-| sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |  |
-| sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | function \| boolean | - |  |  |
-| sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean \| string | - |  |  |
-| title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |  |
-| width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |  |
-| onCell | Set props on per cell | function(record, rowIndex) | - |  |  |
-| onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |  |
-| onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |  |  |
-| onHeaderCell | Set props on per header cell | function(column) | - |  |  |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| align | The specify which way that column is aligned | `left` \| `right` \| `center` | `left` |  |
+| className | The className of this column | string | - |  |
+| colSpan | Span of this column's title | number | - |  |
+| dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |
+| defaultFilteredValue | Default filtered values | string\[] | - |  |
+| defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
+| editable | Whether column can be edited | boolean | false |  |
+| ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |
+| filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => ReactNode | - |  |
+| filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
+| filtered | Whether the `dataSource` is filtered | boolean | false |  |
+| filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
+| filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |
+| filterMultiple | Whether multiple filters can be selected | boolean | true |  |
+| filters | Filter menu config | object\[] | - |  |
+| fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean \| string | false |  |
+| key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
+| render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | function(text, record, index) {} | - |  |
+| responsive | The list of breakpoints at which to display this column. Always visible if not set. | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
+| shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | 4.3.0 |
+| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) | true |  |
+| sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
+| sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | function \| boolean | - |  |
+| sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean \| string | - |  |
+| title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
+| width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
+| onCell | Set props on per cell | function(record, rowIndex) | - |  |
+| onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
+| onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |  |
+| onHeaderCell | Set props on per header cell | function(column) | - |  |
 
 ### ColumnGroup
 

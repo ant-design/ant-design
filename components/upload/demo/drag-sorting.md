@@ -47,7 +47,8 @@ const DragableUploadListItem = ({ originNode, moveRow, file, fileList }) => {
   );
   const [, drag] = useDrag(
     () => ({
-      item: { type, index },
+      type,
+      item: { index },
       collect: monitor => ({
         isDragging: monitor.isDragging(),
       }),
@@ -55,11 +56,7 @@ const DragableUploadListItem = ({ originNode, moveRow, file, fileList }) => {
     [],
   );
   drop(drag(ref));
-  const errorNode = (
-    <Tooltip title="Upload Error" getPopupContainer={() => document.body}>
-      {originNode.props.children}
-    </Tooltip>
-  );
+  const errorNode = <Tooltip title="Upload Error">{originNode.props.children}</Tooltip>;
   return (
     <div
       ref={ref}
@@ -155,7 +152,6 @@ ReactDOM.render(<DragSortingUpload />, mountNode);
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-downward {
   border-bottom-color: #1890ff;
 }
-
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-upward {
   border-top-color: #1890ff;
 }

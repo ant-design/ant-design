@@ -469,6 +469,24 @@ describe('Typography', () => {
       testStep({ name: 'customize edit hide tooltip', tooltip: false });
       testStep({ name: 'customize edit tooltip text', tooltip: 'click to edit text' });
 
+      it('should trigger onEnd when type Enter', () => {
+        const onEnd = jest.fn();
+        const wrapper = mount(<Paragraph editable={{ onEnd }}>Bamboo</Paragraph>);
+        wrapper.find('.ant-typography-edit').first().simulate('click');
+        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+        expect(onEnd).toHaveBeenCalledTimes(1);
+      });
+
+      it('should trigger onCancel when type ESC', () => {
+        const onCancel = jest.fn();
+        const wrapper = mount(<Paragraph editable={{ onCancel }}>Bamboo</Paragraph>);
+        wrapper.find('.ant-typography-edit').first().simulate('click');
+        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ESC });
+        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ESC });
+        expect(onCancel).toHaveBeenCalledTimes(1);
+      });
+
       it('should only trigger focus on the first time', () => {
         let triggerTimes = 0;
         const mockFocus = spyElementPrototype(HTMLElement, 'focus', () => {

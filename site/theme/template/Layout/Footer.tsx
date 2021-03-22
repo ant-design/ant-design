@@ -304,18 +304,6 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
         {
           icon: (
             <img
-              src="https://gw.alipayobjects.com/zos/rmsportal/uHocHZfNWZOdsRUonZNr.png"
-              alt="yunfengdie"
-            />
-          ),
-          title: <FormattedMessage id="app.footer.fengdie" />,
-          url: 'https://yunfengdie.com',
-          description: <FormattedMessage id="app.footer.fengdie.slogan" />,
-          openExternal: true,
-        },
-        {
-          icon: (
-            <img
               src="https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png"
               alt="AntV"
             />

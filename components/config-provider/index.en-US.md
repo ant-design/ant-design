@@ -57,7 +57,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 ### ConfigProvider.config() `4.13.0+`
 
-setting `Modal`、`messge`、`Notification` rootPrefixCls
+Setting `Modal`、`Message`、`Notification` rootPrefixCls.
 
 ```jsx
 ConfigProvider.config({

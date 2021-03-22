@@ -238,7 +238,11 @@ const ListItem = React.forwardRef(
         <div className={`${prefixCls}-list-item-info`}>{iconAndPreview}</div>
         {actions}
         {showProgress && (
-          <CSSMotion motionName={`${rootPrefixCls}-fade`} visible={file.status === 'uploading'}>
+          <CSSMotion
+            motionName={`${rootPrefixCls}-fade`}
+            visible={file.status === 'uploading'}
+            motionDeadline={2000}
+          >
             {({ className: motionClassName }) => {
               // show loading icon if upload progress listener is disabled
               const loadingProgress =

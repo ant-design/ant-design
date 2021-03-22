@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: verify-version
-        uses: actions-cool/verify-files-modify@v1.1.0
+        uses: actions-cool/verify-files-modify@v1.1.1
         with:
           forbid-paths: '.github/, scripts/'
           skip-verify-authority: 'write'

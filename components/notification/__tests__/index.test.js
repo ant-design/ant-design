@@ -143,6 +143,24 @@ describe('notification', () => {
     await Promise.all(promises);
   });
 
+  it('should be able to add parent class for different notification types', async () => {
+    const openNotificationWithIcon = async type => {
+      notification[type]({
+        message: 'Notification Title',
+        duration: 0,
+        description: 'This is the content of the notification.',
+      });
+      await Promise.resolve();
+      expect(document.querySelectorAll(`.ant-notification-notice-${type}`).length).toBe(1);
+    };
+
+    const promises = ['success', 'info', 'warning', 'error'].map(type =>
+      openNotificationWithIcon(type),
+    );
+
+    await Promise.all(promises);
+  });
+
   it('trigger onClick', () => {
     notification.open({
       message: 'Notification Title',

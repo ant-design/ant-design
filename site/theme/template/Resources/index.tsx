@@ -111,10 +111,6 @@ function injectCards(content: ContentUnit[]): ContentUnit[] {
       newContent.push(toCardList(content[i + 1] as any));
 
       i += 1;
-    } else if (isClassNameType(unit, 'next-block-use-avatars')) {
-      newContent.push(['div', { className: 'resource-avatars' }, content[i + 1]]);
-
-      i += 1;
     } else {
       newContent.push(unit);
     }
