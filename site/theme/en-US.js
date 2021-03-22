@@ -143,6 +143,8 @@ module.exports = {
     'app.docs.components.icon.pic-searcher.result-tip': 'Matched the following icons for you:',
     'app.docs.components.icon.pic-searcher.th-icon': 'Icon',
     'app.docs.components.icon.pic-searcher.th-score': 'Probability',
+    'app.docs.resource.design': 'Design',
+    'app.docs.resource.develop': 'Develop',
     'app.components.overview.search': 'Search in components',
   },
 };

@@ -1,0 +1,74 @@
+@import (reference) '../index.less';
+
+#articles {
+  h4 {
+    margin: 48px 0 16px 0;
+    font-weight: normal;
+    font-size: 20px;
+  }
+
+  .ant-skeleton {
+    h3 {
+      margin: 0;
+    }
+
+    ul li {
+      display: block;
+      margin-left: 0;
+    }
+  }
+
+  .ant-tabs-nav::before {
+    display: none;
+  }
+
+  .article-list {
+    li {
+      margin: 0;
+      list-style: none;
+    }
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+
+    td {
+      width: 50%;
+    }
+  }
+
+  .resource-avatars {
+    vertical-align: top;
+
+    ul {
+      margin-top: 24px;
+      margin-right: 60px;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 20px 20px 0;
+
+      img {
+        width: 60px;
+        max-width: none;
+        height: 60px;
+        object-fit: cover;
+        background: #d8d8d8;
+        border-radius: 100%;
+        cursor: pointer;
+        transition: box-shadow 0.3s;
+
+        &:hover {
+          box-shadow: @shadow-2;
+        }
+      }
+    }
+  }
+}
