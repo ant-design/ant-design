@@ -79,6 +79,11 @@ describe('TextArea', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('maxLength should not block control', () => {
+    const wrapper = mount(<TextArea maxLength={1} value="light" />);
+    expect(wrapper.find('textarea').props().value).toEqual('light');
+  });
+
   it('when prop value not in this.props, resizeTextarea should be called', async () => {
     const ref = React.createRef();
     const wrapper = mount(<TextArea aria-label="textarea" ref={ref} />);
@@ -144,7 +149,7 @@ describe('TextArea', () => {
       expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
-    it('should  minimize value between emoji length and maxLength', () => {
+    it('should minimize value between emoji length and maxLength', () => {
       const wrapper = mount(<TextArea maxLength={1} showCount value="👀" />);
       const textarea = wrapper.find('.ant-input-textarea');
       expect(wrapper.find('textarea').prop('value')).toBe('👀');
