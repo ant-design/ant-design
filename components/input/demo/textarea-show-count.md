@@ -22,5 +22,5 @@ const onChange = e => {
   console.log('Change:', e.target.value);
 };
 
-ReactDOM.render(<TextArea showCount maxLength={10} onChange={onChange} />, mountNode);
+ReactDOM.render(<TextArea showCount maxLength={100} onChange={onChange} />, mountNode);
 ```
