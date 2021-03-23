@@ -140,7 +140,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     let val = fixControlledValue(value) as string;
 
-    if (!compositing && hasMaxLength && props.value === null && props.value === undefined) {
+    if (!compositing && hasMaxLength && (props.value === null || props.value === undefined)) {
       // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
       val = fixEmojiLength(val, maxLength!);
     }

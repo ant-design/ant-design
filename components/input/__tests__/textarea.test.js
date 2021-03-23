@@ -172,25 +172,32 @@ describe('TextArea', () => {
       expect(textarea.prop('data-count')).toBe('8 / 5');
     });
 
-    it('should minimize value between emoji length and maxLength', () => {
-      const wrapper = mount(<TextArea maxLength={1} showCount value="👀" />);
-      const textarea = wrapper.find('.ant-input-textarea');
-      expect(wrapper.find('textarea').prop('value')).toBe('👀');
-      expect(textarea.prop('data-count')).toBe('1 / 1');
+    describe('emoji', () => {
+      it('should minimize value between emoji length and maxLength', () => {
+        const wrapper = mount(<TextArea maxLength={1} showCount value="👀" />);
+        const textarea = wrapper.find('.ant-input-textarea');
+        expect(wrapper.find('textarea').prop('value')).toBe('👀');
+        expect(textarea.prop('data-count')).toBe('1 / 1');
 
-      // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
-      // zombieJ: 逻辑统一了，emoji 现在也可以正确计数了
-      const wrapper1 = mount(<TextArea maxLength={2} showCount value="👀" />);
-      const textarea1 = wrapper1.find('.ant-input-textarea');
-      expect(textarea1.prop('data-count')).toBe('1 / 2');
-    });
+        // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
+        // zombieJ: 逻辑统一了，emoji 现在也可以正确计数了
+        const wrapper1 = mount(<TextArea maxLength={2} showCount value="👀" />);
+        const textarea1 = wrapper1.find('.ant-input-textarea');
+        expect(textarea1.prop('data-count')).toBe('1 / 2');
+      });
 
-    // 修改TextArea value截取规则后新增单测
-    it('slice emoji', () => {
-      const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
-      const textarea = wrapper.find('.ant-input-textarea');
-      expect(wrapper.find('textarea').prop('value')).toBe('1234😂');
-      expect(textarea.prop('data-count')).toBe('5 / 5');
+      it('defaultValue should slice', () => {
+        const wrapper = mount(<TextArea maxLength={1} defaultValue="🧐cut" />);
+        expect(wrapper.find('textarea').prop('value')).toBe('🧐');
+      });
+
+      // 修改TextArea value截取规则后新增单测
+      it('slice emoji', () => {
+        const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
+        const textarea = wrapper.find('.ant-input-textarea');
+        expect(wrapper.find('textarea').prop('value')).toBe('1234😂');
+        expect(textarea.prop('data-count')).toBe('5 / 5');
+      });
     });
 
     it('className & style patch to outer', () => {
