@@ -84,6 +84,20 @@ describe('TextArea', () => {
       const wrapper = mount(<TextArea maxLength={1} value="light" />);
       expect(wrapper.find('textarea').props().value).toEqual('light');
     });
+
+    it('should exceed maxLength when use IME', () => {
+      const onChange = jest.fn();
+
+      const wrapper = mount(<TextArea maxLength={1} onChange={onChange} />);
+      wrapper.find('textarea').simulate('compositionStart');
+      wrapper.find('textarea').simulate('change', { target: { value: 'zhu' } });
+      wrapper.find('textarea').simulate('compositionEnd', { currentTarget: { value: '竹' } });
+      wrapper.find('textarea').simulate('change', { target: { value: '竹' } });
+
+      expect(onChange).toHaveBeenLastCalledWith(
+        expect.objectContaining({ target: expect.objectContaining({ value: '竹' }) }),
+      );
+    });
   });
 
   it('when prop value not in this.props, resizeTextarea should be called', async () => {
