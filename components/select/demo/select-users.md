@@ -73,7 +73,6 @@ interface UserValue {
 async function fetchUserList(username: string): Promise<UserValue[]> {
   console.log('fetching user', username);
 
-  // eslint-disable-next-line compat/compat
   return fetch('https://randomuser.me/api/?results=5')
     .then(response => response.json())
     .then(body =>

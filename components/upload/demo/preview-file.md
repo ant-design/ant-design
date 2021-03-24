@@ -23,7 +23,6 @@ const props = {
   previewFile(file) {
     console.log('Your upload file:', file);
     // Your process logic. Here we just mock to the same file
-    // eslint-disable-next-line compat/compat
     return fetch('https://next.json-generator.com/api/json/get/4ytyBoLK8', {
       method: 'POST',
       body: file,
