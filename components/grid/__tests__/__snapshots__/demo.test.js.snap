@@ -701,7 +701,7 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-12px;margin-bottom:12px"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-12px;margin-bottom:-12px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
@@ -1121,7 +1121,7 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:8px"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
   >
     <div
       class="ant-col ant-col-6"
@@ -1155,10 +1155,43 @@ Array [
         Column
       </div>
     </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
   </div>,
+  "Another Row:",
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:8px"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
   >
     <div
       class="ant-col ant-col-6"
@@ -1197,6 +1230,11 @@ Array [
     class="demo-code"
   >
     &lt;Row gutter={[16, 16]}&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;

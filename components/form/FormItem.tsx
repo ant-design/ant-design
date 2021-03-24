@@ -26,7 +26,7 @@ const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
-type RcFieldProps = Omit<FieldProps, 'children'>;
+type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
 type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
 interface MemoInputProps {
@@ -43,7 +43,7 @@ const MemoInput = React.memo(
 export interface FormItemProps<Values = any>
   extends FormItemLabelProps,
     FormItemInputProps,
-    RcFieldProps {
+    RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;

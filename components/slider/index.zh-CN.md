@@ -22,7 +22,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
 | dots | 是否只能拖拽到刻度上 | boolean | false |  |
 | getTooltipPopupContainer | Tooltip 渲染父节点，默认渲染到 body 上 | (triggerNode) => HTMLElement | () => document.body |  |
 | included | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 | boolean | true |  |
-| marks | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 \[min, max] 内，每个标签可以单独设置样式 | object | { number: ReactNode } or { number: { style: object, label: ReactNode } } |  |
+| marks | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 \[min, max] 内，每个标签可以单独设置样式 | object | { number: ReactNode } or { number: { style: CSSProperties, label: ReactNode } } |  |
 | max | 最大值 | number | 100 |  |
 | min | 最小值 | number | 0 |  |
 | range | 双滑块模式 | boolean \| [range](#range) | false |  |
@@ -38,9 +38,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
 
 ### range
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| draggableTrack | 范围刻度是否可被拖拽 | boolean | false | 4.10.0 |
+| 参数           | 说明                 | 类型    | 默认值 | 版本   |
+| -------------- | -------------------- | ------- | ------ | ------ |
+| draggableTrack | 范围刻度是否可被拖拽 | boolean | false  | 4.10.0 |
 
 ## 方法
 

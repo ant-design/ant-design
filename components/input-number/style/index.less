@@ -139,6 +139,10 @@
         font-size: 7px;
       }
     }
+
+    .@{input-number-prefix-cls}-borderless & {
+      border-left-width: 0;
+    }
   }
 
   &-handler-wrap:hover &-handler {
@@ -175,6 +179,9 @@
     &:hover {
       height: 60% !important;
     }
+    .@{input-number-prefix-cls}-borderless & {
+      border-top-width: 0;
+    }
   }
 
   &-handler-up-disabled,
@@ -185,6 +192,17 @@
   &-handler-up-disabled:hover &-handler-up-inner,
   &-handler-down-disabled:hover &-handler-down-inner {
     color: @disabled-color;
+  }
+
+  &-borderless {
+    box-shadow: none;
+  }
+
+  // ===================== Out Of Range =====================
+  &-out-of-range {
+    input {
+      color: @error-color;
+    }
   }
 }
 

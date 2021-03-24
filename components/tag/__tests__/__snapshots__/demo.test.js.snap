@@ -333,6 +333,78 @@ Array [
 ]
 `;
 
+exports[`renders ./components/tag/demo/colorful-inverse.md correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets Inverse
+    </span>
+  </div>,
+  <div>
+    <span
+      class="ant-tag ant-tag-magenta-inverse"
+    >
+      magenta
+    </span>
+    <span
+      class="ant-tag ant-tag-red-inverse"
+    >
+      red
+    </span>
+    <span
+      class="ant-tag ant-tag-volcano-inverse"
+    >
+      volcano
+    </span>
+    <span
+      class="ant-tag ant-tag-orange-inverse"
+    >
+      orange
+    </span>
+    <span
+      class="ant-tag ant-tag-gold-inverse"
+    >
+      gold
+    </span>
+    <span
+      class="ant-tag ant-tag-lime-inverse"
+    >
+      lime
+    </span>
+    <span
+      class="ant-tag ant-tag-green-inverse"
+    >
+      green
+    </span>
+    <span
+      class="ant-tag ant-tag-cyan-inverse"
+    >
+      cyan
+    </span>
+    <span
+      class="ant-tag ant-tag-blue-inverse"
+    >
+      blue
+    </span>
+    <span
+      class="ant-tag ant-tag-geekblue-inverse"
+    >
+      geekblue
+    </span>
+    <span
+      class="ant-tag ant-tag-purple-inverse"
+    >
+      purple
+    </span>
+  </div>,
+]
+`;
+
 exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 Array [
   <span

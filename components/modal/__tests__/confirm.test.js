@@ -2,9 +2,11 @@ import TestUtils, { act } from 'react-dom/test-utils';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { resetWarned } from 'rc-util/lib/warning';
 import Modal from '..';
 import { destroyFns } from '../Modal';
 import { sleep } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const { confirm } = Modal;
 
@@ -468,11 +470,30 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(onOk).toHaveBeenCalledTimes(3);
   });
 
-  it('should be able to config rootPrefixCls', () => {
+  it('should be able to global config rootPrefixCls', () => {
     jest.useFakeTimers();
+    ConfigProvider.config({ prefixCls: 'my' });
+    confirm({ title: 'title' });
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-btn').length).toBe(0);
+    expect(document.querySelectorAll('.my-btn').length).toBe(2);
+    expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
+    ConfigProvider.config({ prefixCls: 'ant' });
+    jest.useRealTimers();
+  });
+
+  it('should be able to config rootPrefixCls', () => {
+    resetWarned();
+
+    jest.useFakeTimers();
+
     Modal.config({
       rootPrefixCls: 'my',
     });
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] Modal.config is deprecated. Please use ConfigProvider.config instead.',
+    );
+
     confirm({
       title: 'title',
     });
@@ -493,7 +514,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.your-btn').length).toBe(2);
     expect(document.querySelectorAll('.your-modal-confirm').length).toBe(1);
     Modal.config({
-      rootPrefixCls: 'ant',
+      rootPrefixCls: '',
     });
     jest.useRealTimers();
   });

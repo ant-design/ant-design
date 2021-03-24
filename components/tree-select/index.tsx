@@ -15,6 +15,7 @@ import { AntTreeNodeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { getTransitionName } from '../_util/motion';
 
 type RawValue = string | number;
 
@@ -57,7 +58,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
     getPopupContainer,
     dropdownClassName,
     treeIcon = false,
-    transitionName = 'slide-up',
+    transitionName,
     choiceTransitionName = '',
     ...props
   }: TreeSelectProps<T>,
@@ -124,6 +125,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
     },
     className,
   );
+  const rootPrefixCls = getPrefixCls();
 
   return (
     <RcTreeSelect
@@ -150,8 +152,8 @@ const InternalTreeSelect = <T extends DefaultValueType>(
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
-      choiceTransitionName={choiceTransitionName}
-      transitionName={transitionName}
+      choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
     />
   );
 };

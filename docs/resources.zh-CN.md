@@ -21,7 +21,7 @@ toc: false
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
   - 移动组件 Sketch 模板
-  - http://p.tb.cn/rmsportal_3436_AntDesignMobile_20Template_20V1.0.sketch
+  - https://gw.alipayobjects.com/os/bmw-prod/d6266aef-25b7-4892-b275-ce214121831c.sketch
 - Ant Design Pro
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - 典型页面 + 通用业务模板
@@ -65,31 +65,13 @@ toc: false
 
 ## 文章
 
-想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://zhuanlan.zhihu.com/antdesign)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
+想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://www.zhihu.com/column/c_1310524851418480640)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
 
-### 设计
+```__react
+import Articles from '../site/theme/template/Resources/Articles';
 
-- [解放图形化设计生产力 - HiTu](https://zhuanlan.zhihu.com/p/100925117)
-- [「自然交互」Ant Design 设计价值观解析](https://zhuanlan.zhihu.com/p/44809866)
-- [「自然交互 1」前馈：让功能找到用户；让用户体验美好](https://zhuanlan.zhihu.com/p/41952711)
-- [「自然交互 4」理解元数据，让人机自然交互](https://zhuanlan.zhihu.com/p/43613398)
-- [「自然交互 5」传感器——系统的五感【上】](https://zhuanlan.zhihu.com/p/52648777)
-- [1 块钱 6 周 DAU 增长翻倍：Ant Design 设计工具 Kitchen 获客增长实践](https://zhuanlan.zhihu.com/p/68707241)
-- [专访蚂蚁金服体验技术 UED：Ant Design 希望成为世界级设计体系](https://zhuanlan.zhihu.com/p/66781635)
-- [写给设计师的 Ant Design 栅格指南](https://zhuanlan.zhihu.com/p/63580649)
-- [Ant Design 情感化设计](https://zhuanlan.zhihu.com/p/55364776)
-- [Ant Design 资产一起造 工作坊（上）](https://zhuanlan.zhihu.com/p/54887681)
-- [Ant Design 资产一起造 工作坊（下）](https://zhuanlan.zhihu.com/p/54901534)
-- [轻推转型之门：Ant Design Pro 在企业级产品的实践（附演讲视频）](https://zhuanlan.zhihu.com/p/32771546)
-- [Ant Design 3.0 背后的故事（附演讲视频）](https://zhuanlan.zhihu.com/p/32746810)
-- [用户故事地图浅析](https://zhuanlan.zhihu.com/p/31503749)
-- [体验，不只是用户的！Ant Design 在蚂蚁中台的应用](https://zhuanlan.zhihu.com/p/26846739)
-- [在用 Sketch 和 iconfont？试试 Kitchen 吧！](https://zhuanlan.zhihu.com/p/36657030)
-
-### 技术
-
-- [Ant Design 色板生成算法演进之路](https://zhuanlan.zhihu.com/p/32422584)
-- [如何向开源项目提交无法解答的问题](https://zhuanlan.zhihu.com/p/25795393)
+ReactDOM.render(<Articles />, mountNode);
+```
 
 ## 致敬
 
@@ -147,7 +129,7 @@ toc: false
   - 深度理解 SAP、Salesforce、Google 等设计体系，能提出自己独到见解并落实到实践中，加加加分。
 - 岗位职责：
   - 参与[蚂蚁链](https://blockchain.antgroup.com/)、人工智能、数据平台等企业级产品的设计工作；
-  - 参与[语雀](https://www.yuque.com/)、[云凤蝶](https://www.yunfengdie.com/)等创新产品的设计工作；
+  - 参与[语雀](https://www.yuque.com/) 等创新产品的设计工作；
   - 参与 Ant Design 的打磨，将其建设成全球卓越的设计体系。
   - 参与 AntV 的打磨，将其建设成全球一流的数据可视化体系。
 - One More Thing ❤️ ：

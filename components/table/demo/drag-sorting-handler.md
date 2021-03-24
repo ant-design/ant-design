@@ -19,9 +19,7 @@ import { sortableContainer, sortableElement, sortableHandle } from 'react-sortab
 import { MenuOutlined } from '@ant-design/icons';
 import arrayMove from 'array-move';
 
-const DragHandle = sortableHandle(() => (
-  <MenuOutlined style={{ cursor: 'pointer', color: '#999' }} />
-));
+const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
   {
@@ -135,7 +133,6 @@ ReactDOM.render(<SortableTable />, mountNode);
 
 .row-dragging td {
   padding: 16px;
-  visibility: hidden;
 }
 
 .row-dragging .drag-visible {

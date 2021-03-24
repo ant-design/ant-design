@@ -94,18 +94,16 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
     if (!('value' in restProps)) {
       setValue(newValue);
     }
-    if (onChange) {
-      const opts = getOptions();
-      onChange(
-        newValue
-          .filter(val => registeredValues.indexOf(val) !== -1)
-          .sort((a, b) => {
-            const indexA = opts.findIndex(opt => opt.value === a);
-            const indexB = opts.findIndex(opt => opt.value === b);
-            return indexA - indexB;
-          }),
-      );
-    }
+    const opts = getOptions();
+    onChange?.(
+      newValue
+        .filter(val => registeredValues.indexOf(val) !== -1)
+        .sort((a, b) => {
+          const indexA = opts.findIndex(opt => opt.value === a);
+          const indexB = opts.findIndex(opt => opt.value === b);
+          return indexA - indexB;
+        }),
+    );
   };
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);

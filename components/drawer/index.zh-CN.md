@@ -24,6 +24,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | className | 对话框外层容器的类名 | string | - |  |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |  |
 | closeIcon | 自定义关闭图标 | ReactNode | &lt;CloseOutlined /> |  |
+| contentWrapperStyle | 可用于设置 Drawer 包裹内容部分的样式 | CSSProperties | - |  |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
 | drawerStyle | 用于设置 Drawer 弹出层的样式 | CSSProperties | - |  |
 | footer | 抽屉的页脚 | ReactNode | - |  |

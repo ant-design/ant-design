@@ -12,6 +12,5 @@ jobs:
         uses: actions-cool/issues-helper@v1.7
         with:
           actions: 'check-inactive'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
           inactive-label: 'Inactive'
           inactive-day: 30

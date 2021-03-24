@@ -6,6 +6,7 @@ import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import Spin, { SpinProps } from '../spin';
 import Pagination from '../pagination';
+import { TooltipProps } from '../tooltip';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -17,7 +18,6 @@ import {
   ColumnsType,
   TableCurrentDataSource,
   SorterResult,
-  Key,
   GetPopupContainer,
   ExpandableConfig,
   ExpandType,
@@ -25,6 +25,7 @@ import {
   SortOrder,
   TableLocale,
   TableAction,
+  FilterValue,
 } from './interface';
 import useSelection, {
   SELECTION_ALL,
@@ -53,7 +54,7 @@ interface ChangeEventInfo<RecordType> {
     pageSize?: number;
     total?: number;
   };
-  filters: Record<string, (Key | boolean)[] | null>;
+  filters: Record<string, FilterValue | null>;
   sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
 
   filterStates: FilterState<RecordType>[];
@@ -84,7 +85,7 @@ export interface TableProps<RecordType>
 
   onChange?: (
     pagination: TablePaginationConfig,
-    filters: Record<string, (Key | boolean)[] | null>,
+    filters: Record<string, FilterValue | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
@@ -95,7 +96,7 @@ export interface TableProps<RecordType>
     scrollToFirstRowOnChange?: boolean;
   };
   sortDirections?: SortOrder[];
-  showSorterTooltip?: boolean;
+  showSorterTooltip?: boolean | TooltipProps;
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
@@ -152,7 +153,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
   const mergedSize = customizeSize || size;
   const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
-  const rawData: RecordType[] = dataSource || EMPTY_LIST;
+  const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
@@ -225,18 +226,20 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       });
     }
 
-    if (onChange) {
-      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
-        currentDataSource: getFilterData(
-          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-          changeInfo.filterStates!,
-        ),
-        action,
-      });
-    }
+    onChange?.(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+      currentDataSource: getFilterData(
+        getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+        changeInfo.filterStates!,
+      ),
+      action,
+    });
   };
 
-  /** Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read state out and then put it back to title render. Move these code into `hooks` but still too complex. We should provides Table props like `sorter` & `filter` to handle control in next big version. */
+  /**
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
+   * state out and then put it back to title render. Move these code into `hooks` but still too
+   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   */
 
   // ============================ Sorter =============================
   const onSorterChange = (
@@ -270,7 +273,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================ Filter ============================
   const onFilterChange = (
-    filters: Record<string, (Key | boolean)[]>,
+    filters: Record<string, FilterValue>,
     filterStates: FilterState<RecordType>[],
   ) => {
     triggerOnChange(
@@ -434,18 +437,19 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       />
     );
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
-    if (mergedPagination.position !== null && Array.isArray(mergedPagination.position)) {
-      const topPos = mergedPagination.position.find(p => p.indexOf('top') !== -1);
-      const bottomPos = mergedPagination.position.find(p => p.indexOf('bottom') !== -1);
-      if (!topPos && !bottomPos) {
+    const { position } = mergedPagination;
+    if (position !== null && Array.isArray(position)) {
+      const topPos = position.find(p => p.indexOf('top') !== -1);
+      const bottomPos = position.find(p => p.indexOf('bottom') !== -1);
+      const isDisable = position.every(p => `${p}` === 'none');
+      if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);
-      } else {
-        if (topPos) {
-          topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
-        }
-        if (bottomPos) {
-          bottomPaginationNode = renderPagination(bottomPos!.toLowerCase().replace('bottom', ''));
-        }
+      }
+      if (topPos) {
+        topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
+      }
+      if (bottomPos) {
+        bottomPaginationNode = renderPagination(bottomPos!.toLowerCase().replace('bottom', ''));
       }
     } else {
       bottomPaginationNode = renderPagination(defaultPosition);

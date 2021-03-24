@@ -98,11 +98,7 @@ const Demo: React.FC<{}> = () => {
   };
 
   const onSetShowLine = (checked: boolean) => {
-    if (checked) {
-      showLeafIcon ? setShowLine(checked) : setShowLine({ showLeafIcon });
-    } else {
-      setShowLine(checked);
-    }
+    setShowLine(checked ? { showLeafIcon } : false);
   };
 
   return (

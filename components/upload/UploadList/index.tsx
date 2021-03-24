@@ -59,7 +59,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File || file.originFileObj instanceof Blob) ||
+        !(file.originFileObj instanceof File || (file.originFileObj as Blob) instanceof Blob) ||
         file.thumbUrl !== undefined
       ) {
         return;
@@ -97,9 +97,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   };
 
   const onInternalClose = (file: UploadFile) => {
-    if (onRemove) {
-      onRemove(file);
-    }
+    onRemove?.(file);
   };
 
   const internalIconRender = (file: UploadFile) => {
@@ -180,6 +178,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   // const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
 
   let motionConfig: Omit<CSSMotionListProps, 'onVisibleChanged'> = {
+    motionDeadline: 2000,
     motionName: `${prefixCls}-${animationDirection}`,
     keys: motionKeyList,
     motionAppear,

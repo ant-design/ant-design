@@ -105,6 +105,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 ## FAQ
 
+### `tag` 模式下为何搜索有时会出现两个相同选项？
+
+这一般是 `options` 中的 `label` 和 `value` 不同导致的，你可以通过 `optionFilterProp="label"` 将过滤设置为展示值以避免这种情况。
+
 ### 点击 `dropdownRender` 里的内容浮层关闭怎么办？
 
 看下 [dropdownRender 例子](#components-select-demo-custom-dropdown-menu) 里的说明。

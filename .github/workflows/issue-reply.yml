@@ -1,3 +1,5 @@
+# Origin Source
+# https://github.com/ant-design/ant-design/blob/79f566b7f8abb1012ef55b0d2793bfdf5595b85d/.github/workflows/issue-reply.yml
 name: Issue Reply
 
 on:
@@ -13,7 +15,7 @@ jobs:
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hello @${{ github.event.issue.user.login }}. We totally like your proposal/feedback, welcome to [send us a Pull Request](https://help.github.com/en/articles/creating-a-pull-request) for it. Please send your Pull Request to proper branch (feature branch for the new feature, master for bugfix and other changes), fill the [Pull Request Template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE.md) here, provide changelog/TypeScript/documentation/test cases if needed and make sure CI passed, we will review it soon. We appreciate your effort in advance and looking forward to your contribution!
@@ -27,7 +29,7 @@ jobs:
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hello @${{ github.event.issue.user.login }}. Please provide a online reproduction by forking this link https://u.ant.design/codesandbox-repro or a minimal GitHub repository. Issues labeled by `Need Reproduce` will be closed if no activities in 3 days.
@@ -35,27 +37,39 @@ jobs:
             你好 @${{ github.event.issue.user.login }}, 我们需要你提供一个在线的重现实例以便于我们帮你排查问题。你可以通过点击 [此处](https://u.ant.design/codesandbox-repro) 创建一个 codesandbox 或者提供一个最小化的 GitHub 仓库。3 天内未跟进此 issue 将会被自动关闭。
 
             ![](https://gw.alipayobjects.com/zos/antfincdn/y9kwg7DVCd/reproduce.gif)
-      
+
       - name: Usage
         if: github.event.label.name == 'Usage' || github.event.label.name == 'Question'
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment,close-issue'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hello @${{ github.event.issue.user.login }}, we use GitHub issues to trace bugs or discuss plans of Ant Design. So, please [don't ask usage questions](https://github.com/ant-design/ant-design/issues/2320) here. You can try to open a new discussion in [antd discussions](https://github.com/ant-design/ant-design/discussions), select `Q&A` to ask questions, also can ask questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) or [Segment Fault](https://segmentfault.com/t/antd), then apply tag `antd` and `react` to your question.
 
             你好 @${{ github.event.issue.user.login }}，Ant Design Issue 板块是用于 bug 反馈与需求讨论的地方。请[勿询问如何使用的问题](https://github.com/ant-design/ant-design/issues/2320)，你可以试着在 [antd discussions](https://github.com/ant-design/ant-design/discussions) 新开一个 discussion，选择 `Q&A` 类别进行提问，也可以在 [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) 或者 [Segment Fault](https://segmentfault.com/t/antd) 中提问（记得添加 `antd` 和 `react` 标签哦~）。
-      
+
       - name: 3.x
         if: github.event.label.name == '3.x'
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment,close-issue'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hi @${{ github.event.issue.user.login }}. Current version (3.x) is off the maintenance period. We may not accept pull request or fix bug with it anymore. This topic will be auto closed.
 
             你好 @${{ github.event.issue.user.login }}，当前版本（3.x）已经过了维护期。我们不会再接受对其的相关 PR 与 issue。当前 topic 会被自动关闭。
+
+      - name: invalid
+        if: github.event.label.name == 'Invalid'
+        uses: actions-cool/issues-helper@v1.2
+        with:
+          actions: 'create-comment,close-issue'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}, your issue has been closed because it does not conform to our issue requirements. Please use the [Issue Helper](http://new-issue.ant.design) to create an issue, thank you!
+
+            你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。你可以通过 [issue 助手](http://new-issue.ant.design) 来创建 issue 以方便我们定位错误。谢谢配合！

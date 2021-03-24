@@ -284,4 +284,16 @@ describe('Sider', () => {
     );
     expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
   });
+
+  it('should get aside element from ref', () => {
+    const ref = React.createRef();
+    const onSelect = jest.fn();
+
+    mount(
+      <Sider onSelect={onSelect} ref={ref}>
+        Sider
+      </Sider>,
+    );
+    expect(ref.current instanceof HTMLElement).toBe(true);
+  });
 });

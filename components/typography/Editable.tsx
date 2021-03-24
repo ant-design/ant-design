@@ -12,6 +12,7 @@ interface EditableProps {
   ['aria-label']?: string;
   onSave: (value: string) => void;
   onCancel: () => void;
+  onEnd?: () => void;
   className?: string;
   style?: React.CSSProperties;
   direction?: DirectionType;
@@ -30,6 +31,7 @@ const Editable: React.FC<EditableProps> = ({
   value,
   onSave,
   onCancel,
+  onEnd,
 }) => {
   const ref = React.useRef<any>();
 
@@ -92,6 +94,7 @@ const Editable: React.FC<EditableProps> = ({
     ) {
       if (keyCode === KeyCode.ENTER) {
         confirmChange();
+        onEnd?.();
       } else if (keyCode === KeyCode.ESC) {
         onCancel();
       }

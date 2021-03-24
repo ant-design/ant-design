@@ -8,12 +8,16 @@ jobs:
   check-issue:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions-cool/check-user-permission@v1.0.0
+        id: checkUser
+        with:
+          require: 'write'
+
       - name: check invalid
-        if: contains(github.event.issue.body, 'ant-design-issue-helper') == false
+        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.result == 'false') 
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment,add-labels,close-issue'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           labels: 'Invalid'
           body: |
@@ -21,23 +25,21 @@ jobs:
 
             你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。你可以通过 [issue 助手](http://new-issue.ant.design) 来创建 issue 以方便我们定位错误。谢谢配合！
 
-      - name: check-website
+      - name: check website
         if: contains(github.event.issue.body, 'ant-design-issue-helper') == true
         uses: actions-cool/issues-helper@v1.2
         id: checkid
         with:
           actions: 'check-issue'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           # 格式如：'x1,x2' or  'x1,x2/y1,y2' 最多支持 2 个数组           
           title-includes: '官网,网站,国内,镜像,mobile ant design,mobile.ant.design,ant design,ant.design,pro/挂了,无法访问,不能访问,访问不了,出问题,打不开,登不上,can not open,can not be reached'
 
-      - name: deal-website
+      - name: deal website
         if: steps.checkid.outputs.check-result == 'true'
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'create-comment,close-issue'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             Ant Design 系列官网由于某些众所周知的原因无法访问，建议翻墙或访问国内镜像站点。
@@ -59,11 +61,10 @@ jobs:
             * Ant Motion: http://ant-motion.gitee.io
             * Ant Design Pro Preview : https://prosite.z23.web.core.windows.net
             
-      - name: check-ie
+      - name: check ie
         if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && contains(github.event.issue.title, 'IE9') == true || contains(github.event.issue.title, 'IE 9') == true || contains(github.event.issue.title, 'IE10') == true || contains(github.event.issue.title, 'IE 10') == true || contains(github.event.issue.title, 'IE11') == true || contains(github.event.issue.title, 'IE 11') == true || contains(github.event.issue.title, 'Internet Explorer') == true || contains(github.event.issue.body, 'IE9') == true || contains(github.event.issue.body, 'IE 9') == true || contains(github.event.issue.body, 'IE10') == true || contains(github.event.issue.body, 'IE 10') == true || contains(github.event.issue.body, 'IE11') == true || contains(github.event.issue.body, 'IE 11') == true || contains(github.event.issue.body, 'Internet Explorer') == true
         uses: actions-cool/issues-helper@v1.2
         with:
           actions: 'add-labels'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           labels: 'IE | Firefox | Safari,Internet Explorer'

@@ -37,6 +37,8 @@ interface EditConfig {
   tooltip?: boolean | React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
+  onCancel?: () => void;
+  onEnd?: () => void;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
 }
@@ -189,10 +191,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
     const { onExpand } = this.getEllipsis();
     this.setState({ expanded: true });
-
-    if (onExpand) {
-      (onExpand as React.MouseEventHandler<HTMLElement>)(e);
-    }
+    (onExpand as React.MouseEventHandler<HTMLElement>)?.(e);
   };
 
   // ================ Edit ================
@@ -202,14 +201,12 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   onEditChange = (value: string) => {
     const { onChange } = this.getEditable();
-    if (onChange) {
-      onChange(value);
-    }
-
+    onChange?.(value);
     this.triggerEdit(false);
   };
 
   onEditCancel = () => {
+    this.getEditable().onCancel?.();
     this.triggerEdit(false);
   };
 
@@ -416,12 +413,13 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
-    const { maxLength, autoSize } = this.getEditable();
+    const { maxLength, autoSize, onEnd } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
         onSave={this.onEditChange}
         onCancel={this.onEditCancel}
+        onEnd={onEnd}
         prefixCls={this.getPrefixCls()}
         className={className}
         style={style}

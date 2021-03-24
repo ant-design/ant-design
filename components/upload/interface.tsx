@@ -1,17 +1,18 @@
 import * as React from 'react';
-import { UploadRequestOption as RcCustomRequestOptions } from 'rc-upload/lib/interface';
+import {
+  RcFile as OriRcFile,
+  UploadRequestOption as RcCustomRequestOptions,
+} from 'rc-upload/lib/interface';
 import { ProgressProps } from '../progress';
+
+export interface RcFile extends OriRcFile {
+  readonly lastModifiedDate: Date;
+}
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
 export interface HttpRequestHeader {
   [key: string]: string;
-}
-
-export interface RcFile extends File {
-  uid: string;
-  readonly lastModifiedDate: Date;
-  readonly webkitRelativePath: string;
 }
 
 export interface UploadFile<T = any> {
@@ -25,7 +26,7 @@ export interface UploadFile<T = any> {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  originFileObj?: File | Blob;
+  originFileObj: RcFile;
   response?: T;
   error?: any;
   linkProps?: any;
@@ -37,7 +38,7 @@ export interface UploadFile<T = any> {
 export interface UploadChangeParam<T extends object = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
-  fileList: Array<UploadFile>;
+  fileList: UploadFile[];
   event?: { percent: number };
 }
 
@@ -85,7 +86,7 @@ export interface UploadProps<T = any> {
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | Promise<void | Blob | File>;
+  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | {} | Promise<void | Blob | File>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;

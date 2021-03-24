@@ -719,7 +719,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
           </svg>
         </span>
         <span>
-           Click to Upload
+          Click to Upload
         </span>
       </button>
     </span>

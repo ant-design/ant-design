@@ -147,4 +147,15 @@ describe('Drawer', () => {
 
     errorSpy.mockRestore();
   });
+
+  it('should support ref', () => {
+    const ref = React.createRef();
+    mount(
+      <Drawer visible ref={ref} width={400}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(typeof ref.current.push).toBe('function');
+    expect(typeof ref.current.pull).toBe('function');
+  });
 });

@@ -75,7 +75,7 @@ Note:
 
 ### Customize in Umi
 
-You can easily use [theme](https://umijs.org/config/#theme) field in [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45) (Umi) file of your project root directory if you are using [Umi](http://umijs.org/), which could be an object or a javascript file path.
+You can easily use [theme](https://umijs.org/config/#theme) field in `.umirc.ts` or [config/config.ts](https://github.com/ant-design/ant-design-pro/blob/v5/config/config.ts) file of your project root directory if you are using [Umi](http://umijs.org/), which could be an object or a javascript file path.
 
 ```js
 "theme": {
@@ -148,25 +148,17 @@ We have some official themes, try them out and give us some feedback!
 
 Method 1: using Umi 3
 
-If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
+If you're using [Umi 3](http://umijs.org):
 
-1. Install `@umijs/plugin-antd` plugin;
-
-   ```bash
-   $ npm i @umijs/plugin-antd -D
-   ```
-
-2. set `dark` or `compact` to `true`.
-
-   ```js
-   // .umirc.ts or config/config.ts
-   export default {
-     antd: {
-       dark: true, // active dark theme
-       compact: true, // active compact theme
-     },
-   },
-   ```
+```js
+// .umirc.ts or config/config.ts
+export default {
+  antd: {
+    dark: true, // active dark theme
+    compact: true, // active compact theme
+  },
+},
+```
 
 Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) or [antd/dist/antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less) in the style file:
 

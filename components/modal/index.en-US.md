@@ -139,16 +139,6 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
-### Modal.config() `4.5.0+`
-
-Like `message.config()`, `Modal.config()` could set `Modal.confirm` props globally (such as `prefixCls`), and it will affect `Modal.confirm|success|info|error|warning` **static methods only**.
-
-```jsx
-Modal.config({
-  rootPrefixCls: 'ant',
-});
-```
-
 ## FAQ
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?
@@ -178,3 +168,7 @@ return (
 ### How to disable motion?
 
 You can config `transitionName=""` and `maskTransitionName=""` to remove motion class. But you should note that these prop is internal usage which we don't promise exist in next major version.
+
+### How to set static methods prefixCls ？
+
+You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)

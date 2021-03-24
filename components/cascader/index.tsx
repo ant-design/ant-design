@@ -21,6 +21,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { replaceElement } from '../_util/reactNode';
+import { getTransitionName } from '../_util/motion';
 
 export interface CascaderOptionType {
   value?: string | number;
@@ -254,7 +255,6 @@ function getEmptyNode(
 
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
-    transitionName: 'slide-up',
     options: [],
     disabled: false,
     allowClear: true,
@@ -312,9 +312,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       this.setState({ value });
     }
     const { onChange } = this.props;
-    if (onChange) {
-      onChange(value, selectedOptions);
-    }
+    onChange?.(value, selectedOptions);
   };
 
   getLabel() {
@@ -359,9 +357,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
 
     const { onPopupVisibleChange } = this.props;
-    if (onPopupVisibleChange) {
-      onPopupVisibleChange(popupVisible);
-    }
+    onPopupVisibleChange?.(popupVisible);
   };
 
   handleInputBlur = () => {
@@ -672,6 +668,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           [`${prefixCls}-menu-empty`]:
             options.length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND',
         });
+        const rootPrefixCls = getPrefixCls();
 
         return (
           <RcCascader
@@ -690,6 +687,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             popupPlacement={this.getPopupPlacement(direction)}
             // rc-cascader should update ts define to fix this case
             dropdownRender={dropdownRender as any}
+            transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
           >
             {input}
           </RcCascader>

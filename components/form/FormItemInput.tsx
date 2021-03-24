@@ -17,7 +17,7 @@ interface FormItemInputMiscProps {
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   onDomErrorVisibleChange: (visible: boolean) => void;
-  /** @private Internal usage, do not use in any of your production. */
+  /** @private Internal Usage, do not use in any of your production. */
   _internalItemRender?: {
     mark: string;
     render: (

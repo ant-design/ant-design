@@ -239,6 +239,7 @@ export default class TransferList<
     onItemSelectAll: (dataSource: string[], checkAll: boolean) => void,
     showSelectAll?: boolean,
     disabled?: boolean,
+    prefixCls?: string,
   ): false | JSX.Element {
     const checkStatus = this.getCheckStatus(filteredItems);
     const checkedAll = checkStatus === 'all';
@@ -247,6 +248,7 @@ export default class TransferList<
         disabled={disabled}
         checked={checkedAll}
         indeterminate={checkStatus === 'part'}
+        className={`${prefixCls}-checkbox`}
         onChange={() => {
           // Only select enabled items
           onItemSelectAll(
@@ -347,7 +349,7 @@ export default class TransferList<
     const checkAllCheckbox =
       !showRemove &&
       !pagination &&
-      this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled);
+      this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled, prefixCls);
 
     let menu: React.ReactElement | null = null;
     if (showRemove) {

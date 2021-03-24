@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import { supportRef, composeRef } from 'rc-util/lib/ref';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
@@ -77,7 +78,6 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'true');
     // Not white or transparent or grey
-    styleForPseudo = styleForPseudo || document.createElement('style');
     if (
       waveColor &&
       waveColor !== '#ffffff' &&
@@ -86,18 +86,18 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       !/rgba\((?:\d*, ){3}0\)/.test(waveColor) && // any transparent rgba color
       waveColor !== 'transparent'
     ) {
-      // Add nonce if CSP exist
-      if (this.csp && this.csp.nonce) {
-        styleForPseudo.nonce = this.csp.nonce;
-      }
-
       extraNode.style.borderColor = waveColor;
-      styleForPseudo.innerHTML = `
+
+      styleForPseudo = updateCSS(
+        `
       [${getPrefixCls('')}-click-animating-without-extra-node='true']::after, .${getPrefixCls(
-        '',
-      )}-click-animating-node {
+          '',
+        )}-click-animating-node {
         --antd-wave-shadow-color: ${waveColor};
-      }`;
+      }`,
+        'antd-wave',
+        { csp: this.csp },
+      );
       const nodeRoot = node.getRootNode?.() || node.ownerDocument;
       const nodeBody = nodeRoot instanceof Document ? nodeRoot.body : nodeRoot;
       if (!nodeBody.contains(styleForPseudo)) {

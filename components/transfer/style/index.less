@@ -121,12 +121,12 @@
       padding: 0;
       overflow: auto;
       list-style: none;
+
       &-item {
         display: flex;
         align-items: center;
         min-height: @transfer-item-height;
         padding: @transfer-item-padding-vertical @control-padding-horizontal;
-        overflow: hidden;
         line-height: @transfer-item-height - 2 * @transfer-item-padding-vertical;
         transition: all 0.3s;
 
@@ -208,6 +208,10 @@
 
     &-footer {
       border-top: @border-width-base @border-style-base @border-color-split;
+    }
+
+    &-checkbox .@{ant-prefix}-checkbox {
+      top: 0;
     }
   }
 
