@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     'airbnb',
     'prettier',
+    'plugin:compat/recommended',
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:import/typescript',
@@ -18,6 +19,7 @@ module.exports = {
     react: {
       version: '16.9',
     },
+    polyfills: ['Promise', 'URL'],
   },
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],

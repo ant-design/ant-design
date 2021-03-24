@@ -103,10 +103,13 @@
     }
   },
   "browserslist": [
-    "last 2 versions",
+    "Chrome >= 65",
     "Firefox ESR",
-    "> 1%",
-    "ie >= 11"
+    "Firefox >= 60",
+    "Android >= 65",
+    "Safari >= 12",
+    "iOS >= 12",
+    "IE 11"
   ],
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
@@ -202,6 +205,7 @@
     "eslint-config-airbnb": "^18.0.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-jest": "^24.0.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",

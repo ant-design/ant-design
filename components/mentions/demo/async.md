@@ -46,6 +46,7 @@ class AsyncMention extends React.Component {
       return;
     }
 
+    // eslint-disable-next-line compat/compat
     fetch(`https://api.github.com/search/users?q=${key}`)
       .then(res => res.json())
       .then(({ items = [] }) => {
