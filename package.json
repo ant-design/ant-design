@@ -103,13 +103,11 @@
     }
   },
   "browserslist": [
-    "Chrome >= 65",
+    "> 0.5%",
+    "last 2 versions",
     "Firefox ESR",
-    "Firefox >= 60",
-    "Android >= 65",
-    "Safari >= 12",
-    "iOS >= 12",
-    "IE 11"
+    "IE 11",
+    "not IE 10"
   ],
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
