@@ -217,7 +217,7 @@
     "husky": "^4.0.3",
     "identity-obj-proxy": "^3.0.0",
     "ignore-emit-webpack-plugin": "^2.0.6",
-    "immer": "^8.0.0",
+    "immer": "^9.0.1",
     "immutability-helper": "^3.0.0",
     "inquirer": "^8.0.0",
     "intersection-observer": "^0.12.0",
