@@ -13,18 +13,12 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
-  global: {
-    placeholder: 'لطفاً انتخاب کنید',
-  },
   Table: {
     filterTitle: 'منوی فیلتر',
     filterConfirm: 'تایید',
     filterReset: 'پاک کردن',
-    filterEmptyText: 'بدون فیلتر',
-    emptyText: 'بدون داده',
     selectAll: 'انتخاب صفحه‌ی کنونی',
     selectInvert: 'معکوس کردن انتخاب‌ها در صفحه ی کنونی',
-    selectNone: 'انتخاب هیچکدام',
     selectionAll: 'انتخاب همه داده‌ها',
     sortTitle: 'مرتب سازی',
     expand: 'باز شدن ردیف',
@@ -45,14 +39,8 @@ const localeValues: Locale = {
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'جستجو',
-    itemUnit: 'عدد',
-    itemsUnit: 'عدد',
-    remove: 'حذف',
-    selectCurrent: 'انتخاب صفحه فعلی',
-    removeCurrent: 'پاک کردن انتخاب‌های صفحه فعلی',
-    selectAll: 'انتخاب همه',
-    removeAll: 'پاک کردن همه انتخاب‌ها',
-    selectInvert: 'معکوس کردن انتخاب‌ها در صفحه ی کنونی',
+    itemUnit: '',
+    itemsUnit: '',
   },
   Upload: {
     uploading: 'در حال آپلود...',
@@ -69,7 +57,7 @@ const localeValues: Locale = {
   },
   Text: {
     edit: 'ویرایش',
-    copy: 'کپی',
+    copy: 'کپس',
     copied: 'کپی شد',
     expand: 'توسعه',
   },
@@ -77,7 +65,6 @@ const localeValues: Locale = {
     back: 'برگشت',
   },
   Form: {
-    optional: '(اختیاری)',
     defaultValidateMessages: {
       default: 'خطا در ${label}',
       required: 'فیلد ${label} اجباریست',
@@ -117,17 +104,14 @@ const localeValues: Locale = {
       },
       array: {
         len: 'تعداد ${label} باید ${len} باشد.',
-        min: 'تعداد ${label} حداقل باید ${min} باشد',
-        max: 'تعداد ${label} حداکثر باید ${max} باشد',
+        min: 'تعداد ${lable} حداقل باید ${min} باشد',
+        max: 'تعداد ${lable} حداکثر باید ${max} باشد',
         range: 'مقدار ${label} باید بین ${min}-${max} باشد',
       },
       pattern: {
         mismatch: 'الگوی ${label} با ${pattern} برابری نمی‌کند',
       },
     },
-  },
-  Image: {
-    preview: 'نمایش',
   },
 };
 

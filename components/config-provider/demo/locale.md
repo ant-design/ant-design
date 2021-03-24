@@ -176,8 +176,8 @@ ReactDOM.render(<App />, mountNode);
 }
 
 .locale-components {
-  padding-top: 16px;
   border-top: 1px solid #d9d9d9;
+  padding-top: 16px;
 }
 
 .code-box-demo .example {

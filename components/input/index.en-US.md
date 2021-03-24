@@ -103,7 +103,3 @@ const suffix = condition ? <Icon type="smile" /> : <span />;
 
 <Input suffix={suffix} />;
 ```
-
-### Why TextArea in control can make `value` exceed `maxLength`?
-
-When in control, component should show as what it set to avoid submit value not align with store value in Form.

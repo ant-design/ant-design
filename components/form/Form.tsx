@@ -103,7 +103,9 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   React.useImperativeHandle(ref, () => wrapForm);
 
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
-    onFinishFailed?.(errorInfo);
+    if (onFinishFailed) {
+      onFinishFailed(errorInfo);
+    }
 
     let defaultScrollToFirstError: Options = { block: 'nearest' };
 

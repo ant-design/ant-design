@@ -40,6 +40,7 @@ class Demo extends React.Component {
         return;
       case 'other':
         this.formRef.current!.setFieldsValue({ note: 'Hi there!' });
+        return;
     }
   };
 
@@ -79,8 +80,8 @@ class Demo extends React.Component {
           noStyle
           shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
         >
-          {({ getFieldValue }) =>
-            getFieldValue('gender') === 'other' ? (
+          {({ getFieldValue }) => {
+            return getFieldValue('gender') === 'other' ? (
               <Form.Item
                 name="customizeGender"
                 label="Customize Gender"
@@ -88,8 +89,8 @@ class Demo extends React.Component {
               >
                 <Input />
               </Form.Item>
-            ) : null
-          }
+            ) : null;
+          }}
         </Form.Item>
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">

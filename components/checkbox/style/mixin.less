@@ -7,9 +7,11 @@
     .reset-component();
 
     position: relative;
-    top: 0.2em;
+    top: -0.09em;
+    display: inline-block;
     line-height: 1;
     white-space: nowrap;
+    vertical-align: middle;
     outline: none;
     cursor: pointer;
 
@@ -146,15 +148,13 @@
 
   .@{checkbox-prefix-cls}-wrapper {
     .reset-component();
-    display: inline-flex;
-    align-items: baseline;
+
+    display: inline-block;
     line-height: unset;
     cursor: pointer;
-
     &.@{checkbox-prefix-cls}-wrapper-disabled {
       cursor: not-allowed;
     }
-
     & + & {
       margin-left: 8px;
     }
@@ -167,9 +167,10 @@
 
   .@{checkbox-prefix-cls}-group {
     .reset-component();
-    display: inline-block;
 
+    display: inline-block;
     &-item {
+      display: inline-block;
       margin-right: @checkbox-group-item-margin-right;
       &:last-child {
         margin-right: 0;

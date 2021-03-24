@@ -817,12 +817,157 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
     >
       <span
         class="config-scroll-number-only"
-        style="transition:none"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
         <p
           class="config-scroll-number-only-unit current"
         >
           5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
         </p>
       </span>
     </sup>
@@ -852,12 +997,157 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
     >
       <span
         class="config-scroll-number-only"
-        style="transition:none"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
         <p
           class="config-scroll-number-only-unit current"
         >
           5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
         </p>
       </span>
     </sup>
@@ -887,12 +1177,157 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
     >
       <span
         class="config-scroll-number-only"
-        style="transition:none"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
         <p
           class="config-scroll-number-only-unit current"
         >
           5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="config-scroll-number-only-unit"
+        >
+          9
         </p>
       </span>
     </sup>
@@ -922,12 +1357,157 @@ exports[`ConfigProvider components Badge configProvider virtual and dropdownMatc
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
         <p
           class="ant-scroll-number-only-unit current"
         >
           5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
         </p>
       </span>
     </sup>
@@ -957,12 +1537,157 @@ exports[`ConfigProvider components Badge normal 1`] = `
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
         <p
           class="ant-scroll-number-only-unit current"
         >
           5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
         </p>
       </span>
     </sup>
@@ -992,12 +1717,157 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
     >
       <span
         class="prefix-scroll-number-only"
-        style="transition:none"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          4
+        </p>
         <p
           class="prefix-scroll-number-only-unit current"
         >
           5
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="prefix-scroll-number-only-unit"
+        >
+          9
         </p>
       </span>
     </sup>
@@ -14108,7 +14978,6 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     class="config-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
@@ -14135,7 +15004,6 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
@@ -14166,8 +15034,12 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
+      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14184,7 +15056,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     class="config-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
@@ -14211,7 +15082,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
@@ -14242,8 +15112,12 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
+      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14260,7 +15134,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     class="config-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
@@ -14287,7 +15160,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
@@ -14318,8 +15190,12 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
+      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14336,7 +15212,6 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
@@ -14363,7 +15238,6 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
@@ -14394,8 +15268,12 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
+      max="9007199254740991"
+      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14412,7 +15290,6 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
@@ -14439,7 +15316,6 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
@@ -14470,8 +15346,12 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
+      max="9007199254740991"
+      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -14488,7 +15368,6 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     class="prefix-InputNumber-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
       class="prefix-InputNumber-handler prefix-InputNumber-handler-up"
       role="button"
@@ -14515,7 +15394,6 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
       class="prefix-InputNumber-handler prefix-InputNumber-handler-down"
       role="button"
@@ -14546,8 +15424,12 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     class="prefix-InputNumber-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="prefix-InputNumber-input"
+      max="9007199254740991"
+      min="-9007199254740991"
       role="spinbutton"
       step="1"
       value=""
@@ -33761,7 +34643,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper"
       >
         <span
           class="config-checkbox"
@@ -33919,7 +34801,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper"
       >
         <span
           class="config-checkbox"
@@ -34030,7 +34912,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper"
       >
         <span
           class="config-checkbox"
@@ -34188,7 +35070,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper"
       >
         <span
           class="config-checkbox"
@@ -34299,7 +35181,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper"
       >
         <span
           class="config-checkbox"
@@ -34457,7 +35339,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper"
       >
         <span
           class="config-checkbox"
@@ -34568,7 +35450,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper"
       >
         <span
           class="ant-checkbox"
@@ -34726,7 +35608,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper"
       >
         <span
           class="ant-checkbox"
@@ -34837,7 +35719,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper"
       >
         <span
           class="ant-checkbox"
@@ -34995,7 +35877,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper"
       >
         <span
           class="ant-checkbox"
@@ -35106,7 +35988,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       class="prefix-Transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper prefix-Transfer-list-checkbox"
+        class="ant-checkbox-wrapper"
       >
         <span
           class="ant-checkbox"
@@ -35264,7 +36146,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       class="prefix-Transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper prefix-Transfer-list-checkbox"
+        class="ant-checkbox-wrapper"
       >
         <span
           class="ant-checkbox"

@@ -67,7 +67,9 @@ const Card: CardInterface = props => {
   const size = React.useContext(SizeContext);
 
   const onTabChange = (key: string) => {
-    props.onTabChange?.(key);
+    if (props.onTabChange) {
+      props.onTabChange(key);
+    }
   };
 
   const isContainGrid = () => {

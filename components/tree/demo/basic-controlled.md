@@ -67,22 +67,22 @@ const Demo = () => {
   const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
   const [autoExpandParent, setAutoExpandParent] = useState<boolean>(true);
 
-  const onExpand = (expandedKeysValue: React.Key[]) => {
-    console.log('onExpand', expandedKeysValue);
+  const onExpand = (expandedKeys: React.Key[]) => {
+    console.log('onExpand', expandedKeys);
     // if not set autoExpandParent to false, if children expanded, parent can not collapse.
     // or, you can remove all expanded children keys.
-    setExpandedKeys(expandedKeysValue);
+    setExpandedKeys(expandedKeys);
     setAutoExpandParent(false);
   };
 
-  const onCheck = (checkedKeysValue: React.Key[]) => {
-    console.log('onCheck', checkedKeysValue);
-    setCheckedKeys(checkedKeysValue);
+  const onCheck = (checkedKeys: React.Key[]) => {
+    console.log('onCheck', checkedKeys);
+    setCheckedKeys(checkedKeys);
   };
 
-  const onSelect = (selectedKeysValue: React.Key[], info: any) => {
+  const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('onSelect', info);
-    setSelectedKeys(selectedKeysValue);
+    setSelectedKeys(selectedKeys);
   };
 
   return (

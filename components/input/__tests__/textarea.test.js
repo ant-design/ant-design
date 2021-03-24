@@ -74,30 +74,9 @@ describe('TextArea', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  describe('maxLength', () => {
-    it('should support maxLength', () => {
-      const wrapper = mount(<TextArea maxLength={10} />);
-      expect(wrapper.render()).toMatchSnapshot();
-    });
-
-    it('maxLength should not block control', () => {
-      const wrapper = mount(<TextArea maxLength={1} value="light" />);
-      expect(wrapper.find('textarea').props().value).toEqual('light');
-    });
-
-    it('should exceed maxLength when use IME', () => {
-      const onChange = jest.fn();
-
-      const wrapper = mount(<TextArea maxLength={1} onChange={onChange} />);
-      wrapper.find('textarea').simulate('compositionStart');
-      wrapper.find('textarea').simulate('change', { target: { value: 'zhu' } });
-      wrapper.find('textarea').simulate('compositionEnd', { currentTarget: { value: '竹' } });
-      wrapper.find('textarea').simulate('change', { target: { value: '竹' } });
-
-      expect(onChange).toHaveBeenLastCalledWith(
-        expect.objectContaining({ target: expect.objectContaining({ value: '竹' }) }),
-      );
-    });
+  it('should support maxLength', () => {
+    const wrapper = mount(<TextArea maxLength={10} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('when prop value not in this.props, resizeTextarea should be called', async () => {
@@ -159,45 +138,18 @@ describe('TextArea', () => {
 
   describe('should support showCount', () => {
     it('maxLength', () => {
-      const wrapper = mount(<TextArea maxLength={5} showCount value="12345" />);
+      const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
       const textarea = wrapper.find('.ant-input-textarea');
       expect(wrapper.find('textarea').prop('value')).toBe('12345');
       expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
-    it('control exceed maxLength', () => {
-      const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
+    // 修改TextArea value截取规则后新增单测
+    it('slice emoji', () => {
+      const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
       const textarea = wrapper.find('.ant-input-textarea');
-      expect(wrapper.find('textarea').prop('value')).toBe('12345678');
-      expect(textarea.prop('data-count')).toBe('8 / 5');
-    });
-
-    describe('emoji', () => {
-      it('should minimize value between emoji length and maxLength', () => {
-        const wrapper = mount(<TextArea maxLength={1} showCount value="👀" />);
-        const textarea = wrapper.find('.ant-input-textarea');
-        expect(wrapper.find('textarea').prop('value')).toBe('👀');
-        expect(textarea.prop('data-count')).toBe('1 / 1');
-
-        // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
-        // zombieJ: 逻辑统一了，emoji 现在也可以正确计数了
-        const wrapper1 = mount(<TextArea maxLength={2} showCount value="👀" />);
-        const textarea1 = wrapper1.find('.ant-input-textarea');
-        expect(textarea1.prop('data-count')).toBe('1 / 2');
-      });
-
-      it('defaultValue should slice', () => {
-        const wrapper = mount(<TextArea maxLength={1} defaultValue="🧐cut" />);
-        expect(wrapper.find('textarea').prop('value')).toBe('🧐');
-      });
-
-      // 修改TextArea value截取规则后新增单测
-      it('slice emoji', () => {
-        const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
-        const textarea = wrapper.find('.ant-input-textarea');
-        expect(wrapper.find('textarea').prop('value')).toBe('1234😂');
-        expect(textarea.prop('data-count')).toBe('5 / 5');
-      });
+      expect(wrapper.find('textarea').prop('value')).toBe('1234😂');
+      expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
     it('className & style patch to outer', () => {
@@ -219,7 +171,7 @@ describe('TextArea', () => {
         <TextArea
           maxLength={5}
           showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
-          value="12345"
+          value="12345678"
         />,
       );
       const textarea = wrapper.find('.ant-input-textarea');

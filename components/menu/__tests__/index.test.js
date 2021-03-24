@@ -27,9 +27,9 @@ const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
   menu.update();
   expect(menu.find('.ant-menu-sub').length).toBe(0);
   const AnimationClassNames = {
-    horizontal: 'ant-slide-up-leave',
+    horizontal: 'slide-up-leave',
     inline: 'ant-motion-collapse-leave',
-    vertical: 'ant-zoom-big-leave',
+    vertical: 'zoom-big-leave',
   };
   const mode = menu.prop('mode') || 'horizontal';
   enter();

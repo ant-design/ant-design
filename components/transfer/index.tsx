@@ -197,7 +197,9 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     this.setStateKeys(oppositeDirection, []);
     this.handleSelectChange(oppositeDirection, []);
 
-    onChange?.(newTargetKeys, direction, newMoveKeys);
+    if (onChange) {
+      onChange(newTargetKeys, direction, newMoveKeys);
+    }
   };
 
   moveToLeft = () => this.moveTo('left');
@@ -230,7 +232,9 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearch } = this.props;
     const { value } = e.target;
-    onSearch?.(direction, value);
+    if (onSearch) {
+      onSearch(direction, value);
+    }
   };
 
   handleLeftFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('left', e);
@@ -239,7 +243,9 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   handleClear = (direction: TransferDirection) => {
     const { onSearch } = this.props;
-    onSearch?.(direction, '');
+    if (onSearch) {
+      onSearch(direction, '');
+    }
   };
 
   handleLeftClear = () => this.handleClear('left');
@@ -274,16 +280,20 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
     this.setStateKeys('right', []);
 
-    onChange?.(
-      targetKeys.filter(key => !selectedKeys.includes(key)),
-      'left',
-      [...selectedKeys],
-    );
+    if (onChange) {
+      onChange(
+        targetKeys.filter(key => !selectedKeys.includes(key)),
+        'left',
+        [...selectedKeys],
+      );
+    }
   };
 
   handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
     const { onScroll } = this.props;
-    onScroll?.(direction, e);
+    if (onScroll) {
+      onScroll(direction, e);
+    }
   };
 
   handleLeftScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('left', e);

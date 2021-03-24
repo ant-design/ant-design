@@ -38,8 +38,7 @@ function updateTreeData(list: DataNode[], key: React.Key, children: DataNode[]):
         ...node,
         children,
       };
-    }
-    if (node.children) {
+    } else if (node.children) {
       return {
         ...node,
         children: updateTreeData(node.children, key, children),

@@ -46,11 +46,10 @@
 
   &-textarea {
     &-show-count::after {
-      float: right;
+      display: block;
       color: @text-color-secondary;
-      white-space: nowrap;
+      text-align: right;
       content: attr(data-count);
-      pointer-events: none;
     }
   }
 }

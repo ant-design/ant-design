@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
@@ -32,10 +31,10 @@ describe('Badge', () => {
 
   it('badge should support float number', () => {
     let wrapper = mount(<Badge count={3.5} />);
-    expect(wrapper.find('.ant-badge-multiple-words').first().text()).toEqual('3.5');
+    expect(wrapper.render()).toMatchSnapshot();
 
     wrapper = mount(<Badge count="3.5" />);
-    expect(wrapper.find('.ant-badge-multiple-words').first().text()).toEqual('3.5');
+    expect(wrapper.render()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -59,33 +58,31 @@ describe('Badge', () => {
         <Badge status="error" />
       </Tooltip>,
     );
-
-    act(() => {
-      wrapper.find('Badge').simulate('mouseenter');
-      jest.runAllTimers();
-    });
-    expect(ref.current.props.visible).toBeTruthy();
+    wrapper.find('Badge').simulate('mouseenter');
+    jest.runAllTimers();
+    expect(ref.current.props.visible).toBe(true);
   });
 
   it('should render when count is changed', () => {
     const wrapper = mount(<Badge count={9} />);
-
-    function updateMatch(count) {
-      wrapper.setProps({ count });
-
-      act(() => {
-        jest.runAllTimers();
-        wrapper.update();
-        expect(wrapper.render()).toMatchSnapshot();
-      });
-    }
-
-    updateMatch(10);
-    updateMatch(11);
-    updateMatch(11);
-    updateMatch(111);
-    updateMatch(10);
-    updateMatch(9);
+    wrapper.setProps({ count: 10 });
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({ count: 11 });
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({ count: 11 });
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({ count: 111 });
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({ count: 10 });
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
+    jest.runAllTimers();
+    wrapper.setProps({ count: 9 });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should be compatible with borderColor style', () => {
@@ -154,6 +151,20 @@ describe('Badge', () => {
     );
 
     expect(wrapper.find('.ant-badge')).toHaveLength(2);
+  });
+
+  it('render Badge size when contains children', () => {
+    const wrapper = mount(
+      <div>
+        <Badge size="default" count={5}>
+          <a />
+        </Badge>
+        <Badge size="small" count={5}>
+          <a />
+        </Badge>
+      </div>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
 

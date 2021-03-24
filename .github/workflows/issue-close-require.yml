@@ -12,6 +12,7 @@ jobs:
         uses: actions-cool/issues-helper@v1.7
         with:
           actions: 'close-issues'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
           labels: '🤔 Need Reproduce'
           inactive-day: 3
       
@@ -19,6 +20,7 @@ jobs:
         uses: actions-cool/issues-helper@v1.7
         with:
           actions: 'close-issues'
+          token: ${{ secrets.ANT_BOT_TOKEN }}
           labels: 'needs-more-info'
           inactive-day: 3
           body: |

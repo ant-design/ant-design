@@ -102,7 +102,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             ? getTimeProps({ format, ...this.props, picker: mergedPicker })
             : {}),
         };
-        const rootPrefixCls = getPrefixCls();
 
         return (
           <SizeContext.Consumer>
@@ -118,7 +117,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   }
                   clearIcon={<CloseCircleFilled />}
                   allowClear
-                  transitionName={`${rootPrefixCls}-slide-up`}
+                  transitionName="slide-up"
                   {...additionalProps}
                   {...restProps}
                   {...additionalOverrideProps}

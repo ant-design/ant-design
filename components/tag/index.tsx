@@ -87,7 +87,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
-    onClose?.(e);
+    if (onClose) {
+      onClose(e);
+    }
 
     if (e.defaultPrevented) {
       return;

@@ -28,7 +28,11 @@ const App: React.FC = () => {
     setVisible(false);
   };
   return (
-    <ConfigProvider getPopupContainer={() => domRef.current!}>
+    <ConfigProvider
+      getPopupContainer={() => {
+        return domRef.current!;
+      }}
+    >
       <div ref={domRef} className="site-drawer-render-in-current-wrapper">
         <Button type="primary" onClick={showDrawer}>
           Open

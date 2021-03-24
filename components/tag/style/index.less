@@ -19,6 +19,10 @@
   opacity: 1;
   transition: all 0.3s;
 
+  &:hover {
+    opacity: 0.85;
+  }
+
   &,
   a,
   a:hover {
@@ -84,9 +88,8 @@
     @lightColor: '@{color}-1';
     @lightBorderColor: '@{color}-3';
     @darkColor: '@{color}-6';
-    @textColor: '@{color}-7';
     &-@{color} {
-      color: @@textColor;
+      color: @@darkColor;
       background: @@lightColor;
       border-color: @@lightBorderColor;
     }

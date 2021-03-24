@@ -19,6 +19,7 @@ const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     rafRef.current = raf(() => {
       innerRef.current?.forcePopupAlign();
       rafRef.current = null;
+      keepAlign();
     });
   }
 
@@ -30,7 +31,7 @@ const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     }
 
     return cancelKeepAlign;
-  }, [visible, props.title]);
+  }, [visible]);
 
   return <Tooltip ref={composeRef(innerRef, ref)} {...props} />;
 });

@@ -9,8 +9,6 @@ import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext, DirectionType } from '../config-provider';
-import { canUseDocElement } from '../_util/styleChecker';
-import { getTransitionName } from '../_util/motion';
 
 let mousePosition: { x: number; y: number } | null;
 export const destroyFns: Array<() => void> = [];
@@ -30,7 +28,7 @@ const getClickPosition = (e: MouseEvent) => {
 };
 
 // 只有点击事件支持从鼠标位置动画展开
-if (canUseDocElement()) {
+if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
@@ -142,12 +140,16 @@ const Modal: ModalInterface = props => {
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
-    onCancel?.(e);
+    if (onCancel) {
+      onCancel(e);
+    }
   };
 
   const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onOk } = props;
-    onOk?.(e);
+    if (onOk) {
+      onOk(e);
+    }
   };
 
   const renderFooter = (locale: ModalLocale) => {
@@ -182,8 +184,6 @@ const Modal: ModalInterface = props => {
   } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
-
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
       {renderFooter}
@@ -212,8 +212,6 @@ const Modal: ModalInterface = props => {
       onClose={handleCancel}
       closeIcon={closeIconToRender}
       focusTriggerAfterClose={focusTriggerAfterClose}
-      transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-      maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
     />
   );
 };
@@ -222,6 +220,8 @@ Modal.useModal = useModal;
 
 Modal.defaultProps = {
   width: 520,
+  transitionName: 'zoom',
+  maskTransitionName: 'fade',
   confirmLoading: false,
   visible: false,
   okType: 'primary' as LegacyButtonType,

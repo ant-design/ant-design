@@ -49,7 +49,7 @@ const HorizontalLoginForm = () => {
           placeholder="Password"
         />
       </Form.Item>
-      <Form.Item shouldUpdate>
+      <Form.Item shouldUpdate={true}>
         {() => (
           <Button
             type="primary"

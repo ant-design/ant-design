@@ -231,7 +231,9 @@ export default function useSelection<RecordType>(
 
       setMergedSelectedKeys(availableKeys);
 
-      onSelectionChange?.(availableKeys, records);
+      if (onSelectionChange) {
+        onSelectionChange(availableKeys, records);
+      }
     },
     [setMergedSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
@@ -285,6 +287,7 @@ export default function useSelection<RecordType>(
             });
 
             const keys = Array.from(keySet);
+            setSelectedKeys(keys);
             if (onSelectInvert) {
               devWarning(
                 false,
@@ -293,8 +296,6 @@ export default function useSelection<RecordType>(
               );
               onSelectInvert(keys);
             }
-
-            setSelectedKeys(keys);
           },
         };
       }
@@ -303,8 +304,10 @@ export default function useSelection<RecordType>(
           key: 'none',
           text: tableLocale.selectNone,
           onSelect() {
-            onSelectNone?.();
             setSelectedKeys([]);
+            if (onSelectNone) {
+              onSelectNone();
+            }
           },
         };
       }
@@ -347,14 +350,15 @@ export default function useSelection<RecordType>(
         }
 
         const keys = Array.from(keySet);
-
-        onSelectAll?.(
-          !checkedCurrentAll,
-          keys.map(k => getRecordByKey(k)),
-          changeKeys.map(k => getRecordByKey(k)),
-        );
-
         setSelectedKeys(keys);
+
+        if (onSelectAll) {
+          onSelectAll(
+            !checkedCurrentAll,
+            keys.map(k => getRecordByKey(k)),
+            changeKeys.map(k => getRecordByKey(k)),
+          );
+        }
       };
 
       // ===================== Render =====================
@@ -371,7 +375,9 @@ export default function useSelection<RecordType>(
                   <Menu.Item
                     key={key || index}
                     onClick={() => {
-                      onSelectionClick?.(recordKeys);
+                      if (onSelectionClick) {
+                        onSelectionClick(recordKeys);
+                      }
                     }}
                   >
                     {text}
@@ -510,13 +516,14 @@ export default function useSelection<RecordType>(
                     }
 
                     const keys = Array.from(keySet);
-                    onSelectMultiple?.(
-                      !checked,
-                      keys.map(recordKey => getRecordByKey(recordKey)),
-                      changedKeys.map(recordKey => getRecordByKey(recordKey)),
-                    );
-
                     setSelectedKeys(keys);
+                    if (onSelectMultiple) {
+                      onSelectMultiple(
+                        !checked,
+                        keys.map(recordKey => getRecordByKey(recordKey)),
+                        changedKeys.map(recordKey => getRecordByKey(recordKey)),
+                      );
+                    }
                   } else {
                     // Single record selected
                     const originCheckedKeys = derivedSelectedKeys;

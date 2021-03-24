@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+
 import DropdownButton from './dropdown-button';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
@@ -16,7 +17,6 @@ const Placements = tuple(
   'bottomCenter',
   'bottomRight',
 );
-
 type Placement = typeof Placements[number];
 
 type OverlayFunc = () => React.ReactElement;
@@ -65,15 +65,14 @@ const Dropdown: DropdownInterface = props => {
   );
 
   const getTransitionName = () => {
-    const rootPrefixCls = getPrefixCls();
     const { placement = '', transitionName } = props;
     if (transitionName !== undefined) {
       return transitionName;
     }
     if (placement.indexOf('top') >= 0) {
-      return `${rootPrefixCls}-slide-down`;
+      return 'slide-down';
     }
-    return `${rootPrefixCls}-slide-up`;
+    return 'slide-up';
   };
 
   const renderOverlay = (prefixCls: string) => {
@@ -102,16 +101,13 @@ const Dropdown: DropdownInterface = props => {
 
     // menu cannot be selectable in dropdown defaultly
     // menu should be focusable in dropdown defaultly
-    const { selectable = false, focusable = true, expandIcon } = overlayProps;
+    const { selectable = false, focusable = true } = overlayProps;
 
-    const overlayNodeExpandIcon =
-      typeof expandIcon !== 'undefined' && React.isValidElement(expandIcon) ? (
-        expandIcon
-      ) : (
-        <span className={`${prefixCls}-menu-submenu-arrow`}>
-          <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
-        </span>
-      );
+    const expandIcon = (
+      <span className={`${prefixCls}-menu-submenu-arrow`}>
+        <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+      </span>
+    );
 
     const fixedModeOverlay =
       typeof overlayNode.type === 'string'
@@ -120,7 +116,7 @@ const Dropdown: DropdownInterface = props => {
             mode: 'vertical',
             selectable,
             focusable,
-            expandIcon: overlayNodeExpandIcon,
+            expandIcon,
           });
 
     return fixedModeOverlay as React.ReactElement;

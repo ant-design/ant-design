@@ -129,10 +129,9 @@
 
       // Optional mark
       .@{form-item-prefix-cls}-tooltip {
-        color: @text-color-secondary;
-        cursor: help;
         writing-mode: horizontal-tb;
         margin-inline-start: @margin-xss;
+        color: @text-color-secondary;
       }
 
       &::after {
@@ -183,29 +182,30 @@
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
+    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
     transition: color 0.3s @ease-out; // sync input color transition
-    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
   }
 
   .@{ant-prefix}-input-textarea-show-count {
     &::after {
-      margin-bottom: -22px;
+      position: absolute;
+      bottom: -22px;
+      width: 100%;
     }
   }
 }
 
 .show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
-  @name: ~'@{ant-prefix}-@{className}';
-  .make-motion(@name, @keyframeName, @duration);
-  .@{name}-enter,
-  .@{name}-appear {
+  .make-motion(@className, @keyframeName, @duration);
+  .@{className}-enter,
+  .@{className}-appear {
     opacity: 0;
     animation-timing-function: @ease-in-out;
   }
-  .@{name}-leave {
+  .@{className}-leave {
     animation-timing-function: @ease-in-out;
   }
 }

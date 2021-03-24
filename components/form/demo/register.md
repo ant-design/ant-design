@@ -15,7 +15,19 @@ Fill in this form to create a new account for you.
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, Input, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import {
+  Form,
+  Input,
+  Tooltip,
+  Cascader,
+  Select,
+  Row,
+  Col,
+  Checkbox,
+  Button,
+  AutoComplete,
+} from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -166,7 +178,7 @@ const RegistrationForm = () => {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('The two passwords that you entered do not match!'));
+              return Promise.reject('The two passwords that you entered do not match!');
             },
           }),
         ]}
@@ -176,8 +188,14 @@ const RegistrationForm = () => {
 
       <Form.Item
         name="nickname"
-        label="Nickname"
-        tooltip="What do you want others to call you?"
+        label={
+          <span>
+            Nickname&nbsp;
+            <Tooltip title="What do you want others to call you?">
+              <QuestionCircleOutlined />
+            </Tooltip>
+          </span>
+        }
         rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
       >
         <Input />
@@ -234,7 +252,7 @@ const RegistrationForm = () => {
         rules={[
           {
             validator: (_, value) =>
-              value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+              value ? Promise.resolve() : Promise.reject('Should accept agreement'),
           },
         ]}
         {...tailFormItemLayout}

@@ -83,13 +83,13 @@ ReactDOM.render(
 }
 .demo-nav {
   height: 30px;
-  margin-bottom: 16px;
   line-height: 30px;
+  margin-bottom: 16px;
   background: #f8f8f8;
 }
 .demo-nav a {
-  padding: 0 8px;
   line-height: 30px;
+  padding: 0 8px;
 }
 .app-list {
   margin-top: 16px;

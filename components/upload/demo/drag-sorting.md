@@ -16,47 +16,46 @@ By using `itemRender`, we can integrate upload with react-dnd to implement drag 
 ```jsx
 import React, { useState, useCallback, useRef } from 'react';
 import { Upload, Button, Tooltip } from 'antd';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
+import { DndProvider, useDrag, useDrop, createDndContext } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 import { UploadOutlined } from '@ant-design/icons';
+
+const RNDContext = createDndContext(HTML5Backend);
 
 const type = 'DragableUploadList';
 
 const DragableUploadListItem = ({ originNode, moveRow, file, fileList }) => {
   const ref = React.useRef();
   const index = fileList.indexOf(file);
-  const [{ isOver, dropClassName }, drop] = useDrop(
-    () => ({
-      accept: type,
-      collect: monitor => {
-        const { index: dragIndex } = monitor.getItem() || {};
-        if (dragIndex === index) {
-          return {};
-        }
-        return {
-          isOver: monitor.isOver(),
-          dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
-        };
-      },
-      drop: item => {
-        moveRow(item.index, index);
-      },
+  const [{ isOver, dropClassName }, drop] = useDrop({
+    accept: type,
+    collect: monitor => {
+      const { index: dragIndex } = monitor.getItem() || {};
+      if (dragIndex === index) {
+        return {};
+      }
+      return {
+        isOver: monitor.isOver(),
+        dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
+      };
+    },
+    drop: item => {
+      moveRow(item.index, index);
+    },
+  });
+  const [, drag] = useDrag({
+    item: { type, index },
+    collect: monitor => ({
+      isDragging: monitor.isDragging(),
     }),
-    [index],
-  );
-  const [, drag] = useDrag(
-    () => ({
-      type,
-      item: { index },
-      collect: monitor => ({
-        isDragging: monitor.isDragging(),
-      }),
-    }),
-    [],
-  );
+  });
   drop(drag(ref));
-  const errorNode = <Tooltip title="Upload Error">{originNode.props.children}</Tooltip>;
+  const errorNode = (
+    <Tooltip title="Upload Error" getPopupContainer={() => document.body}>
+      {originNode.props.children}
+    </Tooltip>
+  );
   return (
     <div
       ref={ref}
@@ -116,12 +115,14 @@ const DragSortingUpload: React.FC = () => {
     [fileList],
   );
 
+  const manager = useRef(RNDContext);
+
   const onChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider manager={manager.current.dragDropManager}>
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         fileList={fileList}
@@ -135,7 +136,9 @@ const DragSortingUpload: React.FC = () => {
           />
         )}
       >
-        <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        <Button>
+          <UploadOutlined /> Click to Upload
+        </Button>
       </Upload>
     </DndProvider>
   );
@@ -152,6 +155,7 @@ ReactDOM.render(<DragSortingUpload />, mountNode);
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-downward {
   border-bottom-color: #1890ff;
 }
+
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-upward {
   border-top-color: #1890ff;
 }

@@ -10,7 +10,7 @@ import {
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import Wave from '../wave';
 import TransButton from '../transButton';
-import { isStyleSupport } from '../styleChecker';
+import { isStyleSupport, isFlexSupported } from '../styleChecker';
 import { sleep } from '../../../tests/utils';
 
 describe('Test utils function', () => {
@@ -208,6 +208,10 @@ describe('Test utils function', () => {
   });
 
   describe('style', () => {
+    it('isFlexSupported', () => {
+      expect(isFlexSupported).toBe(true);
+    });
+
     it('isStyleSupport', () => {
       expect(isStyleSupport('color')).toBe(true);
       expect(isStyleSupport('not-existed')).toBe(false);

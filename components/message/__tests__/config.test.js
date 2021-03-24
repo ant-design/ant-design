@@ -1,6 +1,5 @@
 import { sleep } from '../../../tests/utils';
 import message, { getInstance } from '..';
-import ConfigProvider from '../../config-provider';
 
 describe('message.config', () => {
   // Mock for rc-util raf
@@ -77,31 +76,6 @@ describe('message.config', () => {
     });
   });
 
-  it('customize prefix should auto get transition prefixCls', () => {
-    message.config({
-      prefixCls: 'light-message',
-    });
-
-    message.info('bamboo');
-
-    expect(getInstance().config).toEqual(
-      expect.objectContaining({
-        transitionName: 'light-move-up',
-      }),
-    );
-
-    message.config({
-      prefixCls: '',
-    });
-  });
-
-  it('should be able to global config rootPrefixCls', () => {
-    ConfigProvider.config({ prefixCls: 'prefix-test' });
-    message.info('last');
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-message-notice').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant' });
-  });
   it('should be able to config prefixCls', () => {
     message.config({
       prefixCls: 'prefix-test',
@@ -110,7 +84,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
     expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
     message.config({
-      prefixCls: '', // can be set to empty, ant default value is set in ConfigProvider
+      prefixCls: 'ant-message',
     });
   });
 
@@ -121,7 +95,7 @@ describe('message.config', () => {
     message.info('last');
     expect(document.querySelectorAll('.move-up-enter').length).toBe(0);
     message.config({
-      transitionName: 'ant-move-up',
+      transitionName: 'move-up',
     });
   });
 });

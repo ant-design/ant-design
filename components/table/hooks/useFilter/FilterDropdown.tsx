@@ -127,14 +127,16 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
-    onFilterDropdownVisibleChange?.(newVisible);
+    if (onFilterDropdownVisibleChange) {
+      onFilterDropdownVisibleChange(newVisible);
+    }
   };
 
   const mergedVisible =
     typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
 
   // ===================== Select Keys =====================
-  const propFilteredKeys = filterState?.filteredKeys;
+  const propFilteredKeys = filterState && filterState.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {

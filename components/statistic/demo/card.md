@@ -52,8 +52,8 @@ ReactDOM.render(
 
 ```css
 .site-statistic-demo-card {
-  padding: 30px;
   background: #ececec;
+  padding: 30px;
 }
 ```
 

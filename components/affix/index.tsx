@@ -60,7 +60,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   fixedNode: HTMLDivElement;
 
-  private timeout: any;
+  private timeout: number;
 
   context: ConfigConsumerProps;
 
@@ -215,7 +215,9 @@ class Affix extends React.Component<AffixProps, AffixState> {
     // Test if `updatePosition` called
     if (process.env.NODE_ENV === 'test') {
       const { onTestUpdatePosition } = this.props as any;
-      onTestUpdatePosition?.();
+      if (onTestUpdatePosition) {
+        onTestUpdatePosition();
+      }
     }
   };
 

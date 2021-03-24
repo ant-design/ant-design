@@ -43,6 +43,7 @@ const Demo = () => {
         return;
       case 'other':
         form.setFieldsValue({ note: 'Hi there!' });
+        return;
     }
   };
 
@@ -81,13 +82,13 @@ const Demo = () => {
         noStyle
         shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
       >
-        {({ getFieldValue }) =>
-          getFieldValue('gender') === 'other' ? (
+        {({ getFieldValue }) => {
+          return getFieldValue('gender') === 'other' ? (
             <Form.Item name="customizeGender" label="Customize Gender" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
-          ) : null
-        }
+          ) : null;
+        }}
       </Form.Item>
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">

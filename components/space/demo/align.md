@@ -54,14 +54,14 @@ ReactDOM.render(
 ```css
 .space-align-container {
   display: flex;
-  flex-wrap: wrap;
   align-item: flex-start;
+  flex-wrap: wrap;
 }
 .space-align-block {
-  flex: none;
   margin: 8px 4px;
-  padding: 4px;
   border: 1px solid #40a9ff;
+  padding: 4px;
+  flex: none;
 }
 .space-align-block .mock-block {
   display: inline-block;

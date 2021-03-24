@@ -83,45 +83,6 @@ interface ProviderChildrenProps extends ConfigProviderProps {
   legacyLocale: Locale;
 }
 
-export const defaultPrefixCls = 'ant';
-let globalPrefixCls: string;
-
-const setGlobalConfig = (params: Pick<ConfigProviderProps, 'prefixCls'>) => {
-  if (params.prefixCls !== undefined) {
-    globalPrefixCls = params.prefixCls;
-  }
-};
-
-function getGlobalPrefixCls() {
-  return globalPrefixCls || defaultPrefixCls;
-}
-
-export const globalConfig = () => ({
-  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
-    return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
-  },
-  getRootPrefixCls: (rootPrefixCls?: string, customizePrefixCls?: string) => {
-    // Customize rootPrefixCls is first priority
-    if (rootPrefixCls) {
-      return rootPrefixCls;
-    }
-
-    // If Global prefixCls provided, use this
-    if (globalPrefixCls) {
-      return globalPrefixCls;
-    }
-
-    // [Legacy] If customize prefixCls provided, we cut it to get the prefixCls
-    if (customizePrefixCls && customizePrefixCls.includes('-')) {
-      return customizePrefixCls.replace(/^(.*)-[^-]*$/, '$1');
-    }
-
-    // Fallback to default prefixCls
-    return getGlobalPrefixCls();
-  },
-});
-
 const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const {
     children,
@@ -187,9 +148,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     },
   );
 
-  const memoIconContextValue = React.useMemo(() => ({ prefixCls: iconPrefixCls, csp }), [
-    iconPrefixCls,
-  ]);
+  const memoIconContextValue = React.useMemo(() => ({ prefixCls: iconPrefixCls }), [iconPrefixCls]);
 
   let childNode = children;
   // Additional Form provider
@@ -230,7 +189,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
-  config: typeof setGlobalConfig;
 } = props => {
   React.useEffect(() => {
     if (props.direction) {
@@ -260,9 +218,8 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   );
 };
 
-/** @private internal Usage. do not use in your production */
+/** @private internal usage. do not use in your production */
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
-ConfigProvider.config = setGlobalConfig;
 
 export default ConfigProvider;

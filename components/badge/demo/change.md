@@ -15,7 +15,7 @@ The count will be animated as it changes.
 
 ```jsx
 import { Badge, Button, Switch } from 'antd';
-import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 
 const ButtonGroup = Button.Group;
 
@@ -38,11 +38,6 @@ class Demo extends React.Component {
     this.setState({ count });
   };
 
-  random = () => {
-    const count = Math.floor(Math.random() * 100);
-    this.setState({ count });
-  };
-
   onChange = show => {
     this.setState({ show });
   };
@@ -60,9 +55,6 @@ class Demo extends React.Component {
             </Button>
             <Button onClick={this.increase}>
               <PlusOutlined />
-            </Button>
-            <Button onClick={this.random}>
-              <QuestionOutlined />
             </Button>
           </ButtonGroup>
         </div>

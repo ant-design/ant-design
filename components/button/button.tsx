@@ -197,7 +197,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     if (innerLoading) {
       return;
     }
-    (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
+    if (onClick) {
+      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
+    }
   };
 
   devWarning(

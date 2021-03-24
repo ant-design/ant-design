@@ -69,7 +69,6 @@ export default function generateRangePicker<DateType>(
         ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
         ...(picker === 'time' ? getTimeProps({ format, ...this.props, picker }) : {}),
       };
-      const rootPrefixCls = getPrefixCls();
 
       return (
         <SizeContext.Consumer>
@@ -88,7 +87,7 @@ export default function generateRangePicker<DateType>(
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
                 clearIcon={<CloseCircleFilled />}
                 allowClear
-                transitionName={`${rootPrefixCls}-slide-up`}
+                transitionName="slide-up"
                 {...restProps}
                 {...additionalOverrideProps}
                 className={classNames(

@@ -38,7 +38,6 @@ export default function createUseMessage(
     function notify(args: ArgsProps) {
       const { prefixCls: customizePrefixCls } = args;
       const mergedPrefixCls = getPrefixCls('message', customizePrefixCls);
-      const rootPrefixCls = getPrefixCls();
       const target = args.key || getKeyThenIncreaseKey();
       const closePromise = new Promise(resolve => {
         const callback = () => {
@@ -51,7 +50,6 @@ export default function createUseMessage(
           {
             ...args,
             prefixCls: mergedPrefixCls,
-            rootPrefixCls,
           },
           ({ prefixCls, instance }) => {
             innerInstance = instance;

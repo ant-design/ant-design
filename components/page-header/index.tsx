@@ -41,7 +41,9 @@ const renderBack = (
         <div className={`${prefixCls}-back`}>
           <TransButton
             onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-              onBack?.(e);
+              if (onBack) {
+                onBack(e);
+              }
             }}
             className={`${prefixCls}-back-button`}
             aria-label={back}

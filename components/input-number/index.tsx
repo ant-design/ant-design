@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import RcInputNumber from 'rc-input-number';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 
@@ -8,16 +8,36 @@ import { ConfigContext } from '../config-provider';
 import { Omit } from '../_util/type';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
-type ValueType = string | number;
+// omitting this attrs because they conflicts with the ones defined in InputNumberProps
+export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
 
-export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'size'> {
+export interface InputNumberProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
   prefixCls?: string;
+  min?: number;
+  max?: number;
+  value?: number;
+  step?: number | string;
+  defaultValue?: number;
+  tabIndex?: number;
+  onChange?: (value: number | string | undefined | null) => void;
+  disabled?: boolean;
+  readOnly?: boolean;
   size?: SizeType;
-  bordered?: boolean;
+  formatter?: (value: number | string | undefined) => string;
+  parser?: (displayValue: string | undefined) => number | string;
+  decimalSeparator?: string;
+  placeholder?: string;
+  style?: React.CSSProperties;
+  className?: string;
+  name?: string;
+  id?: string;
+  precision?: number;
+  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
+  onStep?: (value: number, info: { offset: number; type: 'up' | 'down' }) => void;
 }
 
-const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
+const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -25,7 +45,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     className,
     size: customizeSize,
     prefixCls: customizePrefixCls,
-    bordered = true,
     readOnly,
     ...others
   } = props;
@@ -41,7 +60,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-sm`]: mergeSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-readonly`]: readOnly,
-      [`${prefixCls}-borderless`]: !bordered,
     },
     className,
   );
@@ -59,8 +77,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   );
 });
 
-export default InputNumber as (<T extends ValueType = ValueType>(
-  props: React.PropsWithChildren<InputNumberProps<T>> & {
-    ref?: React.Ref<HTMLInputElement>;
-  },
-) => React.ReactElement) & { displayName?: string };
+InputNumber.defaultProps = {
+  step: 1,
+};
+
+export default InputNumber;

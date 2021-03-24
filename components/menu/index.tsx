@@ -54,13 +54,11 @@ class InternalMenu extends React.Component<InternalMenuProps> {
   }
 
   renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
-    const rootPrefixCls = getPrefixCls();
-
     const { prefixCls: customizePrefixCls, className, theme, expandIcon } = this.props;
     const defaultMotions = {
-      horizontal: { motionName: `${rootPrefixCls}-slide-up` },
+      horizontal: { motionName: 'slide-up' },
       inline: collapseMotion,
-      other: { motionName: `${rootPrefixCls}-zoom-big` },
+      other: { motionName: 'zoom-big' },
     };
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);

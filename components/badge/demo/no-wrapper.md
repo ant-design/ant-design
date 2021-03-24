@@ -17,7 +17,6 @@ Used in standalone when children is empty.
 
 ```jsx
 import { Badge, Space, Switch } from 'antd';
-import { ClockCircleOutlined } from '@ant-design/icons';
 
 const Demo = () => {
   const [show, setShow] = React.useState(true);
@@ -31,7 +30,6 @@ const Demo = () => {
         }}
       />
       <Badge count={show ? 25 : 0} />
-      <Badge count={show ? <ClockCircleOutlined style={{ color: '#f5222d' }} /> : 0} />
       <Badge count={show ? 4 : 0} className="site-badge-count-4" />
       <Badge
         className="site-badge-count-109"
@@ -47,8 +45,8 @@ ReactDOM.render(<Demo />, mountNode);
 
 ```css
 .site-badge-count-4 .ant-badge-count {
-  color: #999;
   background-color: #fff;
+  color: #999;
   box-shadow: 0 0 0 1px #d9d9d9 inset;
 }
 ```

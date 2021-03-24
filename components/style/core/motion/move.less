@@ -1,12 +1,11 @@
 .move-motion(@className, @keyframeName) {
-  @name: ~'@{ant-prefix}-@{className}';
-  .make-motion(@name, @keyframeName);
-  .@{name}-enter,
-  .@{name}-appear {
+  .make-motion(@className, @keyframeName);
+  .@{className}-enter,
+  .@{className}-appear {
     opacity: 0;
     animation-timing-function: @ease-out-circ;
   }
-  .@{name}-leave {
+  .@{className}-leave {
     animation-timing-function: @ease-in-circ;
   }
 }

@@ -18,8 +18,13 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   }, []);
 
   const onChange = (e: RadioChangeEvent) => {
-    props.onChange?.(e);
-    context?.onChange?.(e);
+    if (props.onChange) {
+      props.onChange(e);
+    }
+
+    if (context?.onChange) {
+      context.onChange(e);
+    }
   };
 
   const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;

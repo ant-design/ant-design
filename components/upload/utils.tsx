@@ -1,6 +1,12 @@
 import { RcFile, UploadFile } from './interface';
 
-export function file2Obj(file: RcFile): UploadFile {
+export function T() {
+  return true;
+}
+
+// Fix IE file.status problem
+// via coping a new Object
+export function fileToObject(file: RcFile): UploadFile {
   return {
     ...file,
     lastModified: file.lastModified,
@@ -11,22 +17,10 @@ export function file2Obj(file: RcFile): UploadFile {
     uid: file.uid,
     percent: 0,
     originFileObj: file,
-  };
+  } as UploadFile;
 }
 
-/** Upload fileList. Replace file if exist or just push into it. */
-export function updateFileList(file: UploadFile<any>, fileList: UploadFile<any>[]) {
-  const nextFileList = [...fileList];
-  const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === file.uid);
-  if (fileIndex === -1) {
-    nextFileList.push(file);
-  } else {
-    nextFileList[fileIndex] = file;
-  }
-  return nextFileList;
-}
-
-export function getFileItem(file: RcFile, fileList: UploadFile[]) {
+export function getFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   return fileList.filter(item => item[matchKey] === file[matchKey])[0];
 }

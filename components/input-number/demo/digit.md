@@ -1,35 +1,24 @@
 ---
 order: 3
 title:
-  zh-CN: 高精度小数
-  en-US: High precision decimals
+  zh-CN: 小数
+  en-US: Decimals
 ---
 
 ## zh-CN
 
-通过 `stringMode` 开启高精度小数支持，`onChange` 事件将返回 string 类型。对于旧版游览器，你需要 BigInt polyfill。
+和原生的数字输入框一样，value 的精度由 step 的小数位数决定。
 
 ## en-US
 
-Use `stringMode` to support high precision decimals support. `onChange` will return string value instead. You need polyfill of BigInt if browser not support.
+A numeric-only input box whose values can be increased or decreased using a decimal step. The number of decimals (also known as precision) is determined by the step prop.
 
-```tsx
+```jsx
 import { InputNumber } from 'antd';
 
-function onChange(value: string) {
+function onChange(value) {
   console.log('changed', value);
 }
 
-ReactDOM.render(
-  <InputNumber<string>
-    style={{ width: 200 }}
-    defaultValue="1"
-    min="0"
-    max="10"
-    step="0.00000000000001"
-    onChange={onChange}
-    stringMode
-  />,
-  mountNode,
-);
+ReactDOM.render(<InputNumber min={0} max={10} step={0.1} onChange={onChange} />, mountNode);
 ```
