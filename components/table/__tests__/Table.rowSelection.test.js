@@ -66,6 +66,22 @@ describe('Table.rowSelection', () => {
       .filter(key => key !== null);
   }
 
+  it('select default row', () => {
+    const wrapper = mount(createTable({ rowSelection: { defaultSelectedRowKeys: [0] } }));
+    const checkboxes = wrapper.find('input');
+
+    expect(getSelections(wrapper)).toEqual([0]);
+
+    checkboxes.at(1).simulate('change', { target: { checked: false } });
+    expect(getSelections(wrapper)).toEqual([]);
+
+    checkboxes.at(0).simulate('change', { target: { checked: true } });
+    expect(getSelections(wrapper)).toEqual([0, 1, 2, 3]);
+
+    checkboxes.at(0).simulate('change', { target: { checked: false } });
+    expect(getSelections(wrapper)).toEqual([]);
+  });
+
   it('select by checkbox', () => {
     const wrapper = mount(createTable());
     const checkboxes = wrapper.find('input');
