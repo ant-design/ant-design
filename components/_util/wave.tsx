@@ -99,7 +99,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
         { csp: this.csp },
       );
       const nodeRoot = node.getRootNode?.() || node.ownerDocument;
-      const nodeBody = nodeRoot.body || nodeRoot;
+      const nodeBody = nodeRoot instanceof Document ? nodeRoot.body : nodeRoot;
       if (!nodeBody.contains(styleForPseudo)) {
         nodeBody.appendChild(styleForPseudo);
       }
