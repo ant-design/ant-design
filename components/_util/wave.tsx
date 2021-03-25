@@ -98,6 +98,11 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
         'antd-wave',
         { csp: this.csp },
       );
+      const nodeRoot = node.getRootNode?.() || node.ownerDocument;
+      const nodeBody = nodeRoot.body || nodeRoot;
+      if (!nodeBody.contains(styleForPseudo)) {
+        nodeBody.appendChild(styleForPseudo);
+      }
     }
     if (insertExtraNode) {
       node.appendChild(extraNode);
