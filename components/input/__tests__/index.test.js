@@ -53,6 +53,11 @@ describe('Input', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should support data-*、aria-* and custom attribute', () => {
+    const wrapper = mount(<Input data-text="123" aria-hidden="true" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   describe('focus trigger warning', () => {
     it('not trigger', () => {
       const wrapper = mount(<Input suffix="bamboo" />);
@@ -211,10 +216,5 @@ describe('Input allowClear', () => {
     const wrapper = mount(<Input allowClear className="my-class-name" />);
     expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
     expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
-  });
-
-  it('should support data-*、aria-* and custom attribute', () => {
-    const wrapper = mount(<Input data-text="123" aria-hidden="true" cccc="bbbb" />);
-    expect(wrapper.render()).toMatchSnapshot();
   });
 });
