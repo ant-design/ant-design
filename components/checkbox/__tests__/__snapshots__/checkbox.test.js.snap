@@ -17,3 +17,26 @@ exports[`Checkbox rtl render component should be rendered correctly in RTL direc
   </span>
 </label>
 `;
+
+exports[`Checkbox should support data-*、aria-* and custom attribute 1`] = `
+<label
+  aria-hidden="true"
+  class="ant-checkbox-wrapper"
+  data-text="123"
+>
+  <span
+    class="ant-checkbox"
+  >
+    <input
+      aria-hidden="true"
+      class="ant-checkbox-input"
+      data-text="123"
+      type="checkbox"
+      value=""
+    />
+    <span
+      class="ant-checkbox-inner"
+    />
+  </span>
+</label>
+`;

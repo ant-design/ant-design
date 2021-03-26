@@ -212,4 +212,9 @@ describe('Input allowClear', () => {
     expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
     expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
   });
+
+  it('should support data-*、aria-* and custom attribute', () => {
+    const wrapper = mount(<Input data-text="123" aria-hidden="true" cccc="bbbb" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

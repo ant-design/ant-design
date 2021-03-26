@@ -292,6 +292,19 @@ exports[`Button should render empty button without errors 1`] = `
 />
 `;
 
+exports[`Button should support data-*、aria-* and custom attribute 1`] = `
+<button
+  aria-hidden="true"
+  class="ant-btn"
+  data-text="123"
+  type="button"
+>
+  <span>
+    Test
+  </span>
+</button>
+`;
+
 exports[`Button should support link button 1`] = `
 <a
   class="ant-btn"

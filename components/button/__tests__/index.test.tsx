@@ -300,4 +300,13 @@ describe('Button', () => {
       },
     });
   });
+
+  it('should support data-*、aria-* and custom attribute', () => {
+    const wrapper = mount(
+      <Button data-text="123" aria-hidden="true">
+        Test
+      </Button>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

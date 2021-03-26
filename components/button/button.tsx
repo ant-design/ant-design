@@ -11,6 +11,7 @@ import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
 import { cloneElement } from '../_util/reactNode';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -269,6 +270,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       </a>
     );
   }
+  const dataOrAriaProps = getDataOrAriaProps(props);
 
   const buttonNode = (
     <button
@@ -277,6 +279,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       className={classes}
       onClick={handleClick}
       ref={buttonRef}
+      {...dataOrAriaProps}
     >
       {iconNode}
       {kids}

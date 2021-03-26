@@ -10,6 +10,7 @@ import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput'
 import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -278,6 +279,7 @@ class Input extends React.Component<InputProps, InputState> {
       'inputType',
       'bordered',
     ]);
+    const dataOrAriaProps = getDataOrAriaProps(this.props);
     return (
       <input
         autoComplete={input.autoComplete}
@@ -293,6 +295,7 @@ class Input extends React.Component<InputProps, InputState> {
           },
         )}
         ref={this.saveInput}
+        {...dataOrAriaProps}
       />
     );
   };

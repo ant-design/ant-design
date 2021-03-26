@@ -208,4 +208,16 @@ describe('notification', () => {
     });
     expect(document.querySelectorAll('.anticon-user').length).toBe(1);
   });
+
+  it('should support data-test-id attribute', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      icon: <UserOutlined />,
+      dataTestId: 'notification-open',
+    });
+    const div = document.getElementById('notification');
+    expect(div.hasAttribute("data-test-id")).toBeTruthy();
+    expect(div.getAttribute("data-test-id")).toEqual("notification-open");
+  });
 });

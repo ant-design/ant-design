@@ -34,4 +34,9 @@ describe('Checkbox', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('should support data-*、aria-* and custom attribute', () => {
+    const wrapper = mount(<Checkbox data-text="123" aria-hidden="true" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

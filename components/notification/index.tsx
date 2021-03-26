@@ -186,6 +186,7 @@ export interface ArgsProps {
   bottom?: number;
   getContainer?: () => HTMLElement;
   closeIcon?: React.ReactNode;
+  dataTestId?: string;
 }
 
 function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
@@ -201,6 +202,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
     key,
     style,
     className,
+    dataTestId = "",
   } = args;
 
   const duration = durationArg === undefined ? defaultDuration : durationArg;
@@ -221,7 +223,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
 
   return {
     content: (
-      <div className={iconNode ? `${prefixCls}-with-icon` : ''} role="alert">
+      <div id="notification" data-test-id={dataTestId} className={iconNode ? `${prefixCls}-with-icon` : ''} role="alert">
         {iconNode}
         <div className={`${prefixCls}-message`}>
           {autoMarginTag}

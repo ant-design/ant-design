@@ -4,6 +4,7 @@ import RcCheckbox from 'rc-checkbox';
 import { GroupContext } from './Group';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -109,6 +110,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   const checkboxClass = classNames({
     [`${prefixCls}-indeterminate`]: indeterminate,
   });
+  const dataOrAriaProps = getDataOrAriaProps(checkboxProps);
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
@@ -116,6 +118,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       style={style}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      {...dataOrAriaProps}
     >
       <RcCheckbox {...checkboxProps} prefixCls={prefixCls} className={checkboxClass} ref={ref} />
       {children !== undefined && <span>{children}</span>}
