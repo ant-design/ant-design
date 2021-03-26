@@ -288,17 +288,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 </span>
 `;
 
-exports[`Input allowClear should support data-*、aria-* and custom attribute 1`] = `
-<input
-  aria-hidden="true"
-  cccc="bbbb"
-  class="ant-input"
-  data-text="123"
-  type="text"
-  value=""
-/>
-`;
-
 exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `
 <input
   class="ant-input ant-input-rtl"
@@ -310,6 +299,16 @@ exports[`Input rtl render component should be rendered correctly in RTL directio
 exports[`Input rtl render component should be rendered correctly in RTL direction 2`] = `
 <span
   class="ant-input-group ant-input-group-rtl"
+/>
+`;
+
+exports[`Input should support data-*、aria-* and custom attribute 1`] = `
+<input
+  aria-hidden="true"
+  class="ant-input"
+  data-text="123"
+  type="text"
+  value=""
 />
 `;
 
