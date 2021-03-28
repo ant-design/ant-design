@@ -3671,7 +3671,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required-mark-optional"
-        for="requiredMark"
+        for="requiredMarkValue"
         title="Required Mark"
       >
         Required Mark
@@ -3693,7 +3693,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline"
-            id="requiredMark"
+            id="requiredMarkValue"
           >
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
