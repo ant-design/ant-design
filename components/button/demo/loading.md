@@ -54,6 +54,9 @@ class App extends React.Component {
           Loading
         </Button>
         <Button type="primary" icon={<PoweroffOutlined />} loading />
+        <Button type="primary" loading disabled>
+          Loading disabled
+        </Button>7
         <br />
         <Button type="primary" loading={loadings[0]} onClick={() => this.enterLoading(0)}>
           Click me!
@@ -66,12 +69,7 @@ class App extends React.Component {
         >
           Click me!
         </Button>
-        <Button
-          type="primary"
-          icon={<PoweroffOutlined />}
-          loading={loadings[2]}
-          onClick={() => this.enterLoading(2)}
-        />
+        <Button type="primary" icon={<PoweroffOutlined />} loading={loadings[2]} onClick={() => this.enterLoading(2)} />
       </>
     );
   }

@@ -27,7 +27,7 @@ ReactDOM.render(
     <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No">
       <Button>Delete</Button>
     </Popconfirm>
-    <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No">
+    <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No" disabled>
       <Button disabled>Delete</Button>
     </Popconfirm>
     {null}
