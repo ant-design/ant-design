@@ -15,25 +15,27 @@ debug: true
 Customize label & wrapper style
 
 ```tsx
-import { Descriptions, Divider, Radio } from 'antd';
+import { Descriptions, Divider, Switch, Radio } from 'antd';
 
 const labelStyle: React.CSSProperties = { background: 'red' };
 const contentStyle: React.CSSProperties = { background: 'green' };
 
 const Demo = () => {
-  const [border, setBorder] = React.useState(false);
+  const [border, setBorder] = React.useState(true);
   const [layout, setLayout] = React.useState('horizontal');
 
   return (
     <>
-      <Radio.Group onChange={e => setBorder(e.target.value)} value={border}>
-        <Radio value={true}>border</Radio>
-        <Radio value={false}>no border</Radio>
-      </Radio.Group>
+      <Switch
+        checkedChildren="Border"
+        unCheckedChildren="No Border"
+        checked={border}
+        onChange={e => setBorder(e)}
+      />
       <Divider />
       <Radio.Group onChange={e => setLayout(e.target.value)} value={layout}>
-        <Radio value={'horizontal'}>horizontal</Radio>
-        <Radio value={'vertical'}>vertical</Radio>
+        <Radio value="horizontal">horizontal</Radio>
+        <Radio value="vertical">vertical</Radio>
       </Radio.Group>
       <Divider />
       <Descriptions title="User Info" bordered={border} layout={layout}>
