@@ -29,8 +29,8 @@ timeline: true
 - 🛠 Prevent Upload drop event bubbling to handle nest case. [#29832](https://github.com/ant-design/ant-design/pull/29832) [@jojonarte](https://github.com/jojonarte)
 - 🐞 Apply ConfigProvider `componentSize` on Tabs component. [#29844](https://github.com/ant-design/ant-design/pull/29844) [@bn3t](https://github.com/bn3t)
 - 💄 Remove Tag hover style since it do not have click interactive. [#29874](https://github.com/ant-design/ant-design/pull/29874)
-- 🇫🇷 Add form validation translations to fr_FR i18n. [#29839](https://github.com/ant-design/ant-design/pull/29839) [@bn3t](https://github.com/bn3t)
-- 🇸🇪 Added missing `sv_SE` translations. [#29896](https://github.com/ant-design/ant-design/pull/29896) [@isakol](https://github.com/isakol)
+- 🇫🇷 Add missing `fr_FR` translations. [#29839](https://github.com/ant-design/ant-design/pull/29839) [@bn3t](https://github.com/bn3t)
+- 🇸🇪 Add missing `sv_SE` translations. [#29896](https://github.com/ant-design/ant-design/pull/29896) [@isakol](https://github.com/isakol)
 
 ## 4.14.1
 
