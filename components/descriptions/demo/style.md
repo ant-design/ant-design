@@ -32,13 +32,14 @@ function renderCelledDesc(bordered?: boolean) {
   );
 }
 
-function renderRootDesc(bordered?: boolean) {
+function renderRootDesc(bordered?: boolean, layout?: string = 'horizontal') {
   return (
     <Descriptions
       title="Root style"
       labelStyle={labelStyle}
       contentStyle={contentStyle}
       bordered={bordered}
+      layout={layout}
     >
       <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
       <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
@@ -62,6 +63,11 @@ ReactDOM.render(
 
     {renderRootDesc()}
     {renderRootDesc(true)}
+
+    <Divider />
+
+    {renderRootDesc(false, 'vertical')}
+    {renderRootDesc(true, 'vertical')}
   </>,
   mountNode,
 );
