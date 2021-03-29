@@ -1,5 +1,4 @@
 import * as React from 'react';
-import debounce from 'lodash/debounce';
 import SlickCarousel, { Settings } from '@ant-design/react-slick';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
@@ -50,35 +49,6 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       }),
       [slickRef.current],
     );
-
-    React.useEffect(() => {
-      const func = () => {
-        // Fix https://github.com/ant-design/ant-design/issues/2550
-        const { autoplay } = props;
-        if (
-          autoplay &&
-          slickRef.current &&
-          slickRef.current.innerSlider &&
-          slickRef.current.innerSlider.autoPlay
-        ) {
-          slickRef.current.innerSlider.autoPlay();
-        }
-      };
-
-      const onWindowResized = debounce(func, 500, {
-        leading: false,
-      });
-
-      if (props.autoplay) {
-        window.addEventListener('resize', onWindowResized);
-      }
-      return () => {
-        if (props.autoplay) {
-          window.removeEventListener('resize', onWindowResized);
-          (onWindowResized as any).cancel();
-        }
-      };
-    }, [slickRef.current, props.autoplay]);
 
     const prevCount = React.useRef(React.Children.count(props.children));
 

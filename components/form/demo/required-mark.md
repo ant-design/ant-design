@@ -32,11 +32,11 @@ const FormLayoutDemo = () => {
     <Form
       form={form}
       layout="vertical"
-      initialValues={{ requiredMark }}
+      initialValues={{ requiredMarkValue: requiredMark }}
       onValuesChange={onRequiredTypeChange}
       requiredMark={requiredMark}
     >
-      <Form.Item label="Required Mark" name="requiredMark">
+      <Form.Item label="Required Mark" name="requiredMarkValue">
         <Radio.Group>
           <Radio.Button value="optional">Optional</Radio.Button>
           <Radio.Button value>Required</Radio.Button>

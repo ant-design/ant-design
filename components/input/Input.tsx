@@ -65,24 +65,40 @@ export function resolveOnChange(
   target: HTMLInputElement | HTMLTextAreaElement,
   e:
     | React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-    | React.MouseEvent<HTMLElement, MouseEvent>,
-  onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
+    | React.MouseEvent<HTMLElement, MouseEvent>
+    | React.CompositionEvent<HTMLElement>,
+  onChange:
+    | undefined
+    | ((event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void),
+  targetValue?: string,
 ) {
   if (!onChange) {
     return;
   }
   let event = e;
+  const originalInputValue = target.value;
+
   if (e.type === 'click') {
     // click clear icon
     event = Object.create(e);
     event.target = target;
     event.currentTarget = target;
-    const originalInputValue = target.value;
     // change target ref value cause e.target.value should be '' when clear input
     target.value = '';
     onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
     // reset target ref value
     target.value = originalInputValue;
+    return;
+  }
+
+  // Trigger by composition event, this means we need force change the input value
+  if (targetValue !== undefined) {
+    event = Object.create(e);
+    event.target = target;
+    event.currentTarget = target;
+
+    target.value = targetValue;
+    onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
     return;
   }
   onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
