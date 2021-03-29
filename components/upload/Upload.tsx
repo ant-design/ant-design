@@ -77,7 +77,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     const timestamp = Date.now();
 
     (fileList || []).forEach((file, index) => {
-      if (!file.uid) {
+      if (!file.uid && !Object.isFrozen(file)) {
         file.uid = `__AUTO__${timestamp}_${index}__`;
       }
     });
@@ -254,7 +254,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         currentFile = { ...file, status: 'removed' };
         mergedFileList?.forEach(item => {
           const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
-          if (item[matchKey] === currentFile[matchKey]) {
+          if (item[matchKey] === currentFile[matchKey] && !Object.isFrozen(item)) {
             item.status = 'removed';
           }
         });
