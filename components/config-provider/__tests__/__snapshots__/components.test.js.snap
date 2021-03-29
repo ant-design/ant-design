@@ -24435,7 +24435,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
 
 exports[`ConfigProvider components Tabs configProvider componentSize large 1`] = `
 <div
-  class="config-tabs config-tabs-top"
+  class="config-tabs config-tabs-top config-tabs-large"
 >
   <div
     class="config-tabs-nav"
@@ -24520,7 +24520,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] = `
 <div
-  class="config-tabs config-tabs-top"
+  class="config-tabs config-tabs-top config-tabs-middle"
 >
   <div
     class="config-tabs-nav"
