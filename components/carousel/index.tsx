@@ -1,5 +1,4 @@
 import * as React from 'react';
-import debounce from 'lodash/debounce';
 import SlickCarousel, { Settings } from '@ant-design/react-slick';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
