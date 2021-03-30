@@ -5,7 +5,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
-import { LegacyButtonType, NativeButtonProps, ButtonProps, convertLegacyProps } from '../button/button';
+import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
