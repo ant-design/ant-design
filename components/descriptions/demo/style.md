@@ -20,9 +20,11 @@ import { Descriptions, Divider, Switch, Radio } from 'antd';
 const labelStyle: React.CSSProperties = { background: 'red' };
 const contentStyle: React.CSSProperties = { background: 'green' };
 
+type LayoutType = 'horizontal' | 'vertical' | undefined;
+
 const Demo = () => {
   const [border, setBorder] = React.useState(true);
-  const [layout, setLayout] = React.useState('horizontal');
+  const [layout, setLayout] = React.useState('horizontal' as LayoutType);
 
   return (
     <>
