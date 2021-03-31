@@ -28,6 +28,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | ellipsis | 自动溢出省略 | boolean | false |  |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | mark | 添加标记样式 | boolean | false |  |
+| onClick | 点击 Text 时的回调 | (event) => void | - |  |
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
@@ -44,9 +45,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | 添加标记样式 | boolean | false |  |
+| onClick | 点击 Title 时的回调 | (event) => void | - |  |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
-| onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
 
 ### Typography.Paragraph
 
@@ -59,10 +60,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false | [editable](#editable) |
 | ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | mark | 添加标记样式 | boolean | false |  |
+| onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
-| onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
 
 ### copyable
 

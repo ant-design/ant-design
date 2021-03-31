@@ -155,9 +155,9 @@ const columns = [
 
 ### ColumnGroup
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 列头显示文字 | ReactNode | - |
+| 参数  | 说明         | 类型      | 默认值 |
+| ----- | ------------ | --------- | ------ |
+| title | 列头显示文字 | ReactNode | -      |
 
 ### pagination
 
@@ -205,6 +205,7 @@ const columns = [
 | preserveSelectedRowKeys | 当数据被删除时仍然保留选项的 `key` | boolean | - | 4.4.0 |
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | function(checked, record, index, originNode) {} | - | 4.1.0 |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] \| number\[] | \[] |  |
+| defaultSelectedRowKeys | 默认选中项的 key 数组 | string\[] \| number\[] | \[] |  |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true |  |
 | type | 多选/单选 | `checkbox` \| `radio` | `checkbox` |  |
 | onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows) | - |  |
@@ -223,11 +224,11 @@ const columns = [
 
 ### selection
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| key | React 需要的 key，建议设置 | string | - |
-| text | 选择项显示的文字 | ReactNode | - |
-| onSelect | 选择项点击回调 | function(changeableRowKeys) | - |
+| 参数     | 说明                       | 类型                        | 默认值 |
+| -------- | -------------------------- | --------------------------- | ------ |
+| key      | React 需要的 key，建议设置 | string                      | -      |
+| text     | 选择项显示的文字           | ReactNode                   | -      |
+| onSelect | 选择项点击回调             | function(changeableRowKeys) | -      |
 
 ## 在 TypeScript 中使用
 

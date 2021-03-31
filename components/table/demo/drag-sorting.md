@@ -23,7 +23,7 @@ import update from 'immutability-helper';
 const type = 'DragableBodyRow';
 
 const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
-  const ref = React.useRef();
+  const ref = useRef();
   const [{ isOver, dropClassName }, drop] = useDrop(
     () => ({
       accept: type,
@@ -51,9 +51,10 @@ const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => 
         isDragging: monitor.isDragging(),
       }),
     }),
-    [],
+    [index],
   );
   drop(drag(ref));
+
   return (
     <tr
       ref={ref}

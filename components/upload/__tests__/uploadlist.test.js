@@ -201,8 +201,10 @@ describe('Upload List', () => {
     });
 
     // Wait twice since `errorRequest` also use timeout for mock
-    await sleep();
-    await sleep();
+    await act(async () => {
+      await sleep();
+      await sleep();
+    });
 
     expect(onChange).toHaveBeenLastCalledWith(
       expect.objectContaining({
@@ -212,7 +214,11 @@ describe('Upload List', () => {
       }),
     );
 
-    wrapper.update();
+    await act(async () => {
+      await sleep(1000);
+      wrapper.update();
+    });
+
     expect(wrapper.render()).toMatchSnapshot();
 
     // Error message

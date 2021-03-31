@@ -27,25 +27,25 @@ const Demo = () => {
       <Form.List name="users">
         {(fields, { add, remove }) => (
           <>
-            {fields.map(field => (
-              <Space key={field.key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
+            {fields.map(({ key, name, fieldKey, ...restField }) => (
+              <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
                 <Form.Item
-                  {...field}
-                  name={[field.name, 'first']}
-                  fieldKey={[field.fieldKey, 'first']}
+                  {...restField}
+                  name={[name, 'first']}
+                  fieldKey={[fieldKey, 'first']}
                   rules={[{ required: true, message: 'Missing first name' }]}
                 >
                   <Input placeholder="First Name" />
                 </Form.Item>
                 <Form.Item
-                  {...field}
-                  name={[field.name, 'last']}
-                  fieldKey={[field.fieldKey, 'last']}
+                  {...restField}
+                  name={[name, 'last']}
+                  fieldKey={[fieldKey, 'last']}
                   rules={[{ required: true, message: 'Missing last name' }]}
                 >
                   <Input placeholder="Last Name" />
                 </Form.Item>
-                <MinusCircleOutlined onClick={() => remove(field.name)} />
+                <MinusCircleOutlined onClick={() => remove(name)} />
               </Space>
             ))}
             <Form.Item>
