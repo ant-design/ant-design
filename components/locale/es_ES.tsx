@@ -24,6 +24,7 @@ const localeValues: Locale = {
     emptyText: 'Sin datos',
     selectAll: 'Seleccionar todo',
     selectInvert: 'Invertir selección',
+    selectNone: 'Vacíe todo',
     selectionAll: 'Seleccionar todos los datos',
     sortTitle: 'Ordenar',
     expand: 'Expandir fila',
