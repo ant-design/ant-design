@@ -65,7 +65,7 @@ const BackTop: React.FC<BackTopProps> = props => {
   }, [props.target]);
 
   const scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { onClick, target, duration = 450 } = props;
+    const { onClick, target, duration } = props;
     scrollTo(0, {
       getContainer: target || getDefaultTarget,
       duration,
@@ -91,7 +91,7 @@ const BackTop: React.FC<BackTopProps> = props => {
       </div>
     );
     return (
-      <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`} removeOnLeave>
+      <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
         {({ className: motionClassName }) => {
           const childNode = children || defaultElement;
           return (
@@ -137,6 +137,7 @@ const BackTop: React.FC<BackTopProps> = props => {
 
 BackTop.defaultProps = {
   visibilityHeight: 400,
+  duration: 450,
 };
 
 export default React.memo(BackTop);
