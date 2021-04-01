@@ -19,7 +19,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| closable | 标签是否可以关闭（带有默认行为） | boolean | false |  |
+| closable | 标签是否可以关闭（点击默认关闭） | boolean | false |  |
 | closeIcon | 自定义关闭按钮 | ReactNode | - | 4.4.0 |
 | color | 标签色 | string | - |  |
 | icon | 设置图标 | ReactNode | - |  |
