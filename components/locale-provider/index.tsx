@@ -35,6 +35,9 @@ export interface Locale {
     optional?: string;
     defaultValidateMessages: ValidateMessages;
   };
+  Image?: {
+    preview: string;
+  };
 }
 
 export interface LocaleProviderProps {
@@ -57,6 +60,10 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
       'LocaleProvider',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
     );
+  }
+
+  componentDidMount() {
+    changeConfirmLocale(this.props.locale && this.props.locale.Modal);
   }
 
   componentDidUpdate(prevProps: LocaleProviderProps) {

@@ -26,7 +26,6 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -57,7 +56,6 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -92,7 +90,6 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -139,7 +136,6 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -170,7 +166,6 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -205,7 +200,6 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -263,7 +257,6 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -294,7 +287,6 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -329,7 +321,6 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -387,7 +378,6 @@ exports[`Cascader can be selected in RTL direction 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -418,7 +408,6 @@ exports[`Cascader can be selected in RTL direction 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -453,7 +442,6 @@ exports[`Cascader can be selected in RTL direction 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -500,7 +488,6 @@ exports[`Cascader can be selected in RTL direction 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -531,7 +518,6 @@ exports[`Cascader can be selected in RTL direction 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -566,7 +552,6 @@ exports[`Cascader can be selected in RTL direction 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -601,15 +586,16 @@ exports[`Cascader can be selected in RTL direction 2`] = `
 exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
 <div>
   <div
-    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
+    class="ant-cascader-menus ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
       <ul
         class="ant-cascader-menu"
+        style="height: auto;"
       >
         <li
-          class="ant-cascader-menu-item"
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
           role="menuitem"
           title=""
         >
@@ -653,11 +639,11 @@ exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
                 </g>
               </svg>
             </div>
-            <p
+            <div
               class="ant-empty-description"
             >
               No Data
-            </p>
+            </div>
           </div>
         </li>
       </ul>
@@ -703,7 +689,6 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -734,7 +719,6 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -781,7 +765,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -812,7 +795,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -847,7 +829,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -905,7 +886,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -936,7 +916,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -971,7 +950,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1027,7 +1005,6 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"
@@ -1046,7 +1023,7 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
 exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `
 <div>
   <div
-    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
+    class="ant-cascader-menus ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
@@ -1083,7 +1060,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
 exports[`Cascader should highlight keyword and filter when search in Cascader with same field name of label and value 1`] = `
 <div>
   <div
-    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
+    class="ant-cascader-menus ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
@@ -1126,7 +1103,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
 exports[`Cascader should render not found content 1`] = `
 <div>
   <div
-    class="ant-cascader-menus ant-cascader-menu-empty slide-up-appear slide-up-appear-prepare slide-up"
+    class="ant-cascader-menus ant-cascader-menu-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
@@ -1179,11 +1156,11 @@ exports[`Cascader should render not found content 1`] = `
                 </g>
               </svg>
             </div>
-            <p
+            <div
               class="ant-empty-description"
             >
               No Data
-            </p>
+            </div>
           </div>
         </li>
       </ul>
@@ -1195,15 +1172,16 @@ exports[`Cascader should render not found content 1`] = `
 exports[`Cascader should show not found content when options.length is 0 1`] = `
 <div>
   <div
-    class="ant-cascader-menus ant-cascader-menu-empty slide-up-appear slide-up-appear-prepare slide-up"
+    class="ant-cascader-menus ant-cascader-menu-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
       <ul
         class="ant-cascader-menu"
+        style="height: auto; width: 0px;"
       >
         <li
-          class="ant-cascader-menu-item"
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
           role="menuitem"
           title=""
         >
@@ -1247,11 +1225,11 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                 </g>
               </svg>
             </div>
-            <p
+            <div
               class="ant-empty-description"
             >
               No Data
-            </p>
+            </div>
           </div>
         </li>
       </ul>
@@ -1286,7 +1264,6 @@ exports[`Cascader support controlled mode 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="close-circle"
       fill="currentColor"
       focusable="false"
@@ -1306,7 +1283,6 @@ exports[`Cascader support controlled mode 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="down"
       fill="currentColor"
       focusable="false"

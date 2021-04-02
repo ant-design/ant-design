@@ -111,7 +111,6 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="search"
                   fill="currentColor"
                   focusable="false"
@@ -147,23 +146,19 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
     <span
       class="ant-select-selection-search"
     >
-      <div
-        class="ant-input-textarea"
-      >
-        <textarea
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-input ant-select-selection-search-input"
-          placeholder="input here"
-          role="combobox"
-          style="height:50px"
-          type="search"
-        />
-      </div>
+      <textarea
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="ant-input ant-select-selection-search-input custom"
+        placeholder="input here"
+        role="combobox"
+        style="height:50px"
+        type="search"
+      />
     </span>
     <span
       class="ant-select-selection-placeholder"
@@ -294,7 +289,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -381,7 +375,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -484,7 +477,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="search"
                         fill="currentColor"
                         focusable="false"
@@ -577,7 +569,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -626,7 +617,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="search"
                           fill="currentColor"
                           focusable="false"
@@ -720,7 +710,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -776,7 +765,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -872,7 +860,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -928,7 +915,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -962,7 +948,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="search"
                   fill="currentColor"
                   focusable="false"
@@ -1065,7 +1050,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-select-selection-search-input"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -1097,7 +1082,6 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="search"
                   fill="currentColor"
                   focusable="false"

@@ -4,14 +4,12 @@
   @checkbox-inner-prefix-cls: ~'@{checkbox-prefix-cls}-inner';
   // 一般状态
   .@{checkbox-prefix-cls} {
-    .reset-component;
+    .reset-component();
 
     position: relative;
-    top: -0.09em;
-    display: inline-block;
+    top: 0.2em;
     line-height: 1;
     white-space: nowrap;
-    vertical-align: middle;
     outline: none;
     cursor: pointer;
 
@@ -147,14 +145,16 @@
   }
 
   .@{checkbox-prefix-cls}-wrapper {
-    .reset-component;
-
-    display: inline-block;
+    .reset-component();
+    display: inline-flex;
+    align-items: baseline;
     line-height: unset;
     cursor: pointer;
+
     &.@{checkbox-prefix-cls}-wrapper-disabled {
       cursor: not-allowed;
     }
+
     & + & {
       margin-left: 8px;
     }
@@ -166,11 +166,10 @@
   }
 
   .@{checkbox-prefix-cls}-group {
-    .reset-component;
-
+    .reset-component();
     display: inline-block;
+
     &-item {
-      display: inline-block;
       margin-right: @checkbox-group-item-margin-right;
       &:last-child {
         margin-right: 0;

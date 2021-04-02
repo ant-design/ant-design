@@ -50,7 +50,6 @@ exports[`Button renders Chinese characters correctly 2`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="search"
       fill="currentColor"
       focusable="false"
@@ -81,7 +80,6 @@ exports[`Button renders Chinese characters correctly 3`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="search"
       fill="currentColor"
       focusable="false"
@@ -112,7 +110,6 @@ exports[`Button renders Chinese characters correctly 4`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="search"
       fill="currentColor"
       focusable="false"
@@ -141,12 +138,11 @@ exports[`Button renders Chinese characters correctly 5`] = `
   >
     <span
       aria-label="loading"
-      class="anticon anticon-loading"
+      class="anticon anticon-loading anticon-spin"
       role="img"
     >
       <svg
         aria-hidden="true"
-        class="anticon-spin"
         data-icon="loading"
         fill="currentColor"
         focusable="false"
@@ -176,12 +172,11 @@ exports[`Button renders Chinese characters correctly 6`] = `
   >
     <span
       aria-label="loading"
-      class="anticon anticon-loading"
+      class="anticon anticon-loading anticon-spin"
       role="img"
     >
       <svg
         aria-hidden="true"
-        class="anticon-spin"
         data-icon="loading"
         fill="currentColor"
         focusable="false"

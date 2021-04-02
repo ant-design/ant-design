@@ -410,7 +410,6 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check"
               fill="currentColor"
               focusable="false"
@@ -463,7 +462,6 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close"
               fill="currentColor"
               focusable="false"
@@ -557,7 +555,6 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="user"
               fill="currentColor"
               focusable="false"
@@ -605,7 +602,6 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="solution"
               fill="currentColor"
               focusable="false"
@@ -648,12 +644,11 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
               aria-hidden="true"
-              class="anticon-spin"
               data-icon="loading"
               fill="currentColor"
               focusable="false"
@@ -701,7 +696,6 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="smile"
               fill="currentColor"
               focusable="false"
@@ -759,7 +753,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="check"
                 fill="currentColor"
                 focusable="false"
@@ -908,7 +901,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="check"
                 fill="currentColor"
                 focusable="false"
@@ -1055,7 +1047,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="check"
                 fill="currentColor"
                 focusable="false"
@@ -1105,7 +1096,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="check"
                 fill="currentColor"
                 focusable="false"
@@ -1197,8 +1187,7 @@ Array [
 
 exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
-  percent="60"
+  class="ant-steps ant-steps-horizontal ant-steps-with-progress ant-steps-label-horizontal"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -1222,7 +1211,6 @@ exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check"
               fill="currentColor"
               focusable="false"
@@ -1287,7 +1275,7 @@ exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
                   fill-opacity="0"
                   stroke-linecap="round"
                   stroke-width="4"
-                  style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                  style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                 />
                 <path
                   class="ant-progress-circle-path"
@@ -1299,7 +1287,7 @@ exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
                   stroke=""
                   stroke-linecap="round"
                   stroke-width="4"
-                  style="stroke-dasharray:180.95573684677208px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                  style="stroke-dasharray:180.95573684677208px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                 />
               </svg>
               <span
@@ -1432,8 +1420,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
-    percent="0"
+    class="ant-steps ant-steps-horizontal ant-steps-with-progress ant-steps-label-horizontal"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -1457,7 +1444,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="check"
                 fill="currentColor"
                 focusable="false"
@@ -1522,7 +1508,7 @@ Array [
                     fill-opacity="0"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                   <path
                     class="ant-progress-circle-path"
@@ -1534,7 +1520,7 @@ Array [
                     stroke=""
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                 </svg>
                 <span
@@ -1607,8 +1593,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal"
-    percent="0"
+    class="ant-steps ant-steps-horizontal ant-steps-with-progress ant-steps-small ant-steps-label-horizontal"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -1632,7 +1617,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="check"
                 fill="currentColor"
                 focusable="false"
@@ -1697,7 +1681,7 @@ Array [
                     fill-opacity="0"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                   <path
                     class="ant-progress-circle-path"
@@ -1709,7 +1693,7 @@ Array [
                     stroke=""
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                 </svg>
                 <span
@@ -1782,8 +1766,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical"
-    percent="0"
+    class="ant-steps ant-steps-vertical ant-steps-with-progress"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -1807,7 +1790,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="check"
                 fill="currentColor"
                 focusable="false"
@@ -1872,7 +1854,7 @@ Array [
                     fill-opacity="0"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                   <path
                     class="ant-progress-circle-path"
@@ -1884,7 +1866,7 @@ Array [
                     stroke=""
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                 </svg>
                 <span
@@ -1957,8 +1939,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-small"
-    percent="0"
+    class="ant-steps ant-steps-vertical ant-steps-with-progress ant-steps-small"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -1982,7 +1963,6 @@ Array [
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="check"
                 fill="currentColor"
                 focusable="false"
@@ -2047,7 +2027,7 @@ Array [
                     fill-opacity="0"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:301.59289474462014px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                   <path
                     class="ant-progress-circle-path"
@@ -2059,7 +2039,7 @@ Array [
                     stroke=""
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+                    style="stroke-dasharray:0px 301.59289474462014px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
                   />
                 </svg>
                 <span
@@ -2465,7 +2445,6 @@ exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check"
               fill="currentColor"
               focusable="false"
@@ -2599,7 +2578,6 @@ exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check"
               fill="currentColor"
               focusable="false"
@@ -2799,6 +2777,274 @@ Array [
 ]
 `;
 
+exports[`renders ./components/steps/demo/steps-in-steps.md correctly 1`] = `
+Array [
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+    style="margin-bottom:16px"
+  >
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="small"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Small
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="default"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Default
+      </span>
+    </label>
+  </div>,
+  <div
+    class="ant-steps ant-steps-vertical ant-steps-default"
+  >
+    <div
+      class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+    >
+      <div
+        class="ant-steps-item-container"
+      >
+        <div
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            1
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Finished
+          </div>
+          <div
+            class="ant-steps-item-description"
+          >
+            <div
+              class="ant-card ant-card-bordered"
+            >
+              <div
+                class="ant-card-body"
+              >
+                <div
+                  class="ant-steps ant-steps-horizontal ant-steps-default ant-steps-label-horizontal"
+                >
+                  <div
+                    class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+                  >
+                    <div
+                      class="ant-steps-item-container"
+                    >
+                      <div
+                        class="ant-steps-item-tail"
+                      />
+                      <div
+                        class="ant-steps-item-icon"
+                      >
+                        <span
+                          class="ant-steps-icon"
+                        >
+                          1
+                        </span>
+                      </div>
+                      <div
+                        class="ant-steps-item-content"
+                      >
+                        <div
+                          class="ant-steps-item-title"
+                        >
+                          Finished
+                        </div>
+                        <div
+                          class="ant-steps-item-description"
+                        >
+                          This is a description.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-steps-item ant-steps-item-wait"
+                  >
+                    <div
+                      class="ant-steps-item-container"
+                    >
+                      <div
+                        class="ant-steps-item-tail"
+                      />
+                      <div
+                        class="ant-steps-item-icon"
+                      >
+                        <span
+                          class="ant-steps-icon"
+                        >
+                          2
+                        </span>
+                      </div>
+                      <div
+                        class="ant-steps-item-content"
+                      >
+                        <div
+                          class="ant-steps-item-title"
+                        >
+                          In Progress
+                        </div>
+                        <div
+                          class="ant-steps-item-description"
+                        >
+                          This is a description.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-steps-item ant-steps-item-wait"
+                  >
+                    <div
+                      class="ant-steps-item-container"
+                    >
+                      <div
+                        class="ant-steps-item-tail"
+                      />
+                      <div
+                        class="ant-steps-item-icon"
+                      >
+                        <span
+                          class="ant-steps-icon"
+                        >
+                          3
+                        </span>
+                      </div>
+                      <div
+                        class="ant-steps-item-content"
+                      >
+                        <div
+                          class="ant-steps-item-title"
+                        >
+                          Waiting
+                        </div>
+                        <div
+                          class="ant-steps-item-description"
+                        >
+                          This is a description.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+    >
+      <div
+        class="ant-steps-item-container"
+      >
+        <div
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            2
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            In Progress
+          </div>
+          <div
+            class="ant-steps-item-description"
+          >
+            This is a description.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+    >
+      <div
+        class="ant-steps-item-container"
+      >
+        <div
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            3
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Waiting
+          </div>
+          <div
+            class="ant-steps-item-description"
+          >
+            This is a description.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
@@ -2825,7 +3071,6 @@ exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check"
               fill="currentColor"
               focusable="false"
@@ -2953,7 +3198,6 @@ exports[`renders ./components/steps/demo/vertical-small.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="check"
               fill="currentColor"
               focusable="false"

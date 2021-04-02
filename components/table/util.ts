@@ -6,7 +6,7 @@ export function getColumnKey<RecordType>(column: ColumnType<RecordType>, default
     return column.key;
   }
   if (column.dataIndex) {
-    return Array.isArray(column.dataIndex) ? column.dataIndex.join('.') : column.dataIndex;
+    return (Array.isArray(column.dataIndex) ? column.dataIndex.join('.') : column.dataIndex) as Key;
   }
 
   return defaultKey;

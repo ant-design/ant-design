@@ -1,12 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-
+import { composeRef } from 'rc-util/lib/ref';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import { composeRef } from '../_util/ref';
-import { Breakpoint, responsiveArray, ScreenSizeMap } from '../_util/responsiveObserve';
+import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import SizeContext, { AvatarSize } from './SizeContext';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -15,14 +15,14 @@ export interface AvatarProps {
    * Size of avatar, options: `large`, `small`, `default`
    * or a custom number size
    * */
-  size?: 'large' | 'small' | 'default' | number | ScreenSizeMap;
+  size?: AvatarSize;
   gap?: number;
   /** Src of image avatar */
-  src?: string;
+  src?: React.ReactNode;
   /** Srcset of image avatar */
   srcSet?: string;
   draggable?: boolean;
-  /** icon to be used in avatar */
+  /** Icon to be used in avatar */
   icon?: React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -35,6 +35,8 @@ export interface AvatarProps {
 }
 
 const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (props, ref) => {
+  const groupSize = React.useContext(SizeContext);
+
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
@@ -85,7 +87,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   const {
     prefixCls: customizePrefixCls,
     shape,
-    size,
+    size: customSize,
     src,
     srcSet,
     icon,
@@ -95,6 +97,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     children,
     ...others
   } = props;
+
+  const size = customSize === 'default' ? groupSize : customSize;
 
   const screens = useBreakpoint();
   const responsiveSizeStyle: React.CSSProperties = React.useMemo(() => {
@@ -128,12 +132,14 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     [`${prefixCls}-sm`]: size === 'small',
   });
 
+  const hasImageElement = React.isValidElement(src);
+
   const classString = classNames(
     prefixCls,
     sizeCls,
     {
       [`${prefixCls}-${shape}`]: shape,
-      [`${prefixCls}-image`]: src && isImgExist,
+      [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
       [`${prefixCls}-icon`]: icon,
     },
     className,
@@ -150,10 +156,12 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       : {};
 
   let childrenToRender;
-  if (src && isImgExist) {
+  if (typeof src === 'string' && isImgExist) {
     childrenToRender = (
       <img src={src} draggable={draggable} srcSet={srcSet} onError={handleImgLoadError} alt={alt} />
     );
+  } else if (hasImageElement) {
+    childrenToRender = src;
   } else if (icon) {
     childrenToRender = icon;
   } else if (mounted || scale !== 1) {

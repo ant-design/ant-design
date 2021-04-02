@@ -27,9 +27,12 @@ import {
   TreeSelect,
   Switch,
 } from 'antd';
+
+type SizeType = Parameters<typeof Form>[0]['size'];
+
 const FormSizeDemo = () => {
-  const [componentSize, setComponentSize] = useState('default');
-  const onFormLayoutChange = ({ size }) => {
+  const [componentSize, setComponentSize] = useState<SizeType | 'default'>('default');
+  const onFormLayoutChange = ({ size }: { size: SizeType }) => {
     setComponentSize(size);
   };
   return (
@@ -40,7 +43,7 @@ const FormSizeDemo = () => {
         layout="horizontal"
         initialValues={{ size: componentSize }}
         onValuesChange={onFormLayoutChange}
-        size={componentSize}
+        size={componentSize as SizeType}
       >
         <Form.Item label="Form Size" name="size">
           <Radio.Group>
@@ -96,5 +99,6 @@ const FormSizeDemo = () => {
     </>
   );
 };
+
 ReactDOM.render(<FormSizeDemo />, mountNode);
 ```

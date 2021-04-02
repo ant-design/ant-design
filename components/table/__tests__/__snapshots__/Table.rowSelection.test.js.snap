@@ -76,7 +76,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  style="height:0;font-size:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
@@ -293,7 +293,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -337,7 +336,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -427,7 +425,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  style="height:0;font-size:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
@@ -595,7 +593,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -639,7 +636,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -730,7 +726,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  style="height:0;font-size:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
@@ -902,7 +898,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -946,7 +941,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -989,6 +983,12 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
         role="menuitem"
       >
         Invert current page
+      </li>
+      <li
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+        role="menuitem"
+      >
+        Clear all data
       </li>
     </ul>
   </div>
@@ -1061,7 +1061,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="down"
                               fill="currentColor"
                               focusable="false"
@@ -1080,7 +1079,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+                            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
                             style="opacity: 0; pointer-events: none;"
                           >
                             <ul
@@ -1099,6 +1098,12 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                                 role="menuitem"
                               >
                                 Invert current page
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                role="menuitem"
+                              >
+                                Clear all data
                               </li>
                             </ul>
                           </div>
@@ -1263,7 +1268,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1307,7 +1311,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -1394,7 +1397,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="down"
                               fill="currentColor"
                               focusable="false"
@@ -1410,7 +1412,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+                            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
                             style="opacity: 0; pointer-events: none;"
                           >
                             <ul
@@ -1429,6 +1431,12 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                                 role="menuitem"
                               >
                                 Invert current page
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                role="menuitem"
+                              >
+                                Clear all data
                               </li>
                             </ul>
                           </div>
@@ -1596,7 +1604,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1640,7 +1647,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"
@@ -1868,7 +1874,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="left"
                 fill="currentColor"
                 focusable="false"
@@ -1912,7 +1917,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="right"
                 fill="currentColor"
                 focusable="false"

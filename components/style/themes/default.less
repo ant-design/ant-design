@@ -257,7 +257,9 @@
 
 // Radio
 @radio-size: 16px;
-@radio-top: 0px;
+@radio-top: 0.2em;
+@radio-border-width: 1px;
+@radio-dot-size: @radio-size - 8px;
 @radio-dot-color: @primary-color;
 @radio-dot-disabled-color: fade(@black, 20%);
 @radio-solid-checked-color: @component-background;
@@ -273,11 +275,13 @@
 @radio-wrapper-margin-right: 8px;
 
 // Media queries breakpoints
-// Extra small screen / phone
+// @screen-xs and @screen-xs-min is not used in Grid
+// smallest break point is @screen-md
 @screen-xs: 480px;
 @screen-xs-min: @screen-xs;
+// 👆 Extra small screen / phone
 
-// Small screen / tablet
+// 👇 Small screen / tablet
 @screen-sm: 576px;
 @screen-sm-min: @screen-sm;
 
@@ -384,16 +388,18 @@
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
 @input-padding-vertical-base: max(
-  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+  (round(((@input-height-base - @font-size-base * @line-height-base) / 2) * 10) / 10) -
     @border-width-base,
   3px
 );
 @input-padding-vertical-sm: max(
-  round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+  (round(((@input-height-sm - @font-size-base * @line-height-base) / 2) * 10) / 10) -
+    @border-width-base,
   0
 );
-@input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
-  10 - @border-width-base;
+@input-padding-vertical-lg: (
+    ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10
+  ) - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
 @input-icon-color: @input-color;
@@ -435,7 +441,7 @@
 @select-single-item-height-lg: 40px;
 @select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
 @select-multiple-item-height-lg: 32px;
-@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
+@select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
 @select-multiple-disabled-background: @input-disabled-bg;
 @select-multiple-item-disabled-color: #bfbfbf;
 @select-multiple-item-disabled-border-color: @select-border-color;
@@ -526,10 +532,11 @@
 // --
 @progress-default-color: @processing-color;
 @progress-remaining-color: @background-color-base;
-@progress-text-color: @text-color;
+@progress-info-text-color: @progress-text-color;
 @progress-radius: 100px;
 @progress-steps-item-bg: #f3f3f3;
 @progress-text-font-size: 1em;
+@progress-text-color: @text-color; // This is for circle text color, should be renamed better
 @progress-circle-text-font-size: 1em;
 // Menu
 // ---
@@ -540,6 +547,7 @@
 @menu-bg: @component-background;
 @menu-popup-bg: @component-background;
 @menu-item-color: @text-color;
+@menu-inline-submenu-bg: @background-color-light;
 @menu-highlight-color: @primary-color;
 @menu-highlight-danger-color: @error-color;
 @menu-item-active-bg: @primary-1;
@@ -561,7 +569,7 @@
 @menu-dark-danger-color: @error-color;
 @menu-dark-bg: @layout-header-background;
 @menu-dark-arrow-color: #fff;
-@menu-dark-submenu-bg: #000c17;
+@menu-dark-inline-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
 @menu-dark-item-active-danger-bg: @error-color;
@@ -589,10 +597,11 @@
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
-@table-padding-vertical-md: @table-padding-vertical * 3 / 4;
-@table-padding-horizontal-md: @table-padding-horizontal / 2;
-@table-padding-vertical-sm: @table-padding-vertical / 2;
-@table-padding-horizontal-sm: @table-padding-horizontal / 2;
+@table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
+@table-padding-horizontal-md: (@table-padding-horizontal / 2);
+@table-padding-vertical-sm: (@table-padding-vertical / 2);
+@table-padding-horizontal-sm: (@table-padding-horizontal / 2);
+@table-border-color: @border-color-split;
 @table-border-radius-base: @border-radius-base;
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
@@ -608,8 +617,7 @@
 @table-filter-btns-bg: inherit;
 @table-filter-dropdown-bg: @component-background;
 @table-expand-icon-bg: @component-background;
-@table-selection-column-width: 60px;
-@table-selection-extra-right: 0;
+@table-selection-column-width: 32px;
 // Sticky
 @table-sticky-scroll-bar-bg: fade(#000, 35%);
 @table-sticky-scroll-bar-radius: 4px;
@@ -680,12 +688,12 @@
 @card-head-font-size: @font-size-lg;
 @card-head-font-size-sm: @font-size-base;
 @card-head-padding: 16px;
-@card-head-padding-sm: @card-head-padding / 2;
+@card-head-padding-sm: (@card-head-padding / 2);
 @card-head-height: 48px;
 @card-head-height-sm: 36px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
-@card-padding-base-sm: @card-padding-base / 2;
+@card-padding-base-sm: (@card-padding-base / 2);
 @card-actions-background: @component-background;
 @card-actions-li-margin: 12px 0;
 @card-skeleton-bg: #cfd8dc;
@@ -716,8 +724,9 @@
 @tabs-card-head-background: @background-color-light;
 @tabs-card-height: 40px;
 @tabs-card-active-color: @primary-color;
-@tabs-card-horizontal-padding: (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2 -
-  @border-width-base @padding-md;
+@tabs-card-horizontal-padding: (
+    (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2
+  ) - @border-width-base @padding-md;
 @tabs-card-horizontal-padding-sm: 6px @padding-md;
 @tabs-card-horizontal-padding-lg: 7px @padding-md 6px;
 @tabs-title-font-size: @font-size-base;
@@ -725,13 +734,14 @@
 @tabs-title-font-size-sm: @font-size-base;
 @tabs-ink-bar-color: @primary-color;
 @tabs-bar-margin: 0 0 @margin-md 0;
-@tabs-horizontal-margin: 0 32px 0 0;
+@tabs-horizontal-gutter: 32px;
+@tabs-horizontal-margin: 0 0 0 @tabs-horizontal-gutter;
 @tabs-horizontal-margin-rtl: 0 0 0 32px;
 @tabs-horizontal-padding: @padding-sm 0;
 @tabs-horizontal-padding-lg: @padding-md 0;
 @tabs-horizontal-padding-sm: @padding-xs 0;
 @tabs-vertical-padding: @padding-xs @padding-lg;
-@tabs-vertical-margin: 0 0 @margin-md 0;
+@tabs-vertical-margin: @margin-md 0 0 0;
 @tabs-scrolling-size: 32px;
 @tabs-highlight-color: @primary-color;
 @tabs-hover-color: @primary-5;
@@ -856,7 +866,7 @@
 
 // Skeleton
 // ---
-@skeleton-color: #f2f2f2;
+@skeleton-color: rgba(190, 190, 190, 0.2);
 @skeleton-to-color: shade(@skeleton-color, 5%);
 @skeleton-paragraph-margin-top: 28px;
 @skeleton-paragraph-li-margin-top: @margin-md;
@@ -904,11 +914,9 @@
 @alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
-  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size * 2 +
-  @alert-with-description-padding-vertical;
-@alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
+  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size;
+@alert-icon-top: 8px + @font-size-base * (@line-height-base / 2) - (@font-size-base / 2);
 @alert-with-description-icon-size: 24px;
-@alert-with-description-icon-top: @alert-with-description-padding-vertical;
 
 // List
 // ---
@@ -928,7 +936,7 @@
 // ---
 @statistic-title-font-size: @font-size-base;
 @statistic-content-font-size: 24px;
-@statistic-unit-font-size: 16px;
+@statistic-unit-font-size: 24px;
 @statistic-font-family: @font-family;
 
 // Drawer
@@ -968,7 +976,7 @@
 @steps-icon-custom-size: @steps-icon-size;
 @steps-icon-custom-top: 0px;
 @steps-icon-custom-font-size: 24px;
-@steps-icon-top: -1px;
+@steps-icon-top: -0.5px;
 @steps-icon-font-size: @font-size-lg;
 @steps-icon-margin: 0 8px 0 0;
 @steps-title-line-height: @height-base;
@@ -977,7 +985,7 @@
 @steps-dot-size: 8px;
 @steps-dot-top: 2px;
 @steps-current-dot-size: 10px;
-@steps-desciption-max-width: 140px;
+@steps-description-max-width: 140px;
 @steps-nav-content-max-width: auto;
 @steps-vertical-icon-width: 16px;
 @steps-vertical-tail-width: 16px;
@@ -1002,6 +1010,7 @@
 @image-font-size-base: 24px;
 @image-bg: #f5f5f5;
 @image-color: #fff;
+@image-mask-font-size: 16px;
 @image-preview-operation-size: 18px;
 @image-preview-operation-color: @text-color-dark;
-@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 45%);
+@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);

@@ -16,7 +16,6 @@ import {
   BugOutlined,
   IssuesCloseOutlined,
   BookOutlined,
-  MessageOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
@@ -261,15 +260,9 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
           openExternal: true,
         },
         {
-          icon: <MessageOutlined />,
-          title: <FormattedMessage id="app.footer.discuss-cn" />,
-          url: 'https://gitter.im/ant-design/ant-design',
-          openExternal: true,
-        },
-        {
-          icon: <MessageOutlined />,
-          title: <FormattedMessage id="app.footer.discuss-en" />,
-          url: 'https://gitter.im/ant-design/ant-design-english',
+          icon: <QuestionCircleOutlined />,
+          title: <FormattedMessage id="app.footer.discussions" />,
+          url: 'https://github.com/ant-design/ant-design/discussions',
           openExternal: true,
         },
         {
@@ -306,18 +299,6 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
           title: <FormattedMessage id="app.footer.yuque" />,
           url: 'https://yuque.com',
           description: <FormattedMessage id="app.footer.yuque.slogan" />,
-          openExternal: true,
-        },
-        {
-          icon: (
-            <img
-              src="https://gw.alipayobjects.com/zos/rmsportal/uHocHZfNWZOdsRUonZNr.png"
-              alt="yunfengdie"
-            />
-          ),
-          title: <FormattedMessage id="app.footer.fengdie" />,
-          url: 'https://yunfengdie.com',
-          description: <FormattedMessage id="app.footer.fengdie.slogan" />,
           openExternal: true,
         },
         {

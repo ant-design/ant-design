@@ -1,13 +1,15 @@
 import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
-import { BuildInPlacements } from 'rc-trigger/lib/interface';
+import { placements as Placements } from 'rc-tooltip/lib/placements';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { PresetColorType, PresetColorTypes } from '../_util/colors';
 import { LiteralUnion } from '../_util/type';
+import { getTransitionName } from '../_util/motion';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -42,7 +44,7 @@ export interface AbstractTooltipProps extends Partial<Omit<RcTooltipProps, 'chil
   className?: string;
   color?: LiteralUnion<PresetColorType, string>;
   placement?: TooltipPlacement;
-  builtinPlacements?: BuildInPlacements;
+  builtinPlacements?: typeof Placements;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
@@ -132,13 +134,10 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     ConfigContext,
   );
 
-  const [visible, setVisible] = React.useState(!!props.visible || !!props.defaultVisible);
-
-  React.useEffect(() => {
-    if ('visible' in props) {
-      setVisible(props.visible!);
-    }
-  }, [props.visible]);
+  const [visible, setVisible] = useMergedState(false, {
+    value: props.visible,
+    defaultValue: props.defaultVisible,
+  });
 
   const isNoTitle = () => {
     const { title, overlay } = props;
@@ -146,11 +145,10 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   };
 
   const onVisibleChange = (vis: boolean) => {
-    if (!('visible' in props)) {
-      setVisible(isNoTitle() ? false : vis);
-    }
-    if (props.onVisibleChange && !isNoTitle()) {
-      props.onVisibleChange(vis);
+    setVisible(isNoTitle() ? false : vis);
+
+    if (!isNoTitle()) {
+      props.onVisibleChange?.(vis);
     }
   };
 
@@ -215,6 +213,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     children,
   } = props;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
   let tempVisible = visible;
   // Hide tooltip when there is no title
   if (!('visible' in props) && isNoTitle()) {
@@ -235,7 +235,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
   });
 
-  let formattedOverlayInnerStyle;
+  let formattedOverlayInnerStyle = overlayInnerStyle;
   let arrowContentStyle;
   if (color && !PresetColorRegex.test(color)) {
     formattedOverlayInnerStyle = { ...overlayInnerStyle, background: color };
@@ -256,6 +256,10 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
+      motion={{
+        motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
+        motionDeadline: 1000,
+      }}
     >
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
@@ -266,7 +270,6 @@ Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
   placement: 'top' as TooltipPlacement,
-  transitionName: 'zoom-big-fast',
   mouseEnterDelay: 0.1,
   mouseLeaveDelay: 0.1,
   arrowPointAtCenter: false,

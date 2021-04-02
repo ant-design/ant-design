@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 
 import Group from './button-group';
 import { ConfigContext } from '../config-provider';
@@ -74,7 +74,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
 
 const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link', 'text');
 export type ButtonType = typeof ButtonTypes[number];
-const ButtonShapes = tuple('circle', 'circle-outline', 'round');
+const ButtonShapes = tuple('circle', 'round');
 export type ButtonShape = typeof ButtonShapes[number];
 const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
 export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
@@ -129,7 +129,7 @@ type Loading = number | boolean;
 
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
   const {
-    loading,
+    loading = false,
     prefixCls: customizePrefixCls,
     type,
     danger,
@@ -138,8 +138,11 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     className,
     children,
     icon,
-    ghost,
-    block,
+    ghost = false,
+    block = false,
+    /** If we extract items here, we don't need use omit.js */
+    // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
+    htmlType = 'button' as ButtonProps['htmlType'],
     ...rest
   } = props;
 
@@ -150,9 +153,8 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
   const delayTimeoutRef = React.useRef<number>();
 
-  const isNeedInserted = () => {
-    return React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
-  };
+  const isNeedInserted = () =>
+    React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
 
   const fixTwoCNChar = () => {
     // Fix for HOC usage like <FormatMessage />
@@ -188,18 +190,14 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     }
   }, [loadingOrDelay]);
 
-  React.useEffect(() => {
-    fixTwoCNChar();
-  }, [buttonRef]);
+  React.useEffect(fixTwoCNChar, [buttonRef]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
     const { onClick } = props;
     if (innerLoading) {
       return;
     }
-    if (onClick) {
-      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
-    }
+    (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
   };
 
   devWarning(
@@ -262,7 +260,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       ? spaceChildren(children, isNeedInserted() && autoInsertSpace)
       : null;
 
-  const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading', 'navigate']);
+  const linkButtonRestProps = omit(rest as AnchorButtonProps & { navigate: any }, ['navigate']);
   if (linkButtonRestProps.href !== undefined) {
     return (
       <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
@@ -272,12 +270,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     );
   }
 
-  // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
-  const { htmlType, ...otherProps } = rest as NativeButtonProps;
-
   const buttonNode = (
     <button
-      {...(omit(otherProps, ['loading']) as NativeButtonProps)}
+      {...(rest as NativeButtonProps)}
       type={htmlType}
       className={classes}
       onClick={handleClick}
@@ -298,13 +293,6 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
 
 Button.displayName = 'Button';
-
-Button.defaultProps = {
-  loading: false,
-  ghost: false,
-  block: false,
-  htmlType: 'button' as ButtonProps['htmlType'],
-};
 
 Button.Group = Group;
 Button.__ANT_BUTTON = true;

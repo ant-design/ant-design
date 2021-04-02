@@ -15,6 +15,8 @@ title:
 
 **注意，此示例使用 [模拟接口](https://randomuser.me)，展示数据可能不准确，请打开网络面板查看请求。**
 
+> 🛎️ 想要 3 分钟实现？试试 [ProTable](https://procomponents.ant.design/components/table)！
+
 ## en-US
 
 This example shows how to fetch and present data from a remote server, and how to implement filtering and sorting in server side by sending related parameters to server.
@@ -50,13 +52,11 @@ const columns = [
   },
 ];
 
-const getRandomuserParams = params => {
-  return {
-    results: params.pagination.pageSize,
-    page: params.pagination.current,
-    ...params,
-  };
-};
+const getRandomuserParams = params => ({
+  results: params.pagination.pageSize,
+  page: params.pagination.current,
+  ...params,
+});
 
 class App extends React.Component {
   state = {

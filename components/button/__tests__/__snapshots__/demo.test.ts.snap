@@ -341,7 +341,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -374,7 +373,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -402,7 +400,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -427,7 +424,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -456,7 +452,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -481,7 +476,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -509,7 +503,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -534,7 +527,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -593,7 +585,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="download"
               fill="currentColor"
               focusable="false"
@@ -619,7 +610,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="download"
             fill="currentColor"
             focusable="false"
@@ -673,7 +663,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="download"
               fill="currentColor"
               focusable="false"
@@ -699,7 +688,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="download"
             fill="currentColor"
             focusable="false"
@@ -753,7 +741,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="download"
               fill="currentColor"
               focusable="false"
@@ -779,7 +766,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="download"
             fill="currentColor"
             focusable="false"
@@ -809,12 +795,11 @@ Array [
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
           aria-hidden="true"
-          class="anticon-spin"
           data-icon="loading"
           fill="currentColor"
           focusable="false"
@@ -841,12 +826,11 @@ Array [
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
           aria-hidden="true"
-          class="anticon-spin"
           data-icon="loading"
           fill="currentColor"
           focusable="false"
@@ -873,12 +857,11 @@ Array [
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
           aria-hidden="true"
-          class="anticon-spin"
           data-icon="loading"
           fill="currentColor"
           focusable="false"
@@ -913,7 +896,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="poweroff"
         fill="currentColor"
         focusable="false"
@@ -941,7 +923,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="poweroff"
         fill="currentColor"
         focusable="false"
@@ -976,34 +957,42 @@ Array [
       secondary
     </span>
   </button>,
-  <button
-    class="ant-btn ant-dropdown-trigger"
-    type="button"
+  <div
+    class="ant-btn-group ant-dropdown-button"
   >
-    <span>
-      Actions 
-    </span>
-    <span
-      aria-label="down"
-      class="anticon anticon-down"
-      role="img"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="down"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span>
+        Actions
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+      type="button"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
       >
-        <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-      </svg>
-    </span>
-  </button>,
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>,
 ]
 `;
 
@@ -1118,7 +1107,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="download"
         fill="currentColor"
         focusable="false"
@@ -1143,7 +1131,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="download"
         fill="currentColor"
         focusable="false"
@@ -1168,7 +1155,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="download"
         fill="currentColor"
         focusable="false"
@@ -1193,7 +1179,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="download"
         fill="currentColor"
         focusable="false"
@@ -1221,7 +1206,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="download"
         fill="currentColor"
         focusable="false"

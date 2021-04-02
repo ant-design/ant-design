@@ -18,7 +18,6 @@ import React, { useState } from 'react';
 import {
   Form,
   Input,
-  Tooltip,
   Cascader,
   Select,
   Row,
@@ -27,10 +26,8 @@ import {
   Button,
   AutoComplete,
 } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
 
 const residences = [
   {
@@ -93,7 +90,7 @@ const tailFormItemLayout = {
 const RegistrationForm = () => {
   const [form] = Form.useForm();
 
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
 
@@ -106,9 +103,9 @@ const RegistrationForm = () => {
     </Form.Item>
   );
 
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+  const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
 
-  const onWebsiteChange = value => {
+  const onWebsiteChange = (value: string) => {
     if (!value) {
       setAutoCompleteResult([]);
     } else {
@@ -175,11 +172,11 @@ const RegistrationForm = () => {
             message: 'Please confirm your password!',
           },
           ({ getFieldValue }) => ({
-            validator(rule, value) {
+            validator(_, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject('The two passwords that you entered do not match!');
+              return Promise.reject(new Error('The two passwords that you entered do not match!'));
             },
           }),
         ]}
@@ -189,14 +186,8 @@ const RegistrationForm = () => {
 
       <Form.Item
         name="nickname"
-        label={
-          <span>
-            Nickname&nbsp;
-            <Tooltip title="What do you want others to call you?">
-              <QuestionCircleOutlined />
-            </Tooltip>
-          </span>
-        }
+        label="Nickname"
+        tooltip="What do you want others to call you?"
         rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
       >
         <Input />
@@ -251,7 +242,10 @@ const RegistrationForm = () => {
         name="agreement"
         valuePropName="checked"
         rules={[
-          { validator:(_, value) => value ? Promise.resolve() : Promise.reject('Should accept agreement') },
+          {
+            validator: (_, value) =>
+              value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+          },
         ]}
         {...tailFormItemLayout}
       >

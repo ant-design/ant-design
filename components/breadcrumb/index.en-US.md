@@ -28,16 +28,17 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| className | The additional css class | string | - |  |
 | dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
 | href | Target of hyperlink | string | - |  |
-| onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
 | overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
+| onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
 
 ### Breadcrumb.Separator
 
-| Property | Description      | Type      | Default | Version |
-| -------- | ---------------- | --------- | ------- | ------- |
-| children | Custom separator | ReactNode | `/`     |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| children | Custom separator | ReactNode | `/` |  |
 
 > When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
 

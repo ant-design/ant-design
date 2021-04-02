@@ -32,7 +32,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -77,7 +76,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -122,7 +120,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -167,7 +164,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -211,7 +207,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -263,7 +258,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -308,7 +302,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -353,7 +346,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -398,7 +390,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -447,7 +438,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -487,7 +477,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -535,7 +524,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -575,7 +563,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -623,7 +610,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -663,7 +649,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -710,7 +695,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -750,7 +734,6 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -801,7 +784,6 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -849,7 +831,6 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -889,7 +870,6 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -941,7 +921,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -987,7 +966,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1037,7 +1015,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -1078,7 +1055,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -1125,7 +1101,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -1166,7 +1141,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -1190,7 +1164,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close-circle"
             fill="currentColor"
             focusable="false"
@@ -1241,7 +1214,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1286,7 +1258,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1335,7 +1306,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -1375,7 +1345,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -1422,7 +1391,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -1462,7 +1430,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -1513,7 +1480,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1558,7 +1524,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1607,7 +1572,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -1647,7 +1611,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -1695,7 +1658,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -1735,7 +1697,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -1778,7 +1739,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1830,7 +1790,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1854,7 +1813,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close-circle"
               fill="currentColor"
               focusable="false"
@@ -1899,7 +1857,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1923,7 +1880,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close-circle"
               fill="currentColor"
               focusable="false"
@@ -1968,7 +1924,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1992,7 +1947,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close-circle"
               fill="currentColor"
               focusable="false"
@@ -2041,7 +1995,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2081,7 +2034,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2105,7 +2057,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close-circle"
             fill="currentColor"
             focusable="false"
@@ -2148,7 +2099,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -2172,7 +2122,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close-circle"
               fill="currentColor"
               focusable="false"
@@ -2224,7 +2173,6 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -2272,7 +2220,6 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2312,7 +2259,6 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2367,7 +2313,6 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2407,7 +2352,6 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2454,7 +2398,6 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2494,7 +2437,6 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2549,7 +2491,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2589,7 +2530,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2637,7 +2577,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2677,7 +2616,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2725,7 +2663,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2765,7 +2702,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2813,7 +2749,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2853,7 +2788,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2900,7 +2834,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -2940,7 +2873,6 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -2988,7 +2920,6 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="swap-right"
           fill="currentColor"
           focusable="false"
@@ -3028,7 +2959,6 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="calendar"
         fill="currentColor"
         focusable="false"
@@ -3144,7 +3074,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -3189,7 +3118,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -3238,7 +3166,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -3278,7 +3205,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -3321,7 +3247,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -3373,7 +3298,6 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -3417,7 +3341,6 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -3469,7 +3392,6 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="smile"
               fill="currentColor"
               focusable="false"
@@ -3514,7 +3436,6 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="smile"
               fill="currentColor"
               focusable="false"
@@ -3563,7 +3484,6 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -3603,7 +3523,6 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="smile"
             fill="currentColor"
             focusable="false"
@@ -3647,7 +3566,6 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="smile"
               fill="currentColor"
               focusable="false"
@@ -3748,7 +3666,6 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -3866,7 +3783,6 @@ exports[`renders ./components/date-picker/demo/switchable.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -3909,7 +3825,6 @@ exports[`renders ./components/date-picker/demo/switchable.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="clock-circle"
               fill="currentColor"
               focusable="false"
@@ -3964,7 +3879,6 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -4012,7 +3926,6 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -4052,7 +3965,6 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"

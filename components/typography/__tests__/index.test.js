@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined, LikeOutlined, HighlightOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Link from '../Link';
@@ -85,16 +86,14 @@ describe('Typography', () => {
 
         await sleep(20);
         wrapper.update();
-        expect(wrapper.find('span:not(.anticon)').text()).toEqual('Bamboo is Little ...');
+        expect(wrapper.text()).toEqual('Bamboo is Little ...');
         expect(onEllipsis).toHaveBeenCalledWith(true);
         onEllipsis.mockReset();
 
         wrapper.setProps({ ellipsis: { rows: 2, onEllipsis } });
         await sleep(20);
         wrapper.update();
-        expect(wrapper.find('span:not(.anticon)').text()).toEqual(
-          'Bamboo is Little Light Bamboo is Litt...',
-        );
+        expect(wrapper.text()).toEqual('Bamboo is Little Light Bamboo is Litt...');
         expect(onEllipsis).not.toHaveBeenCalled();
 
         wrapper.setProps({ ellipsis: { rows: 99, onEllipsis } });
@@ -102,6 +101,41 @@ describe('Typography', () => {
         wrapper.update();
         expect(wrapper.find('p').text()).toEqual(fullStr);
         expect(onEllipsis).toHaveBeenCalledWith(false);
+
+        wrapper.unmount();
+      });
+
+      it('string with parentheses', async () => {
+        const parenthesesStr = `Ant Design, a design language (for background applications, is refined by
+          Ant UED Team. Ant Design, a design language for background applications,
+          is refined by Ant UED Team. Ant Design, a design language for background
+          applications, is refined by Ant UED Team. Ant Design, a design language
+          for background applications, is refined by Ant UED Team. Ant Design, a
+          design language for background applications, is refined by Ant UED Team.
+          Ant Design, a design language for background applications, is refined by
+          Ant UED Team.`;
+        const onEllipsis = jest.fn();
+        const wrapper = mount(
+          <Base ellipsis={{ onEllipsis }} component="p" editable>
+            {parenthesesStr}
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.text()).toEqual('Ant Design, a des...');
+        const ellipsisSpan = wrapper.find('span[title]');
+        expect(ellipsisSpan.text()).toEqual('...');
+        expect(ellipsisSpan.props().title)
+          .toEqual(`ign language (for background applications, is refined by
+          Ant UED Team. Ant Design, a design language for background applications,
+          is refined by Ant UED Team. Ant Design, a design language for background
+          applications, is refined by Ant UED Team. Ant Design, a design language
+          for background applications, is refined by Ant UED Team. Ant Design, a
+          design language for background applications, is refined by Ant UED Team.
+          Ant Design, a design language for background applications, is refined by
+          Ant UED Team.`);
+        onEllipsis.mockReset();
 
         wrapper.unmount();
       });
@@ -161,7 +195,7 @@ describe('Typography', () => {
         await sleep(20);
         wrapper.update();
 
-        expect(wrapper.find('span:not(.anticon)').text()).toEqual('Bamboo is Little...');
+        expect(wrapper.text()).toEqual('Bamboo is Little...');
       });
 
       it('should expandable work', async () => {
@@ -198,6 +232,32 @@ describe('Typography', () => {
       it('can use css ellipsis', () => {
         const wrapper = mount(<Base ellipsis component="p" />);
         expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+      });
+
+      describe('should tooltip support', () => {
+        function getWrapper(tooltip) {
+          return mount(
+            <Base ellipsis={{ tooltip }} component="p">
+              {fullStr}
+            </Base>,
+          );
+        }
+
+        it('boolean', async () => {
+          const wrapper = getWrapper(true);
+          await sleep(20);
+          wrapper.update();
+
+          expect(wrapper.find('Tooltip').prop('title')).toEqual(fullStr);
+        });
+
+        it('customize', async () => {
+          const wrapper = getWrapper('Bamboo is Light');
+          await sleep(20);
+          wrapper.update();
+
+          expect(wrapper.find('Tooltip').prop('title')).toEqual('Bamboo is Light');
+        });
       });
     });
 
@@ -408,6 +468,44 @@ describe('Typography', () => {
       testStep({ name: 'customize edit show tooltip', tooltip: true });
       testStep({ name: 'customize edit hide tooltip', tooltip: false });
       testStep({ name: 'customize edit tooltip text', tooltip: 'click to edit text' });
+
+      it('should trigger onEnd when type Enter', () => {
+        const onEnd = jest.fn();
+        const wrapper = mount(<Paragraph editable={{ onEnd }}>Bamboo</Paragraph>);
+        wrapper.find('.ant-typography-edit').first().simulate('click');
+        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+        expect(onEnd).toHaveBeenCalledTimes(1);
+      });
+
+      it('should trigger onCancel when type ESC', () => {
+        const onCancel = jest.fn();
+        const wrapper = mount(<Paragraph editable={{ onCancel }}>Bamboo</Paragraph>);
+        wrapper.find('.ant-typography-edit').first().simulate('click');
+        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ESC });
+        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ESC });
+        expect(onCancel).toHaveBeenCalledTimes(1);
+      });
+
+      it('should only trigger focus on the first time', () => {
+        let triggerTimes = 0;
+        const mockFocus = spyElementPrototype(HTMLElement, 'focus', () => {
+          triggerTimes += 1;
+        });
+
+        const wrapper = mount(<Paragraph editable>Bamboo</Paragraph>);
+
+        wrapper.find('.ant-typography-edit').first().simulate('click');
+        expect(triggerTimes).toEqual(1);
+
+        wrapper.find('textarea').simulate('change', {
+          target: { value: 'good' },
+        });
+
+        expect(triggerTimes).toEqual(1);
+
+        mockFocus.mockRestore();
+      });
     });
 
     it('should focus at the end of textarea', () => {

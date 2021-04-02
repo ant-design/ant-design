@@ -29,8 +29,8 @@ const Timeline: TimelineType = props => {
     pendingDot,
     children,
     className,
-    reverse,
-    mode,
+    reverse = false,
+    mode = '' as TimelineProps['mode'],
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
@@ -42,9 +42,11 @@ const Timeline: TimelineType = props => {
     </TimelineItem>
   ) : null;
 
-  const timeLineItems = reverse
-    ? [pendingItem, ...React.Children.toArray(children).reverse()]
-    : [...React.Children.toArray(children), pendingItem];
+  const timeLineItems = React.Children.toArray(children);
+  timeLineItems.push(pendingItem as any);
+  if (reverse) {
+    timeLineItems.reverse();
+  }
 
   const getPositionCls = (ele: React.ReactElement<any>, idx: number) => {
     if (mode === 'alternate') {
@@ -96,10 +98,5 @@ const Timeline: TimelineType = props => {
 };
 
 Timeline.Item = TimelineItem;
-
-Timeline.defaultProps = {
-  reverse: false,
-  mode: '' as TimelineProps['mode'],
-};
 
 export default Timeline;

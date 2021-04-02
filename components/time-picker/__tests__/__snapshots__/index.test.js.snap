@@ -25,7 +25,6 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -72,7 +71,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -99,7 +97,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close-circle"
             fill="currentColor"
             focusable="false"
@@ -117,7 +114,7 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
       style="opacity: 0; pointer-events: none;"
     >
       <div
@@ -1507,7 +1504,6 @@ exports[`TimePicker rtl render component should be rendered correctly in RTL dir
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -1553,7 +1549,6 @@ exports[`TimePicker should support bordered 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -1580,7 +1575,6 @@ exports[`TimePicker should support bordered 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"

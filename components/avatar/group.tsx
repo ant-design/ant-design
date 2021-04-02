@@ -5,6 +5,7 @@ import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import Avatar from './avatar';
 import Popover from '../popover';
+import { AvatarSize, SizeContextProvider } from './SizeContext';
 
 export interface GroupProps {
   className?: string;
@@ -14,12 +15,19 @@ export interface GroupProps {
   maxCount?: number;
   maxStyle?: React.CSSProperties;
   maxPopoverPlacement?: 'top' | 'bottom';
+  /*
+   * Size of avatar, options: `large`, `small`, `default`
+   * or a custom number size
+   * */
+  size?: AvatarSize;
 }
 
 const Group: React.FC<GroupProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle } = props;
+  const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size } = props;
+
   const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
+
   const cls = classNames(
     prefixCls,
     {
@@ -29,11 +37,11 @@ const Group: React.FC<GroupProps> = props => {
   );
 
   const { children, maxPopoverPlacement = 'top' } = props;
-  const childrenWithProps = toArray(children).map((child, index) => {
-    return cloneElement(child, {
+  const childrenWithProps = toArray(children).map((child, index) =>
+    cloneElement(child, {
       key: `avatar-key-${index}`,
-    });
-  });
+    }),
+  );
 
   const numOfChildren = childrenWithProps.length;
   if (maxCount && maxCount < numOfChildren) {
@@ -51,15 +59,20 @@ const Group: React.FC<GroupProps> = props => {
       </Popover>,
     );
     return (
-      <div className={cls} style={props.style}>
-        {childrenShow}
-      </div>
+      <SizeContextProvider size={size}>
+        <div className={cls} style={props.style}>
+          {childrenShow}
+        </div>
+      </SizeContextProvider>
     );
   }
+
   return (
-    <div className={cls} style={props.style}>
-      {children}
-    </div>
+    <SizeContextProvider size={size}>
+      <div className={cls} style={props.style}>
+        {childrenWithProps}
+      </div>
+    </SizeContextProvider>
   );
 };
 

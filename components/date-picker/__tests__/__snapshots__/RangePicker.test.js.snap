@@ -45,7 +45,6 @@ exports[`RangePicker customize separator 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="calendar"
         fill="currentColor"
         focusable="false"
@@ -92,7 +91,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -132,7 +130,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -308,7 +305,7 @@ Array [
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell"
+                          class="ant-picker-cell ant-picker-cell-end"
                           title="2017-08-31"
                         >
                           <div
@@ -318,7 +315,7 @@ Array [
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                           title="2017-09-01"
                         >
                           <div
@@ -616,7 +613,7 @@ Array [
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                           title="2017-09-30"
                         >
                           <div
@@ -628,7 +625,7 @@ Array [
                       </tr>
                       <tr>
                         <td
-                          class="ant-picker-cell"
+                          class="ant-picker-cell ant-picker-cell-start"
                           title="2017-10-01"
                         >
                           <div
@@ -804,7 +801,7 @@ Array [
                     <tbody>
                       <tr>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                           title="2017-10-01"
                         >
                           <div
@@ -1112,7 +1109,7 @@ Array [
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                           title="2017-10-31"
                         >
                           <div
@@ -1122,7 +1119,7 @@ Array [
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell"
+                          class="ant-picker-cell ant-picker-cell-start"
                           title="2017-11-01"
                         >
                           <div

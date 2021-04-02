@@ -21,7 +21,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close"
               fill="currentColor"
               focusable="false"
@@ -51,7 +50,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close"
               fill="currentColor"
               focusable="false"
@@ -81,7 +79,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="close"
               fill="currentColor"
               focusable="false"
@@ -108,7 +105,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="plus"
         fill="currentColor"
         focusable="false"
@@ -158,7 +154,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close"
         fill="currentColor"
         focusable="false"
@@ -184,7 +179,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close"
         fill="currentColor"
         focusable="false"
@@ -339,6 +333,78 @@ Array [
 ]
 `;
 
+exports[`renders ./components/tag/demo/colorful-inverse.md correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets Inverse
+    </span>
+  </div>,
+  <div>
+    <span
+      class="ant-tag ant-tag-magenta-inverse"
+    >
+      magenta
+    </span>
+    <span
+      class="ant-tag ant-tag-red-inverse"
+    >
+      red
+    </span>
+    <span
+      class="ant-tag ant-tag-volcano-inverse"
+    >
+      volcano
+    </span>
+    <span
+      class="ant-tag ant-tag-orange-inverse"
+    >
+      orange
+    </span>
+    <span
+      class="ant-tag ant-tag-gold-inverse"
+    >
+      gold
+    </span>
+    <span
+      class="ant-tag ant-tag-lime-inverse"
+    >
+      lime
+    </span>
+    <span
+      class="ant-tag ant-tag-green-inverse"
+    >
+      green
+    </span>
+    <span
+      class="ant-tag ant-tag-cyan-inverse"
+    >
+      cyan
+    </span>
+    <span
+      class="ant-tag ant-tag-blue-inverse"
+    >
+      blue
+    </span>
+    <span
+      class="ant-tag ant-tag-geekblue-inverse"
+    >
+      geekblue
+    </span>
+    <span
+      class="ant-tag ant-tag-purple-inverse"
+    >
+      purple
+    </span>
+  </div>,
+]
+`;
+
 exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 Array [
   <span
@@ -362,7 +428,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close"
         fill="currentColor"
         focusable="false"
@@ -390,7 +455,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close"
         fill="currentColor"
         focusable="false"
@@ -414,7 +478,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="plus"
         fill="currentColor"
         focusable="false"
@@ -450,7 +513,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close"
         fill="currentColor"
         focusable="false"
@@ -482,17 +544,17 @@ Array [
     class="ant-tag"
   >
     Tag1
-    <div
+    <span
       class="ant-tag-close-icon"
     >
       关 闭
-    </div>
+    </span>
   </span>,
   <span
     class="ant-tag"
   >
     Tag2
-    <div
+    <span
       class="ant-tag-close-icon"
     >
       <span
@@ -502,7 +564,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -518,7 +579,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </span>
   </span>,
 ]
 `;
@@ -536,7 +597,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="twitter"
         fill="currentColor"
         focusable="false"
@@ -564,7 +624,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="youtube"
         fill="currentColor"
         focusable="false"
@@ -592,7 +651,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="facebook"
         fill="currentColor"
         focusable="false"
@@ -620,7 +678,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="linkedin"
         fill="currentColor"
         focusable="false"
@@ -700,7 +757,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="check-circle"
           fill="currentColor"
           focusable="false"
@@ -725,12 +781,11 @@ Array [
     >
       <span
         aria-label="sync"
-        class="anticon anticon-sync"
+        class="anticon anticon-sync anticon-spin"
         role="img"
       >
         <svg
           aria-hidden="true"
-          class="anticon-spin"
           data-icon="sync"
           fill="currentColor"
           focusable="false"
@@ -757,7 +812,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -787,7 +841,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="exclamation-circle"
           fill="currentColor"
           focusable="false"
@@ -817,7 +870,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -847,7 +899,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="minus-circle"
           fill="currentColor"
           focusable="false"

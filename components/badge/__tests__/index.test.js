@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
@@ -30,10 +31,11 @@ describe('Badge', () => {
   });
 
   it('badge should support float number', () => {
-    let wrapper = render(<Badge count={3.5} />);
-    expect(wrapper).toMatchSnapshot();
+    let wrapper = mount(<Badge count={3.5} />);
+    expect(wrapper.find('.ant-badge-multiple-words').first().text()).toEqual('3.5');
+
     wrapper = mount(<Badge count="3.5" />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('.ant-badge-multiple-words').first().text()).toEqual('3.5');
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -57,53 +59,55 @@ describe('Badge', () => {
         <Badge status="error" />
       </Tooltip>,
     );
-    wrapper.find('Badge').simulate('mouseenter');
-    jest.runAllTimers();
-    expect(ref.current.props.visible).toBe(true);
+
+    act(() => {
+      wrapper.find('Badge').simulate('mouseenter');
+      jest.runAllTimers();
+    });
+    expect(ref.current.props.visible).toBeTruthy();
   });
 
   it('should render when count is changed', () => {
     const wrapper = mount(<Badge count={9} />);
-    wrapper.setProps({ count: 10 });
-    jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
-    wrapper.setProps({ count: 11 });
-    jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
-    wrapper.setProps({ count: 11 });
-    jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
-    wrapper.setProps({ count: 111 });
-    jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
-    wrapper.setProps({ count: 10 });
-    jest.runAllTimers();
-    expect(wrapper).toMatchSnapshot();
-    jest.runAllTimers();
-    wrapper.setProps({ count: 9 });
-    expect(wrapper).toMatchSnapshot();
+
+    function updateMatch(count) {
+      wrapper.setProps({ count });
+
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.render()).toMatchSnapshot();
+      });
+    }
+
+    updateMatch(10);
+    updateMatch(11);
+    updateMatch(11);
+    updateMatch(111);
+    updateMatch(10);
+    updateMatch(9);
   });
 
   it('should be compatible with borderColor style', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Badge
         count={4}
         style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/13694
   it('should support offset when count is a ReactNode', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Badge count={<span className="custom" style={{ color: '#f5222d' }} />} offset={[10, 20]}>
         <a href="#" className="head-example">
           head
         </a>
       </Badge>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/15349
@@ -114,19 +118,19 @@ describe('Badge', () => {
 
   // https://github.com/ant-design/ant-design/issues/15799
   it('render correct with negative number', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <div>
         <Badge count="-10" />
         <Badge count={-10} />
       </div>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/21331
   it('render Badge status/color when contains children', () => {
-    const wrapper = render(
-      <>
+    const wrapper = mount(
+      <div>
         <Badge count={5} status="success">
           <a />
         </Badge>
@@ -136,9 +140,9 @@ describe('Badge', () => {
         <Badge count={5} color="#08c">
           <a />
         </Badge>
-      </>,
+      </div>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('Badge should work when status/color is empty string', () => {
@@ -150,20 +154,6 @@ describe('Badge', () => {
     );
 
     expect(wrapper.find('.ant-badge')).toHaveLength(2);
-  });
-
-  it('render Badge size when contains children', () => {
-    const wrapper = render(
-      <>
-        <Badge size="default" count={5}>
-          <a />
-        </Badge>
-        <Badge size="small" count={5}>
-          <a />
-        </Badge>
-      </>,
-    );
-    expect(wrapper).toMatchSnapshot();
   });
 });
 

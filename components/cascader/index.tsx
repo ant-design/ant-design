@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import DownOutlined from '@ant-design/icons/DownOutlined';
@@ -11,11 +11,17 @@ import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 
 import Input from '../input';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import {
+  ConfigConsumer,
+  ConfigConsumerProps,
+  RenderEmptyHandler,
+  DirectionType,
+} from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { replaceElement } from '../_util/reactNode';
+import { getTransitionName } from '../_util/motion';
 
 export interface CascaderOptionType {
   value?: string | number;
@@ -84,11 +90,11 @@ export interface CascaderProps {
   placeholder?: string;
   /** 输入框大小，可选 `large` `default` `small` */
   size?: SizeType;
-  /** 输入框name */
+  /** 输入框 name */
   name?: string;
-  /** 输入框id */
+  /** 输入框 id */
   id?: string;
-  /** whether has border style */
+  /** Whether has border style */
   bordered?: boolean;
   /** 禁用 */
   disabled?: boolean;
@@ -110,10 +116,15 @@ export interface CascaderProps {
   inputPrefixCls?: string;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
-  /** use this after antd@3.7.0 */
+  /** Use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
   dropdownRender?: (menus: React.ReactNode) => React.ReactNode;
+
+  // Miss prop defines.
+  autoComplete?: string;
+  transitionName?: string;
+  children?: React.ReactElement;
 }
 
 export interface CascaderState {
@@ -229,9 +240,21 @@ function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNames
   });
 }
 
+function getEmptyNode(
+  renderEmpty: RenderEmptyHandler,
+  names: FilledFieldNamesType,
+  notFoundContent?: React.ReactNode,
+) {
+  return {
+    [names.value]: 'ANT_CASCADER_NOT_FOUND',
+    [names.label]: notFoundContent || renderEmpty('Cascader'),
+    disabled: true,
+    isEmptyNode: true,
+  };
+}
+
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
-    transitionName: 'slide-up',
     options: [],
     disabled: false,
     allowClear: true,
@@ -289,9 +312,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       this.setState({ value });
     }
     const { onChange } = this.props;
-    if (onChange) {
-      onChange(value, selectedOptions);
-    }
+    onChange?.(value, selectedOptions);
   };
 
   getLabel() {
@@ -336,9 +357,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
 
     const { onPopupVisibleChange } = this.props;
-    if (onPopupVisibleChange) {
-      onPopupVisibleChange(popupVisible);
-    }
+    onPopupVisibleChange?.(popupVisible);
   };
 
   handleInputBlur = () => {
@@ -426,25 +445,19 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       // Fix issue: https://github.com/ant-design/ant-design/issues/26554
       const field = names.value === names.label ? keepFilteredValueField : names.value;
 
-      return filtered.map((path: CascaderOptionType[]) => {
-        return {
-          __IS_FILTERED_OPTION: true,
-          path,
-          [field]: path.map((o: CascaderOptionType) => o[names.value]),
-          [names.label]: render(inputValue, path, prefixCls, names),
-          disabled: path.some((o: CascaderOptionType) => !!o.disabled),
-          isEmptyNode: true,
-        } as CascaderOptionType;
-      });
+      return filtered.map(
+        (path: CascaderOptionType[]) =>
+          ({
+            __IS_FILTERED_OPTION: true,
+            path,
+            [field]: path.map((o: CascaderOptionType) => o[names.value]),
+            [names.label]: render(inputValue, path, prefixCls, names),
+            disabled: path.some((o: CascaderOptionType) => !!o.disabled),
+            isEmptyNode: true,
+          } as CascaderOptionType),
+      );
     }
-    return [
-      {
-        [names.value]: 'ANT_CASCADER_NOT_FOUND',
-        [names.label]: notFoundContent || renderEmpty('Cascader'),
-        disabled: true,
-        isEmptyNode: true,
-      },
-    ];
+    return [getEmptyNode(renderEmpty, names, notFoundContent)];
   }
 
   focus() {
@@ -455,7 +468,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     this.input.blur();
   }
 
-  getPopupPlacement(direction: string = 'ltr') {
+  getPopupPlacement(direction: DirectionType = 'ltr') {
     const { popupPlacement } = this.props;
     if (popupPlacement !== undefined) {
       return popupPlacement;
@@ -535,26 +548,32 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
         // Fix bug of https://github.com/facebook/react/pull/5004
         // and https://fb.me/react-unknown-prop
-        const inputProps = omit(otherProps, [
-          'onChange',
-          'options',
-          'popupPlacement',
-          'transitionName',
-          'displayRender',
-          'onPopupVisibleChange',
-          'changeOnSelect',
-          'expandTrigger',
-          'popupVisible',
-          'getPopupContainer',
-          'loadData',
-          'popupClassName',
-          'filterOption',
-          'renderFilteredOption',
-          'sortFilteredOption',
-          'notFoundContent',
-          'fieldNames',
-          'bordered',
-        ]);
+        const inputProps = omit(
+          // Not know why these props left
+          otherProps as typeof otherProps & {
+            filterOption: any;
+            renderFilteredOption: any;
+            sortFilteredOption: any;
+            defaultValue: any;
+          },
+          [
+            'onChange',
+            'options',
+            'popupPlacement',
+            'transitionName',
+            'displayRender',
+            'onPopupVisibleChange',
+            'changeOnSelect',
+            'expandTrigger',
+            'popupVisible',
+            'getPopupContainer',
+            'loadData',
+            'filterOption',
+            'renderFilteredOption',
+            'sortFilteredOption',
+            'fieldNames',
+          ],
+        );
 
         let { options } = props;
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
@@ -563,12 +582,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
-          options = [
-            {
-              [names.label]: notFoundContent || renderEmpty('Cascader'),
-              [names.value]: 'ANT_CASCADER_NOT_FOUND',
-            },
-          ];
+          options = [getEmptyNode(renderEmpty, names, notFoundContent)];
         }
         // Dropdown menu should keep previous status until it is fully closed.
         if (!state.popupVisible) {
@@ -604,12 +618,12 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           inputIcon = <DownOutlined className={arrowCls} />;
         }
 
-        const input = children || (
+        const input: React.ReactElement = children || (
           <span style={style} className={pickerCls}>
             <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
             <Input
               {...inputProps}
-              tabIndex="-1"
+              tabIndex={-1}
               ref={this.saveInput}
               prefixCls={inputPrefixCls}
               placeholder={value && value.length > 0 ? undefined : placeholder}
@@ -642,12 +656,20 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         );
 
         const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
-        const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon', 'bordered']);
+        const rest = omit(props as typeof props & { inputIcon: any; loadingIcon: any }, [
+          'inputIcon',
+          'expandIcon',
+          'loadingIcon',
+          'bordered',
+          'className',
+        ]);
         const rcCascaderPopupClassName = classNames(popupClassName, {
           [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
           [`${prefixCls}-menu-empty`]:
             options.length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND',
         });
+        const rootPrefixCls = getPrefixCls();
+
         return (
           <RcCascader
             {...rest}
@@ -663,7 +685,9 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             loadingIcon={loadingIcon}
             popupClassName={rcCascaderPopupClassName}
             popupPlacement={this.getPopupPlacement(direction)}
-            dropdownRender={dropdownRender}
+            // rc-cascader should update ts define to fix this case
+            dropdownRender={dropdownRender as any}
+            transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
           >
             {input}
           </RcCascader>

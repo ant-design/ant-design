@@ -100,9 +100,13 @@ class App extends React.Component {
             tipFormatter={value => colCounts[value]}
           />
         </div>
+        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>
+          {cols}
+          {cols}
+        </Row>
+        Another Row:
         <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
-        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
-        <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+        <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}\n${colCode}</Row>`}</pre>
         <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
       </>
     );
@@ -132,6 +136,9 @@ ReactDOM.render(<App />, mountNode);
 }
 #components-grid-demo-playground pre.demo-code {
   direction: ltr;
+}
+#components-grid-demo-playground .ant-col {
+  padding: 0;
 }
 ```
 

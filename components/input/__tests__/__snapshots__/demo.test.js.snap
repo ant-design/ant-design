@@ -86,7 +86,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -155,7 +154,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -198,7 +196,6 @@ Array [
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="setting"
               fill="currentColor"
               focusable="false"
@@ -260,15 +257,11 @@ Array [
       rows="1"
     />
   </div>,
-  <div
-    class="ant-input-textarea"
-  >
-    <textarea
-      class="ant-input"
-      rows="1"
-      style="width:100px"
-    />
-  </div>,
+  <textarea
+    class="ant-input"
+    rows="1"
+    style="width:100px"
+  />,
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -301,7 +294,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="copy"
           fill="currentColor"
           focusable="false"
@@ -368,6 +360,7 @@ Array [
       class="ant-input-number-handler-wrap"
     >
       <span
+        aria-disabled="false"
         aria-label="Increase Value"
         class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
@@ -380,7 +373,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="up"
             fill="currentColor"
             focusable="false"
@@ -395,6 +387,7 @@ Array [
         </span>
       </span>
       <span
+        aria-disabled="false"
         aria-label="Decrease Value"
         class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
@@ -407,7 +400,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -426,12 +418,8 @@ Array [
       class="ant-input-number-input-wrap"
     >
       <input
-        aria-valuemax="9007199254740991"
-        aria-valuemin="-9007199254740991"
         autocomplete="off"
         class="ant-input-number-input"
-        max="9007199254740991"
-        min="-9007199254740991"
         role="spinbutton"
         step="1"
         value=""
@@ -463,7 +451,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -504,7 +491,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="clock-circle"
             fill="currentColor"
             focusable="false"
@@ -569,7 +555,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -627,7 +612,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -667,7 +651,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"
@@ -687,7 +670,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="down"
         fill="currentColor"
         focusable="false"
@@ -729,7 +711,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="swap-right"
             fill="currentColor"
             focusable="false"
@@ -769,7 +750,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -808,7 +788,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -991,7 +970,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -1008,74 +986,57 @@ Array [
   </span>,
   <br />,
   <br />,
-  <div
-    class="ant-input-textarea"
+  <span
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
   >
+    <textarea
+      class="ant-input"
+      placeholder="textarea with clear icon"
+    />
     <span
-      class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+      aria-label="close-circle"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+      role="button"
+      tabindex="-1"
     >
-      <textarea
-        class="ant-input"
-        placeholder="textarea with clear icon"
-      />
-      <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
-        role="button"
-        tabindex="-1"
+      <svg
+        aria-hidden="true"
+        data-icon="close-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </span>
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        />
+      </svg>
     </span>
-  </div>,
+  </span>,
 ]
 `;
 
 exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
 Array [
-  <div
-    class="ant-input-textarea"
-  >
-    <textarea
-      class="ant-input"
-      placeholder="Autosize height based on content lines"
-    />
-  </div>,
+  <textarea
+    class="ant-input"
+    placeholder="Autosize height based on content lines"
+  />,
   <div
     style="margin:24px 0"
   />,
-  <div
-    class="ant-input-textarea"
-  >
-    <textarea
-      class="ant-input"
-      placeholder="Autosize height with minimum and maximum number of lines"
-    />
-  </div>,
+  <textarea
+    class="ant-input"
+    placeholder="Autosize height with minimum and maximum number of lines"
+  />,
   <div
     style="margin:24px 0"
   />,
-  <div
-    class="ant-input-textarea"
-  >
-    <textarea
-      class="ant-input"
-      placeholder="Controlled autosize"
-    />
-  </div>,
+  <textarea
+    class="ant-input"
+    placeholder="Controlled autosize"
+  />,
 ]
 `;
 
@@ -1113,47 +1074,38 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     type="text"
     value=""
   />
-  <div
-    class="ant-input-textarea"
+  <textarea
+    class="ant-input ant-input-borderless"
+    placeholder="Unbordered"
+  />
+  <span
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-borderless"
   >
     <textarea
       class="ant-input ant-input-borderless"
       placeholder="Unbordered"
     />
-  </div>
-  <div
-    class="ant-input-textarea"
-  >
     <span
-      class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-borderless"
+      aria-label="close-circle"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+      role="button"
+      tabindex="-1"
     >
-      <textarea
-        class="ant-input ant-input-borderless"
-        placeholder="Unbordered"
-      />
-      <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
-        role="button"
-        tabindex="-1"
+      <svg
+        aria-hidden="true"
+        data-icon="close-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </span>
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        />
+      </svg>
     </span>
-  </div>
+  </span>
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
@@ -1174,7 +1126,6 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -1228,6 +1179,112 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
       RMB
     </span>
   </span>
+</div>
+`;
+
+exports[`renders ./components/input/demo/focus.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap:wrap;margin-bottom:-8px"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Focus at first
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Focus at last
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Focus to select all
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Focus prevent scroll
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom:8px"
+      >
+        <button
+          aria-checked="true"
+          class="ant-switch ant-switch-checked"
+          role="switch"
+          type="button"
+        >
+          <div
+            class="ant-switch-handle"
+          />
+          <span
+            class="ant-switch-inner"
+          >
+            Input
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <br />
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <input
+      class="ant-input"
+      style="width:100%"
+      type="text"
+      value="Ant Design love you!"
+    />
+  </div>
 </div>
 `;
 
@@ -1330,7 +1387,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1356,15 +1412,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
   <span
     class="ant-input-group ant-input-group-compact"
   >
-    <input
-      class="ant-input"
-      style="width:20%"
-      type="text"
-      value="0571"
-    />
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:30%"
+      style="width:40%"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -1372,7 +1422,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <input
           class="ant-input"
           type="text"
-          value="26888888"
+          value="0571"
         />
         <span
           class="ant-input-group-addon"
@@ -1388,7 +1438,221 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </span>
+    </span>
+    <span
+      class="ant-input-group-wrapper ant-input-search"
+      style="width:40%"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <span
+          class="ant-input-affix-wrapper"
+        >
+          <input
+            class="ant-input"
+            type="text"
+            value="26888888"
+          />
+          <span
+            class="ant-input-suffix"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle ant-input-clear-icon"
+              role="button"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <span
+          class="ant-input-group-addon"
+        >
+          <button
+            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            type="button"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </span>
+    </span>
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <span
+      class="ant-input-group-wrapper ant-input-search"
+      style="width:40%"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <span
+          class="ant-input-affix-wrapper"
+        >
+          <input
+            class="ant-input"
+            type="text"
+            value="0571"
+          />
+          <span
+            class="ant-input-suffix"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle ant-input-clear-icon"
+              role="button"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <span
+          class="ant-input-group-addon"
+        >
+          <button
+            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            type="button"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </span>
+    </span>
+    <span
+      class="ant-input-group-wrapper ant-input-search"
+      style="width:40%"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <span
+          class="ant-input-affix-wrapper"
+        >
+          <input
+            class="ant-input"
+            type="text"
+            value="26888888"
+          />
+          <span
+            class="ant-input-suffix"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle ant-input-clear-icon"
+              role="button"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <span
+          class="ant-input-group-addon"
+        >
+          <button
+            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            type="button"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
                 data-icon="search"
                 fill="currentColor"
                 focusable="false"
@@ -1455,7 +1719,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1483,6 +1746,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input-number-handler-wrap"
       >
         <span
+          aria-disabled="false"
           aria-label="Increase Value"
           class="ant-input-number-handler ant-input-number-handler-up"
           role="button"
@@ -1495,7 +1759,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="up"
               fill="currentColor"
               focusable="false"
@@ -1510,6 +1773,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           </span>
         </span>
         <span
+          aria-disabled="false"
           aria-label="Decrease Value"
           class="ant-input-number-handler ant-input-number-handler-down"
           role="button"
@@ -1522,7 +1786,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -1541,12 +1804,8 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-valuemax="9007199254740991"
-          aria-valuemin="-9007199254740991"
           autocomplete="off"
           class="ant-input-number-input"
-          max="9007199254740991"
-          min="-9007199254740991"
           role="spinbutton"
           step="1"
           value=""
@@ -1589,7 +1848,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="calendar"
               fill="currentColor"
               focusable="false"
@@ -1645,7 +1903,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="swap-right"
               fill="currentColor"
               focusable="false"
@@ -1685,7 +1942,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="calendar"
             fill="currentColor"
             focusable="false"
@@ -1750,7 +2006,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1810,7 +2065,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1875,7 +2129,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1963,7 +2216,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2059,7 +2311,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -2098,7 +2349,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -2145,7 +2395,6 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="eye-invisible"
             fill="currentColor"
             focusable="false"
@@ -2188,7 +2437,6 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="eye-invisible"
             fill="currentColor"
             focusable="false"
@@ -2225,7 +2473,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -2256,7 +2503,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="info-circle"
           fill="currentColor"
           focusable="false"
@@ -2321,182 +2567,298 @@ Array [
 `;
 
 exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
-Array [
-  <span
-    class="ant-input-group-wrapper ant-input-search"
-    style="width:200px"
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <span
-      class="ant-input-wrapper ant-input-group"
-    >
-      <input
-        class="ant-input"
-        placeholder="input search text"
-        type="text"
-        value=""
-      />
-      <span
-        class="ant-input-group-addon"
-      >
-        <button
-          class="ant-btn ant-btn-icon-only ant-input-search-button"
-          type="button"
-        >
-          <span
-            aria-label="search"
-            class="anticon anticon-search"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="search"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-              />
-            </svg>
-          </span>
-        </button>
-      </span>
-    </span>
-  </span>,
-  <br />,
-  <br />,
-  <span
-    class="ant-input-group-wrapper ant-input-search"
-  >
-    <span
-      class="ant-input-wrapper ant-input-group"
-    >
-      <input
-        class="ant-input"
-        placeholder="input search text"
-        type="text"
-        value=""
-      />
-      <span
-        class="ant-input-group-addon"
-      >
-        <button
-          class="ant-btn ant-btn-primary ant-input-search-button"
-          type="button"
-        >
-          <span
-            aria-label="search"
-            class="anticon anticon-search"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="search"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-              />
-            </svg>
-          </span>
-        </button>
-      </span>
-    </span>
-  </span>,
-  <br />,
-  <br />,
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large"
-  >
-    <span
-      class="ant-input-wrapper ant-input-group"
-    >
-      <input
-        class="ant-input ant-input-lg"
-        placeholder="input search text"
-        type="text"
-        value=""
-      />
-      <span
-        class="ant-input-group-addon"
-      >
-        <button
-          class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
-          type="button"
-        >
-          <span>
-            Search
-          </span>
-        </button>
-      </span>
-    </span>
-  </span>,
-  <br />,
-  <br />,
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large"
-  >
-    <span
-      class="ant-input-wrapper ant-input-group"
+      class="ant-input-group-wrapper ant-input-search"
+      style="width:200px"
     >
       <span
-        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-search ant-input-search-large"
+        class="ant-input-wrapper ant-input-group"
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           placeholder="input search text"
           type="text"
           value=""
         />
         <span
-          class="ant-input-suffix"
+          class="ant-input-group-addon"
         >
-          <span
-            aria-label="audio"
-            class="anticon anticon-audio"
-            role="img"
-            style="font-size:16px;color:#1890ff"
+          <button
+            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="audio"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
             >
-              <path
-                d="M842 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 140.3-113.7 254-254 254S258 594.3 258 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 168.7 126.6 307.9 290 327.6V884H326.7c-13.7 0-24.7 14.3-24.7 32v36c0 4.4 2.8 8 6.2 8h407.6c3.4 0 6.2-3.6 6.2-8v-36c0-17.7-11-32-24.7-32H548V782.1c165.3-18 294-158 294-328.1zM512 624c93.9 0 170-75.2 170-168V232c0-92.8-76.1-168-170-168s-170 75.2-170 168v224c0 92.8 76.1 168 170 168zm-94-392c0-50.6 41.9-92 94-92s94 41.4 94 92v224c0 50.6-41.9 92-94 92s-94-41.4-94-92V232z"
-              />
-            </svg>
-          </span>
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </button>
         </span>
       </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-input-group-wrapper ant-input-search"
+      style="width:200px"
+    >
       <span
-        class="ant-input-group-addon"
+        class="ant-input-wrapper ant-input-group"
       >
-        <button
-          class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
-          type="button"
+        <span
+          class="ant-input-affix-wrapper"
         >
-          <span>
-            Search
+          <input
+            class="ant-input"
+            placeholder="input search text"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-input-suffix"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+              role="button"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                />
+              </svg>
+            </span>
           </span>
-        </button>
+        </span>
+        <span
+          class="ant-input-group-addon"
+        >
+          <button
+            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            type="button"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </span>
     </span>
-  </span>,
-]
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <input
+          class="ant-input"
+          placeholder="input search text"
+          type="text"
+          value=""
+        />
+        <span
+          class="ant-input-group-addon"
+        >
+          <button
+            class="ant-btn ant-btn-primary ant-input-search-button"
+            type="button"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <span
+          class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
+        >
+          <input
+            class="ant-input ant-input-lg"
+            placeholder="input search text"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-input-suffix"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+              role="button"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <span
+          class="ant-input-group-addon"
+        >
+          <button
+            class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+            type="button"
+          >
+            <span>
+              Search
+            </span>
+          </button>
+        </span>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <span
+          class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
+        >
+          <input
+            class="ant-input ant-input-lg"
+            placeholder="input search text"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-input-suffix"
+          >
+            <span
+              aria-label="audio"
+              class="anticon anticon-audio"
+              role="img"
+              style="font-size:16px;color:#1890ff"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="audio"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M842 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 140.3-113.7 254-254 254S258 594.3 258 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 168.7 126.6 307.9 290 327.6V884H326.7c-13.7 0-24.7 14.3-24.7 32v36c0 4.4 2.8 8 6.2 8h407.6c3.4 0 6.2-3.6 6.2-8v-36c0-17.7-11-32-24.7-32H548V782.1c165.3-18 294-158 294-328.1zM512 624c93.9 0 170-75.2 170-168V232c0-92.8-76.1-168-170-168s-170 75.2-170 168v224c0 92.8 76.1 168 170 168zm-94-392c0-50.6 41.9-92 94-92s94 41.4 94 92v224c0 50.6-41.9 92-94 92s-94-41.4-94-92V232z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <span
+          class="ant-input-group-addon"
+        >
+          <button
+            class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+            type="button"
+          >
+            <span>
+              Search
+            </span>
+          </button>
+        </span>
+      </span>
+    </span>
+  </div>
+</div>
 `;
 
 exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] = `
@@ -2525,12 +2887,11 @@ Array [
           >
             <span
               aria-label="loading"
-              class="anticon anticon-loading"
+              class="anticon anticon-loading anticon-spin"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                class="anticon-spin"
                 data-icon="loading"
                 fill="currentColor"
                 focusable="false"
@@ -2551,7 +2912,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-search"
+    class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -2574,12 +2935,11 @@ Array [
           >
             <span
               aria-label="loading"
-              class="anticon anticon-loading"
+              class="anticon anticon-loading anticon-spin"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                class="anticon-spin"
                 data-icon="loading"
                 fill="currentColor"
                 focusable="false"
@@ -2600,7 +2960,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -2623,12 +2983,11 @@ Array [
           >
             <span
               aria-label="loading"
-              class="anticon anticon-loading"
+              class="anticon anticon-loading anticon-spin"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                class="anticon-spin"
                 data-icon="loading"
                 fill="currentColor"
                 focusable="false"
@@ -2667,7 +3026,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -2703,7 +3061,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -2739,7 +3096,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -2764,14 +3120,10 @@ Array [
 `;
 
 exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
-<div
-  class="ant-input-textarea"
->
-  <textarea
-    class="ant-input"
-    rows="4"
-  />
-</div>
+<textarea
+  class="ant-input"
+  rows="4"
+/>
 `;
 
 exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
@@ -2785,16 +3137,12 @@ Array [
       Auto Resize: false
     </span>
   </button>,
-  <div
-    class="ant-input-textarea"
+  <textarea
+    class="ant-input"
+    rows="4"
   >
-    <textarea
-      class="ant-input"
-      rows="4"
-    >
-      The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
-    </textarea>
-  </div>,
+    The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
+  </textarea>,
 ]
 `;
 
@@ -2805,7 +3153,6 @@ exports[`renders ./components/input/demo/textarea-show-count.md correctly 1`] = 
 >
   <textarea
     class="ant-input"
-    maxlength="100"
   />
 </div>
 `;

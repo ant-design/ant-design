@@ -24,13 +24,14 @@ const localeValues: Locale = {
     emptyText: 'No data',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
+    selectNone: 'Clear all data',
     selectionAll: 'Select all data',
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
-    triggerDesc: 'Click sort by descend',
-    triggerAsc: 'Click sort by ascend',
-    cancelSort: 'Click to cancel sort',
+    triggerDesc: 'Click to sort descending',
+    triggerAsc: 'Click to sort ascending',
+    cancelSort: 'Click to cancel sorting',
   },
   Modal: {
     okText: 'OK',
@@ -78,7 +79,7 @@ const localeValues: Locale = {
   Form: {
     optional: '(optional)',
     defaultValidateMessages: {
-      default: 'Field validation error ${label}',
+      default: 'Field validation error for ${label}',
       required: 'Please enter ${label}',
       enum: '${label} must be one of [${enum}]',
       whitespace: '${label} cannot be a blank character',
@@ -104,14 +105,14 @@ const localeValues: Locale = {
       },
       string: {
         len: '${label} must be ${len} characters',
-        min: '${label} at least ${min} characters',
-        max: '${label} up to ${max} characters',
+        min: '${label} must be at least ${min} characters',
+        max: '${label} must be up to ${max} characters',
         range: '${label} must be between ${min}-${max} characters',
       },
       number: {
         len: '${label} must be equal to ${len}',
-        min: '${label} minimum value is ${min}',
-        max: '${label} maximum value is ${max}',
+        min: '${label} must be minimum ${min}',
+        max: '${label} must be maximum ${max}',
         range: '${label} must be between ${min}-${max}',
       },
       array: {
@@ -124,6 +125,9 @@ const localeValues: Locale = {
         mismatch: '${label} does not match the pattern ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'Preview',
   },
 };
 

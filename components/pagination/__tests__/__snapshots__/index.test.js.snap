@@ -23,7 +23,6 @@ exports[`Pagination rtl render component should be rendered correctly in RTL dir
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -67,7 +66,6 @@ exports[`Pagination rtl render component should be rendered correctly in RTL dir
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"
@@ -108,7 +106,6 @@ exports[`Pagination should be rendered correctly in RTL 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -196,7 +193,6 @@ exports[`Pagination should be rendered correctly in RTL 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="left"
           fill="currentColor"
           focusable="false"

@@ -339,4 +339,13 @@ describe('Tooltip', () => {
     await sleep(600);
     expect(ref.current.getPopupDomNode().className).toContain('ant-tooltip');
   });
+
+  it('should pass overlayInnerStyle through to the inner component', () => {
+    const wrapper = mount(
+      <Tooltip overlayInnerStyle={{ color: 'red' }} title="xxxxx" visible>
+        <div />
+      </Tooltip>,
+    );
+    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().style.color).toBe('red');
+  });
 });

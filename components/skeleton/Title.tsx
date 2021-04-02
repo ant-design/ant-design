@@ -5,7 +5,7 @@ import classNames from 'classnames';
 export interface SkeletonTitleProps {
   prefixCls?: string;
   className?: string;
-  style?: object;
+  style?: React.CSSProperties;
   width?: number | string;
 }
 

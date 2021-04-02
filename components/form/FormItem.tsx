@@ -7,7 +7,7 @@ import { FieldProps } from 'rc-field-form/lib/Field';
 import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -20,11 +20,13 @@ import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
 import useItemRef from './hooks/useItemRef';
 
+const NAME_SPLIT = '__SPLIT__';
+
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
-type RcFieldProps = Omit<FieldProps, 'children'>;
+type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
 type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
 interface MemoInputProps {
@@ -35,15 +37,13 @@ interface MemoInputProps {
 
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
-  (prev, next) => {
-    return prev.value === next.value && prev.update === next.update;
-  },
+  (prev, next) => prev.value === next.value && prev.update === next.update,
 );
 
 export interface FormItemProps<Values = any>
   extends FormItemLabelProps,
     FormItemInputProps,
-    RcFieldProps {
+    RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
@@ -114,12 +114,13 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const nameRef = useRef<(string | number)[]>([]);
 
   // Should clean up if Field removed
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(
+    () => () => {
       destroyRef.current = true;
-      updateItemErrors(nameRef.current.join('__SPLIT__'), []);
-    };
-  }, []);
+      updateItemErrors(nameRef.current.join(NAME_SPLIT), []);
+    },
+    [],
+  );
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
@@ -127,8 +128,13 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // Collect noStyle Field error to the top FormItem
   const updateChildItemErrors = noStyle
     ? updateItemErrors
-    : (subName: string, subErrors: string[]) => {
+    : (subName: string, subErrors: string[], originSubName: string) => {
         setInlineErrors((prevInlineErrors = {}) => {
+          // Clean up origin error when name changed
+          if (originSubName !== subName) {
+            delete prevInlineErrors[originSubName];
+          }
+
           if (!isEqual(prevInlineErrors[subName], subErrors)) {
             return {
               ...prevInlineErrors,
@@ -205,23 +211,19 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'extra',
           'getValueFromEvent',
           'getValueProps',
-          'hasFeedback',
-          'help',
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
           'isListField',
-          'label',
           'labelAlign',
           'labelCol',
           'normalize',
           'preserve',
-          'required',
           'tooltip',
           'validateFirst',
-          'validateStatus',
           'valuePropName',
           'wrapperCol',
+          '_internalItemRender' as any,
         ])}
       >
         {/* Label */}
@@ -285,12 +287,15 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         const fieldId = getFieldId(mergedName, formName);
 
         if (noStyle) {
+          // Clean up origin one
+          const originErrorName = nameRef.current.join(NAME_SPLIT);
+
           nameRef.current = [...mergedName];
           if (fieldKey) {
             const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
             nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
           }
-          updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
+          updateItemErrors(nameRef.current.join(NAME_SPLIT), errors, originErrorName);
         }
 
         const isRequired =

@@ -25,12 +25,12 @@ Basic text writing, including headings, body text, lists, and more.
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
 | ellipsis | Display ellipsis when text overflows | boolean | false |  |
-| mark | Marked style | boolean | false |  |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
-| underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
+| mark | Marked style | boolean | false |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
+| underline | Underlined style | boolean | false |  |
 
 ### Typography.Title
 
@@ -44,9 +44,9 @@ Basic text writing, including headings, body text, lists, and more.
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | Marked style | boolean | false |  |
-| underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
+| underline | Underlined style | boolean | false |  |
 
 ### Typography.Paragraph
 
@@ -59,74 +59,76 @@ Basic text writing, including headings, body text, lists, and more.
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | mark | Marked style | boolean | false |  |
-| underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
+| underline | Underlined style | boolean | false |  |
 
 ### copyable
 
-```
-{
-  text: string,
-  onCopy: function,
-  icon: ReactNode,
-  tooltips: false | [ReactNode, ReactNode],
-}
-```
+    {
+      text: string,
+      onCopy: function,
+      icon: ReactNode,
+      tooltips: false | [ReactNode, ReactNode],
+    }
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode] | - | 4.6.0 |
 | text | The text to copy | string | - |  |
+| tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |
 | onCopy | Called when copied text | function | - |  |
-| icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode\] | - | 4.6.0 |
-| tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode\] | \[`Copy`, `Copied`] | 4.4.0 |
 
 ### editable
 
-```
-{
-  icon: ReactNode,
-  tooltip: boolean | ReactNode,
-  editing: boolean,
-  maxLength: number,
-  autoSize: boolean | { minRows: number, maxRows: number },
-  onStart: function,
-  onChange: function(string),
-}
-```
+    {
+      icon: ReactNode,
+      tooltip: boolean | ReactNode,
+      editing: boolean,
+      maxLength: number,
+      autoSize: boolean | { minRows: number, maxRows: number },
+      onStart: function,
+      onChange: function(string),
+      onCancel: function,
+      onEnd: function,
+    }
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
-| tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
-| editing | Whether to be editable | boolean | false |  |
-| maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
 | autoSize | `autoSize` attribute of textarea | boolean \| { minRows: number, maxRows: number } | - | 4.4.0 |
-| onStart | Called when enter editable state | function | - |  |
+| editing | Whether to be editable | boolean | false |  |
+| icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
+| maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
+| tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
+| onCancel | Called when type ESC to exit editable state | function | - |  |
 | onChange | Called when input at textarea | function(event) | - |  |
+| onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
+| onStart | Called when enter editable state | function | - |  |
+| onCancel | Called when type ESC to exit editable state | function | - |  |
+| onEnd | Called when type ENTER to exit editable state | function | - |  |
 
 ### ellipsis
 
-```
-{
-  rows: number,
-  expandable: boolean,
-  suffix: string,
-  symbol: ReactNode,
-  onExpand: function(event),
-  onEllipsis: function(ellipsis),
-}
-```
+    {
+      rows: number,
+      expandable: boolean,
+      suffix: string,
+      symbol: ReactNode,
+      tooltip: boolean | ReactNode,
+      onExpand: function(event),
+      onEllipsis: function(ellipsis),
+    }
 
-| Property   | Description                               | Type               | Default | Version |
-| ---------- | ----------------------------------------- | ------------------ | ------- | ------- |
-| rows       | Max rows of content                       | number             | -       |         |
-| expandable | Whether to be expandable                  | boolean            | -       |         |
-| suffix     | Suffix of ellipsis content                | ReactNode          | -       |         |
-| symbol     | Custom `...` symbol of ellipsis           | ReactNode          | `...`   |         |
-| onExpand   | Called when expand content                | function(event)    | -       |         |
-| onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | -       | 4.2.0   |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| expandable | Whether to be expandable | boolean | - |  |
+| rows | Max rows of content | number | - |  |
+| suffix | Suffix of ellipsis content | string | - |  |
+| symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
+| tooltip | Show tooltip when ellipsis | boolean \| ReactNode | - | 4.11.0 |
+| onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
+| onExpand | Called when expand content | function(event) | - |  |
 
 ## FAQ
 

@@ -43,27 +43,13 @@ describe('MonthPicker and WeekPicker', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(<MonthPicker open />);
     wrapper.setProps({ value: birthday });
-    expect(
-      render(
-        wrapper
-          .find('Trigger')
-          .instance()
-          .getComponent(),
-      ),
-    ).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
   it('render WeekPicker', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(<WeekPicker open />);
     wrapper.setProps({ value: birthday });
-    expect(
-      render(
-        wrapper
-          .find('Trigger')
-          .instance()
-          .getComponent(),
-      ),
-    ).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 });

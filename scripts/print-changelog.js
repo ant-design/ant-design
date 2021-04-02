@@ -34,7 +34,7 @@ const MAINTAINERS = [
   'hengkx',
   'Rustin-Liu',
   'fireairforce',
-  'Kermit-Xuan',
+  'kerm1it',
 ].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
@@ -199,9 +199,9 @@ async function printLog() {
   console.log('\n');
   console.log(chalk.yellow('🇨🇳 Chinese changelog:'));
   console.log('\n');
-  printPR('chinese', chinese => {
-    return chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`;
-  });
+  printPR('chinese', chinese =>
+    chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`,
+  );
 
   console.log('\n-----\n');
 
@@ -226,13 +226,13 @@ async function printLog() {
   fs.writeFileSync(path.join(__dirname, 'previewEditor', 'index.html'), html, 'utf8');
 
   // Start preview
-  const ls = spawn('npx', [
-    'http-server',
-    path.join(__dirname, 'previewEditor'),
-    '-c-1',
-    '-p',
-    '2893',
-  ]);
+  const ls = spawn(
+    'npx',
+    ['http-server', path.join(__dirname, 'previewEditor'), '-c-1', '-p', '2893'],
+    {
+      shell: true,
+    },
+  );
   ls.stdout.on('data', data => {
     console.log(data.toString());
   });

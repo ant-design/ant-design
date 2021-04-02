@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Grid from './Grid';
 import Meta from './Meta';
 import Tabs, { TabsProps } from '../tabs';
@@ -67,9 +67,7 @@ const Card: CardInterface = props => {
   const size = React.useContext(SizeContext);
 
   const onTabChange = (key: string) => {
-    if (props.onTabChange) {
-      props.onTabChange(key);
-    }
+    props.onTabChange?.(key);
   };
 
   const isContainGrid = () => {

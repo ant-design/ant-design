@@ -18,5 +18,9 @@ import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-ReactDOM.render(<TextArea showCount maxLength={100} />, mountNode);
+const onChange = e => {
+  console.log('Change:', e.target.value);
+};
+
+ReactDOM.render(<TextArea showCount maxLength={100} onChange={onChange} />, mountNode);
 ```

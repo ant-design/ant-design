@@ -14,6 +14,19 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -29,6 +42,10 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
               <span
@@ -38,7 +55,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -78,7 +94,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -91,7 +107,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -131,7 +146,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
@@ -166,10 +181,10 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -201,7 +216,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -214,7 +229,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -254,10 +268,10 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -306,6 +320,19 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -321,6 +348,10 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
               <span
@@ -330,7 +361,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -383,7 +413,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -461,7 +490,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -496,7 +525,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -528,7 +557,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -541,7 +570,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -581,10 +609,10 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="ant-tree-indent-unit"
               />
             </span>
             <span
@@ -616,7 +644,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
               <span
                 class="ant-tree-indent-unit"
@@ -651,10 +679,10 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit"
               />
             </span>
             <span
@@ -686,7 +714,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -714,6 +742,10 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
               <span
@@ -723,7 +755,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -758,6 +789,10 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
@@ -800,6 +835,19 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -815,6 +863,10 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
               <span
@@ -824,7 +876,6 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -852,7 +903,6 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="smile"
                     fill="currentColor"
                     focusable="false"
@@ -881,7 +931,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -901,7 +951,6 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="meh"
                     fill="currentColor"
                     focusable="false"
@@ -930,7 +979,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -950,7 +999,6 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="frown"
                     fill="currentColor"
                     focusable="false"
@@ -992,6 +1040,19 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -1007,6 +1068,10 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
               <span
@@ -1016,7 +1081,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1044,7 +1108,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="folder-open"
                     fill="currentColor"
                     focusable="false"
@@ -1093,7 +1156,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -1122,7 +1184,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -1142,7 +1204,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -1167,6 +1228,10 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
               <span
@@ -1176,7 +1241,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1204,7 +1268,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="folder-open"
                     fill="currentColor"
                     focusable="false"
@@ -1233,7 +1296,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -1253,7 +1316,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -1282,7 +1344,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -1302,7 +1364,6 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -1330,6 +1391,742 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/tree/demo/drag-debug.md correctly 1`] = `
+Array [
+  <div
+    style="margin-bottom:16px"
+  >
+    showLine: 
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      />
+    </button>
+    <br />
+    <br />
+    showIcon: 
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      />
+    </button>
+    <br />
+    <br />
+    showLeafIcon: 
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      />
+    </button>
+  </div>,
+  <div
+    class="ant-tree ant-tree-block-node draggable-tree ant-tree-show-line"
+  >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tree-list"
+      style="position:relative"
+    >
+      <div
+        class="ant-tree-list-holder"
+      >
+        <div>
+          <div
+            class="ant-tree-list-holder-inner"
+            style="display:flex;flex-direction:column"
+          >
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
+                class="ant-tree-switcher ant-tree-switcher_open"
+              >
+                <span
+                  aria-label="minus-square"
+                  class="anticon anticon-minus-square ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="minus-square"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                    />
+                    <path
+                      d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open draggable"
+                draggable="true"
+                title="0-0"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-0
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher_open"
+              >
+                <span
+                  aria-label="minus-square"
+                  class="anticon anticon-minus-square ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="minus-square"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                    />
+                    <path
+                      d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open draggable"
+                draggable="true"
+                title="0-0-0"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-0-0
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              >
+                <span
+                  aria-label="file"
+                  class="anticon anticon-file ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="file"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
+                title="0-0-0-0"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-0-0-0
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              >
+                <span
+                  aria-label="file"
+                  class="anticon anticon-file ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="file"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
+                title="0-0-0-1"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-0-0-1
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              >
+                <span
+                  aria-label="file"
+                  class="anticon anticon-file ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="file"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
+                title="0-0-0-2"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-0-0-2
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher_close"
+              >
+                <span
+                  aria-label="plus-square"
+                  class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="plus-square"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                    />
+                    <path
+                      d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close draggable"
+                draggable="true"
+                title="0-0-1"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-0-1
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              >
+                <span
+                  aria-label="file"
+                  class="anticon anticon-file ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="file"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
+                title="0-0-2"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-0-2
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
+                class="ant-tree-switcher ant-tree-switcher_close"
+              >
+                <span
+                  aria-label="plus-square"
+                  class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="plus-square"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                    />
+                    <path
+                      d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close draggable"
+                draggable="true"
+                title="0-1"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-1
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              >
+                <span
+                  aria-label="file"
+                  class="anticon anticon-file ant-tree-switcher-line-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="file"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
+                title="0-2"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="carry-out"
+                    class="anticon anticon-carry-out"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="carry-out"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v584zM688 420h-55.2c-5.1 0-10 2.5-13 6.6L468.9 634.4l-64.7-89c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0026 0l212.6-292.7c3.8-5.4 0-12.8-6.5-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  0-2
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree"
@@ -1342,6 +2139,19 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
       tabindex="0"
       value=""
     />
+  </div>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
   </div>
   <div
     class="ant-tree-list"
@@ -1359,6 +2169,10 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
               <span
@@ -1368,7 +2182,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1416,7 +2229,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1484,7 +2296,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -1514,7 +2326,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -1541,7 +2353,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -1554,7 +2366,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1589,7 +2400,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -1612,6 +2423,10 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
               <span
@@ -1621,7 +2436,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1651,6 +2465,10 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
@@ -1688,6 +2506,19 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -1703,6 +2534,10 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
               <span
@@ -1712,7 +2547,6 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1741,6 +2575,10 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
               <span
@@ -1750,7 +2588,6 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="caret-down"
                   fill="currentColor"
                   focusable="false"
@@ -1778,6 +2615,10 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
           <div
             class="ant-tree-treenode ant-tree-treenode-leaf-last"
           >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
@@ -1864,6 +2705,19 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="ant-tree-list"
       style="position:relative"
     >
@@ -1879,6 +2733,10 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               class="ant-tree-treenode ant-tree-treenode-switcher-open"
             >
               <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
                 class="ant-tree-switcher ant-tree-switcher_open"
               >
                 <span
@@ -1888,7 +2746,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="minus-square"
                     fill="currentColor"
                     focusable="false"
@@ -1937,7 +2794,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="minus-square"
                     fill="currentColor"
                     focusable="false"
@@ -1989,7 +2845,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -2025,7 +2880,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                   class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
                 <span
-                  class="ant-tree-indent-unit"
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
               </span>
               <span
@@ -2038,7 +2893,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -2054,12 +2908,17 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
               <span
                 class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                title="leaf"
+                title=""
               >
                 <span
                   class="ant-tree-title"
                 >
-                  leaf
+                  <div>
+                    multiple line title
+                  </div>
+                  <div>
+                    multiple line title
+                  </div>
                 </span>
               </span>
             </div>
@@ -2074,7 +2933,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                   class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
                 <span
-                  class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
               </span>
               <span
@@ -2087,7 +2946,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="file"
                     fill="currentColor"
                     focusable="false"
@@ -2120,7 +2978,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 class="ant-tree-indent"
               >
                 <span
-                  class="ant-tree-indent-unit"
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
               </span>
               <span
@@ -2133,7 +2991,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="plus-square"
                     fill="currentColor"
                     focusable="false"
@@ -2169,7 +3026,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 class="ant-tree-indent"
               >
                 <span
-                  class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
               </span>
               <span
@@ -2182,7 +3039,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="plus-square"
                     fill="currentColor"
                     focusable="false"
@@ -2214,6 +3070,10 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
               <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
                 class="ant-tree-switcher ant-tree-switcher_close"
               >
                 <span
@@ -2223,7 +3083,6 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="plus-square"
                     fill="currentColor"
                     focusable="false"
@@ -2288,7 +3147,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="search"
               fill="currentColor"
               focusable="false"
@@ -2318,6 +3176,19 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
       class="ant-tree-list"
       style="position:relative"
     >
@@ -2333,6 +3204,10 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
             >
               <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
                 class="ant-tree-switcher ant-tree-switcher_close"
               >
                 <span
@@ -2342,7 +3217,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="caret-down"
                     fill="currentColor"
                     focusable="false"
@@ -2376,6 +3250,10 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
             >
               <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
                 class="ant-tree-switcher ant-tree-switcher_close"
               >
                 <span
@@ -2385,7 +3263,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="caret-down"
                     fill="currentColor"
                     focusable="false"
@@ -2418,6 +3295,10 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
               />
@@ -2459,6 +3340,19 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
     />
   </div>
   <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
     class="ant-tree-list"
     style="position:relative"
   >
@@ -2474,6 +3368,10 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
             <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
               <span
@@ -2483,7 +3381,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2516,7 +3413,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -2529,7 +3426,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2562,7 +3458,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
@@ -2578,7 +3474,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="file"
                   fill="currentColor"
                   focusable="false"
@@ -2611,10 +3506,10 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -2627,7 +3522,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="file"
                   fill="currentColor"
                   focusable="false"
@@ -2660,10 +3554,10 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
             </span>
             <span
@@ -2676,7 +3570,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="file"
                   fill="currentColor"
                   focusable="false"
@@ -2709,7 +3602,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -2722,7 +3615,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -2755,7 +3647,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
             </span>
             <span
@@ -2768,7 +3660,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"

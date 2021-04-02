@@ -4,8 +4,9 @@ import classNames from 'classnames';
 import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import { Options } from 'scroll-into-view-if-needed';
 import { ColProps } from '../grid/col';
-import { ConfigContext, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { FormContext, FormContextProps } from './context';
 import { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
@@ -24,7 +25,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
   size?: SizeType;
-  scrollToFirstError?: boolean;
+  scrollToFirstError?: Options | boolean;
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
@@ -32,9 +33,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
 
 const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props, ref) => {
   const contextSize = React.useContext(SizeContext);
-  const { getPrefixCls, direction }: ConfigConsumerProps = React.useContext(ConfigContext);
-
-  const { name } = props;
+  const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -50,6 +49,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     scrollToFirstError,
     requiredMark,
     onFinishFailed,
+    name,
     ...restFormProps
   } = props;
 
@@ -58,12 +58,16 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       return requiredMark;
     }
 
+    if (contextForm && contextForm.requiredMark !== undefined) {
+      return contextForm.requiredMark;
+    }
+
     if (hideRequiredMark) {
       return false;
     }
 
     return true;
-  }, [hideRequiredMark, requiredMark]);
+  }, [hideRequiredMark, requiredMark, contextForm]);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
@@ -99,12 +103,15 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   React.useImperativeHandle(ref, () => wrapForm);
 
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
-    if (onFinishFailed) {
-      onFinishFailed(errorInfo);
-    }
+    onFinishFailed?.(errorInfo);
+
+    let defaultScrollToFirstError: Options = { block: 'nearest' };
 
     if (scrollToFirstError && errorInfo.errorFields.length) {
-      wrapForm.scrollToField(errorInfo.errorFields[0].name);
+      if (typeof scrollToFirstError === 'object') {
+        defaultScrollToFirstError = scrollToFirstError;
+      }
+      wrapForm.scrollToField(errorInfo.errorFields[0].name, defaultScrollToFirstError);
     }
   };
 
@@ -114,6 +121,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
         <FieldForm
           id={name}
           {...restFormProps}
+          name={name}
           onFinishFailed={onInternalFinishFailed}
           form={wrapForm}
           className={formClassName}

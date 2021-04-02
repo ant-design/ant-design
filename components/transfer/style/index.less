@@ -6,11 +6,11 @@
 @transfer-prefix-cls: ~'@{ant-prefix}-transfer';
 
 @transfer-header-vertical-padding: ceil(
-  (@transfer-header-height - 1px - @font-size-base * @line-height-base) / 2
+  ((@transfer-header-height - 1px - @font-size-base * @line-height-base) / 2)
 );
 
 .@{transfer-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   display: flex;
@@ -121,12 +121,12 @@
       padding: 0;
       overflow: auto;
       list-style: none;
+
       &-item {
         display: flex;
         align-items: center;
         min-height: @transfer-item-height;
         padding: @transfer-item-padding-vertical @control-padding-horizontal;
-        overflow: hidden;
         line-height: @transfer-item-height - 2 * @transfer-item-padding-vertical;
         transition: all 0.3s;
 
@@ -209,6 +209,10 @@
     &-footer {
       border-top: @border-width-base @border-style-base @border-color-split;
     }
+
+    &-checkbox .@{ant-prefix}-checkbox {
+      top: 0;
+    }
   }
 
   &-operation {
@@ -234,7 +238,7 @@
   }
 
   .@{ant-prefix}-empty-image {
-    max-height: @transfer-header-height / 2 - 22;
+    max-height: (@transfer-header-height / 2) - 22;
   }
 }
 

@@ -59,7 +59,6 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="like"
                 fill="currentColor"
                 focusable="false"
@@ -88,7 +87,6 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="dislike"
                 fill="currentColor"
                 focusable="false"
@@ -156,14 +154,10 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <div
-                  class="ant-input-textarea"
-                >
-                  <textarea
-                    class="ant-input"
-                    rows="4"
-                  />
-                </div>
+                <textarea
+                  class="ant-input"
+                  rows="4"
+                />
               </div>
             </div>
           </div>

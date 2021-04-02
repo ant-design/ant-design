@@ -321,6 +321,12 @@ describe('Cascader', () => {
     expect(popupWrapper.render()).toMatchSnapshot();
   });
 
+  it('not found content shoule be disabled', () => {
+    const wrapper = mount(<Cascader options={[]} />);
+    wrapper.find('input').simulate('click');
+    expect(wrapper.find('.ant-cascader-menu-item-disabled').length).toBe(1);
+  });
+
   describe('limit filtered item count', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

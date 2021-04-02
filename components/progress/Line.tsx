@@ -2,20 +2,23 @@ import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 import { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { validProgress, getSuccessPercent } from './utils';
+import { DirectionType } from '../config-provider';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
+  direction?: DirectionType;
   children: React.ReactNode;
 }
 
 /**
- * {
- *   '0%': '#afc163',
- *   '75%': '#009900',
- *   '50%': 'green',     ====>     '#afc163 0%, #66FF00 25%, #00CC00 50%, #009900 75%, #ffffff 100%'
- *   '25%': '#66FF00',
- *   '100%': '#ffffff'
- * }
+ * @example
+ *   {
+ *     "0%": "#afc163",
+ *     "75%": "#009900",
+ *     "50%": "green", // ====> '#afc163 0%, #66FF00 25%, #00CC00 50%, #009900 75%, #ffffff 100%'
+ *     "25%": "#66FF00",
+ *     "100%": "#ffffff"
+ *   }
  */
 export const sortGradient = (gradients: StringGradients) => {
   let tempArr: any[] = [];
@@ -33,25 +36,23 @@ export const sortGradient = (gradients: StringGradients) => {
 };
 
 /**
- * {
- *   '0%': '#afc163',
- *   '25%': '#66FF00',
- *   '50%': '#00CC00',     ====>  linear-gradient(to right, #afc163 0%, #66FF00 25%,
- *   '75%': '#009900',              #00CC00 50%, #009900 75%, #ffffff 100%)
- *   '100%': '#ffffff'
- * }
+ * Then this man came to realize the truth: Besides six pence, there is the moon. Besides bread and
+ * butter, there is the bug. And... Besides women, there is the code.
  *
- * Then this man came to realize the truth:
- * Besides six pence, there is the moon.
- * Besides bread and butter, there is the bug.
- * And...
- * Besides women, there is the code.
+ * @example
+ *   {
+ *     "0%": "#afc163",
+ *     "25%": "#66FF00",
+ *     "50%": "#00CC00", // ====>  linear-gradient(to right, #afc163 0%, #66FF00 25%,
+ *     "75%": "#009900", //        #00CC00 50%, #009900 75%, #ffffff 100%)
+ *     "100%": "#ffffff"
+ *   }
  */
-export const handleGradient = (strokeColor: ProgressGradient) => {
+export const handleGradient = (strokeColor: ProgressGradient, directionConfig: DirectionType) => {
   const {
     from = presetPrimaryColors.blue,
     to = presetPrimaryColors.blue,
-    direction = 'to right',
+    direction = directionConfig === 'rtl' ? 'to left' : 'to right',
     ...rest
   } = strokeColor;
   if (Object.keys(rest).length !== 0) {
@@ -64,6 +65,7 @@ export const handleGradient = (strokeColor: ProgressGradient) => {
 const Line: React.FC<LineProps> = props => {
   const {
     prefixCls,
+    direction: directionConfig,
     percent,
     strokeWidth,
     size,
@@ -76,7 +78,7 @@ const Line: React.FC<LineProps> = props => {
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
-      ? handleGradient(strokeColor)
+      ? handleGradient(strokeColor, directionConfig)
       : {
           background: strokeColor,
         };

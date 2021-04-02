@@ -8,11 +8,8 @@ import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
-import LogRocket from 'logrocket';
-import setupLogRocketReact from 'logrocket-react';
 import { browserHistory } from 'bisheng/router';
-// eslint-disable-next-line import/no-unresolved
-import zhCN from 'antd/es/locale/zh_CN';
+import zhCN from 'antd/lib/locale/zh_CN';
 import Header from './Header';
 import SiteContext from './SiteContext';
 import enLocale from '../../en-US';
@@ -50,11 +47,6 @@ if (typeof window !== 'undefined') {
       e.stopImmediatePropagation();
     }
   });
-
-  if (process.env.NODE_ENV === 'production') {
-    LogRocket.init('kpuw4z/ant-design');
-    setupLogRocketReact(LogRocket);
-  }
 }
 
 const RESPONSIVE_MOBILE = 768;
@@ -166,7 +158,6 @@ export default class Layout extends React.Component {
           theme,
         },
       }),
-      '*',
     );
   };
 

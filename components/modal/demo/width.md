@@ -38,7 +38,7 @@ const App = () => {
       </Modal>
     </>
   );
-}
+};
 
 ReactDOM.render(<App />, mountNode);
 ```

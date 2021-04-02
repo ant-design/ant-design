@@ -1,0 +1,70 @@
+# When publish a release. This workflow will trigger and deploy to site.
+
+name: Deploy website
+on:
+  create
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    if: github.event.ref_type == 'tag'
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: cache package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only
+
+      - name: hack for single file
+        run: |
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
+          cp package-lock.json package-temp-dir
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v2
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: build
+        run: npm run predeploy
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./_site
+        with:
+          emptyCommits: false

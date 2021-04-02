@@ -7,17 +7,18 @@ title:
 
 ## zh-CN
 
-带单元格编辑功能的表格。
+带单元格编辑功能的表格。当配合 `shouldCellUpdate` 使用时请注意[闭包问题](https://github.com/ant-design/ant-design/issues/29243)。
 
 ## en-US
 
-Table with editable cells.
+Table with editable cells. When work with `shouldCellUpdate`, please take care of [closure](https://github.com/ant-design/ant-design/issues/29243).
 
 ```tsx
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
+import { FormInstance } from 'antd/lib/form';
 
-const EditableContext = React.createContext<any>();
+const EditableContext = React.createContext<FormInstance<any> | null>(null);
 
 interface Item {
   key: string;
@@ -45,7 +46,7 @@ interface EditableCellProps {
   title: React.ReactNode;
   editable: boolean;
   children: React.ReactNode;
-  dataIndex: string;
+  dataIndex: keyof Item;
   record: Item;
   handleSave: (record: Item) => void;
 }
@@ -60,12 +61,12 @@ const EditableCell: React.FC<EditableCellProps> = ({
   ...restProps
 }) => {
   const [editing, setEditing] = useState(false);
-  const inputRef = useRef();
-  const form = useContext(EditableContext);
+  const inputRef = useRef<Input>(null);
+  const form = useContext(EditableContext)!;
 
   useEffect(() => {
     if (editing) {
-      inputRef.current.focus();
+      inputRef.current!.focus();
     }
   }, [editing]);
 
@@ -74,7 +75,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
     form.setFieldsValue({ [dataIndex]: record[dataIndex] });
   };
 
-  const save = async e => {
+  const save = async () => {
     try {
       const values = await form.validateFields();
 
@@ -111,9 +112,28 @@ const EditableCell: React.FC<EditableCellProps> = ({
   return <td {...restProps}>{childNode}</td>;
 };
 
-class EditableTable extends React.Component {
-  constructor(props) {
+type EditableTableProps = Parameters<typeof Table>[0];
+
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: string;
+  address: string;
+}
+
+interface EditableTableState {
+  dataSource: DataType[];
+  count: number;
+}
+
+type ColumnTypes = Exclude<EditableTableProps['columns'], undefined>;
+
+class EditableTable extends React.Component<EditableTableProps, EditableTableState> {
+  columns: (ColumnTypes[number] & { editable?: boolean; dataIndex: string })[];
+
+  constructor(props: EditableTableProps) {
     super(props);
+
     this.columns = [
       {
         title: 'name',
@@ -132,7 +152,7 @@ class EditableTable extends React.Component {
       {
         title: 'operation',
         dataIndex: 'operation',
-        render: (text, record) =>
+        render: (_, record: { key: React.Key }) =>
           this.state.dataSource.length >= 1 ? (
             <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
               <a>Delete</a>
@@ -160,17 +180,17 @@ class EditableTable extends React.Component {
     };
   }
 
-  handleDelete = key => {
+  handleDelete = (key: React.Key) => {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
   };
 
   handleAdd = () => {
     const { count, dataSource } = this.state;
-    const newData = {
+    const newData: DataType = {
       key: count,
       name: `Edward King ${count}`,
-      age: 32,
+      age: '32',
       address: `London, Park Lane no. ${count}`,
     };
     this.setState({
@@ -179,7 +199,7 @@ class EditableTable extends React.Component {
     });
   };
 
-  handleSave = row => {
+  handleSave = (row: DataType) => {
     const newData = [...this.state.dataSource];
     const index = newData.findIndex(item => row.key === item.key);
     const item = newData[index];
@@ -204,7 +224,7 @@ class EditableTable extends React.Component {
       }
       return {
         ...col,
-        onCell: record => ({
+        onCell: (record: DataType) => ({
           record,
           editable: col.editable,
           dataIndex: col.dataIndex,
@@ -223,7 +243,7 @@ class EditableTable extends React.Component {
           rowClassName={() => 'editable-row'}
           bordered
           dataSource={dataSource}
-          columns={columns}
+          columns={columns as ColumnTypes}
         />
       </div>
     );
@@ -244,9 +264,9 @@ ReactDOM.render(<EditableTable />, mountNode);
 }
 
 .editable-row:hover .editable-cell-value-wrap {
+  padding: 4px 11px;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
-  padding: 4px 11px;
 }
 
 [data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {

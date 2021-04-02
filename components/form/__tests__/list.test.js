@@ -1,21 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import raf from 'raf';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
 import { sleep } from '../../../tests/utils';
 
-jest.mock('raf');
-
 describe('Form.List', () => {
-  raf.mockImplementation(callback => window.setTimeout(callback));
-
-  afterAll(() => {
-    raf.mockRestore();
-  });
-
   async function change(wrapper, index, value) {
     wrapper.find(Input).at(index).simulate('change', { target: { value } });
     await sleep();

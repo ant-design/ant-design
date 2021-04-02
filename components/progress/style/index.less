@@ -4,7 +4,7 @@
 @progress-prefix-cls: ~'@{ant-prefix}-progress';
 
 .@{progress-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   display: inline-block;
 
@@ -93,7 +93,7 @@
     display: inline-block;
     width: 2em;
     margin-left: 8px;
-    color: @text-color-secondary;
+    color: @progress-info-text-color;
     font-size: @progress-text-font-size;
     line-height: 1;
     white-space: nowrap;
@@ -171,7 +171,7 @@
     transform: translate(-50%, -50%);
 
     .@{iconfont-css-prefix} {
-      font-size: 14 / 12em;
+      font-size: (14 / 12em);
     }
   }
 

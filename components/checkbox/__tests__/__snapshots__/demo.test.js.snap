@@ -23,29 +23,28 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
 Array [
-  <div
-    class="site-checkbox-all-wrapper"
+  <label
+    class="ant-checkbox-wrapper"
   >
-    <label
-      class="ant-checkbox-wrapper"
+    <span
+      class="ant-checkbox ant-checkbox-indeterminate"
     >
+      <input
+        class="ant-checkbox-input"
+        type="checkbox"
+      />
       <span
-        class="ant-checkbox ant-checkbox-indeterminate"
-      >
-        <input
-          class="ant-checkbox-input"
-          type="checkbox"
-        />
-        <span
-          class="ant-checkbox-inner"
-        />
-      </span>
-      <span>
-        Check all
-      </span>
-    </label>
-  </div>,
-  <br />,
+        class="ant-checkbox-inner"
+      />
+    </span>
+    <span>
+      Check all
+    </span>
+  </label>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
   <div
     class="ant-checkbox-group"
   >

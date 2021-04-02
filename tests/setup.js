@@ -3,6 +3,11 @@ const React = require('react');
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
+// jest.mock('react', () => ({
+//   ...jest.requireActual('react'),
+//   useLayoutEffect: jest.requireActual('react').useEffect,
+// }));
+
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
@@ -31,7 +36,10 @@ if (typeof window !== 'undefined') {
 
 const Enzyme = require('enzyme');
 
-const Adapter = require('enzyme-adapter-react-16');
+const Adapter =
+  process.env.REACT === '16'
+    ? require('enzyme-adapter-react-16') // eslint-disable-line import/no-extraneous-dependencies,import/no-unresolved
+    : require('@wojtekmaj/enzyme-adapter-react-17');
 
 Enzyme.configure({ adapter: new Adapter() });
 

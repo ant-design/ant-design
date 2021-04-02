@@ -18,7 +18,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="user"
             fill="currentColor"
             focusable="false"
@@ -39,157 +38,12 @@ Array [
       >
         <span
           class="ant-scroll-number-only"
-          style="transition:none;-ms-transform:translateY(-1100%);-webkit-transform:translateY(-1100%);transform:translateY(-1100%)"
+          style="transition:none"
         >
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            0
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            1
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            2
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            3
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            4
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            5
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            6
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            7
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            8
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            9
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            0
-          </p>
           <p
             class="ant-scroll-number-only-unit current"
           >
             1
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            2
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            3
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            4
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            5
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            6
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            7
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            8
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            9
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            0
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            1
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            2
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            3
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            4
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            5
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            6
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            7
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            8
-          </p>
-          <p
-            class="ant-scroll-number-only-unit"
-          >
-            9
           </p>
         </span>
       </sup>
@@ -209,7 +63,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="user"
             fill="currentColor"
             focusable="false"
@@ -246,7 +99,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -270,7 +122,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -294,7 +145,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -318,7 +168,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -345,7 +194,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -369,7 +217,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -393,7 +240,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -417,7 +263,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -522,7 +367,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="user"
           fill="currentColor"
           focusable="false"
@@ -547,7 +391,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="ant-design"
           fill="currentColor"
           focusable="false"
@@ -599,6 +442,43 @@ Array [
       </span>
     </span>
   </div>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-avatar-group"
+  >
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+    >
+      <img
+        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      />
+    </span>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      style="background-color:#f56a00"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      >
+        K
+      </span>
+    </span>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      style="color:#f56a00;background-color:#fde3cf"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      >
+        +2
+      </span>
+    </span>
+  </div>,
 ]
 `;
 
@@ -613,7 +493,6 @@ exports[`renders ./components/avatar/demo/responsive.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=""
       data-icon="ant-design"
       fill="currentColor"
       focusable="false"
@@ -718,7 +597,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="user"
         fill="currentColor"
         focusable="false"
@@ -761,6 +639,46 @@ Array [
     />
   </span>,
   <span
+    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  >
+    <div
+      class="ant-image"
+    >
+      <img
+        class="ant-image-img"
+        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      />
+      <div
+        class="ant-image-mask"
+      >
+        <div
+          class="ant-image-mask-info"
+        >
+          <span
+            aria-label="eye"
+            class="anticon anticon-eye"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="eye"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+              />
+            </svg>
+          </span>
+          Preview
+        </div>
+      </div>
+    </div>
+  </span>,
+  <span
     class="ant-avatar ant-avatar-circle"
     style="color:#f56a00;background-color:#fde3cf"
   >
@@ -782,7 +700,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="user"
         fill="currentColor"
         focusable="false"

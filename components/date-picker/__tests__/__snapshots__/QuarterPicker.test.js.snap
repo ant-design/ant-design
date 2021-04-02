@@ -26,7 +26,6 @@ exports[`QuarterPicker should support style prop 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import findDOMNode from 'rc-util/lib/Dom/findDOMNode';
 import copy from 'copy-to-clipboard';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
@@ -38,17 +37,20 @@ interface EditConfig {
   tooltip?: boolean | React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
+  onCancel?: () => void;
+  onEnd?: () => void;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
 }
 
-interface EllipsisConfig {
+export interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
   symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
+  tooltip?: React.ReactNode;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -133,7 +135,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   context: ConfigConsumerProps;
 
-  editIcon?: TransButton;
+  editIcon?: HTMLDivElement;
 
   contentRef = React.createRef<HTMLElement>();
 
@@ -189,10 +191,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
     const { onExpand } = this.getEllipsis();
     this.setState({ expanded: true });
-
-    if (onExpand) {
-      (onExpand as React.MouseEventHandler<HTMLElement>)(e);
-    }
+    (onExpand as React.MouseEventHandler<HTMLElement>)?.(e);
   };
 
   // ================ Edit ================
@@ -202,19 +201,18 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   onEditChange = (value: string) => {
     const { onChange } = this.getEditable();
-    if (onChange) {
-      onChange(value);
-    }
-
+    onChange?.(value);
     this.triggerEdit(false);
   };
 
   onEditCancel = () => {
+    this.getEditable().onCancel?.();
     this.triggerEdit(false);
   };
 
   // ================ Copy ================
-  onCopyClick = () => {
+  onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
     const { children, copyable } = this.props;
     const copyConfig: CopyConfig = {
       ...(typeof copyable === 'object' ? copyable : null),
@@ -258,7 +256,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     };
   }
 
-  setEditRef = (node: TransButton) => {
+  setEditRef = (node: HTMLDivElement) => {
     this.editIcon = node;
   };
 
@@ -287,9 +285,9 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   canUseCSSEllipsis(): boolean {
     const { clientRendered } = this.state;
     const { editable, copyable } = this.props;
-    const { rows, expandable, suffix, onEllipsis } = this.getEllipsis();
+    const { rows, expandable, suffix, onEllipsis, tooltip } = this.getEllipsis();
 
-    if (suffix) return false;
+    if (suffix || tooltip) return false;
     // Can't use css ellipsis since we need to provide the place for button
     if (editable || copyable || expandable || !clientRendered || onEllipsis) {
       return false;
@@ -318,7 +316,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     );
 
     const { content, text, ellipsis } = measure(
-      findDOMNode(this.contentRef.current),
+      this.contentRef.current,
       { rows, suffix },
       children,
       this.renderOperations(true),
@@ -415,12 +413,13 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
-    const { maxLength, autoSize } = this.getEditable();
+    const { maxLength, autoSize, onEnd } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
         onSave={this.onEditChange}
         onCancel={this.onEditCancel}
+        onEnd={onEnd}
         prefixCls={this.getPrefixCls()}
         className={className}
         style={style}
@@ -441,7 +440,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { ellipsisContent, isEllipsis, expanded } = this.state;
     const { component, children, className, type, disabled, style, ...restProps } = this.props;
     const { direction } = this.context;
-    const { rows, suffix } = this.getEllipsis();
+    const { rows, suffix, tooltip } = this.getEllipsis();
 
     const prefixCls = this.getPrefixCls();
 
@@ -456,30 +455,45 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       'underline',
       'strong',
       'keyboard',
-      ...configConsumerProps,
-    ]);
+      ...(configConsumerProps as any),
+    ]) as any;
+
     const cssEllipsis = this.canUseCSSEllipsis();
     const cssTextOverflow = rows === 1 && cssEllipsis;
     const cssLineClamp = rows && rows > 1 && cssEllipsis;
 
     let textNode: React.ReactNode = children;
-    let ariaLabel: string | undefined;
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
       const { title } = restProps;
-      ariaLabel = title;
+      let restContent = title || '';
       if (!title && (typeof children === 'string' || typeof children === 'number')) {
-        ariaLabel = String(children);
+        restContent = String(children);
       }
+
+      // show rest content as title on symbol
+      restContent = restContent?.slice(String(ellipsisContent || '').length);
+
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={ariaLabel} aria-hidden="true">
+        <>
           {ellipsisContent}
-          {ELLIPSIS_STR}
+          <span title={restContent} aria-hidden="true">
+            {ELLIPSIS_STR}
+          </span>
           {suffix}
-        </span>
+        </>
       );
+
+      // If provided tooltip, we need wrap with span to let Tooltip inject events
+      if (tooltip) {
+        textNode = (
+          <Tooltip title={tooltip === true ? children : tooltip}>
+            <span>{textNode}</span>
+          </Tooltip>
+        );
+      }
     } else {
       textNode = (
         <>
@@ -514,11 +528,10 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                 )}
                 style={{
                   ...style,
-                  WebkitLineClamp: cssLineClamp ? rows : null,
+                  WebkitLineClamp: cssLineClamp ? rows : undefined,
                 }}
                 component={component}
                 ref={this.contentRef}
-                aria-label={ariaLabel}
                 direction={direction}
                 {...textProps}
               >

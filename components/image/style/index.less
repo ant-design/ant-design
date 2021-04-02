@@ -8,6 +8,7 @@
   position: relative;
   display: inline-block;
   &-img {
+    display: block;
     width: 100%;
     height: auto;
     &-placeholder {
@@ -19,16 +20,44 @@
     }
   }
 
+  &-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: @text-color-inverse;
+    background: fade(@black, 50%);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity @animation-duration-slow;
+
+    &-info {
+      .@{iconfont-css-prefix} {
+        margin-inline-end: @margin-xss;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   &-placeholder {
-    .box;
+    .box();
   }
 
   &-preview {
+    .modal-mask();
+
     height: 100%;
     text-align: center;
 
     &-body {
-      .box;
+      .box();
       overflow: hidden;
     }
 
@@ -42,7 +71,7 @@
       user-select: none;
       pointer-events: auto;
       &-wrapper {
-        .box;
+        .box();
         transition: transform 0.3s @ease-out 0s;
         &::before {
           display: inline-block;
@@ -68,7 +97,7 @@
     }
 
     &-operations {
-      .reset-component;
+      .reset-component();
       position: absolute;
       top: 0;
       right: 0;
@@ -97,6 +126,43 @@
       &-icon {
         font-size: @image-preview-operation-size;
       }
+    }
+
+    &-switch-left,
+    &-switch-right {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-top: -22px;
+      color: @image-preview-operation-color;
+      background: fade(@modal-mask-bg, 10%);
+      border-radius: 50%;
+      cursor: pointer;
+      pointer-events: auto;
+      &-disabled {
+        color: @image-preview-operation-disabled-color;
+        cursor: not-allowed;
+        > .@{iconfont-css-prefix} {
+          cursor: not-allowed;
+        }
+      }
+      > .@{iconfont-css-prefix} {
+        font-size: 18px;
+      }
+    }
+
+    &-switch-left {
+      left: 10px;
+    }
+
+    &-switch-right {
+      right: 10px;
     }
   }
 }

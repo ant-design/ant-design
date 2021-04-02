@@ -17,9 +17,7 @@ import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
 
 export interface AlertProps {
-  /**
-   * Type of Alert styles, options:`success`, `info`, `warning`, `error`
-   */
+  /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
   closable?: boolean;
@@ -42,6 +40,7 @@ export interface AlertProps {
   className?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -79,6 +78,7 @@ const Alert: AlertInterface = ({
   showIcon,
   closable,
   closeText,
+  action,
   ...props
 }) => {
   const [closed, setClosed] = React.useState(false);
@@ -119,8 +119,8 @@ const Alert: AlertInterface = ({
     return React.createElement(iconType, { className: `${prefixCls}-icon` });
   };
 
-  const renderCloseIcon = () => {
-    return isClosable ? (
+  const renderCloseIcon = () =>
+    isClosable ? (
       <button
         type="button"
         onClick={handleClose}
@@ -134,7 +134,6 @@ const Alert: AlertInterface = ({
         )}
       </button>
     ) : null;
-  };
 
   // banner 模式默认有 Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
@@ -146,7 +145,6 @@ const Alert: AlertInterface = ({
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,
-      [`${prefixCls}-closable`]: isClosable,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -178,8 +176,13 @@ const Alert: AlertInterface = ({
           {...dataOrAriaProps}
         >
           {isShowIcon ? renderIconNode() : null}
-          <span className={`${prefixCls}-message`}>{message}</span>
-          <span className={`${prefixCls}-description`}>{description}</span>
+          <div className={`${prefixCls}-content`}>
+            <div className={`${prefixCls}-message`}>{message}</div>
+            <div className={`${prefixCls}-description`}>{description}</div>
+          </div>
+
+          {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
+
           {renderCloseIcon()}
         </div>
       )}

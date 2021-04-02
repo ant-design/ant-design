@@ -24,14 +24,18 @@ export interface RenderResultObject {
 export type RenderResult = React.ReactElement | RenderResultObject | string | null;
 
 export interface TransferItem {
-  key: string;
+  key?: string;
   title?: string;
   description?: string;
   disabled?: boolean;
   [name: string]: any;
 }
 
-type TransferRender = (item: TransferItem) => RenderResult;
+export type KeyWise<T> = T & { key: string };
+
+export type KeyWiseTransferItem = KeyWise<TransferItem>;
+
+type TransferRender<RecordType> = (item: RecordType) => RenderResult;
 
 export interface ListStyle {
   direction: TransferDirection;
@@ -42,7 +46,7 @@ export type SelectAllLabel =
   | ((info: { selectedCount: number; totalCount: number }) => React.ReactNode);
 
 export interface TransferLocale {
-  titles: string[];
+  titles: React.ReactNode[];
   notFoundContent?: React.ReactNode;
   searchPlaceholder: string;
   itemUnit: string;
@@ -55,29 +59,29 @@ export interface TransferLocale {
   removeCurrent: string;
 }
 
-export interface TransferProps {
+export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
   disabled?: boolean;
-  dataSource: TransferItem[];
+  dataSource: RecordType[];
   targetKeys?: string[];
   selectedKeys?: string[];
-  render?: TransferRender;
-  onChange?: (targetKeys: string[], direction: string, moveKeys: string[]) => void;
+  render?: TransferRender<RecordType>;
+  onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
   listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
   operationStyle?: React.CSSProperties;
-  titles?: string[];
+  titles?: React.ReactNode[];
   operations?: string[];
   showSearch?: boolean;
-  filterOption?: (inputValue: string, item: TransferItem) => boolean;
+  filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?: (props: TransferListProps) => React.ReactNode;
-  rowKey?: (record: TransferItem) => string;
+  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
+  rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
-  children?: (props: TransferListBodyProps) => React.ReactNode;
+  children?: (props: TransferListBodyProps<RecordType>) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
@@ -89,7 +93,10 @@ interface TransferState {
   targetSelectedKeys: string[];
 }
 
-class Transfer extends React.Component<TransferProps, TransferState> {
+class Transfer<RecordType extends TransferItem = TransferItem> extends React.Component<
+  TransferProps<RecordType>,
+  TransferState
+> {
   // For high-level customized Transfer @dqaria
   static List = List;
 
@@ -104,12 +111,12 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     listStyle: () => {},
   };
 
-  static getDerivedStateFromProps({
+  static getDerivedStateFromProps<T>({
     selectedKeys,
     targetKeys,
     pagination,
     children,
-  }: TransferProps) {
+  }: TransferProps<T>) {
     if (selectedKeys) {
       const mergedTargetKeys = targetKeys || [];
       return {
@@ -128,11 +135,11 @@ class Transfer extends React.Component<TransferProps, TransferState> {
   }
 
   separatedDataSource: {
-    leftDataSource: TransferItem[];
-    rightDataSource: TransferItem[];
+    leftDataSource: RecordType[];
+    rightDataSource: RecordType[];
   } | null = null;
 
-  constructor(props: TransferProps) {
+  constructor(props: TransferProps<RecordType>) {
     super(props);
 
     const { selectedKeys = [], targetKeys = [] } = props;
@@ -157,7 +164,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     }
   };
 
-  getTitles(transferLocale: TransferLocale): string[] {
+  getTitles(transferLocale: TransferLocale): React.ReactNode[] {
     const { titles } = this.props;
     if (titles) {
       return titles;
@@ -165,9 +172,11 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     return transferLocale.titles;
   }
 
-  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
-    return { ...transferLocale, notFoundContent: renderEmpty('Transfer'), ...this.props.locale };
-  };
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
+    ...transferLocale,
+    notFoundContent: renderEmpty('Transfer'),
+    ...this.props.locale,
+  });
 
   moveTo = (direction: TransferDirection) => {
     const { targetKeys = [], dataSource = [], onChange } = this.props;
@@ -188,9 +197,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     this.setStateKeys(oppositeDirection, []);
     this.handleSelectChange(oppositeDirection, []);
 
-    if (onChange) {
-      onChange(newTargetKeys, direction, newMoveKeys);
-    }
+    onChange?.(newTargetKeys, direction, newMoveKeys);
   };
 
   moveToLeft = () => this.moveTo('left');
@@ -223,9 +230,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearch } = this.props;
     const { value } = e.target;
-    if (onSearch) {
-      onSearch(direction, value);
-    }
+    onSearch?.(direction, value);
   };
 
   handleLeftFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('left', e);
@@ -234,9 +239,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
 
   handleClear = (direction: TransferDirection) => {
     const { onSearch } = this.props;
-    if (onSearch) {
-      onSearch(direction, '');
-    }
+    onSearch?.(direction, '');
   };
 
   handleLeftClear = () => this.handleClear('left');
@@ -271,20 +274,16 @@ class Transfer extends React.Component<TransferProps, TransferState> {
 
     this.setStateKeys('right', []);
 
-    if (onChange) {
-      onChange(
-        targetKeys.filter(key => !selectedKeys.includes(key)),
-        'left',
-        [...selectedKeys],
-      );
-    }
+    onChange?.(
+      targetKeys.filter(key => !selectedKeys.includes(key)),
+      'left',
+      [...selectedKeys],
+    );
   };
 
   handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
     const { onScroll } = this.props;
-    if (onScroll) {
-      onScroll(direction, e);
-    }
+    onScroll?.(direction, e);
   };
 
   handleLeftScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('left', e);
@@ -318,11 +317,14 @@ class Transfer extends React.Component<TransferProps, TransferState> {
   separateDataSource() {
     const { dataSource, rowKey, targetKeys = [] } = this.props;
 
-    const leftDataSource: TransferItem[] = [];
-    const rightDataSource: TransferItem[] = new Array(targetKeys.length);
-    dataSource.forEach(record => {
+    const leftDataSource: KeyWise<RecordType>[] = [];
+    const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
+    dataSource.forEach((record: KeyWise<RecordType>) => {
       if (rowKey) {
-        record.key = rowKey(record);
+        record = {
+          ...record,
+          key: rowKey(record),
+        };
       }
 
       // rightDataSource should be ordered by targetKeys
@@ -385,7 +387,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
         const selectAllLabels = this.props.selectAllLabels || [];
         return (
           <div className={cls} style={style}>
-            <List
+            <List<KeyWise<RecordType>>
               prefixCls={`${prefixCls}-list`}
               titleText={titles[0]}
               dataSource={leftDataSource}
@@ -421,7 +423,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
               direction={direction}
               oneWay={oneWay}
             />
-            <List
+            <List<KeyWise<RecordType>>
               prefixCls={`${prefixCls}-list`}
               titleText={titles[1]}
               dataSource={rightDataSource}

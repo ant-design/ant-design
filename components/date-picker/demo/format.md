@@ -24,9 +24,7 @@ const monthFormat = 'YYYY/MM';
 
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
-const customFormat = value => {
-  return `custom format: ${value.format(dateFormat)}`;
-};
+const customFormat = value => `custom format: ${value.format(dateFormat)}`;
 
 ReactDOM.render(
   <Space direction="vertical" size={12}>

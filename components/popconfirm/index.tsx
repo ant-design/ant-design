@@ -1,15 +1,17 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
-import { LegacyButtonType, NativeButtonProps, convertLegacyProps } from '../button/button';
+import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
+import { getTransitionName } from '../_util/motion';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -19,8 +21,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   okText?: React.ReactNode;
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
-  okButtonProps?: NativeButtonProps;
-  cancelButtonProps?: NativeButtonProps;
+  okButtonProps?: ButtonProps;
+  cancelButtonProps?: ButtonProps;
   icon?: React.ReactNode;
   onVisibleChange?: (
     visible: boolean,
@@ -38,47 +40,28 @@ export interface PopconfirmLocale {
 }
 
 const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
-  const [visible, setVisible] = React.useState(props.visible);
-
-  React.useEffect(() => {
-    if ('visible' in props) {
-      setVisible(props.visible);
-    }
-  }, [props.visible]);
-
-  React.useEffect(() => {
-    if ('defaultVisible' in props) {
-      setVisible(props.defaultVisible);
-    }
-  }, [props.defaultVisible]);
+  const [visible, setVisible] = useMergedState(false, {
+    value: props.visible,
+    defaultValue: props.defaultVisible,
+  });
 
   const settingVisible = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    if (!('visible' in props)) {
-      setVisible(value);
-    }
+    setVisible(value);
 
-    if (props.onVisibleChange) {
-      props.onVisibleChange(value, e);
-    }
+    props.onVisibleChange?.(value, e);
   };
 
   const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
     settingVisible(false, e);
-
-    if (props.onConfirm) {
-      props.onConfirm.call(this, e);
-    }
+    props.onConfirm?.call(this, e);
   };
 
   const onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     settingVisible(false, e);
-
-    if (props.onCancel) {
-      props.onCancel.call(this, e);
-    }
+    props.onCancel?.call(this, e);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -138,6 +121,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       {(popconfirmLocale: PopconfirmLocale) => renderOverlay(prefixCls, popconfirmLocale)}
     </LocaleReceiver>
   );
+  const rootPrefixCls = getPrefixCls();
 
   return (
     <Tooltip
@@ -149,6 +133,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       overlay={overlay}
       overlayClassName={overlayClassNames}
       ref={ref as any}
+      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', props.transitionName)}
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
@@ -163,7 +148,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 });
 
 Popconfirm.defaultProps = {
-  transitionName: 'zoom-big',
   placement: 'top' as PopconfirmProps['placement'],
   trigger: 'click' as PopconfirmProps['trigger'],
   okType: 'primary' as PopconfirmProps['okType'],

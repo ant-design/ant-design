@@ -5,14 +5,15 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import useCacheErrors from './hooks/useCacheErrors';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { FormItemPrefixContext } from './context';
+import { ConfigContext } from '../config-provider';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
 export interface ErrorListProps {
   errors?: React.ReactNode[];
-  /** @private Internal usage. Do not use in your production */
+  /** @private Internal Usage. Do not use in your production */
   help?: React.ReactNode;
-  /** @private Internal usage. Do not use in your production */
+  /** @private Internal Usage. Do not use in your production */
   onDomErrorVisibleChange?: (visible: boolean) => void;
 }
 
@@ -23,6 +24,7 @@ export default function ErrorList({
 }: ErrorListProps) {
   const forceUpdate = useForceUpdate();
   const { prefixCls, status } = React.useContext(FormItemPrefixContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const [visible, cacheErrors] = useCacheErrors(
     errors,
@@ -30,6 +32,7 @@ export default function ErrorList({
       if (changedVisible) {
         /**
          * We trigger in sync to avoid dom shaking but this get warning in react 16.13.
+         *
          * So use Promise to keep in micro async to handle this.
          * https://github.com/ant-design/ant-design/issues/21698#issuecomment-593743485
          */
@@ -57,39 +60,38 @@ export default function ErrorList({
   }, [visible, status]);
 
   const baseClassName = `${prefixCls}-item-explain`;
+  const rootPrefixCls = getPrefixCls();
 
   return (
     <CSSMotion
       motionDeadline={500}
       visible={visible}
-      motionName="show-help"
+      motionName={`${rootPrefixCls}-show-help`}
       onLeaveEnd={() => {
         onDomErrorVisibleChange?.(false);
       }}
       motionAppear
       removeOnLeave
     >
-      {({ className: motionClassName }: { className: string }) => {
-        return (
-          <div
-            className={classNames(
-              baseClassName,
-              {
-                [`${baseClassName}-${innerStatus}`]: innerStatus,
-              },
-              motionClassName,
-            )}
-            key="help"
-          >
-            {memoErrors.map((error, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <div key={index} role="alert">
-                {error}
-              </div>
-            ))}
-          </div>
-        );
-      }}
+      {({ className: motionClassName }: { className?: string }) => (
+        <div
+          className={classNames(
+            baseClassName,
+            {
+              [`${baseClassName}-${innerStatus}`]: innerStatus,
+            },
+            motionClassName,
+          )}
+          key="help"
+        >
+          {memoErrors.map((error, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={index} role="alert">
+              {error}
+            </div>
+          ))}
+        </div>
+      )}
     </CSSMotion>
   );
 }

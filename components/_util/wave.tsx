@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
-import TransitionEvents from '@ant-design/css-animation/lib/Event';
+import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
+import { supportRef, composeRef } from 'rc-util/lib/ref';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
+import { cloneElement } from './reactNode';
 
 let styleForPseudo: HTMLStyleElement | null;
 
@@ -11,7 +12,7 @@ function isHidden(element: HTMLElement) {
   if (process.env.NODE_ENV === 'test') {
     return false;
   }
-  return !element || element.offsetParent === null;
+  return !element || element.offsetParent === null || element.hidden;
 }
 
 function isNotGrey(color: string) {
@@ -30,6 +31,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     cancel: () => void;
   };
 
+  private containerRef = React.createRef<HTMLDivElement>();
+
   private extraNode: HTMLDivElement;
 
   private clickWaveTimeoutId: number;
@@ -45,7 +48,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   context: ConfigConsumerProps;
 
   componentDidMount() {
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.containerRef.current as HTMLDivElement;
     if (!node || node.nodeType !== 1) {
       return;
     }
@@ -75,7 +78,6 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'true');
     // Not white or transparent or grey
-    styleForPseudo = styleForPseudo || document.createElement('style');
     if (
       waveColor &&
       waveColor !== '#ffffff' &&
@@ -84,27 +86,28 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       !/rgba\((?:\d*, ){3}0\)/.test(waveColor) && // any transparent rgba color
       waveColor !== 'transparent'
     ) {
-      // Add nonce if CSP exist
-      if (this.csp && this.csp.nonce) {
-        styleForPseudo.nonce = this.csp.nonce;
-      }
-
       extraNode.style.borderColor = waveColor;
-      styleForPseudo.innerHTML = `
+
+      const nodeRoot = node.getRootNode?.() || node.ownerDocument;
+      const nodeBody = nodeRoot instanceof Document ? nodeRoot.body : nodeRoot as HTMLElement;
+      styleForPseudo = updateCSS(
+        `
       [${getPrefixCls('')}-click-animating-without-extra-node='true']::after, .${getPrefixCls(
-        '',
-      )}-click-animating-node {
+          '',
+        )}-click-animating-node {
         --antd-wave-shadow-color: ${waveColor};
-      }`;
-      if (!document.body.contains(styleForPseudo)) {
-        document.body.appendChild(styleForPseudo);
-      }
+      }`,
+        'antd-wave',
+        { csp: this.csp, attachTo: nodeBody },
+      );
     }
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    TransitionEvents.addStartEventListener(node, this.onTransitionStart);
-    TransitionEvents.addEndEventListener(node, this.onTransitionEnd);
+    ['transition', 'animation'].forEach(name => {
+      node.addEventListener(`${name}start`, this.onTransitionStart);
+      node.addEventListener(`${name}end`, this.onTransitionEnd);
+    });
   };
 
   onTransitionStart = (e: AnimationEvent) => {
@@ -112,7 +115,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       return;
     }
 
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.containerRef.current as HTMLDivElement;
     if (!e || e.target !== node || this.animationStart) {
       return;
     }
@@ -187,15 +190,24 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
-    TransitionEvents.removeStartEventListener(node, this.onTransitionStart);
-    TransitionEvents.removeEndEventListener(node, this.onTransitionEnd);
+    ['transition', 'animation'].forEach(name => {
+      node.removeEventListener(`${name}start`, this.onTransitionStart);
+      node.removeEventListener(`${name}end`, this.onTransitionEnd);
+    });
   }
 
   renderWave = ({ csp }: ConfigConsumerProps) => {
     const { children } = this.props;
     this.csp = csp;
 
-    return children;
+    if (!React.isValidElement(children)) return children;
+
+    let ref: React.Ref<any> = this.containerRef;
+    if (supportRef(children)) {
+      ref = composeRef((children as any).ref, this.containerRef as any);
+    }
+
+    return cloneElement(children, { ref });
   };
 
   render() {

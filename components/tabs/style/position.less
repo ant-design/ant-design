@@ -99,13 +99,12 @@
 
       // >>>>>>>>>>> Tab
       .@{tab-prefix-cls}-tab {
-        margin: @tabs-vertical-margin;
         padding: @tabs-vertical-padding;
         text-align: center;
+      }
 
-        &:last-of-type {
-          margin-bottom: 0;
-        }
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+        margin: @tabs-vertical-margin;
       }
 
       // >>>>>>>>>>> Nav

@@ -8,6 +8,7 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
+import useFlexGapSupport from './hooks/useFlexGapSupport';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
@@ -18,6 +19,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: typeof RowAligns[number];
   justify?: typeof RowJustify[number];
   prefixCls?: string;
+  wrap?: boolean;
 }
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
@@ -29,6 +31,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     style,
     children,
     gutter = 0,
+    wrap,
     ...others
   } = props;
 
@@ -43,8 +46,11 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     xxl: true,
   });
 
+  const supportFlexGap = useFlexGapSupport();
+
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
+  // ================================== Effect ==================================
   React.useEffect(() => {
     const token = ResponsiveObserve.subscribe(screen => {
       const currentGutter = gutterRef.current || 0;
@@ -59,6 +65,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     return () => ResponsiveObserve.unsubscribe(token);
   }, []);
 
+  // ================================== Render ==================================
   const getGutter = (): [number, number] => {
     const results: [number, number] = [0, 0];
     const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
@@ -83,31 +90,41 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const classes = classNames(
     prefixCls,
     {
+      [`${prefixCls}-no-wrap`]: wrap === false,
       [`${prefixCls}-${justify}`]: justify,
       [`${prefixCls}-${align}`]: align,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
   );
-  const rowStyle = {
-    ...(gutters[0]! > 0
-      ? {
-          marginLeft: gutters[0]! / -2,
-          marginRight: gutters[0]! / -2,
-        }
-      : {}),
-    ...(gutters[1]! > 0
-      ? {
-          marginTop: gutters[1]! / -2,
-          marginBottom: gutters[1]! / 2,
-        }
-      : {}),
-    ...style,
-  };
+
+  // Add gutter related style
+  const rowStyle: React.CSSProperties = {};
+  const horizontalGutter = gutters[0] > 0 ? gutters[0] / -2 : undefined;
+  const verticalGutter = gutters[1] > 0 ? gutters[1] / -2 : undefined;
+
+  if (horizontalGutter) {
+    rowStyle.marginLeft = horizontalGutter;
+    rowStyle.marginRight = horizontalGutter;
+  }
+
+  if (supportFlexGap) {
+    // Set gap direct if flex gap support
+    [, rowStyle.rowGap] = gutters;
+  } else if (verticalGutter) {
+    rowStyle.marginTop = verticalGutter;
+    rowStyle.marginBottom = verticalGutter;
+  }
+
+  const rowContext = React.useMemo(() => ({ gutter: gutters, wrap, supportFlexGap }), [
+    gutters,
+    wrap,
+    supportFlexGap,
+  ]);
 
   return (
-    <RowContext.Provider value={{ gutter: gutters }}>
-      <div {...others} className={classes} style={rowStyle} ref={ref}>
+    <RowContext.Provider value={rowContext}>
+      <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}
       </div>
     </RowContext.Provider>

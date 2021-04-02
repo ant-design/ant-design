@@ -1,11 +1,12 @@
 import { createContext } from 'react';
+import { DirectionType } from '../config-provider';
 
 export type MenuTheme = 'light' | 'dark';
 
 export interface MenuContextProps {
   inlineCollapsed: boolean;
   antdMenuTheme?: MenuTheme;
-  direction?: 'ltr' | 'rtl';
+  direction?: DirectionType;
 }
 
 const MenuContext = createContext<MenuContextProps>({

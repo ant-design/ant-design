@@ -24,8 +24,8 @@ Empty state placeholder.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | description | Customize description | ReactNode | - |  |
-| imageStyle | The style of image | CSSProperties | - |  |
 | image | Customize image. Will treat as image url when string provided | ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |  |
+| imageStyle | The style of image | CSSProperties | - |  |
 
 ## Built-in images
 

@@ -55,7 +55,7 @@ describe('Form', () => {
       );
 
       await change(wrapper, 0, '');
-      expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
+      expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
       expect(wrapper.find('.ant-form-item-has-error').length).toBeTruthy();
 
       expect(onChange).toHaveBeenCalled();
@@ -227,7 +227,7 @@ describe('Form', () => {
     const onFinishFailed = jest.fn();
 
     const wrapper = mount(
-      <Form scrollToFirstError onFinishFailed={onFinishFailed}>
+      <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
@@ -238,7 +238,11 @@ describe('Form', () => {
     expect(scrollIntoView).not.toHaveBeenCalled();
     wrapper.find('form').simulate('submit');
     await sleep(50);
-    expect(scrollIntoView).toHaveBeenCalled();
+    const inputNode = document.getElementById('test');
+    expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+      block: 'center',
+      scrollMode: 'if-needed',
+    });
     expect(onFinishFailed).toHaveBeenCalled();
 
     wrapper.unmount();
@@ -770,6 +774,29 @@ describe('Form', () => {
     );
 
     expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
+  });
+
+  it('_internalItemRender api test', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item
+          name="light"
+          _internalItemRender={{
+            mark: 'pro_table_render',
+            render: (_, doms) => (
+              <div id="test">
+                {doms.input}
+                {doms.errorList}
+                {doms.extra}
+              </div>
+            ),
+          }}
+        >
+          <input defaultValue="should warning" />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('#test').exists()).toBeTruthy();
   });
 
   describe('tooltip', () => {

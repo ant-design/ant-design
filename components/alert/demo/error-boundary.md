@@ -1,8 +1,8 @@
 ---
 order: 8
 title:
-  zh-CN: ErrorBoundary
-  en-US: React 错误处理
+  zh-CN: React 错误处理
+  en-US: ErrorBoundary
 ---
 
 ## zh-CN
@@ -28,7 +28,7 @@ const ThrowError: React.FC = () => {
     throw error;
   }
   return (
-    <Button type="danger" onClick={onClick}>
+    <Button danger onClick={onClick}>
       Click me to throw a error
     </Button>
   );
