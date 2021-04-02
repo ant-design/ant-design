@@ -35,7 +35,7 @@ export default class LocaleReceiver extends React.Component<LocaleReceiverProps>
 
     return merge(
       cloneDeep(
-        typeof defaultLocale === 'function' ? (defaultLocale as Function)() : defaultLocale || {},
+        typeof defaultLocale === 'function' ? (defaultLocale as Function)() : defaultLocale,
       ),
       (defaultLocaleData as LocaleInterface)[componentName || 'global'],
       localeFromContext,
@@ -72,7 +72,7 @@ export function useLocaleReceiver<T extends LocaleComponent>(
       cloneDeep(
         typeof defaultLocale === 'function' ? (defaultLocale as Function)() : defaultLocale,
       ),
-      cloneDeep(localeFromContext),
+      localeFromContext,
       (defaultLocaleData as LocaleInterface)[componentName || 'global'],
     );
   }, [componentName, defaultLocale, antLocale]);
