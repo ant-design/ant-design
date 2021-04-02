@@ -188,7 +188,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: domErrorVisible || help,
+      [`${prefixCls}-item-with-help`]: domErrorVisible || !!help,
       [`${className}`]: !!className,
 
       // Status

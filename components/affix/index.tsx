@@ -261,7 +261,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
     const { affixStyle, placeholderStyle } = this.state;
     const { prefixCls, children } = this.props;
     const className = classNames({
-      [getPrefixCls('affix', prefixCls)]: affixStyle,
+      [getPrefixCls('affix', prefixCls)]: !!affixStyle,
     });
 
     let props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);

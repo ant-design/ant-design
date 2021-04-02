@@ -174,7 +174,7 @@ function List<T>({
       [`${prefixCls}-split`]: split,
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: isLoading,
-      [`${prefixCls}-grid`]: grid,
+      [`${prefixCls}-grid`]: !!grid,
       [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem(),
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
