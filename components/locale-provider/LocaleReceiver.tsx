@@ -8,6 +8,7 @@ import { Locale } from '.';
 export interface LocaleReceiverProps {
   componentName?: string;
   defaultLocale?: object | Function;
+  locale?: object;
   children: (locale: object, localeCode?: string, fullLocale?: object) => React.ReactNode;
 }
 
@@ -27,15 +28,19 @@ export default class LocaleReceiver extends React.Component<LocaleReceiverProps>
   static contextType = LocaleContext;
 
   getLocale() {
-    const { componentName, defaultLocale } = this.props;
-    const locale: object | Function =
-      defaultLocale || (defaultLocaleData as LocaleInterface)[componentName || 'global'];
+    const { componentName, defaultLocale, locale } = this.props;
     const antLocale = this.context;
+
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
 
-    const _locale = typeof locale === 'function' ? locale() : locale;
-
-    return merge(cloneDeep(localeFromContext), _locale);
+    return merge(
+      cloneDeep(
+        typeof defaultLocale === 'function' ? (defaultLocale as Function)() : defaultLocale || {},
+      ),
+      (defaultLocaleData as LocaleInterface)[componentName || 'global'],
+      localeFromContext,
+      locale,
+    );
   }
 
   getLocaleCode() {
@@ -61,12 +66,15 @@ export function useLocaleReceiver<T extends LocaleComponent>(
   const antLocale = React.useContext(LocaleContext);
 
   const componentLocale = React.useMemo(() => {
-    const locale = defaultLocale || defaultLocaleData[componentName || 'global'];
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
 
-    const _locale = typeof locale === 'function' ? (locale as Function)() : locale;
-
-    return merge(cloneDeep(localeFromContext), _locale);
+    return merge(
+      cloneDeep(
+        typeof defaultLocale === 'function' ? (defaultLocale as Function)() : defaultLocale,
+      ),
+      cloneDeep(localeFromContext),
+      (defaultLocaleData as LocaleInterface)[componentName || 'global'],
+    );
   }, [componentName, defaultLocale, antLocale]);
 
   return [componentLocale];

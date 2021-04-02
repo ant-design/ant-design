@@ -165,20 +165,6 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       onSelect?.(date);
     };
 
-    // ====================== Locale ======================
-    const getDefaultLocale = () => {
-      const { locale } = props;
-      const result = {
-        ...enUS,
-        ...locale,
-      };
-      result.lang = {
-        ...result.lang,
-        ...((locale || {}) as any).lang,
-      };
-      return result;
-    };
-
     // ====================== Render ======================
     const dateRender = React.useCallback(
       (date: DateType): React.ReactNode => {
@@ -231,7 +217,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     );
 
     return (
-      <LocaleReceiver componentName="Calendar" defaultLocale={getDefaultLocale}>
+      <LocaleReceiver componentName="Calendar" defaultLocale={enUS} locale={props.locale}>
         {(mergedLocale: any) => (
           <div
             className={classNames(

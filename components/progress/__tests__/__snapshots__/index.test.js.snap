@@ -20,7 +20,7 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
         fill-opacity="0"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 0.3097094374405742px 295.3097094374406px; stroke-dashoffset: -147.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        style="stroke-dasharray: 0.3097094374405742px 295.3097094374406px; stroke-dashoffset: -147.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
       <path
         class="ant-progress-circle-path"
@@ -32,7 +32,7 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
         stroke=""
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -147.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -147.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s; transition-duration: .3s, .3s, .3s, .06s;"
       />
     </svg>
     <span
@@ -65,7 +65,7 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
         fill-opacity="0"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: -0.6902905625594258px 295.3097094374406px; stroke-dashoffset: -148px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        style="stroke-dasharray: -0.6902905625594258px 295.3097094374406px; stroke-dashoffset: -148px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
       <path
         class="ant-progress-circle-path"
@@ -77,7 +77,7 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
         stroke=""
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -148px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -148px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s; transition-duration: .3s, .3s, .3s, .06s;"
       />
     </svg>
     <span
@@ -110,7 +110,7 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
         fill-opacity="0"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
       <path
         class="ant-progress-circle-path"
@@ -122,7 +122,7 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
         stroke=""
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s; transition-duration: .3s, .3s, .3s, .06s;"
       />
     </svg>
     <span
@@ -347,7 +347,7 @@ exports[`Progress render strokeColor 1`] = `
         fill-opacity="0"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
       <path
         class="ant-progress-circle-path"
@@ -359,7 +359,7 @@ exports[`Progress render strokeColor 1`] = `
         stroke=""
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke: red; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        style="stroke: red; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s; transition-duration: .3s, .3s, .3s, .06s;"
       />
     </svg>
     <span

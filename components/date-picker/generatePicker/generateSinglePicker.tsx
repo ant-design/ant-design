@@ -58,19 +58,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         }
       };
 
-      getDefaultLocale = () => {
-        const { locale } = this.props;
-        const result = {
-          ...enUS,
-          ...locale,
-        };
-        result.lang = {
-          ...result.lang,
-          ...((locale || {}) as PickerLocale).lang,
-        };
-        return result;
-      };
-
       renderPicker = (locale: PickerLocale) => {
         const { getPrefixCls, direction, getPopupContainer } = this.context;
         const {
@@ -148,7 +135,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
       render() {
         return (
-          <LocaleReceiver componentName="DatePicker" defaultLocale={this.getDefaultLocale}>
+          <LocaleReceiver
+            componentName="DatePicker"
+            defaultLocale={enUS}
+            locale={this.props.locale}
+          >
             {this.renderPicker}
           </LocaleReceiver>
         );
