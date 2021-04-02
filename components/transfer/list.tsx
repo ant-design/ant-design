@@ -320,8 +320,8 @@ export default class TransferList<
     const footerDom = footer && footer(this.props);
 
     const listCls = classNames(prefixCls, {
-      [`${prefixCls}-with-pagination`]: pagination,
-      [`${prefixCls}-with-footer`]: footerDom,
+      [`${prefixCls}-with-pagination`]: !!pagination,
+      [`${prefixCls}-with-footer`]: !!footerDom,
     });
 
     // ====================== Get filtered, checked item list ======================
