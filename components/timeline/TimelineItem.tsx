@@ -43,7 +43,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 
   const dotClassName = classNames({
     [`${prefixCls}-item-head`]: true,
-    [`${prefixCls}-item-head-custom`]: dot,
+    [`${prefixCls}-item-head-custom`]: !!dot,
     [`${prefixCls}-item-head-${color}`]: true,
   });
 

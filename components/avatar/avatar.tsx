@@ -9,7 +9,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import SizeContext, { AvatarSize } from './SizeContext';
 
 export interface AvatarProps {
-  /** Shape of avatar, options:`circle`, `square` */
+  /** Shape of avatar, options: `circle`, `square` */
   shape?: 'circle' | 'square';
   /*
    * Size of avatar, options: `large`, `small`, `default`
@@ -138,9 +138,9 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     prefixCls,
     sizeCls,
     {
-      [`${prefixCls}-${shape}`]: shape,
+      [`${prefixCls}-${shape}`]: !!shape,
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
-      [`${prefixCls}-icon`]: icon,
+      [`${prefixCls}-icon`]: !!icon,
     },
     className,
   );

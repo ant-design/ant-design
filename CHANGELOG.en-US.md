@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.15.0
+
+`2021-03-29`
+
+- 🆕 Table now supports `rowSelection.defaultSelectedRowKeys`. [#29879](https://github.com/ant-design/ant-design/pull/29879) [@keelii](https://github.com/keelii)
+- 🐞 Fix TextArea display value will be cut by `maxLength` when in controlled. Fix `onCompositionEnd` not trigger when input exceed `maxLength`. Fix emoji count not align with `maxLength` & `showCount`. [#29867](https://github.com/ant-design/ant-design/pull/29867)
+- 🐞 Fix Button click effect style not working in shadow root. [#29897](https://github.com/ant-design/ant-design/pull/29897) [@JohnDeved](https://github.com/JohnDeved)
+- Pagination
+  - 💄 Fix Pagination focus style stay after interaction. [#29891](https://github.com/ant-design/ant-design/pull/29891)
+  - 🐞 Fix Pagination jump input height not correct when config `modifyVars`. [#29886](https://github.com/ant-design/ant-design/pull/29886) [@SyMind](https://github.com/SyMind)
+- 🐞 Fix Steps progress item getting cut at edge. [#29893](https://github.com/ant-design/ant-design/pull/29893)
+- 🛠 Prevent Upload drop event bubbling to handle nest case. [#29832](https://github.com/ant-design/ant-design/pull/29832) [@jojonarte](https://github.com/jojonarte)
+- 🐞 Apply ConfigProvider `componentSize` on Tabs component. [#29844](https://github.com/ant-design/ant-design/pull/29844) [@bn3t](https://github.com/bn3t)
+- 💄 Remove Tag hover style since it do not have click interactive. [#29874](https://github.com/ant-design/ant-design/pull/29874)
+- 🇫🇷 Add missing `fr_FR` translations. [#29839](https://github.com/ant-design/ant-design/pull/29839) [@bn3t](https://github.com/bn3t)
+- 🇸🇪 Add missing `sv_SE` translations. [#29896](https://github.com/ant-design/ant-design/pull/29896) [@isakol](https://github.com/isakol)
+
 ## 4.14.1
 
 `2021-03-22`

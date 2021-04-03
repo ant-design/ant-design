@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.15.0
+
+`2021-03-29`
+
+- 🆕 Table 新增 `rowSelection.defaultSelectedRowKeys` 支持。[#29879](https://github.com/ant-design/ant-design/pull/29879) [@keelii](https://github.com/keelii)
+- 🐞 修复 TextArea 受控时展示值会被 `maxLength` 截取的问题；修复 `maxLength` 下超出部分无法触发 `onCompositionEnd` 事件的问题；修复使用 emoji 时 `maxLength` 和 `showCount` 计数逻辑不一致的问题。[#29867](https://github.com/ant-design/ant-design/pull/29867)
+- 🐞 修复 Button 点击效果在 Shadow Root 下不生效的问题。[#29897](https://github.com/ant-design/ant-design/pull/29897) [@JohnDeved](https://github.com/JohnDeved)
+- Pagination
+  - 💄 优化 Pagination 切换页码后 focus 样式遗留的问题。[#29891](https://github.com/ant-design/ant-design/pull/29891)
+  - 🐞 修复 Pagination 使用 `modifyVars` 自定义主题时，页面跳转输入框高度没有按照预期改变。[#29886](https://github.com/ant-design/ant-design/pull/29886) [@SyMind](https://github.com/SyMind)
+- 🐞 修复 Steps 进度在边缘会被截断的问题。[#29893](https://github.com/ant-design/ant-design/pull/29893)
+- 🛠 Upload 默认阻止拖拽冒泡事件以支持嵌套结构。[#29832](https://github.com/ant-design/ant-design/pull/29832) [@jojonarte](https://github.com/jojonarte)
+- 🐞 ConfigProvider 的 `componentSize` 现在也会作用到 Tabs 上。[#29844](https://github.com/ant-design/ant-design/pull/29844) [@bn3t](https://github.com/bn3t)
+- 💄 移除 Tag 鼠标悬浮样式以避免其误以为是可点击交互组件。[#29874](https://github.com/ant-design/ant-design/pull/29874)
+- 🇫🇷 补充 `fr_FR` 语言缺失内容。[#29839](https://github.com/ant-design/ant-design/pull/29839) [@bn3t](https://github.com/bn3t)
+- 🇸🇪 补充 `sv_SE` 语言缺失内容。[#29896](https://github.com/ant-design/ant-design/pull/29896) [@isakol](https://github.com/isakol)
+
 ## 4.14.1
 
 `2021-03-22`

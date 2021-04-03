@@ -47,12 +47,14 @@
     .@{tab-prefix-cls}-nav-list {
       position: relative;
       display: flex;
+      flex: 1 0 auto; // fix safari scroll problem
       transition: transform @animation-duration-slow;
     }
 
     // >>>>>>>> Operations
     .@{tab-prefix-cls}-nav-operations {
       display: flex;
+      flex: 1 0 auto; // fix safari scroll problem
       align-self: stretch;
 
       &-hidden {
