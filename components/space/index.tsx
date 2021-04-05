@@ -4,7 +4,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
-import useFlexGapSupport from '../grid/hooks/useFlexGapSupport';
+import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 
 export const SpaceContext = React.createContext({
   latestIndex: 0,
