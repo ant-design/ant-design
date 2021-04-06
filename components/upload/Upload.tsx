@@ -267,7 +267,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    setDragState(e.type);
+    const type = e.type;
+    if (dragState !== type) {
+      setDragState(type);
+    }
   };
 
   // Test needs
