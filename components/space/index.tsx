@@ -4,11 +4,13 @@ import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
+import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 
 export const SpaceContext = React.createContext({
   latestIndex: 0,
   horizontalSize: 0,
   verticalSize: 0,
+  supportFlexGap: false,
 });
 
 export type SpaceSize = SizeType | number;
@@ -51,6 +53,8 @@ const Space: React.FC<SpaceProps> = props => {
     ...otherProps
   } = props;
 
+  const supportFlexGap = useFlexGapSupport();
+
   const [horizontalSize, verticalSize] = React.useMemo(
     () =>
       ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map(item =>
@@ -60,10 +64,6 @@ const Space: React.FC<SpaceProps> = props => {
   );
 
   const childNodes = toArray(children, { keepEmpty: true });
-
-  if (childNodes.length === 0) {
-    return null;
-  }
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
@@ -105,18 +105,33 @@ const Space: React.FC<SpaceProps> = props => {
     /* eslint-enable */
   });
 
+  const spaceContext = React.useMemo(
+    () => ({ horizontalSize, verticalSize, latestIndex, supportFlexGap }),
+    [horizontalSize, verticalSize, latestIndex, supportFlexGap],
+  );
+
+  // =========================== Render ===========================
+  if (childNodes.length === 0) {
+    return null;
+  }
+
+  const gapStyle: React.CSSProperties = {};
+  if (supportFlexGap) {
+    gapStyle.columnGap = horizontalSize;
+    gapStyle.rowGap = verticalSize;
+  }
+
   return (
     <div
       className={cn}
       style={{
+        ...gapStyle,
         ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
         ...style,
       }}
       {...otherProps}
     >
-      <SpaceContext.Provider value={{ horizontalSize, verticalSize, latestIndex }}>
-        {nodes}
-      </SpaceContext.Provider>
+      <SpaceContext.Provider value={spaceContext}>{nodes}</SpaceContext.Provider>
     </div>
   );
 };
