@@ -48,7 +48,6 @@ class Demo extends React.Component {
   };
 
   onDragEnter = info => {
-    console.log(info);
     // expandedKeys 需要受控时设置
     // this.setState({
     //   expandedKeys: info.expandedKeys,
@@ -56,7 +55,6 @@ class Demo extends React.Component {
   };
 
   onDrop = info => {
-    console.log(info);
     const dropKey = info.node.key;
     const dragKey = info.dragNode.key;
     const dropPos = info.node.pos.split('-');

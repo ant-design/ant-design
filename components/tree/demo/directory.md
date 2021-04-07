@@ -39,7 +39,7 @@ const treeData = [
 
 const Demo: React.FC<{}> = () => {
   const onSelect = (keys: React.Key[], info: any) => {
-    console.log('Trigger Select', keys, info);
+    console.log('Trigger Select', keys);
   };
 
   const onExpand = () => {

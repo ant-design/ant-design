@@ -81,7 +81,7 @@ const Demo = () => {
   };
 
   const onSelect = (selectedKeysValue: React.Key[], info: any) => {
-    console.log('onSelect', info);
+    console.log('onSelect');
     setSelectedKeys(selectedKeysValue);
   };
 
