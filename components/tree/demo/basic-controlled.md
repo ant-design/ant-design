@@ -80,7 +80,7 @@ const Demo = () => {
     setCheckedKeys(checkedKeysValue);
   };
 
-  const onSelect = (selectedKeysValue: React.Key[], info: any) => {
+  const onSelect = (selectedKeysValue: React.Key[]) => {
     console.log('onSelect');
     setSelectedKeys(selectedKeysValue);
   };

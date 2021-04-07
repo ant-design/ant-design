@@ -50,7 +50,7 @@ class Demo extends React.Component {
     expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
   };
 
-  onDragEnter = info => {
+  onDragEnter = () => {
     // expandedKeys 需要受控时设置
     // this.setState({
     //   expandedKeys: info.expandedKeys,

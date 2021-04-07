@@ -47,7 +47,7 @@ class Demo extends React.Component {
     showLeafIcon: true,
   };
 
-  onDragEnter = info => {
+  onDragEnter = () => {
     // expandedKeys 需要受控时设置
     // this.setState({
     //   expandedKeys: info.expandedKeys,
