@@ -41,16 +41,19 @@ export interface CheckboxGroupContext {
 
 export const GroupContext = React.createContext<CheckboxGroupContext | null>(null);
 
-const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
-  defaultValue,
-  children,
-  options = [],
-  prefixCls: customizePrefixCls,
-  className,
-  style,
-  onChange,
-  ...restProps
-}) => {
+const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGroupProps> = (
+  {
+    defaultValue,
+    children,
+    options = [],
+    prefixCls: customizePrefixCls,
+    className,
+    style,
+    onChange,
+    ...restProps
+  },
+  ref,
+) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const [value, setValue] = React.useState<CheckboxValueType[]>(
@@ -147,10 +150,12 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
     className,
   );
   return (
-    <div className={classString} style={style} {...domProps}>
+    <div className={classString} style={style} {...domProps} ref={ref}>
       <GroupContext.Provider value={context}>{children}</GroupContext.Provider>
     </div>
   );
 };
+
+const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(InternalCheckboxGroup);
 
 export default React.memo(CheckboxGroup);
