@@ -162,6 +162,12 @@
 
   &-pagination {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: @padding-xs;
+
+    > * {
+      flex: none;
+    }
 
     &-left {
       justify-content: flex-start;
