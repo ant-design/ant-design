@@ -99,7 +99,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       }
 
       handleSetValue(triggerValue);
-      resolveOnChange(innerRef.current as any, e, onChange);
+      resolveOnChange(innerRef.current as any, e, onChange, triggerValue);
     };
 
     // ============================== Reset ===============================

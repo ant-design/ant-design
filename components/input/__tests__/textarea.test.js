@@ -85,6 +85,18 @@ describe('TextArea', () => {
       expect(wrapper.find('textarea').props().value).toEqual('light');
     });
 
+    it('should limit correctly when in control', () => {
+      const Demo = () => {
+        const [val, setVal] = React.useState('');
+        return <TextArea maxLength={1} value={val} onChange={e => setVal(e.target.value)} />;
+      };
+
+      const wrapper = mount(<Demo />);
+      wrapper.find('textarea').simulate('change', { target: { value: 'light' } });
+
+      expect(wrapper.find('textarea').props().value).toEqual('l');
+    });
+
     it('should exceed maxLength when use IME', () => {
       const onChange = jest.fn();
 
