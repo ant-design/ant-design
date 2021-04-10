@@ -286,7 +286,6 @@ describe('Upload', () => {
   });
 
   it('should be able to get uid at first', () => {
-    jest.useFakeTimers();
     const fileList = [
       {
         name: 'foo.png',
