@@ -146,5 +146,7 @@ module.exports = {
     'app.docs.resource.design': 'Design',
     'app.docs.resource.develop': 'Develop',
     'app.components.overview.search': 'Search in components',
+    'app.implementation.community': 'community',
+    'app.implementation.official': 'official',
   },
 };

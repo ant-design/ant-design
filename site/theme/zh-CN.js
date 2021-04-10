@@ -140,5 +140,7 @@ module.exports = {
     'app.docs.resource.design': '设计',
     'app.docs.resource.develop': '开发',
     'app.components.overview.search': '搜索组件',
+    'app.implementation.community': '社区实现',
+    'app.implementation.official': '官方',
   },
 };
