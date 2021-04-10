@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 4.15.1
+
+`2021-04-10`
+
+- 🐞 修复 Descriptions `labelStyle` `contentStyle` 当设置 `layout="vertical"` 和 `bordered={true}` 时不生效的问题。[#29942](https://github.com/ant-design/ant-design/pull/29942)
+- 🐞 Upload 的 `fileList` 为冻结对象时不再崩溃。[#29944](https://github.com/ant-design/ant-design/pull/29944)
+- 🐞 修复 Tabs 在 Safari 13.1 垂直模式下不能滚动问题。[#29983](https://github.com/ant-design/ant-design/pull/29983)
+- 🐞 修复点击 Button 时有时会报错 `Cannot read property 'removeChild' of null` 的问题。[#29961](https://github.com/ant-design/ant-design/pull/29961) [@JohnDeved](https://github.com/JohnDeved)
+- 🐞 修复 Transfer 按钮区域 box-shadow 被截断的问题。[#30030](https://github.com/ant-design/ant-design/pull/30030) [@jinchaofs](https://github.com/jinchaofs)
+- 🐞 修复 CheckBox.Group 和 `@ant-design/compatible` 的 Form 无法一起工作的问题。[#30039](https://github.com/ant-design/ant-design/pull/30039) [@jameslahm](https://github.com/jameslahm)
+- 🐞 修复 PageHeader 下卡片类型 `tabs` 样式问题。[#29819](https://github.com/ant-design/ant-design/pull/29819)
+- Table
+  - 💄 优化 Table 分页器在狭窄空间的样式问题。[#30065](https://github.com/ant-design/ant-design/pull/30065)
+  - 🐞 修复 Table `@table-border-radius-base` 没有被应用到 `.ant-table` 节点上。[#29966](https://github.com/ant-design/ant-design/pull/29966) [@VoliBearCat](https://github.com/VoliBearCat)
+- 🐞 修复 Input.TextArea `maxLength` 在受控时无效的问题。[#30070](https://github.com/ant-design/ant-design/pull/30070)
+- TypeScript
+  - 🤖 修复 Select 类型不能指定为 `undefined` 的问题。[#30068](https://github.com/ant-design/ant-design/pull/30068) [@Gamote](https://github.com/Gamote)
+  - 🤖 修复 Popconfirm `okButtonProps` 和 `cancelButtonProps` 定义。[#29928](https://github.com/ant-design/ant-design/pull/29928) [@IggsGrey](https://github.com/IggsGrey)
+- 国际化
+  - 🇪🇸 添加西班牙语 `Table.SELECTION_NONE` 文案。[#29962](https://github.com/ant-design/ant-design/pull/29962) [@liquorxm](https://github.com/liquorxm)
+
 ## 4.15.0
 
 `2021-03-29`
