@@ -18,8 +18,8 @@ import { Tree } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 class Demo extends React.Component {
-  onSelect = selectedKeys => {
-    console.log('selected', selectedKeys);
+  onSelect = (selectedKeys, info) => {
+    console.log('selected', selectedKeys, info);
   };
 
   render() {
