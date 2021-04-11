@@ -27,10 +27,10 @@ Basic text writing, including headings, body text, lists, and more.
 | ellipsis | Display ellipsis when text overflows | boolean | false |  |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | mark | Marked style | boolean | false |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
 
 ### Typography.Title
 
@@ -44,9 +44,9 @@ Basic text writing, including headings, body text, lists, and more.
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | Marked style | boolean | false |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
 
 ### Typography.Paragraph
 
@@ -59,10 +59,10 @@ Basic text writing, including headings, body text, lists, and more.
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | mark | Marked style | boolean | false |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
 
 ### copyable
 

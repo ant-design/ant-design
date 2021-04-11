@@ -157,7 +157,7 @@ function injectSorter<RecordType>(
               <span>{renderColumnTitle(column.title, renderProps)}</span>
               <span
                 className={classNames(`${prefixCls}-column-sorter`, {
-                  [`${prefixCls}-column-sorter-full`]: upNode && downNode,
+                  [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
                 })}
               >
                 <span className={`${prefixCls}-column-sorter-inner`}>

@@ -23,7 +23,7 @@
   position: relative;
   font-size: @table-font-size;
   background: @table-bg;
-  border-radius: @border-radius-base;
+  border-radius: @table-border-radius-base;
 
   // https://github.com/ant-design/ant-design/issues/17611
   table {
@@ -162,6 +162,12 @@
 
   &-pagination {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: @padding-xs;
+
+    > * {
+      flex: none;
+    }
 
     &-left {
       justify-content: flex-start;

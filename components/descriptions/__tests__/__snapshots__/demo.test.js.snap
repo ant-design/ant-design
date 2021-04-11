@@ -152,37 +152,49 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Product
+            <span>
+              Product
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            Cloud Database
+            <span>
+              Cloud Database
+            </span>
           </td>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Billing Mode
+            <span>
+              Billing Mode
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            Prepaid
+            <span>
+              Prepaid
+            </span>
           </td>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Automatic Renewal
+            <span>
+              Automatic Renewal
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            YES
+            <span>
+              YES
+            </span>
           </td>
         </tr>
         <tr
@@ -192,25 +204,33 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Order time
+            <span>
+              Order time
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            2018-04-24 18:00:00
+            <span>
+              2018-04-24 18:00:00
+            </span>
           </td>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Usage Time
+            <span>
+              Usage Time
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="3"
           >
-            2019-04-24 18:00:00
+            <span>
+              2019-04-24 18:00:00
+            </span>
           </td>
         </tr>
         <tr
@@ -220,22 +240,26 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Status
+            <span>
+              Status
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="5"
           >
-            <span
-              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-            >
+            <span>
               <span
-                class="ant-badge-status-dot ant-badge-status-processing"
-              />
-              <span
-                class="ant-badge-status-text"
+                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
               >
-                Running
+                <span
+                  class="ant-badge-status-dot ant-badge-status-processing"
+                />
+                <span
+                  class="ant-badge-status-text"
+                >
+                  Running
+                </span>
               </span>
             </span>
           </td>
@@ -247,37 +271,49 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Negotiated Amount
+            <span>
+              Negotiated Amount
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            $80.00
+            <span>
+              $80.00
+            </span>
           </td>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Discount
+            <span>
+              Discount
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            $20.00
+            <span>
+              $20.00
+            </span>
           </td>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Official Receipts
+            <span>
+              Official Receipts
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            $60.00
+            <span>
+              $60.00
+            </span>
           </td>
         </tr>
         <tr
@@ -287,24 +323,28 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Config Info
+            <span>
+              Config Info
+            </span>
           </th>
           <td
             class="ant-descriptions-item-content"
             colspan="5"
           >
-            Data disk type: MongoDB
-            <br />
-            Database version: 3.4
-            <br />
-            Package: dds.mongo.mid
-            <br />
-            Storage space: 10 GB
-            <br />
-            Replication factor: 3
-            <br />
-            Region: East China 1
-            <br />
+            <span>
+              Data disk type: MongoDB
+              <br />
+              Database version: 3.4
+              <br />
+              Package: dds.mongo.mid
+              <br />
+              Storage space: 10 GB
+              <br />
+              Replication factor: 3
+              <br />
+              Region: East China 1
+              <br />
+            </span>
           </td>
         </tr>
       </tbody>
@@ -339,77 +379,49 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              Product
+              <span>
+                Product
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
-              Cloud Database
+              <span>
+                Cloud Database
+              </span>
             </td>
             <th
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              Billing
+              <span>
+                Billing
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
-              Prepaid
+              <span>
+                Prepaid
+              </span>
             </td>
             <th
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              time
+              <span>
+                time
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
-              18:00:00
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              Amount
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              $80.00
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              Discount
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              $20.00
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              Official
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              $60.00
+              <span>
+                18:00:00
+              </span>
             </td>
           </tr>
           <tr
@@ -419,23 +431,79 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              Config Info
+              <span>
+                Amount
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $80.00
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Discount
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $20.00
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Official
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $60.00
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Config Info
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="5"
             >
-              Data disk type: MongoDB
-              <br />
-              Database version: 3.4
-              <br />
-              Package: dds.mongo.mid
-              <br />
-              Storage space: 10 GB
-              <br />
-              Replication factor: 3
-              <br />
-              Region: East China 1
+              <span>
+                Data disk type: MongoDB
+                <br />
+                Database version: 3.4
+                <br />
+                Package: dds.mongo.mid
+                <br />
+                Storage space: 10 GB
+                <br />
+                Replication factor: 3
+                <br />
+                Region: East China 1
+              </span>
             </td>
           </tr>
         </tbody>
@@ -547,77 +615,49 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              Product
+              <span>
+                Product
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
-              Cloud Database
+              <span>
+                Cloud Database
+              </span>
             </td>
             <th
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              Billing
+              <span>
+                Billing
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
-              Prepaid
+              <span>
+                Prepaid
+              </span>
             </td>
             <th
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              time
+              <span>
+                time
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
-              18:00:00
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              Amount
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              $80.00
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              Discount
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              $20.00
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              Official
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              $60.00
+              <span>
+                18:00:00
+              </span>
             </td>
           </tr>
           <tr
@@ -627,24 +667,80 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              Config Info
+              <span>
+                Amount
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $80.00
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Discount
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $20.00
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Official
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $60.00
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Config Info
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="5"
             >
-              Data disk type: MongoDB
-              <br />
-              Database version: 3.4
-              <br />
-              Package: dds.mongo.mid
-              <br />
-              Storage space: 10 GB
-              <br />
-              Replication factor: 3
-              <br />
-              Region: East China 1
-              <br />
+              <span>
+                Data disk type: MongoDB
+                <br />
+                Database version: 3.4
+                <br />
+                Package: dds.mongo.mid
+                <br />
+                Storage space: 10 GB
+                <br />
+                Replication factor: 3
+                <br />
+                Region: East China 1
+                <br />
+              </span>
             </td>
           </tr>
         </tbody>
@@ -813,90 +909,72 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
 
 exports[`renders ./components/descriptions/demo/style.md correctly 1`] = `
 Array [
-  <div
-    class="ant-descriptions"
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
   >
     <div
-      class="ant-descriptions-header"
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
     >
-      <div
-        class="ant-descriptions-title"
+      Border
+    </span>
+  </button>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
       >
-        User Info
-      </div>
-    </div>
-    <div
-      class="ant-descriptions-view"
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="horizontal"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        horizontal
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
     >
-      <table>
-        <tbody>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                  style="background:red"
-                >
-                  Product
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                  style="background:green"
-                >
-                  Cloud Database
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  Billing Mode
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  Prepaid
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  Automatic Renewal
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  YES
-                </span>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="vertical"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        vertical
+      </span>
+    </label>
   </div>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
   <div
     class="ant-descriptions ant-descriptions-bordered"
   >
@@ -922,38 +1000,50 @@ Array [
               colspan="1"
               style="background:red"
             >
-              Product
+              <span>
+                Product
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
               style="background:green"
             >
-              Cloud Database
+              <span>
+                Cloud Database
+              </span>
             </td>
             <th
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              Billing Mode
+              <span>
+                Billing Mode
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
-              Prepaid
+              <span>
+                Prepaid
+              </span>
             </td>
             <th
               class="ant-descriptions-item-label"
               colspan="1"
             >
-              Automatic Renewal
+              <span>
+                Automatic Renewal
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
-              YES
+              <span>
+                YES
+              </span>
             </td>
           </tr>
         </tbody>
@@ -965,94 +1055,6 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-descriptions"
-  >
-    <div
-      class="ant-descriptions-header"
-    >
-      <div
-        class="ant-descriptions-title"
-      >
-        Root style
-      </div>
-    </div>
-    <div
-      class="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                  style="background:red"
-                >
-                  Product
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                  style="background:green"
-                >
-                  Cloud Database
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                  style="background:red"
-                >
-                  Billing Mode
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                  style="background:green"
-                >
-                  Prepaid
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                  style="background:red;color:orange"
-                >
-                  Automatic Renewal
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                  style="background:green;color:blue"
-                >
-                  YES
-                </span>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>,
-  <div
     class="ant-descriptions ant-descriptions-bordered"
   >
     <div
@@ -1077,42 +1079,54 @@ Array [
               colspan="1"
               style="background:red"
             >
-              Product
+              <span>
+                Product
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
               style="background:green"
             >
-              Cloud Database
+              <span>
+                Cloud Database
+              </span>
             </td>
             <th
               class="ant-descriptions-item-label"
               colspan="1"
               style="background:red"
             >
-              Billing Mode
+              <span>
+                Billing Mode
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
               style="background:green"
             >
-              Prepaid
+              <span>
+                Prepaid
+              </span>
             </td>
             <th
               class="ant-descriptions-item-label"
               colspan="1"
               style="background:red;color:orange"
             >
-              Automatic Renewal
+              <span>
+                Automatic Renewal
+              </span>
             </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
               style="background:green;color:blue"
             >
-              YES
+              <span>
+                YES
+              </span>
             </td>
           </tr>
         </tbody>
@@ -1726,19 +1740,25 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Product
+            <span>
+              Product
+            </span>
           </th>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Billing Mode
+            <span>
+              Billing Mode
+            </span>
           </th>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Automatic Renewal
+            <span>
+              Automatic Renewal
+            </span>
           </th>
         </tr>
         <tr
@@ -1748,19 +1768,25 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            Cloud Database
+            <span>
+              Cloud Database
+            </span>
           </td>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            Prepaid
+            <span>
+              Prepaid
+            </span>
           </td>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            YES
+            <span>
+              YES
+            </span>
           </td>
         </tr>
         <tr
@@ -1770,13 +1796,17 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Order time
+            <span>
+              Order time
+            </span>
           </th>
           <th
             class="ant-descriptions-item-label"
             colspan="2"
           >
-            Usage Time
+            <span>
+              Usage Time
+            </span>
           </th>
         </tr>
         <tr
@@ -1786,13 +1816,17 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            2018-04-24 18:00:00
+            <span>
+              2018-04-24 18:00:00
+            </span>
           </td>
           <td
             class="ant-descriptions-item-content"
             colspan="2"
           >
-            2019-04-24 18:00:00
+            <span>
+              2019-04-24 18:00:00
+            </span>
           </td>
         </tr>
         <tr
@@ -1802,7 +1836,9 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-label"
             colspan="3"
           >
-            Status
+            <span>
+              Status
+            </span>
           </th>
         </tr>
         <tr
@@ -1812,16 +1848,18 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-content"
             colspan="3"
           >
-            <span
-              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-            >
+            <span>
               <span
-                class="ant-badge-status-dot ant-badge-status-processing"
-              />
-              <span
-                class="ant-badge-status-text"
+                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
               >
-                Running
+                <span
+                  class="ant-badge-status-dot ant-badge-status-processing"
+                />
+                <span
+                  class="ant-badge-status-text"
+                >
+                  Running
+                </span>
               </span>
             </span>
           </td>
@@ -1833,19 +1871,25 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Negotiated Amount
+            <span>
+              Negotiated Amount
+            </span>
           </th>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Discount
+            <span>
+              Discount
+            </span>
           </th>
           <th
             class="ant-descriptions-item-label"
             colspan="1"
           >
-            Official Receipts
+            <span>
+              Official Receipts
+            </span>
           </th>
         </tr>
         <tr
@@ -1855,19 +1899,25 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            $80.00
+            <span>
+              $80.00
+            </span>
           </td>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            $20.00
+            <span>
+              $20.00
+            </span>
           </td>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
-            $60.00
+            <span>
+              $60.00
+            </span>
           </td>
         </tr>
         <tr
@@ -1877,7 +1927,9 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-label"
             colspan="3"
           >
-            Config Info
+            <span>
+              Config Info
+            </span>
           </th>
         </tr>
         <tr
@@ -1887,18 +1939,20 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             class="ant-descriptions-item-content"
             colspan="3"
           >
-            Data disk type: MongoDB
-            <br />
-            Database version: 3.4
-            <br />
-            Package: dds.mongo.mid
-            <br />
-            Storage space: 10 GB
-            <br />
-            Replication factor: 3
-            <br />
-            Region: East China 1
-            <br />
+            <span>
+              Data disk type: MongoDB
+              <br />
+              Database version: 3.4
+              <br />
+              Package: dds.mongo.mid
+              <br />
+              Storage space: 10 GB
+              <br />
+              Replication factor: 3
+              <br />
+              Region: East China 1
+              <br />
+            </span>
           </td>
         </tr>
       </tbody>
