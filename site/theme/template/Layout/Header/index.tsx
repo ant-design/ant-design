@@ -5,7 +5,7 @@ import { UnorderedListOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
 
 import * as utils from '../../utils';
-import { version as antdVersion } from '../../../../../package.json';
+import packageJson from '../../../../../package.json';
 import Logo from './Logo';
 import SearchBox from './SearchBox';
 import More from './More';
@@ -20,6 +20,8 @@ const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
 const { Option } = Select;
+
+const antdVersion: string = packageJson.version;
 
 let docsearch: any;
 if (typeof window !== 'undefined') {
@@ -200,7 +202,10 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             themeConfig,
             intl: { locale },
           } = this.props;
-          const docVersions = { [antdVersion]: antdVersion, ...themeConfig.docVersions };
+          const docVersions: Record<string, string> = {
+            [antdVersion]: antdVersion,
+            ...themeConfig.docVersions,
+          };
           const versionOptions = Object.keys(docVersions).map(version => (
             <Option value={docVersions[version]} key={version}>
               {version}
