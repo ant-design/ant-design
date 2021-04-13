@@ -86,7 +86,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       // Patch composition onChange when value changed
       if (triggerValue !== value) {
         handleSetValue(triggerValue);
-        resolveOnChange(innerRef.current as any, e, onChange, triggerValue);
+        resolveOnChange(e.currentTarget, e, onChange, triggerValue);
       }
 
       onCompositionEnd?.(e);
@@ -99,7 +99,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       }
 
       handleSetValue(triggerValue);
-      resolveOnChange(innerRef.current as any, e, onChange, triggerValue);
+      resolveOnChange(e.currentTarget, e, onChange, triggerValue);
     };
 
     // ============================== Reset ===============================
@@ -107,7 +107,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       handleSetValue('', () => {
         innerRef.current?.focus();
       });
-      resolveOnChange(innerRef.current as any, e, onChange);
+      resolveOnChange(innerRef.current?.resizableTextArea?.textArea!, e, onChange);
     };
 
     const prefixCls = getPrefixCls('input', customizePrefixCls);
