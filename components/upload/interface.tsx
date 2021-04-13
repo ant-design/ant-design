@@ -111,6 +111,7 @@ export interface UploadProps<T = any> {
   itemRender?: ItemRender<T>;
   /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
   maxCount?: number;
+  propagateDropEvent?: boolean;
 }
 
 export interface UploadState<T = any> {
