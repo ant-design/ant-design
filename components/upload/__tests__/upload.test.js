@@ -1,6 +1,6 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
@@ -283,6 +283,20 @@ describe('Upload', () => {
     jest.runAllTimers();
     expect(ref.current.fileList).toEqual(fileList);
     jest.useRealTimers();
+  });
+
+  it('should be able to get uid at first', () => {
+    const fileList = [
+      {
+        name: 'foo.png',
+        status: 'done',
+        url: 'http://www.baidu.com/xxx.png',
+      },
+    ];
+    render(<Upload fileList={fileList} />);
+    fileList.forEach(file => {
+      expect(file.uid).toBeDefined();
+    });
   });
 
   describe('util', () => {
