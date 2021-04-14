@@ -452,7 +452,7 @@ export default function useSelection<RecordType>(
           if (expandType === 'nest') {
             mergedIndeterminate = indeterminate;
             devWarning(
-              !(typeof checkboxProps?.indeterminate === 'boolean'),
+              typeof checkboxProps?.indeterminate !== 'boolean',
               'Table',
               'set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
             );
