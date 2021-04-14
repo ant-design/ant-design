@@ -79,6 +79,11 @@ class MainContent extends Component {
     openKeys: undefined,
   };
 
+  componentWillUnmount() {
+    window.removeEventListener('load', this.handleLoad)
+    window.removeEventListener('hashchange', this.handleHashChange)
+  }
+
   componentDidMount() {
     window.addEventListener('load', this.handleLoad);
     window.addEventListener('hashchange', this.handleHashChange);
