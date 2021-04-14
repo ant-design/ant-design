@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('Dropdown image', () => {
-  imageDemoTest('dropdown');
+  imageDemoTest('dropdown', { skip: ['dropdown-button.md'] });
 });
