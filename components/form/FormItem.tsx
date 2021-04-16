@@ -265,6 +265,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   let variables: Record<string, string> = {};
   if (typeof label === 'string') {
     variables.label = label;
+  } else if (name) {
+    variables.label = String(name);
   }
   if (messageVariables) {
     variables = { ...variables, ...messageVariables };
