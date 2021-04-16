@@ -284,7 +284,7 @@ Besides, the breaking change is changing `dataIndex` from nest string path like 
 
 ## FAQ
 
-### How to hide pagination when single page or not data?
+### How to hide pagination when single page or no data?
 
 You can set `hideOnSinglePage` with `pagination` prop.
 
