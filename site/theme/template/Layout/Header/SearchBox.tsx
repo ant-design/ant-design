@@ -22,11 +22,17 @@ export default ({ isZhCN, responsive, onTriggerFocus }: SearchBoxProps) => {
   }
 
   React.useEffect(() => {
-    document.addEventListener('keyup', event => {
+    function keyupHandler(event: KeyboardEvent) {
       if (event.keyCode === 83 && event.target === document.body) {
         inputRef.current.focus();
       }
-    });
+    }
+
+    document.addEventListener('keyup', keyupHandler);
+
+    return () => {
+      document.removeEventListener('keyup', keyupHandler);
+    };
   }, []);
 
   return (
