@@ -403,7 +403,7 @@ interface CompoundedComponent
     React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
   > {
   Dragger: typeof Dragger;
-  LIST_IGNORE: {};
+  LIST_IGNORE: string;
 }
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;
