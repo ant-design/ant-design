@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.15.2
+
+`2021-04-19`
+
+- 🐞 Fix Tabs `centered` doesn't work. [#30106](https://github.com/ant-design/ant-design/pull/30106) [@kerm1it](https://github.com/kerm1it)
+- 💄 Fix Button `type="link"` disabled cursor style missing. [#30197](https://github.com/ant-design/ant-design/pull/30197)
+- 🐞 Fix TextArea `onChange` event return `target` object is not a HTMLTextArea object. [#30124](https://github.com/ant-design/ant-design/pull/30124)
+- 🐞 Files in Upload `fileList` will always have uid. [#30087](https://github.com/ant-design/ant-design/pull/30087) [@jameslahm](https://github.com/jameslahm)
+- 💄 Fix Badge toggle style when `status` is `warning`. [#30090](https://github.com/ant-design/ant-design/pull/30090) [@jameslahm](https://github.com/jameslahm)
+- 🌐 Add Image component `preview` text in zh_HK and zh_TW. [#30100](https://github.com/ant-design/ant-design/pull/30100) [@jameslahm](https://github.com/jameslahm)
+- 🌐 add da_DK locale TimePicker.RangePicker. [#30128](https://github.com/ant-design/ant-design/pull/30128) [@themitvp](https://github.com/themitvp)
+- TypeScript
+  - 🤖 Modify LIST_IGNORE field is of string type. [#30188](https://github.com/ant-design/ant-design/pull/30188) [@hello-chinese](https://github.com/hello-chinese)
+
 ## 4.15.1
 
 `2021-04-10`

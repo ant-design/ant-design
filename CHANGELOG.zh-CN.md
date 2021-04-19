@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.15.2
+
+`2021-04-19`
+
+- 🐞 修复 Tabs `centered` 失效问题。[#30106](https://github.com/ant-design/ant-design/pull/30106) [@kerm1it](https://github.com/kerm1it)
+- 💄 修复 Badge `status="warning"` 时切换样式异常的问题。[#30090](https://github.com/ant-design/ant-design/pull/30090) [@jameslahm](https://github.com/jameslahm)
+- 💄 修复 Button 为 `type="link"` 时禁用手型丢失的问题。[#30197](https://github.com/ant-design/ant-design/pull/30197)
+- 🐞 修复 TextArea `onChange` 事件返回 `target` 对象不是 HTMLTextArea 对象的问题。[#30124](https://github.com/ant-design/ant-design/pull/30124)
+- 🐞 Upload `fileList` 中的文件将总是有 uid。[#30087](https://github.com/ant-design/ant-design/pull/30087) [@jameslahm](https://github.com/jameslahm)
+- 🌐 补充遗漏的 TimePicker 丹麦语国际化。[#30128](https://github.com/ant-design/ant-design/pull/30128) [@themitvp](https://github.com/themitvp)
+- 🌐 增加 Image 组件 `preview` 繁體文案。[#30100](https://github.com/ant-design/ant-design/pull/30100) [@jameslahm](https://github.com/jameslahm)
+- TypeScript
+  - 🤖 修改 LIST_IGNORE 字段为 string 类型。[#30188](https://github.com/ant-design/ant-design/pull/30188) [@hello-chinese](https://github.com/hello-chinese)
+
 ## 4.15.1
 
 `2021-04-10`
