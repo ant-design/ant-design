@@ -81,7 +81,11 @@
       > th {
         color: @table-header-color;
         font-weight: 500;
+        font-size: @table-header-font-size;
+        line-height: @table-header-line-height;
+        letter-spacing: @table-header-letter-spacing;
         text-align: left;
+        text-transform: @table-header-text-transform;
         background: @table-header-bg;
         border-bottom: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s ease;
@@ -103,6 +107,10 @@
   &-tbody {
     > tr {
       > td {
+        color: @table-body-color;
+        line-height: @table-body-line-height;
+        letter-spacing: @table-body-letter-spacing;
+        text-transform: @table-body-text-transform;
         border-bottom: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s;
 
