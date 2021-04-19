@@ -371,9 +371,9 @@ describe('Upload', () => {
     it('isImageUrl should work correctly when file.url is null', () => {
       const file = {
         url: null,
-      }
-      expect(isImageUrl(file)).toBe(true)
-    })
+      };
+      expect(isImageUrl(file)).toBe(true);
+    });
   });
 
   it('should support linkProps as object', () => {
