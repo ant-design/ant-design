@@ -300,4 +300,15 @@ describe('Button', () => {
       },
     });
   });
+
+  it('should not redirect when button is disabled', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Button href="https://ant.design" onClick={onClick} disabled>
+        click me
+      </Button>,
+    );
+    wrapper.simulate('click');
+    expect(onClick).not.toHaveBeenCalled();
+  });
 });
