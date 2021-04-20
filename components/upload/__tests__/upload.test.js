@@ -6,7 +6,7 @@ import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import Upload from '..';
 import Form from '../../form';
-import { getFileItem, removeFileItem } from '../utils';
+import { getFileItem, removeFileItem, isImageUrl } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -366,6 +366,13 @@ describe('Upload', () => {
       ];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toBe(null);
+    });
+
+    it('isImageUrl should work correctly when file.url is null', () => {
+      const file = {
+        url: null,
+      };
+      expect(isImageUrl(file)).toBe(true);
     });
   });
 
