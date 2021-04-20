@@ -62,7 +62,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
     return (
       <span>
         {link}
-        {separator && separator !== '' && (
+        {separator && (
           <span className={`${prefixCls}-separator`}>{separator}</span>
         )}
       </span>

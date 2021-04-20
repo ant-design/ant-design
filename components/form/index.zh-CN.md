@@ -34,7 +34,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
-| validateTrigger | 统一设置字段校验规则 | string \| string\[] | `onChange` | 4.3.0 |
+| validateTrigger | 统一设置字段触发验证的时机 | string \| string\[] | `onChange` | 4.3.0 |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid/#Col) | - |  |
 | onFieldsChange | 字段更新时触发回调事件 | function(changedFields, allFields) | - |  |
 | onFinish | 提交表单且数据验证成功后回调事件 | function(values) | - |  |
@@ -80,7 +80,7 @@ const validateMessages = {
 | getValueProps | 为子元素添加额外的属性 | (value: any) => any | - | 4.2.0 |
 | hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false |  |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | ReactNode | - |  |
-| hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false |  |
+| hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | 4.4.0 |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | string | - | 4.2.0 |
 | label | `label` 标签的文本 | ReactNode | - |  |
@@ -192,19 +192,19 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 Form.List 渲染表单相关操作函数。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| add | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
-| move | 移动表单项 | (from: number, to: number) => void | - |
-| remove | 删除表单项 | (index: number \| number\[]) => void | number\[]: 4.5.0 |
+| 参数   | 说明       | 类型                                               | 默认值             |
+| ------ | ---------- | -------------------------------------------------- | ------------------ |
+| add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
+| move   | 移动表单项 | (from: number, to: number) => void                 | -                  |
+| remove | 删除表单项 | (index: number \| number\[]) => void               | number\[]: 4.5.0   |
 
 ## Form.ErrorList
 
 4.7.0 新增。错误展示组件，仅限配合 Form.List 的 rules 一同使用。参考[示例](#components-form-demo-dynamic-form-item)。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| errors | 错误列表 | ReactNode\[] | - |
+| 参数   | 说明     | 类型         | 默认值 |
+| ------ | -------- | ------------ | ------ |
+| errors | 错误列表 | ReactNode\[] | -      |
 
 ## Form.Provider
 
@@ -285,13 +285,13 @@ validateFields()
 
 #### FieldData
 
-| 名称 | 说明 | 类型 |
-| --- | --- | --- |
-| errors | 错误信息 | string\[] |
-| name | 字段名称 | [NamePath](#NamePath)\[] |
-| touched | 是否被用户操作过 | boolean |
-| validating | 是否正在校验 | boolean |
-| value | 字段对应值 | any |
+| 名称       | 说明             | 类型                     |
+| ---------- | ---------------- | ------------------------ |
+| errors     | 错误信息         | string\[]                |
+| name       | 字段名称         | [NamePath](#NamePath)\[] |
+| touched    | 是否被用户操作过 | boolean                  |
+| validating | 是否正在校验     | boolean                  |
+| value      | 字段对应值       | any                      |
 
 #### Rule
 
@@ -434,3 +434,7 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 类似问题：[#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
 
 滚动依赖于表单控件元素上绑定的 `id` 字段，如果自定义控件没有将 `id` 赋到正确的元素上，这个功能将失效。你可以参考这个 [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js)。
+
+### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？
+
+是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。

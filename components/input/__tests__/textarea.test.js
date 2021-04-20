@@ -379,4 +379,36 @@ describe('TextArea allowClear', () => {
     const wrapper = mount(<Input.TextArea defaultValue="Light" value={undefined} />);
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('Light');
   });
+
+  it('onChange event should return HTMLInputElement', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<Input.TextArea onChange={onChange} allowClear />);
+
+    function isNativeElement() {
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          target: wrapper.find('textarea').instance(),
+        }),
+      );
+
+      onChange.mockReset();
+    }
+
+    // Change
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'bamboo',
+      },
+    });
+    isNativeElement();
+
+    // Composition End
+    wrapper.find('textarea').instance().value = 'light'; // enzyme not support change `currentTarget`
+    wrapper.find('textarea').simulate('compositionEnd');
+    isNativeElement();
+
+    // Reset
+    wrapper.find('.ant-input-clear-icon').first().simulate('click');
+    isNativeElement();
+  });
 });

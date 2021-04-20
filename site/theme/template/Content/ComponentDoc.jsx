@@ -149,8 +149,8 @@ class ComponentDoc extends React.Component {
     return (
       <article>
         <Helmet encodeSpecialCharacters={false}>
-          {helmetTitle && <title>{helmetTitle}</title>}
-          {helmetTitle && <meta property="og:title" content={helmetTitle} />}
+          <title>{helmetTitle}</title>
+          <meta property="og:title" content={helmetTitle} />
           {contentChild && <meta name="description" content={contentChild} />}
         </Helmet>
         <Affix className="toc-affix" offsetTop={16}>

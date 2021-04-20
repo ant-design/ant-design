@@ -73,7 +73,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   }, []);
 
   // Control mode will auto fill file uid if not provided
-  React.useEffect(() => {
+  React.useMemo(() => {
     const timestamp = Date.now();
 
     (fileList || []).forEach((file, index) => {
@@ -403,7 +403,7 @@ interface CompoundedComponent
     React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
   > {
   Dragger: typeof Dragger;
-  LIST_IGNORE: {};
+  LIST_IGNORE: string;
 }
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;

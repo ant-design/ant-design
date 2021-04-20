@@ -1,12 +1,12 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import Upload from '..';
 import Form from '../../form';
-import { getFileItem, removeFileItem } from '../utils';
+import { getFileItem, removeFileItem, isImageUrl } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -285,6 +285,20 @@ describe('Upload', () => {
     jest.useRealTimers();
   });
 
+  it('should be able to get uid at first', () => {
+    const fileList = [
+      {
+        name: 'foo.png',
+        status: 'done',
+        url: 'http://www.baidu.com/xxx.png',
+      },
+    ];
+    render(<Upload fileList={fileList} />);
+    fileList.forEach(file => {
+      expect(file.uid).toBeDefined();
+    });
+  });
+
   describe('util', () => {
     it('should be able to get fileItem', () => {
       const file = { uid: '-1', name: 'item.jpg' };
@@ -352,6 +366,13 @@ describe('Upload', () => {
       ];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toBe(null);
+    });
+
+    it('isImageUrl should work correctly when file.url is null', () => {
+      const file = {
+        url: null,
+      };
+      expect(isImageUrl(file)).toBe(true);
     });
   });
 
