@@ -274,9 +274,9 @@ const ListItem = React.forwardRef(
       <div className={listContainerNameClass} style={style} ref={ref}>
         {itemRender
           ? itemRender(item, file, items, {
-              download: onDownload.bind(null, file),
-              preview: onPreview.bind(null, file),
-              remove: onClose.bind(null, file),
+              onDownload: onDownload.bind(null, file),
+              onPreview: onPreview.bind(null, file),
+              onRemove: onClose.bind(null, file),
             })
           : item}
       </div>

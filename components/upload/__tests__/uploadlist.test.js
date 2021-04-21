@@ -1175,13 +1175,13 @@ describe('Upload List', () => {
               currFileList.length
             }`}
           </span>
-          <span onClick={actions.remove} className="custom-item-render-action-remove">
+          <span onClick={actions.onRemove} className="custom-item-render-action-remove">
             remove
           </span>
-          <span onClick={actions.download} className="custom-item-render-action-download">
+          <span onClick={actions.onDownload} className="custom-item-render-action-download">
             download
           </span>
-          <span onClick={actions.preview} className="custom-item-render-action-preview">
+          <span onClick={actions.onPreview} className="custom-item-render-action-preview">
             preview
           </span>
         </div>
