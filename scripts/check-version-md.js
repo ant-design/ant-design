@@ -31,6 +31,13 @@ const packageJson = require(join(__dirname, '..', 'package.json'));
 
 const { version } = packageJson;
 
+if (!/^\d+\.\d+\.\d+$/.test(version)) {
+  console.log('\n');
+  console.log(chalk.blue('[check-version-md]: Prerelease Version. Skipped.'));
+  console.log('\n');
+  process.exit(0);
+}
+
 const changeLogContent = fs.readFileSync(join(__dirname, '..', 'CHANGELOG.en-US.md')).toString();
 
 const changeLog = getChangelogByVersion(changeLogContent, version);
