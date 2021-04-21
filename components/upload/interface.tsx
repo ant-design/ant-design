@@ -69,8 +69,8 @@ export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 export type ItemRender<T = any> = (
   originNode: React.ReactElement,
   file: UploadFile,
-  fileList?: Array<UploadFile<T>>,
-  actions?: {
+  fileList: Array<UploadFile<T>>,
+  actions: {
     download: () => void;
     preview: () => void;
     remove: () => void;
