@@ -411,7 +411,7 @@ interface CompoundedComponent
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
 
-// ============================ BUG UPLOAD ============================
+// ============================ BUG UPLOAD BLOCK ============================
 /**
  * Some user use un-controlled Upload `onChange` event as feature which is a real bug. We will not
  * back of this bug. For legacy usage, provide a BugContextProvider to handle it.
@@ -435,7 +435,12 @@ function InternalWrapUpload(props: UploadProps, ref: any) {
         {...props}
         fileList={innerFileList}
         onChange={info => {
-          setInnerFileList(info.fileList);
+          if (info.file.status === 'uploading') {
+            setInnerFileList(info.fileList);
+          } else if (fileList) {
+            // Back to use props fileList
+            setInnerFileList(fileList);
+          }
           onChange?.(info);
         }}
         ref={ref}
@@ -450,7 +455,7 @@ const WrapUpload = React.forwardRef<unknown, UploadProps>(
   InternalWrapUpload,
 ) as CompoundedComponent;
 
-// ============================ BUG UPLOAD ============================
+// ============================ BUG UPLOAD BLOCK ============================
 
 WrapUpload.Dragger = Dragger;
 

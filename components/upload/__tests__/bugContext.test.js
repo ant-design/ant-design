@@ -3,8 +3,7 @@ import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Upload from '..';
 import UploadList from '../UploadList';
-import Form from '../../form';
-import { errorRequest, successRequest } from './requests';
+import { successRequest, errorRequest } from './requests';
 import { setup, teardown } from './mock';
 import { sleep } from '../../../tests/utils';
 
@@ -21,12 +20,21 @@ describe('Upload.BugContext', () => {
   };
 
   describe('Bug control', () => {
+    // Choose mock
+    let success = true;
+    function mockRequest(...args) {
+      if (success) {
+        return successRequest(...args);
+      }
+      return errorRequest(...args);
+    }
+
     const Demo = ({ wrap }) => {
       const [fileList, setFileList] = React.useState([]);
 
       const node = (
         <Upload
-          customRequest={successRequest}
+          customRequest={mockRequest}
           fileList={fileList}
           onChange={info => {
             if (info.file.status === 'done') {
@@ -43,7 +51,9 @@ describe('Upload.BugContext', () => {
       return node;
     };
 
-    async function triggerChange(wrapper) {
+    async function triggerChange(wrapper, passed) {
+      success = passed;
+
       wrapper.find('input').simulate('change', {
         target: {
           files: [
@@ -69,7 +79,11 @@ describe('Upload.BugContext', () => {
 
       expect(wrapper.find(UploadList).props().items).toHaveLength(0);
 
-      await triggerChange(wrapper);
+      await triggerChange(wrapper, true);
+
+      expect(wrapper.find(UploadList).props().items).toHaveLength(1);
+
+      await triggerChange(wrapper, false);
 
       expect(wrapper.find(UploadList).props().items).toHaveLength(1);
 
@@ -83,7 +97,11 @@ describe('Upload.BugContext', () => {
 
       expect(wrapper.find(UploadList).props().items).toHaveLength(0);
 
-      await triggerChange(wrapper);
+      await triggerChange(wrapper, true);
+
+      expect(wrapper.find(UploadList).props().items).toHaveLength(0);
+
+      await triggerChange(wrapper, false);
 
       expect(wrapper.find(UploadList).props().items).toHaveLength(0);
 
