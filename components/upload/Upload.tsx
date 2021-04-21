@@ -405,6 +405,7 @@ interface CompoundedComponent
   > {
   Dragger: typeof Dragger;
   LIST_IGNORE: string;
+  /** @deprecated Internal usage. We don't promise this will work. */
   BugContextProvider: typeof BugContextProvider;
 }
 
