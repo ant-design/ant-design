@@ -12,7 +12,7 @@ import ConfigProvider from '../../config-provider';
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
 
 function getDropdownWrapper(wrapper) {
-  return mount(wrapper.find('Trigger').instance().getComponent());
+  return mount(wrapper.find('Trigger').first().instance().getComponent());
 }
 
 describe('Table.filter', () => {
@@ -543,8 +543,13 @@ describe('Table.filter', () => {
     );
     jest.useFakeTimers();
 
-    let dropdownWrapper = getDropdownWrapper(wrapper);
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    // Open
+    wrapper.find('.ant-table-filter-trigger').simulate('click');
+
+    let dropdownWrapper = getDropdownWrapper(wrapper);
+
     // select
     dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(0).simulate('mouseEnter');
     jest.runAllTimers();
