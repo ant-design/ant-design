@@ -94,8 +94,6 @@ const Badge: CompoundedComponent = ({
   const isDotRef = useRef(showAsDot);
   if (!isHidden) {
     isDotRef.current = showAsDot;
-  } else {
-    isDotRef.current = false;
   }
 
   // =============================== Styles ===============================
@@ -188,8 +186,8 @@ const Badge: CompoundedComponent = ({
 
           const scrollNumberCls = classNames({
             [`${prefixCls}-dot`]: isDot,
-            [`${prefixCls}-count`]: !isDot && !isHidden,
-            [`${prefixCls}-count-sm`]: !isDot && !isHidden && size === 'small',
+            [`${prefixCls}-count`]: !isDot,
+            [`${prefixCls}-count-sm`]: size === 'small',
             [`${prefixCls}-multiple-words`]:
               !isDot && displayCount && displayCount.toString().length > 1,
             [`${prefixCls}-status-${status}`]: !!status,
