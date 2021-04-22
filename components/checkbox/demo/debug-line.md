@@ -3,6 +3,7 @@ order: 99
 title:
   zh-CN: 同行布局
   en-US: Same line
+debug: true
 ---
 
 ## zh-CN
