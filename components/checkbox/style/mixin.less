@@ -151,6 +151,13 @@
     line-height: unset;
     cursor: pointer;
 
+    &::after {
+      display: inline-block;
+      width: 0;
+      overflow: hidden;
+      content: '\a0';
+    }
+
     &.@{checkbox-prefix-cls}-wrapper-disabled {
       cursor: not-allowed;
     }
