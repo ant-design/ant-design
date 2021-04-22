@@ -672,87 +672,106 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
 >
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked"
-    style="display:block;height:30px;line-height:30px"
+  <div
+    class="ant-space ant-space-vertical"
   >
-    <span
-      class="ant-radio ant-radio-checked"
+    <div
+      class="ant-space-item"
+      style="margin-bottom:8px"
     >
-      <input
-        checked=""
-        class="ant-radio-input"
-        type="radio"
-        value="1"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      Option A
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-    style="display:block;height:30px;line-height:30px"
-  >
-    <span
-      class="ant-radio"
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked"
+      >
+        <span
+          class="ant-radio ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            type="radio"
+            value="1"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          Option A
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom:8px"
     >
-      <input
-        class="ant-radio-input"
-        type="radio"
-        value="2"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      Option B
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-    style="display:block;height:30px;line-height:30px"
-  >
-    <span
-      class="ant-radio"
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="2"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          Option B
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom:8px"
     >
-      <input
-        class="ant-radio-input"
-        type="radio"
-        value="3"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      Option C
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-    style="display:block;height:30px;line-height:30px"
-  >
-    <span
-      class="ant-radio"
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="3"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          Option C
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <input
-        class="ant-radio-input"
-        type="radio"
-        value="4"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      More...
-    </span>
-  </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="4"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          More...
+        </span>
+      </label>
+    </div>
+  </div>
 </div>
 `;
 
