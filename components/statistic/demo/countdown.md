@@ -23,10 +23,21 @@ function onFinish() {
   console.log('finished!');
 }
 
+function onChange(val) {
+  if (4.95 * 1000 < val && val < 5 * 1000) {
+    console.log('change');
+  }
+}
+
 ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
-      <Countdown title="Countdown" value={deadline} onFinish={onFinish} />
+      <Countdown
+        title="Countdown"
+        value={Date.now() + 10 * 1000}
+        onFinish={onFinish}
+        onChange={onChange}
+      />
     </Col>
     <Col span={12}>
       <Countdown title="Million Seconds" value={deadline} format="HH:mm:ss:SSS" />

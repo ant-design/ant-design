@@ -274,7 +274,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
         <span
           class="ant-statistic-content-value"
         >
-          48:00:30
+          00:00:10
         </span>
       </div>
     </div>
