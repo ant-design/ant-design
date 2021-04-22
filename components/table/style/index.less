@@ -79,6 +79,7 @@
   &-thead {
     > tr {
       > th {
+        position: relative;
         color: @table-header-color;
         font-weight: 500;
         text-align: left;
@@ -88,6 +89,17 @@
 
         &[colspan]:not([colspan='1']) {
           text-align: center;
+        }
+
+        &:not(.ant-table-cell-fix-left-last):not(:last-child)::before {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 1px;
+          height: 1.6em;
+          background-color: @table-border-color;
+          transform: translateY(-50%);
+          content: '';
         }
       }
     }
@@ -211,31 +223,21 @@
   &-thead th.@{table-prefix-cls}-column-sort {
     background: @table-header-sort-bg;
   }
+
   td&-column-sort {
     background: @table-body-sort-bg;
   }
 
-  &-column-sorters-with-tooltip {
-    display: inline-block;
-    width: 100%;
-  }
-
   &-column-sorters {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: @table-padding-vertical @table-padding-horizontal;
   }
 
   &-column-sorter {
-    margin-top: 0.15em;
-    margin-bottom: -0.15em;
-    margin-left: @padding-xs;
     color: @table-header-icon-color;
-
-    &-full {
-      margin-top: -0.2em;
-      margin-bottom: 0;
-    }
+    font-size: 0;
 
     &-inner {
       display: inline-flex;
@@ -260,13 +262,17 @@
   // ============================ Filter ============================
   &-filter-column {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     margin: -@table-padding-vertical -@table-padding-horizontal;
   }
 
   &-filter-column-title {
     flex: auto;
-    padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
+    padding: @table-padding-vertical @table-padding-horizontal;
+
+    .@{table-prefix-cls}-column-sorters {
+      padding-right: 40px;
+    }
   }
 
   // Remove padding when sorter also provided
@@ -276,14 +282,14 @@
     }
 
     .@{table-prefix-cls}-filter-column-title {
-      padding: 0 2.3em 0 0;
+      padding: 0;
     }
   }
 
   &-filter-trigger-container {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 8px;
     bottom: 0;
     display: flex;
     flex: none;
@@ -300,18 +306,13 @@
   }
 
   &-filter-trigger {
-    display: block;
-    width: 2.3em;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 8px;
     color: @table-header-icon-color;
     font-size: @font-size-sm;
     transition: color 0.3s;
-
-    .@{iconfont-css-prefix} {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
 
     .@{table-prefix-cls}-filter-trigger-container-open &,
     &:hover {
@@ -386,6 +387,10 @@
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
+  }
+
+  table tr th&-selection-column::after {
+    background-color: transparent !important;
   }
 
   &-selection {
@@ -564,6 +569,7 @@
     content: '';
     pointer-events: none;
   }
+
   &-cell-fix-right-first::after,
   &-cell-fix-right-last::after {
     position: absolute;

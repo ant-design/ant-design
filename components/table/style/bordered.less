@@ -32,6 +32,12 @@
           > tr:not(:last-child) > th {
             border-bottom: @border-width-base @border-style-base @table-border-color;
           }
+
+          > tr > th:not(:last-child) {
+            &::before {
+              background-color: transparent;
+            }
+          }
         }
 
         // Fixed right should provides additional border
