@@ -62,6 +62,10 @@
     right: 0;
     transform: translate(50%, -50%);
     transform-origin: 100% 0%;
+
+    &.@{iconfont-css-prefix}-spin {
+      animation: antBadgeLoadingCircle 1s infinite linear;
+    }
   }
 
   &-status {
@@ -241,6 +245,17 @@
   100% {
     transform: scale(0);
     opacity: 0;
+  }
+}
+
+@keyframes antBadgeLoadingCircle {
+  0% {
+    transform-origin: 50%;
+  }
+
+  100% {
+    transform: translate(50%, -50%) rotate(360deg);
+    transform-origin: 50%;
   }
 }
 
