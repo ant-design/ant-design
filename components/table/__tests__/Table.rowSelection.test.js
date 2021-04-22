@@ -317,7 +317,10 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    // Open
+    wrapper.find('Trigger').setState({ popupVisible: true });
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
     dropdownWrapper.find('.ant-dropdown-menu-item').first().simulate('click');
     expect(handleChange.mock.calls[0][0]).toEqual([0, 1, 2, 3]);
   });
@@ -349,7 +352,10 @@ describe('Table.rowSelection', () => {
 
     checkboxes.at(1).simulate('change', { target: { checked: true } });
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    // Open
+    wrapper.find('Trigger').setState({ popupVisible: true });
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
     dropdownWrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
 
     expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
@@ -375,7 +381,10 @@ describe('Table.rowSelection', () => {
 
     checkboxes.at(1).simulate('change', { target: { checked: true } });
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    // Open
+    wrapper.find('Trigger').setState({ popupVisible: true });
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
     dropdownWrapper.find('.ant-dropdown-menu-item').last().simulate('click');
 
     expect(handleSelectNone).toHaveBeenCalled();
@@ -403,7 +412,10 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    // Open
+    wrapper.find('Trigger').setState({ popupVisible: true });
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
     expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(4);
 
     dropdownWrapper.find('.ant-dropdown-menu-item').at(2).simulate('click');
@@ -440,7 +452,10 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    // Open
+    wrapper.find('Trigger').setState({ popupVisible: true });
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
     expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
 
     dropdownWrapper.find('.ant-dropdown-menu-item').at(0).simulate('click');
