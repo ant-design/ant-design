@@ -19,7 +19,6 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import BugContextProvider, { BugContext } from './BugContext';
 
 const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -405,67 +404,17 @@ interface CompoundedComponent
   > {
   Dragger: typeof Dragger;
   LIST_IGNORE: string;
-  /** @deprecated Internal usage. We don't promise this will work. */
-  BugContextProvider: typeof BugContextProvider;
 }
 
-const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
+const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;
 
-// ============================ BUG UPLOAD BLOCK ============================
-/**
- * Some user use un-controlled Upload `onChange` event as feature which is a real bug. We will not
- * back of this bug. For legacy usage, provide a BugContextProvider to handle it.
- */
-function InternalWrapUpload(props: UploadProps, ref: any) {
-  const { fileList, onChange } = props;
-  const { unControlChange } = React.useContext(BugContext);
-  const [innerFileList, setInnerFileList] = React.useState(props.fileList || props.defaultFileList);
+Upload.Dragger = Dragger;
 
-  // Re-fill file list when changed
-  React.useEffect(() => {
-    if (unControlChange) {
-      setInnerFileList(fileList);
-    }
-  }, [unControlChange, fileList]);
+Upload.LIST_IGNORE = LIST_IGNORE;
 
-  // Internal temp handle part status
-  if (unControlChange) {
-    return (
-      <Upload
-        {...props}
-        fileList={innerFileList}
-        onChange={info => {
-          if (info.file.status === 'uploading') {
-            setInnerFileList(info.fileList);
-          } else if (fileList) {
-            // Back to use props fileList
-            setInnerFileList(fileList);
-          }
-          onChange?.(info);
-        }}
-        ref={ref}
-      />
-    );
-  }
+Upload.displayName = 'Upload';
 
-  return <Upload {...props} ref={ref} />;
-}
-
-const WrapUpload = React.forwardRef<unknown, UploadProps>(
-  InternalWrapUpload,
-) as CompoundedComponent;
-
-// ============================ BUG UPLOAD BLOCK ============================
-
-WrapUpload.Dragger = Dragger;
-
-WrapUpload.LIST_IGNORE = LIST_IGNORE;
-
-WrapUpload.BugContextProvider = BugContextProvider;
-
-WrapUpload.displayName = 'Upload';
-
-WrapUpload.defaultProps = {
+Upload.defaultProps = {
   type: 'select' as UploadType,
   multiple: false,
   action: '',
@@ -478,4 +427,4 @@ WrapUpload.defaultProps = {
   supportServerRender: true,
 };
 
-export default WrapUpload;
+export default Upload;
