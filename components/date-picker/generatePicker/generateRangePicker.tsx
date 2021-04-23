@@ -59,7 +59,8 @@ export default function generateRangePicker<DateType>(
         placeholder,
         ...restProps
       } = this.props;
-      const { format, showTime, picker } = this.props as any;
+      // add defaultPickerValue
+      const { format, showTime, picker, defaultPickerValue } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
       let additionalOverrideProps: any = {};
@@ -67,6 +68,8 @@ export default function generateRangePicker<DateType>(
       additionalOverrideProps = {
         ...additionalOverrideProps,
         ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
+        // add defaultPickerValue checking
+        ...(defaultPickerValue ? getTimeProps({ format, picker, ...defaultPickerValue}) : {}),
         ...(picker === 'time' ? getTimeProps({ format, ...this.props, picker }) : {}),
       };
       const rootPrefixCls = getPrefixCls();
