@@ -336,6 +336,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     const { current = 1, total, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
+    devWarning(current > 0, 'Table', '`current` should be positive number.');
 
     // Dynamic table data
     if (mergedData.length < total!) {

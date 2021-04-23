@@ -86,7 +86,7 @@ export interface UploadProps<T = any> {
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | {} | Promise<void | Blob | File>;
+  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | string | Promise<void | Blob | File>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;

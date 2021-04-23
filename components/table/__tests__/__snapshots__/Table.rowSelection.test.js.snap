@@ -961,39 +961,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
 </div>
 `;
 
-exports[`Table.rowSelection render with default selection correctly 1`] = `
-<div>
-  <div
-    class="ant-dropdown ant-dropdown-hidden"
-    style="pointer-events:none"
-  >
-    <ul
-      class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
-      role="menu"
-      tabindex="0"
-    >
-      <li
-        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-        role="menuitem"
-      >
-        Select all data
-      </li>
-      <li
-        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-        role="menuitem"
-      >
-        Invert current page
-      </li>
-      <li
-        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-        role="menuitem"
-      >
-        Clear all data
-      </li>
-    </ul>
-  </div>
-</div>
-`;
+exports[`Table.rowSelection render with default selection correctly 1`] = `<div />`;
 
 exports[`Table.rowSelection should support getPopupContainer 1`] = `
 <div

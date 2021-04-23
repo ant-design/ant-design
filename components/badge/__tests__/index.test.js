@@ -155,19 +155,6 @@ describe('Badge', () => {
 
     expect(wrapper.find('.ant-badge')).toHaveLength(2);
   });
-
-  it('Badge should work when status changes', () => {
-    const wrapper = mount(
-      <Badge status="warning">
-        <button type="button">Click me</button>
-      </Badge>,
-    );
-    wrapper.setProps({ status: undefined });
-
-    expect(wrapper.find('.ant-badge-count')).toHaveLength(0);
-    expect(wrapper.find('.ant-badge-dot')).toHaveLength(0);
-    expect(wrapper.find('.ant-badge-count-sm')).toHaveLength(0);
-  });
 });
 
 describe('Ribbon', () => {

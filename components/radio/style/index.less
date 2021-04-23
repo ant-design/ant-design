@@ -32,6 +32,13 @@
   align-items: baseline;
   margin-right: @radio-wrapper-margin-right;
   cursor: pointer;
+
+  &::after {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    content: '\a0';
+  }
 }
 
 .@{radio-prefix-cls} {
