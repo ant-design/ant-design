@@ -116,6 +116,21 @@ describe('Statistic', () => {
       expect(onMouseLeave).toHaveBeenCalled();
     });
 
+    describe('time onchange', () => {
+      it("called if time has't passed", async () => {
+        const deadline = Date.now() + 10 * 1000;
+        let remainingTime;
+
+        const onChange = value => {
+          remainingTime = value;
+        };
+        const wrapper = mount(<Statistic.Countdown value={deadline} onChange={onChange} />);
+        wrapper.update();
+        await sleep(100)
+        expect(remainingTime).toBeGreaterThan(0)
+      });
+    });
+
     describe('time finished', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
