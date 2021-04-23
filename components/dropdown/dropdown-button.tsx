@@ -43,26 +43,25 @@ const DropdownButton: DropdownButtonInterface = props => {
     className,
     overlay,
     trigger,
-    align,
     visible,
-    onVisibleChange,
     placement,
     getPopupContainer,
     href,
     icon = <EllipsisOutlined />,
     title,
     buttonsRender,
+    size,
+    style,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('dropdown-button', customizePrefixCls);
   const dropdownProps = {
-    align,
     overlay,
     disabled,
     trigger: disabled ? [] : trigger,
-    onVisibleChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
+    ...restProps
   } as DropDownProps;
 
   if ('visible' in props) {
@@ -93,7 +92,7 @@ const DropdownButton: DropdownButtonInterface = props => {
   const [leftButtonToRender, rightButtonToRender] = buttonsRender!([leftButton, rightButton]);
 
   return (
-    <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
+    <ButtonGroup size={size} style={style} className={classNames(prefixCls, className)} prefixCls={prefixCls}>
       {leftButtonToRender}
       <Dropdown {...dropdownProps}>{rightButtonToRender}</Dropdown>
     </ButtonGroup>
