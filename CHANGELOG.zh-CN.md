@@ -20,7 +20,7 @@ timeline: true
 `2021-04-25`
 
 - 🐞 修复 Button `type="link"` 添加 `disabled` 后仍然可点击跳转的问题。[#30209](https://github.com/ant-design/ant-design/pull/30209)
-- 🐞 修复 Upload 当文件 url 为 `null` 时渲染出错问题。[#30215](https://github.com/ant-design/ant-design/pull/30215) [@kerm1it](https://github.com/ant-design/ant-design/pull/30215)
+- 🐞 修复 Upload 当文件 url 为 `null` 时渲染出错问题。[#30215](https://github.com/ant-design/ant-design/pull/30215)
 - 🐞 修复 SubMenu 在 ItemGroup 内时的内边距。[#30218](https://github.com/ant-design/ant-design/pull/30218) [@sebakerckhof](https://github.com/sebakerckhof)
 - 🐞 Table 当 `current` 为负数时将在显示控制台警告。[#30242](https://github.com/ant-design/ant-design/pull/30242) [@wadezhan](https://github.com/wadezhan)
 - 🐞 修复 Checkbox 和 Radio 在 flex 布局下的对齐问题。[#30260](https://github.com/ant-design/ant-design/pull/30260)
