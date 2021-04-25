@@ -25,11 +25,14 @@
   }
 
   .@{ant-prefix}-input-affix-wrapper-disabled {
-    background-color: @input-disabled-bg;
-    border-color: @input-border-color;
+    &,
+    &:hover {
+      background-color: @input-disabled-bg;
+      border-color: @input-border-color;
 
-    input:focus {
-      box-shadow: none !important;
+      input:focus {
+        box-shadow: none !important;
+      }
     }
   }
 
