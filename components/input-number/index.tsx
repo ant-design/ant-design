@@ -27,9 +27,12 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     prefixCls: customizePrefixCls,
     bordered = true,
     readOnly,
+    onChange,
     ...others
   } = props;
 
+  console.log(onChange);
+  
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
   const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
   const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
