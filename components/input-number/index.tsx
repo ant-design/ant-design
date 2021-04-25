@@ -31,12 +31,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     ...others
   } = props;
 
-  console.log(onChange);
-  
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
   const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
   const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
-
   const mergeSize = customizeSize || size;
   const inputNumberClass = classNames(
     {
@@ -57,6 +54,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       downHandler={downIcon}
       prefixCls={prefixCls}
       readOnly={readOnly}
+      onChange = {onChange}
       {...others}
     />
   );
