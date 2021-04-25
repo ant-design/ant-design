@@ -20,7 +20,7 @@ timeline: true
 `2021-04-25`
 
 - 🐞 Fix Button `type="link"` should not redirect when it is `disabled`. [#30209](https://github.com/ant-design/ant-design/pull/30209)
-- 🐞 Fix Upload appear errors when url of file is `null`. [#30215](https://github.com/ant-design/ant-design/pull/30215) [@kerm1it](https://github.com/ant-design/ant-design/pull/30215)
+- 🐞 Fix Upload appear errors when url of file is `null`. [#30215](https://github.com/ant-design/ant-design/pull/30215)
 - 🐞 Fix padding on a SubMenu inside an ItemGroup. [#30218](https://github.com/ant-design/ant-design/pull/30218) [@sebakerckhof](https://github.com/sebakerckhof)
 - 🐞 Add warning when Table `current` is negative number. [#30242](https://github.com/ant-design/ant-design/pull/30242) [@wadezhan](https://github.com/wadezhan)
 - 🐞 Fix Checkbox & Radio align issue in flex box. [#30260](https://github.com/ant-design/ant-design/pull/30260)
