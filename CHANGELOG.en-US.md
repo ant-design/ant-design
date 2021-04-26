@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.15.3
+
+`2021-04-25`
+
+- Table
+  - 🐞 Fix Table selection column width when bordered is true. [#30304](https://github.com/ant-design/ant-design/pull/30304)
+  - 🚨 Add warning when Table `current` is negative number. [#30242](https://github.com/ant-design/ant-design/pull/30242) [@wadezhan](https://github.com/wadezhan)
+- 🐞 Fix Button `type="link"` should not redirect when it is `disabled`. [#30209](https://github.com/ant-design/ant-design/pull/30209)
+- 🐞 Fix Upload appear errors when url of file is `null`. [#30215](https://github.com/ant-design/ant-design/pull/30215)
+- 🐞 Fix padding on a SubMenu inside an ItemGroup. [#30218](https://github.com/ant-design/ant-design/pull/30218) [@sebakerckhof](https://github.com/sebakerckhof)
+- 🐞 Fix Checkbox & Radio align issue in flex box. [#30260](https://github.com/ant-design/ant-design/pull/30260)
+- 🐞 Fix Badge broken animation on spin icon. [#30275](https://github.com/ant-design/ant-design/pull/30275)
+- 🐞 Fix Input `disabled` hover style in Form. [#30302](https://github.com/ant-design/ant-design/pull/30302) [@Fog3211](https://github.com/Fog3211)
+- TypeScript
+  - 🤖 Fix Upload type definition of `beforeUpload`. [#30213](https://github.com/ant-design/ant-design/pull/30213)
+
 ## 4.15.2
 
 `2021-04-19`
