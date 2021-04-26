@@ -35,4 +35,21 @@ describe('Upload.Dragger', () => {
 
     jest.useRealTimers();
   });
+
+  it('support onDrop when files are dropped onto upload area', () => {
+    const onDrop = jest.fn();
+    const wrapper = mount(
+      <Upload.Dragger onDrop={onDrop}>
+        <div />
+      </Upload.Dragger>,
+    );
+
+    wrapper.find('.ant-upload-drag-container').simulate('drop', {
+      dataTransfer: {
+        files: [new File(['foo'], 'foo.png', { type: 'image/png' })],
+      },
+    });
+
+    expect(onDrop).toHaveBeenCalled();
+  });
 });

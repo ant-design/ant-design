@@ -43,6 +43,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
 | withCredentials | The ajax upload with cookie sent | boolean | false |  |
 | onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | function | - |  |
+| onDrop | A callback function executed when files are dragged and dropped into upload area | (event: React.DragEvent) => void | - | 4.16.0 |
 | onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |  |
 | onPreview | A callback function, will be executed when file link or preview icon is clicked | function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  |
