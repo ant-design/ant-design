@@ -362,8 +362,12 @@
   }
 
   // ========================== Selections ==========================
-  .@{table-prefix-cls}-selection-col {
+  &-selection-col {
     width: @table-selection-column-width;
+  }
+
+  &-bordered &-selection-col {
+    width: @table-selection-column-width + 18px;
   }
 
   table tr th&-selection-column,
