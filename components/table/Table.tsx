@@ -15,6 +15,7 @@ import {
   TableRowSelection,
   GetRowKey,
   ColumnType,
+  ColumnGroupType,
   ColumnsType,
   TableCurrentDataSource,
   SorterResult,
