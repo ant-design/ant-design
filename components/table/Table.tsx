@@ -15,7 +15,6 @@ import {
   TableRowSelection,
   GetRowKey,
   ColumnType,
-  ColumnGroupType,
   ColumnsType,
   TableCurrentDataSource,
   SorterResult,
@@ -27,6 +26,7 @@ import {
   TableLocale,
   TableAction,
   FilterValue,
+  ColumnGroupType,
 } from './interface';
 import useSelection, {
   SELECTION_ALL,
@@ -63,7 +63,6 @@ interface ChangeEventInfo<RecordType> {
 
   resetPagination: Function;
 }
-
 export interface TableProps<RecordType>
   extends Omit<
     RcTableProps<RecordType>,
@@ -77,7 +76,7 @@ export interface TableProps<RecordType>
   > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
-  commonColumn?: ColumnType<RecordType>;
+  columnDefaultProps?: ColumnGroupType<RecordType> | ColumnType<RecordType>;
   columns?: ColumnsType<RecordType>;
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
@@ -115,7 +114,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     rowKey,
     rowClassName,
     columns,
-    commonColumn,
+    columnDefaultProps,
     children,
     childrenColumnName: legacyChildrenColumnName,
     onChange,
@@ -141,19 +140,25 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const screens = useBreakpoint();
   const mergedColumns = React.useMemo(() => {
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
-    let originColumns = columns || convertChildrenToColumns(children);
-    const addProp = function (col: ColumnType<RecordType> | ColumnGroupType<RecordType>) {
+    let originColums = columns || convertChildrenToColumns(children);
+    const addProp = (col: ColumnType<RecordType> | ColumnGroupType<RecordType>) => {
       if ('children' in col && col.children) {
-        col.children = col.children.map(colChild => (colChild = addProp(colChild)));
+        col.children = col.children.map(colChild => {
+          colChild = addProp(colChild);
+          return colChild;
+        });
       }
-      return { ...commonColumn, ...col };
+      return { ...columnDefaultProps, ...col };
     };
-    originColumns = originColumns.map(col => (col = addProp(col)));
-    return originColumns.filter(
+    originColums = originColums.map(col => {
+      col = addProp(col);
+      return col;
+    });
+    return originColums.filter(
       (c: ColumnType<RecordType>) =>
         !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
     );
-  }, [children, columns, screens, commonColumn]);
+  }, [children, columns, screens, columnDefaultProps]);
 
   const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
 
@@ -246,10 +251,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
 
   /**
-   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to
-   * read state out and then put it back to title render. Move these code into `hooks` but still
-   * too complex. We should provides Table props like `sorter` & `filter` to handle control in next
-   * big version.
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
+   * state out and then put it back to title render. Move these code into `hooks` but still too
+   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
    */
 
   // ============================ Sorter =============================

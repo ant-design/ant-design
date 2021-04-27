@@ -261,4 +261,35 @@ describe('Table', () => {
     mount(<Table columns={columns} rowKey={record => record.key} />);
     expect(warnSpy).not.toBeCalled();
   });
+  it('columnDefaultProps works', () => {
+    const data = [
+      {
+        id: '1',
+        age: 32,
+      },
+      {
+        id: '2',
+        age: 42,
+      },
+    ];
+    const columns = [
+      { title: 'id', dataKey: 'id' },
+      { title: 'age', dataKey: 'age' },
+    ];
+    const wrapper = mount(
+      <Table
+        columns={columns}
+        dataSource={data}
+        columnDefaultProps={{ className: 'DefaultProps' }}
+      />,
+    );
+
+    wrapper.find('.ant-table-thead th').forEach(th => {
+      expect(th.hasClass('DefaultProps')).toBeTruthy();
+    });
+
+    wrapper.find('.ant-table-tbody td').forEach(td => {
+      expect(td.hasClass('DefaultProps')).toBeTruthy();
+    });
+  });
 });
