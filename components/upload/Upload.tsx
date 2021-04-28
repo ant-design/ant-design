@@ -269,7 +269,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   const onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
     setDragState(e.type);
 
-    if (e.type === 'drop' && typeof onDrop === 'function') {
+    if (e.type === 'drop') {
       onDrop?.(e);
     }
   };
