@@ -50,6 +50,8 @@ async function checkRemote() {
   }
 }
 
+
+
 async function checkAll() {
   const status = await git.status();
 
