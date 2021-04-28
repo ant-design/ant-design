@@ -270,7 +270,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     setDragState(e.type);
 
     if (e.type === 'drop' && typeof onDrop === 'function') {
-      onDrop(e);
+      onDrop?.(e);
     }
   };
 
