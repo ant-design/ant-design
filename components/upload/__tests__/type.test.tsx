@@ -46,4 +46,27 @@ describe('Upload.typescript', () => {
     );
     expect(upload).toBeTruthy();
   });
+
+  it('defaultFileList/fileList', () => {
+    const fileList = [
+      {
+        uid: '-1',
+        name: 'xxx.png',
+        status: 'done' as const,
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-2',
+        name: 'yyy.png',
+        status: 'error' as const,
+      },
+    ];
+    const upload = (
+      <Upload fileList={fileList} defaultFileList={fileList}>
+        <span>click to upload</span>
+      </Upload>
+    );
+    expect(upload).toBeTruthy();
+  });
 });
