@@ -118,6 +118,23 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-submenu-selected').length).toBe(1);
   });
 
+  it('forceSubMenuRender', () => {
+    const wrapper = mount(
+      <Menu mode="horizontal">
+        <SubMenu key="1" title="submenu1">
+          <Menu.Item key="1-1">
+            <span className="bamboo" />
+          </Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+
+    expect(wrapper.find('.bamboo').hostNodes()).toHaveLength(0);
+
+    wrapper.setProps({ forceSubMenuRender: true });
+    expect(wrapper.find('.bamboo').hostNodes()).toHaveLength(1);
+  });
+
   it('should accept defaultOpenKeys in mode horizontal', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="horizontal">
