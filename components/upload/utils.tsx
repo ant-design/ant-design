@@ -1,6 +1,6 @@
-import { RcFile, UploadFile } from './interface';
+import { RcFile, UploadFile, InternalUploadFile } from './interface';
 
-export function file2Obj(file: RcFile): UploadFile {
+export function file2Obj(file: RcFile): InternalUploadFile {
   return {
     ...file,
     lastModified: file.lastModified,
