@@ -76,6 +76,7 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type TransformFileHandler = (
   file: RcFile,
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
+type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export interface UploadProps<T = any> {
   type?: UploadType;
@@ -93,7 +94,7 @@ export interface UploadProps<T = any> {
   beforeUpload?: (
     file: RcFile,
     FileList: RcFile[],
-  ) => boolean | string | Promise<void | Blob | File>;
+  ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;
