@@ -36,11 +36,23 @@ describe('Upload.typescript', () => {
           if (returnType === 'boolean') {
             return true;
           }
+          if (returnType === 'Promise<boolean>') {
+            return Promise.resolve(false);
+          }
           if (returnType === 'file') {
             return file;
           }
+          if (returnType === 'Promise<file>') {
+            return Promise.resolve(file);
+          }
           if (returnType === 'string') {
             return Upload.LIST_IGNORE;
+          }
+          if (returnType === 'Promise<string>') {
+            return Promise.resolve(Upload.LIST_IGNORE);
+          }
+          if (returnType === 'Promise<void>') {
+            return Promise.resolve();
           }
         }}
       >
