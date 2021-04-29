@@ -36,23 +36,33 @@ describe('Upload.typescript', () => {
           if (returnType === 'boolean') {
             return true;
           }
-          if (returnType === 'Promise<boolean>') {
-            return Promise.resolve(false);
-          }
           if (returnType === 'file') {
             return file;
-          }
-          if (returnType === 'Promise<file>') {
-            return Promise.resolve(file);
           }
           if (returnType === 'string') {
             return Upload.LIST_IGNORE;
           }
-          if (returnType === 'Promise<string>') {
-            return Promise.resolve(Upload.LIST_IGNORE);
+        }}
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    expect(upload).toBeTruthy();
+  });
+
+  it('beforeUpload async', () => {
+    const upload = (
+      <Upload
+        beforeUpload={async file => {
+          const { name: returnType } = file;
+          if (returnType === 'boolean') {
+            return true;
           }
-          if (returnType === 'Promise<void>') {
-            return Promise.resolve();
+          if (returnType === 'file') {
+            return file;
+          }
+          if (returnType === 'string') {
+            return Upload.LIST_IGNORE;
           }
         }}
       >
