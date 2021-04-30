@@ -460,7 +460,9 @@
   }
 
   &-inline-collapsed {
-    width: @menu-collapsed-width;
+    &:not(.@{ant-prefix}-layout-sider-children > ul) {
+      width: @menu-collapsed-width;
+    }
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-item-group
       > .@{menu-prefix-cls}-item-group-list
