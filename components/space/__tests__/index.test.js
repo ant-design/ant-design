@@ -37,6 +37,27 @@ describe('Space', () => {
     expect(render(wrapper)).toMatchSnapshot();
   });
 
+  it('should render width rtl', () => {
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Space>
+          <span>1</span>
+          <span>2</span>
+        </Space>
+        <Space size="middle">
+          <span>1</span>
+          <span>2</span>
+        </Space>
+        <Space size="large">
+          <span>1</span>
+          <span>2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+
+    expect(render(wrapper)).toMatchSnapshot();
+  });
+
   it('should render width customize size', () => {
     const wrapper = mount(
       <Space size={10}>
