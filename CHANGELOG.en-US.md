@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.15.4
+
+`2021-04-30`
+
+- 🐞 Fix Menu.Item width issue when `collapsedWidth` is set. [#30357](https://github.com/ant-design/ant-design/pull/30357) [@Map1en](https://github.com/Map1en)
+- 🐞 Fix Radio check spin style sometime height too long. [#30367](https://github.com/ant-design/ant-design/pull/30367)
+- 🐞 Fix Typography.Link open link when trigger `editable`. [#30354](https://github.com/ant-design/ant-design/pull/30354) [@John60676](https://github.com/John60676)
+- 🐞 InputNumber clean up input will trigger `onChange(null)` now. [#30337](https://github.com/ant-design/ant-design/pull/30337)
+- 🐞 Fix Dropdown.Button broken style when inside Modal `footer`. [#30328](https://github.com/ant-design/ant-design/pull/30328) [@Map1en](https://github.com/Map1en)
+- 💄 Replace Anchor default background from `#FFFFFF` to `transparent`. [#30336](https://github.com/ant-design/ant-design/pull/30336)
+- 🌐 Add `ko_KR` and `ja_JP` TimePicker.RangePicker placeholder. [#30285](https://github.com/ant-design/ant-design/pull/30285) [@ChalkPE](https://github.com/ChalkPE)
+- TypeScript
+  - 🤖 Fix Upload type definition of `beforeUpload`. [#30351](https://github.com/ant-design/ant-design/pull/30351) [@kerm1it](https://github.com/kerm1it)
+
 ## 4.15.3
 
 `2021-04-25`
