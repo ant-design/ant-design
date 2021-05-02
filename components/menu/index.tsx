@@ -79,6 +79,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
           inlineCollapsed: this.getInlineCollapsed() || false,
           antdMenuTheme: theme,
           direction,
+          firstLevel: true,
         }}
       >
         <RcMenu
