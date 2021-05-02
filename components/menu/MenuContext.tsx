@@ -8,10 +8,12 @@ export interface MenuContextProps {
   inlineCollapsed: boolean;
   antdMenuTheme?: MenuTheme;
   direction?: DirectionType;
+  firstLevel: boolean;
 }
 
 const MenuContext = createContext<MenuContextProps>({
   prefixCls: '',
+  firstLevel: true,
   inlineCollapsed: false,
 });
 

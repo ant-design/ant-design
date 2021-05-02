@@ -55,11 +55,18 @@ class SubMenu extends React.Component<SubMenuProps, any> {
     const { popupClassName } = this.props;
     const { prefixCls, inlineCollapsed, antdMenuTheme } = this.context;
     return (
-      <RcSubMenu
-        {...omit(this.props, ['icon'])}
-        title={this.renderTitle(inlineCollapsed)}
-        popupClassName={classNames(prefixCls, `${prefixCls}-${antdMenuTheme}`, popupClassName)}
-      />
+      <MenuContext.Provider
+        value={{
+          ...this.context,
+          firstLevel: false,
+        }}
+      >
+        <RcSubMenu
+          {...omit(this.props, ['icon'])}
+          title={this.renderTitle(inlineCollapsed)}
+          popupClassName={classNames(prefixCls, `${prefixCls}-${antdMenuTheme}`, popupClassName)}
+        />
+      </MenuContext.Provider>
     );
   }
 }

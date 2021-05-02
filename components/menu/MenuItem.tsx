@@ -19,12 +19,12 @@ export default class MenuItem extends React.Component<MenuItemProps> {
   context: MenuContextProps;
 
   renderItemChildren(inlineCollapsed: boolean) {
-    const { prefixCls } = this.context;
-    const { icon, children, level } = this.props;
+    const { prefixCls, firstLevel } = this.context;
+    const { icon, children } = this.props;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
     if (!icon || (isValidElement(children) && children.type === 'span')) {
-      if (children && inlineCollapsed && level === 1 && typeof children === 'string') {
+      if (children && inlineCollapsed && firstLevel && typeof children === 'string') {
         return <div className={`${prefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>;
       }
       return children;
@@ -33,8 +33,8 @@ export default class MenuItem extends React.Component<MenuItemProps> {
   }
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { prefixCls } = this.context;
-    const { level, className, children } = this.props;
+    const { prefixCls, firstLevel } = this.context;
+    const { className, children } = this.props;
     const { title, icon, danger, ...rest } = this.props;
 
     return (
@@ -42,7 +42,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
         {({ inlineCollapsed, direction }: MenuContextProps) => {
           let tooltipTitle = title;
           if (typeof title === 'undefined') {
-            tooltipTitle = level === 1 ? children : '';
+            tooltipTitle = firstLevel ? children : '';
           } else if (title === false) {
             tooltipTitle = '';
           }
