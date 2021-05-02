@@ -17,7 +17,7 @@ export interface HttpRequestHeader {
 
 export interface UploadFile<T = any> {
   uid: string;
-  size: number;
+  size?: number;
   name: string;
   fileName?: string;
   lastModified?: number;
@@ -26,13 +26,17 @@ export interface UploadFile<T = any> {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  originFileObj: RcFile;
+  originFileObj?: RcFile;
   response?: T;
   error?: any;
   linkProps?: any;
-  type: string;
+  type?: string;
   xhr?: T;
   preview?: string;
+}
+
+export interface InternalUploadFile<T = any> extends UploadFile<T> {
+  originFileObj: RcFile;
 }
 
 export interface UploadChangeParam<T extends object = UploadFile> {
@@ -72,6 +76,7 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type TransformFileHandler = (
   file: RcFile,
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
+type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export interface UploadProps<T = any> {
   type?: UploadType;
@@ -89,7 +94,7 @@ export interface UploadProps<T = any> {
   beforeUpload?: (
     file: RcFile,
     FileList: RcFile[],
-  ) => boolean | string | Promise<void | Blob | File>;
+  ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
   onChange?: (info: UploadChangeParam) => void;
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
