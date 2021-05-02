@@ -75,6 +75,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     return (
       <MenuContext.Provider
         value={{
+          prefixCls,
           inlineCollapsed: this.getInlineCollapsed() || false,
           antdMenuTheme: theme,
           direction,

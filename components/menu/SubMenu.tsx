@@ -11,7 +11,6 @@ interface TitleEventEntity {
 }
 
 export interface SubMenuProps {
-  rootPrefixCls?: string;
   className?: string;
   disabled?: boolean;
   level?: number;
@@ -28,14 +27,15 @@ export interface SubMenuProps {
 class SubMenu extends React.Component<SubMenuProps, any> {
   static contextType = MenuContext;
 
-  // fix issue:https://github.com/ant-design/ant-design/issues/8666
-  static isSubMenu = 1;
+  context: MenuContextProps;
 
   renderTitle(inlineCollapsed: boolean) {
-    const { icon, title, level, rootPrefixCls } = this.props;
+    const { icon, title, level } = this.props;
+    const { prefixCls } = this.context;
+
     if (!icon) {
       return inlineCollapsed && level === 1 && title && typeof title === 'string' ? (
-        <div className={`${rootPrefixCls}-inline-collapsed-noicon`}>{title.charAt(0)}</div>
+        <div className={`${prefixCls}-inline-collapsed-noicon`}>{title.charAt(0)}</div>
       ) : (
         title
       );
@@ -52,21 +52,14 @@ class SubMenu extends React.Component<SubMenuProps, any> {
   }
 
   render() {
-    const { rootPrefixCls, popupClassName } = this.props;
+    const { popupClassName } = this.props;
+    const { prefixCls, inlineCollapsed, antdMenuTheme } = this.context;
     return (
-      <MenuContext.Consumer>
-        {({ inlineCollapsed, antdMenuTheme }: MenuContextProps) => (
-          <RcSubMenu
-            {...omit(this.props, ['icon'])}
-            title={this.renderTitle(inlineCollapsed)}
-            popupClassName={classNames(
-              rootPrefixCls,
-              `${rootPrefixCls}-${antdMenuTheme}`,
-              popupClassName,
-            )}
-          />
-        )}
-      </MenuContext.Consumer>
+      <RcSubMenu
+        {...omit(this.props, ['icon'])}
+        title={this.renderTitle(inlineCollapsed)}
+        popupClassName={classNames(prefixCls, `${prefixCls}-${antdMenuTheme}`, popupClassName)}
+      />
     );
   }
 }

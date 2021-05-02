@@ -14,17 +14,18 @@ export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
 }
 
 export default class MenuItem extends React.Component<MenuItemProps> {
-  static isMenuItem = true;
+  static contextType = MenuContext;
+
+  context: MenuContextProps;
 
   renderItemChildren(inlineCollapsed: boolean) {
-    const { icon, children, level, rootPrefixCls } = this.props;
+    const { prefixCls } = this.context;
+    const { icon, children, level } = this.props;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
     if (!icon || (isValidElement(children) && children.type === 'span')) {
       if (children && inlineCollapsed && level === 1 && typeof children === 'string') {
-        return (
-          <div className={`${rootPrefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>
-        );
+        return <div className={`${prefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>;
       }
       return children;
     }
@@ -32,7 +33,8 @@ export default class MenuItem extends React.Component<MenuItemProps> {
   }
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { level, className, children, rootPrefixCls } = this.props;
+    const { prefixCls } = this.context;
+    const { level, className, children } = this.props;
     const { title, icon, danger, ...rest } = this.props;
 
     return (
@@ -59,24 +61,24 @@ export default class MenuItem extends React.Component<MenuItemProps> {
             <Tooltip
               {...tooltipProps}
               placement={direction === 'rtl' ? 'left' : 'right'}
-              overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
+              overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
             >
               <Item
                 {...rest}
                 className={classNames(
                   {
-                    [`${rootPrefixCls}-item-danger`]: danger,
-                    [`${rootPrefixCls}-item-only-child`]:
+                    [`${prefixCls}-item-danger`]: danger,
+                    [`${prefixCls}-item-only-child`]:
                       (icon ? childrenLength + 1 : childrenLength) === 1,
                   },
                   className,
                 )}
-                title={title}
+                title={typeof title === 'string' ? title : undefined}
               >
                 {cloneElement(icon, {
                   className: classNames(
                     isValidElement(icon) ? icon.props?.className : '',
-                    `${rootPrefixCls}-item-icon`,
+                    `${prefixCls}-item-icon`,
                   ),
                 })}
                 {this.renderItemChildren(inlineCollapsed)}
