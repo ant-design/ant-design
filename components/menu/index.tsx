@@ -57,6 +57,8 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const rootPrefixCls = getPrefixCls();
 
     const { prefixCls: customizePrefixCls, className, theme, expandIcon } = this.props;
+    const inlineCollapsed = this.getInlineCollapsed();
+
     const defaultMotions = {
       horizontal: { motionName: `${rootPrefixCls}-slide-up` },
       inline: collapseMotion,
@@ -67,7 +69,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const menuClassName = classNames(
       `${prefixCls}-${theme}`,
       {
-        [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
+        [`${prefixCls}-inline-collapsed`]: inlineCollapsed,
       },
       className,
     );
@@ -76,7 +78,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
       <MenuContext.Provider
         value={{
           prefixCls,
-          inlineCollapsed: this.getInlineCollapsed() || false,
+          inlineCollapsed: inlineCollapsed || false,
           antdMenuTheme: theme,
           direction,
           firstLevel: true,
@@ -85,6 +87,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
         <RcMenu
           getPopupContainer={getPopupContainer}
           {...this.props}
+          inlineCollapsed={inlineCollapsed}
           className={menuClassName}
           prefixCls={prefixCls}
           direction={direction}
