@@ -21,6 +21,10 @@
   transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
   .clearfix();
 
+  &:focus-visible {
+    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+  }
+
   ul,
   ol {
     margin: 0;
@@ -28,7 +32,8 @@
     list-style: none;
   }
 
-  &-hidden {
+  &-hidden,
+  &-submenu-hidden {
     display: none;
   }
 
