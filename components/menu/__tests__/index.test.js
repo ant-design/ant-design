@@ -31,8 +31,12 @@ const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
     vertical: 'ant-zoom-big-leave',
   };
   const mode = menu.prop('mode') || 'horizontal';
-  enter();
-  menu.update();
+
+  act(() => {
+    enter();
+    jest.runAllTimers();
+    menu.update();
+  });
 
   function getSubMenu() {
     if (mode === 'inline') {
@@ -42,21 +46,20 @@ const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
   }
 
   expect(
-    getSubMenu().length === 0 ||
-      (!getSubMenu().hasClass('ant-menu-hidden') &&
-        !getSubMenu().hasClass(AnimationClassNames[mode])),
-  ).toBeTruthy();
+    getSubMenu().hasClass('ant-menu-hidden') || getSubMenu().hasClass(AnimationClassNames[mode]),
+  ).toBeFalsy();
 
   act(() => {
     leave();
+    jest.runAllTimers();
     menu.update();
   });
 
-  expect(
-    getSubMenu().length === 0 ||
-      (!getSubMenu().hasClass('ant-menu-hidden') &&
-        !getSubMenu().hasClass(AnimationClassNames[mode])),
-  ).toBeTruthy();
+  if (getSubMenu().length) {
+    expect(
+      getSubMenu().hasClass('ant-menu-hidden') || getSubMenu().hasClass(AnimationClassNames[mode]),
+    ).toBeTruthy();
+  }
 };
 
 describe('Menu', () => {
