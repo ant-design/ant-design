@@ -93,11 +93,16 @@ describe('Menu', () => {
     </Menu>
   ));
 
+  let div;
+
   beforeEach(() => {
+    div = document.createElement('div');
+    document.body.appendChild(div);
     jest.useFakeTimers();
   });
 
   afterEach(() => {
+    document.body.removeChild(div);
     jest.useRealTimers();
   });
 
@@ -115,7 +120,7 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('.ant-menu-submenu-selected').length).toBe(1);
+    expect(wrapper.find('li.ant-menu-submenu-selected').length).toBe(1);
   });
 
   it('should accept defaultOpenKeys in mode horizontal', () => {
@@ -128,7 +133,7 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.exists('.ant-menu-sub')).toBeFalsy();
   });
 
   it('should accept defaultOpenKeys in mode inline', () => {
@@ -522,7 +527,7 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
     act(() => {
       jest.runAllTimers();
     });
@@ -584,7 +589,7 @@ describe('Menu', () => {
         <Menu.Item key="test2">Navigation Two</Menu.Item>
       </Menu>,
     );
-    wrapper.find('Menu').at(1).simulate('mouseenter');
+    wrapper.find('ul.ant-menu-root').simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
   });
 
@@ -603,10 +608,16 @@ describe('Menu', () => {
           </a>
         </Menu.Item>
       </Menu>,
+      { attachTo: div },
     );
-    wrapper.find('MenuItem').first().simulate('mouseenter');
-    jest.runAllTimers();
-    wrapper.update();
+
+    wrapper.find('li.ant-menu-item').first().simulate('mouseenter');
+
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+
     expect(wrapper.find('.ant-tooltip-inner').length).toBe(0);
   });
 
