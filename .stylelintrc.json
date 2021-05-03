@@ -10,6 +10,7 @@
     "function-name-case": ["lower", { "ignoreFunctions": ["/colorPalette/"] }],
     "no-invalid-double-slash-comments": null,
     "no-descending-specificity": null,
+    "no-invalid-position-at-import-rule": null,
     "declaration-empty-line-before": null
   },
   "ignoreFiles": ["components/style/color/{bezierEasing,colorPalette,tinyColor}.less"]

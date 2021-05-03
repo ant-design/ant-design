@@ -32,15 +32,75 @@ describe('Upload.typescript', () => {
     const upload = (
       <Upload
         beforeUpload={file => {
-          if (file.type === 'image/png') {
+          const { name: returnType } = file;
+          if (returnType === 'boolean') {
             return true;
           }
-          if (file.type === 'image/webp') {
+          if (returnType === 'Promise<boolean>') {
+            return Promise.resolve(false);
+          }
+          if (returnType === 'file') {
+            return file;
+          }
+          if (returnType === 'Promise<file>') {
             return Promise.resolve(file);
           }
-          return Upload.LIST_IGNORE;
+          if (returnType === 'string') {
+            return Upload.LIST_IGNORE;
+          }
+          if (returnType === 'Promise<string>') {
+            return Promise.resolve(Upload.LIST_IGNORE);
+          }
+          if (returnType === 'Promise<void>') {
+            return Promise.resolve();
+          }
         }}
       >
+        <span>click to upload</span>
+      </Upload>
+    );
+    expect(upload).toBeTruthy();
+  });
+
+  it('beforeUpload async', () => {
+    const upload = (
+      <Upload
+        beforeUpload={async file => {
+          const { name: returnType } = file;
+          if (returnType === 'boolean') {
+            return true;
+          }
+          if (returnType === 'file') {
+            return file;
+          }
+          if (returnType === 'string') {
+            return Upload.LIST_IGNORE;
+          }
+        }}
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    expect(upload).toBeTruthy();
+  });
+
+  it('defaultFileList/fileList', () => {
+    const fileList = [
+      {
+        uid: '-1',
+        name: 'xxx.png',
+        status: 'done' as const,
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-2',
+        name: 'yyy.png',
+        status: 'error' as const,
+      },
+    ];
+    const upload = (
+      <Upload fileList={fileList} defaultFileList={fileList}>
         <span>click to upload</span>
       </Upload>
     );

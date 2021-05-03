@@ -195,7 +195,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   // ================ Edit ================
-  onEditClick = () => {
+  onEditClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
     this.triggerEdit(true);
   };
 
