@@ -17,16 +17,13 @@ export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizo
 export interface MenuProps extends RcMenuProps {
   theme?: MenuTheme;
   inlineIndent?: number;
-  focusable?: boolean;
 }
 
 type InternalMenuProps = MenuProps & SiderContextProps;
 
 class InternalMenu extends React.Component<InternalMenuProps> {
   static defaultProps: Partial<MenuProps> = {
-    className: '',
     theme: 'light', // or dark
-    focusable: false,
   };
 
   constructor(props: InternalMenuProps) {
@@ -56,7 +53,13 @@ class InternalMenu extends React.Component<InternalMenuProps> {
   renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
     const rootPrefixCls = getPrefixCls();
 
-    const { prefixCls: customizePrefixCls, className, theme, expandIcon } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      theme,
+      expandIcon,
+      ...restProps
+    } = this.props;
     const inlineCollapsed = this.getInlineCollapsed();
 
     const defaultMotions = {
@@ -86,7 +89,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
       >
         <RcMenu
           getPopupContainer={getPopupContainer}
-          {...this.props}
+          {...restProps}
           inlineCollapsed={inlineCollapsed}
           className={menuClassName}
           prefixCls={prefixCls}
