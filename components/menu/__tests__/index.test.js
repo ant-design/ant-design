@@ -21,10 +21,10 @@ const noop = () => {};
 
 const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
   if (!menu.prop('openKeys') && !menu.prop('defaultOpenKeys')) {
-    expect(menu.find('.ant-menu-sub').length).toBe(0);
+    expect(menu.find('ul.ant-menu-sub').length).toBe(0);
   }
   menu.update();
-  expect(menu.find('.ant-menu-sub').length).toBe(0);
+  expect(menu.find('ul.ant-menu-sub').length).toBe(0);
   const AnimationClassNames = {
     horizontal: 'ant-slide-up-leave',
     inline: 'ant-motion-collapse-leave',
@@ -36,20 +36,27 @@ const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
 
   function getSubMenu() {
     if (mode === 'inline') {
-      return menu.find('.ant-menu-sub.ant-menu-inline').hostNodes().at(0);
+      return menu.find('ul.ant-menu-sub.ant-menu-inline').hostNodes().at(0);
     }
-    return menu.find('.ant-menu-submenu-popup').hostNodes().at(0);
+    return menu.find('div.ant-menu-submenu-popup').hostNodes().at(0);
   }
 
   expect(
-    getSubMenu().hasClass('ant-menu-hidden') || getSubMenu().hasClass(AnimationClassNames[mode]),
-  ).toBe(false);
-  leave();
-  menu.update();
+    getSubMenu().length === 0 ||
+      (!getSubMenu().hasClass('ant-menu-hidden') &&
+        !getSubMenu().hasClass(AnimationClassNames[mode])),
+  ).toBeTruthy();
+
+  act(() => {
+    leave();
+    menu.update();
+  });
 
   expect(
-    getSubMenu().hasClass('ant-menu-hidden') || getSubMenu().hasClass(AnimationClassNames[mode]),
-  ).toBe(true);
+    getSubMenu().length === 0 ||
+      (!getSubMenu().hasClass('ant-menu-hidden') &&
+        !getSubMenu().hasClass(AnimationClassNames[mode])),
+  ).toBeTruthy();
 };
 
 describe('Menu', () => {
@@ -184,7 +191,7 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('PopupTrigger').first().prop('visible')).toBeTruthy();
+    expect(wrapper.find('InlineSubMenuList').first().prop('open')).toBeTruthy();
   });
 
   it('should accept openKeys in mode vertical', () => {
