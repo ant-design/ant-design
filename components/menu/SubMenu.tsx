@@ -7,7 +7,7 @@ import { isValidElement } from '../_util/reactNode';
 
 interface TitleEventEntity {
   key: string;
-  domEvent: Event;
+  domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
 }
 
 export interface SubMenuProps {
