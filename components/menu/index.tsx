@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcMenu, { Divider, ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -19,7 +20,10 @@ export interface MenuProps extends RcMenuProps {
   inlineIndent?: number;
 }
 
-type InternalMenuProps = MenuProps & SiderContextProps;
+type InternalMenuProps = MenuProps &
+  SiderContextProps & {
+    collapsedWidth?: string | number;
+  };
 
 class InternalMenu extends React.Component<InternalMenuProps> {
   static defaultProps: Partial<MenuProps> = {
@@ -60,6 +64,8 @@ class InternalMenu extends React.Component<InternalMenuProps> {
       expandIcon,
       ...restProps
     } = this.props;
+
+    const passedProps = omit(restProps, ['siderCollapsed', 'collapsedWidth']);
     const inlineCollapsed = this.getInlineCollapsed();
 
     const defaultMotions = {
@@ -89,7 +95,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
       >
         <RcMenu
           getPopupContainer={getPopupContainer}
-          {...restProps}
+          {...passedProps}
           inlineCollapsed={inlineCollapsed}
           className={menuClassName}
           prefixCls={prefixCls}

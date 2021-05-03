@@ -204,16 +204,16 @@ describe('Layout', () => {
       </Sider>,
     );
 
-    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
-    wrapper.find('.ant-menu-item').simulate('mouseout');
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseout');
     jest.runAllTimers();
     wrapper.update();
 
     wrapper.setProps({ collapsed: true });
-    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-inner').length).toBeTruthy();

@@ -647,7 +647,7 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
 
@@ -698,20 +698,25 @@ describe('Menu', () => {
         </Menu.SubMenu>
       </Menu>,
     );
-    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 1');
-    wrapper.find('.ant-menu-item').at(1).simulate('click');
-    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
+    expect(wrapper.find('li.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 1');
+    wrapper.find('li.ant-menu-item').at(1).simulate('click');
+    expect(wrapper.find('li.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     wrapper.setProps({ inlineCollapsed: true });
-    jest.runAllTimers();
-    wrapper.update();
+
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+
     expect(
       wrapper
-        .find('Trigger')
+        .find('PopupTrigger')
         .map(node => node.prop('popupVisible'))
         .findIndex(node => !!node),
     ).toBe(-1);
+
     wrapper.setProps({ inlineCollapsed: false });
-    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
+    expect(wrapper.find('li.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     jest.useRealTimers();
   });
 
