@@ -289,6 +289,30 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       tabindex="0"
     >
       <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:0"
+        tabindex="-1"
+      >
+        nav 1
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:1"
+        tabindex="-1"
+      >
+        nav 2
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:2"
+        tabindex="-1"
+      >
+        nav 3
+      </li>
+      <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
         role="none"
@@ -1203,6 +1227,30 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       tabindex="0"
     >
       <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:0"
+        tabindex="-1"
+      >
+        nav 1
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:1"
+        tabindex="-1"
+      >
+        nav 2
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:2"
+        tabindex="-1"
+      >
+        nav 3
+      </li>
+      <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
         role="none"
@@ -1300,6 +1348,30 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       role="menu"
       tabindex="0"
     >
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:0"
+        tabindex="-1"
+      >
+        nav 1
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:1"
+        tabindex="-1"
+      >
+        nav 2
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:2"
+        tabindex="-1"
+      >
+        nav 3
+      </li>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
@@ -1575,6 +1647,30 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       role="menu"
       tabindex="0"
     >
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:0"
+        tabindex="-1"
+      >
+        nav 1
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:1"
+        tabindex="-1"
+      >
+        nav 2
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:2"
+        tabindex="-1"
+      >
+        nav 3
+      </li>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
