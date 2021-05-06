@@ -23,7 +23,7 @@ const localeValues: Locale = {
     filterEmptyText: 'Nema filtera',
     emptyText: 'Nema podataka',
     selectAll: 'Izaberi trenutnu stranicu',
-    selectInvert: 'Invert current page',
+    selectInvert: 'Obrni izbor trenutne stranice',
     selectNone: 'Obriši sve podatke',
     selectionAll: 'Izaberi sve podatke',
     sortTitle: 'Sortiraj',
@@ -52,7 +52,7 @@ const localeValues: Locale = {
     removeCurrent: 'Ukloni trenutnu stranicu',
     selectAll: 'Izaberi sve podatke',
     removeAll: 'Ukloni sve podatke',
-    selectInvert: 'Obrni izbor trenutne strane',
+    selectInvert: 'Obrni izbor trenutne stranice',
   },
   Upload: {
     uploading: 'Otpremanje...',
