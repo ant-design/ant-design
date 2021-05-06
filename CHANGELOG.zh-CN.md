@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.15.5
+
+`2021-05-06`
+
+- 🐞 修复 Steps 进度条圆圈在底部被切掉的问题。[#30373](https://github.com/ant-design/ant-design/pull/30373) [@fachreza73](https://github.com/fachreza73)
+- 🐞 修复在 DatePicker 里设置 `locale` 不能覆盖 ConfigProvider `locale` 的问题。[#30380](https://github.com/ant-design/ant-design/pull/30380) [@Map1en](https://github.com/Map1en)
+
 ## 4.15.4
 
 `2021-04-30`
