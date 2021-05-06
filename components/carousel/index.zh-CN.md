@@ -34,6 +34,10 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
 | next() | 切换到下一面板 |
 | prev() | 切换到上一面板 |
 
-Arrow 问题可参考 [#12479](https://github.com/ant-design/ant-design/issues/12479)
-
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
+
+## FAQ
+
+### 如何自定义箭头？
+
+可参考 [#12479](https://github.com/ant-design/ant-design/issues/12479)。

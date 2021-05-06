@@ -33,6 +33,10 @@ A carousel component. Scales with its container.
 | next() | Change current slide to next slide |
 | prev() | Change current slide to previous slide |
 
-Arrow question for reference [#12479](https://github.com/ant-design/ant-design/issues/12479)
-
 Find more APIs in react-slick [documentation](https://react-slick.neostack.com/docs/api).
+
+## FAQ
+
+### How to add custom arrows?
+
+See [#12479](https://github.com/ant-design/ant-design/issues/12479).
