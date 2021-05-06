@@ -1,6 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Table from '..';
 import Input from '../../input';
 import Tooltip from '../../tooltip';
@@ -11,11 +12,12 @@ import ConfigProvider from '../../config-provider';
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
 
-function getDropdownWrapper(wrapper) {
-  return mount(wrapper.find('Trigger').first().instance().getComponent());
-}
-
 describe('Table.filter', () => {
+  window.requestAnimationFrame = function (callback) {
+    return window.setTimeout(callback, 16);
+  };
+  window.cancelAnimationFrame = window.clearTimeout;
+
   const filterFn = (value, record) => record.name.indexOf(value) !== -1;
   const column = {
     title: 'Name',
@@ -96,6 +98,8 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
+    jest.useFakeTimers();
+
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const wrapper = mount(
       createTable({
@@ -108,11 +112,18 @@ describe('Table.filter', () => {
       }),
     );
     wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
-    expect(wrapper.find('Empty').length).toBe(1);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+
+    expect(wrapper.find('Empty').length).toBeTruthy();
     // eslint-disable-next-line no-console
     expect(console.error).not.toHaveBeenCalled();
     // eslint-disable-next-line no-console
     console.error.mockRestore();
+
+    jest.useRealTimers();
   });
 
   it('renders radio filter correctly', () => {
@@ -548,24 +559,44 @@ describe('Table.filter', () => {
     // Open
     wrapper.find('.ant-table-filter-trigger').simulate('click');
 
-    let dropdownWrapper = getDropdownWrapper(wrapper);
+    function getFilterMenu() {
+      return wrapper.find('FilterDropdown');
+    }
 
-    // select
-    dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(0).simulate('mouseEnter');
-    jest.runAllTimers();
-    dropdownWrapper = getDropdownWrapper(wrapper);
-    dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(1).simulate('mouseEnter');
-    jest.runAllTimers();
-    dropdownWrapper = getDropdownWrapper(wrapper);
-    dropdownWrapper.find('MenuItem').last().simulate('click');
-    dropdownWrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    // Seems raf not trigger when in useEffect for async update
+    // Need trigger multiple times
+    function refreshTimer() {
+      for (let i = 0; i < 3; i += 1) {
+        act(() => {
+          jest.runAllTimers();
+          wrapper.update();
+        });
+      }
+    }
+
+    // Open Level2
+    getFilterMenu().find('div.ant-dropdown-menu-submenu-title').at(0).simulate('mouseEnter');
+    refreshTimer();
+
+    // Open Level3
+    getFilterMenu().find('div.ant-dropdown-menu-submenu-title').at(1).simulate('mouseEnter');
+    refreshTimer();
+
+    // Select Level3 value
+    getFilterMenu().find('li.ant-dropdown-menu-item').last().simulate('click');
+    getFilterMenu().find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    refreshTimer();
+
     onChange.mock.calls.forEach(([, currentFilters]) => {
       const [, val] = Object.entries(currentFilters)[0];
       expect(val).toEqual(['Jack']);
     });
-    wrapper.update();
+
     expect(renderedNames(wrapper)).toEqual(['Jack']);
-    dropdownWrapper.find('MenuItem').last().simulate('click');
+
+    // What's this? Is that a coverage case?
+    getFilterMenu().find('li.ant-dropdown-menu-item').last().simulate('click');
+
     jest.useRealTimers();
   });
 
