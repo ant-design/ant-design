@@ -5,8 +5,15 @@ import { PickerLocale } from '../generatePicker';
 // Merge into a locale object
 const locale: PickerLocale = {
   lang: {
-    placeholder: 'Izaberite datum',
-    rangePlaceholder: ['Početni datum', 'Krajnji datum'],
+    placeholder: 'Izaberi datum',
+    yearPlaceholder: 'Izaberi godinu',
+    quarterPlaceholder: 'Izaberi tromesečje',
+    monthPlaceholder: 'Izaberi mesec',
+    weekPlaceholder: 'Izaberi sedmicu',
+    rangePlaceholder: ['Datum početka', 'Datum završetka'],
+    rangeYearPlaceholder: ['Godina početka', 'Godina završetka'],
+    rangeMonthPlaceholder: ['Mesec početka', 'Mesec završetka'],
+    rangeWeekPlaceholder: ['Sedmica početka', 'Sedmica završetka'],
     ...CalendarLocale,
   },
   timePickerLocale: {
