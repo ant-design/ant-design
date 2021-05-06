@@ -91,7 +91,7 @@
           text-align: center;
         }
 
-        &:not(.ant-table-cell-fix-left-last):not(:last-child)::before {
+        &:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(.@{table-prefix-cls}-row-expand-icon-cell):not([colspan])::before {
           position: absolute;
           top: 50%;
           right: 0;
@@ -616,6 +616,10 @@
     .@{table-prefix-cls}-cell-fix-left-first::after,
     .@{table-prefix-cls}-cell-fix-left-last::after {
       box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+    }
+
+    .@{table-prefix-cls}-cell-fix-left-last::before {
+      background-color: transparent!important;
     }
   }
 
