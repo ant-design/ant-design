@@ -168,7 +168,9 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 1
           </span>
         </li>
@@ -197,7 +199,9 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 2
           </span>
         </li>
@@ -226,7 +230,9 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 3
           </span>
         </li>
@@ -440,7 +446,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 1
           </span>
         </li>
@@ -469,7 +477,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 2
           </span>
         </li>
@@ -498,7 +508,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 3
           </span>
         </li>
@@ -527,7 +539,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 4
           </span>
         </li>
@@ -556,7 +570,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 5
           </span>
         </li>
@@ -585,7 +601,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 6
           </span>
         </li>
@@ -614,7 +632,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 7
           </span>
         </li>
@@ -643,7 +663,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 8
           </span>
         </li>
@@ -818,7 +840,9 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 1
           </span>
         </li>
@@ -847,7 +871,9 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 2
           </span>
         </li>
@@ -876,7 +902,9 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 3
           </span>
         </li>
@@ -905,7 +933,9 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             nav 4
           </span>
         </li>
@@ -986,7 +1016,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             Option 1
           </span>
         </li>
@@ -1015,7 +1047,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             Option 2
           </span>
         </li>
@@ -1050,7 +1084,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
                 />
               </svg>
             </span>
-            <span>
+            <span
+              class="ant-menu-title-content"
+            >
               User
             </span>
             <i
@@ -1089,7 +1125,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
                 />
               </svg>
             </span>
-            <span>
+            <span
+              class="ant-menu-title-content"
+            >
               Team
             </span>
             <i
@@ -1122,7 +1160,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span>
+          <span
+            class="ant-menu-title-content"
+          >
             Files
           </span>
         </li>
@@ -1488,7 +1528,9 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                     />
                   </svg>
                 </span>
-                <span>
+                <span
+                  class="ant-menu-title-content"
+                >
                   subnav 1
                 </span>
                 <i
@@ -1564,7 +1606,9 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                     />
                   </svg>
                 </span>
-                <span>
+                <span
+                  class="ant-menu-title-content"
+                >
                   subnav 2
                 </span>
                 <i
@@ -1603,7 +1647,9 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                     />
                   </svg>
                 </span>
-                <span>
+                <span
+                  class="ant-menu-title-content"
+                >
                   subnav 3
                 </span>
                 <i
@@ -1741,7 +1787,9 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span>
+              <span
+                class="ant-menu-title-content"
+              >
                 subnav 1
               </span>
               <i
@@ -1817,7 +1865,9 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span>
+              <span
+                class="ant-menu-title-content"
+              >
                 subnav 2
               </span>
               <i
@@ -1856,7 +1906,9 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span>
+              <span
+                class="ant-menu-title-content"
+              >
                 subnav 3
               </span>
               <i
