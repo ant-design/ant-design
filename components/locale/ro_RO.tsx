@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ro_RO';
 import DatePicker from '../date-picker/locale/ro_RO';
 import TimePicker from '../time-picker/locale/ro_RO';
