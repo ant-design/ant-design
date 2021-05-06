@@ -1,8 +1,8 @@
 /* eslint-disable no-template-curly-in-string */
-import Pagination from 'rc-pagination/lib/locale/nl_NL';
-import DatePicker from '../date-picker/locale/nl_NL';
-import TimePicker from '../time-picker/locale/nl_NL';
-import Calendar from '../calendar/locale/nl_NL';
+import Pagination from 'rc-pagination/lib/locale/nl_BE';
+import DatePicker from '../date-picker/locale/nl_BE';
+import TimePicker from '../time-picker/locale/nl_BE';
+import Calendar from '../calendar/locale/nl_BE';
 import { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} is geen geldige ${type}';
