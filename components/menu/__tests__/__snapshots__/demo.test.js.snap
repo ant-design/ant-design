@@ -206,7 +206,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           <li
             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Option 1
@@ -214,7 +214,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           <li
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Option 2
@@ -236,7 +236,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           <li
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Option 3
@@ -244,7 +244,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           <li
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Option 4
@@ -501,7 +501,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 5
@@ -509,7 +509,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 6
@@ -517,7 +517,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 7
@@ -525,7 +525,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 8
@@ -628,7 +628,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       <li
         class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
-        style="padding-left:24px"
+        style="padding-left:48px"
         tabindex="-1"
       >
         Option 1
@@ -636,7 +636,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       <li
         class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
-        style="padding-left:24px"
+        style="padding-left:48px"
         tabindex="-1"
       >
         Option 2
@@ -644,7 +644,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       <li
         class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
-        style="padding-left:24px"
+        style="padding-left:48px"
         tabindex="-1"
       >
         Option 3
@@ -652,7 +652,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       <li
         class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
-        style="padding-left:24px"
+        style="padding-left:48px"
         tabindex="-1"
       >
         Option 4
@@ -1029,7 +1029,7 @@ Array [
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 3
@@ -1037,7 +1037,7 @@ Array [
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 4
@@ -1051,7 +1051,7 @@ Array [
             aria-haspopup="true"
             class="ant-menu-submenu-title"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
             title="Submenu"
           >
@@ -1212,7 +1212,7 @@ Array [
         <li
           class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 1
@@ -1220,7 +1220,7 @@ Array [
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 2
@@ -1228,7 +1228,7 @@ Array [
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 3
@@ -1236,7 +1236,7 @@ Array [
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
-          style="padding-left:24px"
+          style="padding-left:48px"
           tabindex="-1"
         >
           Option 4

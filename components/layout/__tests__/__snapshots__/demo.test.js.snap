@@ -1502,7 +1502,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                   role="menuitem"
-                  style="padding-left:24px"
+                  style="padding-left:48px"
                   tabindex="-1"
                 >
                   option1
@@ -1510,7 +1510,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
-                  style="padding-left:24px"
+                  style="padding-left:48px"
                   tabindex="-1"
                 >
                   option2
@@ -1518,7 +1518,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
-                  style="padding-left:24px"
+                  style="padding-left:48px"
                   tabindex="-1"
                 >
                   option3
@@ -1526,7 +1526,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
-                  style="padding-left:24px"
+                  style="padding-left:48px"
                   tabindex="-1"
                 >
                   option4
@@ -1755,7 +1755,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               <li
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 role="menuitem"
-                style="padding-left:24px"
+                style="padding-left:48px"
                 tabindex="-1"
               >
                 option1
@@ -1763,7 +1763,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               <li
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
-                style="padding-left:24px"
+                style="padding-left:48px"
                 tabindex="-1"
               >
                 option2
@@ -1771,7 +1771,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               <li
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
-                style="padding-left:24px"
+                style="padding-left:48px"
                 tabindex="-1"
               >
                 option3
@@ -1779,7 +1779,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               <li
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
-                style="padding-left:24px"
+                style="padding-left:48px"
                 tabindex="-1"
               >
                 option4
