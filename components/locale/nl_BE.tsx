@@ -17,7 +17,7 @@ const localeValues: Locale = {
     placeholder: 'Maak een selectie',
   },
   Table: {
-    cancelSort: 'Click to cancel sorting',
+    cancelSort: 'Klik om sortering te annuleren',
     collapse: 'Rij inklappen',
     emptyText: 'Geen data',
     expand: 'Rij uitklappen',
@@ -49,7 +49,7 @@ const localeValues: Locale = {
     removeAll: 'Verwijder alles',
     removeCurrent: 'Verwijder huidige pagina',
     searchPlaceholder: 'Zoek hier',
-    selectAll: 'Select alles',
+    selectAll: 'Selecteer alles',
     selectCurrent: 'Selecteer huidige pagina',
     selectInvert: 'Huidige pagina omkeren',
     titles: ['', ''],
