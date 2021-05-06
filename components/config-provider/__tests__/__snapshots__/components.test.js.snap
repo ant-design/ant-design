@@ -15080,7 +15080,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
           <li
             class="config-menu-item config-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Light
@@ -15136,7 +15136,7 @@ exports[`ConfigProvider components Menu configProvider componentSize large 1`] =
           <li
             class="config-menu-item config-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Light
@@ -15192,7 +15192,7 @@ exports[`ConfigProvider components Menu configProvider componentSize middle 1`] 
           <li
             class="config-menu-item config-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Light
@@ -15248,7 +15248,7 @@ exports[`ConfigProvider components Menu configProvider virtual and dropdownMatch
           <li
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Light
@@ -15304,7 +15304,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
           <li
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Light
@@ -15362,7 +15362,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
             class="prefix-Menu-item prefix-Menu-item-only-child"
             prefixcls="prefix-Menu"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left:48px"
             tabindex="-1"
           >
             Light
