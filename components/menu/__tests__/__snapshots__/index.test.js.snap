@@ -32,7 +32,9 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Navigation One
     </span>
   </li>
@@ -97,7 +99,9 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
       <i
@@ -223,7 +227,9 @@ exports[`Menu should controlled collapse work 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Option 1
     </span>
   </li>
@@ -232,7 +238,7 @@ exports[`Menu should controlled collapse work 1`] = `
 
 exports[`Menu should controlled collapse work 2`] = `
 <ul
-  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-inline-collapsed ant-menu-inline-collapsed"
+  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-inline-collapsed"
   data-menu-list="true"
   role="menu"
   tabindex="0"
@@ -263,7 +269,9 @@ exports[`Menu should controlled collapse work 2`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Option 1
     </span>
   </li>

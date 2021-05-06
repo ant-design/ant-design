@@ -32,7 +32,9 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Navigation One
     </span>
   </li>
@@ -61,7 +63,9 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Navigation Two
     </span>
   </li>
@@ -96,7 +100,9 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Three - Submenu
       </span>
       <i
@@ -180,7 +186,9 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
       <i
@@ -284,7 +292,9 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Two
       </span>
       <i
@@ -323,7 +333,9 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Three
       </span>
       <i
@@ -394,7 +406,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Option 1
       </span>
     </li>
@@ -423,7 +437,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Option 2
       </span>
     </li>
@@ -452,7 +468,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Option 3
       </span>
     </li>
@@ -487,7 +505,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation One
         </span>
         <i
@@ -563,7 +583,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Two
         </span>
         <i
@@ -614,7 +636,9 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
       <i
@@ -690,7 +714,9 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Two
       </span>
       <i
@@ -729,7 +755,9 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Three
       </span>
       <i
@@ -796,7 +824,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation One Long Long Long Long
         </span>
         <i
@@ -835,7 +865,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Two
         </span>
         <i
@@ -951,7 +983,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
     </li>
@@ -980,7 +1014,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Two
       </span>
     </li>
@@ -1015,7 +1051,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Two
         </span>
         <i
@@ -1094,7 +1132,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Three
         </span>
         <i
@@ -1127,7 +1167,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         <a
           href="https://ant.design"
           rel="noopener noreferrer"
@@ -1198,7 +1240,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation One
         </span>
         <i
@@ -1274,7 +1318,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Two
         </span>
         <i
@@ -1313,7 +1359,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Three
         </span>
         <i
@@ -1363,7 +1411,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
       <i
@@ -1401,7 +1451,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Two
       </span>
       <i
@@ -1439,7 +1491,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Three
       </span>
       <i
