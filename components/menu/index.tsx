@@ -75,13 +75,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     };
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
-    const menuClassName = classNames(
-      `${prefixCls}-${theme}`,
-      {
-        [`${prefixCls}-inline-collapsed`]: inlineCollapsed,
-      },
-      className,
-    );
+    const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
     return (
       <MenuContext.Provider

@@ -46,7 +46,7 @@ class SubMenu extends React.Component<SubMenuProps, any> {
     return (
       <>
         {icon}
-        {titleIsSpan ? title : <span>{title}</span>}
+        {titleIsSpan ? title : <span className={`${prefixCls}-title-content`}>{title}</span>}
       </>
     );
   }

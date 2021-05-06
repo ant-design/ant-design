@@ -29,7 +29,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
       }
       return children;
     }
-    return <span>{children}</span>;
+    return <span className={`${prefixCls}-title-content`}>{children}</span>;
   }
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
