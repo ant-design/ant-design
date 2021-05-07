@@ -2,12 +2,16 @@
 
 exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="ant-menu-item"
+    data-menu-id="rc-menu-uuid-test-1"
     role="menuitem"
+    tabindex="-1"
   >
     <span
       aria-label="mail"
@@ -28,13 +32,17 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Navigation One
     </span>
   </li>
   <li
     class="ant-menu-item"
+    data-menu-id="rc-menu-uuid-test-2"
     role="menuitem"
+    tabindex="-1"
   >
     <span
       aria-label="mail"
@@ -61,13 +69,16 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
-    role="menuitem"
+    role="none"
   >
     <div
+      aria-controls="rc-menu-uuid-test-3-popup"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      data-menu-id="rc-menu-uuid-test-3"
+      role="menuitem"
+      tabindex="-1"
     >
       <span
         aria-label="mail"
@@ -88,7 +99,9 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
       <i
@@ -98,13 +111,16 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
-    role="menuitem"
+    role="none"
   >
     <div
+      aria-controls="rc-menu-uuid-test-4-popup"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      data-menu-id="rc-menu-uuid-test-4"
+      role="menuitem"
+      tabindex="-1"
     >
       <span
         aria-label="mail"
@@ -138,16 +154,19 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
 
 exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-rtl ant-menu-vertical"
-  direction="rtl"
+  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl"
+  data-menu-list="true"
+  dir="rtl"
   role="menu"
+  tabindex="0"
 >
   <li
     class="ant-menu-item"
     role="menuitem"
+    tabindex="-1"
   />
   <li
-    class=" ant-menu-item-group"
+    class="ant-menu-item-group"
   >
     <div
       class="ant-menu-item-group-title"
@@ -158,14 +177,14 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
-      title=""
+      role="menuitem"
+      tabindex="-1"
     >
       <i
         class="ant-menu-submenu-arrow"
@@ -177,13 +196,17 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
 
 exports[`Menu should controlled collapse work 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="ant-menu-item"
+    data-menu-id="rc-menu-uuid-test-1"
     role="menuitem"
     style="padding-left: 24px;"
+    tabindex="-1"
   >
     <span
       aria-label="pie-chart"
@@ -204,7 +227,9 @@ exports[`Menu should controlled collapse work 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Option 1
     </span>
   </li>
@@ -213,13 +238,17 @@ exports[`Menu should controlled collapse work 1`] = `
 
 exports[`Menu should controlled collapse work 2`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-inline-collapsed ant-menu-root ant-menu-inline"
+  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-inline-collapsed"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="ant-menu-item"
+    data-menu-id="rc-menu-uuid-test-1"
     role="menuitem"
     style="padding-left: 24px;"
+    tabindex="-1"
   >
     <span
       aria-label="pie-chart"
@@ -240,7 +269,9 @@ exports[`Menu should controlled collapse work 2`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Option 1
     </span>
   </li>

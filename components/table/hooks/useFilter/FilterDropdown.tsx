@@ -44,19 +44,21 @@ function renderFilterItems({
     // wrapped with <div /> to avoid react warning
     // https://github.com/ant-design/ant-design/issues/25979
     return (
-      <div
-        style={{
-          margin: '16px 0',
-        }}
-      >
-        <Empty
-          image={Empty.PRESENTED_IMAGE_SIMPLE}
-          description={locale.filterEmptyText}
-          imageStyle={{
-            height: 24,
+      <MenuItem key="empty">
+        <div
+          style={{
+            margin: '16px 0',
           }}
-        />
-      </div>
+        >
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description={locale.filterEmptyText}
+            imageStyle={{
+              height: 24,
+            }}
+          />
+        </div>
+      </MenuItem>
     );
   }
   return filters.map((filter, index) => {

@@ -2,31 +2,16 @@
 
 exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
+  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
-    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+    class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
     role="menuitem"
-    style="display:none"
-  >
-    <div
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-menu-submenu-title"
-      role="button"
-    >
-      <span>
-        ···
-      </span>
-      <i
-        class="ant-menu-submenu-arrow"
-      />
-    </div>
-  </li>
-  <li
-    class="ant-menu-item ant-menu-item-selected"
-    role="menuitem"
+    style="opacity:1;order:0"
+    tabindex="-1"
   >
     <span
       aria-label="mail"
@@ -47,33 +32,17 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Navigation One
     </span>
   </li>
   <li
-    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-    role="menuitem"
-    style="display:none"
-  >
-    <div
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-menu-submenu-title"
-      role="button"
-    >
-      <span>
-        ···
-      </span>
-      <i
-        class="ant-menu-submenu-arrow"
-      />
-    </div>
-  </li>
-  <li
     aria-disabled="true"
-    class="ant-menu-item ant-menu-item-disabled"
+    class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
     role="menuitem"
+    style="opacity:1;order:1"
   >
     <span
       aria-label="appstore"
@@ -94,38 +63,23 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class="ant-menu-title-content"
+    >
       Navigation Two
     </span>
   </li>
   <li
-    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-    role="menuitem"
-    style="display:none"
+    class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+    role="none"
+    style="opacity:1;order:2"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
-    >
-      <span>
-        ···
-      </span>
-      <i
-        class="ant-menu-submenu-arrow"
-      />
-    </div>
-  </li>
-  <li
-    class="ant-menu-submenu ant-menu-submenu-horizontal"
-    role="menuitem"
-  >
-    <div
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
+      tabindex="-1"
     >
       <span
         aria-label="setting"
@@ -146,7 +100,9 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Three - Submenu
       </span>
       <i
@@ -155,27 +111,10 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
     role="menuitem"
-    style="display:none"
-  >
-    <div
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-menu-submenu-title"
-      role="button"
-    >
-      <span>
-        ···
-      </span>
-      <i
-        class="ant-menu-submenu-arrow"
-      />
-    </div>
-  </li>
-  <li
-    class="ant-menu-item ant-menu-item-only-child"
-    role="menuitem"
+    style="opacity:1;order:3"
+    tabindex="-1"
   >
     <a
       href="https://ant.design"
@@ -186,19 +125,20 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-    role="menuitem"
-    style="visibility:hidden;position:absolute"
+    aria-hidden="true"
+    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+    role="none"
+    style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
+      tabindex="-1"
+      title="..."
     >
-      <span>
-        ···
-      </span>
+      ...
       <i
         class="ant-menu-submenu-arrow"
       />
@@ -209,21 +149,23 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 
 exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+  data-menu-list="true"
   role="menu"
   style="width:256px"
+  tabindex="0"
 >
   <li
-    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-    role="menuitem"
+    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+    role="none"
   >
     <div
       aria-expanded="true"
       aria-haspopup="true"
-      aria-owns="sub1$Menu"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="mail"
@@ -244,7 +186,9 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
       <i
@@ -253,11 +197,10 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     </div>
     <ul
       class="ant-menu ant-menu-sub ant-menu-inline"
-      id="sub1$Menu"
-      role="menu"
+      data-menu-list="true"
     >
       <li
-        class=" ant-menu-item-group"
+        class="ant-menu-item-group"
       >
         <div
           class="ant-menu-item-group-title"
@@ -269,9 +212,10 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           class="ant-menu-item-group-list"
         >
           <li
-            class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+            class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Option 1
           </li>
@@ -279,13 +223,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Option 2
           </li>
         </ul>
       </li>
       <li
-        class=" ant-menu-item-group"
+        class="ant-menu-item-group"
       >
         <div
           class="ant-menu-item-group-title"
@@ -300,6 +245,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Option 3
           </li>
@@ -307,6 +253,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Option 4
           </li>
@@ -316,14 +263,15 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-inline"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="appstore"
@@ -344,25 +292,27 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Two
       </span>
       <i
         class="ant-menu-submenu-arrow"
       />
     </div>
-    <div />
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-inline"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="setting"
@@ -383,14 +333,15 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Three
       </span>
       <i
         class="ant-menu-submenu-arrow"
       />
     </div>
-    <div />
   </li>
 </ul>
 `;
@@ -425,13 +376,16 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
     </span>
   </button>
   <ul
-    class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    data-menu-list="true"
     role="menu"
+    tabindex="0"
   >
     <li
       class="ant-menu-item ant-menu-item-selected"
       role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="pie-chart"
@@ -452,7 +406,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Option 1
       </span>
     </li>
@@ -460,6 +416,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       class="ant-menu-item"
       role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="desktop"
@@ -480,7 +437,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Option 2
       </span>
     </li>
@@ -488,6 +447,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       class="ant-menu-item"
       role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="container"
@@ -508,21 +468,23 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Option 3
       </span>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-      role="menuitem"
+      role="none"
     >
       <div
         aria-expanded="true"
         aria-haspopup="true"
-        aria-owns="sub1$Menu"
         class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
         style="padding-left:24px"
+        tabindex="-1"
       >
         <span
           aria-label="mail"
@@ -543,7 +505,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation One
         </span>
         <i
@@ -552,13 +516,13 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
-        id="sub1$Menu"
-        role="menu"
+        data-menu-list="true"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 5
         </li>
@@ -566,6 +530,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 6
         </li>
@@ -573,6 +538,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 7
         </li>
@@ -580,6 +546,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 8
         </li>
@@ -587,14 +554,15 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
-      role="menuitem"
+      role="none"
     >
       <div
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
         style="padding-left:24px"
+        tabindex="-1"
       >
         <span
           aria-label="appstore"
@@ -615,14 +583,15 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Two
         </span>
         <i
           class="ant-menu-submenu-arrow"
         />
       </div>
-      <div />
     </li>
   </ul>
 </div>
@@ -630,21 +599,23 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 
 exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+  data-menu-list="true"
   role="menu"
   style="width:256px"
+  tabindex="0"
 >
   <li
     class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="true"
       aria-haspopup="true"
-      aria-owns="sub1$Menu"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="mail"
@@ -665,7 +636,9 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
       <i
@@ -674,13 +647,13 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     </div>
     <ul
       class="ant-menu ant-menu-sub ant-menu-inline"
-      id="sub1$Menu"
-      role="menu"
+      data-menu-list="true"
     >
       <li
         class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
+        tabindex="-1"
       >
         Option 1
       </li>
@@ -688,6 +661,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
+        tabindex="-1"
       >
         Option 2
       </li>
@@ -695,6 +669,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
+        tabindex="-1"
       >
         Option 3
       </li>
@@ -702,6 +677,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
+        tabindex="-1"
       >
         Option 4
       </li>
@@ -709,14 +685,15 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-inline"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="appstore"
@@ -737,25 +714,27 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Two
       </span>
       <i
         class="ant-menu-submenu-arrow"
       />
     </div>
-    <div />
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-inline"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="setting"
@@ -776,14 +755,15 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Three
       </span>
       <i
         class="ant-menu-submenu-arrow"
       />
     </div>
-    <div />
   </li>
 </ul>
 `;
@@ -808,37 +788,22 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+    data-menu-list="true"
     role="menu"
+    tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-      role="menuitem"
-      style="display:none"
+      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity:1;order:0"
     >
       <div
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        role="button"
-      >
-        <span>
-          ···
-        </span>
-        <i
-          class="ant-menu-submenu-arrow"
-        />
-      </div>
-    </li>
-    <li
-      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-selected"
-      role="menuitem"
-    >
-      <div
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
+        tabindex="-1"
       >
         <span
           aria-label="mail"
@@ -859,7 +824,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation One Long Long Long Long
         </span>
         <i
@@ -868,33 +835,16 @@ Array [
       </div>
     </li>
     <li
-      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-      role="menuitem"
-      style="display:none"
+      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity:1;order:1"
     >
       <div
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        role="button"
-      >
-        <span>
-          ···
-        </span>
-        <i
-          class="ant-menu-submenu-arrow"
-        />
-      </div>
-    </li>
-    <li
-      class="ant-menu-submenu ant-menu-submenu-horizontal"
-      role="menuitem"
-    >
-      <div
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
+        tabindex="-1"
       >
         <span
           aria-label="appstore"
@@ -915,7 +865,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Two
         </span>
         <i
@@ -924,69 +876,36 @@ Array [
       </div>
     </li>
     <li
-      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
       role="menuitem"
-      style="display:none"
-    >
-      <div
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        role="button"
-      >
-        <span>
-          ···
-        </span>
-        <i
-          class="ant-menu-submenu-arrow"
-        />
-      </div>
-    </li>
-    <li
-      class="ant-menu-item ant-menu-item-only-child"
-      role="menuitem"
+      style="opacity:1;order:2"
+      tabindex="-1"
     >
       Option 11
     </li>
     <li
-      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
       role="menuitem"
-      style="display:none"
-    >
-      <div
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        role="button"
-      >
-        <span>
-          ···
-        </span>
-        <i
-          class="ant-menu-submenu-arrow"
-        />
-      </div>
-    </li>
-    <li
-      class="ant-menu-item ant-menu-item-only-child"
-      role="menuitem"
+      style="opacity:1;order:3"
+      tabindex="-1"
     >
       Option 12
     </li>
     <li
-      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-      role="menuitem"
-      style="visibility:hidden;position:absolute"
+      aria-hidden="true"
+      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
     >
       <div
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
+        tabindex="-1"
+        title="..."
       >
-        <span>
-          ···
-        </span>
+        ...
         <i
           class="ant-menu-submenu-arrow"
         />
@@ -1033,14 +952,17 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    data-menu-list="true"
     role="menu"
     style="width:256px"
+    tabindex="0"
   >
     <li
       class="ant-menu-item ant-menu-item-selected"
       role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="mail"
@@ -1061,7 +983,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
     </li>
@@ -1069,6 +993,7 @@ Array [
       class="ant-menu-item"
       role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="calendar"
@@ -1089,21 +1014,23 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Two
       </span>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-      role="menuitem"
+      role="none"
     >
       <div
         aria-expanded="true"
         aria-haspopup="true"
-        aria-owns="sub1$Menu"
         class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
         style="padding-left:24px"
+        tabindex="-1"
       >
         <span
           aria-label="appstore"
@@ -1124,7 +1051,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Two
         </span>
         <i
@@ -1133,13 +1062,13 @@ Array [
       </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
-        id="sub1$Menu"
-        role="menu"
+        data-menu-list="true"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 3
         </li>
@@ -1147,19 +1076,21 @@ Array [
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 4
         </li>
         <li
           class="ant-menu-submenu ant-menu-submenu-inline"
-          role="menuitem"
+          role="none"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            role="button"
+            role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
             title="Submenu"
           >
             Submenu
@@ -1167,20 +1098,20 @@ Array [
               class="ant-menu-submenu-arrow"
             />
           </div>
-          <div />
         </li>
       </ul>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
-      role="menuitem"
+      role="none"
     >
       <div
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
         style="padding-left:24px"
+        tabindex="-1"
       >
         <span
           aria-label="setting"
@@ -1201,19 +1132,21 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Three
         </span>
         <i
           class="ant-menu-submenu-arrow"
         />
       </div>
-      <div />
     </li>
     <li
       class="ant-menu-item"
       role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
     >
       <span
         aria-label="link"
@@ -1234,7 +1167,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         <a
           href="https://ant.design"
           rel="noopener noreferrer"
@@ -1268,21 +1203,23 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    data-menu-list="true"
     role="menu"
     style="width:256px"
+    tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-      role="menuitem"
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+      role="none"
     >
       <div
         aria-expanded="true"
         aria-haspopup="true"
-        aria-owns="sub1$Menu"
         class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
         style="padding-left:24px"
+        tabindex="-1"
       >
         <span
           aria-label="mail"
@@ -1303,7 +1240,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation One
         </span>
         <i
@@ -1312,13 +1251,13 @@ Array [
       </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
-        id="sub1$Menu"
-        role="menu"
+        data-menu-list="true"
       >
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+          class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 1
         </li>
@@ -1326,6 +1265,7 @@ Array [
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 2
         </li>
@@ -1333,6 +1273,7 @@ Array [
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 3
         </li>
@@ -1340,6 +1281,7 @@ Array [
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
+          tabindex="-1"
         >
           Option 4
         </li>
@@ -1347,14 +1289,15 @@ Array [
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
-      role="menuitem"
+      role="none"
     >
       <div
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
         style="padding-left:24px"
+        tabindex="-1"
       >
         <span
           aria-label="appstore"
@@ -1375,25 +1318,27 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Two
         </span>
         <i
           class="ant-menu-submenu-arrow"
         />
       </div>
-      <div />
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
-      role="menuitem"
+      role="none"
     >
       <div
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        role="button"
+        role="menuitem"
         style="padding-left:24px"
+        tabindex="-1"
       >
         <span
           aria-label="setting"
@@ -1414,14 +1359,15 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class="ant-menu-title-content"
+        >
           Navigation Three
         </span>
         <i
           class="ant-menu-submenu-arrow"
         />
       </div>
-      <div />
     </li>
   </ul>,
 ]
@@ -1429,19 +1375,22 @@ Array [
 
 exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+  data-menu-list="true"
   role="menu"
   style="width:256px"
+  tabindex="0"
 >
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
+      tabindex="-1"
     >
       <span
         aria-label="mail"
@@ -1462,7 +1411,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation One
       </span>
       <i
@@ -1472,13 +1423,14 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
+      tabindex="-1"
     >
       <span
         aria-label="appstore"
@@ -1499,7 +1451,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Two
       </span>
       <i
@@ -1509,13 +1463,14 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
+      tabindex="-1"
     >
       <span
         aria-label="setting"
@@ -1536,7 +1491,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
+      <span
+        class="ant-menu-title-content"
+      >
         Navigation Three
       </span>
       <i

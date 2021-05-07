@@ -101,8 +101,7 @@ const Dropdown: DropdownInterface = props => {
     );
 
     // menu cannot be selectable in dropdown defaultly
-    // menu should be focusable in dropdown defaultly
-    const { selectable = false, focusable = true, expandIcon } = overlayProps;
+    const { selectable = false, expandIcon } = overlayProps;
 
     const overlayNodeExpandIcon =
       typeof expandIcon !== 'undefined' && React.isValidElement(expandIcon) ? (
@@ -119,7 +118,6 @@ const Dropdown: DropdownInterface = props => {
         : cloneElement(overlayNode, {
             mode: 'vertical',
             selectable,
-            focusable,
             expandIcon: overlayNodeExpandIcon,
           });
 

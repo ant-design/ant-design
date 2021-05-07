@@ -601,12 +601,16 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                               class="ant-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                                data-menu-list="true"
                                 role="menu"
+                                tabindex="0"
                               >
                                 <li
                                   class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-boy"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="ant-checkbox-wrapper"
@@ -630,7 +634,9 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                 </li>
                                 <li
                                   class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-girl"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="ant-checkbox-wrapper"
@@ -654,13 +660,16 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                 </li>
                                 <li
                                   class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                  role="menuitem"
+                                  role="none"
                                 >
                                   <div
+                                    aria-controls="rc-menu-uuid-test-title-popup"
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
-                                    role="button"
+                                    data-menu-id="rc-menu-uuid-test-title"
+                                    role="menuitem"
+                                    tabindex="-1"
                                     title="Title"
                                   >
                                     Title
@@ -833,12 +842,16 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                               class="ant-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                                data-menu-list="true"
                                 role="menu"
+                                tabindex="0"
                               >
                                 <li
                                   class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-boy"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="ant-checkbox-wrapper"
@@ -862,7 +875,9 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                 </li>
                                 <li
                                   class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-girl"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="ant-checkbox-wrapper"
@@ -886,13 +901,16 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                 </li>
                                 <li
                                   class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                  role="menuitem"
+                                  role="none"
                                 >
                                   <div
+                                    aria-controls="rc-menu-uuid-test-title-popup"
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
-                                    role="button"
+                                    data-menu-id="rc-menu-uuid-test-title"
+                                    role="menuitem"
+                                    tabindex="-1"
                                     title="Title"
                                   >
                                     Title
