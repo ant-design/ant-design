@@ -38,6 +38,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
 | visible | Whether the floating tooltip card is visible or not | boolean | false |  |
+| zIndex | Config `z-index` of Tooltip | number | - |  |
 | onVisibleChange | Callback executed when visibility of the tooltip card is changed | (visible) => void | - |  |
 
 ## Note

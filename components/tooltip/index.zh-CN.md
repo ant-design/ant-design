@@ -40,6 +40,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string\[] | `hover` |  |
 | visible | 用于手动控制浮层显隐 | boolean | false |  |
+| zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
 | onVisibleChange | 显示隐藏的回调 | (visible) => void | - |  |
 
 ## 注意
