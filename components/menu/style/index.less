@@ -5,6 +5,10 @@
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 @menu-animation-duration-normal: 0.15s;
 
+.accessibility-focus() {
+  box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+}
+
 // TODO: Should remove icon style compatible in v5
 
 // default theme
@@ -26,7 +30,7 @@
   .clearfix();
 
   &&-root:focus-visible {
-    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+    .accessibility-focus();
   }
 
   ul,
@@ -219,6 +223,10 @@
       > .@{menu-prefix-cls}-item-icon {
         margin-right: 0;
       }
+    }
+
+    &:focus-visible {
+      .accessibility-focus();
     }
   }
 
@@ -503,6 +511,7 @@
 
   &-inline-collapsed {
     width: @menu-collapsed-width;
+
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-item-group
       > .@{menu-prefix-cls}-item-group-list
