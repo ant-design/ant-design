@@ -326,7 +326,7 @@ describe('Menu', () => {
       wrapper.update();
     });
 
-    expect(wrapper.find('ul.ant-menu-sub').hasClass('ant-menu-inline')).toBeTruthy();
+    expect(wrapper.find('ul.ant-menu-sub').last().hasClass('ant-menu-inline')).toBeTruthy();
     expect(wrapper.find('InlineSubMenuList').prop('open')).toBeTruthy();
   });
 
