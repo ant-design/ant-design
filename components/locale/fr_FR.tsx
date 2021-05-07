@@ -17,8 +17,11 @@ const localeValues: Locale = {
     filterTitle: 'Filtrer',
     filterConfirm: 'OK',
     filterReset: 'Réinitialiser',
+    filterEmptyText: 'Aucun filtre',
+    emptyText: 'Aucune donnée',
     selectAll: 'Sélectionner la page actuelle',
     selectInvert: 'Inverser la sélection de la page actuelle',
+    selectNone: 'Désélectionner toutes les données',
     selectionAll: 'Sélectionner toutes les données',
     sortTitle: 'Trier',
     expand: 'Développer la ligne',
@@ -37,12 +40,16 @@ const localeValues: Locale = {
     cancelText: 'Annuler',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Rechercher',
     itemUnit: 'élément',
     itemsUnit: 'éléments',
-  },
-  Empty: {
-    description: 'Aucune donnée',
+    remove: 'Désélectionner',
+    selectCurrent: 'Sélectionner la page actuelle',
+    removeCurrent: 'Désélectionner la page actuelle',
+    selectAll: 'Sélectionner toutes les données',
+    removeAll: 'Désélectionner toutes les données',
+    selectInvert: 'Inverser la sélection de la page actuelle',
   },
   Upload: {
     uploading: 'Téléchargement...',
@@ -50,6 +57,12 @@ const localeValues: Locale = {
     uploadError: 'Erreur de téléchargement',
     previewFile: 'Fichier de prévisualisation',
     downloadFile: 'Télécharger un fichier',
+  },
+  Empty: {
+    description: 'Aucune donnée',
+  },
+  Icon: {
+    icon: 'icône',
   },
   Text: {
     edit: 'Éditer',
@@ -109,6 +122,9 @@ const localeValues: Locale = {
         mismatch: 'La valeur du champ ${label} ne correspond pas au modèle ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'Aperçu',
   },
 };
 
