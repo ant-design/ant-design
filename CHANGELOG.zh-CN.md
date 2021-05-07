@@ -15,6 +15,36 @@ timeline: true
 
 ---
 
+## 4.15.4
+
+`2021-04-30`
+
+- 🐞 修复 Menu.Item 设置 `collapsedWidth` 时宽度错误的问题。[#30357](https://github.com/ant-design/ant-design/pull/30357) [@Map1en](https://github.com/Map1en)
+- 🐞 修复 Radio 选中样式有时高度略长的问题。[#30367](https://github.com/ant-design/ant-design/pull/30367)
+- 🐞 修复 Typography.Link  在 `editable` 模式下点击编辑会触发链接跳转的问题。[#30354](https://github.com/ant-design/ant-design/pull/30354) [@John60676](https://github.com/John60676)
+- 🐞 InputNumber 现在清空输入框时会触发 `onChange(null)`。[#30337](https://github.com/ant-design/ant-design/pull/30337)
+- 🐞 修复 Modal `footer` 里放置 Dropdown.Button 的样式错乱问题。[#30328](https://github.com/ant-design/ant-design/pull/30328) [@Map1en](https://github.com/Map1en)
+- 💄 替换 Anchor 默认背景颜色从 `#FFFFFF` 改至 `transparent`。[#30336](https://github.com/ant-design/ant-design/pull/30336)
+- 🌐 添加 TimePicker.RangePicker  `ko_KR` 和 `ja_JP` 的 `placeholder` 国际化。[#30285](https://github.com/ant-design/ant-design/pull/30285) [@ChalkPE](https://github.com/ChalkPE)
+- TypeScript
+  - 🤖 修复 Upload 组件 `beforeUpload` 类型声明。[#30351](https://github.com/ant-design/ant-design/pull/30351) [@kerm1it](https://github.com/kerm1it)
+
+## 4.15.3
+
+`2021-04-25`
+
+- Table
+  - 🐞 修复选择列和边框冲突的问题。[#30304](https://github.com/ant-design/ant-design/pull/30304)
+  - 🚨 当 `current` 为负数时将在显示控制台警告。[#30242](https://github.com/ant-design/ant-design/pull/30242) [@wadezhan](https://github.com/wadezhan)
+- 🐞 修复 Button `type="link"` 添加 `disabled` 后仍然可点击跳转的问题。[#30209](https://github.com/ant-design/ant-design/pull/30209)
+- 🐞 修复 Upload 当文件 url 为 `null` 时渲染出错问题。[#30215](https://github.com/ant-design/ant-design/pull/30215)
+- 🐞 修复 SubMenu 在 ItemGroup 内时的内边距。[#30218](https://github.com/ant-design/ant-design/pull/30218) [@sebakerckhof](https://github.com/sebakerckhof)
+- 🐞 修复 Checkbox 和 Radio 在 flex 布局下的对齐问题。[#30260](https://github.com/ant-design/ant-design/pull/30260)
+- 🐞 修复 Badge 上放置旋转图标的动画问题。[#30275](https://github.com/ant-design/ant-design/pull/30275)
+- 🐞 修复 Form 错误校验状态下 Input `disabled` 的 hover 样式。[#30302](https://github.com/ant-design/ant-design/pull/30302) [@Fog3211](https://github.com/Fog3211)
+- TypeScript
+  - 🤖 修复 Upload 组件 `beforeUpload` 类型声明。[#30213](https://github.com/ant-design/ant-design/pull/30213)
+
 ## 4.15.2
 
 `2021-04-19`

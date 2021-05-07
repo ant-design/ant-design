@@ -31,7 +31,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | headers | Set request headers, valid above IE10 | object | - |  |
 | iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
 | isImageUrl | Customize if render &lt;img /> in thumbnail | (file: UploadFile) => boolean | [(inside implementation)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
-| itemRender | Custom item of uploadList | (originNode: ReactElement, file: UploadFile, fileList?: object\[]) => React.ReactNode | - | 4.7.0 |
+| itemRender | Custom item of uploadList | (originNode: ReactElement, file: UploadFile, fileList: object\[], actions: { download: function, preview: function, remove: function }) => React.ReactNode | - | 4.16.0 |
 | listType | Built-in stylesheets, support for three types: `text`, `picture` or `picture-card` | string | `text` |  |
 | maxCount | Limit the number of uploaded files. Will replace current one when `maxCount` is `1` | number | - | 4.10.0 |
 | method | The http method of upload request | string | `post` |  |

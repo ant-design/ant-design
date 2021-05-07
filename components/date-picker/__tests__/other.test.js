@@ -4,6 +4,9 @@ import moment from 'moment';
 import DatePicker from '..';
 import LocaleProvider from '../../locale-provider';
 import locale from '../../locale-provider/zh_CN';
+import ConfigProvider from '../../config-provider';
+import jaJP from '../../locale/ja_JP';
+import zhTW from '../locale/zh_TW';
 
 const { MonthPicker, WeekPicker } = DatePicker;
 
@@ -51,5 +54,25 @@ describe('MonthPicker and WeekPicker', () => {
     const wrapper = mount(<WeekPicker open />);
     wrapper.setProps({ value: birthday });
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+  });
+});
+
+describe('Override locale setting of the ConfigProvider', () => {
+  it('DatePicker', () => {
+    const wrapper = mount(
+      <ConfigProvider locale={jaJP}>
+        <DatePicker locale={zhTW} />
+      </ConfigProvider>,
+    );
+    expect(wrapper.find('input').props().placeholder).toEqual('請選擇日期');
+  });
+  it('RangePicker', () => {
+    const wrapper = mount(
+      <ConfigProvider locale={jaJP}>
+        <DatePicker.RangePicker locale={zhTW} />
+      </ConfigProvider>,
+    );
+    expect(wrapper.find('input').at(0).props().placeholder).toEqual('開始日期');
+    expect(wrapper.find('input').at(1).props().placeholder).toEqual('結束日期');
   });
 });
