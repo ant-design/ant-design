@@ -794,4 +794,14 @@ describe('Menu', () => {
     wrapper.find('button').simulate('click');
     expect(onOpenChange).toHaveBeenCalledWith([]);
   });
+
+  it('Use first char as Icon when collapsed', () => {
+    const wrapper = mount(
+      <Menu mode="inline" inlineCollapsed>
+        <Menu.Item>Bamboo</Menu.Item>
+      </Menu>,
+    );
+
+    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').text()).toEqual('B');
+  });
 });
