@@ -49,7 +49,7 @@ An enterprise-class UI design language and React UI library.
 
 English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 
-## ✨ Features
+## ✨ Features test
 
 - 🌈 Enterprise-class UI designed for web applications.
 - 📦 A set of high-quality React components out of the box.
