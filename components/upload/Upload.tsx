@@ -170,9 +170,21 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       if (!filteredFileInfoList[index].parsedFile) {
         // `beforeUpload` return false
         const { originFileObj } = fileObj;
-        const clone = (new File([originFileObj], originFileObj.name, {
-          type: originFileObj.type,
-        }) as any) as UploadFile;
+        let clone;
+
+        try {
+          clone = (new File([originFileObj], originFileObj.name, {
+            type: originFileObj.type,
+          }) as any) as UploadFile;
+        } catch (e) {
+          clone = (new Blob([originFileObj], {
+            type: originFileObj.type,
+          }) as any) as UploadFile;
+          clone.name = originFileObj.name;
+          clone.lastModifiedDate = new Date();
+          clone.lastModified = new Date().getTime();
+        }
+
         clone.uid = fileObj.uid;
         triggerFileObj = clone;
       } else {
