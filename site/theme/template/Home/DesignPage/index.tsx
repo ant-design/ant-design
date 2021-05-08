@@ -264,7 +264,7 @@ const DesignPage = (props: { location: any }) => {
                     </span>
                   </li>
                   <li>
-                    <a href="https://vue.ant.design/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://antdv.com/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Vue
                     </a>
                     <span style={smallStyle}>

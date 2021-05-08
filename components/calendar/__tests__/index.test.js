@@ -27,6 +27,18 @@ describe('Calendar', () => {
     findSelectItem(wrapper).at(index).simulate('click');
   }
 
+  // https://github.com/ant-design/ant-design/issues/30392
+  it('should be able to set undefined or null', () => {
+    expect(() => {
+      const wrapper = mount(<Calendar />);
+      wrapper.setProps({ value: null });
+    }).not.toThrow();
+    expect(() => {
+      const wrapper = mount(<Calendar />);
+      wrapper.setProps({ value: undefined });
+    }).not.toThrow();
+  });
+
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
     const onChange = jest.fn();
