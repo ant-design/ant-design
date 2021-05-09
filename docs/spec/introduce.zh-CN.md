@@ -56,7 +56,7 @@ const LinksList = () => (
       </a>
     </li>
     <li>
-      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue</a>
+      <a href="http://antdv.com" target="_blank">Ant Design of Vue</a>
     </li>
     <li>
       <a href="https://ant-design-blazor.github.io/" target="_blank">

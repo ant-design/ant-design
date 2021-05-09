@@ -27,7 +27,7 @@ timeline: true
 - 💄 Replace Anchor default background from `#FFFFFF` to `transparent`. [#30336](https://github.com/ant-design/ant-design/pull/30336)
 - 🌐 Add `ko_KR` and `ja_JP` TimePicker.RangePicker placeholder. [#30285](https://github.com/ant-design/ant-design/pull/30285) [@ChalkPE](https://github.com/ChalkPE)
 - TypeScript
-  - 🤖 Fix Upload type definition of `beforeUpload`. [#30351](https://github.com/ant-design/ant-design/pull/30351) [@kerm1it](https://github.com/kerm1it)
+  - 🤖 Fix Upload type definition of `beforeUpload` and `UploadFile`. [#30351](https://github.com/ant-design/ant-design/pull/30351) [#30343](https://github.com/ant-design/ant-design/pull/30343) [@kerm1it](https://github.com/kerm1it)
 
 ## 4.15.3
 
@@ -43,7 +43,7 @@ timeline: true
 - 🐞 Fix Badge broken animation on spin icon. [#30275](https://github.com/ant-design/ant-design/pull/30275)
 - 🐞 Fix Input `disabled` hover style in Form. [#30302](https://github.com/ant-design/ant-design/pull/30302) [@Fog3211](https://github.com/Fog3211)
 - TypeScript
-  - 🤖 Fix Upload type definition of `beforeUpload`. [#30213](https://github.com/ant-design/ant-design/pull/30213)
+  - 🤖 Fix Upload type definition of `beforeUpload`. [#30213](https://github.com/ant-design/ant-design/pull/30213) [@hello-chinese](https://github.com/hello-chinese)
 
 ## 4.15.2
 

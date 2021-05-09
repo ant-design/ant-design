@@ -27,7 +27,7 @@ timeline: true
 - 💄 替换 Anchor 默认背景颜色从 `#FFFFFF` 改至 `transparent`。[#30336](https://github.com/ant-design/ant-design/pull/30336)
 - 🌐 添加 TimePicker.RangePicker  `ko_KR` 和 `ja_JP` 的 `placeholder` 国际化。[#30285](https://github.com/ant-design/ant-design/pull/30285) [@ChalkPE](https://github.com/ChalkPE)
 - TypeScript
-  - 🤖 修复 Upload 组件 `beforeUpload` 类型声明。[#30351](https://github.com/ant-design/ant-design/pull/30351) [@kerm1it](https://github.com/kerm1it)
+  - 🤖 修复 Upload `beforeUpload` 和 `UploadFile` 类型声明。[#30351](https://github.com/ant-design/ant-design/pull/30351) [#30343](https://github.com/ant-design/ant-design/pull/30343) [@kerm1it](https://github.com/kerm1it)
 
 ## 4.15.3
 
@@ -43,7 +43,7 @@ timeline: true
 - 🐞 修复 Badge 上放置旋转图标的动画问题。[#30275](https://github.com/ant-design/ant-design/pull/30275)
 - 🐞 修复 Form 错误校验状态下 Input `disabled` 的 hover 样式。[#30302](https://github.com/ant-design/ant-design/pull/30302) [@Fog3211](https://github.com/Fog3211)
 - TypeScript
-  - 🤖 修复 Upload 组件 `beforeUpload` 类型声明。[#30213](https://github.com/ant-design/ant-design/pull/30213)
+  - 🤖 修复 Upload 组件 `beforeUpload` 类型声明。[#30213](https://github.com/ant-design/ant-design/pull/30213) [@hello-chinese](https://github.com/hello-chinese)
 
 ## 4.15.2
 
