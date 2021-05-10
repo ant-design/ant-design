@@ -19,8 +19,17 @@ timeline: true
 
 `2021-05-06`
 
+- 🐞 修复 Upload 在 IE 下，`beforeUpload` 返回 `false` 的报错问题。[#30391](https://github.com/ant-design/ant-design/pull/30391) [@OleksandrAntonenko1](https://github.com/OleksandrAntonenko1)
+- Calendar
+  - 🐞 修复 Calendar 在 Form.Item 下样式错乱的问题。
+  - 🐞 修复 Calendar `value` 设置 `null` 和 `undefined` 时报错的问题。[#30442](https://github.com/ant-design/ant-design/pull/30442)
+- 💄 修复 Table 展开图标在 Windows Firefox 下显示异常的问题。[#30410](https://github.com/ant-design/ant-design/pull/30410)
 - 🐞 修复 Steps 进度条圆圈在底部被切掉的问题。[#30373](https://github.com/ant-design/ant-design/pull/30373) [@fachreza73](https://github.com/fachreza73)
 - 🐞 修复在 DatePicker 里设置 `locale` 不能覆盖 ConfigProvider `locale` 的问题。[#30380](https://github.com/ant-design/ant-design/pull/30380) [@Map1en](https://github.com/Map1en)
+- 🇫🇷 更新法语国际化。[#30436](https://github.com/ant-design/ant-design/pull/30436) [@LoicUV](https://github.com/LoicUV)
+- 🌐 更新塞尔维亚语国际化。[#30401](https://github.com/ant-design/ant-design/pull/30401) [@vmedar](https://github.com/vmedar)
+- TypeScript
+  - 🤖 Tooltip 导出 `zIndex` 类型定义。[#30432](https://github.com/ant-design/ant-design/pull/30432)
 
 ## 4.15.4
 

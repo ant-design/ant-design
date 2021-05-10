@@ -19,8 +19,17 @@ timeline: true
 
 `2021-05-06`
 
+- 🐞 Fix Upload crashes if `beforeUpload` returns `false` in IE. [#30391](https://github.com/ant-design/ant-design/pull/30391) [@OleksandrAntonenko1](https://github.com/OleksandrAntonenko1)
+- Calendar
+  - 🐞 Fix Calendar broken style inside Form.Item.
+  - 🐞 Fix Calendar throws error when set `value` to `null` or `undefined`. [#30442](https://github.com/ant-design/ant-design/pull/30442)
+- 💄 Fix Table broken expand icon style in Windows Firefox. [#30410](https://github.com/ant-design/ant-design/pull/30410)
 - 🐞 Fix Steps with progress Circle get cut at the bottom. [#30373](https://github.com/ant-design/ant-design/pull/30373) [@fachreza73](https://github.com/fachreza73)
 - 🐞 Fix the problem that setting `locale` in DatePicker cannot override ConfigProvider `locale`. [#30380](https://github.com/ant-design/ant-design/pull/30380) [@Map1en](https://github.com/Map1en)
+- 🇫🇷 Update french locale with missing messages. [#30436](https://github.com/ant-design/ant-design/pull/30436) [@LoicUV](https://github.com/LoicUV)
+- 🌐 Update Serbian locale. [#30401](https://github.com/ant-design/ant-design/pull/30401) [@vmedar](https://github.com/vmedar)
+- TypeScript
+  - 🤖 Export Tooltip `zIndex` prop typescript definition. [#30432](https://github.com/ant-design/ant-design/pull/30432)
 
 ## 4.15.4
 
