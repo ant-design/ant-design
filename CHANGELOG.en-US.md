@@ -23,7 +23,9 @@ timeline: true
 - Calendar
   - 🐞 Fix Calendar broken style inside Form.Item. [#30442](https://github.com/ant-design/ant-design/pull/30442)
   - 🐞 Fix Calendar throws error when set `value` to `null` or `undefined`. [#30442](https://github.com/ant-design/ant-design/pull/30442)
+- 🐞 Fix Dropdown.Button don't support `mouseEnterDelay` and `mouseLeaveDelay`. [#30452](https://github.com/ant-design/ant-design/pull/30452)
 - 💄 Fix Table broken expand icon style in Windows Firefox. [#30410](https://github.com/ant-design/ant-design/pull/30410)
+- 💄 Optimize Rate focus behavior from `:focus` to `:focus-visible`. [#30451](https://github.com/ant-design/ant-design/pull/30451)
 - 🐞 Fix Steps with progress Circle get cut at the bottom. [#30373](https://github.com/ant-design/ant-design/pull/30373) [@fachreza73](https://github.com/fachreza73)
 - 🐞 Fix the problem that setting `locale` in DatePicker cannot override ConfigProvider `locale`. [#30380](https://github.com/ant-design/ant-design/pull/30380) [@Map1en](https://github.com/Map1en)
 - 🇫🇷 Update french locale with missing messages. [#30436](https://github.com/ant-design/ant-design/pull/30436) [@LoicUV](https://github.com/LoicUV)
