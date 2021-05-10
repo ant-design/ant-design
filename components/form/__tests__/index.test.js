@@ -248,6 +248,43 @@ describe('Form', () => {
     wrapper.unmount();
   });
 
+  // https://github.com/ant-design/ant-design/issues/30055
+  it('scrollToFirstError after dynamic change form.item', async () => {
+    const onFinishFailed = jest.fn();
+    function App() {
+      const [message, updateMessage] = React.useState(false);
+      return (<Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
+        {
+          message ?
+            <Form.Item name="new" rules={[{ required: true }]}>
+              <input />
+            </Form.Item> : null
+        }
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+        <Button onClick={() => { updateMessage(true) }}></Button>
+      </Form>)
+    }
+
+    const wrapper = mount(
+      <App />,
+      { attachTo: document.body },
+    );
+
+    expect(scrollIntoView).not.toHaveBeenCalled();
+    wrapper.find('button').simulate('click')
+    wrapper.find('form').simulate('submit');
+    await sleep(50);
+    const inputNode = document.getElementById('new');
+    expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+      block: 'center',
+      scrollMode: 'if-needed',
+    });
+    expect(onFinishFailed).toHaveBeenCalled();
+    wrapper.unmount();
+  });
+
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
     const wrapper = mount(
       <Form>

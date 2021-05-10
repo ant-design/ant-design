@@ -6,6 +6,7 @@ import { toArray, getFieldId } from '../util';
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;
+  scrollToNode: (node: HTMLElement, options?: ScrollOptions) => void;
   /** This is an internal usage. Do not use in your prod */
   __INTERNAL__: {
     /** No! Do not use this in your code! */
@@ -38,6 +39,13 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
               delete itemsRef.current[namePathStr];
             }
           },
+        },
+        scrollToNode: (node: HTMLElement, options: ScrollOptions = {}) => {
+          scrollIntoView(node, {
+            scrollMode: 'if-needed',
+            block: 'nearest',
+            ...options,
+          });
         },
         scrollToField: (name: string, options: ScrollOptions = {}) => {
           const namePath = toArray(name);

@@ -11,6 +11,8 @@ import { FormContext, FormContextProps } from './context';
 import { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
 import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
+import { toArray, getFieldId } from './util';
+
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -105,13 +107,28 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
     onFinishFailed?.(errorInfo);
 
-    let defaultScrollToFirstError: Options = { block: 'nearest' };
+    let defaultScrollToFirstError: Options = { block: 'nearest' }, topNode: HTMLElement | null = null, errorElements: Array<HTMLElement> = [];
+    let namePath: Array<any> = [], fieldId: string | undefined = undefined, node: HTMLElement | null;
 
     if (scrollToFirstError && errorInfo.errorFields.length) {
       if (typeof scrollToFirstError === 'object') {
         defaultScrollToFirstError = scrollToFirstError;
       }
-      wrapForm.scrollToField(errorInfo.errorFields[0].name, defaultScrollToFirstError);
+      // 查找第一个 errorField dom
+      for (let i = 0; i < errorInfo.errorFields.length; i++) {
+        namePath = toArray(errorInfo.errorFields[i].name);
+        fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
+        node = fieldId ? document.getElementById(fieldId) : null;
+        if (node) {
+          errorElements.push(node);
+        }
+      }
+      if (errorElements.length) {
+        topNode = errorElements.reduce((prev, current) =>
+          prev.compareDocumentPosition(current) === 2 ? current : prev
+        )
+        wrapForm.scrollToNode(topNode, defaultScrollToFirstError);
+      }
     }
   };
 
