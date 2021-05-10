@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.15.5
 
-`2021-05-06`
+`2021-05-10`
 
 - 🐞 修复 Upload 在 IE 下，`beforeUpload` 返回 `false` 的报错问题。[#30391](https://github.com/ant-design/ant-design/pull/30391) [@OleksandrAntonenko1](https://github.com/OleksandrAntonenko1)
 - Calendar
