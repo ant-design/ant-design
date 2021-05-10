@@ -13,4 +13,14 @@ describe('Tooltip.typescript', () => {
     expect(tooltip).toBeTruthy();
     expect(tooltip2).toBeTruthy();
   });
+
+  it('Tooltip support zIndex', () => {
+    const tooltip = (
+      <Tooltip title="title" zIndex={999}>
+        <div />
+      </Tooltip>
+    );
+
+    expect(tooltip).toBeTruthy();
+  });
 });
