@@ -31,6 +31,7 @@ timeline: true
 - 🐞 Fix Steps with progress get cut at the bottom. [#30373](https://github.com/ant-design/ant-design/pull/30373) [@fachreza73](https://github.com/fachreza73)
 - 🐞 Fix the problem that setting `locale` in DatePicker cannot override ConfigProvider `locale`. [#30380](https://github.com/ant-design/ant-design/pull/30380) [@Map1en](https://github.com/Map1en)
 - Locale
+  - 🇫🇮 Update DatePicker Finnish locale. [#30433](https://github.com/ant-design/ant-design/pull/30433) [@hiiri](https://github.com/hiiri)
   - 🇫🇷 Update French locale with missing messages. [#30436](https://github.com/ant-design/ant-design/pull/30436) [@LoicUV](https://github.com/LoicUV)
   - 🇷🇸 Update Serbian locale. [#30401](https://github.com/ant-design/ant-design/pull/30401) [@vmedar](https://github.com/vmedar)
 - TypeScript

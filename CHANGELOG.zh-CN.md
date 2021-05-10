@@ -31,6 +31,7 @@ timeline: true
 - 🐞 修复 Steps 进度条圆圈在底部被切掉的问题。[#30373](https://github.com/ant-design/ant-design/pull/30373) [@fachreza73](https://github.com/fachreza73)
 - 🐞 修复在 DatePicker 里设置 `locale` 不能覆盖 ConfigProvider `locale` 的问题。[#30380](https://github.com/ant-design/ant-design/pull/30380) [@Map1en](https://github.com/Map1en)
 - 国际化
+  - 🇫🇮 改进 DatePicker 芬兰语国际化。[#30433](https://github.com/ant-design/ant-design/pull/30433) [@hiiri](https://github.com/hiiri)
   - 🇫🇷 更新法语国际化。[#30436](https://github.com/ant-design/ant-design/pull/30436) [@LoicUV](https://github.com/LoicUV)
   - 🇷🇸 更新塞尔维亚语国际化。[#30401](https://github.com/ant-design/ant-design/pull/30401) [@vmedar](https://github.com/vmedar)
 - TypeScript
@@ -42,11 +43,11 @@ timeline: true
 
 - 🐞 修复 Menu.Item 设置 `collapsedWidth` 时宽度错误的问题。[#30357](https://github.com/ant-design/ant-design/pull/30357) [@Map1en](https://github.com/Map1en)
 - 🐞 修复 Radio 选中样式有时高度略长的问题。[#30367](https://github.com/ant-design/ant-design/pull/30367)
-- 🐞 修复 Typography.Link  在 `editable` 模式下点击编辑会触发链接跳转的问题。[#30354](https://github.com/ant-design/ant-design/pull/30354) [@John60676](https://github.com/John60676)
+- 🐞 修复 Typography.Link 在 `editable` 模式下点击编辑会触发链接跳转的问题。[#30354](https://github.com/ant-design/ant-design/pull/30354) [@John60676](https://github.com/John60676)
 - 🐞 InputNumber 现在清空输入框时会触发 `onChange(null)`。[#30337](https://github.com/ant-design/ant-design/pull/30337)
 - 🐞 修复 Modal `footer` 里放置 Dropdown.Button 的样式错乱问题。[#30328](https://github.com/ant-design/ant-design/pull/30328) [@Map1en](https://github.com/Map1en)
 - 💄 替换 Anchor 默认背景颜色从 `#FFFFFF` 改至 `transparent`。[#30336](https://github.com/ant-design/ant-design/pull/30336)
-- 🌐 添加 TimePicker.RangePicker  `ko_KR` 和 `ja_JP` 的 `placeholder` 国际化。[#30285](https://github.com/ant-design/ant-design/pull/30285) [@ChalkPE](https://github.com/ChalkPE)
+- 🌐 添加 TimePicker.RangePicker `ko_KR` 和 `ja_JP` 的 `placeholder` 国际化。[#30285](https://github.com/ant-design/ant-design/pull/30285) [@ChalkPE](https://github.com/ChalkPE)
 - TypeScript
   - 🤖 修复 Upload `beforeUpload` 和 `UploadFile` 类型声明。[#30351](https://github.com/ant-design/ant-design/pull/30351) [#30343](https://github.com/ant-design/ant-design/pull/30343) [@kerm1it](https://github.com/kerm1it)
 
