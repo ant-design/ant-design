@@ -27,20 +27,21 @@
     display: inline-block;
     color: inherit;
     cursor: pointer;
-    transition: all 0.3s;
 
     &:not(:last-child) {
       margin-right: 8px;
     }
 
     > div {
-      &:focus {
-        outline: 0;
-      }
+      transition: all 0.3s;
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         transform: @rate-star-hover-scale;
+      }
+
+      &:focus:not(:focus-visible) {
+        outline: 0;
       }
     }
 
