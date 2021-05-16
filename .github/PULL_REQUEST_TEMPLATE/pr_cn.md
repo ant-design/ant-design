@@ -7,6 +7,7 @@
 -->
 
 [[English Template / 英文模板](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE.md)]
+[[हिंदी टेम्पलेट / 印地语模板](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/hi_in.md)]
 
 ### 🤔 这个变动的性质是？
 

@@ -7,6 +7,7 @@ Please makes sure that these forms are filled before submitting your pull reques
 -->
 
 [[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
+[[हिंदी टेम्पलेट / Hindi template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/hi_in.md)]
 
 ### 🤔 This is a ...
 
