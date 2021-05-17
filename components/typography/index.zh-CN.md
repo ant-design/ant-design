@@ -30,6 +30,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | mark | 添加标记样式 | boolean | false |  |
 | onClick | 点击 Text 时的回调 | (event) => void | - |  |
 | strong | 是否加粗 | boolean | false |  |
+| italic | 是否斜体 | boolean | false | 4.16.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 
@@ -46,6 +47,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | onClick | 点击 Title 时的回调 | (event) => void | - |  |
+| italic | 是否斜体 | boolean | false | 4.16.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 
@@ -62,6 +64,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | mark | 添加标记样式 | boolean | false |  |
 | onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
 | strong | 是否加粗 | boolean | false |  |
+| italic | 是否斜体 | boolean | false | 4.16.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 

@@ -29,9 +29,11 @@ interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
 }
 
 const DropdownButton: DropdownButtonInterface = props => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -52,6 +54,8 @@ const DropdownButton: DropdownButtonInterface = props => {
     icon = <EllipsisOutlined />,
     title,
     buttonsRender,
+    mouseEnterDelay,
+    mouseLeaveDelay,
     ...restProps
   } = props;
 
@@ -63,6 +67,8 @@ const DropdownButton: DropdownButtonInterface = props => {
     trigger: disabled ? [] : trigger,
     onVisibleChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
+    mouseEnterDelay,
+    mouseLeaveDelay,
   } as DropDownProps;
 
   if ('visible' in props) {

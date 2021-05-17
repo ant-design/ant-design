@@ -1544,6 +1544,7 @@ describe('Table.filter', () => {
 
     expect(wrapper.find('.ant-table-filter-column')).toHaveLength(3);
   });
+
   it('should pagination.current be 1 after filtering', () => {
     const onChange = jest.fn();
     const columns = [
@@ -1592,5 +1593,47 @@ describe('Table.filter', () => {
     wrapper.find('FilterDropdown').find('MenuItem').at(1).simulate('click');
     wrapper.find('.ant-btn-primary').first().simulate('click');
     expect(onChange.mock.calls[1][0].current).toBe(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/30454
+  it('should not trigger onFilterDropdownVisibleChange when call confirm({ closeDropdown: false })', () => {
+    const onFilterDropdownVisibleChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filteredValue: name,
+            filterDropdown: ({ confirm }) => (
+              <>
+                <button id="confirm-and-close" type="button" onClick={() => confirm()}>
+                  confirm
+                </button>
+                <button
+                  id="confirm-only"
+                  type="button"
+                  onClick={() => confirm({ closeDropdown: false })}
+                >
+                  confirm
+                </button>
+              </>
+            ),
+            onFilterDropdownVisibleChange,
+          },
+        ],
+      }),
+    );
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    expect(onFilterDropdownVisibleChange).toHaveBeenCalledTimes(1);
+
+    wrapper.find('#confirm-only').simulate('click');
+    expect(onFilterDropdownVisibleChange).toHaveBeenCalledTimes(1);
+
+    wrapper.find('#confirm-and-close').simulate('click');
+    expect(onFilterDropdownVisibleChange).toHaveBeenCalledTimes(2);
+    expect(onFilterDropdownVisibleChange).toHaveBeenLastCalledWith(false);
   });
 });

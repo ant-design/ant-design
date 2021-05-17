@@ -1,5 +1,4 @@
 /* eslint-disable no-template-curly-in-string */
-
 import Pagination from 'rc-pagination/lib/locale/pt_BR';
 import DatePicker from '../date-picker/locale/pt_BR';
 import TimePicker from '../time-picker/locale/pt_BR';
@@ -21,8 +20,11 @@ const localeValues: Locale = {
     filterTitle: 'Menu de Filtro',
     filterConfirm: 'OK',
     filterReset: 'Resetar',
+    filterEmptyText: 'Sem filtros',
+    emptyText: 'Sem conteúdo',
     selectAll: 'Selecionar página atual',
     selectInvert: 'Inverter seleção',
+    selectNone: 'Apagar todo o conteúdo',
     selectionAll: 'Selecionar todo o conteúdo',
     sortTitle: 'Ordenar título',
     expand: 'Expandir linha',
@@ -41,9 +43,16 @@ const localeValues: Locale = {
     cancelText: 'Cancelar',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Procurar',
     itemUnit: 'item',
     itemsUnit: 'items',
+    remove: 'Remover',
+    selectCurrent: 'Selecionar página atual',
+    removeCurrent: 'Remover página atual',
+    selectAll: 'Selecionar todos',
+    removeAll: 'Remover todos',
+    selectInvert: 'Inverter seleção atual',
   },
   Upload: {
     uploading: 'Enviando...',
@@ -68,11 +77,12 @@ const localeValues: Locale = {
     back: 'Retornar',
   },
   Form: {
+    optional: '(opcional)',
     defaultValidateMessages: {
       default: 'Erro ${label} na validação de campo',
       required: 'Por favor, insira ${label}',
       enum: '${label} deve ser um dos seguinte: [${enum}]',
-      whitespace: '${label} não pode ser um caractér vazio',
+      whitespace: '${label} não pode ser um carácter vazio',
       date: {
         format: ' O formato de data ${label} é inválido',
         parse: '${label} não pode ser convertido para uma data',
@@ -115,6 +125,9 @@ const localeValues: Locale = {
         mismatch: '${label} não se encaixa no padrão ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'Pré-visualização',
   },
 };
 

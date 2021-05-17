@@ -79,7 +79,7 @@ export default () => {
     const articles = data[isZhCN ? 'cn' : 'en'];
     const yearData: Record<number | string, Record<string, Article[]>> = {};
 
-    articles.forEach(article => {
+    articles?.forEach(article => {
       const year = moment(article.date).year();
       yearData[year] = yearData[year] || {};
 

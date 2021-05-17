@@ -8,14 +8,7 @@ import Checkbox from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import {
-  ColumnType,
-  ColumnFilterItem,
-  Key,
-  TableLocale,
-  GetPopupContainer,
-  FilterConfirmProps,
-} from '../../interface';
+import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
@@ -194,8 +187,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     internalTriggerFilter([]);
   };
 
-  const doFilter = (param: FilterConfirmProps = { closeDropdown: true }) => {
-    triggerVisible(!param.closeDropdown);
+  const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {
+    if (closeDropdown) {
+      triggerVisible(false);
+    }
     internalTriggerFilter(getFilteredKeysSync());
   };
 
