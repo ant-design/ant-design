@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.15.5",
+  "version": "4.16.0-alpha.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -125,7 +125,7 @@
     "rc-field-form": "~1.20.0",
     "rc-image": "~5.2.4",
     "rc-input-number": "~7.1.0",
-    "rc-mentions": "~1.5.0",
+    "rc-mentions": "~1.6.0",
     "rc-menu": "~9.0.0-alpha.6",
     "rc-motion": "^2.4.0",
     "rc-notification": "~4.5.2",
@@ -139,7 +139,7 @@
     "rc-steps": "~4.1.0",
     "rc-switch": "~3.2.0",
     "rc-table": "~7.14.0",
-    "rc-tabs": "~11.7.0",
+    "rc-tabs": "~11.8.0",
     "rc-textarea": "~0.3.0",
     "rc-tooltip": "~5.1.1",
     "rc-tree": "~4.1.0",
