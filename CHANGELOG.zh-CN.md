@@ -19,7 +19,7 @@ timeline: true
 
 `2021-05-18`
 
-- 🐞 修复 Upload 上传文件被 `accept` 过滤后 `beforeUpload` 无法接收到的问题。[#30549](https://github.com/ant-design/ant-design/pull/30549)
+- 🐞 Upload `accept` 将无视无效的 MIME 类型，以更贴近原生行为。[#30549](https://github.com/ant-design/ant-design/pull/30549)
 - 💄 移除全局样式中对 `th` 的 `text-align` 属性的重置。[#30399](https://github.com/ant-design/ant-design/pull/30399) [@lbwa](https://github.com/lbwa)
 - 🌐 国际化
   - 🇮🇳 补充印地语国际化文案。[#30541](https://github.com/ant-design/ant-design/pull/30541) [@jaideepghosh](https://github.com/jaideepghosh)

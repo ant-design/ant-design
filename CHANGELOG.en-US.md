@@ -19,7 +19,7 @@ timeline: true
 
 `2021-05-18`
 
-- 🐞 Fix Upload `beforeUpload` cannot receive invalid files filtered by `accept`. [#30549](https://github.com/ant-design/ant-design/pull/30549)
+- 🐞 Upload will ignore `accept` if it's invalidate MIME type to follow native behavior. [#30549](https://github.com/ant-design/ant-design/pull/30549)
 - 💄 Remove reset style of `th` `text-align`. [#30399](https://github.com/ant-design/ant-design/pull/30399) [@lbwa](https://github.com/lbwa)
 - 🌐 Locale
   - 🇮🇳 Improve hi_IN locale. [#30541](https://github.com/ant-design/ant-design/pull/30541) [@jaideepghosh](https://github.com/jaideepghosh)
