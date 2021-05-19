@@ -24,7 +24,6 @@
     > .@{collapse-prefix-cls}-header {
       position: relative;
       padding: @collapse-header-padding;
-      padding-left: @collapse-header-padding-extra;
       color: @heading-color;
       line-height: @line-height-base;
       cursor: pointer;
@@ -32,17 +31,10 @@
       .clearfix();
 
       .@{collapse-prefix-cls}-arrow {
-        .iconfont-mixin();
-
-        position: absolute;
-        top: ((@font-size-base * @line-height-base - @font-size-sm) / 2);
-        left: @collapse-header-arrow-left;
         display: inline-block;
-        padding: @collapse-header-padding;
-        padding-right: 0;
-        padding-bottom: 0;
-        padding-left: 0;
+        margin-right: 12px;
         font-size: @font-size-sm;
+        vertical-align: -1px;
 
         & svg {
           transition: transform 0.24s;
