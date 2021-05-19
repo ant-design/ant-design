@@ -9,7 +9,7 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
-@table-sticky-zindex: (@zindex-table-fixed + 1);
+@table-sticky-zindex: calc(@zindex-table-fixed + 1);
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 
 .@{table-prefix-cls}-wrapper {
@@ -97,8 +97,9 @@
           right: 0;
           width: 1px;
           height: 1.6em;
-          background-color: @table-border-color;
+          background-color: rgba(0, 0, 0, 0.06);
           transform: translateY(-50%);
+          transition: background-color 0.3s;
           content: '';
         }
       }
@@ -207,21 +208,24 @@
 
   // ============================ Sorter ============================
   &-thead th.@{table-prefix-cls}-column-has-sorters {
-    padding: 0;
     cursor: pointer;
     transition: all 0.3s;
 
     &:hover {
       background: @table-header-sort-active-bg;
 
-      .@{table-prefix-cls}-filter-trigger-container {
-        background: @table-header-sort-active-filter-bg;
+      &::before {
+        background-color: transparent !important;
       }
     }
   }
 
   &-thead th.@{table-prefix-cls}-column-sort {
     background: @table-header-sort-bg;
+
+    &::before {
+      background-color: transparent !important;
+    }
   }
 
   td&-column-sort {
@@ -230,9 +234,20 @@
 
   &-column-sorters {
     display: flex;
+    flex: auto;
     align-items: center;
     justify-content: space-between;
-    padding: @table-padding-vertical @table-padding-horizontal;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
+    }
   }
 
   &-column-sorter {
@@ -262,61 +277,24 @@
   // ============================ Filter ============================
   &-filter-column {
     display: flex;
-    align-items: stretch;
-    margin: -@table-padding-vertical -@table-padding-horizontal;
-  }
-
-  &-filter-column-title {
-    flex: auto;
-    padding: @table-padding-vertical @table-padding-horizontal;
-
-    .@{table-prefix-cls}-column-sorters {
-      padding-right: 40px;
-    }
-  }
-
-  // Remove padding when sorter also provided
-  &-thead tr th.@{table-prefix-cls}-column-has-sorters {
-    .@{table-prefix-cls}-filter-column {
-      margin: 0;
-    }
-
-    .@{table-prefix-cls}-filter-column-title {
-      padding: 0;
-    }
-  }
-
-  &-filter-trigger-container {
-    position: absolute;
-    top: 0;
-    right: 8px;
-    bottom: 0;
-    display: flex;
-    flex: none;
-    align-items: stretch;
-    align-self: stretch;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &-open,
-    &:hover,
-    .@{table-prefix-cls}-thead th.@{table-prefix-cls}-column-has-sorters:hover &:hover {
-      background: @table-header-filter-active-bg;
-    }
+    justify-content: space-between;
   }
 
   &-filter-trigger {
+    position: relative;
     display: flex;
     align-items: center;
-    height: 100%;
-    padding: 0 8px;
+    margin: -2px -8px -2px 4px;
+    padding: 0 4px;
     color: @table-header-icon-color;
     font-size: @font-size-sm;
-    transition: color 0.3s;
+    border-radius: @border-color-base;
+    cursor: pointer;
+    transition: all 0.3s;
 
-    .@{table-prefix-cls}-filter-trigger-container-open &,
     &:hover {
       color: @text-color-secondary;
+      background: @table-header-filter-active-bg;
     }
 
     &.active {
