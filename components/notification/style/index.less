@@ -31,14 +31,19 @@
     cursor: pointer;
   }
 
-  &-hook-holder,
+  &-hook-holder {
+    position: relative;
+  }
+
   &-notice {
     position: relative;
     width: @notification-width;
     max-width: ~'calc(100vw - @{notification-margin-edge} * 2)';
     margin-bottom: @notification-margin-bottom;
     margin-left: auto;
+    padding: @notification-padding;
     overflow: hidden;
+    line-height: @line-height-base;
     word-wrap: break-word;
     background: @notification-bg;
     border-radius: @border-radius-base;
@@ -49,16 +54,6 @@
       margin-right: auto;
       margin-left: 0;
     }
-  }
-
-  &-hook-holder > &-notice {
-    margin-bottom: 0;
-    box-shadow: none;
-  }
-
-  &-notice {
-    padding: @notification-padding;
-    line-height: @line-height-base;
 
     &-message {
       margin-bottom: 8px;
