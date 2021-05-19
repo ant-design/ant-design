@@ -107,7 +107,8 @@
         transition: background 0.3s;
 
         // ========================= Nest Table ===========================
-        > .@{table-prefix-cls}-wrapper:only-child {
+        > .@{table-prefix-cls}-wrapper:only-child,
+        > .@{table-prefix-cls}-expanded-row-fixed > .@{table-prefix-cls}-wrapper:only-child {
           .@{table-prefix-cls} {
             margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
                   ceil(@font-size-sm * 1.4));
