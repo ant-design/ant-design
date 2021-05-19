@@ -11,10 +11,7 @@ export interface TextProps extends BlockProps {
 const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
   const mergedEllipsis = React.useMemo(() => {
     if (ellipsis && typeof ellipsis === 'object') {
-      return {
-        ...omit(ellipsis as any, ['expandable', 'rows']),
-        rows: 1,
-      };
+      return omit(ellipsis as any, ['expandable', 'rows']);
     }
 
     return ellipsis;
