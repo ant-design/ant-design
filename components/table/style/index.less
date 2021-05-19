@@ -7,6 +7,7 @@
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
+@table-header-cell-split-color: rgba(0, 0, 0, 0.06);
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
 @table-sticky-zindex: calc(@zindex-table-fixed + 1);
@@ -97,7 +98,7 @@
           right: 0;
           width: 1px;
           height: 1.6em;
-          background-color: rgba(0, 0, 0, 0.06);
+          background-color: @table-header-cell-split-color;
           transform: translateY(-50%);
           transition: background-color 0.3s;
           content: '';
@@ -284,11 +285,11 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin: -2px (-@table-padding-horizontal / 2) -2px 4px;
+    margin: -4px (-@table-padding-horizontal / 2) -4px 4px;
     padding: 0 4px;
     color: @table-header-icon-color;
     font-size: @font-size-sm;
-    border-radius: @border-color-base;
+    border-radius: @border-radius-base;
     cursor: pointer;
     transition: all 0.3s;
 
