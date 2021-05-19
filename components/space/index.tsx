@@ -13,7 +13,7 @@ export const SpaceContext = React.createContext({
 
 export type SpaceSize = SizeType | number;
 
-export interface SpaceProps {
+export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
