@@ -47,14 +47,14 @@ One or more elements can be selected from either column, one click on the proper
 
 Transfer accept `children` to customize render list, using follow props:
 
-| Property | Description | Type | Version |
-| --- | --- | --- | --- |
-| direction | List render direction | `left` \| `right` |  |
-| disabled | Disable list or not | boolean |  |
-| filteredItems | Filtered items | RecordType\[] |  |
-| selectedKeys | Selected items | string\[] |  |
-| onItemSelect | Select item | (key: string, selected: boolean) |  |
-| onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |  |
+| Property        | Description             | Type                                 | Version |
+| --------------- | ----------------------- | ------------------------------------ | ------- |
+| direction       | List render direction   | `left` \| `right`                    |         |
+| disabled        | Disable list or not     | boolean                              |         |
+| filteredItems   | Filtered items          | RecordType\[]                        |         |
+| selectedKeys    | Selected items          | string\[]                            |         |
+| onItemSelect    | Select item             | (key: string, selected: boolean)     |         |
+| onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |         |
 
 #### example
 
@@ -77,4 +77,4 @@ return <Transfer rowKey={record => record.uid} />;
 
 ### How to support fetch and present data from a remote server in Transfer column.
 
-In order to keep the page number synchronized, you can disable columns you checked without removing the option: <https://codesandbox.io/s/93xeb>
+In order to keep the page number synchronized, you can disable columns you checked without removing the option: <https://codesandbox.io/s/objective-wing-6iqbx>
