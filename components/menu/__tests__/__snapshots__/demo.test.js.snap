@@ -83,7 +83,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     >
       <span
         aria-label="setting"
-        class="anticon anticon-setting"
+        class="anticon anticon-setting ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -169,7 +169,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     >
       <span
         aria-label="mail"
-        class="anticon anticon-mail"
+        class="anticon anticon-mail ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -275,7 +275,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     >
       <span
         aria-label="appstore"
-        class="anticon anticon-appstore"
+        class="anticon anticon-appstore ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -316,7 +316,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     >
       <span
         aria-label="setting"
-        class="anticon anticon-setting"
+        class="anticon anticon-setting ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -488,7 +488,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       >
         <span
           aria-label="mail"
-          class="anticon anticon-mail"
+          class="anticon anticon-mail ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -566,7 +566,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       >
         <span
           aria-label="appstore"
-          class="anticon anticon-appstore"
+          class="anticon anticon-appstore ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -619,7 +619,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     >
       <span
         aria-label="mail"
-        class="anticon anticon-mail"
+        class="anticon anticon-mail ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -697,7 +697,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     >
       <span
         aria-label="appstore"
-        class="anticon anticon-appstore"
+        class="anticon anticon-appstore ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -738,7 +738,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     >
       <span
         aria-label="setting"
-        class="anticon anticon-setting"
+        class="anticon anticon-setting ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -807,7 +807,7 @@ Array [
       >
         <span
           aria-label="mail"
-          class="anticon anticon-mail"
+          class="anticon anticon-mail ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -848,7 +848,7 @@ Array [
       >
         <span
           aria-label="appstore"
-          class="anticon anticon-appstore"
+          class="anticon anticon-appstore ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -1034,7 +1034,7 @@ Array [
       >
         <span
           aria-label="appstore"
-          class="anticon anticon-appstore"
+          class="anticon anticon-appstore ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -1115,7 +1115,7 @@ Array [
       >
         <span
           aria-label="setting"
-          class="anticon anticon-setting"
+          class="anticon anticon-setting ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -1223,7 +1223,7 @@ Array [
       >
         <span
           aria-label="mail"
-          class="anticon anticon-mail"
+          class="anticon anticon-mail ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -1301,7 +1301,7 @@ Array [
       >
         <span
           aria-label="appstore"
-          class="anticon anticon-appstore"
+          class="anticon anticon-appstore ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -1342,7 +1342,7 @@ Array [
       >
         <span
           aria-label="setting"
-          class="anticon anticon-setting"
+          class="anticon anticon-setting ant-menu-item-icon"
           role="img"
         >
           <svg
@@ -1394,7 +1394,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     >
       <span
         aria-label="mail"
-        class="anticon anticon-mail"
+        class="anticon anticon-mail ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -1434,7 +1434,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     >
       <span
         aria-label="appstore"
-        class="anticon anticon-appstore"
+        class="anticon anticon-appstore ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -1474,7 +1474,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     >
       <span
         aria-label="setting"
-        class="anticon anticon-setting"
+        class="anticon anticon-setting ant-menu-item-icon"
         role="img"
       >
         <svg
