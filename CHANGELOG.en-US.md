@@ -579,7 +579,7 @@ It is a wrong release which same as `4.10.3`, don't use it.
 - 🛠 Refactor Carousel with React hooks. [#27694](https://github.com/ant-design/ant-design/pull/27694)
 - 🛠 Refactor `<Typography editable />` with React hooks. [#27655](https://github.com/ant-design/ant-design/pull/27655)
 - 🐞 Fixed the problem that form behaves abnormally when namepath is an array. [#27664](https://github.com/ant-design/ant-design/pull/27664)
-- 💄 Fix DateRangePicker hover effect position when hover over start or end cell of in range row. [#27731](https://github.com/ant-design/ant-design/pull/27731) [@AlanCutFlim](https://github.com/AlanCutFlim)
+- 💄 Fix RangePicker hover effect position when hover over start or end cell of in range row. [#27731](https://github.com/ant-design/ant-design/pull/27731) [@AlanCutFlim](https://github.com/AlanCutFlim)
 - 🐞 Fix Select `mode=tags` cannot input whitespace normally. [#27726](https://github.com/ant-design/ant-design/pull/27726) [@baxtergu](https://github.com/baxtergu)
 - 💄 Fix the mouse style when Typography.Link is `disabled`. [#27734](https://github.com/ant-design/ant-design/pull/27734)
 - 🐞 Fix Menu dropdown animation start twice when appear. [#27663](https://github.com/ant-design/ant-design/pull/27663)
