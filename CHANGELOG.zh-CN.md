@@ -32,7 +32,7 @@ timeline: true
   - 🐞 修复 Typography 配置 `ellipsis={{ suffix: 'xxx' }}` 时换行闪动问题。[#30582](https://github.com/ant-design/ant-design/pull/30582)
 - Collapse
   - 💄 修复 Collapse 不指定 `header` 时箭头错位的问题。[#30586](https://github.com/ant-design/ant-design/pull/30586)
-  - 🐞 修复 Collapse 在隐藏时设置 `activeKey`， Panel 的内容会消失的问题。[#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
+  - 🐞 修复 Collapse 隐藏时设置 `activeKey` 时内容会消失的问题。[#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
 - 🆕 RadioGroup 支持 `data-*` 和 `aria-*` 属性。[#30507](https://github.com/ant-design/ant-design/pull/30507) [@kerm1it](https://github.com/kerm1it)
 - 🆕 Statistic.CountDown 组件增加 `onChange` 事件。[#30265](https://github.com/ant-design/ant-design/pull/30265) [@appleshell](https://github.com/appleshell)
 - 🆕 PageHeader 的 `breadcrumb` 中允许设置为组件。[#30019](https://github.com/ant-design/ant-design/pull/30019) [@gepd](https://github.com/gepd)
@@ -41,11 +41,12 @@ timeline: true
 - 🐞 修复 Notification `useNotification` 生成的通知框 `className` 作用范围不一致的问题。[#30588](https://github.com/ant-design/ant-design/pull/30588)
 - 🐞 修复 Tabs `tabBarGutter` 属性失效的问题。[#30545](https://github.com/ant-design/ant-design/pull/30545)
 - 💄 改写 Space 使用 `flexGap` 以代替 `margin` 样式以处理某些边界情况下的布局问题。[#30023](https://github.com/ant-design/ant-design/pull/30023)
+- 🐞 修复 Form 校验错误状态下 Input.Group 和 Cascader 边框颜色错误。[#30640](https://github.com/ant-design/ant-design/pull/30640)
 - 🌐 国际化
   - 🇷🇴 补充罗马尼亚语国际化。[#30419](https://github.com/ant-design/ant-design/pull/30419) [@stefy](https://github.com/stefy)
   - 🌐 补充荷兰语（荷兰 🇳🇱）及荷兰语（比利时 🇧🇪）国际化。[#30389](https://github.com/ant-design/ant-design/pull/30389) [@lewis-fidlers](https://github.com/lewis-fidlers)
 - TypeScript
-  - 🤖 Space typescript 定义支持 HTMLAttribute 属性。[#30590](https://github.com/ant-design/ant-design/pull/30590)
+  - 🤖 Space TypeScript 定义支持 HTMLAttribute 属性。[#30590](https://github.com/ant-design/ant-design/pull/30590)
 
 ## 4.15.6
 
