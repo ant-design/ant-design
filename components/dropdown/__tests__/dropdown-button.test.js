@@ -71,7 +71,9 @@ describe('DropdownButton', () => {
         <Menu.Item>foo</Menu.Item>
       </Menu>
     );
-    const wrapper = mount(<Dropdown.Button mouseEnterDelay={1} mouseLeaveDelay={2} overlay={menu} />);
+    const wrapper = mount(
+      <Dropdown.Button mouseEnterDelay={1} mouseLeaveDelay={2} overlay={menu} />,
+    );
     expect(wrapper.find('Dropdown').props().mouseEnterDelay).toBe(1);
     expect(wrapper.find('Dropdown').props().mouseLeaveDelay).toBe(2);
   });

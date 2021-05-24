@@ -15882,7 +15882,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
           class="ant-table-container"
         >
           <div
-            class="ant-table-header ant-table-sticky-header"
+            class="ant-table-header ant-table-sticky-holder"
             style="overflow:hidden;top:0"
           >
             <table
@@ -16754,6 +16754,41 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                 </tr>
               </tbody>
+            </table>
+          </div>
+          <div
+            class="ant-table-summary ant-table-sticky-holder"
+            style="overflow:hidden;bottom:0"
+          >
+            <table
+              style="table-layout:fixed;visibility:hidden"
+            >
+              <colgroup />
+              <tfoot
+                class="ant-table-summary"
+              >
+                <tr>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
+                    colspan="2"
+                    style="position:sticky;left:0"
+                  >
+                    Fix Left
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    colspan="8"
+                  >
+                    Scroll Context
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
+                    style="position:sticky;right:0"
+                  >
+                    Fix Right
+                  </td>
+                </tr>
+              </tfoot>
             </table>
           </div>
         </div>

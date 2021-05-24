@@ -192,4 +192,15 @@ describe('Radio Group', () => {
       });
     });
   });
+
+  it('should support data-* or aria-* props', () => {
+    const wrapper = mount(
+      createRadioGroup({
+        'data-radio-group-id': 'radio-group-id',
+        'aria-label': 'radio-group',
+      }),
+    );
+    expect(wrapper.getDOMNode().getAttribute('data-radio-group-id')).toBe('radio-group-id');
+    expect(wrapper.getDOMNode().getAttribute('aria-label')).toBe('radio-group');
+  });
 });

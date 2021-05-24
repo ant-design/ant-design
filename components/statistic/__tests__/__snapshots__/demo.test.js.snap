@@ -325,6 +325,29 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Countdown
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          00:00:10
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

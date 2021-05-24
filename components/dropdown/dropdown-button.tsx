@@ -29,9 +29,11 @@ interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
 }
 
 const DropdownButton: DropdownButtonInterface = props => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,

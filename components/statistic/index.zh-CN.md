@@ -41,3 +41,4 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/rcBNhLBrKbE/Statistic.svg
 | value | 数值内容 | number \| moment | - |  |
 | valueStyle | 设置数值的样式 | CSSProperties | - |  |
 | onFinish | 倒计时完成时触发 | () => void | - |  |
+| onChange | 倒计时时间变化时触发 | (value: number) => void | - | 4.16.0 |

@@ -9,6 +9,7 @@ interface CountdownProps extends StatisticProps {
   value?: countdownValueType;
   format?: string;
   onFinish?: () => void;
+  onChange?: (value?: countdownValueType) => void;
 }
 
 function getTime(value?: countdownValueType) {
@@ -48,8 +49,15 @@ class Countdown extends React.Component<CountdownProps, {}> {
   startTimer = () => {
     if (this.countdownId) return;
 
+    const { onChange, value } = this.props;
+    const timestamp = getTime(value);
+
     this.countdownId = window.setInterval(() => {
       this.forceUpdate();
+
+      if (onChange && timestamp > Date.now()) {
+        onChange(timestamp - Date.now());
+      }
     }, REFRESH_INTERVAL);
   };
 

@@ -1,11 +1,7 @@
 import React from 'react';
-
 import { mount } from 'enzyme';
-
 import ConfigProvider from '../../config-provider';
-
 import { Modal } from '../..';
-
 import zhCN from '../zh_CN';
 
 class Demo extends React.Component {

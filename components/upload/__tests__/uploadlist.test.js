@@ -1162,19 +1162,51 @@ describe('Upload List', () => {
   });
 
   it('itemRender', () => {
-    const itemRender = (originNode, file, currFileList) => {
+    const onDownload = jest.fn();
+    const onRemove = jest.fn();
+    const onPreview = jest.fn();
+    const itemRender = (originNode, file, currFileList, actions) => {
       const { name, status, uid, url } = file;
       const index = currFileList.indexOf(file);
       return (
-        <span className="custom-item-render">
-          {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${
-            currFileList.length
-          }`}
-        </span>
+        <div className="custom-item-render">
+          <span>
+            {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${
+              currFileList.length
+            }`}
+          </span>
+          <span onClick={actions.remove} className="custom-item-render-action-remove">
+            remove
+          </span>
+          <span onClick={actions.download} className="custom-item-render-action-download">
+            download
+          </span>
+          <span onClick={actions.preview} className="custom-item-render-action-preview">
+            preview
+          </span>
+        </div>
       );
     };
-    const wrapper = mount(<UploadList locale={{}} items={fileList} itemRender={itemRender} />);
+    const wrapper = mount(
+      <UploadList
+        onDownload={onDownload}
+        onPreview={onPreview}
+        onRemove={onRemove}
+        locale={{}}
+        items={fileList}
+        itemRender={itemRender}
+      />,
+    );
     expect(wrapper.render()).toMatchSnapshot();
+
+    wrapper.find('.custom-item-render-action-remove').first().simulate('click');
+    expect(onRemove.mock.calls[0][0]).toEqual(fileList[0]);
+
+    wrapper.find('.custom-item-render-action-download').first().simulate('click');
+    expect(onDownload.mock.calls[0][0]).toEqual(fileList[0]);
+
+    wrapper.find('.custom-item-render-action-preview').first().simulate('click');
+    expect(onPreview.mock.calls[0][0]).toEqual(fileList[0]);
 
     wrapper.unmount();
   });

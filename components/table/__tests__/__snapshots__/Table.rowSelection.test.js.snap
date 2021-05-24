@@ -1051,25 +1051,32 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             style="opacity: 0; pointer-events: none;"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-menu-list="true"
                               role="menu"
                               tabindex="0"
                             >
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                data-menu-id="rc-menu-uuid-test-all"
                                 role="menuitem"
+                                tabindex="-1"
                               >
                                 Select all data
                               </li>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                data-menu-id="rc-menu-uuid-test-invert"
                                 role="menuitem"
+                                tabindex="-1"
                               >
                                 Invert current page
                               </li>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                data-menu-id="rc-menu-uuid-test-none"
                                 role="menuitem"
+                                tabindex="-1"
                               >
                                 Clear all data
                               </li>
@@ -1384,25 +1391,32 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             style="opacity: 0; pointer-events: none;"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-menu-list="true"
                               role="menu"
                               tabindex="0"
                             >
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                data-menu-id="rc-menu-uuid-test-all"
                                 role="menuitem"
+                                tabindex="-1"
                               >
                                 Select all data
                               </li>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                data-menu-id="rc-menu-uuid-test-invert"
                                 role="menuitem"
+                                tabindex="-1"
                               >
                                 Invert current page
                               </li>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                data-menu-id="rc-menu-uuid-test-none"
                                 role="menuitem"
+                                tabindex="-1"
                               >
                                 Clear all data
                               </li>

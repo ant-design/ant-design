@@ -69,7 +69,12 @@ export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 export type ItemRender<T = any> = (
   originNode: React.ReactElement,
   file: UploadFile,
-  fileList?: Array<UploadFile<T>>,
+  fileList: Array<UploadFile<T>>,
+  actions: {
+    download: () => void;
+    preview: () => void;
+    remove: () => void;
+  },
 ) => React.ReactNode;
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
@@ -96,6 +101,7 @@ export interface UploadProps<T = any> {
     FileList: RcFile[],
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
   onChange?: (info: UploadChangeParam) => void;
+  onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
   onPreview?: (file: UploadFile<T>) => void;
