@@ -146,7 +146,13 @@
   }
 
   // =========================== Summary ============================
-  tfoot {
+  &-summary {
+    background: @table-bg;
+
+    div& {
+      border-top: @border-width-base @border-style-base @table-border-color;
+    }
+
     > tr {
       > th,
       > td {
