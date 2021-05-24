@@ -22769,177 +22769,165 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                     <div
                       class="config-table-filter-column"
                     >
-                      <span
-                        class="config-table-filter-column-title"
+                      <div
+                        class="config-table-column-sorters"
                       >
-                        <div
-                          class="config-table-column-sorters-with-tooltip"
-                        >
-                          <div
-                            class="config-table-column-sorters"
-                          >
-                            <span>
-                              Name
-                            </span>
-                            <span
-                              class="config-table-column-sorter config-table-column-sorter-full"
-                            >
-                              <span
-                                class="config-table-column-sorter-inner"
-                              >
-                                <span
-                                  aria-label="caret-up"
-                                  class="anticon anticon-caret-up config-table-column-sorter-up"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-up"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                                <span
-                                  aria-label="caret-down"
-                                  class="anticon anticon-caret-down config-table-column-sorter-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </span>
-                      <span
-                        class="config-table-filter-trigger-container config-table-filter-trigger-container-open"
-                      >
+                        <span>
+                          Name
+                        </span>
                         <span
-                          class="config-dropdown-trigger config-table-filter-trigger"
-                          role="button"
-                          tabindex="-1"
+                          class="config-table-column-sorter config-table-column-sorter-full"
                         >
                           <span
-                            aria-label="filter"
-                            class="anticon anticon-filter"
-                            role="img"
+                            class="config-table-column-sorter-inner"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="filter"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up config-table-column-sorter-up"
+                              role="img"
                             >
-                              <path
-                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down config-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
                           </span>
                         </span>
-                        <div>
-                          <div
-                            class="config-dropdown"
-                            style="opacity:0;pointer-events:none"
+                      </div>
+                      <span
+                        class="config-dropdown-trigger config-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <div
-                              class="config-table-filter-dropdown"
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div>
+                        <div
+                          class="config-dropdown"
+                          style="opacity:0;pointer-events:none"
+                        >
+                          <div
+                            class="config-table-filter-dropdown"
+                          >
+                            <ul
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <ul
-                                class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
-                                data-menu-list="true"
-                                role="menu"
-                                tabindex="0"
+                              <li
+                                class="config-dropdown-menu-item"
+                                role="menuitem"
+                                tabindex="-1"
                               >
-                                <li
-                                  class="config-dropdown-menu-item"
+                                <label
+                                  class="config-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="config-checkbox"
+                                  >
+                                    <input
+                                      class="config-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="config-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Joe
+                                </span>
+                              </li>
+                              <li
+                                class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
+                                  title="Submenu"
                                 >
-                                  <label
-                                    class="config-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="config-checkbox"
-                                    >
-                                      <input
-                                        class="config-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="config-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Joe
-                                  </span>
-                                </li>
-                                <li
-                                  class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                                  role="none"
-                                >
-                                  <div
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
-                                    class="config-dropdown-menu-submenu-title"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    title="Submenu"
-                                  >
-                                    Submenu
-                                    <i
-                                      class="config-dropdown-menu-submenu-arrow"
-                                    />
-                                  </div>
-                                </li>
-                              </ul>
-                              <div
-                                class="config-table-filter-dropdown-btns"
+                                  Submenu
+                                  <i
+                                    class="config-dropdown-menu-submenu-arrow"
+                                  />
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              class="config-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="config-btn config-btn-link config-btn-sm"
+                                disabled=""
+                                type="button"
                               >
-                                <button
-                                  class="config-btn config-btn-link config-btn-sm"
-                                  disabled=""
-                                  type="button"
-                                >
-                                  <span>
-                                    Reset
-                                  </span>
-                                </button>
-                                <button
-                                  class="config-btn config-btn-primary config-btn-sm"
-                                  type="button"
-                                >
-                                  <span>
-                                    OK
-                                  </span>
-                                </button>
-                              </div>
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="config-btn config-btn-primary config-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
                           </div>
                         </div>
-                      </span>
+                      </div>
                     </div>
                   </th>
                 </tr>
@@ -23044,177 +23032,165 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                     <div
                       class="config-table-filter-column"
                     >
-                      <span
-                        class="config-table-filter-column-title"
+                      <div
+                        class="config-table-column-sorters"
                       >
-                        <div
-                          class="config-table-column-sorters-with-tooltip"
-                        >
-                          <div
-                            class="config-table-column-sorters"
-                          >
-                            <span>
-                              Name
-                            </span>
-                            <span
-                              class="config-table-column-sorter config-table-column-sorter-full"
-                            >
-                              <span
-                                class="config-table-column-sorter-inner"
-                              >
-                                <span
-                                  aria-label="caret-up"
-                                  class="anticon anticon-caret-up config-table-column-sorter-up"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-up"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                                <span
-                                  aria-label="caret-down"
-                                  class="anticon anticon-caret-down config-table-column-sorter-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </span>
-                      <span
-                        class="config-table-filter-trigger-container config-table-filter-trigger-container-open"
-                      >
+                        <span>
+                          Name
+                        </span>
                         <span
-                          class="config-dropdown-trigger config-table-filter-trigger"
-                          role="button"
-                          tabindex="-1"
+                          class="config-table-column-sorter config-table-column-sorter-full"
                         >
                           <span
-                            aria-label="filter"
-                            class="anticon anticon-filter"
-                            role="img"
+                            class="config-table-column-sorter-inner"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="filter"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up config-table-column-sorter-up"
+                              role="img"
                             >
-                              <path
-                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down config-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
                           </span>
                         </span>
-                        <div>
-                          <div
-                            class="config-dropdown"
-                            style="opacity:0;pointer-events:none"
+                      </div>
+                      <span
+                        class="config-dropdown-trigger config-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <div
-                              class="config-table-filter-dropdown"
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div>
+                        <div
+                          class="config-dropdown"
+                          style="opacity:0;pointer-events:none"
+                        >
+                          <div
+                            class="config-table-filter-dropdown"
+                          >
+                            <ul
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <ul
-                                class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
-                                data-menu-list="true"
-                                role="menu"
-                                tabindex="0"
+                              <li
+                                class="config-dropdown-menu-item"
+                                role="menuitem"
+                                tabindex="-1"
                               >
-                                <li
-                                  class="config-dropdown-menu-item"
+                                <label
+                                  class="config-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="config-checkbox"
+                                  >
+                                    <input
+                                      class="config-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="config-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Joe
+                                </span>
+                              </li>
+                              <li
+                                class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
+                                  title="Submenu"
                                 >
-                                  <label
-                                    class="config-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="config-checkbox"
-                                    >
-                                      <input
-                                        class="config-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="config-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Joe
-                                  </span>
-                                </li>
-                                <li
-                                  class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                                  role="none"
-                                >
-                                  <div
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
-                                    class="config-dropdown-menu-submenu-title"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    title="Submenu"
-                                  >
-                                    Submenu
-                                    <i
-                                      class="config-dropdown-menu-submenu-arrow"
-                                    />
-                                  </div>
-                                </li>
-                              </ul>
-                              <div
-                                class="config-table-filter-dropdown-btns"
+                                  Submenu
+                                  <i
+                                    class="config-dropdown-menu-submenu-arrow"
+                                  />
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              class="config-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="config-btn config-btn-link config-btn-sm"
+                                disabled=""
+                                type="button"
                               >
-                                <button
-                                  class="config-btn config-btn-link config-btn-sm"
-                                  disabled=""
-                                  type="button"
-                                >
-                                  <span>
-                                    Reset
-                                  </span>
-                                </button>
-                                <button
-                                  class="config-btn config-btn-primary config-btn-sm"
-                                  type="button"
-                                >
-                                  <span>
-                                    OK
-                                  </span>
-                                </button>
-                              </div>
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="config-btn config-btn-primary config-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
                           </div>
                         </div>
-                      </span>
+                      </div>
                     </div>
                   </th>
                 </tr>
@@ -23319,177 +23295,165 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                     <div
                       class="config-table-filter-column"
                     >
-                      <span
-                        class="config-table-filter-column-title"
+                      <div
+                        class="config-table-column-sorters"
                       >
-                        <div
-                          class="config-table-column-sorters-with-tooltip"
-                        >
-                          <div
-                            class="config-table-column-sorters"
-                          >
-                            <span>
-                              Name
-                            </span>
-                            <span
-                              class="config-table-column-sorter config-table-column-sorter-full"
-                            >
-                              <span
-                                class="config-table-column-sorter-inner"
-                              >
-                                <span
-                                  aria-label="caret-up"
-                                  class="anticon anticon-caret-up config-table-column-sorter-up"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-up"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                                <span
-                                  aria-label="caret-down"
-                                  class="anticon anticon-caret-down config-table-column-sorter-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </span>
-                      <span
-                        class="config-table-filter-trigger-container config-table-filter-trigger-container-open"
-                      >
+                        <span>
+                          Name
+                        </span>
                         <span
-                          class="config-dropdown-trigger config-table-filter-trigger"
-                          role="button"
-                          tabindex="-1"
+                          class="config-table-column-sorter config-table-column-sorter-full"
                         >
                           <span
-                            aria-label="filter"
-                            class="anticon anticon-filter"
-                            role="img"
+                            class="config-table-column-sorter-inner"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="filter"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up config-table-column-sorter-up"
+                              role="img"
                             >
-                              <path
-                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down config-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
                           </span>
                         </span>
-                        <div>
-                          <div
-                            class="config-dropdown"
-                            style="opacity:0;pointer-events:none"
+                      </div>
+                      <span
+                        class="config-dropdown-trigger config-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <div
-                              class="config-table-filter-dropdown"
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div>
+                        <div
+                          class="config-dropdown"
+                          style="opacity:0;pointer-events:none"
+                        >
+                          <div
+                            class="config-table-filter-dropdown"
+                          >
+                            <ul
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <ul
-                                class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
-                                data-menu-list="true"
-                                role="menu"
-                                tabindex="0"
+                              <li
+                                class="config-dropdown-menu-item"
+                                role="menuitem"
+                                tabindex="-1"
                               >
-                                <li
-                                  class="config-dropdown-menu-item"
+                                <label
+                                  class="config-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="config-checkbox"
+                                  >
+                                    <input
+                                      class="config-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="config-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Joe
+                                </span>
+                              </li>
+                              <li
+                                class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
+                                  title="Submenu"
                                 >
-                                  <label
-                                    class="config-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="config-checkbox"
-                                    >
-                                      <input
-                                        class="config-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="config-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Joe
-                                  </span>
-                                </li>
-                                <li
-                                  class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                                  role="none"
-                                >
-                                  <div
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
-                                    class="config-dropdown-menu-submenu-title"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    title="Submenu"
-                                  >
-                                    Submenu
-                                    <i
-                                      class="config-dropdown-menu-submenu-arrow"
-                                    />
-                                  </div>
-                                </li>
-                              </ul>
-                              <div
-                                class="config-table-filter-dropdown-btns"
+                                  Submenu
+                                  <i
+                                    class="config-dropdown-menu-submenu-arrow"
+                                  />
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              class="config-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="config-btn config-btn-link config-btn-sm"
+                                disabled=""
+                                type="button"
                               >
-                                <button
-                                  class="config-btn config-btn-link config-btn-sm"
-                                  disabled=""
-                                  type="button"
-                                >
-                                  <span>
-                                    Reset
-                                  </span>
-                                </button>
-                                <button
-                                  class="config-btn config-btn-primary config-btn-sm"
-                                  type="button"
-                                >
-                                  <span>
-                                    OK
-                                  </span>
-                                </button>
-                              </div>
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="config-btn config-btn-primary config-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
                           </div>
                         </div>
-                      </span>
+                      </div>
                     </div>
                   </th>
                 </tr>
@@ -23594,177 +23558,165 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                     <div
                       class="ant-table-filter-column"
                     >
-                      <span
-                        class="ant-table-filter-column-title"
+                      <div
+                        class="ant-table-column-sorters"
                       >
-                        <div
-                          class="ant-table-column-sorters-with-tooltip"
-                        >
-                          <div
-                            class="ant-table-column-sorters"
-                          >
-                            <span>
-                              Name
-                            </span>
-                            <span
-                              class="ant-table-column-sorter ant-table-column-sorter-full"
-                            >
-                              <span
-                                class="ant-table-column-sorter-inner"
-                              >
-                                <span
-                                  aria-label="caret-up"
-                                  class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-up"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                                <span
-                                  aria-label="caret-down"
-                                  class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </span>
-                      <span
-                        class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
-                      >
+                        <span>
+                          Name
+                        </span>
                         <span
-                          class="ant-dropdown-trigger ant-table-filter-trigger"
-                          role="button"
-                          tabindex="-1"
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
-                            aria-label="filter"
-                            class="anticon anticon-filter"
-                            role="img"
+                            class="ant-table-column-sorter-inner"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="filter"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
                             >
-                              <path
-                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
                           </span>
                         </span>
-                        <div>
-                          <div
-                            class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                      </div>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <div
-                              class="ant-table-filter-dropdown"
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div>
+                        <div
+                          class="ant-dropdown"
+                          style="opacity:0;pointer-events:none"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                                data-menu-list="true"
-                                role="menu"
-                                tabindex="0"
+                              <li
+                                class="ant-dropdown-menu-item"
+                                role="menuitem"
+                                tabindex="-1"
                               >
-                                <li
-                                  class="ant-dropdown-menu-item"
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Joe
+                                </span>
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
+                                  title="Submenu"
                                 >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Joe
-                                  </span>
-                                </li>
-                                <li
-                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                  role="none"
-                                >
-                                  <div
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
-                                    class="ant-dropdown-menu-submenu-title"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    title="Submenu"
-                                  >
-                                    Submenu
-                                    <i
-                                      class="ant-dropdown-menu-submenu-arrow"
-                                    />
-                                  </div>
-                                </li>
-                              </ul>
-                              <div
-                                class="ant-table-filter-dropdown-btns"
+                                  Submenu
+                                  <i
+                                    class="ant-dropdown-menu-submenu-arrow"
+                                  />
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
                               >
-                                <button
-                                  class="ant-btn ant-btn-link ant-btn-sm"
-                                  disabled=""
-                                  type="button"
-                                >
-                                  <span>
-                                    Reset
-                                  </span>
-                                </button>
-                                <button
-                                  class="ant-btn ant-btn-primary ant-btn-sm"
-                                  type="button"
-                                >
-                                  <span>
-                                    OK
-                                  </span>
-                                </button>
-                              </div>
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
                           </div>
                         </div>
-                      </span>
+                      </div>
                     </div>
                   </th>
                 </tr>
@@ -23869,177 +23821,165 @@ exports[`ConfigProvider components Table normal 1`] = `
                     <div
                       class="ant-table-filter-column"
                     >
-                      <span
-                        class="ant-table-filter-column-title"
+                      <div
+                        class="ant-table-column-sorters"
                       >
-                        <div
-                          class="ant-table-column-sorters-with-tooltip"
-                        >
-                          <div
-                            class="ant-table-column-sorters"
-                          >
-                            <span>
-                              Name
-                            </span>
-                            <span
-                              class="ant-table-column-sorter ant-table-column-sorter-full"
-                            >
-                              <span
-                                class="ant-table-column-sorter-inner"
-                              >
-                                <span
-                                  aria-label="caret-up"
-                                  class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-up"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                                <span
-                                  aria-label="caret-down"
-                                  class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </span>
-                      <span
-                        class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
-                      >
+                        <span>
+                          Name
+                        </span>
                         <span
-                          class="ant-dropdown-trigger ant-table-filter-trigger"
-                          role="button"
-                          tabindex="-1"
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
-                            aria-label="filter"
-                            class="anticon anticon-filter"
-                            role="img"
+                            class="ant-table-column-sorter-inner"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="filter"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
                             >
-                              <path
-                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
                           </span>
                         </span>
-                        <div>
-                          <div
-                            class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                      </div>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <div
-                              class="ant-table-filter-dropdown"
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div>
+                        <div
+                          class="ant-dropdown"
+                          style="opacity:0;pointer-events:none"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                                data-menu-list="true"
-                                role="menu"
-                                tabindex="0"
+                              <li
+                                class="ant-dropdown-menu-item"
+                                role="menuitem"
+                                tabindex="-1"
                               >
-                                <li
-                                  class="ant-dropdown-menu-item"
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Joe
+                                </span>
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
+                                  title="Submenu"
                                 >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Joe
-                                  </span>
-                                </li>
-                                <li
-                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                  role="none"
-                                >
-                                  <div
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
-                                    class="ant-dropdown-menu-submenu-title"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    title="Submenu"
-                                  >
-                                    Submenu
-                                    <i
-                                      class="ant-dropdown-menu-submenu-arrow"
-                                    />
-                                  </div>
-                                </li>
-                              </ul>
-                              <div
-                                class="ant-table-filter-dropdown-btns"
+                                  Submenu
+                                  <i
+                                    class="ant-dropdown-menu-submenu-arrow"
+                                  />
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
                               >
-                                <button
-                                  class="ant-btn ant-btn-link ant-btn-sm"
-                                  disabled=""
-                                  type="button"
-                                >
-                                  <span>
-                                    Reset
-                                  </span>
-                                </button>
-                                <button
-                                  class="ant-btn ant-btn-primary ant-btn-sm"
-                                  type="button"
-                                >
-                                  <span>
-                                    OK
-                                  </span>
-                                </button>
-                              </div>
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
                           </div>
                         </div>
-                      </span>
+                      </div>
                     </div>
                   </th>
                 </tr>
@@ -24144,177 +24084,165 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                     <div
                       class="prefix-Table-filter-column"
                     >
-                      <span
-                        class="prefix-Table-filter-column-title"
+                      <div
+                        class="prefix-Table-column-sorters"
                       >
-                        <div
-                          class="prefix-Table-column-sorters-with-tooltip"
-                        >
-                          <div
-                            class="prefix-Table-column-sorters"
-                          >
-                            <span>
-                              Name
-                            </span>
-                            <span
-                              class="prefix-Table-column-sorter prefix-Table-column-sorter-full"
-                            >
-                              <span
-                                class="prefix-Table-column-sorter-inner"
-                              >
-                                <span
-                                  aria-label="caret-up"
-                                  class="anticon anticon-caret-up prefix-Table-column-sorter-up"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-up"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                                <span
-                                  aria-label="caret-down"
-                                  class="anticon anticon-caret-down prefix-Table-column-sorter-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="caret-down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </span>
-                      <span
-                        class="prefix-Table-filter-trigger-container prefix-Table-filter-trigger-container-open"
-                      >
+                        <span>
+                          Name
+                        </span>
                         <span
-                          class="ant-dropdown-trigger prefix-Table-filter-trigger"
-                          role="button"
-                          tabindex="-1"
+                          class="prefix-Table-column-sorter prefix-Table-column-sorter-full"
                         >
                           <span
-                            aria-label="filter"
-                            class="anticon anticon-filter"
-                            role="img"
+                            class="prefix-Table-column-sorter-inner"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="filter"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up prefix-Table-column-sorter-up"
+                              role="img"
                             >
-                              <path
-                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down prefix-Table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
                           </span>
                         </span>
-                        <div>
-                          <div
-                            class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                      </div>
+                      <span
+                        class="ant-dropdown-trigger prefix-Table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <div
-                              class="prefix-Table-filter-dropdown"
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div>
+                        <div
+                          class="ant-dropdown"
+                          style="opacity:0;pointer-events:none"
+                        >
+                          <div
+                            class="prefix-Table-filter-dropdown"
+                          >
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                                data-menu-list="true"
-                                role="menu"
-                                tabindex="0"
+                              <li
+                                class="ant-dropdown-menu-item"
+                                role="menuitem"
+                                tabindex="-1"
                               >
-                                <li
-                                  class="ant-dropdown-menu-item"
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Joe
+                                </span>
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
+                                  title="Submenu"
                                 >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Joe
-                                  </span>
-                                </li>
-                                <li
-                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                  role="none"
-                                >
-                                  <div
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
-                                    class="ant-dropdown-menu-submenu-title"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    title="Submenu"
-                                  >
-                                    Submenu
-                                    <i
-                                      class="ant-dropdown-menu-submenu-arrow"
-                                    />
-                                  </div>
-                                </li>
-                              </ul>
-                              <div
-                                class="prefix-Table-filter-dropdown-btns"
+                                  Submenu
+                                  <i
+                                    class="ant-dropdown-menu-submenu-arrow"
+                                  />
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              class="prefix-Table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
                               >
-                                <button
-                                  class="ant-btn ant-btn-link ant-btn-sm"
-                                  disabled=""
-                                  type="button"
-                                >
-                                  <span>
-                                    Reset
-                                  </span>
-                                </button>
-                                <button
-                                  class="ant-btn ant-btn-primary ant-btn-sm"
-                                  type="button"
-                                >
-                                  <span>
-                                    OK
-                                  </span>
-                                </button>
-                              </div>
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
                           </div>
                         </div>
-                      </span>
+                      </div>
                     </div>
                   </th>
                 </tr>
