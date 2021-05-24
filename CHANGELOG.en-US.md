@@ -36,7 +36,7 @@ timeline: true
 - 🐞 Fix Menu.SubMenu icon margin issue when using third party icon libraries. [@#30642](https://github.com/ant-design/ant-design/pull/30642)
 - 🐞 Fix the problem that Descriptions introduces style loss separately. [@#30602](https://github.com/ant-design/ant-design/pull/30602) [@lisenenkov](https://github.com/lisenenkov)
 - 💄 Redesign Table filter and sorter buttons to clarify current column. [#30651](https://github.com/ant-design/ant-design/pull/30651)
-- 🆕 RadioGroup supports `data-*` and `aria-*` props. [#30507](https://github.com/ant-design/ant-design/pull/30507) [@kerm1it](https://github.com/kerm1it)
+- 🆕 Radio.Group supports `data-*` and `aria-*` props. [#30507](https://github.com/ant-design/ant-design/pull/30507) [@kerm1it](https://github.com/kerm1it)
 - 🆕 Statistic.CountDown support `onChange` event. [#30265](https://github.com/ant-design/ant-design/pull/30265) [@appleshell](https://github.com/appleshell)
 - 🆕 PageHeader `breadcrumb` allows to set as a reactnode. [#30019](https://github.com/ant-design/ant-design/pull/30019) [@gepd](https://github.com/gepd)
 - 🆕 ConfigProvider supports dynamic `prefixCls`. [#30625](https://github.com/ant-design/ant-design/pull/30625) [@kerm1it](https://github.com/kerm1it)
