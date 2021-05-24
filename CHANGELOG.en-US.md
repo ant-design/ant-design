@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 4.15.7
+
+`2021-05-24`
+
+- 🐞 ConfigProvider support  dynamic `prefixCls`. [#30625](https://github.com/ant-design/ant-design/pull/30625) [@kerm1it](https://github.com/kerm1it)
+- 🐞 Fix Anchor cannot trigger `onChange` when have `getCurrentAnchor` prop. [#30601](https://github.com/ant-design/ant-design/pull/30601)
+- 💄 Fix Notification custom styles don't apply to correct div by `className` when using `useNotification`. [#30588](https://github.com/ant-design/ant-design/pull/30588)
+- 🐞 Fix nested Table margin inside Table with fixed columns. [#30587](https://github.com/ant-design/ant-design/pull/30587)
+- 💄 Fix Collapse arrow style bug when no `header`. [#30586](https://github.com/ant-design/ant-design/pull/30586)
+- 🐞 Fix Typography flush issue when use `ellipsis={{ suffix: 'xxx' }}`. [#30582](https://github.com/ant-design/ant-design/pull/30582)
+- 🐞 fix(Collapse): The content of collapse panel hide when set activeKey while hiding. [#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
+- TypeScript
+  - 🤖 Space typescript definition support HTMLAttribute props. [#30590](https://github.com/ant-design/ant-design/pull/30590)
 ## 4.15.6
 
 `2021-05-18`
