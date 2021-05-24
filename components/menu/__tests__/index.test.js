@@ -812,13 +812,17 @@ describe('Menu', () => {
     expect(onOpenChange).toHaveBeenCalledWith([]);
   });
 
-  it('Use first char as Icon when collapsed', () => {
+  it.only('Use first char as Icon when collapsed', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed>
+        <Menu.SubMenu title="Light" />
         <Menu.Item>Bamboo</Menu.Item>
       </Menu>,
     );
 
-    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').text()).toEqual('B');
+    console.log(wrapper.html());
+
+    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').first().text()).toEqual('L');
+    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').last().text()).toEqual('B');
   });
 });
