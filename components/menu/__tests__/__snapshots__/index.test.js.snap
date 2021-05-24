@@ -82,7 +82,7 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
     >
       <span
         aria-label="mail"
-        class="anticon anticon-mail"
+        class="anticon anticon-mail ant-menu-item-icon"
         role="img"
       >
         <svg
@@ -124,7 +124,7 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
     >
       <span
         aria-label="mail"
-        class="anticon anticon-mail"
+        class="anticon anticon-mail ant-menu-item-icon"
         role="img"
       >
         <svg

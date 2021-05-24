@@ -4,7 +4,7 @@ import { useFullPath } from 'rc-menu/lib/context/PathContext';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import MenuContext from './MenuContext';
-import { isValidElement } from '../_util/reactNode';
+import { isValidElement, cloneElement } from '../_util/reactNode';
 
 interface TitleEventEntity {
   key: string;
@@ -48,7 +48,12 @@ function SubMenu(props: SubMenuProps) {
     const titleIsSpan = isValidElement(title) && title.type === 'span';
     titleNode = (
       <>
-        {icon}
+        {cloneElement(icon, {
+          className: classNames(
+            isValidElement(icon) ? icon.props?.className : '',
+            `${prefixCls}-item-icon`,
+          ),
+        })}
         {titleIsSpan ? title : <span className={`${prefixCls}-title-content`}>{title}</span>}
       </>
     );
