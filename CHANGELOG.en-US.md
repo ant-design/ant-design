@@ -43,7 +43,7 @@ timeline: true
 - 💄 Rewrite Space to use `flexGap` instead of `margin` style to deal with layout issues under certain border situations. [#30023](https://github.com/ant-design/ant-design/pull/30023)
 - 🌐 Internationalization
   - 🇷🇴 Added Romanian internationalization. [#30419](https://github.com/ant-design/ant-design/pull/30419) [@stefy](https://github.com/stefy)
-  - 🇧🇪 Added Dutch (Netherlands) and Dutch (Belgium) internationalization. [#30389](https://github.com/ant-design/ant-design/pull/30389) [@lewis-fidlers](https://github.com/lewis-fidlers)
+  - 🌐 Added Dutch (Netherland 🇳🇱) and Dutch (Belgium 🇧🇪) internationalization. [#30389](https://github.com/ant-design/ant-design/pull/30389) [@lewis-fidlers](https://github.com/lewis-fidlers)
 - TypeScript
   - 🤖 Space typescript definition supports HTMLAttribute attribute. [#30590](https://github.com/ant-design/ant-design/pull/30590)
 
