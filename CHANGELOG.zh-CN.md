@@ -23,7 +23,7 @@ timeline: true
 - Table
   - 🆕 Table.Summary 支持 `sticky` 模式。[#30631](https://github.com/ant-design/ant-design/pull/30631)
   - 🐞 修复有固定列的 Table 内嵌 Table 的额外边距丢失的问题。[#30587](https://github.com/ant-design/ant-design/pull/30587)
-  - 🐞 Table 新增 `expandable.fixed` 属性用于设置扩展图标固定。[#29959](https://github.com/ant-design/ant-design/pull/29959)
+  - 🆕 Table 新增 `expandable.fixed` 属性用于设置扩展图标固定。[#29959](https://github.com/ant-design/ant-design/pull/29959)
 - Upload
   - 🆕 Upload 组件 `itemRender` 添加 `actions` 调用参数。[#30236](https://github.com/ant-design/ant-design/pull/30236) [@kerm1it](https://github.com/kerm1it)
   - 🆕 Upload 从拖动事件中删除 `stopPropagation`，并添加`onDrop` 回调。[#30319](https://github.com/ant-design/ant-design/pull/30319) [@ebonow](https://github.com/ebonow)

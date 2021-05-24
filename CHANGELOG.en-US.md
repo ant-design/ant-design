@@ -23,7 +23,7 @@ timeline: true
 - Table
   - 🆕 Table.Summary supports `sticky` mode. [#30631](https://github.com/ant-design/ant-design/pull/30631)
   - 🐞 Fix the problem that the extra margin of the embedded Table with fixed columns is lost. [#30587](https://github.com/ant-design/ant-design/pull/30587)
-  - 🐞 Table adds the `expandable.fixed` property to set the expansion icon to be fixed. [#29959](https://github.com/ant-design/ant-design/pull/29959)
+  - 🆕 Table adds the `expandable.fixed` property to set the expansion icon to be fixed. [#29959](https://github.com/ant-design/ant-design/pull/29959)
 - Upload
   - 🆕 Upload component `itemRender` adds `actions` call parameters. [#30236](https://github.com/ant-design/ant-design/pull/30236) [@kerm1it](https://github.com/kerm1it)
   - 🆕 Upload Remove `stopPropagation` from drag event and add `onDrop` callback. [#30319](https://github.com/ant-design/ant-design/pull/30319) [@ebonow](https://github.com/ebonow)
