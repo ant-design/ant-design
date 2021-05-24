@@ -126,7 +126,7 @@
     "rc-image": "~5.2.4",
     "rc-input-number": "~7.1.0",
     "rc-mentions": "~1.6.0",
-    "rc-menu": "~9.0.0-alpha.6",
+    "rc-menu": "~9.0.0",
     "rc-motion": "^2.4.0",
     "rc-notification": "~4.5.2",
     "rc-pagination": "~3.1.6",
@@ -292,7 +292,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "270 kB"
+      "maxSize": "275 kB"
     },
     {
       "path": "./dist/antd.min.css",
