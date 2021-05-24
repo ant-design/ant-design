@@ -125,7 +125,7 @@
     "rc-field-form": "~1.20.0",
     "rc-image": "~5.2.4",
     "rc-input-number": "~7.1.0",
-    "rc-mentions": "~1.6.0",
+    "rc-mentions": "~1.6.1",
     "rc-menu": "~9.0.0",
     "rc-motion": "^2.4.0",
     "rc-notification": "~4.5.2",
@@ -139,7 +139,7 @@
     "rc-steps": "~4.1.0",
     "rc-switch": "~3.2.0",
     "rc-table": "~7.15.1",
-    "rc-tabs": "~11.9.0",
+    "rc-tabs": "~11.9.1",
     "rc-textarea": "~0.3.0",
     "rc-tooltip": "~5.1.1",
     "rc-tree": "~4.1.0",
@@ -296,15 +296,15 @@
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "70 kB"
+      "maxSize": "65 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "72 kB"
+      "maxSize": "67 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "70 kB"
+      "maxSize": "65 kB"
     }
   ],
   "tnpm": {
