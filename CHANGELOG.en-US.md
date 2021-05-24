@@ -19,7 +19,7 @@ timeline: true
 
 `2021-05-24`
 
-- 🔥 Refactor Menu andsupport keyboard access and enhance accessibility experience. [#30382](https://github.com/ant-design/ant-design/pull/30382)
+- 🔥 Refactor Menu to support keyboard access and enhance accessibility experience. [#30382](https://github.com/ant-design/ant-design/pull/30382)
 - Table
   - 🆕 Table.Summary supports `sticky` mode. [#30631](https://github.com/ant-design/ant-design/pull/30631)
   - 🐞 Fix nested Table margin inside Table with fixed columns. [#30587](https://github.com/ant-design/ant-design/pull/30587)
