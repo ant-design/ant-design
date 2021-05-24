@@ -20,6 +20,7 @@ timeline: true
 `2021-05-24`
 
 - 🔥 重构 Menu，支持键盘操作以及无障碍体验优化。[#30382](https://github.com/ant-design/ant-design/pull/30382)
+- 💄 重新设计 Table 筛选和排序按钮的位置，使其归属列更明确。[#30651](https://github.com/ant-design/ant-design/pull/30651)
 - Table
   - 🆕 Table.Summary 支持 `sticky` 模式。[#30631](https://github.com/ant-design/ant-design/pull/30631)
   - 🐞 修复有固定列的 Table 内嵌 Table 的额外边距丢失的问题。[#30587](https://github.com/ant-design/ant-design/pull/30587)
@@ -35,7 +36,6 @@ timeline: true
   - 🐞 修复 Collapse 隐藏时设置 `activeKey` 时内容会消失的问题。[#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
 - 🐞 修复 Menu.SubMenu 的 `icon` 设置为第三方 icon 库时的样式问题。[@#30642](https://github.com/ant-design/ant-design/pull/30642)
 - 🐞 修复 Descriptions 单独引入样式丢失的问题。[@#30602](https://github.com/ant-design/ant-design/pull/30602) [@lisenenkov](https://github.com/lisenenkov)
-- 💄 重新设计 Table 筛选和排序按钮的位置，使其归属列更明确。[#30651](https://github.com/ant-design/ant-design/pull/30651)
 - 🆕 Radio.Group 支持 `data-*` 和 `aria-*` 属性。[#30507](https://github.com/ant-design/ant-design/pull/30507)
 - 🆕 Statistic.CountDown 组件增加 `onChange` 事件。[#30265](https://github.com/ant-design/ant-design/pull/30265) [@appleshell](https://github.com/appleshell)
 - 🆕 PageHeader 的 `breadcrumb` 中允许设置为组件。[#30019](https://github.com/ant-design/ant-design/pull/30019) [@gepd](https://github.com/gepd)

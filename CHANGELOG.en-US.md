@@ -20,6 +20,7 @@ timeline: true
 `2021-05-24`
 
 - 🔥 Refactor Menu to support keyboard access and enhance accessibility experience. [#30382](https://github.com/ant-design/ant-design/pull/30382)
+- 💄 Redesign Table filter and sorter buttons to clarify current column. [#30651](https://github.com/ant-design/ant-design/pull/30651)
 - Table
   - 🆕 Table.Summary supports `sticky` mode. [#30631](https://github.com/ant-design/ant-design/pull/30631)
   - 🐞 Fix nested Table margin inside Table with fixed columns. [#30587](https://github.com/ant-design/ant-design/pull/30587)
@@ -35,7 +36,6 @@ timeline: true
   - 🐞 Fix Collapse content disappears when set `activeKey` while it is hidden. [#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
 - 🐞 Fix Menu.SubMenu icon margin issue when using third party icon libraries. [@#30642](https://github.com/ant-design/ant-design/pull/30642)
 - 🐞 Fix Descriptions wrong styling import. [@#30602](https://github.com/ant-design/ant-design/pull/30602) [@lisenenkov](https://github.com/lisenenkov)
-- 💄 Redesign Table filter and sorter buttons to clarify current column. [#30651](https://github.com/ant-design/ant-design/pull/30651)
 - 🆕 Radio.Group supports `data-*` and `aria-*` props. [#30507](https://github.com/ant-design/ant-design/pull/30507)
 - 🆕 Statistic.CountDown support `onChange` event. [#30265](https://github.com/ant-design/ant-design/pull/30265) [@appleshell](https://github.com/appleshell)
 - 🆕 PageHeader `breadcrumb` allows to set as a reactnode. [#30019](https://github.com/ant-design/ant-design/pull/30019) [@gepd](https://github.com/gepd)
