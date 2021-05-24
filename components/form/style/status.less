@@ -182,7 +182,9 @@
     .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
       &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
         .@{ant-prefix}-select-selector {
+        background-color: inherit;
         border: 0;
+        box-shadow: none;
       }
     }
 
@@ -221,9 +223,18 @@
       }
     }
 
-    .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
-      background-color: @form-error-input-bg;
-      .active(@error-color);
+    // cascader
+    .@{ant-prefix}-cascader-picker {
+      &:hover
+        .@{ant-prefix}-cascader-picker-label:hover
+        + .@{ant-prefix}-cascader-input.@{ant-prefix}-input {
+        border-color: @error-color;
+      }
+
+      &:focus .@{ant-prefix}-cascader-input {
+        background-color: @form-error-input-bg;
+        .active(@error-color);
+      }
     }
 
     // transfer
