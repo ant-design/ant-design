@@ -19,7 +19,7 @@ timeline: true
 
 `2021-05-24`
 
-- 🐞 ConfigProvider support  dynamic `prefixCls`. [#30625](https://github.com/ant-design/ant-design/pull/30625) [@kerm1it](https://github.com/kerm1it)
+- 🐞 ConfigProvider support dynamic `prefixCls`. [#30625](https://github.com/ant-design/ant-design/pull/30625) [@kerm1it](https://github.com/kerm1it)
 - 🐞 Fix Anchor cannot trigger `onChange` when have `getCurrentAnchor` prop. [#30601](https://github.com/ant-design/ant-design/pull/30601)
 - 💄 Fix Notification custom styles don't apply to correct div by `className` when using `useNotification`. [#30588](https://github.com/ant-design/ant-design/pull/30588)
 - 🐞 Fix nested Table margin inside Table with fixed columns. [#30587](https://github.com/ant-design/ant-design/pull/30587)
