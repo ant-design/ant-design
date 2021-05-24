@@ -43,7 +43,7 @@ timeline: true
 - 💄 改写 Space 使用 `flexGap` 以代替 `margin` 样式以处理某些边界情况下的布局问题。[#30023](https://github.com/ant-design/ant-design/pull/30023)
 - 🌐 国际化
   - 🇷🇴 补充罗马尼亚语国际化。[#30419](https://github.com/ant-design/ant-design/pull/30419) [@stefy](https://github.com/stefy)
-  - 🌐 补充荷兰语(荷兰 🇳🇱)及荷兰语(比利时 🇧🇪)国际化。[#30389](https://github.com/ant-design/ant-design/pull/30389) [@lewis-fidlers](https://github.com/lewis-fidlers)
+  - 🌐 补充荷兰语（荷兰 🇳🇱）及荷兰语（比利时 🇧🇪）国际化。[#30389](https://github.com/ant-design/ant-design/pull/30389) [@lewis-fidlers](https://github.com/lewis-fidlers)
 - TypeScript
   - 🤖 Space typescript 定义支持 HTMLAttribute 属性。[#30590](https://github.com/ant-design/ant-design/pull/30590)
 
