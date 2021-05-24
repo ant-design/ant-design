@@ -173,22 +173,27 @@ const columns = [
 
 展开功能的配置。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| childrenColumnName | 指定树形结构的列名 | string | children |
-| columnWidth | 自定义展开列宽度 | string \| number | - |
-| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
-| defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
-| expandedRowClassName | 展开行的 className | function(record, index, indent): string | - |
-| expandedRowKeys | 展开的行，控制属性 | string\[] | - |
-| expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |
-| expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |
-| expandIconColumnIndex | 自定义展开按钮的列顺序，`-1` 时不展示 | number | - |
-| expandRowByClick | 通过点击行来展开子行 | boolean | false |
-| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
-| rowExpandable | 设置是否允许行展开 | (record) => boolean | - |
-| onExpand | 点击展开图标时触发 | function(expanded, record) | - |
-| onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| childrenColumnName | 指定树形结构的列名 | string | children |  |
+| columnWidth | 自定义展开列宽度 | string \| number | - |  |
+| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
+| defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |
+| expandedRowClassName | 展开行的 className | function(record, index, indent): string | - |  |
+| expandedRowKeys | 展开的行，控制属性 | string\[] | - |  |
+| expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |  |
+| expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
+| expandIconColumnIndex | 自定义展开按钮的列顺序，`-1` 时不展示 | number | - |  |
+| expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
+| fixed | 控制展开图标是否固定，可选 true `left` `right` | boolean \| string | false | 4.16.0 |
+| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
+| rowExpandable | 设置是否允许行展开 | (record) => boolean | - |  |
+| onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
+| onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
+
+- `fixed`
+  - 当设置为 true 或 `left` 且 `expandIconColumnIndex` 未设置或为 0 时，开启固定
+  - 当设置为 true 或 `right` 且 `expandIconColumnIndex` 设置为表格列数时，开启固定
 
 ### rowSelection
 

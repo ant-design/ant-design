@@ -94,7 +94,25 @@ for (let i = 0; i < 100; i++) {
 }
 
 ReactDOM.render(
-  <Table columns={columns} dataSource={data} scroll={{ x: 1500 }} sticky />,
+  <Table
+    columns={columns}
+    dataSource={data}
+    scroll={{ x: 1500 }}
+    summary={pageData => (
+      <Table.Summary fixed>
+        <Table.Summary.Row>
+          <Table.Summary.Cell index={0} colSpan={2}>
+            Fix Left
+          </Table.Summary.Cell>
+          <Table.Summary.Cell index={2} colSpan={8}>
+            Scroll Context
+          </Table.Summary.Cell>
+          <Table.Summary.Cell index={10}>Fix Right</Table.Summary.Cell>
+        </Table.Summary.Row>
+      </Table.Summary>
+    )}
+    sticky
+  />,
   mountNode,
 );
 ```

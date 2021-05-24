@@ -80,11 +80,11 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   }, []);
 
   // ============================= Events =============================
-  const onInternalPreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
+  const onInternalPreview = (file: UploadFile, e?: React.SyntheticEvent<HTMLElement>) => {
     if (!onPreview) {
       return;
     }
-    e.preventDefault();
+    e?.preventDefault();
     return onPreview(file);
   };
 

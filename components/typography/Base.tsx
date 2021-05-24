@@ -67,10 +67,11 @@ export interface BlockProps extends TypographyProps {
   delete?: boolean;
   strong?: boolean;
   keyboard?: boolean;
+  italic?: boolean;
 }
 
 function wrapperDecorations(
-  { mark, code, underline, delete: del, strong, keyboard }: BlockProps,
+  { mark, code, underline, delete: del, strong, keyboard, italic }: BlockProps,
   content: React.ReactNode,
 ) {
   let currentContent = content;
@@ -87,6 +88,7 @@ function wrapperDecorations(
   wrap(code, 'code');
   wrap(mark, 'mark');
   wrap(keyboard, 'kbd');
+  wrap(italic, 'i');
 
   return currentContent;
 }

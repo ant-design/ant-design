@@ -15038,20 +15038,22 @@ exports[`ConfigProvider components List prefixCls 1`] = `
 
 exports[`ConfigProvider components Menu configProvider 1`] = `
 <ul
-  class="config-menu config-menu-light config-menu-root config-menu-inline"
+  class="config-menu config-menu-root config-menu-inline config-menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="true"
       aria-haspopup="true"
-      aria-owns="bamboo$Menu"
       class="config-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
       title="bamboo"
     >
       bamboo
@@ -15061,11 +15063,10 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
     </div>
     <ul
       class="config-menu config-menu-sub config-menu-inline"
-      id="bamboo$Menu"
-      role="menu"
+      data-menu-list="true"
     >
       <li
-        class=" config-menu-item-group"
+        class="config-menu-item-group"
       >
         <div
           class="config-menu-item-group-title"
@@ -15080,6 +15081,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
             class="config-menu-item config-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Light
           </li>
@@ -15092,20 +15094,22 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
 
 exports[`ConfigProvider components Menu configProvider componentSize large 1`] = `
 <ul
-  class="config-menu config-menu-light config-menu-root config-menu-inline"
+  class="config-menu config-menu-root config-menu-inline config-menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="true"
       aria-haspopup="true"
-      aria-owns="bamboo$Menu"
       class="config-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
       title="bamboo"
     >
       bamboo
@@ -15115,11 +15119,10 @@ exports[`ConfigProvider components Menu configProvider componentSize large 1`] =
     </div>
     <ul
       class="config-menu config-menu-sub config-menu-inline"
-      id="bamboo$Menu"
-      role="menu"
+      data-menu-list="true"
     >
       <li
-        class=" config-menu-item-group"
+        class="config-menu-item-group"
       >
         <div
           class="config-menu-item-group-title"
@@ -15134,6 +15137,7 @@ exports[`ConfigProvider components Menu configProvider componentSize large 1`] =
             class="config-menu-item config-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Light
           </li>
@@ -15146,20 +15150,22 @@ exports[`ConfigProvider components Menu configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
 <ul
-  class="config-menu config-menu-light config-menu-root config-menu-inline"
+  class="config-menu config-menu-root config-menu-inline config-menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="true"
       aria-haspopup="true"
-      aria-owns="bamboo$Menu"
       class="config-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
       title="bamboo"
     >
       bamboo
@@ -15169,11 +15175,10 @@ exports[`ConfigProvider components Menu configProvider componentSize middle 1`] 
     </div>
     <ul
       class="config-menu config-menu-sub config-menu-inline"
-      id="bamboo$Menu"
-      role="menu"
+      data-menu-list="true"
     >
       <li
-        class=" config-menu-item-group"
+        class="config-menu-item-group"
       >
         <div
           class="config-menu-item-group-title"
@@ -15188,6 +15193,7 @@ exports[`ConfigProvider components Menu configProvider componentSize middle 1`] 
             class="config-menu-item config-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Light
           </li>
@@ -15200,20 +15206,22 @@ exports[`ConfigProvider components Menu configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components Menu configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="true"
       aria-haspopup="true"
-      aria-owns="bamboo$Menu"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
       title="bamboo"
     >
       bamboo
@@ -15223,11 +15231,10 @@ exports[`ConfigProvider components Menu configProvider virtual and dropdownMatch
     </div>
     <ul
       class="ant-menu ant-menu-sub ant-menu-inline"
-      id="bamboo$Menu"
-      role="menu"
+      data-menu-list="true"
     >
       <li
-        class=" ant-menu-item-group"
+        class="ant-menu-item-group"
       >
         <div
           class="ant-menu-item-group-title"
@@ -15242,6 +15249,7 @@ exports[`ConfigProvider components Menu configProvider virtual and dropdownMatch
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Light
           </li>
@@ -15254,20 +15262,22 @@ exports[`ConfigProvider components Menu configProvider virtual and dropdownMatch
 
 exports[`ConfigProvider components Menu normal 1`] = `
 <ul
-  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="true"
       aria-haspopup="true"
-      aria-owns="bamboo$Menu"
       class="ant-menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
       title="bamboo"
     >
       bamboo
@@ -15277,11 +15287,10 @@ exports[`ConfigProvider components Menu normal 1`] = `
     </div>
     <ul
       class="ant-menu ant-menu-sub ant-menu-inline"
-      id="bamboo$Menu"
-      role="menu"
+      data-menu-list="true"
     >
       <li
-        class=" ant-menu-item-group"
+        class="ant-menu-item-group"
       >
         <div
           class="ant-menu-item-group-title"
@@ -15296,6 +15305,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
             class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Light
           </li>
@@ -15308,20 +15318,22 @@ exports[`ConfigProvider components Menu normal 1`] = `
 
 exports[`ConfigProvider components Menu prefixCls 1`] = `
 <ul
-  class="prefix-Menu prefix-Menu-light prefix-Menu-root prefix-Menu-inline"
+  class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
+  data-menu-list="true"
   role="menu"
+  tabindex="0"
 >
   <li
     class="prefix-Menu-submenu prefix-Menu-submenu-inline prefix-Menu-submenu-open"
-    role="menuitem"
+    role="none"
   >
     <div
       aria-expanded="true"
       aria-haspopup="true"
-      aria-owns="bamboo$Menu"
       class="prefix-Menu-submenu-title"
-      role="button"
+      role="menuitem"
       style="padding-left:24px"
+      tabindex="-1"
       title="bamboo"
     >
       bamboo
@@ -15331,11 +15343,11 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
     </div>
     <ul
       class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
-      id="bamboo$Menu"
-      role="menu"
+      data-menu-list="true"
     >
       <li
-        class=" prefix-Menu-item-group"
+        class="prefix-Menu-item-group"
+        prefixcls="prefix-Menu"
       >
         <div
           class="prefix-Menu-item-group-title"
@@ -15348,8 +15360,10 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
         >
           <li
             class="prefix-Menu-item prefix-Menu-item-only-child"
+            prefixcls="prefix-Menu"
             role="menuitem"
             style="padding-left:48px"
+            tabindex="-1"
           >
             Light
           </li>
@@ -22853,12 +22867,15 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               class="config-table-filter-dropdown"
                             >
                               <ul
-                                class="config-dropdown-menu config-dropdown-menu-light config-dropdown-menu-root config-dropdown-menu-vertical"
+                                class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                                data-menu-list="true"
                                 role="menu"
+                                tabindex="0"
                               >
                                 <li
                                   class="config-dropdown-menu-item"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="config-checkbox-wrapper"
@@ -22881,13 +22898,14 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                 </li>
                                 <li
                                   class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                                  role="menuitem"
+                                  role="none"
                                 >
                                   <div
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="config-dropdown-menu-submenu-title"
-                                    role="button"
+                                    role="menuitem"
+                                    tabindex="-1"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -23124,12 +23142,15 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               class="config-table-filter-dropdown"
                             >
                               <ul
-                                class="config-dropdown-menu config-dropdown-menu-light config-dropdown-menu-root config-dropdown-menu-vertical"
+                                class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                                data-menu-list="true"
                                 role="menu"
+                                tabindex="0"
                               >
                                 <li
                                   class="config-dropdown-menu-item"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="config-checkbox-wrapper"
@@ -23152,13 +23173,14 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                 </li>
                                 <li
                                   class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                                  role="menuitem"
+                                  role="none"
                                 >
                                   <div
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="config-dropdown-menu-submenu-title"
-                                    role="button"
+                                    role="menuitem"
+                                    tabindex="-1"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -23395,12 +23417,15 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                               class="config-table-filter-dropdown"
                             >
                               <ul
-                                class="config-dropdown-menu config-dropdown-menu-light config-dropdown-menu-root config-dropdown-menu-vertical"
+                                class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                                data-menu-list="true"
                                 role="menu"
+                                tabindex="0"
                               >
                                 <li
                                   class="config-dropdown-menu-item"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="config-checkbox-wrapper"
@@ -23423,13 +23448,14 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                 </li>
                                 <li
                                   class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                                  role="menuitem"
+                                  role="none"
                                 >
                                   <div
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="config-dropdown-menu-submenu-title"
-                                    role="button"
+                                    role="menuitem"
+                                    tabindex="-1"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -23666,12 +23692,15 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                               class="ant-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                                data-menu-list="true"
                                 role="menu"
+                                tabindex="0"
                               >
                                 <li
                                   class="ant-dropdown-menu-item"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="ant-checkbox-wrapper"
@@ -23694,13 +23723,14 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                 </li>
                                 <li
                                   class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                  role="menuitem"
+                                  role="none"
                                 >
                                   <div
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
-                                    role="button"
+                                    role="menuitem"
+                                    tabindex="-1"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -23937,12 +23967,15 @@ exports[`ConfigProvider components Table normal 1`] = `
                               class="ant-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                                data-menu-list="true"
                                 role="menu"
+                                tabindex="0"
                               >
                                 <li
                                   class="ant-dropdown-menu-item"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="ant-checkbox-wrapper"
@@ -23965,13 +23998,14 @@ exports[`ConfigProvider components Table normal 1`] = `
                                 </li>
                                 <li
                                   class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                  role="menuitem"
+                                  role="none"
                                 >
                                   <div
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
-                                    role="button"
+                                    role="menuitem"
+                                    tabindex="-1"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -24208,12 +24242,15 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               class="prefix-Table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                                data-menu-list="true"
                                 role="menu"
+                                tabindex="0"
                               >
                                 <li
                                   class="ant-dropdown-menu-item"
                                   role="menuitem"
+                                  tabindex="-1"
                                 >
                                   <label
                                     class="ant-checkbox-wrapper"
@@ -24236,13 +24273,14 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 </li>
                                 <li
                                   class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                  role="menuitem"
+                                  role="none"
                                 >
                                   <div
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
-                                    role="button"
+                                    role="menuitem"
+                                    tabindex="-1"
                                     title="Submenu"
                                   >
                                     Submenu

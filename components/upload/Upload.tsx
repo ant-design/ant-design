@@ -34,6 +34,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onPreview,
     onDownload,
     onChange,
+    onDrop,
     previewFile,
     disabled,
     locale: propLocale,
@@ -278,8 +279,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   };
 
   const onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.stopPropagation();
     setDragState(e.type);
+
+    if (e.type === 'drop') {
+      onDrop?.(e);
+    }
   };
 
   // Test needs

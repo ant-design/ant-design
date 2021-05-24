@@ -3,6 +3,13 @@
 @import './status';
 
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
+@menu-animation-duration-normal: 0.15s;
+
+.accessibility-focus() {
+  box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+}
+
+// TODO: Should remove icon style compatible in v5
 
 // default theme
 .@{menu-prefix-cls} {
@@ -18,8 +25,13 @@
   background: @menu-bg;
   outline: none;
   box-shadow: @box-shadow-base;
-  transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+  transition: background @animation-duration-slow,
+    width @animation-duration-slow cubic-bezier(0.2, 0, 0, 1) 0s;
   .clearfix();
+
+  &&-root:focus-visible {
+    .accessibility-focus();
+  }
 
   ul,
   ol {
@@ -28,7 +40,8 @@
     list-style: none;
   }
 
-  &-hidden {
+  &-hidden,
+  &-submenu-hidden {
     display: none;
   }
 
@@ -38,16 +51,18 @@
     color: @menu-item-group-title-color;
     font-size: @menu-item-group-title-font-size;
     line-height: @menu-item-group-height;
-    transition: all 0.3s;
+    transition: all @animation-duration-slow;
   }
 
   &-horizontal &-submenu {
-    transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out;
+    transition: border-color @animation-duration-slow @ease-in-out,
+      background @animation-duration-slow @ease-in-out;
   }
   &-submenu,
   &-submenu-inline {
-    transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out,
-      padding 0.15s @ease-in-out;
+    transition: border-color @animation-duration-slow @ease-in-out,
+      background @animation-duration-slow @ease-in-out,
+      padding @menu-animation-duration-normal @ease-in-out;
   }
 
   &-submenu-selected {
@@ -61,7 +76,8 @@
 
   &-submenu &-sub {
     cursor: initial;
-    transition: background 0.3s @ease-in-out, padding 0.3s @ease-in-out;
+    transition: background @animation-duration-slow @ease-in-out,
+      padding @animation-duration-slow @ease-in-out;
   }
 
   &-item a {
@@ -172,7 +188,7 @@
 
   &-horizontal &-item,
   &-horizontal &-submenu-title {
-    transition: border-color 0.3s, background 0.3s;
+    transition: border-color @animation-duration-slow, background @animation-duration-slow;
   }
 
   &-item,
@@ -183,17 +199,22 @@
     padding: @menu-item-padding;
     white-space: nowrap;
     cursor: pointer;
-    transition: border-color 0.3s, background 0.3s, padding 0.15s @ease-in-out;
+    transition: border-color @animation-duration-slow, background @animation-duration-slow,
+      padding @animation-duration-slow @ease-in-out;
 
     .@{menu-prefix-cls}-item-icon,
     .@{iconfont-css-prefix} {
       min-width: 14px;
-      margin-right: @menu-icon-margin-right;
       font-size: @menu-icon-size;
-      transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out, color 0.3s;
+      transition: font-size @menu-animation-duration-normal @ease-out,
+        margin @animation-duration-slow @ease-in-out, color @animation-duration-slow;
       + span {
+        margin-left: @menu-icon-margin-right;
         opacity: 1;
-        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out, color 0.3s;
+        // transition: opacity @animation-duration-slow @ease-in-out,
+        //   width @animation-duration-slow @ease-in-out, color @animation-duration-slow;
+        transition: opacity @animation-duration-slow @ease-in-out, margin @animation-duration-slow,
+          color @animation-duration-slow;
       }
     }
 
@@ -202,6 +223,10 @@
       > .@{menu-prefix-cls}-item-icon {
         margin-right: 0;
       }
+    }
+
+    &:focus-visible {
+      .accessibility-focus();
     }
   }
 
@@ -248,7 +273,7 @@
       background-color: @menu-bg;
       border-radius: @border-radius-base;
       &-submenu-title::after {
-        transition: transform 0.3s @ease-in-out;
+        transition: transform @animation-duration-slow @ease-in-out;
       }
     }
 
@@ -264,10 +289,11 @@
       width: 10px;
       color: @menu-item-color;
       transform: translateY(-50%);
-      transition: transform 0.3s @ease-in-out;
+      transition: transform @animation-duration-slow @ease-in-out;
     }
 
     &-arrow {
+      // →
       &::before,
       &::after {
         position: absolute;
@@ -275,8 +301,9 @@
         height: 1.5px;
         background-color: currentColor;
         border-radius: 2px;
-        transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out, top 0.3s @ease-in-out,
-          color 0.3s @ease-in-out;
+        transition: background @animation-duration-slow @ease-in-out,
+          transform @animation-duration-slow @ease-in-out, top @animation-duration-slow @ease-in-out,
+          color @animation-duration-slow @ease-in-out;
         content: '';
       }
       &::before {
@@ -292,7 +319,9 @@
       color: @menu-highlight-color;
     }
 
+    .@{menu-prefix-cls}-inline-collapsed &-arrow,
     &-inline &-arrow {
+      // ↓
       &::before {
         transform: rotate(-45deg) translateX(2.5px);
       }
@@ -306,6 +335,7 @@
     }
 
     &-open&-inline > &-title > &-arrow {
+      // ↑
       transform: translateY(-2px);
       &::after {
         transform: rotate(-45deg) translateX(-2.5px);
@@ -398,7 +428,8 @@
         border-right: @menu-item-active-border-width solid @menu-highlight-color;
         transform: scaleY(0.0001);
         opacity: 0;
-        transition: transform 0.15s @ease-out, opacity 0.15s @ease-out;
+        transition: transform @menu-animation-duration-normal @ease-out,
+          opacity @menu-animation-duration-normal @ease-out;
         content: '';
       }
     }
@@ -444,7 +475,8 @@
       &::after {
         transform: scaleY(1);
         opacity: 1;
-        transition: transform 0.15s @ease-in-out, opacity 0.15s @ease-in-out;
+        transition: transform @menu-animation-duration-normal @ease-in-out,
+          opacity @menu-animation-duration-normal @ease-in-out;
       }
     }
 
@@ -457,12 +489,33 @@
     .@{menu-prefix-cls}-submenu-title {
       padding-right: 34px;
     }
+
+    // Motion enhance for first level
+    &.@{menu-prefix-cls}-root {
+      .@{menu-prefix-cls}-item,
+      .@{menu-prefix-cls}-submenu-title {
+        display: flex;
+        align-items: center;
+        transition: border-color @animation-duration-slow, background @animation-duration-slow,
+          padding 0.1s @ease-out;
+
+        > .@{menu-prefix-cls}-title-content {
+          flex: auto;
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        > * {
+          flex: none;
+        }
+      }
+    }
   }
 
-  &-inline-collapsed {
-    &:not(.@{ant-prefix}-layout-sider-children > ul) {
-      width: @menu-collapsed-width;
-    }
+  &&-inline-collapsed {
+    width: @menu-collapsed-width;
+
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-item-group
       > .@{menu-prefix-cls}-item-group-list
@@ -475,8 +528,9 @@
       left: 0;
       padding: 0 ~'calc(50% - @{menu-icon-size-lg} / 2)';
       text-overflow: clip;
+
       .@{menu-prefix-cls}-submenu-arrow {
-        display: none;
+        opacity: 0;
       }
 
       .@{menu-prefix-cls}-item-icon,
@@ -486,7 +540,6 @@
         line-height: @menu-item-height;
         + span {
           display: inline-block;
-          max-width: 0;
           opacity: 0;
         }
       }
