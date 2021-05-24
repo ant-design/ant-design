@@ -25,7 +25,7 @@ timeline: true
 - 🐞 Fix nested Table margin inside Table with fixed columns. [#30587](https://github.com/ant-design/ant-design/pull/30587)
 - 💄 Fix Collapse arrow style bug when no `header`. [#30586](https://github.com/ant-design/ant-design/pull/30586)
 - 🐞 Fix Typography flush issue when use `ellipsis={{ suffix: 'xxx' }}`. [#30582](https://github.com/ant-design/ant-design/pull/30582)
-- 🐞 fix(Collapse): The content of collapse panel hide when set activeKey while hiding. [#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
+- 🐞 Fix Collapse the content of collapse panel hide when set activeKey while hiding. [#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
 - TypeScript
   - 🤖 Space typescript definition support HTMLAttribute props. [#30590](https://github.com/ant-design/ant-design/pull/30590)
 ## 4.15.6
