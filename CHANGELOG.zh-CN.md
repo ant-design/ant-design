@@ -19,7 +19,7 @@ timeline: true
 
 `2021-05-24`
 
-- 🐞 ConfigProvider 支持动态 `prefixCls` 。[#30625](https://github.com/ant-design/ant-design/pull/30625) [@kerm1it](https://github.com/kerm1it)
+- 🐞 ConfigProvider 支持动态设置 `prefixCls` 。[#30625](https://github.com/ant-design/ant-design/pull/30625) [@kerm1it](https://github.com/kerm1it)
 - 🐞 修复 Anchor 指定 `getCurrentAnchor` 后无法触发 `onChange` 的问题。[#30601](https://github.com/ant-design/ant-design/pull/30601)
 - 💄 修复 Notification `useNotification` 生成的通知框 `className` 作用范围不一致的问题。[#30588](https://github.com/ant-design/ant-design/pull/30588)
 - 🐞 修复有固定列的 Table 内嵌 Table 的额外边距丢失的问题。[#30587](https://github.com/ant-design/ant-design/pull/30587)
