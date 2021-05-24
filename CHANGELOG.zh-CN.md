@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.15.6
+
+`2021-05-18`
+
+- 🐞 Upload `accept` 将无视无效的 MIME 类型，以更贴近原生行为。[#30549](https://github.com/ant-design/ant-design/pull/30549)
+- 💄 移除全局样式中对 `th` 的 `text-align` 属性的重置。[#30399](https://github.com/ant-design/ant-design/pull/30399) [@lbwa](https://github.com/lbwa)
+- 🌐 国际化
+  - 🇮🇳 补充印地语国际化文案。[#30541](https://github.com/ant-design/ant-design/pull/30541) [@jaideepghosh](https://github.com/jaideepghosh)
+  - 🇧🇷 补充葡萄牙语（巴西）国际化文案。[#30532](https://github.com/ant-design/ant-design/pull/30532) [@buzs](https://github.com/buzs)
+
 ## 4.15.5
 
 `2021-05-10`
