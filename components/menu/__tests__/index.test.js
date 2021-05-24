@@ -815,10 +815,12 @@ describe('Menu', () => {
   it('Use first char as Icon when collapsed', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed>
+        <Menu.SubMenu title="Light" />
         <Menu.Item>Bamboo</Menu.Item>
       </Menu>,
     );
 
-    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').text()).toEqual('B');
+    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').first().text()).toEqual('L');
+    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').last().text()).toEqual('B');
   });
 });

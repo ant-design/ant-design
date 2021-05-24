@@ -149,7 +149,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
       return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
     },
-    [parentContext.getPrefixCls],
+    [parentContext.getPrefixCls, props.prefixCls],
   );
 
   const config = {

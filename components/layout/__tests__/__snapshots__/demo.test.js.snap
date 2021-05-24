@@ -1067,7 +1067,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span
               aria-label="user"
-              class="anticon anticon-user"
+              class="anticon anticon-user ant-menu-item-icon"
               role="img"
             >
               <svg
@@ -1108,7 +1108,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span
               aria-label="team"
-              class="anticon anticon-team"
+              class="anticon anticon-team ant-menu-item-icon"
               role="img"
             >
               <svg
@@ -1511,7 +1511,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span
                   aria-label="user"
-                  class="anticon anticon-user"
+                  class="anticon anticon-user ant-menu-item-icon"
                   role="img"
                 >
                   <svg
@@ -1589,7 +1589,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span
                   aria-label="laptop"
-                  class="anticon anticon-laptop"
+                  class="anticon anticon-laptop ant-menu-item-icon"
                   role="img"
                 >
                   <svg
@@ -1630,7 +1630,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span
                   aria-label="notification"
-                  class="anticon anticon-notification"
+                  class="anticon anticon-notification ant-menu-item-icon"
                   role="img"
                 >
                   <svg
@@ -1770,7 +1770,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span
                 aria-label="user"
-                class="anticon anticon-user"
+                class="anticon anticon-user ant-menu-item-icon"
                 role="img"
               >
                 <svg
@@ -1848,7 +1848,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span
                 aria-label="laptop"
-                class="anticon anticon-laptop"
+                class="anticon anticon-laptop ant-menu-item-icon"
                 role="img"
               >
                 <svg
@@ -1889,7 +1889,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span
                 aria-label="notification"
-                class="anticon anticon-notification"
+                class="anticon anticon-notification ant-menu-item-icon"
                 role="img"
               >
                 <svg
