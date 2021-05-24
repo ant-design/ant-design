@@ -33,6 +33,9 @@ timeline: true
 - Collapse
   - 💄 修复 Collapse 不指定 `header` 时箭头错位的问题。[#30586](https://github.com/ant-design/ant-design/pull/30586)
   - 🐞 修复 Collapse 隐藏时设置 `activeKey` 时内容会消失的问题。[#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
+- 🐞 修复 Menu.SubMenu 的 `icon` 设置为第三方 icon 库时的样式问题。[@#30642](https://github.com/ant-design/ant-design/pull/30642)
+- 🐞 修复 Descriptions 单独引入样式丢失的问题。[@#30602](https://github.com/ant-design/ant-design/pull/30602) [@lisenenkov](https://github.com/lisenenkov)
+- 💄 重新设计 Table 筛选和排序按钮的位置，使其归属列更明确。[#30651](https://github.com/ant-design/ant-design/pull/30651)
 - 🆕 RadioGroup 支持 `data-*` 和 `aria-*` 属性。[#30507](https://github.com/ant-design/ant-design/pull/30507) [@kerm1it](https://github.com/kerm1it)
 - 🆕 Statistic.CountDown 组件增加 `onChange` 事件。[#30265](https://github.com/ant-design/ant-design/pull/30265) [@appleshell](https://github.com/appleshell)
 - 🆕 PageHeader 的 `breadcrumb` 中允许设置为组件。[#30019](https://github.com/ant-design/ant-design/pull/30019) [@gepd](https://github.com/gepd)
