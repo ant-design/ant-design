@@ -27,7 +27,7 @@ timeline: true
 - 🐞 修复 Typography 配置 `ellipsis={{ suffix: 'xxx' }}` 时换行闪动问题。[#30582](https://github.com/ant-design/ant-design/pull/30582)
 - 🐞 修复 Collapse 隐藏时设置 `activeKey` 时内容会消失的问题。[#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
 - TypeScript
-  - 🤖 Space typescript 定义支持 HTMLAttribute 属性。[#30590](https://github.com/ant-design/ant-design/pull/30590)
+  - 🤖 Space TypeScript 定义支持 HTMLAttribute 属性。[#30590](https://github.com/ant-design/ant-design/pull/30590)
 
 ## 4.15.6
 
