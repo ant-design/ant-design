@@ -19,7 +19,7 @@ timeline: true
 
 `2021-05-24`
 
-- 🔥 Menu supports keyboard operation and optimization of accessibility experience. [#30382](https://github.com/ant-design/ant-design/pull/30382)
+- 🔥 Refactor Menu and supports keyboard operation and optimization of accessibility experience. [#30382](https://github.com/ant-design/ant-design/pull/30382)
 - Table
   - 🆕 Table.Summary supports `sticky` mode. [#30631](https://github.com/ant-design/ant-design/pull/30631)
   - 🐞 Fix the problem that the extra margin of the embedded Table with fixed columns is lost. [#30587](https://github.com/ant-design/ant-design/pull/30587)
@@ -32,7 +32,7 @@ timeline: true
   - 🐞 Fix the flickering problem when configuring `ellipsis={{ suffix:'xxx' }}` in Typography. [#30582](https://github.com/ant-design/ant-design/pull/30582)
 - Collapse
   - 💄 Fix the problem of arrow misalignment when Collapse does not specify `header`. [#30586](https://github.com/ant-design/ant-design/pull/30586)
-  - 🐞 Fix the problem that the content will disappear when the `activeKey` is set when Collapse is hidden. [#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
+  - 🐞 Fix Collapse content disappears when set `activeKey` while it is hidden. [#30555](https://github.com/ant-design/ant-design/pull/30555) [@zjffun](https://github.com/zjffun)
 - 🆕 RadioGroup supports `data-*` and `aria-*` attributes. [#30507](https://github.com/ant-design/ant-design/pull/30507) [@kerm1it](https://github.com/kerm1it)
 - 🆕 Statistic.CountDown component adds `onChange` event. [#30265](https://github.com/ant-design/ant-design/pull/30265) [@appleshell](https://github.com/appleshell)
 - 🆕 PageHeader's `breadcrumb` allows to set as a component. [#30019](https://github.com/ant-design/ant-design/pull/30019) [@gepd](https://github.com/gepd)
