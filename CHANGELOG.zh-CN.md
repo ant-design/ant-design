@@ -19,7 +19,7 @@ timeline: true
 
 `2021-05-24`
 
-- 🔥 Menu 支持键盘操作以及无障碍体验优化。[#30382](https://github.com/ant-design/ant-design/pull/30382)
+- 🔥 重构 Menu，支持键盘操作以及无障碍体验优化。[#30382](https://github.com/ant-design/ant-design/pull/30382)
 - Table
   - 🆕 Table.Summary 支持 `sticky` 模式。[#30631](https://github.com/ant-design/ant-design/pull/30631)
   - 🐞 修复有固定列的 Table 内嵌 Table 的额外边距丢失的问题。[#30587](https://github.com/ant-design/ant-design/pull/30587)
