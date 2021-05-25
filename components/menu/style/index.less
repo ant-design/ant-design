@@ -334,8 +334,11 @@
       }
     }
 
-    &-horizontal &-arrow {
-      display: none;
+    &-horizontal,
+    &&-inline-collapsed {
+      &-arrow {
+        display: none;
+      }
     }
 
     &-open&-inline > &-title > &-arrow {
