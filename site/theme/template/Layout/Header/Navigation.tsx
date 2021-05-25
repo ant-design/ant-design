@@ -81,6 +81,7 @@ export default ({
       mode={menuMode}
       selectedKeys={[activeMenuItem]}
       id="nav"
+      disabledOverflow
     >
       <Menu.Item key="docs/spec">
         <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, location.query)}>
