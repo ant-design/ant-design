@@ -300,7 +300,11 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         style="opacity:1;order:0"
         tabindex="-1"
       >
-        nav 1
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 1
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -308,7 +312,11 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         style="opacity:1;order:1"
         tabindex="-1"
       >
-        nav 2
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 2
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -316,7 +324,11 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         style="opacity:1;order:2"
         tabindex="-1"
       >
-        nav 3
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 3
+        </span>
       </li>
       <li
         aria-hidden="true"
@@ -1289,7 +1301,11 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         style="opacity:1;order:0"
         tabindex="-1"
       >
-        nav 1
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 1
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -1297,7 +1313,11 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         style="opacity:1;order:1"
         tabindex="-1"
       >
-        nav 2
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 2
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -1305,7 +1325,11 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         style="opacity:1;order:2"
         tabindex="-1"
       >
-        nav 3
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 3
+        </span>
       </li>
       <li
         aria-hidden="true"
@@ -1428,7 +1452,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         style="opacity:1;order:0"
         tabindex="-1"
       >
-        nav 1
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 1
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -1436,7 +1464,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         style="opacity:1;order:1"
         tabindex="-1"
       >
-        nav 2
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 2
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -1444,7 +1476,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         style="opacity:1;order:2"
         tabindex="-1"
       >
-        nav 3
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 3
+        </span>
       </li>
       <li
         aria-hidden="true"
@@ -1598,7 +1634,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   style="padding-left:48px"
                   tabindex="-1"
                 >
-                  option1
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option1
+                  </span>
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
@@ -1606,7 +1646,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   style="padding-left:48px"
                   tabindex="-1"
                 >
-                  option2
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option2
+                  </span>
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
@@ -1614,7 +1658,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   style="padding-left:48px"
                   tabindex="-1"
                 >
-                  option3
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option3
+                  </span>
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
@@ -1622,7 +1670,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   style="padding-left:48px"
                   tabindex="-1"
                 >
-                  option4
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option4
+                  </span>
                 </li>
               </ul>
             </li>
@@ -1750,7 +1802,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         style="opacity:1;order:0"
         tabindex="-1"
       >
-        nav 1
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 1
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -1758,7 +1814,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         style="opacity:1;order:1"
         tabindex="-1"
       >
-        nav 2
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 2
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -1766,7 +1826,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         style="opacity:1;order:2"
         tabindex="-1"
       >
-        nav 3
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 3
+        </span>
       </li>
       <li
         aria-hidden="true"
@@ -1874,7 +1938,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 style="padding-left:48px"
                 tabindex="-1"
               >
-                option1
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option1
+                </span>
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
@@ -1882,7 +1950,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 style="padding-left:48px"
                 tabindex="-1"
               >
-                option2
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option2
+                </span>
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
@@ -1890,7 +1962,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 style="padding-left:48px"
                 tabindex="-1"
               >
-                option3
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option3
+                </span>
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
@@ -1898,7 +1974,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 style="padding-left:48px"
                 tabindex="-1"
               >
-                option4
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option4
+                </span>
               </li>
             </ul>
           </li>

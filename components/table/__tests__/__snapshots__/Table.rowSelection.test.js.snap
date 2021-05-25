@@ -1062,7 +1062,11 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                Select all data
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  Select all data
+                                </span>
                               </li>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
@@ -1070,7 +1074,11 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                Invert current page
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  Invert current page
+                                </span>
                               </li>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
@@ -1078,7 +1086,11 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                Clear all data
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  Clear all data
+                                </span>
                               </li>
                             </ul>
                           </div>
@@ -1402,7 +1414,11 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                Select all data
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  Select all data
+                                </span>
                               </li>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
@@ -1410,7 +1426,11 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                Invert current page
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  Invert current page
+                                </span>
                               </li>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
@@ -1418,7 +1438,11 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                Clear all data
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  Clear all data
+                                </span>
                               </li>
                             </ul>
                           </div>
