@@ -517,7 +517,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           this.expandStr = expand;
 
           return (
-            <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
+            <ResizeObserver onResize={this.resizeOnNextFrame} disabled={cssEllipsis}>
               <Typography
                 className={classNames(
                   {
