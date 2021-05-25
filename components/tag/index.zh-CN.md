@@ -24,7 +24,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 | color | 标签色 | string | - |  |
 | icon | 设置图标 | ReactNode | - |  |
 | visible | 是否显示标签 | boolean | true |  |
-| onClose | 关闭时的回调（可通过 `e.preventdefault()` 来阻止默认行为） | (e) => void | - |  |
+| onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e) => void | - |  |
 
 ### Tag.CheckableTag
 
