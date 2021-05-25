@@ -13,16 +13,18 @@
 
     & > .ant-menu-item,
     & > .ant-menu-submenu {
-      min-width: 40px;
+      min-width: (40px + 12px * 2);
       height: @header-height;
-      margin-right: 12px;
-      margin-left: 12px;
-      line-height: @header-height - @menu-item-border - 2px;
-      border-top: @menu-item-border solid transparent;
+      padding-right: 12px;
+      padding-left: 12px;
+      line-height: @header-height;
 
-      &:hover {
-        border-top: @menu-item-border solid @primary-color;
-        border-bottom: @menu-item-border solid transparent;
+      &::after {
+        top: 0;
+        right: 12px;
+        bottom: auto;
+        left: 12px;
+        border-width: @menu-item-border;
       }
     }
 
@@ -30,14 +32,7 @@
       margin: 0;
     }
 
-    & > .ant-menu-submenu-open {
-      border-top: @menu-item-border solid @primary-color;
-      border-bottom: @menu-item-border solid transparent;
-    }
-
     & > .ant-menu-item-selected {
-      border-top: @menu-item-border solid @primary-color;
-      border-bottom: @menu-item-border solid transparent;
       a {
         color: @primary-color;
       }
