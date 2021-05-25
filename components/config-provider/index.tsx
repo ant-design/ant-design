@@ -83,7 +83,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
     const {
       children,
       getTargetContainer,
-      getPopupContainer,
+      getPopupContainer = triggerNode => triggerNode.parentNode,
       renderEmpty,
       csp,
       autoInsertSpaceInButton,
