@@ -1583,7 +1583,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="ant-select-selection-overflow-item ant-select-selection-overflow-item-rest"
-            style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+            style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
           >
             <span
               class="ant-select-selection-item"
@@ -1646,7 +1646,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="ant-select-selection-overflow-item ant-select-selection-overflow-item-rest"
-            style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+            style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
           >
             <span
               class="ant-select-selection-item"
