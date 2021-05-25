@@ -128,7 +128,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     aria-hidden="true"
     class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
     role="none"
-    style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+    style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
   >
     <div
       aria-expanded="false"
@@ -136,9 +136,26 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       class="ant-menu-submenu-title"
       role="menuitem"
       tabindex="-1"
-      title="..."
     >
-      ...
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
       <i
         class="ant-menu-submenu-arrow"
       />
@@ -895,7 +912,7 @@ Array [
       aria-hidden="true"
       class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
       role="none"
-      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
     >
       <div
         aria-expanded="false"
@@ -903,9 +920,26 @@ Array [
         class="ant-menu-submenu-title"
         role="menuitem"
         tabindex="-1"
-        title="..."
       >
-        ...
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
         <i
           class="ant-menu-submenu-arrow"
         />
