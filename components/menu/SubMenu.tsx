@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { SubMenu as RcSubMenu } from 'rc-menu';
-import { useFullPath } from 'rc-menu/lib/context/PathContext';
+import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import MenuContext from './MenuContext';
