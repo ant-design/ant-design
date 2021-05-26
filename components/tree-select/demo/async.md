@@ -70,7 +70,6 @@ class Demo extends React.Component {
         loadData={this.onLoadData}
         treeData={treeData}
         treeLine={{ showLeafIcon: false }}
-        open
       />
     );
   }
