@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-格式化表单值。如：range:[moment,moment] => { start_at:1620835200000,end_at:1620835200000 }
+格式化表单值。如：range:\[moment,moment\] => { start_at:1620835200000,end_at:1620835200000 }
 
 ## en-US
 
-format form values. as: range:[moment,moment] => { start_at:1620835200000,end_at:1620835200000 }
+format form values. as: range:\[moment,moment\] => { start_at:1620835200000,end_at:1620835200000 }
 
 ```tsx
 import React, { Fragment, useContext } from 'react';
