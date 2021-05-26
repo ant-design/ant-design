@@ -94,7 +94,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       size: customizeSize,
       listHeight = 256,
       listItemHeight = 24,
-      getPopupContainer,
+      getPopupContainer = triggerNode => triggerNode.parentNode as HTMLElement,
       dropdownClassName,
       bordered,
     } = this.props as InternalSelectProps<ValueType>;
