@@ -126,14 +126,14 @@ function injectSorter<RecordType>(
       const sorterOrder = sorterState ? sorterState.sortOrder : null;
       const nextSortOrder = nextSortDirection(sortDirections, sorterOrder);
       const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
-        <CaretUpOutlined
+        <CaretUpOutlined tabIndex="0"
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}
         />
       );
       const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
-        <CaretDownOutlined
+        <CaretDownOutlined tabIndex="0"
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,
           })}
@@ -160,10 +160,10 @@ function injectSorter<RecordType>(
                   [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
                 })}
               >
-                <span className={`${prefixCls}-column-sorter-inner`}>
+                <button className={`${prefixCls}-column-sorter-inner`}>
                   {upNode}
                   {downNode}
-                </span>
+                </button>
               </span>
             </div>
           );
