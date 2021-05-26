@@ -14,7 +14,7 @@ title:
 format form values.
 
 ```tsx
-import React, { useContext } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Form, Button, Space, DatePicker, FormItemProps, FormInstance, Input } from 'antd';
 import get from 'lodash/get';
 import moment from 'moment';
@@ -67,7 +67,8 @@ function MyFormItem<Values = any>(props: MyFormItemProps<Values>) {
   });
 
   return (
-    <>
+    // eslint-disable-next-line react/jsx-fragments
+    <Fragment>
       <Form.Item
         noStyle
         shouldUpdate={(prev, next) => {
@@ -84,7 +85,7 @@ function MyFormItem<Values = any>(props: MyFormItemProps<Values>) {
           <Input />
         </Form.Item>
       ))}
-    </>
+    </Fragment>
   );
 }
 
