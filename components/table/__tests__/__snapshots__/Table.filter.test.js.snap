@@ -573,24 +573,28 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                      value=""
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                        value=""
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Boy
                                   </span>
-                                </label>
-                                <span>
-                                  Boy
                                 </span>
                               </li>
                               <li
@@ -599,24 +603,28 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                      value=""
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                        value=""
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Girl
                                   </span>
-                                </label>
-                                <span>
-                                  Girl
                                 </span>
                               </li>
                               <li
@@ -631,9 +639,12 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                   data-menu-id="rc-menu-uuid-test-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Title"
                                 >
-                                  Title
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Title
+                                  </span>
                                   <i
                                     class="ant-dropdown-menu-submenu-arrow"
                                   />
@@ -806,24 +817,28 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                      value=""
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                        value=""
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Boy
                                   </span>
-                                </label>
-                                <span>
-                                  Boy
                                 </span>
                               </li>
                               <li
@@ -832,24 +847,28 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                      value=""
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                        value=""
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Girl
                                   </span>
-                                </label>
-                                <span>
-                                  Girl
                                 </span>
                               </li>
                               <li
@@ -864,9 +883,12 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                   data-menu-id="rc-menu-uuid-test-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Title"
                                 >
-                                  Title
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Title
+                                  </span>
                                   <i
                                     class="ant-dropdown-menu-submenu-arrow"
                                   />

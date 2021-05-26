@@ -116,19 +116,23 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     style="opacity:1;order:3"
     tabindex="-1"
   >
-    <a
-      href="https://ant.design"
-      rel="noopener noreferrer"
-      target="_blank"
+    <span
+      class="ant-menu-title-content"
     >
-      Navigation Four - Link
-    </a>
+      <a
+        href="https://ant.design"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Navigation Four - Link
+      </a>
+    </span>
   </li>
   <li
     aria-hidden="true"
     class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
     role="none"
-    style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+    style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
   >
     <div
       aria-expanded="false"
@@ -136,9 +140,26 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       class="ant-menu-submenu-title"
       role="menuitem"
       tabindex="-1"
-      title="..."
     >
-      ...
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
       <i
         class="ant-menu-submenu-arrow"
       />
@@ -217,7 +238,11 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             style="padding-left:48px"
             tabindex="-1"
           >
-            Option 1
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 1
+            </span>
           </li>
           <li
             class="ant-menu-item ant-menu-item-only-child"
@@ -225,7 +250,11 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             style="padding-left:48px"
             tabindex="-1"
           >
-            Option 2
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 2
+            </span>
           </li>
         </ul>
       </li>
@@ -247,7 +276,11 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             style="padding-left:48px"
             tabindex="-1"
           >
-            Option 3
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 3
+            </span>
           </li>
           <li
             class="ant-menu-item ant-menu-item-only-child"
@@ -255,7 +288,11 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             style="padding-left:48px"
             tabindex="-1"
           >
-            Option 4
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 4
+            </span>
           </li>
         </ul>
       </li>
@@ -524,7 +561,11 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 5
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 5
+          </span>
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -532,7 +573,11 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 6
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 6
+          </span>
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -540,7 +585,11 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 7
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 7
+          </span>
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -548,7 +597,11 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 8
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 8
+          </span>
         </li>
       </ul>
     </li>
@@ -655,7 +708,11 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         style="padding-left:48px"
         tabindex="-1"
       >
-        Option 1
+        <span
+          class="ant-menu-title-content"
+        >
+          Option 1
+        </span>
       </li>
       <li
         class="ant-menu-item ant-menu-item-only-child"
@@ -663,7 +720,11 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         style="padding-left:48px"
         tabindex="-1"
       >
-        Option 2
+        <span
+          class="ant-menu-title-content"
+        >
+          Option 2
+        </span>
       </li>
       <li
         class="ant-menu-item ant-menu-item-only-child"
@@ -671,7 +732,11 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         style="padding-left:48px"
         tabindex="-1"
       >
-        Option 3
+        <span
+          class="ant-menu-title-content"
+        >
+          Option 3
+        </span>
       </li>
       <li
         class="ant-menu-item ant-menu-item-only-child"
@@ -679,7 +744,11 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         style="padding-left:48px"
         tabindex="-1"
       >
-        Option 4
+        <span
+          class="ant-menu-title-content"
+        >
+          Option 4
+        </span>
       </li>
     </ul>
   </li>
@@ -881,7 +950,11 @@ Array [
       style="opacity:1;order:2"
       tabindex="-1"
     >
-      Option 11
+      <span
+        class="ant-menu-title-content"
+      >
+        Option 11
+      </span>
     </li>
     <li
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -889,13 +962,17 @@ Array [
       style="opacity:1;order:3"
       tabindex="-1"
     >
-      Option 12
+      <span
+        class="ant-menu-title-content"
+      >
+        Option 12
+      </span>
     </li>
     <li
       aria-hidden="true"
       class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
       role="none"
-      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
     >
       <div
         aria-expanded="false"
@@ -903,9 +980,26 @@ Array [
         class="ant-menu-submenu-title"
         role="menuitem"
         tabindex="-1"
-        title="..."
       >
-        ...
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
         <i
           class="ant-menu-submenu-arrow"
         />
@@ -1070,7 +1164,11 @@ Array [
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 3
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 3
+          </span>
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -1078,7 +1176,11 @@ Array [
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 4
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 4
+          </span>
         </li>
         <li
           class="ant-menu-submenu ant-menu-submenu-inline"
@@ -1091,9 +1193,12 @@ Array [
             role="menuitem"
             style="padding-left:48px"
             tabindex="-1"
-            title="Submenu"
           >
-            Submenu
+            <span
+              class="ant-menu-title-content"
+            >
+              Submenu
+            </span>
             <i
               class="ant-menu-submenu-arrow"
             />
@@ -1259,7 +1364,11 @@ Array [
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 1
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 1
+          </span>
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -1267,7 +1376,11 @@ Array [
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 2
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 2
+          </span>
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -1275,7 +1388,11 @@ Array [
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 3
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 3
+          </span>
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -1283,7 +1400,11 @@ Array [
           style="padding-left:48px"
           tabindex="-1"
         >
-          Option 4
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 4
+          </span>
         </li>
       </ul>
     </li>

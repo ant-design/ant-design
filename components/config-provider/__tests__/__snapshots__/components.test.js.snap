@@ -15054,9 +15054,12 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
       role="menuitem"
       style="padding-left:24px"
       tabindex="-1"
-      title="bamboo"
     >
-      bamboo
+      <span
+        class="config-menu-title-content"
+      >
+        bamboo
+      </span>
       <i
         class="config-menu-submenu-arrow"
       />
@@ -15083,7 +15086,11 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
             style="padding-left:48px"
             tabindex="-1"
           >
-            Light
+            <span
+              class="config-menu-title-content"
+            >
+              Light
+            </span>
           </li>
         </ul>
       </li>
@@ -15110,9 +15117,12 @@ exports[`ConfigProvider components Menu configProvider componentSize large 1`] =
       role="menuitem"
       style="padding-left:24px"
       tabindex="-1"
-      title="bamboo"
     >
-      bamboo
+      <span
+        class="config-menu-title-content"
+      >
+        bamboo
+      </span>
       <i
         class="config-menu-submenu-arrow"
       />
@@ -15139,7 +15149,11 @@ exports[`ConfigProvider components Menu configProvider componentSize large 1`] =
             style="padding-left:48px"
             tabindex="-1"
           >
-            Light
+            <span
+              class="config-menu-title-content"
+            >
+              Light
+            </span>
           </li>
         </ul>
       </li>
@@ -15166,9 +15180,12 @@ exports[`ConfigProvider components Menu configProvider componentSize middle 1`] 
       role="menuitem"
       style="padding-left:24px"
       tabindex="-1"
-      title="bamboo"
     >
-      bamboo
+      <span
+        class="config-menu-title-content"
+      >
+        bamboo
+      </span>
       <i
         class="config-menu-submenu-arrow"
       />
@@ -15195,7 +15212,11 @@ exports[`ConfigProvider components Menu configProvider componentSize middle 1`] 
             style="padding-left:48px"
             tabindex="-1"
           >
-            Light
+            <span
+              class="config-menu-title-content"
+            >
+              Light
+            </span>
           </li>
         </ul>
       </li>
@@ -15222,9 +15243,12 @@ exports[`ConfigProvider components Menu configProvider virtual and dropdownMatch
       role="menuitem"
       style="padding-left:24px"
       tabindex="-1"
-      title="bamboo"
     >
-      bamboo
+      <span
+        class="ant-menu-title-content"
+      >
+        bamboo
+      </span>
       <i
         class="ant-menu-submenu-arrow"
       />
@@ -15251,7 +15275,11 @@ exports[`ConfigProvider components Menu configProvider virtual and dropdownMatch
             style="padding-left:48px"
             tabindex="-1"
           >
-            Light
+            <span
+              class="ant-menu-title-content"
+            >
+              Light
+            </span>
           </li>
         </ul>
       </li>
@@ -15278,9 +15306,12 @@ exports[`ConfigProvider components Menu normal 1`] = `
       role="menuitem"
       style="padding-left:24px"
       tabindex="-1"
-      title="bamboo"
     >
-      bamboo
+      <span
+        class="ant-menu-title-content"
+      >
+        bamboo
+      </span>
       <i
         class="ant-menu-submenu-arrow"
       />
@@ -15307,7 +15338,11 @@ exports[`ConfigProvider components Menu normal 1`] = `
             style="padding-left:48px"
             tabindex="-1"
           >
-            Light
+            <span
+              class="ant-menu-title-content"
+            >
+              Light
+            </span>
           </li>
         </ul>
       </li>
@@ -15334,9 +15369,12 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       role="menuitem"
       style="padding-left:24px"
       tabindex="-1"
-      title="bamboo"
     >
-      bamboo
+      <span
+        class="prefix-Menu-title-content"
+      >
+        bamboo
+      </span>
       <i
         class="prefix-Menu-submenu-arrow"
       />
@@ -15365,7 +15403,11 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
             style="padding-left:48px"
             tabindex="-1"
           >
-            Light
+            <span
+              class="prefix-Menu-title-content"
+            >
+              Light
+            </span>
           </li>
         </ul>
       </li>
@@ -22866,23 +22908,27 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="config-checkbox-wrapper"
+                                <span
+                                  class="config-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="config-checkbox"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="config-checkbox-inner"
-                                    />
+                                      class="config-checkbox"
+                                    >
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -22895,9 +22941,12 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                   class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="config-dropdown-menu-submenu-arrow"
                                   />
@@ -23129,23 +23178,27 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="config-checkbox-wrapper"
+                                <span
+                                  class="config-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="config-checkbox"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="config-checkbox-inner"
-                                    />
+                                      class="config-checkbox"
+                                    >
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -23158,9 +23211,12 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                   class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="config-dropdown-menu-submenu-arrow"
                                   />
@@ -23392,23 +23448,27 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="config-checkbox-wrapper"
+                                <span
+                                  class="config-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="config-checkbox"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="config-checkbox-inner"
-                                    />
+                                      class="config-checkbox"
+                                    >
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -23421,9 +23481,12 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                   class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="config-dropdown-menu-submenu-arrow"
                                   />
@@ -23655,23 +23718,27 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -23684,9 +23751,12 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                   class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="ant-dropdown-menu-submenu-arrow"
                                   />
@@ -23918,23 +23988,27 @@ exports[`ConfigProvider components Table normal 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -23947,9 +24021,12 @@ exports[`ConfigProvider components Table normal 1`] = `
                                   class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="ant-dropdown-menu-submenu-arrow"
                                   />
@@ -24181,23 +24258,27 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -24210,9 +24291,12 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                   class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="ant-dropdown-menu-submenu-arrow"
                                   />
