@@ -140,6 +140,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
       treeCheckable={
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
+      treeLine={treeLine}
       inputIcon={suffixIcon}
       multiple={multiple}
       removeIcon={removeIcon}
