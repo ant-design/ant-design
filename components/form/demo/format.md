@@ -14,69 +14,53 @@ title:
 format form values. as: range:\[moment,moment\] => { start_at:1620835200000,end_at:1620835200000 }
 
 ```tsx
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import { Form, Button, Space, DatePicker, FormItemProps, FormInstance, Input } from 'antd';
+import { NamePath } from 'antd/es/form/interface';
 import get from 'lodash/get';
 import moment from 'moment';
-import FieldContext from 'rc-field-form/es/FieldContext';
-import { getNamePath } from 'rc-field-form/es/utils/valueUtil';
-import { InternalNamePath, NamePath } from 'antd/es/form/interface';
 
-interface MyFormItemProps<Values = any> extends FormItemProps<Values> {
+interface MyFormItemProps extends FormItemProps {
   format?: {
-    name?: NamePath[];
+    name?: NamePath;
     format?: (
-      names: NamePath[],
-      form: FormInstance<Values>,
-    ) => Pick<FormItemProps<Values>, 'getValueProps' | 'getValueFromEvent'>;
+      name: NamePath,
+      form: FormInstance,
+    ) => Pick<FormItemProps, 'getValueProps' | 'getValueFromEvent'>;
   };
 }
 
-const getFormat: (name: NamePath[]) => MyFormItemProps['format'] = name => ({
+const getFormat: (name: NamePath) => MyFormItemProps['format'] = name => ({
   name,
-  format: (names, form) => ({
+  format: (endName, form) => ({
     getValueProps: value => ({
-      value: value && [moment(Number(value)), moment(Number(form.getFieldValue(names[0])))],
+      value: value && [moment(Number(value)), moment(Number(form.getFieldValue(endName)))],
     }),
     getValueFromEvent: values => {
       const [start, end] = values || [];
-      form.setFields([{ name: names[0], value: end && `${moment(end).endOf('day').valueOf()}` }]);
+      form.setFields([{ name: endName, value: end && `${moment(end).endOf('day').valueOf()}` }]);
       return start && `${moment(start).startOf('day').valueOf()}`;
     },
   }),
 });
 
-function MyFormItem<Values = any>(props: MyFormItemProps<Values>) {
+function MyFormItem(props: MyFormItemProps) {
   const { format, ...rest } = props;
-  const { prefixName } = useContext(FieldContext);
   if (!format) {
     return <Form.Item {...rest} />;
   }
-
-  const names = format.name?.map(name => {
-    const parentPrefixName = getNamePath(prefixName as InternalNamePath) || [];
-    return [...parentPrefixName, ...getNamePath(name)];
-  });
-
   return (
     // eslint-disable-next-line react/jsx-fragments
     <Fragment>
       <Form.Item
         noStyle
-        shouldUpdate={(prev, next) => {
-          const result = names?.map(name => get(prev, name) !== get(next, name)).filter(x => x);
-          return (result?.length || 0) > 0;
-        }}
+        shouldUpdate={(prev, next) => get(prev, format.name) !== get(next, format.name)}
       >
-        {(form: FormInstance<Values>) => (
-          <Form.Item {...format?.format?.(names || [], form)} {...rest} />
-        )}
+        {form => <Form.Item {...format?.format?.(format.name || [], form)} {...rest} />}
       </Form.Item>
-      {format.name?.map(name => (
-        <Form.Item key={getNamePath(name).join('_')} name={name} hidden>
-          <Input />
-        </Form.Item>
-      ))}
+      <Form.Item name={format.name} hidden>
+        <Input />
+      </Form.Item>
     </Fragment>
   );
 }
@@ -85,8 +69,8 @@ const Demo = () => {
   const [form] = Form.useForm();
 
   return (
-    <Form form={form} onFinish={async values => console.log(JSON.stringify(values, null, 2))}>
-      <MyFormItem label="range" name="start_at" format={getFormat(['end_at'])}>
+    <Form form={form} onFinish={values => console.log(JSON.stringify(values, null, 2))}>
+      <MyFormItem label="range" name="start_at" format={getFormat('end_at')}>
         <DatePicker.RangePicker />
       </MyFormItem>
       <Form.Item>
@@ -103,7 +87,7 @@ const Demo = () => {
               ]);
             }}
           >
-            Set range value
+            Set value
           </Button>
         </Space>
       </Form.Item>

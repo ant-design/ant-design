@@ -2351,7 +2351,7 @@ exports[`renders ./components/form/demo/format.md correctly 1`] = `
                 type="button"
               >
                 <span>
-                  Set range value
+                  Set value
                 </span>
               </button>
             </div>
