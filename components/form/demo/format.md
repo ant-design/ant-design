@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-格式化表单值。
+格式化表单值。如：range:[moment,moment] => { start_at:1620835200000,end_at:1620835200000 }
 
 ## en-US
 
-format form values.
+format form values. as: range:[moment,moment] => { start_at:1620835200000,end_at:1620835200000 }
 
 ```tsx
 import React, { Fragment, useContext } from 'react';
@@ -101,9 +101,6 @@ const Demo = () => {
       <MyFormItem label="range" name="start_at" format={getFormat(['end_at'])}>
         <DatePicker.RangePicker />
       </MyFormItem>
-      <Form.Item label="result" shouldUpdate>
-        {() => JSON.stringify(form.getFieldsValue(true), null, 2)}
-      </Form.Item>
       <Form.Item {...tailLayout}>
         <Space>
           <Button htmlType="submit" type="primary">
@@ -118,7 +115,7 @@ const Demo = () => {
               ]);
             }}
           >
-            Set values
+            Set range value
           </Button>
         </Space>
       </Form.Item>
