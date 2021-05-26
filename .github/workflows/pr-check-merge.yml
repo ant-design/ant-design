@@ -7,7 +7,7 @@ on:
 jobs:
   comment:
     runs-on: ubuntu-latest
-    if: (github.event.pull_request.head.ref == 'feature' && github.event.pull_request.base.ref == 'master') || (github.event.pull_request.base.ref == 'feature' && github.event.pull_request.head.ref == 'master')
+    if: github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master'
     steps:
       - uses: actions-cool/issues-helper@v2.2.1
         with:

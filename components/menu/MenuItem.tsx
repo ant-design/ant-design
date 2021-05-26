@@ -21,15 +21,16 @@ export default class MenuItem extends React.Component<MenuItemProps> {
   renderItemChildren(inlineCollapsed: boolean) {
     const { prefixCls, firstLevel } = this.context;
     const { icon, children } = this.props;
+
+    const wrapNode = <span className={`${prefixCls}-title-content`}>{children}</span>;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
     if (!icon || (isValidElement(children) && children.type === 'span')) {
       if (children && inlineCollapsed && firstLevel && typeof children === 'string') {
         return <div className={`${prefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>;
       }
-      return children;
     }
-    return <span className={`${prefixCls}-title-content`}>{children}</span>;
+    return wrapNode;
   }
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
