@@ -22,8 +22,8 @@ import moment from 'moment';
 
 interface MyFormItemProps extends FormItemProps {
   format?: {
-    name?: NamePath;
-    format?: (
+    name: NamePath;
+    format: (
       name: NamePath,
       form: FormInstance,
     ) => Pick<FormItemProps, 'getValueProps' | 'getValueFromEvent'>;
@@ -56,7 +56,9 @@ function MyFormItem(props: MyFormItemProps) {
         noStyle
         shouldUpdate={(prev, next) => get(prev, format.name) !== get(next, format.name)}
       >
-        {form => <Form.Item {...format?.format?.(format.name || [], form)} {...rest} />}
+        {(form: FormInstance) => (
+          <Form.Item {...format?.format?.(format.name || [], form)} {...rest} />
+        )}
       </Form.Item>
       <Form.Item name={format.name} hidden>
         <Input />
