@@ -30,20 +30,6 @@ interface MyFormItemProps extends FormItemProps {
   };
 }
 
-const getFormat: (name: NamePath) => MyFormItemProps['format'] = name => ({
-  name,
-  format: (endName, form) => ({
-    getValueProps: value => ({
-      value: value && [moment(Number(value)), moment(Number(form.getFieldValue(endName)))],
-    }),
-    getValueFromEvent: values => {
-      const [start, end] = values || [];
-      form.setFields([{ name: endName, value: end && `${moment(end).endOf('day').valueOf()}` }]);
-      return start && `${moment(start).startOf('day').valueOf()}`;
-    },
-  }),
-});
-
 function MyFormItem(props: MyFormItemProps) {
   const { format, ...rest } = props;
   if (!format) {
@@ -67,9 +53,22 @@ function MyFormItem(props: MyFormItemProps) {
   );
 }
 
+const getFormat: (name: NamePath) => MyFormItemProps['format'] = name => ({
+  name,
+  format: (endName, form) => ({
+    getValueProps: value => ({
+      value: value && [moment(Number(value)), moment(Number(form.getFieldValue(endName)))],
+    }),
+    getValueFromEvent: values => {
+      const [start, end] = values || [];
+      form.setFields([{ name: endName, value: end && `${moment(end).endOf('day').valueOf()}` }]);
+      return start && `${moment(start).startOf('day').valueOf()}`;
+    },
+  }),
+});
+
 const Demo = () => {
   const [form] = Form.useForm();
-
   return (
     <Form form={form} onFinish={values => console.log(JSON.stringify(values, null, 2))}>
       <MyFormItem label="range" name="start_at" format={getFormat('end_at')}>
