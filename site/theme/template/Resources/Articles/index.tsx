@@ -3,7 +3,7 @@
 import * as React from 'react';
 import moment from 'moment';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Tabs, Skeleton } from 'antd';
+import { Tabs, Skeleton, Avatar, Divider } from 'antd';
 import { useSiteData } from '../../Home/util';
 import './index.less';
 
@@ -32,32 +32,16 @@ interface ArticleListProps {
   data: Article[];
 }
 
-const ArticleList = ({ name, data }: ArticleListProps) => (
+const ArticleList: React.FC<ArticleListProps> = ({ name, data }) => (
   <td>
     <h4>{name}</h4>
     <ul className="article-list">
       {data.map((article, index) => (
         <li key={index}>
           <a href={article.href} target="_blank" rel="noreferrer">
+            <Avatar size="small" />
+            <Divider type="vertical" />
             {article.title}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </td>
-);
-
-interface AuthorsProps {
-  data: Author[];
-}
-
-const Authors = ({ data }: AuthorsProps) => (
-  <td className="resource-avatars">
-    <ul>
-      {data.map(author => (
-        <li key={author.avatar}>
-          <a href={author.href} target="_blank" rel="noreferrer">
-            <img alt={author.name} src={author.avatar} />
           </a>
         </li>
       ))}
@@ -89,20 +73,6 @@ export default () => {
     return yearData;
   }, [data]);
 
-  const mergedAuthors = React.useMemo(() => {
-    if (!data) {
-      return data;
-    }
-
-    const authors: Record<string, Author[]> = {};
-
-    (data.author || []).forEach(author => {
-      authors[author.type] = [...(authors[author.type] || []), author];
-    });
-
-    return authors;
-  }, [data]);
-
   // ========================= Render =========================
   let content: React.ReactNode;
 
@@ -113,34 +83,24 @@ export default () => {
 
     content = yearList.length ? (
       <Tabs>
-        {yearList.map(year => {
-          const showAuthors = String(moment().year()) === year;
-
-          return (
-            <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
-              <table>
-                <tbody>
-                  <tr>
-                    <ArticleList
-                      name={<FormattedMessage id="app.docs.resource.design" />}
-                      data={mergedData[year].design}
-                    />
-                    <ArticleList
-                      name={<FormattedMessage id="app.docs.resource.develop" />}
-                      data={mergedData[year].develop}
-                    />
-                  </tr>
-                  {showAuthors && (
-                    <tr>
-                      <Authors data={mergedAuthors.design} />
-                      <Authors data={mergedAuthors.develop} />
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </Tabs.TabPane>
-          );
-        })}
+        {yearList.map(year => (
+          <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
+            <table>
+              <tbody>
+                <tr>
+                  <ArticleList
+                    name={<FormattedMessage id="app.docs.resource.design" />}
+                    data={mergedData[year].design}
+                  />
+                  <ArticleList
+                    name={<FormattedMessage id="app.docs.resource.develop" />}
+                    data={mergedData[year].develop}
+                  />
+                </tr>
+              </tbody>
+            </table>
+          </Tabs.TabPane>
+        ))}
       </Tabs>
     ) : null;
   }
