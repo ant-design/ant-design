@@ -54,7 +54,7 @@ const getFormat: (name: NamePath[]) => MyFormItemProps['format'] = name => ({
   }),
 });
 
-function FormItem<Values = any>(props: MyFormItemProps<Values>) {
+function MyFormItem<Values = any>(props: MyFormItemProps<Values>) {
   const { format, ...rest } = props;
   const { prefixName } = useContext(FieldContext);
   if (!format) {
@@ -97,18 +97,18 @@ const Demo = () => {
       form={form}
       onFinish={async values => console.log(JSON.stringify(values, null, 2))}
     >
-      <FormItem label="range" name="start_at" format={getFormat(['end_at'])}>
+      <MyFormItem label="range" name="start_at" format={getFormat(['end_at'])}>
         <DatePicker.RangePicker />
-      </FormItem>
+      </MyFormItem>
       <Form.Item label="result" shouldUpdate>
         {() => JSON.stringify(form.getFieldsValue(true), null, 2)}
       </Form.Item>
       <Form.Item {...tailLayout}>
         <Space>
           <Button htmlType="submit" type="primary">
-            提交
+            Submit
           </Button>
-          <Button htmlType="reset">重置</Button>
+          <Button htmlType="reset">Reset</Button>
           <Button
             onClick={() => {
               form.setFields([
@@ -117,7 +117,7 @@ const Demo = () => {
               ]);
             }}
           >
-            测试
+            Set values
           </Button>
         </Space>
       </Form.Item>
