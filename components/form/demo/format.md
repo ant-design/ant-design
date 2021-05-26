@@ -22,14 +22,6 @@ import FieldContext from 'rc-field-form/es/FieldContext';
 import { getNamePath } from 'rc-field-form/es/utils/valueUtil';
 import { InternalNamePath, NamePath } from 'antd/es/form/interface';
 
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
-
 interface MyFormItemProps<Values = any> extends FormItemProps<Values> {
   format?: {
     name?: NamePath[];
@@ -93,15 +85,11 @@ const Demo = () => {
   const [form] = Form.useForm();
 
   return (
-    <Form
-      {...layout}
-      form={form}
-      onFinish={async values => console.log(JSON.stringify(values, null, 2))}
-    >
+    <Form form={form} onFinish={async values => console.log(JSON.stringify(values, null, 2))}>
       <MyFormItem label="range" name="start_at" format={getFormat(['end_at'])}>
         <DatePicker.RangePicker />
       </MyFormItem>
-      <Form.Item {...tailLayout}>
+      <Form.Item>
         <Space>
           <Button htmlType="submit" type="primary">
             Submit
