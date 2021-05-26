@@ -14,7 +14,7 @@ title:
 format form values. as: range:\[moment,moment\] => { start_at:1620835200000,end_at:1620835200000 }
 
 ```tsx
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Form, Button, Space, DatePicker, FormItemProps, FormInstance, Input } from 'antd';
 import { NamePath } from 'antd/es/form/interface';
 import get from 'lodash/get';
@@ -36,8 +36,7 @@ function MyFormItem(props: MyFormItemProps) {
     return <Form.Item {...rest} />;
   }
   return (
-    // eslint-disable-next-line react/jsx-fragments
-    <Fragment>
+    <span>
       <Form.Item
         noStyle
         shouldUpdate={(prev, next) => get(prev, format.name) !== get(next, format.name)}
@@ -49,7 +48,7 @@ function MyFormItem(props: MyFormItemProps) {
       <Form.Item name={format.name} hidden>
         <Input />
       </Form.Item>
-    </Fragment>
+    </span>
   );
 }
 
