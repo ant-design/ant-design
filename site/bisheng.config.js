@@ -59,10 +59,6 @@ module.exports = {
     javascriptEnabled: true,
   },
   webpackConfig(config) {
-    config.cache = {
-      type: 'filesystem',
-    };
-
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
