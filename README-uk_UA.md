@@ -129,7 +129,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ## ⌨️ Розробка
 
-Використовуй Gitpod, безкоштовне середовище розробників для GitHub.
+Використовуй Gitpod, безкоштовне середовище розробки для GitHub.
 
 [![Відкрити у Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
 
