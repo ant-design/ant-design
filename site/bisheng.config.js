@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -59,6 +60,28 @@ module.exports = {
     javascriptEnabled: true,
   },
   webpackConfig(config) {
+    config.cache = {
+      type: 'filesystem',
+    };
+
+    // Webpack 5 cache all node_modules that makes debug harder.
+    // We excludes debug usage folder and reuse the cache system to speed up.
+    const fileList = fs
+      .readdirSync(path.join(process.cwd(), 'node_modules'))
+      .filter(
+        filename =>
+          !filename.startsWith('rc-') &&
+          !filename.includes('bisheng') &&
+          !filename.includes('antd') &&
+          !filename.includes('@ant-design'),
+      )
+      .map(filename => path.resolve('node_modules', filename));
+
+    config.snapshot = {
+      managedPaths: fileList,
+      immutablePaths: fileList,
+    };
+
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
