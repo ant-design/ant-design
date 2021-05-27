@@ -15,26 +15,18 @@ export function preLoad(list: string[]) {
   }
 }
 
-const siteData: Record<string, any> = {};
-export function useSiteData<T>(endpoint: string, language?: 'cn' | 'en'): T {
-  const getData = () => {
-    const endpointData = siteData[endpoint];
-    if (!endpointData) return null;
-    return language ? endpointData[language] : endpointData;
-  };
-
-  const [data, setData] = React.useState<any>(getData());
+export function useSiteData<T>(language?: 'cn' | 'en'): T {
+  const [data, setData] = React.useState<any>({});
 
   React.useEffect(() => {
     if (!data && typeof fetch !== 'undefined') {
-      fetch(`https://my-json-server.typicode.com/ant-design/website-data/${endpoint}`)
+      fetch(`https://cdn.jsdelivr.net/gh/ant-design/website-data@change-data/db.json`)
         .then(res => res.json())
-        .then((res: any) => {
-          siteData[endpoint] = res;
-          setData(getData());
+        .then((result: any) => {
+          setData(result);
         });
     }
-  }, [endpoint]);
+  }, [language]);
 
   return data;
 }

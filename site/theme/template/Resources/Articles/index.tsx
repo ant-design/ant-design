@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-
 import * as React from 'react';
 import moment from 'moment';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -66,7 +65,6 @@ export default () => {
     articles?.forEach(article => {
       const year = moment(article.date).year();
       yearData[year] = yearData[year] || {};
-
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
     });
 
