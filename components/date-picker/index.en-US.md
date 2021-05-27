@@ -108,6 +108,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
+| renderSidebar | render extra sidebar in panel | () => React.ReactNode | - |  |
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
@@ -121,6 +122,7 @@ Added in `4.1.0`.
 | defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-\QQ` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
+| renderSidebar | render extra sidebar in panel | () => React.ReactNode | - |  |
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
@@ -133,6 +135,7 @@ Added in `4.1.0`.
 | format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-MM` |  |
 | monthCellRender | Custom month cell content render method | function(date, locale): ReactNode | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
+| renderSidebar | render extra sidebar in panel | () => React.ReactNode | - |  |
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
@@ -144,6 +147,7 @@ Added in `4.1.0`.
 | defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-wo` |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
+| renderSidebar | render extra sidebar in panel | () => React.ReactNode | - |  |
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
@@ -160,6 +164,7 @@ Added in `4.1.0`.
 | format | To set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string\[] | `YYYY-MM-DD HH:mm:ss` |  |
 | ranges | The preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
+| renderSidebar | render extra sidebar in panel | () => React.ReactNode | - |  |
 | separator | Set separator between inputs | string | `~` |  |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
@@ -169,30 +174,8 @@ Added in `4.1.0`.
 
 ## FAQ
 
-### When set mode to DatePicker/RangePicker, cannot select year or month anymore?
+week: { dow: 1, }, });
 
-Please refer [FAQ](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
+```
 
-### How to use DatePicker with customize date library like dayjs?
-
-Please refer [replace moment](/docs/react/replace-moment#DatePicker)
-
-### Why config moment.locale globally not work?
-
-DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
-
-### How to modify start day of week?
-
-Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: <https://codesandbox.io/s/moment-day-of-week-6dby5>
-
-### Why origin panel don't switch when using `panelRender`?
-
-When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
-
-```js
-moment.locale('en', {
-  week: {
-    dow: 1,
-  },
-});
 ```

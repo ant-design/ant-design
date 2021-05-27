@@ -80,6 +80,7 @@ type InjectDefaultProps<Props> = Omit<
   locale?: PickerLocale;
   size?: SizeType;
   bordered?: boolean;
+  renderSidebar?: Function;
 };
 
 export type PickerLocale = {

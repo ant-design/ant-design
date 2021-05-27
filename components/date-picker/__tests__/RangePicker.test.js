@@ -96,4 +96,25 @@ describe('RangePicker', () => {
     expect(wrapper.find('input').first().props().placeholder).toEqual('Start date');
     expect(wrapper.find('input').last().props().placeholder).toEqual('End date');
   });
+
+  describe('extra sidebar', () => {
+    it('`renderSidebar only`', () => {
+      const wrapper = mount(<RangePicker renderSidebar={() => <span>sidebar</span>} />);
+      openPicker(wrapper);
+
+      expect(wrapper.find('.ant-picker-sidebar-panel').render()).toMatchSnapshot();
+    });
+
+    it('`renderSidebar` with `panelRender`', () => {
+      const wrapper = mount(
+        <RangePicker
+          renderSidebar={() => <span>sidebar</span>}
+          panelRender={node => <div className="custome-panel">{node}</div>}
+        />,
+      );
+      openPicker(wrapper);
+
+      expect(wrapper.find('.custome-panel').render()).toMatchSnapshot();
+    });
+  });
 });

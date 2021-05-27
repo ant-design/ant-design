@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import flow from 'lodash/flow';
 import RCPicker from 'rc-picker';
 import { PickerMode } from 'rc-picker/lib/interface';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
@@ -67,7 +68,9 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           className,
           size: customizeSize,
           bordered = true,
+          panelRender: customizepanelRender,
           placeholder,
+          renderSidebar,
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;
@@ -91,6 +94,21 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             : {}),
         };
         const rootPrefixCls = getPrefixCls();
+
+        const panelRenders: ((node: React.ReactNode) => React.ReactNode)[] = [];
+
+        if (renderSidebar) {
+          panelRenders.push((node: React.ReactNode) => (
+            <div className={`${prefixCls}-sidebar-panel`}>
+              <div className={`${prefixCls}-sidebar`}>{renderSidebar()}</div>
+              {node}
+            </div>
+          ));
+        }
+        if (customizepanelRender) {
+          panelRenders.push(customizepanelRender as (node: React.ReactNode) => React.ReactNode);
+        }
+        const panelRender = panelRenders.length > 0 ? flow(panelRenders) : null;
 
         return (
           <SizeContext.Consumer>
@@ -120,6 +138,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   )}
                   prefixCls={prefixCls}
                   getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+                  panelRender={panelRender}
                   generateConfig={generateConfig}
                   prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                   nextIcon={<span className={`${prefixCls}-next-icon`} />}

@@ -92,6 +92,7 @@ import locale from 'antd/lib/locale/zh_CN';
 | disabledTime | 不可选择的时间 | function(date) | - |  |
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [moment.js](http://momentjs.com/)，支持[自定义格式](#components-date-picker-demo-format) | string \| (value: moment) => string \| (string \| (value: moment) => string)\[] | `YYYY-MM-DD` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
+| renderSidebar | 在面板中添加额外的侧边栏 | (mode) => React.ReactNode | - |  |
 | showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 | showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |  |
@@ -109,6 +110,7 @@ import locale from 'antd/lib/locale/zh_CN';
 | defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | `YYYY` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
+| renderSidebar | 在面板中添加额外的侧边栏 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
@@ -122,6 +124,7 @@ import locale from 'antd/lib/locale/zh_CN';
 | defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | `YYYY-\QQ` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
+| renderSidebar | 在面板中添加额外的侧边栏 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
@@ -134,6 +137,7 @@ import locale from 'antd/lib/locale/zh_CN';
 | format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | `YYYY-MM` |  |
 | monthCellRender | 自定义的月份内容渲染方法 | function(date, locale): ReactNode | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
+| renderSidebar | 在面板中添加额外的侧边栏 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
@@ -145,6 +149,7 @@ import locale from 'antd/lib/locale/zh_CN';
 | defaultValue | 默认日期 | [moment](http://momentjs.com/) | - |  |
 | format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | `YYYY-wo` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
+| renderSidebar | 在面板中添加额外的侧边栏 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
@@ -161,6 +166,7 @@ import locale from 'antd/lib/locale/zh_CN';
 | format | 展示的日期格式 | string | `YYYY-MM-DD HH:mm:ss` |  |
 | ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
+| renderSidebar | 在面板中添加额外的侧边栏 | (mode) => React.ReactNode | - |  |
 | separator | 设置分隔符 | string | `~` |  |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |

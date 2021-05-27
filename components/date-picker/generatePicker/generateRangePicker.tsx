@@ -4,6 +4,7 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
+import flow from 'lodash/flow';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
@@ -44,7 +45,9 @@ export default function generateRangePicker<DateType>(
         className,
         size: customizeSize,
         bordered = true,
+        panelRender: customizepanelRender,
         placeholder,
+        renderSidebar,
         ...restProps
       } = this.props;
       const { format, showTime, picker } = this.props as any;
@@ -58,6 +61,21 @@ export default function generateRangePicker<DateType>(
         ...(picker === 'time' ? getTimeProps({ format, ...this.props, picker }) : {}),
       };
       const rootPrefixCls = getPrefixCls();
+
+      const panelRenders: ((node: React.ReactNode) => React.ReactNode)[] = [];
+
+      if (renderSidebar) {
+        panelRenders.push((node: React.ReactNode) => (
+          <div className={`${prefixCls}-sidebar-panel`}>
+            <div className={`${prefixCls}-sidebar`}>{renderSidebar()}</div>
+            {node}
+          </div>
+        ));
+      }
+      if (customizepanelRender) {
+        panelRenders.push(customizepanelRender as (node: React.ReactNode) => React.ReactNode);
+      }
+      const panelRender = panelRenders.length > 0 ? flow(panelRenders) : null;
 
       return (
         <SizeContext.Consumer>
@@ -89,6 +107,7 @@ export default function generateRangePicker<DateType>(
                 locale={locale!.lang}
                 prefixCls={prefixCls}
                 getPopupContainer={customGetPopupContainer || getPopupContainer}
+                panelRender={panelRender}
                 generateConfig={generateConfig}
                 prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                 nextIcon={<span className={`${prefixCls}-next-icon`} />}

@@ -4,6 +4,7 @@ import moment from 'moment';
 import MockDate from 'mockdate';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import { openPicker } from './utils';
 
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -186,5 +187,25 @@ describe('DatePicker', () => {
       wrapper.find('.ant-picker-time-panel-column').at(2).find('.ant-picker-time-panel-cell')
         .length,
     ).toBe(60);
+  });
+
+  describe('extra sidebar', () => {
+    it('`renderSidebar only`', () => {
+      const wrapper = mount(<DatePicker renderSidebar={() => <span>sidebar</span>} />);
+      openPicker(wrapper);
+
+      expect(wrapper.find('.ant-picker-sidebar-panel').render()).toMatchSnapshot();
+    });
+    it('`renderSidebar` with `panelRender`', () => {
+      const wrapper = mount(
+        <DatePicker
+          renderSidebar={() => <span>sidebar</span>}
+          panelRender={node => <div className="custome-panel">{node}</div>}
+        />,
+      );
+      openPicker(wrapper);
+
+      expect(wrapper.find('.custome-panel').render()).toMatchSnapshot();
+    });
   });
 });
