@@ -188,7 +188,7 @@
     "cheerio": "^1.0.0-rc.3",
     "concurrently": "^6.0.0",
     "cross-env": "^7.0.0",
-    "css-minimizer-webpack-plugin": "^1.1.1",
+    "css-minimizer-webpack-plugin": "^3.0.0",
     "css-split-webpack-plugin": "^0.2.6",
     "dekko": "^0.2.1",
     "docsearch.js": "^2.6.3",
