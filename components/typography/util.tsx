@@ -65,6 +65,10 @@ export default (
   if (!ellipsisContainer) {
     ellipsisContainer = document.createElement('div');
     ellipsisContainer.setAttribute('aria-hidden', 'true');
+  }
+
+  // HMR will remove this from body which should patch back
+  if (!ellipsisContainer.parentNode) {
     document.body.appendChild(ellipsisContainer);
   }
 
