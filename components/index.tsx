@@ -178,6 +178,7 @@ export type {
   ColumnGroupType as TableColumnGroupType,
   ColumnType as TableColumnType,
   ColumnProps as TableColumnProps,
+  ColumnsType as TableColumnsType,
 } from './table';
 export { default as Table } from './table';
 
