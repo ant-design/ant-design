@@ -54,7 +54,7 @@ export default function MorePage() {
   const { locale } = useIntl();
   const [{ extras, icons }, loading] = useSiteData<any>();
   const list = extras?.[locale === 'zh-CN' ? 'cn' : 'en'] || [];
-  const loadingProps = { loading } as MoreProps;
+  const loadingProps = { loading: loading || list.length === 0 } as MoreProps;
   return (
     <Row gutter={[24, 32]}>
       {(list || [loadingProps, loadingProps, loadingProps, loadingProps]).map(
