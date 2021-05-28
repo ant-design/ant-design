@@ -59,21 +59,20 @@ const RecommendBlock = ({
 
 export default function RecommendPage() {
   const { locale } = useIntl();
-  const isZhCN = locale === 'zh-CN';
-  const list = useSiteData<Recommend[]>('recommendations', isZhCN ? 'cn' : 'en');
-  const isLoading = !list;
+  const [{ recommendations }, loading] = useSiteData<any>();
+  const list = recommendations?.[locale === 'zh-CN' ? 'cn' : 'en'];
   return (
     <Row gutter={[24, 24]} style={{ marginBottom: -36 }}>
       <Col xs={24} sm={14}>
-        <RecommendBlock {...(list ? list[0] : {})} main loading={isLoading} />
+        <RecommendBlock {...(list ? list[0] : {})} main loading={loading} />
       </Col>
       <Col xs={24} sm={10}>
         <Row gutter={[24, 24]}>
           <Col span={24}>
-            <RecommendBlock {...(list ? list[1] : {})} loading={isLoading} />
+            <RecommendBlock {...(list ? list[1] : {})} loading={loading} />
           </Col>
           <Col span={24}>
-            <RecommendBlock {...(list ? list[2] : {})} loading={isLoading} />
+            <RecommendBlock {...(list ? list[2] : {})} loading={loading} />
           </Col>
         </Row>
       </Col>

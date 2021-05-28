@@ -15,18 +15,21 @@ export function preLoad(list: string[]) {
   }
 }
 
-export function useSiteData<T>(language?: 'cn' | 'en'): T {
-  const [data, setData] = React.useState<any>({});
+export function useSiteData<T>(): [T, boolean] {
+  const [data, setData] = React.useState<T>({} as any);
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if (!data && typeof fetch !== 'undefined') {
-      fetch(`https://cdn.jsdelivr.net/gh/ant-design/website-data@change-data/db.json`)
+    if (Object.keys(data).length === 0 && typeof fetch !== 'undefined') {
+      setLoading(true);
+      fetch(`https://raw.githubusercontent.com/ant-design/website-data/change-data/db.json`)
         .then(res => res.json())
-        .then((result: any) => {
+        .then(result => {
           setData(result);
+          setLoading(false);
         });
     }
-  }, [language]);
+  }, []);
 
-  return data;
+  return [data, loading];
 }
