@@ -237,6 +237,10 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           </span>
         </li>
       </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      />
     </div>
   </aside>
   <section
@@ -368,6 +372,10 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         </div>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display:none"
+    />
   </header>
   <main
     class="ant-layout-content site-layout"
@@ -699,6 +707,10 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
       </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      />
     </div>
   </aside>
   <section
@@ -969,6 +981,10 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           </span>
         </li>
       </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      />
     </div>
   </aside>
   <section
@@ -1196,6 +1212,10 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           </span>
         </li>
       </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      />
     </div>
     <div
       class="ant-layout-sider-trigger"
@@ -1369,6 +1389,10 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         </div>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display:none"
+    />
   </header>
   <main
     class="ant-layout-content"
@@ -1520,6 +1544,10 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         </div>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display:none"
+    />
   </header>
   <main
     class="ant-layout-content"
@@ -1761,6 +1789,10 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               </div>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display:none"
+          />
         </div>
       </aside>
       <main
@@ -1870,6 +1902,10 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </div>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display:none"
+    />
   </header>
   <section
     class="ant-layout"
@@ -2065,6 +2101,10 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             </div>
           </li>
         </ul>
+        <div
+          aria-hidden="true"
+          style="display:none"
+        />
       </div>
     </aside>
     <section

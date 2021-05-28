@@ -652,6 +652,10 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                               </li>
                             </ul>
                             <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
@@ -895,6 +899,10 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >

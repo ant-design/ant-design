@@ -15037,383 +15037,419 @@ exports[`ConfigProvider components List prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Menu configProvider 1`] = `
-<ul
-  class="config-menu config-menu-root config-menu-inline config-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="config-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
+    <li
+      class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
+      role="none"
     >
-      <span
-        class="config-menu-title-content"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="config-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        bamboo
-      </span>
-      <i
-        class="config-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="config-menu config-menu-sub config-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="config-menu-item-group"
+        <span
+          class="config-menu-title-content"
+        >
+          bamboo
+        </span>
+        <i
+          class="config-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="config-menu config-menu-sub config-menu-inline"
+        data-menu-list="true"
       >
-        <div
-          class="config-menu-item-group-title"
-          title="Item 1"
+        <li
+          class="config-menu-item-group"
         >
-          Item 1
-        </div>
-        <ul
-          class="config-menu-item-group-list"
-        >
-          <li
-            class="config-menu-item config-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="config-menu-item-group-title"
+            title="Item 1"
           >
-            <span
-              class="config-menu-title-content"
+            Item 1
+          </div>
+          <ul
+            class="config-menu-item-group-list"
+          >
+            <li
+              class="config-menu-item config-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
             >
-              Light
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+              <span
+                class="config-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu configProvider componentSize large 1`] = `
-<ul
-  class="config-menu config-menu-root config-menu-inline config-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="config-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
+    <li
+      class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
+      role="none"
     >
-      <span
-        class="config-menu-title-content"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="config-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        bamboo
-      </span>
-      <i
-        class="config-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="config-menu config-menu-sub config-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="config-menu-item-group"
+        <span
+          class="config-menu-title-content"
+        >
+          bamboo
+        </span>
+        <i
+          class="config-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="config-menu config-menu-sub config-menu-inline"
+        data-menu-list="true"
       >
-        <div
-          class="config-menu-item-group-title"
-          title="Item 1"
+        <li
+          class="config-menu-item-group"
         >
-          Item 1
-        </div>
-        <ul
-          class="config-menu-item-group-list"
-        >
-          <li
-            class="config-menu-item config-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="config-menu-item-group-title"
+            title="Item 1"
           >
-            <span
-              class="config-menu-title-content"
+            Item 1
+          </div>
+          <ul
+            class="config-menu-item-group-list"
+          >
+            <li
+              class="config-menu-item config-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
             >
-              Light
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+              <span
+                class="config-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
-<ul
-  class="config-menu config-menu-root config-menu-inline config-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="config-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
+    <li
+      class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
+      role="none"
     >
-      <span
-        class="config-menu-title-content"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="config-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        bamboo
-      </span>
-      <i
-        class="config-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="config-menu config-menu-sub config-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="config-menu-item-group"
+        <span
+          class="config-menu-title-content"
+        >
+          bamboo
+        </span>
+        <i
+          class="config-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="config-menu config-menu-sub config-menu-inline"
+        data-menu-list="true"
       >
-        <div
-          class="config-menu-item-group-title"
-          title="Item 1"
+        <li
+          class="config-menu-item-group"
         >
-          Item 1
-        </div>
-        <ul
-          class="config-menu-item-group-list"
-        >
-          <li
-            class="config-menu-item config-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="config-menu-item-group-title"
+            title="Item 1"
           >
-            <span
-              class="config-menu-title-content"
+            Item 1
+          </div>
+          <ul
+            class="config-menu-item-group-list"
+          >
+            <li
+              class="config-menu-item config-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
             >
-              Light
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+              <span
+                class="config-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<ul
-  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="ant-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+      role="none"
     >
-      <span
-        class="ant-menu-title-content"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        bamboo
-      </span>
-      <i
-        class="ant-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="ant-menu ant-menu-sub ant-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="ant-menu-item-group"
+        <span
+          class="ant-menu-title-content"
+        >
+          bamboo
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="ant-menu ant-menu-sub ant-menu-inline"
+        data-menu-list="true"
       >
-        <div
-          class="ant-menu-item-group-title"
-          title="Item 1"
+        <li
+          class="ant-menu-item-group"
         >
-          Item 1
-        </div>
-        <ul
-          class="ant-menu-item-group-list"
-        >
-          <li
-            class="ant-menu-item ant-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="ant-menu-item-group-title"
+            title="Item 1"
           >
-            <span
-              class="ant-menu-title-content"
+            Item 1
+          </div>
+          <ul
+            class="ant-menu-item-group-list"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
             >
-              Light
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+              <span
+                class="ant-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu normal 1`] = `
-<ul
-  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="ant-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+      role="none"
     >
-      <span
-        class="ant-menu-title-content"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        bamboo
-      </span>
-      <i
-        class="ant-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="ant-menu ant-menu-sub ant-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="ant-menu-item-group"
+        <span
+          class="ant-menu-title-content"
+        >
+          bamboo
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="ant-menu ant-menu-sub ant-menu-inline"
+        data-menu-list="true"
       >
-        <div
-          class="ant-menu-item-group-title"
-          title="Item 1"
+        <li
+          class="ant-menu-item-group"
         >
-          Item 1
-        </div>
-        <ul
-          class="ant-menu-item-group-list"
-        >
-          <li
-            class="ant-menu-item ant-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="ant-menu-item-group-title"
+            title="Item 1"
           >
-            <span
-              class="ant-menu-title-content"
+            Item 1
+          </div>
+          <ul
+            class="ant-menu-item-group-list"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
             >
-              Light
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+              <span
+                class="ant-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu prefixCls 1`] = `
-<ul
-  class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="prefix-Menu-submenu prefix-Menu-submenu-inline prefix-Menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="prefix-Menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
+    <li
+      class="prefix-Menu-submenu prefix-Menu-submenu-inline prefix-Menu-submenu-open"
+      role="none"
     >
-      <span
-        class="prefix-Menu-title-content"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="prefix-Menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        bamboo
-      </span>
-      <i
-        class="prefix-Menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="prefix-Menu-item-group"
-        prefixcls="prefix-Menu"
+        <span
+          class="prefix-Menu-title-content"
+        >
+          bamboo
+        </span>
+        <i
+          class="prefix-Menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
+        data-menu-list="true"
       >
-        <div
-          class="prefix-Menu-item-group-title"
-          title="Item 1"
+        <li
+          class="prefix-Menu-item-group"
+          prefixcls="prefix-Menu"
         >
-          Item 1
-        </div>
-        <ul
-          class="prefix-Menu-item-group-list"
-        >
-          <li
-            class="prefix-Menu-item prefix-Menu-item-only-child"
-            prefixcls="prefix-Menu"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="prefix-Menu-item-group-title"
+            title="Item 1"
           >
-            <span
-              class="prefix-Menu-title-content"
+            Item 1
+          </div>
+          <ul
+            class="prefix-Menu-item-group-list"
+          >
+            <li
+              class="prefix-Menu-item prefix-Menu-item-only-child"
+              prefixcls="prefix-Menu"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
             >
-              Light
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+              <span
+                class="prefix-Menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Modal configProvider 1`] = `
@@ -22954,6 +22990,10 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               </li>
                             </ul>
                             <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
+                            <div
                               class="config-table-filter-dropdown-btns"
                             >
                               <button
@@ -23223,6 +23263,10 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="config-table-filter-dropdown-btns"
                             >
@@ -23494,6 +23538,10 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                               </li>
                             </ul>
                             <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
+                            <div
                               class="config-table-filter-dropdown-btns"
                             >
                               <button
@@ -23763,6 +23811,10 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -24034,6 +24086,10 @@ exports[`ConfigProvider components Table normal 1`] = `
                               </li>
                             </ul>
                             <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
+                            <div
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
@@ -24303,6 +24359,10 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="prefix-Table-filter-dropdown-btns"
                             >
