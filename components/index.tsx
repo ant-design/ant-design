@@ -185,7 +185,11 @@ export { default as Table } from './table';
 export type { TransferProps } from './transfer';
 export { default as Transfer } from './transfer';
 
-export type { TreeProps, AntTreeNodeProps as TreeNodeProps } from './tree';
+export type {
+  TreeProps,
+  AntTreeNodeProps as TreeNodeProps,
+  DataNode as TreeDataNode,
+} from './tree';
 export { default as Tree } from './tree';
 
 export type { TreeSelectProps } from './tree-select';
