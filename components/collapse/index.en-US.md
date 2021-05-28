@@ -28,7 +28,7 @@ A content area which can be collapsed and expanded.
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
 | expandIconPosition | Set expand icon position | `left` \| `right` | - |  |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
-| onChange | Callback function executed when active panel is changed | function | - |  |
+| onChange | Callback function executed when active panel is changed | (key: string \| string[]) => void | - |  |
 
 ### Collapse.Panel
 
