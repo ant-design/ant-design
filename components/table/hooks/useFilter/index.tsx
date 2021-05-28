@@ -87,6 +87,7 @@ function injectFilter<RecordType>(
         ...newColumn,
         title: (renderProps: ColumnTitleProps<RecordType>) => (
           <FilterDropdown
+            tablePrefixCls={prefixCls}
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls}
             column={newColumn}
@@ -214,9 +215,10 @@ function useFilter<RecordType>({
     return collectedStates;
   }, [mergedColumns, filterStates]);
 
-  const getFilters = React.useCallback(() => generateFilterInfo(mergedFilterStates), [
-    mergedFilterStates,
-  ]);
+  const getFilters = React.useCallback(
+    () => generateFilterInfo(mergedFilterStates),
+    [mergedFilterStates],
+  );
 
   const triggerFilter = (filterState: FilterState<RecordType>) => {
     const newFilterStates = mergedFilterStates.filter(({ key }) => key !== filterState.key);
