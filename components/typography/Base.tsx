@@ -524,13 +524,15 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                     [`${prefixCls}-${type}`]: type,
                     [`${prefixCls}-disabled`]: disabled,
                     [`${prefixCls}-ellipsis`]: rows,
-                    [`${prefixCls}-single-line`]: rows === 1,
+                    // fix flush
+                    [`${prefixCls}-no-wrap`]: rows === 1,
                     [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                     [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
                   },
                   className,
                 )}
                 style={{
+                  width: rows === 1 && '100%',
                   ...style,
                   WebkitLineClamp: cssLineClamp ? rows : undefined,
                 }}
