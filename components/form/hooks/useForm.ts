@@ -5,7 +5,7 @@ import { ScrollOptions, NamePath, InternalNamePath } from '../interface';
 import { toArray, getFieldId } from '../util';
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
-  scrollToField: (name: NamePath, options?: ScrollOptions) => void;
+  scrollToField: (name: NamePath | HTMLElement, options?: ScrollOptions) => void;
   /** This is an internal usage. Do not use in your prod */
   __INTERNAL__: {
     /** No! Do not use this in your code! */
@@ -19,6 +19,23 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
 function toNamePathStr(name: NamePath) {
   const namePath = toArray(name);
   return namePath.join('_');
+}
+
+export function getNodeByDataScroll(node: HTMLElement, dataScroll: string): HTMLElement {
+  let newNode: HTMLElement | null = node.parentElement;
+  let rtNode: HTMLElement | null = null;
+  let levelCount = 8;
+  do {
+    if (!newNode) return node;
+    // find dom that's classname include ant-form-item-control
+    if (newNode?.dataset?.scroll === dataScroll) {
+      rtNode = newNode;
+      break;
+    }
+    newNode = newNode.parentElement;
+    levelCount--;
+  } while (levelCount);
+  return rtNode || node;
 }
 
 export default function useForm<Values = any>(form?: FormInstance<Values>): [FormInstance<Values>] {
@@ -39,13 +56,19 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
             }
           },
         },
-        scrollToField: (name: string, options: ScrollOptions = {}) => {
-          const namePath = toArray(name);
-          const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+        scrollToField: (name: InternalNamePath | HTMLElement, options: ScrollOptions = {}) => {
+          let node: HTMLElement | null = null;
+          if (Array.isArray(name)) {
+            const namePath = toArray(name);
+            const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
+            node = fieldId ? document.getElementById(fieldId) : null;
+          } else {
+            node = name;
+          }
 
           if (node) {
-            scrollIntoView(node, {
+            const newNode = getNodeByDataScroll(node, 'form-item');
+            scrollIntoView(newNode, {
               scrollMode: 'if-needed',
               block: 'nearest',
               ...options,

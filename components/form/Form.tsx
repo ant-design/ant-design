@@ -102,6 +102,8 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
 
   React.useImperativeHandle(ref, () => wrapForm);
 
+  const formRef = React.useRef<HTMLElement>();
+
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
     onFinishFailed?.(errorInfo);
 
@@ -111,7 +113,11 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       if (typeof scrollToFirstError === 'object') {
         defaultScrollToFirstError = scrollToFirstError;
       }
-      wrapForm.scrollToField(errorInfo.errorFields[0].name, defaultScrollToFirstError);
+      let errorNode: HTMLElement | null = null;
+      if (formRef.current) {
+        errorNode = formRef.current.querySelector('[data-scroll="form-item-error-alert"]');
+      }
+      wrapForm.scrollToField(errorNode || errorInfo.errorFields[0].name, defaultScrollToFirstError);
     }
   };
 
@@ -125,6 +131,9 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
           onFinishFailed={onInternalFinishFailed}
           form={wrapForm}
           className={formClassName}
+          getFormDom={(formDom: HTMLElement) => {
+            formRef.current = formDom;
+          }}
         />
       </FormContext.Provider>
     </SizeContextProvider>
