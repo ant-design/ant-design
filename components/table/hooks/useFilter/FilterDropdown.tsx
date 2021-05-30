@@ -87,6 +87,7 @@ function renderFilterItems({
 }
 
 export interface FilterDropdownProps<RecordType> {
+  tablePrefixCls: string;
   prefixCls: string;
   dropdownPrefixCls: string;
   column: ColumnType<RecordType>;
@@ -101,6 +102,7 @@ export interface FilterDropdownProps<RecordType> {
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const {
+    tablePrefixCls,
     prefixCls,
     column,
     dropdownPrefixCls,
@@ -281,8 +283,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const { direction } = React.useContext(ConfigContext);
 
   return (
-    <div className={classNames(`${prefixCls}-column`)}>
-      {children}
+    <div className={`${prefixCls}-column`}>
+      <span className={`${tablePrefixCls}-column-title`}>{children}</span>
       <Dropdown
         overlay={menu}
         trigger={['click']}

@@ -15037,341 +15037,419 @@ exports[`ConfigProvider components List prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Menu configProvider 1`] = `
-<ul
-  class="config-menu config-menu-root config-menu-inline config-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="config-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
-      title="bamboo"
+    <li
+      class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
+      role="none"
     >
-      bamboo
-      <i
-        class="config-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="config-menu config-menu-sub config-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="config-menu-item-group"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="config-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        <div
-          class="config-menu-item-group-title"
-          title="Item 1"
+        <span
+          class="config-menu-title-content"
         >
-          Item 1
-        </div>
-        <ul
-          class="config-menu-item-group-list"
+          bamboo
+        </span>
+        <i
+          class="config-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="config-menu config-menu-sub config-menu-inline"
+        data-menu-list="true"
+      >
+        <li
+          class="config-menu-item-group"
         >
-          <li
-            class="config-menu-item config-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="config-menu-item-group-title"
+            title="Item 1"
           >
-            Light
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+            Item 1
+          </div>
+          <ul
+            class="config-menu-item-group-list"
+          >
+            <li
+              class="config-menu-item config-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="config-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu configProvider componentSize large 1`] = `
-<ul
-  class="config-menu config-menu-root config-menu-inline config-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="config-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
-      title="bamboo"
+    <li
+      class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
+      role="none"
     >
-      bamboo
-      <i
-        class="config-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="config-menu config-menu-sub config-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="config-menu-item-group"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="config-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        <div
-          class="config-menu-item-group-title"
-          title="Item 1"
+        <span
+          class="config-menu-title-content"
         >
-          Item 1
-        </div>
-        <ul
-          class="config-menu-item-group-list"
+          bamboo
+        </span>
+        <i
+          class="config-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="config-menu config-menu-sub config-menu-inline"
+        data-menu-list="true"
+      >
+        <li
+          class="config-menu-item-group"
         >
-          <li
-            class="config-menu-item config-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="config-menu-item-group-title"
+            title="Item 1"
           >
-            Light
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+            Item 1
+          </div>
+          <ul
+            class="config-menu-item-group-list"
+          >
+            <li
+              class="config-menu-item config-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="config-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
-<ul
-  class="config-menu config-menu-root config-menu-inline config-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="config-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
-      title="bamboo"
+    <li
+      class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
+      role="none"
     >
-      bamboo
-      <i
-        class="config-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="config-menu config-menu-sub config-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="config-menu-item-group"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="config-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        <div
-          class="config-menu-item-group-title"
-          title="Item 1"
+        <span
+          class="config-menu-title-content"
         >
-          Item 1
-        </div>
-        <ul
-          class="config-menu-item-group-list"
+          bamboo
+        </span>
+        <i
+          class="config-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="config-menu config-menu-sub config-menu-inline"
+        data-menu-list="true"
+      >
+        <li
+          class="config-menu-item-group"
         >
-          <li
-            class="config-menu-item config-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="config-menu-item-group-title"
+            title="Item 1"
           >
-            Light
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+            Item 1
+          </div>
+          <ul
+            class="config-menu-item-group-list"
+          >
+            <li
+              class="config-menu-item config-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="config-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<ul
-  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="ant-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
-      title="bamboo"
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+      role="none"
     >
-      bamboo
-      <i
-        class="ant-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="ant-menu ant-menu-sub ant-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="ant-menu-item-group"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        <div
-          class="ant-menu-item-group-title"
-          title="Item 1"
+        <span
+          class="ant-menu-title-content"
         >
-          Item 1
-        </div>
-        <ul
-          class="ant-menu-item-group-list"
+          bamboo
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="ant-menu ant-menu-sub ant-menu-inline"
+        data-menu-list="true"
+      >
+        <li
+          class="ant-menu-item-group"
         >
-          <li
-            class="ant-menu-item ant-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="ant-menu-item-group-title"
+            title="Item 1"
           >
-            Light
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+            Item 1
+          </div>
+          <ul
+            class="ant-menu-item-group-list"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu normal 1`] = `
-<ul
-  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="ant-menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
-      title="bamboo"
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+      role="none"
     >
-      bamboo
-      <i
-        class="ant-menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="ant-menu ant-menu-sub ant-menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="ant-menu-item-group"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        <div
-          class="ant-menu-item-group-title"
-          title="Item 1"
+        <span
+          class="ant-menu-title-content"
         >
-          Item 1
-        </div>
-        <ul
-          class="ant-menu-item-group-list"
+          bamboo
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="ant-menu ant-menu-sub ant-menu-inline"
+        data-menu-list="true"
+      >
+        <li
+          class="ant-menu-item-group"
         >
-          <li
-            class="ant-menu-item ant-menu-item-only-child"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="ant-menu-item-group-title"
+            title="Item 1"
           >
-            Light
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+            Item 1
+          </div>
+          <ul
+            class="ant-menu-item-group-list"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Menu prefixCls 1`] = `
-<ul
-  class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
-  data-menu-list="true"
-  role="menu"
-  tabindex="0"
->
-  <li
-    class="prefix-Menu-submenu prefix-Menu-submenu-inline prefix-Menu-submenu-open"
-    role="none"
+Array [
+  <ul
+    class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
   >
-    <div
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="prefix-Menu-submenu-title"
-      role="menuitem"
-      style="padding-left:24px"
-      tabindex="-1"
-      title="bamboo"
+    <li
+      class="prefix-Menu-submenu prefix-Menu-submenu-inline prefix-Menu-submenu-open"
+      role="none"
     >
-      bamboo
-      <i
-        class="prefix-Menu-submenu-arrow"
-      />
-    </div>
-    <ul
-      class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
-      data-menu-list="true"
-    >
-      <li
-        class="prefix-Menu-item-group"
-        prefixcls="prefix-Menu"
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="prefix-Menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
       >
-        <div
-          class="prefix-Menu-item-group-title"
-          title="Item 1"
+        <span
+          class="prefix-Menu-title-content"
         >
-          Item 1
-        </div>
-        <ul
-          class="prefix-Menu-item-group-list"
+          bamboo
+        </span>
+        <i
+          class="prefix-Menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
+        data-menu-list="true"
+      >
+        <li
+          class="prefix-Menu-item-group"
+          prefixcls="prefix-Menu"
         >
-          <li
-            class="prefix-Menu-item prefix-Menu-item-only-child"
-            prefixcls="prefix-Menu"
-            role="menuitem"
-            style="padding-left:48px"
-            tabindex="-1"
+          <div
+            class="prefix-Menu-item-group-title"
+            title="Item 1"
           >
-            Light
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+            Item 1
+          </div>
+          <ul
+            class="prefix-Menu-item-group-list"
+          >
+            <li
+              class="prefix-Menu-item prefix-Menu-item-only-child"
+              prefixcls="prefix-Menu"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="prefix-Menu-title-content"
+              >
+                Light
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
 `;
 
 exports[`ConfigProvider components Modal configProvider 1`] = `
@@ -22769,59 +22847,65 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                     <div
                       class="config-table-filter-column"
                     >
-                      <div
-                        class="config-table-column-sorters"
+                      <span
+                        class="config-table-column-title"
                       >
-                        <span>
-                          Name
-                        </span>
-                        <span
-                          class="config-table-column-sorter config-table-column-sorter-full"
+                        <div
+                          class="config-table-column-sorters"
                         >
                           <span
-                            class="config-table-column-sorter-inner"
+                            class="config-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="config-table-column-sorter config-table-column-sorter-full"
                           >
                             <span
-                              aria-label="caret-up"
-                              class="anticon anticon-caret-up config-table-column-sorter-up"
-                              role="img"
+                              class="config-table-column-sorter-inner"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up config-table-column-sorter-up"
+                                role="img"
                               >
-                                <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              aria-label="caret-down"
-                              class="anticon anticon-caret-down config-table-column-sorter-down"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down config-table-column-sorter-down"
+                                role="img"
                               >
-                                <path
-                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </div>
+                        </div>
+                      </span>
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger"
                         role="button"
@@ -22866,23 +22950,27 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="config-checkbox-wrapper"
+                                <span
+                                  class="config-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="config-checkbox"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="config-checkbox-inner"
-                                    />
+                                      class="config-checkbox"
+                                    >
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -22895,15 +22983,22 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                   class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="config-dropdown-menu-submenu-arrow"
                                   />
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="config-table-filter-dropdown-btns"
                             >
@@ -23032,59 +23127,65 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                     <div
                       class="config-table-filter-column"
                     >
-                      <div
-                        class="config-table-column-sorters"
+                      <span
+                        class="config-table-column-title"
                       >
-                        <span>
-                          Name
-                        </span>
-                        <span
-                          class="config-table-column-sorter config-table-column-sorter-full"
+                        <div
+                          class="config-table-column-sorters"
                         >
                           <span
-                            class="config-table-column-sorter-inner"
+                            class="config-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="config-table-column-sorter config-table-column-sorter-full"
                           >
                             <span
-                              aria-label="caret-up"
-                              class="anticon anticon-caret-up config-table-column-sorter-up"
-                              role="img"
+                              class="config-table-column-sorter-inner"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up config-table-column-sorter-up"
+                                role="img"
                               >
-                                <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              aria-label="caret-down"
-                              class="anticon anticon-caret-down config-table-column-sorter-down"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down config-table-column-sorter-down"
+                                role="img"
                               >
-                                <path
-                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </div>
+                        </div>
+                      </span>
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger"
                         role="button"
@@ -23129,23 +23230,27 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="config-checkbox-wrapper"
+                                <span
+                                  class="config-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="config-checkbox"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="config-checkbox-inner"
-                                    />
+                                      class="config-checkbox"
+                                    >
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -23158,15 +23263,22 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                   class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="config-dropdown-menu-submenu-arrow"
                                   />
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="config-table-filter-dropdown-btns"
                             >
@@ -23295,59 +23407,65 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                     <div
                       class="config-table-filter-column"
                     >
-                      <div
-                        class="config-table-column-sorters"
+                      <span
+                        class="config-table-column-title"
                       >
-                        <span>
-                          Name
-                        </span>
-                        <span
-                          class="config-table-column-sorter config-table-column-sorter-full"
+                        <div
+                          class="config-table-column-sorters"
                         >
                           <span
-                            class="config-table-column-sorter-inner"
+                            class="config-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="config-table-column-sorter config-table-column-sorter-full"
                           >
                             <span
-                              aria-label="caret-up"
-                              class="anticon anticon-caret-up config-table-column-sorter-up"
-                              role="img"
+                              class="config-table-column-sorter-inner"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up config-table-column-sorter-up"
+                                role="img"
                               >
-                                <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              aria-label="caret-down"
-                              class="anticon anticon-caret-down config-table-column-sorter-down"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down config-table-column-sorter-down"
+                                role="img"
                               >
-                                <path
-                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </div>
+                        </div>
+                      </span>
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger"
                         role="button"
@@ -23392,23 +23510,27 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="config-checkbox-wrapper"
+                                <span
+                                  class="config-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="config-checkbox"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="config-checkbox-inner"
-                                    />
+                                      class="config-checkbox"
+                                    >
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -23421,15 +23543,22 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                   class="config-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="config-dropdown-menu-submenu-arrow"
                                   />
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="config-table-filter-dropdown-btns"
                             >
@@ -23558,59 +23687,65 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                     <div
                       class="ant-table-filter-column"
                     >
-                      <div
-                        class="ant-table-column-sorters"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <span>
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        <div
+                          class="ant-table-column-sorters"
                         >
                           <span
-                            class="ant-table-column-sorter-inner"
+                            class="ant-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter ant-table-column-sorter-full"
                           >
                             <span
-                              aria-label="caret-up"
-                              class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              class="ant-table-column-sorter-inner"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                role="img"
                               >
-                                <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              aria-label="caret-down"
-                              class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                role="img"
                               >
-                                <path
-                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </div>
+                        </div>
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -23655,23 +23790,27 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -23684,15 +23823,22 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                   class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="ant-dropdown-menu-submenu-arrow"
                                   />
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -23821,59 +23967,65 @@ exports[`ConfigProvider components Table normal 1`] = `
                     <div
                       class="ant-table-filter-column"
                     >
-                      <div
-                        class="ant-table-column-sorters"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <span>
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        <div
+                          class="ant-table-column-sorters"
                         >
                           <span
-                            class="ant-table-column-sorter-inner"
+                            class="ant-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter ant-table-column-sorter-full"
                           >
                             <span
-                              aria-label="caret-up"
-                              class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              class="ant-table-column-sorter-inner"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                role="img"
                               >
-                                <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              aria-label="caret-down"
-                              class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                role="img"
                               >
-                                <path
-                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </div>
+                        </div>
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -23918,23 +24070,27 @@ exports[`ConfigProvider components Table normal 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -23947,15 +24103,22 @@ exports[`ConfigProvider components Table normal 1`] = `
                                   class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="ant-dropdown-menu-submenu-arrow"
                                   />
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -24084,59 +24247,65 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                     <div
                       class="prefix-Table-filter-column"
                     >
-                      <div
-                        class="prefix-Table-column-sorters"
+                      <span
+                        class="prefix-Table-column-title"
                       >
-                        <span>
-                          Name
-                        </span>
-                        <span
-                          class="prefix-Table-column-sorter prefix-Table-column-sorter-full"
+                        <div
+                          class="prefix-Table-column-sorters"
                         >
                           <span
-                            class="prefix-Table-column-sorter-inner"
+                            class="prefix-Table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="prefix-Table-column-sorter prefix-Table-column-sorter-full"
                           >
                             <span
-                              aria-label="caret-up"
-                              class="anticon anticon-caret-up prefix-Table-column-sorter-up"
-                              role="img"
+                              class="prefix-Table-column-sorter-inner"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up prefix-Table-column-sorter-up"
+                                role="img"
                               >
-                                <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              aria-label="caret-down"
-                              class="anticon anticon-caret-down prefix-Table-column-sorter-down"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down prefix-Table-column-sorter-down"
+                                role="img"
                               >
-                                <path
-                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </div>
+                        </div>
+                      </span>
                       <span
                         class="ant-dropdown-trigger prefix-Table-filter-trigger"
                         role="button"
@@ -24181,23 +24350,27 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 role="menuitem"
                                 tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
-                                </label>
-                                <span>
-                                  Joe
                                 </span>
                               </li>
                               <li
@@ -24210,15 +24383,22 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                   class="ant-dropdown-menu-submenu-title"
                                   role="menuitem"
                                   tabindex="-1"
-                                  title="Submenu"
                                 >
-                                  Submenu
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
                                   <i
                                     class="ant-dropdown-menu-submenu-arrow"
                                   />
                                 </div>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            />
                             <div
                               class="prefix-Table-filter-dropdown-btns"
                             >

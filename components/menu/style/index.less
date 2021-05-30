@@ -211,8 +211,6 @@
       + span {
         margin-left: @menu-icon-margin-right;
         opacity: 1;
-        // transition: opacity @animation-duration-slow @ease-in-out,
-        //   width @animation-duration-slow @ease-in-out, color @animation-duration-slow;
         transition: opacity @animation-duration-slow @ease-in-out, margin @animation-duration-slow,
           color @animation-duration-slow;
       }
@@ -365,19 +363,19 @@
     &:not(.@{menu-prefix-cls}-dark) {
       > .@{menu-prefix-cls}-item,
       > .@{menu-prefix-cls}-submenu {
-        margin: @menu-item-padding;
         margin-top: -1px;
         margin-bottom: 0;
         padding: @menu-item-padding;
-        padding-right: 0;
-        padding-left: 0;
 
         &:hover,
         &-active,
         &-open,
         &-selected {
           color: @menu-highlight-color;
-          border-bottom: 2px solid @menu-highlight-color;
+
+          &::after {
+            border-bottom: 2px solid @menu-highlight-color;
+          }
         }
       }
     }
@@ -388,7 +386,16 @@
       top: 1px;
       display: inline-block;
       vertical-align: bottom;
-      border-bottom: 2px solid transparent;
+
+      &::after {
+        position: absolute;
+        right: @menu-item-padding-horizontal;
+        bottom: 0;
+        left: @menu-item-padding-horizontal;
+        border-bottom: 2px solid transparent;
+        transition: border-color @animation-duration-slow @ease-in-out;
+        content: '';
+      }
     }
 
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
@@ -625,8 +632,12 @@
   &-submenu-disabled {
     color: @disabled-color !important;
     background: none;
-    border-color: transparent !important;
     cursor: not-allowed;
+
+    &::after {
+      border-color: transparent !important;
+    }
+
     a {
       color: @disabled-color !important;
       pointer-events: none;

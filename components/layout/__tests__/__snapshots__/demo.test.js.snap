@@ -237,6 +237,10 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           </span>
         </li>
       </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      />
     </div>
   </aside>
   <section
@@ -300,7 +304,11 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         style="opacity:1;order:0"
         tabindex="-1"
       >
-        nav 1
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 1
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -308,7 +316,11 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         style="opacity:1;order:1"
         tabindex="-1"
       >
-        nav 2
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 2
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -316,13 +328,17 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         style="opacity:1;order:2"
         tabindex="-1"
       >
-        nav 3
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 3
+        </span>
       </li>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
         role="none"
-        style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+        style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
           aria-expanded="false"
@@ -330,15 +346,36 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           class="ant-menu-submenu-title"
           role="menuitem"
           tabindex="-1"
-          title="..."
         >
-          ...
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
           <i
             class="ant-menu-submenu-arrow"
           />
         </div>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display:none"
+    />
   </header>
   <main
     class="ant-layout-content site-layout"
@@ -670,6 +707,10 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
       </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      />
     </div>
   </aside>
   <section
@@ -940,6 +981,10 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           </span>
         </li>
       </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      />
     </div>
   </aside>
   <section
@@ -1167,6 +1212,10 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           </span>
         </li>
       </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      />
     </div>
     <div
       class="ant-layout-sider-trigger"
@@ -1272,7 +1321,11 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         style="opacity:1;order:0"
         tabindex="-1"
       >
-        nav 1
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 1
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -1280,7 +1333,11 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         style="opacity:1;order:1"
         tabindex="-1"
       >
-        nav 2
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 2
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -1288,13 +1345,17 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         style="opacity:1;order:2"
         tabindex="-1"
       >
-        nav 3
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 3
+        </span>
       </li>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
         role="none"
-        style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+        style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
           aria-expanded="false"
@@ -1302,15 +1363,36 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           class="ant-menu-submenu-title"
           role="menuitem"
           tabindex="-1"
-          title="..."
         >
-          ...
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
           <i
             class="ant-menu-submenu-arrow"
           />
         </div>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display:none"
+    />
   </header>
   <main
     class="ant-layout-content"
@@ -1394,7 +1476,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         style="opacity:1;order:0"
         tabindex="-1"
       >
-        nav 1
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 1
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -1402,7 +1488,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         style="opacity:1;order:1"
         tabindex="-1"
       >
-        nav 2
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 2
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -1410,13 +1500,17 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         style="opacity:1;order:2"
         tabindex="-1"
       >
-        nav 3
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 3
+        </span>
       </li>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
         role="none"
-        style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+        style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
           aria-expanded="false"
@@ -1424,15 +1518,36 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           class="ant-menu-submenu-title"
           role="menuitem"
           tabindex="-1"
-          title="..."
         >
-          ...
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
           <i
             class="ant-menu-submenu-arrow"
           />
         </div>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display:none"
+    />
   </header>
   <main
     class="ant-layout-content"
@@ -1547,7 +1662,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   style="padding-left:48px"
                   tabindex="-1"
                 >
-                  option1
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option1
+                  </span>
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
@@ -1555,7 +1674,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   style="padding-left:48px"
                   tabindex="-1"
                 >
-                  option2
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option2
+                  </span>
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
@@ -1563,7 +1686,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   style="padding-left:48px"
                   tabindex="-1"
                 >
-                  option3
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option3
+                  </span>
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
@@ -1571,7 +1698,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   style="padding-left:48px"
                   tabindex="-1"
                 >
-                  option4
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option4
+                  </span>
                 </li>
               </ul>
             </li>
@@ -1658,6 +1789,10 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               </div>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display:none"
+          />
         </div>
       </aside>
       <main
@@ -1699,7 +1834,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         style="opacity:1;order:0"
         tabindex="-1"
       >
-        nav 1
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 1
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -1707,7 +1846,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         style="opacity:1;order:1"
         tabindex="-1"
       >
-        nav 2
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 2
+        </span>
       </li>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
@@ -1715,13 +1858,17 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         style="opacity:1;order:2"
         tabindex="-1"
       >
-        nav 3
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 3
+        </span>
       </li>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
         role="none"
-        style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none"
+        style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
           aria-expanded="false"
@@ -1729,15 +1876,36 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           class="ant-menu-submenu-title"
           role="menuitem"
           tabindex="-1"
-          title="..."
         >
-          ...
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
           <i
             class="ant-menu-submenu-arrow"
           />
         </div>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display:none"
+    />
   </header>
   <section
     class="ant-layout"
@@ -1806,7 +1974,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 style="padding-left:48px"
                 tabindex="-1"
               >
-                option1
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option1
+                </span>
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
@@ -1814,7 +1986,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 style="padding-left:48px"
                 tabindex="-1"
               >
-                option2
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option2
+                </span>
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
@@ -1822,7 +1998,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 style="padding-left:48px"
                 tabindex="-1"
               >
-                option3
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option3
+                </span>
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
@@ -1830,7 +2010,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 style="padding-left:48px"
                 tabindex="-1"
               >
-                option4
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option4
+                </span>
               </li>
             </ul>
           </li>
@@ -1917,6 +2101,10 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             </div>
           </li>
         </ul>
+        <div
+          aria-hidden="true"
+          style="display:none"
+        />
       </div>
     </aside>
     <section
