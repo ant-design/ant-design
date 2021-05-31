@@ -38,6 +38,6 @@ Related issues：[#3938](https://github.com/ant-design/ant-design/issues/3938) [
 
 ### When Affix is ​​used in a horizontal scroll container, the position of the element `left` is incorrect.
 
-Affix is ​​generally only applicable to areas with one-way scrolling, and only supports use in vertical scrolling containers. If you want to use it in a horizontal container, you can consider using `sticky` implementation.
+Affix is ​​generally only applicable to areas with one-way scrolling, and only supports use in vertical scrolling containers. If you want to use it in a horizontal container, you can consider using the native `position: sticky` implementation.
 
 Related issues：[#29108](https://github.com/ant-design/ant-design/issues/29108)

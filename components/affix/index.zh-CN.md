@@ -39,6 +39,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 
 ### Affix 在水平滚动容器中使用时， 元素 `left` 位置不正确。
 
-Affix 一般只适用于单向滚动的区域，只支持在垂直滚动容器中使用。如果希望在水平容器中使用，你可以考虑使用 `sticky` 实现。
+Affix 一般只适用于单向滚动的区域，只支持在垂直滚动容器中使用。如果希望在水平容器中使用，你可以考虑使用 原生 `position: sticky` 实现。
 
 相关 issue: [#29108](https://github.com/ant-design/ant-design/issues/29108)
