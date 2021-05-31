@@ -24,10 +24,10 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:20%;min-width:20%"
+                  style="width:20%"
                 />
                 <col
-                  style="width:20%;min-width:20%"
+                  style="width:20%"
                 />
               </colgroup>
               <thead
@@ -1046,10 +1046,10 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             >
               <colgroup>
                 <col
-                  style="width:30%;min-width:30%"
+                  style="width:30%"
                 />
                 <col
-                  style="width:20%;min-width:20%"
+                  style="width:20%"
                 />
               </colgroup>
               <thead
@@ -1623,7 +1623,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
             >
               <colgroup>
                 <col
-                  style="width:30px;min-width:30px"
+                  style="width:30px"
                 />
               </colgroup>
               <thead
@@ -3923,7 +3923,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    style="width:30%;min-width:30%"
+                    style="width:30%"
                   />
                 </colgroup>
                 <thead
@@ -4134,13 +4134,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:25%;min-width:25%"
+                  style="width:25%"
                 />
                 <col
-                  style="width:15%;min-width:15%"
+                  style="width:15%"
                 />
                 <col
-                  style="width:40%;min-width:40%"
+                  style="width:40%"
                 />
               </colgroup>
               <thead
@@ -4732,10 +4732,10 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:80px;min-width:80px"
+                  style="width:80px"
                 />
               </colgroup>
               <thead
@@ -5018,10 +5018,10 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
             >
               <colgroup>
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:80px;min-width:80px"
+                  style="width:80px"
                 />
               </colgroup>
               <thead
@@ -5610,10 +5610,10 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col />
                 <col />
@@ -5624,7 +5624,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 <col />
                 <col />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <thead
@@ -6118,35 +6118,35 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <colgroup>
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <tbody
@@ -7209,10 +7209,10 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
               </colgroup>
               <tbody
@@ -8621,26 +8621,26 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:200px;min-width:200px"
+                  style="width:200px"
                 />
                 <col />
                 <col
-                  style="width:80px;min-width:80px"
+                  style="width:80px"
                 />
               </colgroup>
               <tbody
@@ -12935,16 +12935,16 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:200px;min-width:200px"
+                  style="width:200px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <thead
@@ -15896,35 +15896,35 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <tbody
@@ -17200,7 +17200,7 @@ Array [
               >
                 <colgroup>
                   <col
-                    style="width:100px;min-width:100px"
+                    style="width:100px"
                   />
                 </colgroup>
                 <tbody
@@ -17645,10 +17645,10 @@ Array [
                   />
                   <col />
                   <col
-                    style="width:12%;min-width:12%"
+                    style="width:12%"
                   />
                   <col
-                    style="width:30%;min-width:30%"
+                    style="width:30%"
                   />
                 </colgroup>
                 <thead
@@ -17910,22 +17910,22 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:0;min-width:0"
+                  style="width:0"
                 />
                 <col
-                  style="width:0;min-width:0"
+                  style="width:0"
                 />
                 <col
-                  style="width:0;min-width:0"
+                  style="width:0"
                 />
                 <col
-                  style="width:200px;min-width:200px"
+                  style="width:200px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <thead
