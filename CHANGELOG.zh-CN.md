@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.16.1
+
+`2021-05-30`
+
+- Menu
+  - 🐞 修复超长省略不能按照预期工作的问题。[#30672](https://github.com/ant-design/ant-design/pull/30672)
+  - 🐞 修复在卸载时报 `Can't perform a React state update on an unmounted component` 的警告信息。[#30678](https://github.com/ant-design/ant-design/pull/30678)
+  - 🐞 修复 `inline` 模式下，没有 `icon` 的条目不能正确处理省略样式的问题。[#30682](https://github.com/ant-design/ant-design/pull/30682)
+- Typography
+  - 🐞 修复 Typography.Text 在 css 省略可用时监听 ResizeObserver 的无用操作。[#30664](https://github.com/ant-design/ant-design/pull/30664)
+  - 🐞 修复 `ellipsis` 在开发环境 HMR 生效后不再工作的问题。[#30754](https://github.com/ant-design/ant-design/pull/30754)
+- Table
+  - 🐞 修复筛选/排序列的 `align` 属性。[#30744](https://github.com/ant-design/ant-design/pull/30744)
+  - 🐞 修复 Table.Summary `sticky` 模式下，配置 `bordered` 边框样式丢失的问题。[#30666](https://github.com/ant-design/ant-design/pull/30666)
+- 🐞 修复 Collapse `expandIconPosition="right"` 未生效的问题。[#30680](https://github.com/ant-design/ant-design/pull/30680) [@hongdeyuan](https://github.com/hongdeyuan)
+- TypeScript
+  - 🤖 导出 TableColumnsType 类型。[#30747](https://github.com/ant-design/ant-design/pull/30747) [@alwaysloseall](https://github.com/alwaysloseall)
+  - 🤖 导出 TreeDataNode 类型。[#30745](https://github.com/ant-design/ant-design/pull/30745) [@alwaysloseall](https://github.com/alwaysloseall)
+
 ## 4.16.0
 
 `2021-05-24`

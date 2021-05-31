@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.16.1
+
+`2021-05-30`
+
+- Menu
+  - 🐞 Fix overflow not work as expect. [#30672](https://github.com/ant-design/ant-design/pull/30672)
+  - 🐞 Fix warning of `Can't perform a React state update on an unmounted component` when unmounted. [#30678](https://github.com/ant-design/ant-design/pull/30678)
+  - 🐞 Fix `inline` mode not correct handle ellipsis when `icon` not provided. [#30682](https://github.com/ant-design/ant-design/pull/30682)
+- Typography
+  - 🐞 Fix Typography.Text trigger ResizeObserver when css ellipsis is validate. [#30664](https://github.com/ant-design/ant-design/pull/30664)
+  - 🐞 Fix `ellipsis` not work when HMR take effect in dev env. [#30754](https://github.com/ant-design/ant-design/pull/30754)
+- Table
+  - 🐞 Fix Table.Summary missing border style when `sticky` and `bordered` enabled. [#30666](https://github.com/ant-design/ant-design/pull/30666)
+  - 🐞 Fix column align with sorter and filter. [#30744](https://github.com/ant-design/ant-design/pull/30744)
+- 🐞 Fix Collapse expandIconPosition="right" not working. [#30680](https://github.com/ant-design/ant-design/pull/30680) [@hongdeyuan](https://github.com/hongdeyuan)
+- TypeScript
+  - 🤖 Export TableColumnsType type.[#30747](https://github.com/ant-design/ant-design/pull/30747) [@alwaysloseall](https://github.com/alwaysloseall)
+  - 🤖 Export TreeDataNode type. [#30745](https://github.com/ant-design/ant-design/pull/30745) [@alwaysloseall](https://github.com/alwaysloseall)
+
 ## 4.16.0
 
 `2021-05-24`
