@@ -126,8 +126,8 @@ describe('Statistic', () => {
         };
         const wrapper = mount(<Statistic.Countdown value={deadline} onChange={onChange} />);
         wrapper.update();
-        await sleep(100)
-        expect(remainingTime).toBeGreaterThan(0)
+        await sleep(100);
+        expect(remainingTime).toBeGreaterThan(0);
       });
     });
 
@@ -145,17 +145,13 @@ describe('Statistic', () => {
       });
 
       it('called if finished', async () => {
-        jest.useFakeTimers();
         const now = Date.now() + 10;
         const onFinish = jest.fn();
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
-
         MockDate.set(moment('2019-11-28 00:00:00').valueOf());
-        jest.runAllTimers();
-
+        await sleep(100);
         expect(onFinish).toHaveBeenCalled();
-        jest.useFakeTimers();
       });
     });
   });
