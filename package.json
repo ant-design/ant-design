@@ -220,7 +220,7 @@
     "immutability-helper": "^3.0.0",
     "inquirer": "^8.0.0",
     "intersection-observer": "^0.12.0",
-    "jest": "^26.0.0",
+    "jest": "^27.0.3",
     "jest-image-snapshot": "^4.0.0",
     "jest-puppeteer": "^5.0.1",
     "jquery": "^3.4.1",
