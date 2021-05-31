@@ -1,7 +1,6 @@
 const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');
@@ -87,7 +86,6 @@ module.exports = {
         new ESBuildMinifyPlugin({
           target: 'es2015',
         }),
-        new CssMinimizerPlugin(),
       ];
     }
 
