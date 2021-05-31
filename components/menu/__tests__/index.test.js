@@ -66,6 +66,14 @@ describe('Menu', () => {
   window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   mountTest(() => (
     <Menu>
       <Menu.Item />
@@ -107,12 +115,10 @@ describe('Menu', () => {
   beforeEach(() => {
     div = document.createElement('div');
     document.body.appendChild(div);
-    jest.useFakeTimers();
   });
 
   afterEach(() => {
     document.body.removeChild(div);
-    jest.useRealTimers();
   });
 
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
@@ -416,14 +422,6 @@ describe('Menu', () => {
   });
 
   describe('open submenu when click submenu title', () => {
-    beforeEach(() => {
-      jest.useFakeTimers();
-    });
-
-    afterEach(() => {
-      jest.useRealTimers();
-    });
-
     const toggleMenu = (wrapper, index, event) => {
       wrapper.find('.ant-menu-submenu-title').at(index).simulate(event);
       jest.runAllTimers();
