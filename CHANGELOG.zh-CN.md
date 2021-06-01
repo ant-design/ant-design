@@ -29,6 +29,7 @@ timeline: true
 - Table
   - 🐞 修复筛选/排序列的 `align` 属性。[#30744](https://github.com/ant-design/ant-design/pull/30744)
   - 🐞 修复 Table.Summary `sticky` 模式下，配置 `bordered` 边框样式丢失的问题。[#30666](https://github.com/ant-design/ant-design/pull/30666)
+  - 🐞 修复嵌套列中的过滤。 [#30809](https://github.com/ant-design/ant-design/pull/30809) [@moraispgsi](https://github.com/moraispgsi)
 - 🐞 修复 Collapse `expandIconPosition="right"` 未生效的问题。[#30680](https://github.com/ant-design/ant-design/pull/30680) [@hongdeyuan](https://github.com/hongdeyuan)
 - TypeScript
   - 🤖 导出 TableColumnsType 类型。[#30747](https://github.com/ant-design/ant-design/pull/30747) [@alwaysloseall](https://github.com/alwaysloseall)
