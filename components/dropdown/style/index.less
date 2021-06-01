@@ -32,7 +32,7 @@
     }
 
     .@{iconfont-css-prefix}-down::before {
-      transition: transform 0.2s;
+      transition: transform @animation-duration-base;
     }
   }
 
@@ -133,7 +133,7 @@
     &-item-group-title {
       padding: 5px @control-padding-horizontal;
       color: @text-color-secondary;
-      transition: all 0.3s;
+      transition: all @animation-duration-slow;
     }
 
     &-submenu-popup {
@@ -170,7 +170,7 @@
     &-title-content {
       > a {
         color: inherit;
-        transition: all 0.3s;
+        transition: all @animation-duration-slow;
 
         &:hover {
           color: inherit;
@@ -199,7 +199,7 @@
       line-height: @dropdown-line-height;
       white-space: nowrap;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all @animation-duration-slow;
 
       &:first-child {
         & when (@dropdown-edge-child-vertical-padding = 0) {
