@@ -165,11 +165,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   };
 
   getTitles(transferLocale: TransferLocale): React.ReactNode[] {
-    const { titles } = this.props;
-    if (titles) {
-      return titles;
-    }
-    return transferLocale.titles;
+    return this.props.titles ?? transferLocale.titles;
   }
 
   getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({

@@ -101,6 +101,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     if (process.env.ESBUILD || process.env.CSB_REPO) {
       config.optimization.minimizer[0] = new ESBuildMinifyPlugin({
         target: 'es2015',
+        css: true,
       });
     }
 

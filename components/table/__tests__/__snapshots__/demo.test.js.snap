@@ -24,10 +24,10 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:20%;min-width:20%"
+                  style="width:20%"
                 />
                 <col
-                  style="width:20%;min-width:20%"
+                  style="width:20%"
                 />
               </colgroup>
               <thead
@@ -40,7 +40,9 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      <span>
+                      <span
+                        class="ant-table-column-title"
+                      >
                         Name
                       </span>
                       <span
@@ -97,7 +99,11 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     <div
                       class="ant-table-filter-column"
                     >
-                      Gender
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Gender
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -1040,10 +1046,10 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             >
               <colgroup>
                 <col
-                  style="width:30%;min-width:30%"
+                  style="width:30%"
                 />
                 <col
-                  style="width:20%;min-width:20%"
+                  style="width:20%"
                 />
               </colgroup>
               <thead
@@ -1056,7 +1062,11 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     <div
                       class="ant-table-filter-column"
                     >
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -1090,7 +1100,11 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     <div
                       class="ant-table-filter-column"
                     >
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -1124,59 +1138,65 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     <div
                       class="ant-table-filter-column"
                     >
-                      <div
-                        class="ant-table-column-sorters"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <span>
-                          Address
-                        </span>
-                        <span
-                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        <div
+                          class="ant-table-column-sorters"
                         >
                           <span
-                            class="ant-table-column-sorter-inner"
+                            class="ant-table-column-title"
+                          >
+                            Address
+                          </span>
+                          <span
+                            class="ant-table-column-sorter ant-table-column-sorter-full"
                           >
                             <span
-                              aria-label="caret-up"
-                              class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              class="ant-table-column-sorter-inner"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                role="img"
                               >
-                                <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              aria-label="caret-down"
-                              class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                role="img"
                               >
-                                <path
-                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </div>
+                        </div>
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -1603,7 +1623,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
             >
               <colgroup>
                 <col
-                  style="width:30px;min-width:30px"
+                  style="width:30px"
                 />
               </colgroup>
               <thead
@@ -2698,7 +2718,9 @@ Array [
                       <div
                         class="ant-table-column-sorters"
                       >
-                        <span>
+                        <span
+                          class="ant-table-column-title"
+                        >
                           Age
                         </span>
                         <span
@@ -2755,7 +2777,11 @@ Array [
                       <div
                         class="ant-table-filter-column"
                       >
-                        Address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
@@ -2789,7 +2815,9 @@ Array [
                       <div
                         class="ant-table-column-sorters"
                       >
-                        <span>
+                        <span
+                          class="ant-table-column-title"
+                        >
                           Action
                         </span>
                         <span
@@ -3895,7 +3923,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    style="width:30%;min-width:30%"
+                    style="width:30%"
                   />
                 </colgroup>
                 <thead
@@ -4106,13 +4134,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:25%;min-width:25%"
+                  style="width:25%"
                 />
                 <col
-                  style="width:15%;min-width:15%"
+                  style="width:15%"
                 />
                 <col
-                  style="width:40%;min-width:40%"
+                  style="width:40%"
                 />
               </colgroup>
               <thead
@@ -4704,10 +4732,10 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:80px;min-width:80px"
+                  style="width:80px"
                 />
               </colgroup>
               <thead
@@ -4990,10 +5018,10 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
             >
               <colgroup>
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:80px;min-width:80px"
+                  style="width:80px"
                 />
               </colgroup>
               <thead
@@ -5582,10 +5610,10 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col />
                 <col />
@@ -5596,7 +5624,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 <col />
                 <col />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <thead
@@ -6090,35 +6118,35 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <colgroup>
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <tbody
@@ -7181,10 +7209,10 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
               </colgroup>
               <tbody
@@ -8423,7 +8451,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <div
                       class="ant-table-filter-column"
                     >
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -8479,7 +8511,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      <span>
+                      <span
+                        class="ant-table-column-title"
+                      >
                         Age
                       </span>
                       <span
@@ -8587,26 +8621,26 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:200px;min-width:200px"
+                  style="width:200px"
                 />
                 <col />
                 <col
-                  style="width:80px;min-width:80px"
+                  style="width:80px"
                 />
               </colgroup>
               <tbody
@@ -9439,40 +9473,46 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     <div
                       class="ant-table-filter-column"
                     >
-                      <div
-                        class="ant-table-column-sorters"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <span>
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
+                        <div
+                          class="ant-table-column-sorters"
                         >
                           <span
-                            class="ant-table-column-sorter-inner"
+                            class="ant-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
                           >
                             <span
-                              aria-label="caret-down"
-                              class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
+                              class="ant-table-column-sorter-inner"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                role="img"
                               >
-                                <path
-                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </div>
+                        </div>
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -9506,7 +9546,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      <span>
+                      <span
+                        class="ant-table-column-title"
+                      >
                         Age
                       </span>
                       <span
@@ -9563,7 +9605,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     <div
                       class="ant-table-filter-column"
                     >
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -10149,7 +10195,9 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      <span>
+                      <span
+                        class="ant-table-column-title"
+                      >
                         Chinese Score
                       </span>
                       <span
@@ -10206,7 +10254,9 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      <span>
+                      <span
+                        class="ant-table-column-title"
+                      >
                         Math Score
                       </span>
                       <span
@@ -10263,7 +10313,9 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      <span>
+                      <span
+                        class="ant-table-column-title"
+                      >
                         English Score
                       </span>
                       <span
@@ -12434,59 +12486,65 @@ Array [
                       <div
                         class="ant-table-filter-column"
                       >
-                        <div
-                          class="ant-table-column-sorters"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <span>
-                            Name
-                          </span>
-                          <span
-                            class="ant-table-column-sorter ant-table-column-sorter-full"
+                          <div
+                            class="ant-table-column-sorters"
                           >
                             <span
-                              class="ant-table-column-sorter-inner"
+                              class="ant-table-column-title"
+                            >
+                              Name
+                            </span>
+                            <span
+                              class="ant-table-column-sorter ant-table-column-sorter-full"
                             >
                               <span
-                                aria-label="caret-up"
-                                class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                role="img"
+                                class="ant-table-column-sorter-inner"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="caret-up"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="0 0 1024 1024"
-                                  width="1em"
+                                <span
+                                  aria-label="caret-up"
+                                  class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                  role="img"
                                 >
-                                  <path
-                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                  />
-                                </svg>
-                              </span>
-                              <span
-                                aria-label="caret-down"
-                                class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="caret-down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="0 0 1024 1024"
-                                  width="1em"
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="caret-up"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="0 0 1024 1024"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  aria-label="caret-down"
+                                  class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                  role="img"
                                 >
-                                  <path
-                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="caret-down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="0 0 1024 1024"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                    />
+                                  </svg>
+                                </span>
                               </span>
                             </span>
-                          </span>
-                        </div>
+                          </div>
+                        </span>
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
@@ -12520,7 +12578,9 @@ Array [
                       <div
                         class="ant-table-column-sorters"
                       >
-                        <span>
+                        <span
+                          class="ant-table-column-title"
+                        >
                           Age
                         </span>
                         <span
@@ -12577,59 +12637,65 @@ Array [
                       <div
                         class="ant-table-filter-column"
                       >
-                        <div
-                          class="ant-table-column-sorters"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <span>
-                            Address
-                          </span>
-                          <span
-                            class="ant-table-column-sorter ant-table-column-sorter-full"
+                          <div
+                            class="ant-table-column-sorters"
                           >
                             <span
-                              class="ant-table-column-sorter-inner"
+                              class="ant-table-column-title"
+                            >
+                              Address
+                            </span>
+                            <span
+                              class="ant-table-column-sorter ant-table-column-sorter-full"
                             >
                               <span
-                                aria-label="caret-up"
-                                class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                role="img"
+                                class="ant-table-column-sorter-inner"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="caret-up"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="0 0 1024 1024"
-                                  width="1em"
+                                <span
+                                  aria-label="caret-up"
+                                  class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                  role="img"
                                 >
-                                  <path
-                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                                  />
-                                </svg>
-                              </span>
-                              <span
-                                aria-label="caret-down"
-                                class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="caret-down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="0 0 1024 1024"
-                                  width="1em"
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="caret-up"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="0 0 1024 1024"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  aria-label="caret-down"
+                                  class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                  role="img"
                                 >
-                                  <path
-                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="caret-down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="0 0 1024 1024"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                    />
+                                  </svg>
+                                </span>
                               </span>
                             </span>
-                          </span>
-                        </div>
+                          </div>
+                        </span>
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
@@ -12869,16 +12935,16 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:200px;min-width:200px"
+                  style="width:200px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <thead
@@ -12899,7 +12965,9 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      <span>
+                      <span
+                        class="ant-table-column-title"
+                      >
                         Amount
                       </span>
                       <span
@@ -15828,35 +15896,35 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <tbody
@@ -17146,7 +17214,7 @@ Array [
               >
                 <colgroup>
                   <col
-                    style="width:100px;min-width:100px"
+                    style="width:100px"
                   />
                 </colgroup>
                 <tbody
@@ -17591,10 +17659,10 @@ Array [
                   />
                   <col />
                   <col
-                    style="width:12%;min-width:12%"
+                    style="width:12%"
                   />
                   <col
-                    style="width:30%;min-width:30%"
+                    style="width:30%"
                   />
                 </colgroup>
                 <thead
@@ -17856,22 +17924,22 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  style="width:150px;min-width:150px"
+                  style="width:150px"
                 />
                 <col
-                  style="width:0;min-width:0"
+                  style="width:0"
                 />
                 <col
-                  style="width:0;min-width:0"
+                  style="width:0"
                 />
                 <col
-                  style="width:0;min-width:0"
+                  style="width:0"
                 />
                 <col
-                  style="width:200px;min-width:200px"
+                  style="width:200px"
                 />
                 <col
-                  style="width:100px;min-width:100px"
+                  style="width:100px"
                 />
               </colgroup>
               <thead

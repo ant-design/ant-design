@@ -1093,6 +1093,10 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                                 </span>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
                           </div>
                         </div>
                       </div>
@@ -1445,6 +1449,10 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                                 </span>
                               </li>
                             </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
                           </div>
                         </div>
                         <div

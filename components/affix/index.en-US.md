@@ -35,3 +35,9 @@ Please note that Affix should not cover other content on the page, especially wh
 We don't listen window scroll for performance consideration. You can add listener if you still want: <https://codesandbox.io/s/2xyj5zr85p>
 
 Related issues：[#3938](https://github.com/ant-design/ant-design/issues/3938) [#5642](https://github.com/ant-design/ant-design/issues/5642) [#16120](https://github.com/ant-design/ant-design/issues/16120)
+
+### When Affix is ​​used in a horizontal scroll container, the position of the element `left` is incorrect.
+
+Affix is ​​generally only applicable to areas with one-way scrolling, and only supports use in vertical scrolling containers. If you want to use it in a horizontal container, you can consider using the native `position: sticky` implementation.
+
+Related issues：[#29108](https://github.com/ant-design/ant-design/issues/29108)

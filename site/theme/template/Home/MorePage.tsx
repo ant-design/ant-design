@@ -52,15 +52,16 @@ const MoreCard = ({ title, description, date, img, source, href, icons, loading 
 
 export default function MorePage() {
   const { locale } = useIntl();
-  const isZhCN = locale === 'zh-CN';
-  const list = useSiteData<MoreProps[]>('extras', isZhCN ? 'cn' : 'en');
-  const icons = useSiteData<Icons>('icons');
-  const loadingProps = { loading: true } as MoreProps;
+  const [{ extras, icons }, loading] = useSiteData<any>();
+  const list = extras?.[locale === 'zh-CN' ? 'cn' : 'en'] || [];
+  const loadingProps = { loading: loading || list.length === 0 } as MoreProps;
   return (
     <Row gutter={[24, 32]}>
-      {(list || [loadingProps, loadingProps, loadingProps, loadingProps]).map((more, i) => (
-        <MoreCard key={more.title || i} {...more} icons={icons} />
-      ))}
+      {(list || [loadingProps, loadingProps, loadingProps, loadingProps]).map(
+        (more: any, i: number) => (
+          <MoreCard key={more.title || i} {...more} icons={icons} />
+        ),
+      )}
     </Row>
   );
 }

@@ -1145,7 +1145,104 @@ exports[`Directory Tree expand click 2`] = `
           <div
             class="ant-tree-treenode-motion ant-motion-collapse-leave ant-motion-collapse-leave-start ant-motion-collapse"
             style="height: 0px;"
-          />
+          >
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              />
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                title="---"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="folder"
+                    class="anticon anticon-folder"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="folder"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  ---
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              />
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                title="---"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="folder"
+                    class="anticon anticon-folder"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="folder"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  ---
+                </span>
+              </span>
+            </div>
+          </div>
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
@@ -1596,7 +1693,104 @@ exports[`Directory Tree expand double click 2`] = `
           <div
             class="ant-tree-treenode-motion ant-motion-collapse-leave ant-motion-collapse-leave-start ant-motion-collapse"
             style="height: 0px;"
-          />
+          >
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              />
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                title="---"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="folder"
+                    class="anticon anticon-folder"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="folder"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  ---
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              />
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                title="---"
+              >
+                <span
+                  class="ant-tree-iconEle ant-tree-icon__customize"
+                >
+                  <span
+                    aria-label="folder"
+                    class="anticon anticon-folder"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="folder"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-tree-title"
+                >
+                  ---
+                </span>
+              </span>
+            </div>
+          </div>
           <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
@@ -1771,57 +1965,52 @@ exports[`Directory Tree expand with state control click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
-            style="height: 0px; opacity: 0;"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
-            <div
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
             >
               <span
-                aria-hidden="true"
-                class="ant-tree-indent"
-              >
-                <span
-                  class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
-                />
-              </span>
-              <span
-                class="ant-tree-switcher ant-tree-switcher-noop"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="children"
+            >
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                title="children"
+                class="ant-tree-iconEle ant-tree-icon__customize"
               >
                 <span
-                  class="ant-tree-iconEle ant-tree-icon__customize"
+                  aria-label="folder"
+                  class="anticon anticon-folder"
+                  role="img"
                 >
-                  <span
-                    aria-label="folder"
-                    class="anticon anticon-folder"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="folder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="folder"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-                <span
-                  class="ant-tree-title"
-                >
-                  children
+                    <path
+                      d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                    />
+                  </svg>
                 </span>
               </span>
-            </div>
+              <span
+                class="ant-tree-title"
+              >
+                children
+              </span>
+            </span>
           </div>
         </div>
       </div>
@@ -1933,57 +2122,52 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
-            style="height: 0px; opacity: 0;"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
-            <div
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
             >
               <span
-                aria-hidden="true"
-                class="ant-tree-indent"
-              >
-                <span
-                  class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
-                />
-              </span>
-              <span
-                class="ant-tree-switcher ant-tree-switcher-noop"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
               />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="children"
+            >
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                title="children"
+                class="ant-tree-iconEle ant-tree-icon__customize"
               >
                 <span
-                  class="ant-tree-iconEle ant-tree-icon__customize"
+                  aria-label="folder"
+                  class="anticon anticon-folder"
+                  role="img"
                 >
-                  <span
-                    aria-label="folder"
-                    class="anticon anticon-folder"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="folder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="folder"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-                <span
-                  class="ant-tree-title"
-                >
-                  children
+                    <path
+                      d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                    />
+                  </svg>
                 </span>
               </span>
-            </div>
+              <span
+                class="ant-tree-title"
+              >
+                children
+              </span>
+            </span>
           </div>
         </div>
       </div>
