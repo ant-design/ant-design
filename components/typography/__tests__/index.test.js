@@ -30,8 +30,10 @@ describe('Typography', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   // Mock offsetHeight
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
-    .get;
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight',
+  ).get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
@@ -333,6 +335,7 @@ describe('Typography', () => {
           }
 
           jest.useFakeTimers();
+          wrapper.find('.ant-typography-copy').first().simulate('click');
           jest.runAllTimers();
           wrapper.update();
 
