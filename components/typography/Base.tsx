@@ -532,7 +532,6 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                   className,
                 )}
                 style={{
-                  width: rows === 1 && '100%',
                   ...style,
                   WebkitLineClamp: cssLineClamp ? rows : undefined,
                 }}
