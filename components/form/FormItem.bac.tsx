@@ -152,37 +152,29 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       };
 
   // Current field errors
-  const [meta, setMeta] = React.useState<Meta>({
-    errors: [],
-    warnings: [],
-    touched: false,
-    validating: false,
-    name: [],
-  });
+  const [fieldErrors, setFieldErrors] = React.useState<string[]>([]);
+  const [fieldWarnings, setFieldWarnings] = React.useState<string[]>([]);
 
-  const onMetaChange = (nextMeta: Meta) => {
-    setMeta(nextMeta);
+  const onError = (errors: string[], warnings: string[]) => {
+    setFieldErrors(errors);
+    setFieldWarnings(warnings);
   };
 
   // Collect sub field errors
-  const [subFieldErrors, setSubFieldErrors] = React.useState<Record<string, FieldError>>({});
+  const [subFieldErrors, setSubFieldErrors] = React.useState<FieldError[]>([]);
 
   // Get merged errors
   const [mergedErrors, mergedWarnings] = React.useMemo(() => {
-    if (help !== undefined && help !== null) {
-      return [toArray(help), []];
-    }
+    const errorList: string[] = [...fieldErrors];
+    const warningList: string[] = [...fieldWarnings];
 
-    const errorList: string[] = [...meta.errors];
-    const warningList: string[] = [...meta.warnings];
-
-    Object.values(subFieldErrors).forEach(subFieldError => {
-      errorList.push(...(subFieldError.errors || []));
-      warningList.push(...(subFieldError.warnings || []));
+    subFieldErrors.forEach(subFieldError => {
+      errorList.push(...subFieldError.errors);
+      warningList.push(...subFieldError.warnings);
     });
 
     return [errorList, warningList];
-  }, [help, subFieldErrors, meta.errors, meta.warnings]);
+  }, [subFieldErrors, fieldErrors, fieldWarnings]);
 
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();
@@ -190,18 +182,36 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   function renderLayout(
     baseChildren: React.ReactNode,
     fieldId?: string,
+    meta?: Meta,
     isRequired?: boolean,
   ): React.ReactNode {
     if (noStyle && !hidden) {
       return baseChildren;
     }
+
+    // // ======================== Errors ========================
+    // // >>> collect sub errors
+    // let subErrorList: string[] = [];
+    // Object.keys(inlineErrors).forEach(subName => {
+    //   subErrorList = [...subErrorList, ...(inlineErrors[subName] || [])];
+    // });
+
+    // // >>> merged errors
+    // let mergedErrors: React.ReactNode[];
+    // if (help !== undefined && help !== null) {
+    //   mergedErrors = toArray(help);
+    // } else {
+    //   mergedErrors = meta ? meta.errors : [];
+    //   mergedErrors = [...mergedErrors, ...subErrorList];
+    // }
+
     // ======================== Status ========================
     let mergedValidateStatus: ValidateStatus = '';
     if (validateStatus !== undefined) {
       mergedValidateStatus = validateStatus;
     } else if (meta?.validating) {
       mergedValidateStatus = 'validating';
-    } else if (mergedErrors.length) {
+    } else if (meta?.errors?.length || subErrorList.length) {
       mergedValidateStatus = 'error';
     } else if (meta?.touched) {
       mergedValidateStatus = 'success';
@@ -260,7 +270,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           {...props}
           {...meta}
           errors={mergedErrors}
-          warnings={mergedWarnings}
           prefixCls={prefixCls}
           status={mergedValidateStatus}
           onDomErrorVisibleChange={setDomErrorVisible}
@@ -301,7 +310,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       onReset={() => {
         setDomErrorVisible(false);
       }}
-      onMetaChange={onMetaChange}
+      onError={onError}
     >
       {(control, meta, context) => {
         const { errors } = meta;
@@ -418,7 +427,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           childNode = children;
         }
 
-        return renderLayout(childNode, fieldId, isRequired);
+        return renderLayout(childNode, fieldId, meta, isRequired);
       }}
     </Field>
   );

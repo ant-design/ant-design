@@ -14,6 +14,7 @@ interface FormItemInputMiscProps {
   prefixCls: string;
   children: React.ReactNode;
   errors: React.ReactNode[];
+  warnings: React.ReactNode[];
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   onDomErrorVisibleChange: (visible: boolean) => void;
