@@ -3,6 +3,7 @@ order: 3.2
 title:
   zh-CN: 非阻塞校验
   en-US: No block rule
+only: true
 ---
 
 ## zh-CN
@@ -26,7 +27,7 @@ const Demo = () => {
 
   return (
     <Form form={form} layout="vertical" onFinish={onFinish}>
-      <Form.Item label="Field" rules={[{ required: true, warningOnly: true }]}>
+      <Form.Item name="field" label="Field" rules={[{ required: true, warningOnly: true }]}>
         <Input placeholder="input placeholder" />
       </Form.Item>
       <Form.Item>
