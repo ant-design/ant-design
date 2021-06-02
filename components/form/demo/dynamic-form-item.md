@@ -40,7 +40,7 @@ const DynamicFieldSet = () => {
   };
 
   return (
-    <Form name="dynamic_form_item" {...formItemLayoutWithOutLabel} onFinish={onFinish}>
+    <Form name="dynamic_form_item" {...formItemLayoutWithOutLabel} onFinish={onFinish} scrollToFirstError>
       <Form.List
         name="names"
         rules={[
