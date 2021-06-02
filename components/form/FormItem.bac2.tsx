@@ -5,6 +5,7 @@ import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
+import { supportRef } from 'rc-util/lib/ref';
 import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -16,6 +17,7 @@ import { FormContext, NoStyleItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
+import useItemRef from './hooks/useItemRef';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -96,7 +98,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const destroyRef = useRef(false);
   const { getPrefixCls } = useContext(ConfigContext);
   const { name: formName, requiredMark } = useContext(FormContext);
-  const isRenderProps = typeof children === 'function';
   const notifyParentMetaChange = useContext(NoStyleItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
 
@@ -184,7 +185,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     return [errorList, warningList];
   }, [help, subFieldErrors, meta.errors, meta.warnings]);
 
-  // ======================== Render ========================
+  // ===================== Children Ref =====================
+  const getItemRef = useItemRef();
+
   function renderLayout(
     baseChildren: React.ReactNode,
     fieldId?: string,
@@ -271,6 +274,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       </Row>
     );
   }
+
+  const isRenderProps = typeof children === 'function';
 
   // Record for real component render
   const updateRef = useRef(0);
@@ -362,6 +367,10 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           const childProps = { ...children.props, ...mergedControl };
           if (!childProps.id) {
             childProps.id = fieldId;
+          }
+
+          if (supportRef(children)) {
+            childProps.ref = getItemRef(mergedName, children);
           }
 
           // We should keep user origin event handler
