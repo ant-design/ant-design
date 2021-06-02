@@ -201,6 +201,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       mergedValidateStatus = 'validating';
     } else if (mergedErrors.length) {
       mergedValidateStatus = 'error';
+    } else if (mergedWarnings.length) {
+      mergedValidateStatus = 'warning';
     } else if (meta?.touched) {
       mergedValidateStatus = 'success';
     }
@@ -310,12 +312,12 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             : !!(
                 rules &&
                 rules.some(rule => {
-                  if (rule && typeof rule === 'object' && rule.required) {
+                  if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
                     return true;
                   }
                   if (typeof rule === 'function') {
                     const ruleEntity = rule(context);
-                    return ruleEntity && ruleEntity.required;
+                    return ruleEntity && ruleEntity.required && !ruleEntity.warningOnly;
                   }
                   return false;
                 })

@@ -3,6 +3,7 @@ order: 0
 title:
   zh-CN: 基本使用
   en-US: Basic Usage
+only: true
 ---
 
 ## zh-CN
@@ -40,6 +41,7 @@ const Demo = () => {
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
+      autoComplete="off"
     >
       <Form.Item
         label="Username"
