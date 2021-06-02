@@ -29,7 +29,6 @@ timeline: true
 - Table
   - 🐞 Fix Table.Summary missing border style when `sticky` and `bordered` enabled. [#30666](https://github.com/ant-design/ant-design/pull/30666)
   - 🐞 Fix column align with sorter and filter. [#30744](https://github.com/ant-design/ant-design/pull/30744)
-  - 🐞 Fix filtering in nested columns. [#30809](https://github.com/ant-design/ant-design/pull/30809) [@moraispgsi](https://github.com/moraispgsi)
 - 🐞 Fix Collapse expandIconPosition="right" not working. [#30680](https://github.com/ant-design/ant-design/pull/30680) [@hongdeyuan](https://github.com/hongdeyuan)
 - TypeScript
   - 🤖 Export TableColumnsType type.[#30747](https://github.com/ant-design/ant-design/pull/30747) [@alwaysloseall](https://github.com/alwaysloseall)
