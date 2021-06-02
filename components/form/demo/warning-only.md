@@ -26,8 +26,15 @@ const Demo = () => {
   };
 
   return (
-    <Form form={form} layout="vertical" onFinish={onFinish}>
-      <Form.Item name="field" label="Field" rules={[{ required: true, warningOnly: true }]}>
+    <Form form={form} layout="vertical" onFinish={onFinish} autoComplete="off">
+      <Form.Item
+        name="url"
+        label="URL"
+        rules={[
+          { type: 'url', warningOnly: true },
+          { type: 'string', min: 6 },
+        ]}
+      >
         <Input placeholder="input placeholder" />
       </Form.Item>
       <Form.Item>

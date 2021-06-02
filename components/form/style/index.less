@@ -179,10 +179,12 @@
     }
   }
 
+  // ==============================================================
+  // =                           Explain                          =
+  // ==============================================================
   &-explain,
   &-extra {
     clear: both;
-    min-height: @form-item-margin-bottom;
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
@@ -190,43 +192,44 @@
     .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
   }
 
+  &-extra {
+    min-height: @form-item-margin-bottom;
+  }
+
   .@{ant-prefix}-input-textarea-show-count {
     &::after {
       margin-bottom: -22px;
     }
   }
-}
 
-.show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
-  @name: ~'@{ant-prefix}-@{className}';
-  .make-motion(@name, @keyframeName, @duration);
-  .@{name}-enter,
-  .@{name}-appear {
-    opacity: 0;
-    animation-timing-function: @ease-in-out;
+  // >>>>> Holder
+  &-explain-holder {
+    height: 0;
+    transition: height 10s;
   }
-  .@{name}-leave {
-    animation-timing-function: @ease-in-out;
+
+  &-with-help &-explain-holder {
+    height: auto;
+    min-height: @form-item-margin-bottom;
   }
 }
 
-.show-help-motion(show-help, antShowHelp, 0.3s);
+// Motion
+.@{ant-prefix}-show-help {
+  transition: height @animation-duration-slow @ease-in-out,
+    opacity @animation-duration-slow @ease-in-out, transform @animation-duration-slow @ease-in-out !important;
 
-@keyframes antShowHelpIn {
-  0% {
+  &-appear,
+  &-enter {
     transform: translateY(-5px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
-@keyframes antShowHelpOut {
-  to {
+    &-active {
+      transform: translateY(0);
+    }
+  }
+
+  &-leave-active {
     transform: translateY(-5px);
-    opacity: 0;
   }
 }
 

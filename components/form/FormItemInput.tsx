@@ -17,7 +17,6 @@ interface FormItemInputMiscProps {
   warnings: React.ReactNode[];
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
-  onDomErrorVisibleChange: (visible: boolean) => void;
   /** @private Internal Usage, do not use in any of your production. */
   _internalItemRender?: {
     mark: string;
@@ -34,7 +33,6 @@ interface FormItemInputMiscProps {
 
 export interface FormItemInputProps {
   wrapperCol?: ColProps;
-  help?: React.ReactNode;
   extra?: React.ReactNode;
   status?: ValidateStatus;
 }
@@ -52,10 +50,8 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     status,
     wrapperCol,
     children,
-    help,
     errors,
     warnings,
-    onDomErrorVisibleChange,
     hasFeedback,
     _internalItemRender: formItemRender,
     validateStatus,
@@ -68,13 +64,6 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   const mergedWrapperCol: ColProps = wrapperCol || formContext.wrapperCol || {};
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
-
-  React.useEffect(
-    () => () => {
-      onDomErrorVisibleChange(false);
-    },
-    [],
-  );
 
   // Should provides additional icon if `hasFeedback`
   const IconNode = validateStatus && iconMap[validateStatus];
@@ -98,8 +87,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   );
   const errorListDom = (
     <FormItemPrefixContext.Provider value={{ prefixCls, status }}>
-      <ErrorList errors={errors} help={help} onDomErrorVisibleChange={onDomErrorVisibleChange} />
-      <ErrorList errors={warnings} onDomErrorVisibleChange={onDomErrorVisibleChange} />
+      <ErrorList errors={errors} warnings={warnings} />
     </FormItemPrefixContext.Provider>
   );
 

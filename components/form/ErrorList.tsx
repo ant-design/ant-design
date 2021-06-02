@@ -6,85 +6,48 @@ import useCacheErrors from './hooks/useCacheErrors';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { FormItemPrefixContext } from './context';
 import { ConfigContext } from '../config-provider';
+import { ValidateStatus } from './FormItem';
+import collapseMotion from '../_util/motion';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
-export interface ErrorListProps {
+// ============================================================
+// =                       Error Group                        =
+// ============================================================
+interface ErrorGroupProps {
+  prefixCls: string;
+  rootPrefixCls: string;
   errors?: React.ReactNode[];
-  /** @private Internal Usage. Do not use in your production */
-  help?: React.ReactNode;
-  /** @private Internal Usage. Do not use in your production */
-  onDomErrorVisibleChange?: (visible: boolean) => void;
+  status: ValidateStatus;
 }
 
-export default function ErrorList({
-  errors = EMPTY_LIST,
-  help,
-  onDomErrorVisibleChange,
-}: ErrorListProps) {
-  const forceUpdate = useForceUpdate();
-  const { prefixCls, status } = React.useContext(FormItemPrefixContext);
-  const { getPrefixCls } = React.useContext(ConfigContext);
-
-  const [visible, cacheErrors] = useCacheErrors(
-    errors,
-    changedVisible => {
-      if (changedVisible) {
-        /**
-         * We trigger in sync to avoid dom shaking but this get warning in react 16.13.
-         *
-         * So use Promise to keep in micro async to handle this.
-         * https://github.com/ant-design/ant-design/issues/21698#issuecomment-593743485
-         */
-        Promise.resolve().then(() => {
-          onDomErrorVisibleChange?.(true);
-        });
-      }
-      forceUpdate();
-    },
-    !!help,
-  );
-
-  const memoErrors = useMemo(
-    () => cacheErrors,
-    visible,
-    (_, nextVisible) => nextVisible,
-  );
-
-  // Memo status in same visible
-  const [innerStatus, setInnerStatus] = React.useState(status);
-  React.useEffect(() => {
-    if (visible && status) {
-      setInnerStatus(status);
-    }
-  }, [visible, status]);
-
-  const baseClassName = `${prefixCls}-item-explain`;
-  const rootPrefixCls = getPrefixCls();
+function ErrorGroup({ errors = EMPTY_LIST, rootPrefixCls, prefixCls, status }: ErrorGroupProps) {
+  const cacheErrorsRef = React.useRef(errors);
+  if (errors.length) {
+    cacheErrorsRef.current = errors;
+  }
 
   return (
     <CSSMotion
-      motionDeadline={500}
-      visible={visible}
+      visible={!!errors.length}
+      {...collapseMotion}
       motionName={`${rootPrefixCls}-show-help`}
-      onLeaveEnd={() => {
-        onDomErrorVisibleChange?.(false);
-      }}
-      motionAppear
       removeOnLeave
     >
-      {({ className: motionClassName }: { className?: string }) => (
+      {({ className: motionClassName, style }, ref) => (
         <div
+          ref={ref}
           className={classNames(
-            baseClassName,
+            prefixCls,
             {
-              [`${baseClassName}-${innerStatus}`]: innerStatus,
+              [`${prefixCls}-${status}`]: status,
             },
             motionClassName,
           )}
+          style={style}
           key="help"
         >
-          {memoErrors.map((error, index) => (
+          {cacheErrorsRef.current.map((error, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <div key={index} role="alert">
               {error}
@@ -93,5 +56,38 @@ export default function ErrorList({
         </div>
       )}
     </CSSMotion>
+  );
+}
+
+// ============================================================
+// =                        Error List                        =
+// ============================================================
+export interface ErrorListProps {
+  errors?: React.ReactNode[];
+  warnings?: React.ReactNode[];
+}
+
+export default function ErrorList({ errors, warnings }: ErrorListProps) {
+  const { prefixCls } = React.useContext(FormItemPrefixContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const baseClassName = `${prefixCls}-item-explain`;
+  const rootPrefixCls = getPrefixCls();
+
+  return (
+    <div className={`${baseClassName}-holder`}>
+      <ErrorGroup
+        prefixCls={baseClassName}
+        rootPrefixCls={rootPrefixCls}
+        errors={errors}
+        status="error"
+      />
+      <ErrorGroup
+        prefixCls={baseClassName}
+        rootPrefixCls={rootPrefixCls}
+        errors={warnings}
+        status="warning"
+      />
+    </div>
   );
 }

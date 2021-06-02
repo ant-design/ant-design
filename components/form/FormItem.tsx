@@ -16,6 +16,7 @@ import { FormContext, NoStyleItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
+import useDebounce from './hooks/useDebounce';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -61,6 +62,7 @@ export interface FormItemProps<Values = any>
   tooltip?: LabelTooltipType;
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
+  help?: React.ReactNode;
 }
 
 function hasValidName(name?: NamePath): Boolean {
@@ -93,22 +95,14 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     hidden,
     ...restProps
   } = props;
-  const destroyRef = useRef(false);
   const { getPrefixCls } = useContext(ConfigContext);
   const { name: formName, requiredMark } = useContext(FormContext);
   const isRenderProps = typeof children === 'function';
   const notifyParentMetaChange = useContext(NoStyleItemContext);
-  const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
 
   const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
-
-  function setDomErrorVisible(visible: boolean) {
-    if (!destroyRef.current) {
-      innerSetDomErrorVisible(visible);
-    }
-  }
 
   const hasName = hasValidName(name);
 
@@ -184,6 +178,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     return [errorList, warningList];
   }, [help, subFieldErrors, meta.errors, meta.warnings]);
 
+  const debounceErrors = useDebounce(mergedErrors);
+  const debounceWarnings = useDebounce(mergedWarnings);
+
   // ======================== Render ========================
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -199,9 +196,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       mergedValidateStatus = validateStatus;
     } else if (meta?.validating) {
       mergedValidateStatus = 'validating';
-    } else if (mergedErrors.length) {
+    } else if (debounceErrors.length) {
       mergedValidateStatus = 'error';
-    } else if (mergedWarnings.length) {
+    } else if (debounceWarnings.length) {
       mergedValidateStatus = 'warning';
     } else if (meta?.touched) {
       mergedValidateStatus = 'success';
@@ -209,7 +206,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: domErrorVisible || !!help,
+      [`${prefixCls}-item-with-help`]: debounceErrors.length || debounceWarnings.length,
       [`${className}`]: !!className,
 
       // Status
@@ -259,11 +256,10 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         <FormItemInput
           {...props}
           {...meta}
-          errors={mergedErrors}
-          warnings={mergedWarnings}
+          errors={debounceErrors}
+          warnings={debounceWarnings}
           prefixCls={prefixCls}
           status={mergedValidateStatus}
-          onDomErrorVisibleChange={setDomErrorVisible}
           validateStatus={mergedValidateStatus}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
@@ -297,9 +293,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       messageVariables={variables}
       trigger={trigger}
       validateTrigger={mergedValidateTrigger}
-      onReset={() => {
-        setDomErrorVisible(false);
-      }}
       onMetaChange={onMetaChange}
     >
       {(control, renderMeta, context) => {
