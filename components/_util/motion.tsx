@@ -29,7 +29,7 @@ const collapseMotion: CSSMotionProps = {
   onAppearEnd: skipOpacityTransition,
   onEnterEnd: skipOpacityTransition,
   onLeaveEnd: skipOpacityTransition,
-  // motionDeadline: 500,
+  motionDeadline: 500,
 };
 
 const getTransitionName = (rootPrefixCls: string, motion: string, transitionName?: string) => {
