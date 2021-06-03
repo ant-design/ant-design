@@ -8,7 +8,10 @@ import confirm, {
   ModalStaticFunctions,
   modalGlobalConfig,
 } from './confirm';
+import useToggleModal from './hook/useToggleModal';
+import useToggleComponent from './hook/useToggleComponent';
 
+export { useToggleComponent, useToggleModal };
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
 
