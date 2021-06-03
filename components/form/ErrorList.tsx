@@ -70,7 +70,7 @@ export default function ErrorList({
       visible={!!fullKeyList.length}
       removeOnLeave
       onLeaveStart={node => {
-        // Force disable css override style.
+        // Force disable css override style in index.less configured
         node.style.height = 'auto';
         return { height: node.offsetHeight };
       }}
