@@ -61,30 +61,51 @@ export default function ErrorList({
   }, [help, helpStatus, errors, warnings]);
 
   return (
-    <CSSMotionList
-      keys={fullKeyList}
-      visible={!!fullKeyList.length}
+    <CSSMotion
       {...collapseMotion}
       motionName={`${rootPrefixCls}-show-help`}
-      className={baseClassName}
+      motionAppear={false}
+      motionEnter={false}
+      motionLeave
+      visible={!!fullKeyList.length}
       removeOnLeave
+      onLeaveStart={node => {
+        // Force disable css override style.
+        node.style.height = 'auto';
+        return { height: node.offsetHeight };
+      }}
     >
-      {itemProps => {
-        const { key, error, errorStatus, className, style } = itemProps;
+      {holderProps => {
+        const { className: holderClassName, style: holderStyle } = holderProps;
 
         return (
-          <div
-            key={key}
-            role="alert"
-            className={classNames(className, {
-              [`${baseClassName}-${errorStatus}`]: errorStatus,
-            })}
-            style={style}
-          >
-            {error}
+          <div className={classNames(baseClassName, holderClassName)} style={holderStyle}>
+            <CSSMotionList
+              keys={fullKeyList}
+              {...collapseMotion}
+              motionName={`${rootPrefixCls}-show-help-item`}
+              component={false}
+            >
+              {itemProps => {
+                const { key, error, errorStatus, className, style } = itemProps;
+
+                return (
+                  <div
+                    key={key}
+                    role="alert"
+                    className={classNames(className, {
+                      [`${baseClassName}-${errorStatus}`]: errorStatus,
+                    })}
+                    style={style}
+                  >
+                    {error}
+                  </div>
+                );
+              }}
+            </CSSMotionList>
           </div>
         );
       }}
-    </CSSMotionList>
+    </CSSMotion>
   );
 }

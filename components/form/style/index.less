@@ -61,7 +61,7 @@
 
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
-  transition: margin-bottom @animation-duration-slow @ease-in-out;
+  transition: margin-bottom @animation-duration-slow 0.017s linear;
 
   &-with-help {
     margin-bottom: 0;
@@ -91,7 +91,6 @@
 
     > label {
       position: relative;
-      // display: inline;
       display: inline-flex;
       align-items: center;
       height: @form-item-label-height;
@@ -197,8 +196,7 @@
   &-explain {
     height: 0;
     min-height: 0;
-    box-shadow: 0 0 1px red;
-    transition: min-height 10s;
+    opacity: 0;
   }
 
   &-extra {
@@ -214,12 +212,28 @@
   &-with-help &-explain {
     height: auto;
     min-height: @form-item-margin-bottom;
+    opacity: 1;
   }
 }
 
-// Motion
+// >>>>>>>>>> Motion <<<<<<<<<<
+// Explain holder
 .@{ant-prefix}-show-help {
-  overflow: hidden;
+  transition: height @animation-duration-slow linear, min-height @animation-duration-slow linear,
+    margin-bottom @animation-duration-slow @ease-in-out,
+    opacity @animation-duration-slow @ease-in-out;
+
+  &-leave {
+    min-height: @form-item-margin-bottom;
+
+    &-active {
+      min-height: 0;
+    }
+  }
+}
+
+// Explain
+.@{ant-prefix}-show-help-item {
   transition: height @animation-duration-slow @ease-in-out,
     opacity @animation-duration-slow @ease-in-out, transform @animation-duration-slow @ease-in-out !important;
 

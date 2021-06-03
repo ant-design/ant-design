@@ -43,7 +43,7 @@ const Demo = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-      <div style={{ overflow: 'hidden', border: '1px solid orange' }}>
+      <div style={{ overflow: 'hidden' }}>
         <Form.Item
           name="url"
           label="URL"
