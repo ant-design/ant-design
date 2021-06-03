@@ -2,9 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/lv_LV';
 import DatePicker from '../date-picker/locale/lv_LV';
 import TimePicker from '../time-picker/locale/lv_LV';
 import Calendar from '../calendar/locale/lv_LV';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'lv',
   Pagination,
   DatePicker,

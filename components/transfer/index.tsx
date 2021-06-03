@@ -66,7 +66,7 @@ export interface TransferProps<RecordType> {
   dataSource: RecordType[];
   targetKeys?: string[];
   selectedKeys?: string[];
-  render?: TransferRender<RecordType>;
+  render?: TransferRender<KeyWise<RecordType>>;
   onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
@@ -75,13 +75,13 @@ export interface TransferProps<RecordType> {
   titles?: React.ReactNode[];
   operations?: string[];
   showSearch?: boolean;
-  filterOption?: (inputValue: string, item: RecordType) => boolean;
+  filterOption?: (inputValue: string, item: KeyWise<RecordType>) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
+  footer?: (props: TransferListProps<KeyWise<RecordType>>) => React.ReactNode;
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
-  children?: (props: TransferListBodyProps<RecordType>) => React.ReactNode;
+  children?: (props: TransferListBodyProps<KeyWise<RecordType>>) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
@@ -315,9 +315,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
     const leftDataSource: KeyWise<RecordType>[] = [];
     const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
-    dataSource.forEach((record: KeyWise<RecordType>) => {
+    dataSource.forEach((record) => {
+      let keyWiseRecord = record as KeyWise<RecordType>;
       if (rowKey) {
-        record = {
+        keyWiseRecord = {
           ...record,
           key: rowKey(record),
         };
@@ -325,11 +326,11 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
       // rightDataSource should be ordered by targetKeys
       // leftDataSource should be ordered by dataSource
-      const indexOfKey = targetKeys.indexOf(record.key);
+      const indexOfKey = targetKeys.indexOf(record.key!);
       if (indexOfKey !== -1) {
-        rightDataSource[indexOfKey] = record;
+        rightDataSource[indexOfKey] = keyWiseRecord;
       } else {
-        leftDataSource.push(record);
+        leftDataSource.push(keyWiseRecord);
       }
     });
 

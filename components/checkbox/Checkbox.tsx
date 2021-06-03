@@ -43,7 +43,7 @@ export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent
   indeterminate?: boolean;
 }
 
-const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, CheckboxProps> = (
+const InternalCheckbox: React.ForwardRefRenderFunction<unknown, CheckboxProps> = (
   {
     prefixCls: customizePrefixCls,
     className,

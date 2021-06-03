@@ -3,11 +3,11 @@ import Pagination from 'rc-pagination/lib/locale/ar_EG';
 import DatePicker from '../date-picker/locale/ar_EG';
 import TimePicker from '../time-picker/locale/ar_EG';
 import Calendar from '../calendar/locale/ar_EG';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
 const typeTemplate = 'ليس ${label} من نوع ${type} صالحًا';
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'ar',
   Pagination,
   DatePicker,

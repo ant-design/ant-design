@@ -43,7 +43,7 @@ const responsiveObserve = {
     if (!subscribers.size) this.unregister();
   },
   unregister() {
-    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+    (Object.keys(responsiveMap) as Breakpoint[]).forEach((screen) => {
       const matchMediaQuery = responsiveMap[screen];
       const handler = this.matchHandlers[matchMediaQuery];
       handler?.mql.removeListener(handler?.listener);
@@ -51,7 +51,7 @@ const responsiveObserve = {
     subscribers.clear();
   },
   register() {
-    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+    (Object.keys(responsiveMap) as Breakpoint[]).forEach((screen) => {
       const matchMediaQuery = responsiveMap[screen];
       const listener = ({ matches }: { matches: boolean }) => {
         this.dispatch({

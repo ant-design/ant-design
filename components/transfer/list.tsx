@@ -83,9 +83,9 @@ export default class TransferList<
     showSearch: false,
   };
 
-  timer: number;
+  timer!: number;
 
-  triggerScrollTimer: number;
+  triggerScrollTimer!: number;
 
   defaultListBodyRef = React.createRef<DefaultListBody<RecordType>>();
 
@@ -105,7 +105,7 @@ export default class TransferList<
     if (checkedKeys.length === 0) {
       return 'none';
     }
-    if (filteredItems.every(item => checkedKeys.indexOf(item.key) >= 0 || !!item.disabled)) {
+    if (filteredItems.every(item => checkedKeys.indexOf(item.key!) >= 0 || !!item.disabled)) {
       return 'all';
     }
     return 'part';

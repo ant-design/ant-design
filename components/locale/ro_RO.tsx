@@ -3,11 +3,11 @@ import Pagination from 'rc-pagination/lib/locale/ro_RO';
 import DatePicker from '../date-picker/locale/ro_RO';
 import TimePicker from '../time-picker/locale/ro_RO';
 import Calendar from '../calendar/locale/ro_RO';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
 const typeTemplate = '${label} nu conține tipul corect (${type})';
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'ro',
   Pagination,
   DatePicker,

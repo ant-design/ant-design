@@ -33,11 +33,11 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
   private containerRef = React.createRef<HTMLDivElement>();
 
-  private extraNode: HTMLDivElement;
+  private extraNode?: HTMLDivElement;
 
-  private clickWaveTimeoutId: number;
+  private clickWaveTimeoutId?: number;
 
-  private animationStartId: number;
+  private animationStartId?: number;
 
   private animationStart: boolean = false;
 
@@ -45,7 +45,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
   private csp?: CSPConfig;
 
-  context: ConfigConsumerProps;
+  context!: ConfigConsumerProps;
 
   componentDidMount() {
     const node = this.containerRef.current as HTMLDivElement;
@@ -106,13 +106,13 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    ['transition', 'animation'].forEach(name => {
-      node.addEventListener(`${name}start`, this.onTransitionStart);
-      node.addEventListener(`${name}end`, this.onTransitionEnd);
-    });
+    node.addEventListener(`transitionstart`, this.onTransitionStart);
+    node.addEventListener(`transitionend`, this.onTransitionEnd);
+    node.addEventListener(`animationstart`, this.onTransitionStart);
+    node.addEventListener(`animationend`, this.onTransitionEnd);
   };
 
-  onTransitionStart = (e: AnimationEvent) => {
+  onTransitionStart = (e: AnimationEvent | TransitionEvent) => {
     if (this.destroyed) {
       return;
     }
@@ -124,8 +124,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     this.resetEffect(node);
   };
 
-  onTransitionEnd = (e: AnimationEvent) => {
-    if (!e || e.animationName !== 'fadeEffect') {
+  onTransitionEnd = (e: AnimationEvent | TransitionEvent) => {
+    if (!e || e instanceof TransitionEvent || e.animationName !== 'fadeEffect') {
       return;
     }
     this.resetEffect(e.target as HTMLElement);
@@ -192,10 +192,10 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
-    ['transition', 'animation'].forEach(name => {
-      node.removeEventListener(`${name}start`, this.onTransitionStart);
-      node.removeEventListener(`${name}end`, this.onTransitionEnd);
-    });
+    node.removeEventListener(`transitionstart`, this.onTransitionStart);
+    node.removeEventListener(`transitionend`, this.onTransitionEnd);
+    node.removeEventListener(`animationstart`, this.onTransitionStart);
+    node.removeEventListener(`animationend`, this.onTransitionEnd);
   }
 
   renderWave = ({ csp }: ConfigConsumerProps) => {

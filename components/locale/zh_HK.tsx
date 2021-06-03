@@ -3,11 +3,11 @@ import Pagination from 'rc-pagination/lib/locale/zh_TW';
 import DatePicker from '../date-picker/locale/zh_TW';
 import TimePicker from '../time-picker/locale/zh_TW';
 import Calendar from '../calendar/locale/zh_TW';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
 const typeTemplate = '${label}不是一個有效的${type}';
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'zh-hk',
   Pagination,
   DatePicker,

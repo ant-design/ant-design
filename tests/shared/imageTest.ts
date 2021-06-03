@@ -56,7 +56,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
 
   files.forEach(file => {
     if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
-      testMethod = test.skip;
+      testMethod = test.skip as any;
     }
     testMethod(`Test ${file} image`, () => {
       // eslint-disable-next-line global-require,import/no-dynamic-require

@@ -16,7 +16,7 @@ export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
 export default class MenuItem extends React.Component<MenuItemProps> {
   static contextType = MenuContext;
 
-  context: MenuContextProps;
+  context!: MenuContextProps;
 
   renderItemChildren(inlineCollapsed: boolean) {
     const { prefixCls, firstLevel } = this.context;

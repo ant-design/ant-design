@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import ConfigProvider from '../../components/config-provider';
 
 // eslint-disable-next-line jest/no-export
-export default function rtlTest(Component: React.ComponentType, mockDate?: boolean) {
+export default function rtlTest(Component: React.ComponentType<any>, mockDate?: boolean) {
   describe(`rtl render`, () => {
     it(`component should be rendered correctly in RTL direction`, () => {
       if (mockDate) {

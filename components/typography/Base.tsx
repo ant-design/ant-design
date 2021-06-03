@@ -135,7 +135,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     return {};
   }
 
-  context: ConfigConsumerProps;
+  context!: ConfigConsumerProps;
 
   editIcon?: HTMLDivElement;
 
@@ -197,8 +197,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   // ================ Edit ================
-  onEditClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  onEditClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
     this.triggerEdit(true);
   };
 
@@ -214,8 +214,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   // ================ Copy ================
-  onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
     const { children, copyable } = this.props;
     const copyConfig: CopyConfig = {
       ...(typeof copyable === 'object' ? copyable : null),

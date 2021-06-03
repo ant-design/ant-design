@@ -19,7 +19,7 @@ export default function generateRangePicker<DateType>(
   class RangePicker extends React.Component<RangePickerProps<DateType>> {
     static contextType = ConfigContext;
 
-    context: ConfigConsumerProps;
+    context!: ConfigConsumerProps;
 
     pickerRef = React.createRef<RCRangePicker<DateType>>();
 

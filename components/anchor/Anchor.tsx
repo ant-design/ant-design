@@ -97,20 +97,20 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     activeLink: null,
   };
 
-  content: ConfigConsumerProps;
+  content!: ConfigConsumerProps;
 
   private wrapperRef = React.createRef<HTMLDivElement>();
 
-  private inkNode: HTMLSpanElement;
+  private inkNode?: HTMLSpanElement;
 
   // scroll scope's container
-  private scrollContainer: HTMLElement | Window;
+  private scrollContainer?: HTMLElement | Window;
 
   private links: string[] = [];
 
   private scrollEvent: any;
 
-  private animating: boolean;
+  private animating?: boolean;
 
   private prefixCls?: string;
 
@@ -251,7 +251,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     const anchorNode = wrapperRef.current;
     const linkNode = anchorNode?.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
 
-    if (linkNode) {
+    if (linkNode && this.inkNode) {
       this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
   };

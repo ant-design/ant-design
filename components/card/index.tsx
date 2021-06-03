@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import { ReactElement } from 'react';
 import Grid from './Grid';
 import Meta from './Meta';
 import Tabs, { TabsProps } from '../tabs';
@@ -72,8 +73,8 @@ const Card: CardInterface = props => {
 
   const isContainGrid = () => {
     let containGrid;
-    React.Children.forEach(props.children, (element: JSX.Element) => {
-      if (element && element.type && element.type === Grid) {
+    React.Children.forEach(props.children, (element) => {
+      if ((element as ReactElement)?.type === Grid) {
         containGrid = true;
       }
     });

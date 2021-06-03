@@ -98,7 +98,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
     [],
   );
 
-  const fns = React.useMemo(
+  const fns = React.useMemo<Omit<ModalStaticFunctions, 'warn'>>(
     () => ({
       info: getConfirmFunc(withInfo),
       success: getConfirmFunc(withSuccess),

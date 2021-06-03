@@ -48,7 +48,7 @@ const Timeline: TimelineType = props => {
     timeLineItems.reverse();
   }
 
-  const getPositionCls = (ele: React.ReactElement<any>, idx: number) => {
+  const getPositionCls = (ele: React.ReactElement, idx: number) => {
     if (mode === 'alternate') {
       if (ele.props.position === 'right') return `${prefixCls}-item-right`;
       if (ele.props.position === 'left') return `${prefixCls}-item-left`;
@@ -64,19 +64,20 @@ const Timeline: TimelineType = props => {
   const truthyItems = timeLineItems.filter(item => !!item);
   const itemsCount = React.Children.count(truthyItems);
   const lastCls = `${prefixCls}-item-last`;
-  const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
+  const items = React.Children.map(truthyItems, (el, idx) => {
     const pendingClass = idx === itemsCount - 2 ? lastCls : '';
     const readyClass = idx === itemsCount - 1 ? lastCls : '';
-    return cloneElement(ele, {
+    const reactEl = typeof el === 'object' && 'props' in el ? el : null;
+    return cloneElement(el, {
       className: classNames([
-        ele.props.className,
+        reactEl?.props?.className,
         !reverse && !!pending ? pendingClass : readyClass,
-        getPositionCls(ele, idx),
+        reactEl ? getPositionCls(reactEl, idx) : '',
       ]),
     });
   });
 
-  const hasLabelItem = timeLineItems.some((item: React.ReactElement<any>) => !!item?.props?.label);
+  const hasLabelItem = timeLineItems.some((item: any) => !!item?.props?.label);
 
   const classString = classNames(
     prefixCls,

@@ -1,4 +1,4 @@
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 import { PickerLocale } from '../date-picker/generatePicker';
 
 const datePickerLocale: PickerLocale = {
@@ -38,7 +38,7 @@ const datePickerLocale: PickerLocale = {
   },
 };
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'hy-am',
   Pagination: {
     // Options.jsx

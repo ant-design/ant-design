@@ -38,7 +38,7 @@ export interface ListItemProps {
     title?: string | undefined,
   ) => React.ReactNode;
   itemRender?: ItemRender;
-  onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
+  onPreview: (file: UploadFile, e?: React.SyntheticEvent<HTMLElement>) => void;
   onClose: (file: UploadFile) => void;
   onDownload: (file: UploadFile) => void;
   progress?: UploadListProgressProps;

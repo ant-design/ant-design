@@ -70,7 +70,7 @@ interface HeaderState {
 class Header extends React.Component<HeaderProps, HeaderState> {
   static contextType = SiteContext;
 
-  pingTimer: NodeJS.Timeout;
+  pingTimer?: NodeJS.Timeout;
 
   state = {
     menuVisible: false,
@@ -98,7 +98,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.onWindowResize);
-    clearTimeout(this.pingTimer);
+    clearTimeout(this.pingTimer!);
   }
 
   onWindowResize = () => {

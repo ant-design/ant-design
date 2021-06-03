@@ -137,7 +137,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const screens = useBreakpoint();
   const mergedColumns = React.useMemo(() => {
-    const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
+    const matched = new Set((Object.keys(screens) as Breakpoint[]).filter(m => screens[m]));
 
     return (columns || convertChildrenToColumns(children)).filter(
       (c: ColumnType<RecordType>) =>
@@ -216,7 +216,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
       // Trigger pagination events
       if (pagination && pagination.onChange) {
-        pagination.onChange(1, changeInfo.pagination!.pageSize);
+        pagination.onChange(1, changeInfo.pagination!.pageSize!);
       }
     }
 
@@ -273,7 +273,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================ Filter ============================
   const onFilterChange = (
-    filters: Record<string, FilterValue>,
+    filters: Record<string, FilterValue | null>,
     filterStates: FilterState<RecordType>[],
   ) => {
     triggerOnChange(

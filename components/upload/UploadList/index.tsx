@@ -6,7 +6,7 @@ import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import { UploadListProps, UploadFile, UploadListType, InternalUploadFile } from '../interface';
+import { UploadListProps, UploadFile, UploadListType } from '../interface';
 import { previewImage, isImageUrl } from '../utils';
 import collapseMotion from '../../_util/motion';
 import { ConfigContext } from '../../config-provider';
@@ -53,13 +53,13 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     if (listType !== 'picture' && listType !== 'picture-card') {
       return;
     }
-    (items || []).forEach((file: InternalUploadFile) => {
+    (items || []).forEach((file) => {
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File || (file.originFileObj as Blob) instanceof Blob) ||
+        !(file.originFileObj instanceof File || file.originFileObj! instanceof Blob) ||
         file.thumbUrl !== undefined
       ) {
         return;

@@ -7,7 +7,7 @@ import { ConfigContext } from '../config-provider';
 import RadioGroupContext from './context';
 import devWarning from '../_util/devWarning';
 
-const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
+const InternalRadio: React.ForwardRefRenderFunction<unknown, RadioProps> = (props, ref) => {
   const context = React.useContext(RadioGroupContext);
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const innerRef = React.useRef<HTMLElement>();

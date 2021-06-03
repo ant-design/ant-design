@@ -157,7 +157,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     if (range) {
       return (
         <RcRange
-          {...(restProps as SliderRangeProps)}
+          {...(restProps as any)}
           step={restProps.step!}
           draggableTrack={draggableTrack}
           className={cls}
@@ -195,7 +195,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
 Slider.displayName = 'Slider';
 
 Slider.defaultProps = {
-  tipFormatter(value: number) {
+  tipFormatter(value?: number) {
     return typeof value === 'number' ? value.toString() : '';
   },
 };

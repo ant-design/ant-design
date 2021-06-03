@@ -56,13 +56,13 @@ class Affix extends React.Component<AffixProps, AffixState> {
     prevTarget: null,
   };
 
-  placeholderNode: HTMLDivElement;
+  placeholderNode?: HTMLDivElement;
 
-  fixedNode: HTMLDivElement;
+  fixedNode?: HTMLDivElement;
 
   private timeout: any;
 
-  context: ConfigConsumerProps;
+  context!: ConfigConsumerProps;
 
   private getTargetFunc() {
     const { getTargetContainer } = this.context;

@@ -2,9 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/da_DK';
 import DatePicker from '../date-picker/locale/da_DK';
 import TimePicker from '../time-picker/locale/da_DK';
 import Calendar from '../calendar/locale/da_DK';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'da',
   DatePicker,
   TimePicker,

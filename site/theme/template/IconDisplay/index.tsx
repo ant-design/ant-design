@@ -59,8 +59,8 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
   renderCategories() {
     const { searchKey = '', theme } = this.state;
 
-    return Object.keys(categories)
-      .map((key: CategoriesKeys) => {
+    return (Object.keys(categories) as CategoriesKeys[])
+      .map((key) => {
         let iconList = categories[key];
         if (searchKey) {
           iconList = iconList.filter(iconName =>

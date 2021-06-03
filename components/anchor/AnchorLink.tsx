@@ -20,7 +20,7 @@ class AnchorLink extends React.Component<AnchorLinkProps, any, AntAnchor> {
 
   static contextType = AnchorContext;
 
-  context: AntAnchor;
+  context!: AntAnchor;
 
   componentDidMount() {
     this.context.registerLink(this.props.href);

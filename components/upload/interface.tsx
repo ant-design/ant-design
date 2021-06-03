@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {
+  Action,
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
 } from 'rc-upload/lib/interface';
 import { ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
-  readonly lastModifiedDate: Date;
+  readonly lastModifiedDate?: Date;
 }
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
@@ -88,7 +89,7 @@ export interface UploadProps<T = any> {
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
   fileList?: Array<UploadFile<T>>;
-  action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
+  action?: Action;
   directory?: boolean;
   data?: object | ((file: UploadFile<T>) => object);
   method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';

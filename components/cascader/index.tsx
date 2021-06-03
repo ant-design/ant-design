@@ -287,7 +287,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
   clearSelectionTimeout: any;
 
-  private input: Input;
+  private input?: Input;
 
   constructor(props: CascaderProps) {
     super(props);
@@ -461,11 +461,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   }
 
   focus() {
-    this.input.focus();
+    this.input?.focus();
   }
 
   blur() {
-    this.input.blur();
+    this.input?.blur();
   }
 
   getPopupPlacement(direction: DirectionType = 'ltr') {
@@ -599,7 +599,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         // The default value of `matchInputWidth` is `true`
         const resultListMatchInputWidth = (showSearch as ShowSearchType).matchInputWidth !== false;
         if (resultListMatchInputWidth && (state.inputValue || isNotFound) && this.input) {
-          dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
+          dropdownMenuColumnStyle.width = this.input.input?.offsetWidth;
         }
 
         let inputIcon: React.ReactNode;

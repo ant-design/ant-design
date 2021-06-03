@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
+import { UploadProgressEvent } from 'rc-upload/lib/interface';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
@@ -222,7 +223,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onInternalChange(targetItem, nextFileList);
   };
 
-  const onProgress = (e: { percent: number }, file: RcFile) => {
+  const onProgress = (e: UploadProgressEvent, file: RcFile) => {
     // removed
     if (!getFileItem(file, mergedFileList)) {
       return;

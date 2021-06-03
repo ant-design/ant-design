@@ -143,9 +143,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }, [propFilteredKeys]);
 
   // ====================== Open Keys ======================
-  const [openKeys, setOpenKeys] = React.useState<string[]>([]);
+  const [openKeys, setOpenKeys] = React.useState<Key[]>([]);
   const openRef = React.useRef<number>();
-  const onOpenChange = (keys: string[]) => {
+  const onOpenChange = (keys: Key[]) => {
     openRef.current = window.setTimeout(() => {
       setOpenKeys(keys);
     });
@@ -242,7 +242,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           onDeselect={onSelectKeys}
           selectedKeys={selectedKeys}
           getPopupContainer={getPopupContainer}
-          openKeys={openKeys}
+          openKeys={openKeys as any} /* TODO fix RcMenu type */
           onOpenChange={onOpenChange}
         >
           {renderFilterItems({

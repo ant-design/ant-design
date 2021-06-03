@@ -3,11 +3,11 @@ import Pagination from 'rc-pagination/lib/locale/pt_BR';
 import DatePicker from '../date-picker/locale/pt_BR';
 import TimePicker from '../time-picker/locale/pt_BR';
 import Calendar from '../calendar/locale/pt_BR';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
 const typeTemplate = '${label} não é um ${type} válido';
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'pt-br',
   Pagination,
   DatePicker,

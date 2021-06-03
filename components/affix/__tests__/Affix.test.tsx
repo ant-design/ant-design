@@ -15,9 +15,9 @@ class AffixMounter extends React.Component<{
   onTestUpdatePosition?(): void;
   onChange?: () => void;
 }> {
-  private container: HTMLDivElement;
+  private container!: HTMLDivElement;
 
-  public affix: Affix;
+  public affix!: Affix;
 
   componentDidMount() {
     this.container.addEventListener = jest

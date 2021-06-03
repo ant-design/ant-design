@@ -3,11 +3,11 @@ import Pagination from 'rc-pagination/lib/locale/by_BY';
 import DatePicker from '../date-picker/locale/by_BY';
 import TimePicker from '../time-picker/locale/by_BY';
 import Calendar from '../calendar/locale/by_BY';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
 const typeTemplate: string = "${label} не з'яўляецца тыпам ${type}";
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'by',
   Pagination,
   DatePicker,

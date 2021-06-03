@@ -4,11 +4,11 @@ import Pagination from 'rc-pagination/lib/locale/ru_RU';
 import DatePicker from '../date-picker/locale/ru_RU';
 import TimePicker from '../time-picker/locale/ru_RU';
 import Calendar from '../calendar/locale/ru_RU';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
 const typeTemplate: string = '${label} не является типом ${type}';
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'ru',
   Pagination,
   DatePicker,

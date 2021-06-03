@@ -16,13 +16,12 @@ function getRootPrefixCls() {
   return defaultRootPrefixCls;
 }
 
-type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
 export type ModalFunc = (
   props: ModalFuncProps,
 ) => {
   destroy: () => void;
-  update: (configUpdate: ConfigUpdate) => void;
+  update: (configUpdate: ModalFuncProps) => void;
 };
 
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
@@ -78,7 +77,7 @@ export default function confirm(config: ModalFuncProps) {
     });
   }
 
-  function close(...args: any[]) {
+  function close(this: unknown, ...args: any[]) {
     currentConfig = {
       ...currentConfig,
       visible: false,
@@ -92,15 +91,11 @@ export default function confirm(config: ModalFuncProps) {
     render(currentConfig);
   }
 
-  function update(configUpdate: ConfigUpdate) {
-    if (typeof configUpdate === 'function') {
-      currentConfig = configUpdate(currentConfig);
-    } else {
-      currentConfig = {
-        ...currentConfig,
-        ...configUpdate,
-      };
-    }
+  function update(configUpdate: ModalFuncProps) {
+    currentConfig = {
+      ...currentConfig,
+      ...configUpdate,
+    };
     render(currentConfig);
   }
 

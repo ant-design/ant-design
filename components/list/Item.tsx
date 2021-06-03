@@ -72,7 +72,7 @@ const Item: ListItemTypeProps = ({
 
   const isItemContainsTextNodeAndNotSingular = () => {
     let result;
-    React.Children.forEach(children, (element: React.ReactElement<any>) => {
+    React.Children.forEach(children, element => {
       if (typeof element === 'string') {
         result = true;
       }

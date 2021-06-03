@@ -7,7 +7,7 @@ export default function dropIndicatorRender(props: {
   dropLevelOffset: number;
   indent: number;
   prefixCls: string;
-  direction: 'ltr' | 'rtl';
+  direction: 'ltr' | 'rtl' | undefined;
 }) {
   const { dropPosition, dropLevelOffset, prefixCls, indent, direction = 'ltr' } = props;
   const startPosition = direction === 'ltr' ? 'left' : 'right';

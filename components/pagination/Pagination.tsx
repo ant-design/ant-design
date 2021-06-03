@@ -20,7 +20,7 @@ export interface PaginationProps {
   current?: number;
   defaultPageSize?: number;
   pageSize?: number;
-  onChange?: (page: number, pageSize?: number) => void;
+  onChange?: (page: number, pageSize: number) => void;
   hideOnSinglePage?: boolean;
   showSizeChanger?: boolean;
   pageSizeOptions?: string[];
@@ -38,8 +38,8 @@ export interface PaginationProps {
   selectPrefixCls?: string;
   itemRender?: (
     page: number,
-    type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
-    originalElement: React.ReactElement<HTMLElement>,
+    type: string, //  /* TODO fix rc-pagination type */
+    element: React.ReactNode,
   ) => React.ReactNode;
   role?: string;
   showLessItems?: boolean;

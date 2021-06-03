@@ -3,11 +3,11 @@ import Pagination from 'rc-pagination/lib/locale/hr_HR';
 import DatePicker from '../date-picker/locale/hr_HR';
 import TimePicker from '../time-picker/locale/hr_HR';
 import Calendar from '../calendar/locale/hr_HR';
-import { Locale } from '../locale-provider';
+import { PartialLocale } from '../locale-provider';
 
 const typeTemplate = '${label} nije valjan ${type}';
 
-const localeValues: Locale = {
+const localeValues: PartialLocale = {
   locale: 'hr',
   Pagination,
   DatePicker,

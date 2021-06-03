@@ -129,6 +129,9 @@ const localeValues: Locale = {
   Image: {
     preview: 'Preview',
   },
+  Select: {
+    notFoundContent: 'Not Found',
+  },
 };
 
 export default localeValues;

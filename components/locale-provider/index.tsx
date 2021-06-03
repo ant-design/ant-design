@@ -16,28 +16,34 @@ export const ANT_MARK = 'internalMark';
 
 export interface Locale {
   locale: string;
-  Pagination?: PaginationLocale;
-  DatePicker?: DatePickerLocale;
-  TimePicker?: Record<string, any>;
-  Calendar?: Record<string, any>;
-  Table?: TableLocale;
-  Modal?: ModalLocale;
-  Popconfirm?: PopconfirmLocale;
-  Transfer?: Partial<TransferLocale>;
-  Select?: Record<string, any>;
-  Upload?: UploadLocale;
-  Empty?: TransferLocaleForEmpty;
-  global?: Record<string, any>;
-  PageHeader?: { back: string };
-  Icon?: Record<string, any>;
-  Text?: Record<string, any>;
-  Form?: {
-    optional?: string;
+  Pagination: PaginationLocale;
+  DatePicker: DatePickerLocale;
+  TimePicker: Record<string, any>;
+  Calendar: Record<string, any>;
+  Table: TableLocale;
+  Modal: ModalLocale;
+  Popconfirm: PopconfirmLocale;
+  Transfer: TransferLocale;
+  Select: {
+    notFoundContent: string,
+  };
+  Upload: UploadLocale;
+  Empty: TransferLocaleForEmpty;
+  global: Record<string, any>;
+  PageHeader: { back: string };
+  Icon: Record<string, any>;
+  Text: Record<string, any>;
+  Form: {
+    optional: string;
     defaultValidateMessages: ValidateMessages;
   };
-  Image?: {
+  Image: {
     preview: string;
   };
+}
+
+export type PartialLocale = {
+  [P in keyof Locale]?: Partial<Locale[P]>;
 }
 
 export interface LocaleProviderProps {

@@ -5,7 +5,7 @@ import Pagination from '../pagination';
 import { TransferListProps, RenderedItem } from './list';
 import ListItem from './ListItem';
 import { PaginationType } from './interface';
-import { KeyWiseTransferItem } from '.';
+import { KeyWise, KeyWiseTransferItem, TransferItem } from '.';
 
 export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
 export type OmitProp = ElementOf<typeof OmitProps>;
@@ -65,13 +65,13 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
     return null;
   }
 
-  onItemSelect = (item: RecordType) => {
+  onItemSelect = (item: KeyWise<TransferItem>) => {
     const { onItemSelect, selectedKeys } = this.props;
     const checked = selectedKeys.indexOf(item.key) >= 0;
     onItemSelect(item.key, !checked);
   };
 
-  onItemRemove = (item: RecordType) => {
+  onItemRemove = (item: KeyWise<TransferItem>) => {
     const { onItemRemove } = this.props;
     onItemRemove?.([item.key]);
   };
