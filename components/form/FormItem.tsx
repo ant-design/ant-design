@@ -62,7 +62,6 @@ export interface FormItemProps<Values = any>
   tooltip?: LabelTooltipType;
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
-  help?: React.ReactNode;
 }
 
 function hasValidName(name?: NamePath): Boolean {
@@ -164,7 +163,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // >>>>> Get merged errors
   const [mergedErrors, mergedWarnings] = React.useMemo(() => {
     if (help !== undefined && help !== null) {
-      return [toArray(help), []];
+      return [[], []];
     }
 
     const errorList: string[] = [...meta.errors];
@@ -261,6 +260,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           prefixCls={prefixCls}
           status={mergedValidateStatus}
           validateStatus={mergedValidateStatus}
+          help={help}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
             {baseChildren}

@@ -127,7 +127,7 @@
     "rc-input-number": "~7.1.0",
     "rc-mentions": "~1.6.1",
     "rc-menu": "~9.0.9",
-    "rc-motion": "^2.4.0",
+    "rc-motion": "^2.4.4",
     "rc-notification": "~4.5.7",
     "rc-pagination": "~3.1.6",
     "rc-picker": "~2.5.10",

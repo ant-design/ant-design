@@ -3,7 +3,17 @@ import { MotionEvent } from 'rc-motion/lib/interface';
 
 // ================== Collapse Motion ==================
 const getCollapsedHeight: MotionEventHandler = () => ({ height: 0, opacity: 0 });
-const getRealHeight: MotionEventHandler = node => ({ height: node.scrollHeight, opacity: 1 });
+const getRealHeight: MotionEventHandler = node => {
+  const { overflow } = node.style;
+
+  // Force set `overflow` to `hidden` to get correct `scrollHeight`
+  node.style.overflow = 'hidden';
+  const target = { height: node.scrollHeight, opacity: 1 };
+
+  node.style.overflow = overflow;
+
+  return target;
+};
 const getCurrentHeight: MotionEventHandler = node => ({ height: node.offsetHeight });
 const skipOpacityTransition: MotionEndEventHandler = (_, event: MotionEvent) =>
   event?.deadline === true || (event as TransitionEvent).propertyName === 'height';

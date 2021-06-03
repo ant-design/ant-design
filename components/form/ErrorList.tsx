@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
+import CSSMotion, { CSSMotionList } from 'rc-motion';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import useCacheErrors from './hooks/useCacheErrors';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
@@ -11,83 +11,80 @@ import collapseMotion from '../_util/motion';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
-// ============================================================
-// =                       Error Group                        =
-// ============================================================
-interface ErrorGroupProps {
-  prefixCls: string;
-  rootPrefixCls: string;
-  errors?: React.ReactNode[];
-  status: ValidateStatus;
+interface ErrorEntity {
+  error: React.ReactNode;
+  errorStatus?: ValidateStatus;
+  key: string;
 }
 
-function ErrorGroup({ errors = EMPTY_LIST, rootPrefixCls, prefixCls, status }: ErrorGroupProps) {
-  const cacheErrorsRef = React.useRef(errors);
-  if (errors.length) {
-    cacheErrorsRef.current = errors;
-  }
-
-  return (
-    <CSSMotion
-      visible={!!errors.length}
-      {...collapseMotion}
-      motionName={`${rootPrefixCls}-show-help`}
-      removeOnLeave
-    >
-      {({ className: motionClassName, style }, ref) => (
-        <div
-          ref={ref}
-          className={classNames(
-            prefixCls,
-            {
-              [`${prefixCls}-${status}`]: status,
-            },
-            motionClassName,
-          )}
-          style={style}
-          key="help"
-        >
-          {cacheErrorsRef.current.map((error, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <div key={index} role="alert">
-              {error}
-            </div>
-          ))}
-        </div>
-      )}
-    </CSSMotion>
-  );
+function toErrorEntity(
+  error: React.ReactNode,
+  errorStatus: ValidateStatus | undefined,
+  prefix: string,
+  index: number = 0,
+): ErrorEntity {
+  return {
+    key: typeof error === 'string' ? error : `${prefix}-${index}`,
+    error,
+    errorStatus,
+  };
 }
 
-// ============================================================
-// =                        Error List                        =
-// ============================================================
 export interface ErrorListProps {
+  help?: React.ReactNode;
+  helpStatus?: ValidateStatus;
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
 }
 
-export default function ErrorList({ errors, warnings }: ErrorListProps) {
+export default function ErrorList({
+  help,
+  helpStatus,
+  errors = EMPTY_LIST,
+  warnings = EMPTY_LIST,
+}: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
   const rootPrefixCls = getPrefixCls();
 
+  const fullKeyList = React.useMemo(() => {
+    if (help) {
+      return [toErrorEntity(help, helpStatus, 'help')];
+    }
+
+    return [
+      ...errors.map((error, index) => toErrorEntity(error, 'error', 'error', index)),
+      ...warnings.map((warning, index) => toErrorEntity(warning, 'warning', 'warning', index)),
+    ];
+  }, [help, helpStatus, errors, warnings]);
+
   return (
-    <div className={`${baseClassName}-holder`}>
-      <ErrorGroup
-        prefixCls={baseClassName}
-        rootPrefixCls={rootPrefixCls}
-        errors={errors}
-        status="error"
-      />
-      <ErrorGroup
-        prefixCls={baseClassName}
-        rootPrefixCls={rootPrefixCls}
-        errors={warnings}
-        status="warning"
-      />
-    </div>
+    <CSSMotionList
+      keys={fullKeyList}
+      visible={!!fullKeyList.length}
+      {...collapseMotion}
+      motionName={`${rootPrefixCls}-show-help`}
+      className={baseClassName}
+      removeOnLeave
+    >
+      {itemProps => {
+        const { key, error, errorStatus, className, style } = itemProps;
+
+        return (
+          <div
+            key={key}
+            role="alert"
+            className={classNames(className, {
+              [`${baseClassName}-${errorStatus}`]: errorStatus,
+            })}
+            style={style}
+          >
+            {error}
+          </div>
+        );
+      }}
+    </CSSMotionList>
   );
 }

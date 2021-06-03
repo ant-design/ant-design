@@ -192,6 +192,11 @@
     .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
   }
 
+  &-explain {
+    height: 0;
+    transition: height 10s;
+  }
+
   &-extra {
     min-height: @form-item-margin-bottom;
   }
@@ -202,13 +207,7 @@
     }
   }
 
-  // >>>>> Holder
-  &-explain-holder {
-    height: 0;
-    transition: height 10s;
-  }
-
-  &-with-help &-explain-holder {
+  &-with-help &-explain {
     height: auto;
     min-height: @form-item-margin-bottom;
   }
@@ -216,6 +215,7 @@
 
 // Motion
 .@{ant-prefix}-show-help {
+  overflow: hidden;
   transition: height @animation-duration-slow @ease-in-out,
     opacity @animation-duration-slow @ease-in-out, transform @animation-duration-slow @ease-in-out !important;
 

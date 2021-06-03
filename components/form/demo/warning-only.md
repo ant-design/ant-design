@@ -25,15 +25,22 @@ const Demo = () => {
     message.success('Submit success!');
   };
 
+  const onFinishFailed = () => {
+    message.error('Submit failed!');
+  };
+
   return (
-    <Form form={form} layout="vertical" onFinish={onFinish} autoComplete="off">
+    <Form
+      form={form}
+      layout="vertical"
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
       <Form.Item
         name="url"
         label="URL"
-        rules={[
-          { type: 'url', warningOnly: true },
-          { type: 'string', min: 6 },
-        ]}
+        rules={[{ required: true }, { type: 'url', warningOnly: true }, { type: 'string', min: 6 }]}
       >
         <Input placeholder="input placeholder" />
       </Form.Item>
