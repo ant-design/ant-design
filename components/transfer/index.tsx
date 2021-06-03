@@ -67,6 +67,12 @@ export interface TransferProps<RecordType> {
   targetKeys?: string[];
   selectedKeys?: string[];
   render?: TransferRender<RecordType>;
+  onBeforeChange?: (
+    targetKeys: string[],
+    direction: TransferDirection,
+    moveKeys: string[],
+    next: Function,
+  ) => void;
   onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
@@ -175,7 +181,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   });
 
   moveTo = (direction: TransferDirection) => {
-    const { targetKeys = [], dataSource = [], onChange } = this.props;
+    const { targetKeys = [], dataSource = [], onChange, onBeforeChange } = this.props;
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
     // filter the disabled options
@@ -188,10 +194,18 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
         ? newMoveKeys.concat(targetKeys)
         : targetKeys.filter(targetKey => newMoveKeys.indexOf(targetKey) === -1);
 
-    // empty checked keys
-    const oppositeDirection = direction === 'right' ? 'left' : 'right';
-    this.setStateKeys(oppositeDirection, []);
-    this.handleSelectChange(oppositeDirection, []);
+    const next = () => {
+      // empty checked keys
+      const oppositeDirection = direction === 'right' ? 'left' : 'right';
+      this.setStateKeys(oppositeDirection, []);
+      this.handleSelectChange(oppositeDirection, []);
+    };
+
+    if (onBeforeChange) {
+      onBeforeChange(newTargetKeys, direction, newMoveKeys, next);
+    } else {
+      next();
+    }
 
     onChange?.(newTargetKeys, direction, newMoveKeys);
   };

@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-最基本的用法，展示了 `dataSource`、`targetKeys`、每行的渲染函数 `render` 以及回调函数 `onChange` `onSelectChange` `onScroll` 的用法。
+最基本的用法，展示了 `dataSource`、`targetKeys`、每行的渲染函数 `render` 以及回调函数 `onBeforeChange` `onChange` `onSelectChange` `onScroll` 的用法。
 
 ## en-US
 
@@ -15,7 +15,7 @@ The most basic usage of `Transfer` involves providing the source data and target
 
 ```jsx
 import React, { useState } from 'react';
-import { Transfer } from 'antd';
+import { Transfer, Modal, Radio, Divider } from 'antd';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -31,11 +31,26 @@ const initialTargetKeys = mockData.filter(item => +item.key > 10).map(item => it
 const App = () => {
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
   const [selectedKeys, setSelectedKeys] = useState([]);
+  const [value, setValue] = React.useState(1);
   const onChange = (nextTargetKeys, direction, moveKeys) => {
     console.log('targetKeys:', nextTargetKeys);
     console.log('direction:', direction);
     console.log('moveKeys:', moveKeys);
     setTargetKeys(nextTargetKeys);
+  };
+
+  // onBeforeChange与onChange不能同时使用
+  const onBeforeChange = (nextTargetKeys, direction, moveKeys, next) => {
+    console.log('targetKeys:', nextTargetKeys);
+    console.log('direction:', direction);
+    console.log('moveKeys:', moveKeys);
+    Modal.confirm({
+      title: 'sue to move ?',
+      onOk: () => {
+        next();
+        setTargetKeys(nextTargetKeys);
+      },
+    });
   };
 
   const onSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
@@ -49,17 +64,31 @@ const App = () => {
     console.log('target:', e.target);
   };
 
+  const onEventTypeChange = e => {
+    console.log('radio checked', e.target.value);
+    setValue(e.target.value);
+    setSelectedKeys([]);
+  };
+
   return (
-    <Transfer
-      dataSource={mockData}
-      titles={['Source', 'Target']}
-      targetKeys={targetKeys}
-      selectedKeys={selectedKeys}
-      onChange={onChange}
-      onSelectChange={onSelectChange}
-      onScroll={onScroll}
-      render={item => item.title}
-    />
+    <div>
+      <Radio.Group onChange={onEventTypeChange} value={value}>
+        <Radio value={1}>use onChange</Radio>
+        <Radio value={2}>use onBeforeChange</Radio>
+      </Radio.Group>
+      <Divider />
+      <Transfer
+        dataSource={mockData}
+        titles={['Source', 'Target']}
+        targetKeys={targetKeys}
+        selectedKeys={selectedKeys}
+        onChange={value === 1 && onChange}
+        onBeforeChange={value === 2 && onBeforeChange}
+        onSelectChange={onSelectChange}
+        onScroll={onScroll}
+        render={item => item.title}
+      />
+    </div>
   );
 };
 

@@ -40,6 +40,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | ReactNode\[] | - |  |
+| onBeforeChange | 选项在两栏之间转移前的回调函数, 可以做二次确认等操作 | (targetKeys, direction, moveKeys, next): void | - |  |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void | - |  |
 | onScroll | 选项列表滚动时的回调函数 | (direction, event): void | - |  |
 | onSearch | 搜索框内容时改变时的回调函数 | (direction: `left` \| `right`, value: string): void | - |  |
