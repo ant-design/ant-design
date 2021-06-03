@@ -61,6 +61,7 @@
 
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
+  // We delay one frame (0.017s) here to let CSSMotion goes
   transition: margin-bottom @animation-duration-slow 0.017s linear;
 
   &-with-help {
@@ -234,6 +235,7 @@
 
 // Explain
 .@{ant-prefix}-show-help-item {
+  overflow: hidden;
   transition: height @animation-duration-slow @ease-in-out,
     opacity @animation-duration-slow @ease-in-out, transform @animation-duration-slow @ease-in-out !important;
 

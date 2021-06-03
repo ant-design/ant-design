@@ -87,16 +87,22 @@ export default function ErrorList({
               component={false}
             >
               {itemProps => {
-                const { key, error, errorStatus, className, style } = itemProps;
+                const {
+                  key,
+                  error,
+                  errorStatus,
+                  className: itemClassName,
+                  style: itemStyle,
+                } = itemProps;
 
                 return (
                   <div
                     key={key}
                     role="alert"
-                    className={classNames(className, {
+                    className={classNames(itemClassName, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}
-                    style={style}
+                    style={itemStyle}
                   >
                     {error}
                   </div>
