@@ -7720,6 +7720,97 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-vertical"
+>
+  <div
+    style="overflow:hidden"
+  >
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="url"
+          title="URL"
+        >
+          URL
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input"
+              id="url"
+              placeholder="input placeholder"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-space ant-space-horizontal ant-space-align-center"
+          >
+            <div
+              class="ant-space-item"
+              style="margin-right:8px"
+            >
+              <button
+                class="ant-btn ant-btn-primary"
+                type="submit"
+              >
+                <span>
+                  Submit
+                </span>
+              </button>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Fill
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
