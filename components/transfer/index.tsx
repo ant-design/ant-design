@@ -205,9 +205,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       onBeforeChange(newTargetKeys, direction, newMoveKeys, next);
     } else {
       next();
+      onChange?.(newTargetKeys, direction, newMoveKeys);
     }
-
-    onChange?.(newTargetKeys, direction, newMoveKeys);
   };
 
   moveToLeft = () => this.moveTo('left');
