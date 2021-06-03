@@ -61,9 +61,11 @@
 
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
+  transition: margin-bottom @animation-duration-slow @ease-in-out;
 
   &-with-help {
     margin-bottom: 0;
+    transition: none;
   }
 
   &-hidden,
@@ -194,7 +196,9 @@
 
   &-explain {
     height: 0;
-    transition: height 10s;
+    min-height: 0;
+    box-shadow: 0 0 1px red;
+    transition: min-height 10s;
   }
 
   &-extra {

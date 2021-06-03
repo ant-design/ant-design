@@ -16,7 +16,7 @@ only: true
 
 ```tsx
 import React from 'react';
-import { Form, Input, message, Button } from 'antd';
+import { Form, Input, message, Button, Space } from 'antd';
 
 const Demo = () => {
   const [form] = Form.useForm();
@@ -29,6 +29,12 @@ const Demo = () => {
     message.error('Submit failed!');
   };
 
+  const onFill = () => {
+    form.setFieldsValue({
+      url: 'https://taobao.com/',
+    });
+  };
+
   return (
     <Form
       form={form}
@@ -37,17 +43,28 @@ const Demo = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-      <Form.Item
-        name="url"
-        label="URL"
-        rules={[{ required: true }, { type: 'url', warningOnly: true }, { type: 'string', min: 6 }]}
-      >
-        <Input placeholder="input placeholder" />
-      </Form.Item>
+      <div style={{ overflow: 'hidden', border: '1px solid orange' }}>
+        <Form.Item
+          name="url"
+          label="URL"
+          rules={[
+            { required: true },
+            { type: 'url', warningOnly: true },
+            { type: 'string', min: 6 },
+          ]}
+        >
+          <Input placeholder="input placeholder" />
+        </Form.Item>
+      </div>
       <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
+        <Space>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+          <Button htmlType="button" onClick={onFill}>
+            Fill
+          </Button>
+        </Space>
       </Form.Item>
     </Form>
   );
