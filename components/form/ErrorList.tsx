@@ -47,7 +47,7 @@ export default function ErrorList({
   const rootPrefixCls = getPrefixCls();
 
   const fullKeyList = React.useMemo(() => {
-    if (help) {
+    if (help !== undefined && help !== null) {
       return [toErrorEntity(help, helpStatus, 'help')];
     }
 

@@ -164,10 +164,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
   // >>>>> Get merged errors
   const [mergedErrors, mergedWarnings] = React.useMemo(() => {
-    if (help !== undefined && help !== null) {
-      return [[], []];
-    }
-
     const errorList: string[] = [...meta.errors];
     const warningList: string[] = [...meta.warnings];
 
@@ -177,7 +173,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     });
 
     return [errorList, warningList];
-  }, [help, subFieldErrors, meta.errors, meta.warnings]);
+  }, [subFieldErrors, meta.errors, meta.warnings]);
 
   const debounceErrors = useDebounce(mergedErrors);
   const debounceWarnings = useDebounce(mergedWarnings);
