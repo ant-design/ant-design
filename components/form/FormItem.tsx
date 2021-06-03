@@ -128,10 +128,10 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // Collect noStyle Field error to the top FormItem
   const updateChildItemErrors = noStyle
     ? updateItemErrors
-    : (subName: string, subErrors: string[], originSubName: string) => {
+    : (subName: string, subErrors: string[], originSubName?: string) => {
         setInlineErrors((prevInlineErrors = {}) => {
           // Clean up origin error when name changed
-          if (originSubName !== subName) {
+          if (originSubName && originSubName !== subName) {
             delete prevInlineErrors[originSubName];
           }
 
