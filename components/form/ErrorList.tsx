@@ -1,9 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
-import useMemo from 'rc-util/lib/hooks/useMemo';
-import useCacheErrors from './hooks/useCacheErrors';
-import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { FormItemPrefixContext } from './context';
 import { ConfigContext } from '../config-provider';
 import { ValidateStatus } from './FormItem';
