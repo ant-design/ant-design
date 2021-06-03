@@ -27,7 +27,7 @@ export const FormContext = React.createContext<FormContextProps>({
 });
 
 /** `noStyle` Form Item Context. Used for error collection */
-export type ReportMetaChange = (meta: Meta, fieldKeys: React.Key[]) => void;
+export type ReportMetaChange = (meta: Meta, uniqueKeys: React.Key[]) => void;
 export const NoStyleItemContext = React.createContext<ReportMetaChange | null>(null);
 
 /** Form Provider */

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import Input from '../../input';
@@ -20,10 +21,17 @@ describe('Form', () => {
   scrollIntoView.mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  async function change(wrapper, index, value) {
+  async function change(wrapper, index, value, executeMockTimer) {
     wrapper.find(Input).at(index).simulate('change', { target: { value } });
     await sleep(200);
-    wrapper.update();
+
+    if (executeMockTimer) {
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      await sleep(1);
+    }
   }
 
   beforeEach(() => {
@@ -62,6 +70,8 @@ describe('Form', () => {
     });
 
     it('should clean up', async () => {
+      jest.useFakeTimers();
+
       const Demo = () => {
         const [form] = Form.useForm();
 
@@ -105,12 +115,14 @@ describe('Form', () => {
       };
 
       const wrapper = mount(<Demo />);
-      await change(wrapper, 0, '1');
+      await change(wrapper, 0, '1', true);
       expect(wrapper.find('.ant-form-item-explain').text()).toEqual('aaa');
-      await change(wrapper, 0, '2');
+      await change(wrapper, 0, '2', true);
       expect(wrapper.find('.ant-form-item-explain').text()).toEqual('ccc');
-      await change(wrapper, 0, '1');
+      await change(wrapper, 0, '1', true);
       expect(wrapper.find('.ant-form-item-explain').text()).toEqual('aaa');
+
+      jest.useRealTimers();
     });
   });
 

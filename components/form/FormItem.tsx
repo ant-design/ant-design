@@ -71,6 +71,16 @@ function hasValidName(name?: NamePath): Boolean {
   return !(name === undefined || name === null);
 }
 
+function genEmptyMeta(): Meta {
+  return {
+    errors: [],
+    warnings: [],
+    touched: false,
+    validating: false,
+    name: [],
+  };
+}
+
 function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
@@ -112,32 +122,24 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
 
   // >>>>> Current field errors
-  const [meta, setMeta] = React.useState<Meta>({
-    errors: [],
-    warnings: [],
-    touched: false,
-    validating: false,
-    name: [],
-  });
+  const [meta, setMeta] = React.useState<Meta>(() => genEmptyMeta());
 
-  const onMetaChange = (nextMeta: Meta) => {
-    setMeta(nextMeta);
+  const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
+    // Destroy will reset all the meta
+    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta);
 
     // Bump to parent since noStyle
     if (noStyle && notifyParentMetaChange) {
-      devWarning(
-        fieldKey !== undefined,
-        'Form.Item',
-        '`noStyle` Form.Item provides empty `fieldKey`. Forget pass it?',
-      );
-
-      const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey!];
-      notifyParentMetaChange(nextMeta, fieldKeys);
+      let namePath = nextMeta.name;
+      if (fieldKey !== undefined) {
+        namePath = Array.isArray(fieldKey) ? fieldKey : [fieldKey!];
+      }
+      notifyParentMetaChange(nextMeta, namePath);
     }
   };
 
   // >>>>> Collect noStyle Field error to the top FormItem
-  const onSubItemMetaChange = (subMeta: Meta & { destroy: boolean }, fieldKeys: React.Key[]) => {
+  const onSubItemMetaChange = (subMeta: Meta & { destroy: boolean }, uniqueKeys: React.Key[]) => {
     // Only `noStyle` sub item will trigger
     setSubFieldErrors(prevSubFieldErrors => {
       const clone = {
@@ -145,7 +147,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       };
 
       // name: ['user', 1] + key: [4] = ['user', 4]
-      const mergedNamePath = [...subMeta.name.slice(0, -1), ...fieldKeys];
+      const mergedNamePath = [...subMeta.name.slice(0, -1), ...uniqueKeys];
       const mergedNameKey = mergedNamePath.join(NAME_SPLIT);
 
       if (subMeta.destroy) {
