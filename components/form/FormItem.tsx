@@ -5,6 +5,7 @@ import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
+import { supportRef } from 'rc-util/lib/ref';
 import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -17,6 +18,7 @@ import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
 import useDebounce from './hooks/useDebounce';
+import useItemRef from './hooks/useItemRef';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -177,6 +179,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
   const debounceErrors = useDebounce(mergedErrors);
   const debounceWarnings = useDebounce(mergedWarnings);
+
+  // ===================== Children Ref =====================
+  const getItemRef = useItemRef();
 
   // ======================== Render ========================
   function renderLayout(
@@ -352,6 +357,10 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           const childProps = { ...children.props, ...mergedControl };
           if (!childProps.id) {
             childProps.id = fieldId;
+          }
+
+          if (supportRef(children)) {
+            childProps.ref = getItemRef(mergedName, children);
           }
 
           // We should keep user origin event handler
