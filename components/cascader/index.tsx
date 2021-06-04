@@ -10,7 +10,8 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 
-import Input from '../input';
+import Input, { InputRef } from '../input';
+
 import {
   ConfigConsumer,
   ConfigConsumerProps,
@@ -287,7 +288,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
   clearSelectionTimeout: any;
 
-  private input: Input;
+  private input: InputRef;
 
   constructor(props: CascaderProps) {
     super(props);
@@ -329,7 +330,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     return displayRender(label, selectedOptions);
   }
 
-  saveInput = (node: Input) => {
+  saveInput = (node: InputRef) => {
     this.input = node;
   };
 
@@ -599,7 +600,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         // The default value of `matchInputWidth` is `true`
         const resultListMatchInputWidth = (showSearch as ShowSearchType).matchInputWidth !== false;
         if (resultListMatchInputWidth && (state.inputValue || isNotFound) && this.input) {
-          dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
+          dropdownMenuColumnStyle.width = this.input?.input?.offsetWidth;
         }
 
         let inputIcon: React.ReactNode;

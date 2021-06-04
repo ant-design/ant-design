@@ -88,10 +88,10 @@ describe('Input.Password', () => {
       .simulate('change', { target: { value: 'value' } });
     await sleep();
     expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
-    wrapper.find('input').at('0').simulate('blur');
+    wrapper.find('input').at('0').simulate('focus');
     await sleep();
     expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
-    wrapper.find('input').at('0').simulate('focus');
+    wrapper.find('input').at('0').simulate('blur');
     await sleep();
     expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
   });
