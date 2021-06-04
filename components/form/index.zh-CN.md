@@ -302,7 +302,7 @@ const TestForm = () => {
   const formRef = createRef<Ref>();
   return (
     <EnhancedFCForm
-      onSubmit={() => console.log(formRef.current!.form.getFieldValue('name'))}
+      onSubmit={() => console.log(formRef.current?.form.getFieldValue('name'))}
       wrappedComponentRef={formRef}
     />
   );
