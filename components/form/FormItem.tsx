@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useContext, useRef } from 'react';
-import isEqual from 'lodash/isEqual';
+import { useContext } from 'react';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
@@ -14,13 +13,19 @@ import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, FormItemContext } from './context';
+import { FormContext, NoStyleItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
+import useDebounce from './hooks/useDebounce';
 import useItemRef from './hooks/useItemRef';
 
 const NAME_SPLIT = '__SPLIT__';
+
+interface FieldError {
+  errors: string[];
+  warnings: string[];
+}
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
@@ -31,7 +36,7 @@ type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
 interface MemoInputProps {
   value: any;
-  update: number;
+  update: any;
   children: React.ReactNode;
 }
 
@@ -68,6 +73,16 @@ function hasValidName(name?: NamePath): Boolean {
   return !(name === undefined || name === null);
 }
 
+function genEmptyMeta(): Meta {
+  return {
+    errors: [],
+    warnings: [],
+    touched: false,
+    validating: false,
+    name: [],
+  };
+}
+
 function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
@@ -91,104 +106,109 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     hidden,
     ...restProps
   } = props;
-  const destroyRef = useRef(false);
   const { getPrefixCls } = useContext(ConfigContext);
   const { name: formName, requiredMark } = useContext(FormContext);
-  const { updateItemErrors } = useContext(FormItemContext);
-  const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
-  const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
+  const isRenderProps = typeof children === 'function';
+  const notifyParentMetaChange = useContext(NoStyleItemContext);
 
   const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
-  function setDomErrorVisible(visible: boolean) {
-    if (!destroyRef.current) {
-      innerSetDomErrorVisible(visible);
-    }
-  }
-
   const hasName = hasValidName(name);
-
-  // Cache Field NamePath
-  const nameRef = useRef<(string | number)[]>([]);
-
-  // Should clean up if Field removed
-  React.useEffect(
-    () => () => {
-      destroyRef.current = true;
-      updateItemErrors(nameRef.current.join(NAME_SPLIT), []);
-    },
-    [],
-  );
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // ======================== Errors ========================
-  // Collect noStyle Field error to the top FormItem
-  const updateChildItemErrors = noStyle
-    ? updateItemErrors
-    : (subName: string, subErrors: string[], originSubName: string) => {
-        setInlineErrors((prevInlineErrors = {}) => {
-          // Clean up origin error when name changed
-          if (originSubName !== subName) {
-            delete prevInlineErrors[originSubName];
-          }
+  // >>>>> Collect sub field errors
+  const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
 
-          if (!isEqual(prevInlineErrors[subName], subErrors)) {
-            return {
-              ...prevInlineErrors,
-              [subName]: subErrors,
-            };
-          }
-          return prevInlineErrors;
-        });
+  // >>>>> Current field errors
+  const [meta, setMeta] = React.useState<Meta>(() => genEmptyMeta());
+
+  const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
+    // Destroy will reset all the meta
+    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta);
+
+    // Bump to parent since noStyle
+    if (noStyle && notifyParentMetaChange) {
+      let namePath = nextMeta.name;
+      if (fieldKey !== undefined) {
+        namePath = Array.isArray(fieldKey) ? fieldKey : [fieldKey!];
+      }
+      notifyParentMetaChange(nextMeta, namePath);
+    }
+  };
+
+  // >>>>> Collect noStyle Field error to the top FormItem
+  const onSubItemMetaChange = (subMeta: Meta & { destroy: boolean }, uniqueKeys: React.Key[]) => {
+    // Only `noStyle` sub item will trigger
+    setSubFieldErrors(prevSubFieldErrors => {
+      const clone = {
+        ...prevSubFieldErrors,
       };
+
+      // name: ['user', 1] + key: [4] = ['user', 4]
+      const mergedNamePath = [...subMeta.name.slice(0, -1), ...uniqueKeys];
+      const mergedNameKey = mergedNamePath.join(NAME_SPLIT);
+
+      if (subMeta.destroy) {
+        // Remove
+        delete clone[mergedNameKey];
+      } else {
+        // Update
+        clone[mergedNameKey] = subMeta;
+      }
+
+      return clone;
+    });
+  };
+
+  // >>>>> Get merged errors
+  const [mergedErrors, mergedWarnings] = React.useMemo(() => {
+    const errorList: string[] = [...meta.errors];
+    const warningList: string[] = [...meta.warnings];
+
+    Object.values(subFieldErrors).forEach(subFieldError => {
+      errorList.push(...(subFieldError.errors || []));
+      warningList.push(...(subFieldError.warnings || []));
+    });
+
+    return [errorList, warningList];
+  }, [subFieldErrors, meta.errors, meta.warnings]);
+
+  const debounceErrors = useDebounce(mergedErrors);
+  const debounceWarnings = useDebounce(mergedWarnings);
 
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();
 
+  // ======================== Render ========================
   function renderLayout(
     baseChildren: React.ReactNode,
     fieldId?: string,
-    meta?: Meta,
     isRequired?: boolean,
   ): React.ReactNode {
     if (noStyle && !hidden) {
       return baseChildren;
     }
-
-    // ======================== Errors ========================
-    // >>> collect sub errors
-    let subErrorList: string[] = [];
-    Object.keys(inlineErrors).forEach(subName => {
-      subErrorList = [...subErrorList, ...(inlineErrors[subName] || [])];
-    });
-
-    // >>> merged errors
-    let mergedErrors: React.ReactNode[];
-    if (help !== undefined && help !== null) {
-      mergedErrors = toArray(help);
-    } else {
-      mergedErrors = meta ? meta.errors : [];
-      mergedErrors = [...mergedErrors, ...subErrorList];
-    }
-
     // ======================== Status ========================
     let mergedValidateStatus: ValidateStatus = '';
     if (validateStatus !== undefined) {
       mergedValidateStatus = validateStatus;
     } else if (meta?.validating) {
       mergedValidateStatus = 'validating';
-    } else if (meta?.errors?.length || subErrorList.length) {
+    } else if (debounceErrors.length) {
       mergedValidateStatus = 'error';
+    } else if (debounceWarnings.length) {
+      mergedValidateStatus = 'warning';
     } else if (meta?.touched) {
       mergedValidateStatus = 'success';
     }
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: domErrorVisible || !!help,
+      [`${prefixCls}-item-with-help`]: help || debounceErrors.length || debounceWarnings.length,
       [`${className}`]: !!className,
 
       // Status
@@ -238,25 +258,20 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         <FormItemInput
           {...props}
           {...meta}
-          errors={mergedErrors}
+          errors={debounceErrors}
+          warnings={debounceWarnings}
           prefixCls={prefixCls}
           status={mergedValidateStatus}
-          onDomErrorVisibleChange={setDomErrorVisible}
           validateStatus={mergedValidateStatus}
+          help={help}
         >
-          <FormItemContext.Provider value={{ updateItemErrors: updateChildItemErrors }}>
+          <NoStyleItemContext.Provider value={onSubItemMetaChange}>
             {baseChildren}
-          </FormItemContext.Provider>
+          </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>
     );
   }
-
-  const isRenderProps = typeof children === 'function';
-
-  // Record for real component render
-  const updateRef = useRef(0);
-  updateRef.current += 1;
 
   if (!hasName && !isRenderProps && !dependencies) {
     return renderLayout(children) as JSX.Element;
@@ -270,33 +285,18 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     variables = { ...variables, ...messageVariables };
   }
 
+  // >>>>> With Field
   return (
     <Field
       {...props}
       messageVariables={variables}
       trigger={trigger}
       validateTrigger={mergedValidateTrigger}
-      onReset={() => {
-        setDomErrorVisible(false);
-      }}
+      onMetaChange={onMetaChange}
     >
-      {(control, meta, context) => {
-        const { errors } = meta;
-
-        const mergedName = toArray(name).length && meta ? meta.name : [];
+      {(control, renderMeta, context) => {
+        const mergedName = toArray(name).length && renderMeta ? renderMeta.name : [];
         const fieldId = getFieldId(mergedName, formName);
-
-        if (noStyle) {
-          // Clean up origin one
-          const originErrorName = nameRef.current.join(NAME_SPLIT);
-
-          nameRef.current = [...mergedName];
-          if (fieldKey) {
-            const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
-            nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
-          }
-          updateItemErrors(nameRef.current.join(NAME_SPLIT), errors, originErrorName);
-        }
 
         const isRequired =
           required !== undefined
@@ -304,12 +304,12 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             : !!(
                 rules &&
                 rules.some(rule => {
-                  if (rule && typeof rule === 'object' && rule.required) {
+                  if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
                     return true;
                   }
                   if (typeof rule === 'function') {
                     const ruleEntity = rule(context);
-                    return ruleEntity && ruleEntity.required;
+                    return ruleEntity && ruleEntity.required && !ruleEntity.warningOnly;
                   }
                   return false;
                 })
@@ -377,10 +377,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           });
 
           childNode = (
-            <MemoInput
-              value={mergedControl[props.valuePropName || 'value']}
-              update={updateRef.current}
-            >
+            <MemoInput value={mergedControl[props.valuePropName || 'value']} update={children}>
               {cloneElement(children, childProps)}
             </MemoInput>
           );
@@ -395,7 +392,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           childNode = children;
         }
 
-        return renderLayout(childNode, fieldId, meta, isRequired);
+        return renderLayout(childNode, fieldId, isRequired);
       }}
     </Field>
   );

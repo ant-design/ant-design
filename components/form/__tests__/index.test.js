@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import Input from '../../input';
@@ -20,10 +21,17 @@ describe('Form', () => {
   scrollIntoView.mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  async function change(wrapper, index, value) {
+  async function change(wrapper, index, value, executeMockTimer) {
     wrapper.find(Input).at(index).simulate('change', { target: { value } });
     await sleep(200);
-    wrapper.update();
+
+    if (executeMockTimer) {
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      await sleep(1);
+    }
   }
 
   beforeEach(() => {
@@ -42,6 +50,8 @@ describe('Form', () => {
 
   describe('noStyle Form.Item', () => {
     it('work', async () => {
+      jest.useFakeTimers();
+
       const onChange = jest.fn();
 
       const wrapper = mount(
@@ -54,14 +64,18 @@ describe('Form', () => {
         </Form>,
       );
 
-      await change(wrapper, 0, '');
+      await change(wrapper, 0, '', true);
       expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
       expect(wrapper.find('.ant-form-item-has-error').length).toBeTruthy();
 
       expect(onChange).toHaveBeenCalled();
+
+      jest.useRealTimers();
     });
 
     it('should clean up', async () => {
+      jest.useFakeTimers();
+
       const Demo = () => {
         const [form] = Form.useForm();
 
@@ -105,12 +119,14 @@ describe('Form', () => {
       };
 
       const wrapper = mount(<Demo />);
-      await change(wrapper, 0, '1');
+      await change(wrapper, 0, '1', true);
       expect(wrapper.find('.ant-form-item-explain').text()).toEqual('aaa');
-      await change(wrapper, 0, '2');
+      await change(wrapper, 0, '2', true);
       expect(wrapper.find('.ant-form-item-explain').text()).toEqual('ccc');
-      await change(wrapper, 0, '1');
+      await change(wrapper, 0, '1', true);
       expect(wrapper.find('.ant-form-item-explain').text()).toEqual('aaa');
+
+      jest.useRealTimers();
     });
   });
 
@@ -315,6 +331,8 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/20706
   it('Error change should work', async () => {
+    jest.useFakeTimers();
+
     const wrapper = mount(
       <Form>
         <Form.Item
@@ -338,15 +356,17 @@ describe('Form', () => {
 
     /* eslint-disable no-await-in-loop */
     for (let i = 0; i < 3; i += 1) {
-      await change(wrapper, 0, '');
+      await change(wrapper, 0, '', true);
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual("'name' is required");
 
-      await change(wrapper, 0, 'p');
+      await change(wrapper, 0, 'p', true);
       await sleep(100);
       wrapper.update();
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('not a p');
     }
     /* eslint-enable */
+
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/20813
@@ -428,6 +448,8 @@ describe('Form', () => {
   });
 
   it('Form.Item with `help` should display error style when validate failed', async () => {
+    jest.useFakeTimers();
+
     const wrapper = mount(
       <Form>
         <Form.Item name="test" help="help" rules={[{ required: true, message: 'message' }]}>
@@ -436,12 +458,16 @@ describe('Form', () => {
       </Form>,
     );
 
-    await change(wrapper, 0, '');
+    await change(wrapper, 0, '', true);
     expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-has-error')).toBeTruthy();
     expect(wrapper.find('.ant-form-item-explain').text()).toEqual('help');
+
+    jest.useRealTimers();
   });
 
   it('clear validation message when ', async () => {
+    jest.useFakeTimers();
+
     const wrapper = mount(
       <Form>
         <Form.Item name="username" rules={[{ required: true, message: 'message' }]}>
@@ -449,14 +475,18 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    await change(wrapper, 0, '1');
+    await change(wrapper, 0, '1', true);
     expect(wrapper.find('.ant-form-item-explain').length).toBeFalsy();
-    await change(wrapper, 0, '');
+
+    await change(wrapper, 0, '', true);
     expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
-    await change(wrapper, 0, '123');
+
+    await change(wrapper, 0, '123', true);
     await sleep(800);
     wrapper.update();
     expect(wrapper.find('.ant-form-item-explain').length).toBeFalsy();
+
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/21167
