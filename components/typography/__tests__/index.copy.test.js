@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Base from '../Base';
-import { sleep } from '../../../tests/utils';
 
 describe('Typography copy', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -28,7 +27,7 @@ describe('Typography copy', () => {
           if (iconClassName) {
             expect(wrapper.find(iconClassName).length).toBeTruthy();
           }
-          if (iconTexts[0]) {
+          if (iconTexts[0] !== undefined) {
             expect(wrapper.find('.ant-typography-copy').at(0).text()).toBe(iconTexts[0]);
           }
 
@@ -36,7 +35,7 @@ describe('Typography copy', () => {
           jest.runAllTimers();
           wrapper.update();
 
-          if (tooltipTexts[0]) {
+          if (tooltipTexts[0] !== undefined) {
             expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltipTexts[0]);
           }
 
@@ -47,27 +46,15 @@ describe('Typography copy', () => {
           wrapper.find('.ant-typography-copy').first().simulate('click');
           jest.useRealTimers();
           wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
-          // tooltips 为 ['', 'xxx'] 时，切换时需要延时 mousenEnterDelay 的时长
-          if (tooltips && tooltips[0] === '' && tooltips[1]) {
-            await sleep(150);
-          }
-
           wrapper.update();
 
-          // let copiedIcon = '.anticon-check';
-          // if (icon && icon.length > 1) {
-          //   copiedIcon = '.anticon-like';
-          // } else {
-          //   copiedIcon = '.anticon-check';
-          // }
-          // expect(wrapper.find(copiedIcon).length).toBeTruthy();
           wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
 
-          if (tooltipTexts[1]) {
+          if (tooltipTexts[1] !== undefined) {
             expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltipTexts[1]);
           }
 
-          if (iconTexts[1]) {
+          if (iconTexts[1] !== undefined) {
             expect(wrapper.find('.ant-typography-copy').at(0).text()).toBe(iconTexts[1]);
           }
 
@@ -113,6 +100,16 @@ describe('Typography copy', () => {
         name: 'tooltips custom element ',
         tooltips: [dom, dom2],
         tooltipTexts: ['12', '34'],
+      });
+      copyTest({
+        name: 'tooltips first empty',
+        tooltips: ['', 'xxx'],
+        tooltipLength: 0,
+      });
+      copyTest({
+        name: 'tooltips first empty 2',
+        tooltips: [''],
+        tooltipLength: 0,
       });
     });
   });
