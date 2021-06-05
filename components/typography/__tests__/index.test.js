@@ -528,4 +528,15 @@ describe('Typography', () => {
       'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
     );
   });
+  it('copyable render', () => {
+    const dom = (
+      <>
+        <>1</>
+        <>2</>
+      </>
+    );
+    expect(
+      <Base copyable={{ icon: [dom, dom], tooltips: [dom, dom] }}>test copy</Base>,
+    ).toMatchSnapshot();
+  });
 });
