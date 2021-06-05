@@ -93,25 +93,23 @@ describe('Typography copy', () => {
           <span>3</span>4
         </>
       );
+      const copy = '.anticon-copy';
+      const check = '.anticon-check';
 
       copyTest({
         name: 'icon basic copy',
-        iconClassNames: ['.anticon-copy'],
+        iconClassNames: [copy, check],
         tooltipTexts: ['Copy', 'Copied'],
       });
-      copyTest({ name: 'icon true', icon: true, iconClassNames: ['.anticon-copy'] });
-      copyTest({
-        name: 'icon two true',
-        icon: [true, true],
-        iconClassNames: ['.anticon-copy', '.anticon-check'],
-      });
-      copyTest({ name: 'icon false', icon: false, iconClassNames: ['.anticon-copy'] });
+      copyTest({ name: 'icon true', icon: true, iconClassNames: [copy, check] });
+      copyTest({ name: 'icon two true', icon: [true, true], iconClassNames: [copy, check] });
+      copyTest({ name: 'icon false', icon: false, iconClassNames: [copy, check] });
       copyTest({ name: 'icon custom text', icon: ['a', 'b'], iconTexts: ['a', 'b'] });
       copyTest({ name: 'icon custom element', icon: [dom, dom2], iconTexts: ['12', '34'] });
       copyTest({
         name: 'icon custom icon',
         icon: <SmileOutlined />,
-        iconClassNames: ['.anticon-smile'],
+        iconClassNames: ['.anticon-smile', check],
       });
       copyTest({
         name: 'icon custom icon2',
@@ -137,7 +135,7 @@ describe('Typography copy', () => {
             <LikeOutlined />
           </>
         ),
-        iconClassNames: ['.anticon-smile'],
+        iconClassNames: ['.anticon-smile', check],
       });
       copyTest({
         name: 'icon custom icon5',
@@ -147,7 +145,7 @@ describe('Typography copy', () => {
             <LikeOutlined />
           </>
         ),
-        iconClassNames: ['.anticon-like'],
+        iconClassNames: ['.anticon-like', check],
       });
       copyTest({
         name: 'tooltips true',
