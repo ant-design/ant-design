@@ -45,6 +45,7 @@ class Demo extends React.Component {
           treeData: this.state.treeData.concat([
             this.genTreeNode(id, false),
             this.genTreeNode(id, true),
+            this.genTreeNode(id, true),
           ]),
         });
         resolve();

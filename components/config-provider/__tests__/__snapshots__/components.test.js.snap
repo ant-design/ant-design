@@ -13272,9 +13272,10 @@ exports[`ConfigProvider components Form configProvider 1`] = `
         </div>
       </div>
       <div
-        class="config-form-item-explain config-form-item-explain-error"
+        class="config-form-item-explain"
       >
         <div
+          class="config-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13309,9 +13310,10 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
         </div>
       </div>
       <div
-        class="config-form-item-explain config-form-item-explain-error"
+        class="config-form-item-explain"
       >
         <div
+          class="config-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13346,9 +13348,10 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
         </div>
       </div>
       <div
-        class="config-form-item-explain config-form-item-explain-error"
+        class="config-form-item-explain"
       >
         <div
+          class="config-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13383,9 +13386,10 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13420,9 +13424,10 @@ exports[`ConfigProvider components Form normal 1`] = `
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13457,9 +13462,10 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
         </div>
       </div>
       <div
-        class="prefix-Form-item-explain prefix-Form-item-explain-error"
+        class="prefix-Form-item-explain"
       >
         <div
+          class="prefix-Form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
