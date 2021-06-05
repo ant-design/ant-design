@@ -27,7 +27,7 @@ describe('Typography copy', () => {
           const wrapper = mount(<Base copyable={{ icon, tooltips }}>test copy</Base>);
           // icon
           if (iconClassNames[0] !== undefined) {
-            expect(wrapper.find(iconClassNames[0]).length).toBeTruthy();
+            expect(wrapper.exists(iconClassNames[0])).toBeTruthy();
           }
           if (iconTexts[0] !== undefined) {
             expect(wrapper.find('.ant-typography-copy').at(0).text()).toBe(iconTexts[0]);
@@ -42,13 +42,13 @@ describe('Typography copy', () => {
           }
 
           if (tooltipLength !== undefined) {
-            expect(wrapper.find('.ant-tooltip-inner').length).toBe(tooltipLength);
+            expect(wrapper.exists('.ant-tooltip-inner')).toBe(tooltipLength);
           }
 
           wrapper.find('.ant-typography-copy').first().simulate('click');
           jest.useRealTimers();
           if (iconClassNames[1] !== undefined) {
-            expect(wrapper.find(iconClassNames[1]).length).toBeTruthy();
+            expect(wrapper.exists(iconClassNames[1])).toBeTruthy();
           }
           wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
           wrapper.update();
