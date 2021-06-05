@@ -24,8 +24,8 @@ function showConfirm() {
     title: 'Do you Want to delete these items?',
     icon: <ExclamationCircleOutlined />,
     content: 'Some descriptions',
-    onOk() {
-      console.log('OK');
+    onOk(e) {
+      console.log('OK', e);
     },
     onCancel() {
       console.log('Cancel');
