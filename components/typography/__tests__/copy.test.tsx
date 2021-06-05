@@ -175,6 +175,23 @@ describe('Typography copy', () => {
         tooltips: [''],
         tooltipLength: 0,
       });
+
+      copyTest({
+        name: 'tooltips true true',
+        tooltips: [true, true],
+        tooltipTexts: ['Copy', 'Copied'],
+      });
+      copyTest({
+        name: 'tooltips true false',
+        tooltips: [true, false],
+        tooltipTexts: ['Copy', ''],
+      });
+
+      copyTest({
+        name: 'tooltips false true',
+        tooltips: [false, true],
+        tooltipLength: 0,
+      });
     });
   });
 });

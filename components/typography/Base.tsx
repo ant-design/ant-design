@@ -114,9 +114,6 @@ interface Locale {
   expand?: string;
 }
 
-const getIcon = (dom: React.ReactNode, defaultIcon: React.ReactNode) =>
-  dom === true ? defaultIcon : dom || defaultIcon;
-
 const ELLIPSIS_STR = '...';
 
 class Base extends React.Component<InternalBlockProps, BaseState> {
@@ -396,19 +393,36 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const { tooltips, icon } = copyable as CopyConfig;
 
-    const tooltipNodes = Array.isArray(tooltips) ? tooltips : [this.copyStr, this.copiedStr];
+    // tooltips
+    const baseTitles = [this.copyStr, this.copiedStr];
+    let tooltipNodes = Array.isArray(tooltips) ? tooltips : [tooltips];
+    if (tooltips === true || tooltips === undefined) {
+      tooltipNodes = baseTitles;
+    } else {
+      tooltipNodes = baseTitles.map((item, index) =>
+        tooltipNodes[index] === true ? item : tooltipNodes[index],
+      );
+    }
+    // icons
+    const baseIcons = [<CopyOutlined key="copy" />, <CheckOutlined key="check" />];
+    let icons = Array.isArray(icon) ? icon : [icon];
+    if (icon === true || icon === undefined) {
+      icons = baseIcons;
+    } else {
+      icons = baseIcons.map((item, index) => (icons[index] === true ? item : icons[index] || item));
+    }
+
     const title = copied ? tooltipNodes[1] : tooltipNodes[0];
     const ariaLabel = typeof title === 'string' ? title : '';
-    const icons = Array.isArray(icon) ? icon : [icon];
 
     return (
-      <Tooltip key="copy" title={tooltips === false ? '' : title}>
+      <Tooltip key="copy" title={title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? getIcon(icons[1], <CheckOutlined />) : getIcon(icons[0], <CopyOutlined />)}
+          {copied ? icons[1] : icons[0]}
         </TransButton>
       </Tooltip>
     );
