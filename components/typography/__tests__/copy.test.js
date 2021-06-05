@@ -42,7 +42,7 @@ describe('Typography copy', () => {
           }
 
           if (tooltipLength !== undefined) {
-            expect(wrapper.exists('.ant-tooltip-inner')).toBe(tooltipLength);
+            expect(wrapper.find('.ant-tooltip-inner').length).toBe(tooltipLength);
           }
 
           wrapper.find('.ant-typography-copy').first().simulate('click');
