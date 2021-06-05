@@ -1,44 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Typography copyable render 1`] = `
-<Base
-  copyable={
-    Object {
-      "icon": Array [
-        <React.Fragment>
-          <span>
-            1
-          </span>
-          2
-        </React.Fragment>,
-        <React.Fragment>
-          <span>
-            3
-          </span>
-          4
-        </React.Fragment>,
-      ],
-      "tooltips": Array [
-        <React.Fragment>
-          <span>
-            1
-          </span>
-          2
-        </React.Fragment>,
-        <React.Fragment>
-          <span>
-            3
-          </span>
-          4
-        </React.Fragment>,
-      ],
-    }
-  }
->
-  test copy
-</Base>
-`;
-
 exports[`Typography rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-typography ant-typography-rtl"

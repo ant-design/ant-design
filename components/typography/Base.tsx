@@ -396,7 +396,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const tooltipNodes = Array.isArray(tooltips) ? tooltips : [this.copyStr, this.copiedStr];
     const title = copied ? tooltipNodes[1] : tooltipNodes[0];
     const ariaLabel = typeof title === 'string' ? title : '';
-    const icons = Array.isArray(icon) ? icon : [icon];
+    const icons = Array.isArray(icon) ? icon : [icon === true ? undefined : icon];
 
     return (
       <Tooltip key="copy" title={tooltips === false ? '' : title}>
