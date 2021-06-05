@@ -83,9 +83,14 @@ describe('Typography copy', () => {
         </>
       );
 
-      copyTest({ name: 'icon basic copy', iconClassName: '.anticon-copy', tooltipText: 'Copy' });
-      copyTest({ name: 'icon true', icon: true, iconClassName: '.anticon-copy' });
-      copyTest({ name: 'icon false', icon: false, iconClassName: '.anticon-copy' });
+      copyTest({ name: 'icon basic copy', iconClassNames: ['.anticon-copy'], tooltipText: 'Copy' });
+      copyTest({ name: 'icon true', icon: true, iconClassNames: ['.anticon-copy'] });
+      copyTest({
+        name: 'icon two true',
+        icon: [true, true],
+        iconClassNames: ['.anticon-copy', '.anticon-check'],
+      });
+      copyTest({ name: 'icon false', icon: false, iconClassNames: ['.anticon-copy'] });
       copyTest({ name: 'icon custom text', icon: ['a', 'b'], iconTexts: ['a', 'b'] });
       copyTest({ name: 'icon custom element', icon: [dom, dom2], iconTexts: ['12', '34'] });
       copyTest({

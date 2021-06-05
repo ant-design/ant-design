@@ -396,8 +396,12 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const tooltipNodes = Array.isArray(tooltips) ? tooltips : [this.copyStr, this.copiedStr];
     const title = copied ? tooltipNodes[1] : tooltipNodes[0];
     const ariaLabel = typeof title === 'string' ? title : '';
-    const icons = Array.isArray(icon) ? icon : [icon === true ? undefined : icon];
+    const icons = Array.isArray(icon) ? icon : [icon];
 
+    const _icons = [
+      icons[0] === true ? <CopyOutlined /> : icons[0] || <CopyOutlined />,
+      icons[1] === true ? <CheckOutlined /> : icons[1] || <CheckOutlined />,
+    ];
     return (
       <Tooltip key="copy" title={tooltips === false ? '' : title}>
         <TransButton
@@ -405,7 +409,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? icons[1] || <CheckOutlined /> : icons[0] || <CopyOutlined />}
+          {copied ? _icons[1] : _icons[0]}
         </TransButton>
       </Tooltip>
     );
