@@ -531,12 +531,16 @@ describe('Typography', () => {
   it('copyable render', () => {
     const dom = (
       <>
-        <>1</>
-        <>2</>
+        <span>1</span>2
+      </>
+    );
+    const dom2 = (
+      <>
+        <span>3</span>4
       </>
     );
     expect(
-      <Base copyable={{ icon: [dom, dom], tooltips: [dom, dom] }}>test copy</Base>,
+      <Base copyable={{ icon: [dom, dom2], tooltips: [dom, dom2] }}>test copy</Base>,
     ).toMatchSnapshot();
   });
 });

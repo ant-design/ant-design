@@ -6,38 +6,30 @@ exports[`Typography copyable render 1`] = `
     Object {
       "icon": Array [
         <React.Fragment>
-          <React.Fragment>
+          <span>
             1
-          </React.Fragment>
-          <React.Fragment>
-            2
-          </React.Fragment>
+          </span>
+          2
         </React.Fragment>,
         <React.Fragment>
-          <React.Fragment>
-            1
-          </React.Fragment>
-          <React.Fragment>
-            2
-          </React.Fragment>
+          <span>
+            3
+          </span>
+          4
         </React.Fragment>,
       ],
       "tooltips": Array [
         <React.Fragment>
-          <React.Fragment>
+          <span>
             1
-          </React.Fragment>
-          <React.Fragment>
-            2
-          </React.Fragment>
+          </span>
+          2
         </React.Fragment>,
         <React.Fragment>
-          <React.Fragment>
-            1
-          </React.Fragment>
-          <React.Fragment>
-            2
-          </React.Fragment>
+          <span>
+            3
+          </span>
+          4
         </React.Fragment>,
       ],
     }
