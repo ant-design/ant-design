@@ -114,6 +114,9 @@ interface Locale {
   expand?: string;
 }
 
+const getIcon = (dom: React.ReactNode, defaultIcon: React.ReactNode) =>
+  dom === true ? defaultIcon : dom || defaultIcon;
+
 const ELLIPSIS_STR = '...';
 
 class Base extends React.Component<InternalBlockProps, BaseState> {
@@ -398,10 +401,6 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const ariaLabel = typeof title === 'string' ? title : '';
     const icons = Array.isArray(icon) ? icon : [icon];
 
-    const _icons = [
-      icons[0] === true ? <CopyOutlined /> : icons[0] || <CopyOutlined />,
-      icons[1] === true ? <CheckOutlined /> : icons[1] || <CheckOutlined />,
-    ];
     return (
       <Tooltip key="copy" title={tooltips === false ? '' : title}>
         <TransButton
@@ -409,7 +408,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? _icons[1] : _icons[0]}
+          {copied ? getIcon(icons[1], <CheckOutlined />) : getIcon(icons[0], <CopyOutlined />)}
         </TransButton>
       </Tooltip>
     );
