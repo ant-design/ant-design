@@ -876,7 +876,7 @@ Array [
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-inner ant-progress-circle-gradient"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
@@ -948,7 +948,7 @@ Array [
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-inner ant-progress-circle-gradient"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
