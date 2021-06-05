@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { SmileOutlined, LikeOutlined } from '@ant-design/icons';
+
 import Base from '../Base';
 
 describe('Typography copy', () => {
@@ -15,7 +17,7 @@ describe('Typography copy', () => {
         name,
         icon,
         tooltips,
-        iconClassName,
+        iconClassNames = [],
         iconTexts = [],
         tooltipTexts = [],
         tooltipLength,
@@ -24,8 +26,8 @@ describe('Typography copy', () => {
           jest.useFakeTimers();
           const wrapper = mount(<Base copyable={{ icon, tooltips }}>test copy</Base>);
           // icon
-          if (iconClassName) {
-            expect(wrapper.find(iconClassName).length).toBeTruthy();
+          if (iconClassNames[0] !== undefined) {
+            expect(wrapper.find(iconClassNames[0]).length).toBeTruthy();
           }
           if (iconTexts[0] !== undefined) {
             expect(wrapper.find('.ant-typography-copy').at(0).text()).toBe(iconTexts[0]);
@@ -45,6 +47,9 @@ describe('Typography copy', () => {
 
           wrapper.find('.ant-typography-copy').first().simulate('click');
           jest.useRealTimers();
+          if (iconClassNames[1] !== undefined) {
+            expect(wrapper.find(iconClassNames[1]).length).toBeTruthy();
+          }
           wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
           wrapper.update();
 
@@ -83,6 +88,16 @@ describe('Typography copy', () => {
       copyTest({ name: 'icon false', icon: false, iconClassName: '.anticon-copy' });
       copyTest({ name: 'icon custom text', icon: ['a', 'b'], iconTexts: ['a', 'b'] });
       copyTest({ name: 'icon custom element', icon: [dom, dom2], iconTexts: ['12', '34'] });
+      copyTest({
+        name: 'icon custom icon',
+        icon: <SmileOutlined />,
+        iconClassNames: ['.anticon-smile'],
+      });
+      copyTest({
+        name: 'icon custom icon2',
+        icon: [<SmileOutlined key="a" />, <LikeOutlined key="b" />],
+        iconClassNames: ['.anticon-smile', '.anticon-like'],
+      });
       copyTest({
         name: 'tooltips true',
         tooltips: true,
