@@ -99,6 +99,27 @@ describe('Typography copy', () => {
         iconClassNames: ['.anticon-smile', '.anticon-like'],
       });
       copyTest({
+        name: 'icon custom icon3',
+        icon: [
+          <>
+            <SmileOutlined />
+            <SmileOutlined />
+          </>,
+          <LikeOutlined key="b" />,
+        ],
+        iconClassNames: ['.anticon-smile', '.anticon-like'],
+      });
+      copyTest({
+        name: 'icon custom icon4',
+        icon: (
+          <>
+            <SmileOutlined />
+            <SmileOutlined />
+          </>
+        ),
+        iconClassNames: ['.anticon-smile'],
+      });
+      copyTest({
         name: 'tooltips true',
         tooltips: true,
         tooltipLength: 1,
