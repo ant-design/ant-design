@@ -21,11 +21,22 @@ describe('Typography copy', () => {
         iconTexts = [],
         tooltipTexts = [],
         tooltipLength,
+      }: {
+        name: string;
+        icon?: boolean | React.ReactNode;
+        tooltips?: boolean | React.ReactNode;
+        iconClassNames?: string[];
+        iconTexts?: string[];
+        tooltipTexts?: string[];
+        tooltipLength?: number;
       }) {
         it(name, async () => {
           jest.useFakeTimers();
-          const wrapper = mount(<Base copyable={{ icon, tooltips }}>test copy</Base>);
-          // icon
+          const wrapper = mount(
+            <Base component="p" copyable={{ icon, tooltips }}>
+              test copy
+            </Base>,
+          );
           if (iconClassNames[0] !== undefined) {
             expect(wrapper.exists(iconClassNames[0])).toBeTruthy();
           }
@@ -83,7 +94,11 @@ describe('Typography copy', () => {
         </>
       );
 
-      copyTest({ name: 'icon basic copy', iconClassNames: ['.anticon-copy'], tooltipText: 'Copy' });
+      copyTest({
+        name: 'icon basic copy',
+        iconClassNames: ['.anticon-copy'],
+        tooltipTexts: ['Copy', 'Copied'],
+      });
       copyTest({ name: 'icon true', icon: true, iconClassNames: ['.anticon-copy'] });
       copyTest({
         name: 'icon two true',
