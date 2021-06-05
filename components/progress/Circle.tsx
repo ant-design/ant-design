@@ -49,8 +49,8 @@ const Circle: React.FC<CircleProps> = props => {
   };
 
   // using className to style stroke color
+  const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
   const strokeColor = [presetPrimaryColors.green, props.strokeColor || null];
-  const isGradient = Object.prototype.toString.call(strokeColor) === '[object Object]';
 
   const wrapperClassName = classNames(`${prefixCls}-inner`, {
     [`${prefixCls}-circle-gradient`]: isGradient,
