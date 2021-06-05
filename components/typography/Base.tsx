@@ -393,12 +393,10 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const { tooltips, icon } = copyable as CopyConfig;
 
-    const _tooltips = Array.isArray(tooltips) ? tooltips : [];
-    const tooltipNodes = _tooltips.length === 0 ? [this.copyStr, this.copiedStr] : _tooltips;
+    const tooltipNodes = Array.isArray(tooltips) ? tooltips : [this.copyStr, this.copiedStr];
     const title = copied ? tooltipNodes[1] : tooltipNodes[0];
     const ariaLabel = typeof title === 'string' ? title : '';
-    const _icons = Array.isArray(icon) ? icon : [icon];
-    const icons = _icons.length === 0 ? [] : _icons;
+    const icons = Array.isArray(icon) ? icon : [icon];
 
     return (
       <Tooltip key="copy" title={tooltips === false ? '' : title}>
