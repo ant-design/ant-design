@@ -592,7 +592,7 @@ Array [
   >
     Hide Copy tooltips.
     <div
-      aria-label="Copy"
+      aria-label=""
       class="ant-typography-copy"
       role="button"
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
