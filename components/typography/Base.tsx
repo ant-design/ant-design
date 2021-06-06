@@ -406,7 +406,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const title = copied
       ? getNode(tooltipNodes[1], this.copiedStr)
       : getNode(tooltipNodes[0], this.copyStr);
-    const ariaLabel = typeof title === 'string' ? title : '';
+    const systemStr = copied ? this.copiedStr : this.copyStr;
+    const ariaLabel = typeof title === 'string' ? title : systemStr;
 
     return (
       <Tooltip key="copy" title={title}>
