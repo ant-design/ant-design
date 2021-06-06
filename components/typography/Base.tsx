@@ -93,6 +93,21 @@ function wrapperDecorations(
   return currentContent;
 }
 
+function getNode(dom: React.ReactNode, defaultNodes: React.ReactNode[], needDom?: boolean) {
+  if (dom === true || dom === undefined) {
+    return defaultNodes;
+  }
+  let icons = Array.isArray(dom) ? dom : [dom];
+  icons = [
+    icons[0] === true ? defaultNodes[0] : icons[0],
+    icons[1] === true ? defaultNodes[1] : icons[1],
+  ];
+  if (needDom) {
+    icons = [icons[0] || defaultNodes[0], icons[1] || defaultNodes[1]];
+  }
+  return icons;
+}
+
 interface InternalBlockProps extends BlockProps {
   component: string;
 }
@@ -393,24 +408,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const { tooltips, icon } = copyable as CopyConfig;
 
-    // tooltips
-    const baseTitles = [this.copyStr, this.copiedStr];
-    let tooltipNodes = Array.isArray(tooltips) ? tooltips : [tooltips];
-    if (tooltips === true || tooltips === undefined) {
-      tooltipNodes = baseTitles;
-    } else {
-      tooltipNodes = baseTitles.map((item, index) =>
-        tooltipNodes[index] === true ? item : tooltipNodes[index],
-      );
-    }
-    // icons
-    const baseIcons = [<CopyOutlined key="copy" />, <CheckOutlined key="check" />];
-    let icons = Array.isArray(icon) ? icon : [icon];
-    if (icon === true || icon === undefined) {
-      icons = baseIcons;
-    } else {
-      icons = baseIcons.map((item, index) => (icons[index] === true ? item : icons[index] || item));
-    }
+    const tooltipNodes = getNode(tooltips, [this.copyStr, this.copiedStr]);
+    const icons = getNode(icon, [<CopyOutlined key="copy" />, <CheckOutlined key="check" />], true);
 
     const title = copied ? tooltipNodes[1] : tooltipNodes[0];
     const ariaLabel = typeof title === 'string' ? title : '';
