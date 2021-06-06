@@ -23,7 +23,11 @@ const App = () => {
     });
 
   return (
-    <Popconfirm title="Title" onConfirm={confirm}>
+    <Popconfirm
+      title="Title"
+      onConfirm={confirm}
+      onVisibleChange={() => console.log('visible change')}
+    >
       <Button type="primary">Open Popconfirm with Promise</Button>
     </Popconfirm>
   );

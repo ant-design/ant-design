@@ -45,6 +45,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
       (...args: any[]) => {
         setLoading(false);
         close(...args);
+        clickedRef.current = false;
       },
       (e: Error) => {
         // Emit error when catch promise reject
@@ -71,6 +72,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     if (props.emitEvent) {
       returnValueOfOnOk = actionFn(e);
       if (props.quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
+        clickedRef.current = false;
         close(e);
         return;
       }
