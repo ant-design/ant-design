@@ -93,6 +93,13 @@ function wrapperDecorations(
   return currentContent;
 }
 
+function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
+  if (dom === true || dom === undefined) {
+    return defaultNode;
+  }
+  return dom || (needDom && defaultNode);
+}
+
 interface InternalBlockProps extends BlockProps {
   component: string;
 }
@@ -391,23 +398,27 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const prefixCls = this.getPrefixCls();
 
-    const { tooltips } = copyable as CopyConfig;
-    let tooltipNodes = toArray(tooltips) as React.ReactNode[];
-    if (tooltipNodes.length === 0) {
-      tooltipNodes = [this.copyStr, this.copiedStr];
-    }
-    const title = copied ? tooltipNodes[1] : tooltipNodes[0];
-    const ariaLabel = typeof title === 'string' ? title : '';
-    const icons = toArray((copyable as CopyConfig).icon);
+    const { tooltips, icon } = copyable as CopyConfig;
+
+    const tooltipNodes = Array.isArray(tooltips) ? tooltips : [tooltips];
+    const iconNodes = Array.isArray(icon) ? icon : [icon];
+
+    const title = copied
+      ? getNode(tooltipNodes[1], this.copiedStr)
+      : getNode(tooltipNodes[0], this.copyStr);
+    const systemStr = copied ? this.copiedStr : this.copyStr;
+    const ariaLabel = typeof title === 'string' ? title : systemStr;
 
     return (
-      <Tooltip key="copy" title={tooltips === false ? '' : title}>
+      <Tooltip key="copy" title={title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? icons[1] || <CheckOutlined /> : icons[0] || <CopyOutlined />}
+          {copied
+            ? getNode(iconNodes[1], <CheckOutlined />, true)
+            : getNode(iconNodes[0], <CopyOutlined />, true)}
         </TransButton>
       </Tooltip>
     );
