@@ -1352,6 +1352,150 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         </span>
       </li>
       <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:3"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 4
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:4"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 5
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:5"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 6
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:6"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 7
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:7"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 8
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:8"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 9
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:9"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 10
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:10"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 11
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:11"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 12
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:12"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 13
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:13"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 14
+        </span>
+      </li>
+      <li
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+        style="opacity:1;order:14"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          nav 15
+        </span>
+      </li>
+      <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
         role="none"
