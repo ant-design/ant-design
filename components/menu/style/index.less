@@ -54,10 +54,6 @@
     transition: all @animation-duration-slow;
   }
 
-  &-horizontal {
-    display: flex;
-  }
-
   &-horizontal &-submenu {
     transition: border-color @animation-duration-slow @ease-in-out,
       background @animation-duration-slow @ease-in-out;
@@ -359,6 +355,7 @@
   }
 
   &-horizontal {
+    display: flex;
     line-height: @menu-horizontal-line-height;
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
