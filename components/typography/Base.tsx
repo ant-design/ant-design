@@ -93,19 +93,11 @@ function wrapperDecorations(
   return currentContent;
 }
 
-function getNode(dom: React.ReactNode, defaultNodes: React.ReactNode[], needDom?: boolean) {
+function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
   if (dom === true || dom === undefined) {
-    return defaultNodes;
+    return defaultNode;
   }
-  let icons = Array.isArray(dom) ? dom : [dom];
-  icons = [
-    icons[0] === true ? defaultNodes[0] : icons[0],
-    icons[1] === true ? defaultNodes[1] : icons[1],
-  ];
-  if (needDom) {
-    icons = [icons[0] || defaultNodes[0], icons[1] || defaultNodes[1]];
-  }
-  return icons;
+  return dom || (needDom && defaultNode);
 }
 
 interface InternalBlockProps extends BlockProps {
@@ -408,10 +400,12 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const { tooltips, icon } = copyable as CopyConfig;
 
-    const tooltipNodes = getNode(tooltips, [this.copyStr, this.copiedStr]);
-    const icons = getNode(icon, [<CopyOutlined key="copy" />, <CheckOutlined key="check" />], true);
+    const tooltipNodes = Array.isArray(tooltips) ? tooltips : [tooltips];
+    const iconNodes = Array.isArray(icon) ? icon : [icon];
 
-    const title = copied ? tooltipNodes[1] : tooltipNodes[0];
+    const title = copied
+      ? getNode(tooltipNodes[1], this.copiedStr)
+      : getNode(tooltipNodes[0], this.copyStr);
     const ariaLabel = typeof title === 'string' ? title : '';
 
     return (
@@ -421,7 +415,9 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? icons[1] : icons[0]}
+          {copied
+            ? getNode(iconNodes[1], <CheckOutlined />, true)
+            : getNode(iconNodes[0], <CopyOutlined />, true)}
         </TransButton>
       </Tooltip>
     );
