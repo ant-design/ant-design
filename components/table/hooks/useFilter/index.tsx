@@ -1,6 +1,7 @@
 import isEqual from 'lodash/isEqual';
 import sortBy from 'lodash/sortBy';
 import * as React from 'react';
+import devWarning from '../../../_util/devWarning';
 import {
   TransformColumns,
   ColumnsType,
@@ -218,20 +219,15 @@ function useFilter<RecordType>({
       return filterStates;
     }
 
-    // If `filterStates` is controlled has different filteredKeys then warn the user
-    const hasMismatchedControlledKeys = collectedStates.some(
-      ({ key, filteredKeys }) =>
-        !isEqual(
-          sortBy(filterStates.find(item => item.key === key)?.filteredKeys || []),
-          sortBy(filteredKeys),
-        ),
+    const filteredKeysIsAllControlled = collectedStates.every(
+      ({ filteredKeys }) => filteredKeys !== undefined,
     );
-    if (hasMismatchedControlledKeys) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        'You pass `filteredKeys` in to make it controlled but not change it when filter states changes. Please change it in `onFilterChange` callback.',
-      );
-    }
+
+    devWarning(
+      filteredKeysIsNotControlled || filteredKeysIsAllControlled,
+      'Table',
+      '`FilteredKeys` should all be controlled or not controlled.',
+    );
 
     return collectedStates;
   }, [mergedColumns, filterStates]);
