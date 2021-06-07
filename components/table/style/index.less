@@ -60,6 +60,12 @@
         text-overflow: ellipsis;
       }
     }
+
+    .@{table-prefix-cls}-column-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: keep-all;
+    }
   }
 
   // ============================ Title =============================
@@ -232,6 +238,8 @@
   }
 
   &-column-title {
+    position: relative;
+    z-index: 1;
     flex: 1;
   }
 

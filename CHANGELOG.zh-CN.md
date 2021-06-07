@@ -15,6 +15,24 @@ timeline: true
 
 ---
 
+## 4.16.2
+
+`2021-06-07`
+
+- 🐞 修复 Menu `horizontal` 模式下的自动省略布局会被 `float` 破坏的问题。[#30879](https://github.com/ant-design/ant-design/pull/30879)
+- Typography
+  - 🐞 修复 Typography.Paragraph 的 `copyable` 会将 React.Fragment 当做数组处理的问题。[#30869](https://github.com/ant-design/ant-design/pull/30869) [@crazyair](https://github.com/crazyair)
+  - 🐞 修复 Typography 自定义 `font-size` 时省略宽度不正确的问题。[#30840](https://github.com/ant-design/ant-design/pull/30840)
+- 🐞 修复 Progress `type="circle"` 有时会报错 `Rendered more hooks than during the previous render` 的问题。[#30855](https://github.com/ant-design/ant-design/pull/30855)
+- 💄 优化 Tooltip 内容的宽度。[#30822](https://github.com/ant-design/ant-design/pull/30822) [@donysukardi](https://github.com/donysukardi)
+- Table
+  - 🛠 优化 Table 中全选复选框的状态显示逻辑。[#30811](https://github.com/ant-design/ant-design/pull/30811) [@kerm1it](https://github.com/kerm1it)
+  - 🐞 修复 Table 列筛选和排序时 `column.title` 设置 `onClick` 和 `ellipsis` 无效的问题。[#30799](https://github.com/ant-design/ant-design/pull/30799)
+- 💄 修复 Dropdown 条目包含超链接时的颜色样式，另外现在点击图标也能触发超链接效果。[#30802](https://github.com/ant-design/ant-design/pull/30802)
+- 💄 移除重复的通配符 reset 样式以优化样式渲染性能。[#30660](https://github.com/ant-design/ant-design/pull/30660) [@renzhao1113](https://github.com/renzhao1113)
+- TypeScript
+  - 🤖 调整 Form, Input, Locale, PageHeader 组件类型定义使其更精确。[#30776](https://github.com/ant-design/ant-design/pull/30776) [@qqabcv520](https://github.com/qqabcv520)
+
 ## 4.16.1
 
 `2021-05-30`

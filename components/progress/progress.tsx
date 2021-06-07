@@ -83,8 +83,9 @@ export default class Progress extends React.Component<ProgressProps> {
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
     const { showInfo, format, type, percent } = this.props;
     const successPercent = getSuccessPercent(this.props);
-    if (!showInfo) return null;
-
+    if (!showInfo) {
+      return null;
+    }
     let text;
     const textFormatter = format || (percentNumber => `${percentNumber}%`);
     const isLineType = type === 'line';

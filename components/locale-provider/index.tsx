@@ -18,19 +18,19 @@ export interface Locale {
   locale: string;
   Pagination?: PaginationLocale;
   DatePicker?: DatePickerLocale;
-  TimePicker?: Object;
-  Calendar?: Object;
+  TimePicker?: Record<string, any>;
+  Calendar?: Record<string, any>;
   Table?: TableLocale;
   Modal?: ModalLocale;
   Popconfirm?: PopconfirmLocale;
   Transfer?: Partial<TransferLocale>;
-  Select?: Object;
+  Select?: Record<string, any>;
   Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
-  global?: Object;
-  PageHeader?: Object;
-  Icon?: Object;
-  Text?: Object;
+  global?: Record<string, any>;
+  PageHeader?: { back: string };
+  Icon?: Record<string, any>;
+  Text?: Record<string, any>;
   Form?: {
     optional?: string;
     defaultValidateMessages: ValidateMessages;

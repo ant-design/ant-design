@@ -204,4 +204,14 @@ describe('Progress', () => {
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
   });
+
+  // https://github.com/ant-design/ant-design/issues/30685
+  describe('github issues', () => {
+    it('"Rendered more hooks than during the previous render"', () => {
+      expect(() => {
+        const wrapper = mount(<Progress percent={60} success={{ percent: 0 }} type="circle" />);
+        wrapper.setProps({ success: { percent: 10 } });
+      }).not.toThrow();
+    });
+  });
 });
