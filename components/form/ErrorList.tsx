@@ -32,6 +32,7 @@ export interface ErrorListProps {
   helpStatus?: ValidateStatus;
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
+  className?: string;
 }
 
 export default function ErrorList({
@@ -39,6 +40,7 @@ export default function ErrorList({
   helpStatus,
   errors = EMPTY_LIST,
   warnings = EMPTY_LIST,
+  className: rootClassName,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -76,7 +78,10 @@ export default function ErrorList({
         const { className: holderClassName, style: holderStyle } = holderProps;
 
         return (
-          <div className={classNames(baseClassName, holderClassName)} style={holderStyle}>
+          <div
+            className={classNames(baseClassName, holderClassName, rootClassName)}
+            style={holderStyle}
+          >
             <CSSMotionList
               keys={fullKeyList}
               {...collapseMotion}

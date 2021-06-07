@@ -13272,7 +13272,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
         </div>
       </div>
       <div
-        class="config-form-item-explain"
+        class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
           class="config-form-item-explain-error"
@@ -13310,7 +13310,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
         </div>
       </div>
       <div
-        class="config-form-item-explain"
+        class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
           class="config-form-item-explain-error"
@@ -13348,7 +13348,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
         </div>
       </div>
       <div
-        class="config-form-item-explain"
+        class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
           class="config-form-item-explain-error"
@@ -13386,7 +13386,7 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
           class="ant-form-item-explain-error"
@@ -13424,7 +13424,7 @@ exports[`ConfigProvider components Form normal 1`] = `
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
           class="ant-form-item-explain-error"
@@ -13462,7 +13462,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
         </div>
       </div>
       <div
-        class="prefix-Form-item-explain"
+        class="prefix-Form-item-explain prefix-Form-item-explain-connected"
       >
         <div
           class="prefix-Form-item-explain-error"
