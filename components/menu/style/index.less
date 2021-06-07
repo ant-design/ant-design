@@ -40,6 +40,15 @@
     list-style: none;
   }
 
+  // Overflow ellipsis
+  &-overflow {
+    display: flex;
+
+    &-item {
+      flex: none;
+    }
+  }
+
   &-hidden,
   &-submenu-hidden {
     display: none;
@@ -355,7 +364,6 @@
   }
 
   &-horizontal {
-    display: flex;
     line-height: @menu-horizontal-line-height;
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
