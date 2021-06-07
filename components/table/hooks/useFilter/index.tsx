@@ -1,3 +1,4 @@
+import isEqual from 'lodash/isEqual';
 import * as React from 'react';
 import {
   TransformColumns,
@@ -207,9 +208,25 @@ function useFilter<RecordType>({
   const mergedFilterStates = React.useMemo(() => {
     const collectedStates = collectFilterStates(mergedColumns, false);
 
+    const filteredKeysIsNotControlled = collectedStates.every(
+      ({ filteredKeys }) => filteredKeys === undefined,
+    );
+
     // Return if not controlled
-    if (collectedStates.every(({ filteredKeys }) => filteredKeys === undefined)) {
+    if (filteredKeysIsNotControlled) {
       return filterStates;
+    }
+
+    // If `filterStates` is controlled has different filteredKeys then warn the user
+    const hasMismatchedControlledKeys = collectedStates.some(
+      ({ key, filteredKeys }) =>
+        !isEqual(filterStates.find(item => item.key === key)?.filteredKeys, filteredKeys),
+    );
+    if (hasMismatchedControlledKeys) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'You pass `filteredKeys` in to make it controlled but not change it when filter states changes. Please change it in `onFilterChange` callback.',
+      );
     }
 
     return collectedStates;
