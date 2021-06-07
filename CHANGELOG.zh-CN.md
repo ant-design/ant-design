@@ -15,6 +15,24 @@ timeline: true
 
 ---
 
+## 4.16.2
+
+`2021-06-07`
+
+- 🐞 Fix Menu auto overflow with `horizontal` mod breaks by `float` element. [#30879](https://github.com/ant-design/ant-design/pull/30879)
+- Typography
+  - 🐞 Fix the problem that Typography.Paragraph `copyable` will treat `React.Fragment` as an array. [#30869](https://github.com/ant-design/ant-design/pull/30869) [@crazyair](https://github.com/crazyair)
+  - 🐞 Fix Typography incorrect ellipsis width when customize `font-size`. [#30840](https://github.com/ant-design/ant-design/pull/30840)
+- 🐞 Fix Progress `type="circle"` throws error `Rendered more hooks than during the previous render` sometimes. [#30855](https://github.com/ant-design/ant-design/pull/30855)
+- 💄 Optimize Tooltip content width. [#30822](https://github.com/ant-design/ant-design/pull/30822) [@donysukardi](https://github.com/donysukardi)
+- Table
+  - 🛠 Optimize state display logic of select all checkbox in Table. [#30811](https://github.com/ant-design/ant-design/pull/30811) [@kerm1it](https://github.com/kerm1it)
+  - 🐞 Fix Table column which contains filters or sorters cannot work with `onClick` and `ellipsis` property. [#30799](https://github.com/ant-design/ant-design/pull/30799)
+- 💄 Fix Dropdown Item with link color style and click icon can also trigger link effect now. [#30802](https://github.com/ant-design/ant-design/pull/30802)
+- 💄 Remove duplicated css reset styles for render performance. [#30660](https://github.com/ant-design/ant-design/pull/30660) [@renzhao1113](https://github.com/renzhao1113)
+- TypeScript
+  - 🤖 Adjust Form, Input, Locale, PageHeader component definition. [#30776](https://github.com/ant-design/ant-design/pull/30776) [@qqabcv520](https://github.com/qqabcv520)
+
 ## 4.16.1
 
 `2021-05-30`
