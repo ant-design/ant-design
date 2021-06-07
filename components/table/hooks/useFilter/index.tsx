@@ -1,4 +1,5 @@
 import isEqual from 'lodash/isEqual';
+import sortBy from 'lodash/sortBy';
 import * as React from 'react';
 import {
   TransformColumns,
@@ -220,7 +221,10 @@ function useFilter<RecordType>({
     // If `filterStates` is controlled has different filteredKeys then warn the user
     const hasMismatchedControlledKeys = collectedStates.some(
       ({ key, filteredKeys }) =>
-        !isEqual(filterStates.find(item => item.key === key)?.filteredKeys, filteredKeys),
+        !isEqual(
+          sortBy(filterStates.find(item => item.key === key)?.filteredKeys || []),
+          sortBy(filteredKeys),
+        ),
     );
     if (hasMismatchedControlledKeys) {
       // eslint-disable-next-line no-console
