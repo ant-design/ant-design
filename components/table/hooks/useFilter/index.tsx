@@ -1,5 +1,3 @@
-import isEqual from 'lodash/isEqual';
-import sortBy from 'lodash/sortBy';
 import * as React from 'react';
 import devWarning from '../../../_util/devWarning';
 import {
