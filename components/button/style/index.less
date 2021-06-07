@@ -4,11 +4,6 @@
 
 @btn-prefix-cls: ~'@{ant-prefix}-btn';
 
-// for compatible
-@btn-ghost-color: @text-color;
-@btn-ghost-bg: transparent;
-@btn-ghost-border: @border-color-base;
-
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
@@ -59,10 +54,6 @@
         border-left-color: @btn-default-border;
       }
     }
-  }
-
-  &-ghost {
-    .btn-ghost();
   }
 
   &-dashed {
