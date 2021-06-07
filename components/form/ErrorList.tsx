@@ -32,8 +32,7 @@ export interface ErrorListProps {
   helpStatus?: ValidateStatus;
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
-  /** @private. Used Form.Item internal. Do not use in your production. */
-  _byItem?: boolean;
+  className?: string;
 }
 
 export default function ErrorList({
@@ -41,7 +40,7 @@ export default function ErrorList({
   helpStatus,
   errors = EMPTY_LIST,
   warnings = EMPTY_LIST,
-  _byItem,
+  className: rootClassName,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -80,9 +79,7 @@ export default function ErrorList({
 
         return (
           <div
-            className={classNames(baseClassName, holderClassName, {
-              [`${baseClassName}-independent`]: !_byItem,
-            })}
+            className={classNames(baseClassName, holderClassName, rootClassName)}
             style={holderStyle}
           >
             <CSSMotionList
