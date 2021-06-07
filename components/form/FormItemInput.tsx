@@ -89,7 +89,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   );
   const errorListDom = (
     <FormItemPrefixContext.Provider value={{ prefixCls, status }}>
-      <ErrorList errors={errors} warnings={warnings} help={help} helpStatus={status} />
+      <ErrorList errors={errors} warnings={warnings} help={help} helpStatus={status} _byItem />
     </FormItemPrefixContext.Provider>
   );
 
