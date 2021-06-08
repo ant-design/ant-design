@@ -1,6 +1,5 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
-import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import { ConfigContext, DirectionType } from '../config-provider';
@@ -54,6 +53,7 @@ export interface DrawerProps {
   className?: string;
   handler?: React.ReactNode;
   keyboard?: boolean;
+  extra?: React.ReactNode;
   footer?: React.ReactNode;
   footerStyle?: React.CSSProperties;
   level?: string | string[] | null | undefined;
@@ -97,6 +97,7 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       onClose,
       footer,
       footerStyle,
+      extra,
       ...rest
     },
     ref,
@@ -205,36 +206,24 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       };
     };
 
-    function renderCloseIcon() {
-      return (
-        closable && (
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close"
-            className={`${prefixCls}-close`}
-            style={
-              {
-                '--scroll-bar': `${getScrollBarSize()}px`,
-              } as any
-            }
-          >
-            {closeIcon}
-          </button>
-        )
-      );
-    }
+    const closeIconNode = closable && (
+      <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+        {closeIcon}
+      </button>
+    );
 
     function renderHeader() {
       if (!title && !closable) {
         return null;
       }
 
-      const headerClassName = title ? `${prefixCls}-header` : `${prefixCls}-header-no-title`;
       return (
-        <div className={headerClassName} style={headerStyle}>
-          {title && <div className={`${prefixCls}-title`}>{title}</div>}
-          {closable && renderCloseIcon()}
+        <div className={`${prefixCls}-header`} style={headerStyle}>
+          <div className={`${prefixCls}-header-title`}>
+            {closeIconNode}
+            {title && <div className={`${prefixCls}-title`}>{title}</div>}
+          </div>
+          {extra}
         </div>
       );
     }
