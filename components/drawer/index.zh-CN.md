@@ -27,6 +27,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | contentWrapperStyle | 可用于设置 Drawer 包裹内容部分的样式 | CSSProperties | - |  |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
 | drawerStyle | 用于设置 Drawer 弹出层的样式 | CSSProperties | - |  |
+| extra | 抽屉右上角的操作区域 | ReactNode | - |  |
 | footer | 抽屉的页脚 | ReactNode | - |  |
 | footerStyle | 抽屉页脚部件的样式 | CSSProperties | - |  |
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |

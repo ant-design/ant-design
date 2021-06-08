@@ -223,7 +223,7 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
             {closeIconNode}
             {title && <div className={`${prefixCls}-title`}>{title}</div>}
           </div>
-          {extra}
+          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
         </div>
       );
     }

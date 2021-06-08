@@ -28,6 +28,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | contentWrapperStyle | Style of the drawer wrapper of content part | CSSProperties | - |  |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | drawerStyle | Style of the popup layer element | object | - |  |
+| extra | Extra actions area at corner | ReactNode | - |  |
 | footer | The footer for Drawer | ReactNode | - |  |
 | footerStyle | Style of the drawer footer part | CSSProperties | - |  |
 | forceRender | Prerender Drawer component forcely | boolean | false |  |
