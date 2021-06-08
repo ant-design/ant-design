@@ -12220,7 +12220,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
           class="config-drawer-wrapper-body"
         >
           <div
-            class="config-drawer-header"
+            class="config-drawer-header config-drawer-header-close-only"
           >
             <div
               class="config-drawer-header-title"
@@ -12284,7 +12284,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
           class="config-drawer-wrapper-body"
         >
           <div
-            class="config-drawer-header"
+            class="config-drawer-header config-drawer-header-close-only"
           >
             <div
               class="config-drawer-header-title"
@@ -12348,7 +12348,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
           class="config-drawer-wrapper-body"
         >
           <div
-            class="config-drawer-header"
+            class="config-drawer-header config-drawer-header-close-only"
           >
             <div
               class="config-drawer-header-title"
@@ -12412,7 +12412,7 @@ exports[`ConfigProvider components Drawer configProvider virtual and dropdownMat
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
             <div
               class="ant-drawer-header-title"
@@ -12476,7 +12476,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
             <div
               class="ant-drawer-header-title"
@@ -12540,7 +12540,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
           class="prefix-Drawer-wrapper-body"
         >
           <div
-            class="prefix-Drawer-header"
+            class="prefix-Drawer-header prefix-Drawer-header-close-only"
           >
             <div
               class="prefix-Drawer-header-title"

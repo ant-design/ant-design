@@ -31,7 +31,7 @@ exports[`Drawer render correctly 1`] = `
             class="ant-drawer-wrapper-body"
           >
             <div
-              class="ant-drawer-header"
+              class="ant-drawer-header ant-drawer-header-close-only"
             >
               <div
                 class="ant-drawer-header-title"
