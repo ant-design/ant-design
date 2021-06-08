@@ -218,7 +218,12 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       }
 
       return (
-        <div className={`${prefixCls}-header`} style={headerStyle}>
+        <div
+          className={classNames(`${prefixCls}-header`, {
+            [`${prefixCls}-header-close-only`]: closable && !title && !extra,
+          })}
+          style={headerStyle}
+        >
           <div className={`${prefixCls}-header-title`}>
             {closeIconNode}
             {title && <div className={`${prefixCls}-title`}>{title}</div>}
