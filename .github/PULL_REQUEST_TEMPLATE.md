@@ -1,4 +1,4 @@
-<!--
+
 First of all, thank you for your contribution! 😄
 
 New feature please send pull request to feature branch, and rest to master branch.
@@ -6,7 +6,7 @@ Pull request will be merged after one of collaborators approve.
 Please makes sure that these form are filled before submitting your pull request, thank you!
 
 [[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
--->
+
 
 ### 🤔 This is a ...
 
@@ -23,23 +23,23 @@ Please makes sure that these form are filled before submitting your pull request
 
 ### 🔗 Related issue link
 
-<!--
+
 1. Describe the source of requirement, like related issue link.
--->
+
 
 ### 💡 Background and solution
 
-<!--
+
 1. Describe the problem and the scenario.
 2. GIF or snapshot should be provided if includes UI/interactive modification.
 3. How to fix the problem, and list final API implementation and usage sample if that is an new feature.
--->
+
 
 ### 📝 Changelog
 
-<!--
+
 Describe changes from userside, and list all potential break changes or other risks.
---->
+
 
 | Language   | Changelog |
 | ---------- | --------- |
