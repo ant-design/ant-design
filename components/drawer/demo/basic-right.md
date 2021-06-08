@@ -30,13 +30,7 @@ const App: React.FC = () => {
       <Button type="primary" onClick={showDrawer}>
         Open
       </Button>
-      <Drawer
-        title="Basic Drawer"
-        placement="right"
-        closable={false}
-        onClose={onClose}
-        visible={visible}
-      >
+      <Drawer title="Basic Drawer" placement="right" onClose={onClose} visible={visible}>
         <p>Some contents...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>
