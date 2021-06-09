@@ -51,3 +51,11 @@ declare module '*.json' {
   export const version: string;
   export default value;
 }
+
+
+declare module '@docsearch/react/style';
+
+declare module '@docsearch/react/modal' {
+  import { DocSearchModal as value } from '@docsearch/react';
+  export const DocSearchModal = value;
+}

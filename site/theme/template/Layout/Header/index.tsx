@@ -7,7 +7,7 @@ import { Select, Row, Col, Popover, Button } from 'antd';
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
 import Logo from './Logo';
-import SearchBox from './SearchBox';
+import { SearchBar } from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
@@ -84,7 +84,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   componentDidMount() {
     const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
-    initDocSearch(intl.locale);
+    // initDocSearch(intl.locale);
 
     window.addEventListener('resize', this.onWindowResize);
     this.onWindowResize();
@@ -238,7 +238,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           };
 
           const searchBox = (
-            <SearchBox
+            <SearchBar
               key="search"
               {...sharedProps}
               responsive={responsive}
