@@ -52,10 +52,10 @@ const App: React.FC = () => {
         visible={visible}
         extra={
           <Space>
+            <Button onClick={onClose}>Cancel</Button>
             <Button type="primary" onClick={onClose}>
               OK
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
           </Space>
         }
       >

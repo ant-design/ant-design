@@ -72,7 +72,7 @@ const defaultPushState: PushState = { distance: 180 };
 const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
   (
     {
-      width = 256,
+      width = 378,
       height = 256,
       closable = true,
       placement = 'right' as placementType,
