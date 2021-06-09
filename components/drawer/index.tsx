@@ -22,6 +22,9 @@ type getContainerFunc = () => HTMLElement;
 const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
 type placementType = typeof PlacementTypes[number];
 
+const SizeTypes = tuple('default', 'large');
+type sizeType = typeof SizeTypes[number];
+
 export interface PushState {
   distance: string | number;
 }
@@ -35,6 +38,7 @@ export interface DrawerProps {
   mask?: boolean;
   maskStyle?: React.CSSProperties;
   style?: React.CSSProperties;
+  size?: sizeType;
   /** Wrapper dom node style of header and body */
   drawerStyle?: React.CSSProperties;
   headerStyle?: React.CSSProperties;
@@ -72,8 +76,9 @@ const defaultPushState: PushState = { distance: 180 };
 const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
   (
     {
-      width = 378,
-      height = 256,
+      width,
+      height,
+      size = 'default',
       closable = true,
       placement = 'right' as placementType,
       maskClosable = true,
@@ -169,9 +174,11 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       }
       const offsetStyle: any = {};
       if (placement === 'left' || placement === 'right') {
-        offsetStyle.width = width;
+        const defaultWidth = size === 'large' ? 736 : 378;
+        offsetStyle.width = typeof width === 'undefined' ? defaultWidth : width;
       } else {
-        offsetStyle.height = height;
+        const defaultHeight = size === 'large' ? 736 : 378;
+        offsetStyle.height = typeof height === 'undefined' ? defaultHeight : height;
       }
       return offsetStyle;
     };
