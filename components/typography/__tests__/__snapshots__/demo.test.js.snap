@@ -361,6 +361,15 @@ Array [
 ]
 `;
 
+exports[`renders ./components/typography/demo/ellipsis-middle.md correctly 1`] = `
+<span
+  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+  style="max-width:100%"
+>
+  In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency ofdevelopment.
+</span>
+`;
+
 exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
 Array [
   <div
