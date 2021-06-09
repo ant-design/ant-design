@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-在 Ant Design 规范中，操作按钮建议放在抽屉的右上角，可以使用 `extra` 属性来实现。
+抽屉的默认宽度为 `378px`，另外还提供一个大号抽屉 `736px`，可以用 `size` 属性来设置。
 
 ## en-US
 
-Extra actions should be placed at corner of drawer in Ant Design, you can using `extra` prop for that.
+The default width (or height) of Drawer is `378px`, and there is a presetted large size `736px`.
 
 ```tsx
 import React, { useState } from 'react';
