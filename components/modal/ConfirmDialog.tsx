@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Dialog, { ModalFuncProps } from './Modal';
-import ActionButton from './ActionButton';
+import ActionButton from '../_util/ActionButton';
 import devWarning from '../_util/devWarning';
 import ConfigProvider from '../config-provider';
 import { getTransitionName } from '../_util/motion';
@@ -68,7 +68,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const cancelButton = okCancel && (
     <ActionButton
       actionFn={onCancel}
-      closeModal={close}
+      close={close}
       autoFocus={autoFocusButton === 'cancel'}
       buttonProps={cancelButtonProps}
       prefixCls={`${rootPrefixCls}-btn`}
@@ -118,7 +118,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
           <ActionButton
             type={okType}
             actionFn={onOk}
-            closeModal={close}
+            close={close}
             autoFocus={autoFocusButton === 'ok'}
             buttonProps={okButtonProps}
             prefixCls={`${rootPrefixCls}-btn`}

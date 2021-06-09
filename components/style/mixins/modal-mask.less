@@ -3,8 +3,8 @@
 .modal-mask() {
   pointer-events: none;
 
-  &.zoom-enter,
-  &.zoom-appear {
+  &.@{ant-prefix}-zoom-enter,
+  &.@{ant-prefix}zoom-appear {
     transform: none; // reset scale avoid mousePosition bug
     opacity: 0;
     animation-duration: @animation-duration-slow;

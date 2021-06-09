@@ -1,4 +1,5 @@
 import * as React from 'react';
+import devWarning from '../../../_util/devWarning';
 import {
   TransformColumns,
   ColumnsType,
@@ -207,10 +208,24 @@ function useFilter<RecordType>({
   const mergedFilterStates = React.useMemo(() => {
     const collectedStates = collectFilterStates(mergedColumns, false);
 
+    const filteredKeysIsNotControlled = collectedStates.every(
+      ({ filteredKeys }) => filteredKeys === undefined,
+    );
+
     // Return if not controlled
-    if (collectedStates.every(({ filteredKeys }) => filteredKeys === undefined)) {
+    if (filteredKeysIsNotControlled) {
       return filterStates;
     }
+
+    const filteredKeysIsAllControlled = collectedStates.every(
+      ({ filteredKeys }) => filteredKeys !== undefined,
+    );
+
+    devWarning(
+      filteredKeysIsNotControlled || filteredKeysIsAllControlled,
+      'Table',
+      '`FilteredKeys` should all be controlled or not controlled.',
+    );
 
     return collectedStates;
   }, [mergedColumns, filterStates]);
