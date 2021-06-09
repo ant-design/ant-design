@@ -22,7 +22,7 @@ exports[`Drawer render correctly 1`] = `
       />
       <div
         class="ant-drawer-content-wrapper"
-        style="width: 256px;"
+        style="width: 378px;"
       >
         <div
           class="ant-drawer-content"

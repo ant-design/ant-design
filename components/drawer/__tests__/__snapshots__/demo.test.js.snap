@@ -160,7 +160,7 @@ exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
     </svg>
   </span>
   <span>
-     New account
+    New account
   </span>
 </button>
 `;
@@ -322,7 +322,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
       />
       <div
         class="ant-drawer-content-wrapper"
-        style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+        style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
       >
         <div
           class="ant-drawer-content"
@@ -354,6 +354,38 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/drawer/demo/size.md correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Large Size (378px)
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Default Size (736px)
+      </span>
+    </button>
   </div>
 </div>
 `;
