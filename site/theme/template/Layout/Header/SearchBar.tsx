@@ -65,7 +65,7 @@ export const SearchBar = ({ isZhCN, responsive, onTriggerFocus }: SearchBoxProps
   }, []);
 
   const searchModalContainer = React.useMemo(() => {
-    const id = 'antd_alogia_doc_search_modal';
+    const id = 'antd_aloglia_doc_search_modal';
     let searchModalContainer = document.querySelector(`#${id}`);
     if (!searchModalContainer) {
       const containerDiv = document.createElement('div');
