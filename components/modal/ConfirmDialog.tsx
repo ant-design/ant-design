@@ -11,7 +11,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
   close: (...args: any[]) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
-  iconPrefixCls: string;
+  iconPrefixCls?: string;
 }
 
 const ConfirmDialog = (props: ConfirmDialogProps) => {
