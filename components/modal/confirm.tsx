@@ -7,7 +7,7 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import { globalConfig } from '../config-provider';
 import devWarning from '../_util/devWarning';
 
 let defaultRootPrefixCls = '';
@@ -62,17 +62,17 @@ export default function confirm(config: ModalFuncProps) {
       // because Modal.config  set rootPrefixCls, which is different from other components
       const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+      const iconPrefixCls = getIconPrefixCls();
 
       ReactDOM.render(
-        <ConfigProvider iconPrefixCls={getIconPrefixCls()}>
-          <ConfirmDialog
-            {...props}
-            prefixCls={prefixCls}
-            rootPrefixCls={rootPrefixCls}
-            okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
-            cancelText={cancelText || runtimeLocale.cancelText}
-          />
-        </ConfigProvider>,
+        <ConfirmDialog
+          {...props}
+          prefixCls={prefixCls}
+          rootPrefixCls={rootPrefixCls}
+          iconPrefixCls={iconPrefixCls}
+          okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
+          cancelText={cancelText || runtimeLocale.cancelText}
+        />,
         div,
       );
     });
