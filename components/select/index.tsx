@@ -84,7 +84,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     getPrefixCls,
     renderEmpty,
     direction,
-    virtual,
+    virtual = false,
     dropdownMatchSelectWidth,
   }: ConfigConsumerProps) => {
     const {
