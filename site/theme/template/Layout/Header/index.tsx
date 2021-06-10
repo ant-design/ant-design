@@ -237,15 +237,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             isRTL,
           };
 
-          const searchBox = (
-            <SearchBar
-              key="search"
-              {...sharedProps}
-              responsive={responsive}
-              onTriggerFocus={this.onTriggerSearching}
-            />
-          );
-
           const navigationNode = (
             <Navigation
               key="nav"
@@ -341,7 +332,12 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <Logo {...sharedProps} location={location} />
                 </Col>
                 <Col {...colProps[1]} className="menu-row">
-                  {searchBox}
+                  <SearchBar
+                    key="search"
+                    {...sharedProps}
+                    responsive={responsive}
+                    onTriggerFocus={this.onTriggerSearching}
+                  />
                   {!isMobile && menu}
                 </Col>
               </Row>
