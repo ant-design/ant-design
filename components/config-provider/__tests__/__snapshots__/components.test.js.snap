@@ -12211,7 +12211,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
     />
     <div
       class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="config-drawer-content"
@@ -12275,7 +12275,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
     />
     <div
       class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="config-drawer-content"
@@ -12339,7 +12339,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
     />
     <div
       class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="config-drawer-content"
@@ -12403,7 +12403,7 @@ exports[`ConfigProvider components Drawer configProvider virtual and dropdownMat
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -12467,7 +12467,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -12531,7 +12531,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
     />
     <div
       class="prefix-Drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="prefix-Drawer-content"
