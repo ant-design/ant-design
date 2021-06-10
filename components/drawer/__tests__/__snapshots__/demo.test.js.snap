@@ -371,7 +371,7 @@ exports[`renders ./components/drawer/demo/size.md correctly 1`] = `
       type="button"
     >
       <span>
-        Open Large Size (378px)
+        Open Default Size (378px)
       </span>
     </button>
   </div>
@@ -383,7 +383,7 @@ exports[`renders ./components/drawer/demo/size.md correctly 1`] = `
       type="button"
     >
       <span>
-        Open Default Size (736px)
+        Open Large Size (736px)
       </span>
     </button>
   </div>
