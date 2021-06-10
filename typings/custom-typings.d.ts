@@ -58,3 +58,5 @@ declare module '@docsearch/react/modal' {
   import { DocSearchModal as value } from '@docsearch/react';
   export const DocSearchModal = value;
 }
+
+declare module 'docsearch.js';

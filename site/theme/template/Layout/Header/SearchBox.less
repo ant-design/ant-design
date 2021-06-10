@@ -17,6 +17,14 @@
   border-left: 1px solid @site-border-color-split;
   transition: width 0.5s;
 
+  .keybindings {
+    cursor: pointer;
+  }
+
+  .keybinding {
+    color: @search-icon-color;
+  }
+
   .ant-row-rtl & {
     margin: 0 0 0 auto !important;
     padding-right: 16px;
@@ -37,6 +45,12 @@
     color: @search-icon-color;
     transform: translateY(-50%);
     pointer-events: none;
+  }
+
+  .ant-input-affix-wrapper {
+    border: 0;
+    box-shadow: none;
+    background: transparent;
   }
 
   input {

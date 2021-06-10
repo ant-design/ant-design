@@ -3,6 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
@@ -13,6 +14,7 @@ import Navigation from './Navigation';
 import Github from './Github';
 import SiteContext from '../SiteContext';
 import { ping } from '../../utils';
+import { Algolia_Config } from './algolia-config';
 
 import './index.less';
 
@@ -31,6 +33,35 @@ export interface HeaderProps {
   router: any;
   themeConfig: { docVersions: Record<string, string> };
   changeDirection: (direction: string) => void;
+}
+
+let docsearch: any;
+const triggerDocSearchImport = () => {
+  if (docsearch) {
+    return Promise.resolve();
+  }
+
+  return import('docsearch.js').then((ds) => {
+    docsearch = ds.default;
+  });
+};
+
+function initDocSearch(isZhCN: boolean) {
+  if (!canUseDom()) {
+    return;
+  }
+
+  triggerDocSearchImport().then(() => {
+    docsearch({
+      appId: Algolia_Config.appId,
+      apiKey: Algolia_Config.apiKey,
+      indexName: Algolia_Config.indexName,
+      inputSelector: '#search-box input',
+      algoliaOptions: Algolia_Config.getSearchParams(isZhCN),
+      transformData: Algolia_Config.transformData,
+      debug: false, // Set debug to true if you want to inspect the dropdown
+    });
+  });
 }
 
 interface HeaderState {
@@ -53,8 +84,10 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   };
 
   componentDidMount() {
-    const { router } = this.props;
+    const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
+
+    initDocSearch(intl.locale === 'zh');
 
     window.addEventListener('resize', this.onWindowResize);
     this.onWindowResize();
@@ -305,6 +338,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <SearchBar
                     key="search"
                     {...sharedProps}
+                    algoliaConfig={Algolia_Config}
                     responsive={responsive}
                     onTriggerFocus={this.onTriggerSearching}
                   />
