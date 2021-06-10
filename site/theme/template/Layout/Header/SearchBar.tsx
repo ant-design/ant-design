@@ -12,7 +12,8 @@ import {
   DocSearchModalProps,
 } from '@docsearch/react';
 import { DocSearchHit } from '@docsearch/react/dist/esm/types';
-import '@docsearch/react/style';
+import '@docsearch/react/style/variables';
+import '@docsearch/react/style/button';
 import { SharedProps } from './interface';
 
 import './SearchBox.less';
@@ -67,11 +68,12 @@ export const SearchBar = ({ isZhCN, responsive, onTriggerFocus }: SearchBarProps
       return Promise.resolve();
     }
 
-    return Promise.all([import('@docsearch/react/modal'), import('@docsearch/react/style')]).then(
-      ([{ DocSearchModal: value }]) => {
-        SearchModal = value;
-      },
-    );
+    return Promise.all([
+      import('@docsearch/react/modal'),
+      import('@docsearch/react/style/modal'),
+    ]).then(([{ DocSearchModal: value }]) => {
+      SearchModal = value;
+    });
   }, []);
 
   const searchModalContainer = React.useMemo(() => {
