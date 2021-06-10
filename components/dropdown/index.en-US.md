@@ -27,6 +27,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | visible | Whether the dropdown menu is currently visible | boolean | - |  |
 | onVisibleChange | Called when the visible state is changed | (visible: boolean) => void | - |  |
+| onOverlayClick | Called when the overlay is clicked | (event: Event) => void | - |  |
 
 You should use [Menu](/components/menu/) as `overlay`. The menu items and dividers are also available by using `Menu.Item` and `Menu.Divider`.
 
