@@ -25,6 +25,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
   wrap?: boolean;
+  keepEmpty?: boolean;
 }
 
 const spaceSize = {
@@ -50,6 +51,7 @@ const Space: React.FC<SpaceProps> = props => {
     split,
     style,
     wrap = false,
+    keepEmpty = true,
     ...otherProps
   } = props;
 
@@ -63,7 +65,7 @@ const Space: React.FC<SpaceProps> = props => {
     [size],
   );
 
-  const childNodes = toArray(children, { keepEmpty: true });
+  const childNodes = toArray(children, { keepEmpty });
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
