@@ -1805,6 +1805,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </span>
         <span
           class="ant-picker-clear"
+          role="button"
         >
           <span
             aria-label="close-circle"
@@ -1872,6 +1873,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </span>
         <span
           class="ant-picker-clear"
+          role="button"
         >
           <span
             aria-label="close-circle"
@@ -1939,6 +1941,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </span>
         <span
           class="ant-picker-clear"
+          role="button"
         >
           <span
             aria-label="close-circle"
@@ -2114,6 +2117,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </span>
         <span
           class="ant-picker-clear"
+          role="button"
         >
           <span
             aria-label="close-circle"

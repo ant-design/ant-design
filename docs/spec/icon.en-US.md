@@ -17,7 +17,7 @@ An icon is a graphical representation of meaning. Icons can be used to express a
 
 System icons are often used to represent commonly used operations, such as: save, edit, delete. Ant Design also includes icons to represent file types and state.
 
-- [View the icon](/components/icon/)
+- [View the icons](/components/icon/)
 
 ### Key Contour Lines
 
