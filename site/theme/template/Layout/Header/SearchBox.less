@@ -48,9 +48,9 @@
   }
 
   .ant-input-affix-wrapper {
+    background: transparent;
     border: 0;
     box-shadow: none;
-    background: transparent;
   }
 
   input {
@@ -149,4 +149,48 @@
   #search-box {
     display: none;
   }
+}
+
+.DocSearch {
+  font-family: @font-family;
+}
+
+#antd_algolia_search_modal {
+  // theme customization for DocSearch Modal
+  .DocSearch {
+    --docsearch-primary-color: @primary-color;
+    --docsearch-text-color: @text-color;
+    --docsearch-muted-color: @text-color-secondary;
+    --docsearch-container-background: @modal-mask-bg;
+    --docsearch-searchbox-shadow: inset 0 0 0 2px @primary-color;
+
+    // Modal
+    --docsearch-modal-background: @modal-content-bg;
+
+    // Search box
+    --docsearch-searchbox-background: @text-color-secondary;
+    --docsearch-searchbox-focus-background: @white;
+
+    // Footer
+    --docsearch-footer-background: @white;
+
+    // Hits
+    // --docsearch-hit-background: @primary-color;
+    --docsearch-hit-color: @primary-color;
+    --docsearch-hit-active-color: @text-color-inverse;
+    --docsearch-highlight-color: @primary-color;
+  }
+}
+
+body[data-theme='default'] .DocSearch {
+  // --docsearch-text-color: rgba(0, 0, 0, 0.85);
+}
+
+body[data-theme='dark'] .DocSearch {
+  // --docsearch-text-color: rgba(255, 255, 255, 0.65);
+  // --docsearch-key-gradient: linear-gradient(
+  //   -26.5deg,
+  //   var(--ifm-color-emphasis-200) 0%,
+  //   var(--ifm-color-emphasis-100) 100%
+  // );
 }
