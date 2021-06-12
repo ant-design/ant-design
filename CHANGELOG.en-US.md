@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.16.3
+
+`2021-06-14`
+
+- 🐞 Fix the mistake that tooltip mount on wrong dom, when getPopupContainer of tooltip's props is undefined or null. [#30963](https://github.com/ant-design/ant-design/pull/30963) [@ymrdf](https://github.com/ymrdf)
+- 🐞 Fix Button lost margin between loading icon and text when children is fragment. [#30962](https://github.com/ant-design/ant-design/pull/30962)
+- 🐞 Table 增加内外部 `filteredKeys` 状态不一致的提示。 [#30882](https://github.com/ant-design/ant-design/pull/30882) [@wendellhu95](https://github.com/wendellhu95)
+- 💄 Adjust Dropdown item content style to make it get more display space. [#30911](https://github.com/ant-design/ant-design/pull/30911)
+- 💄 Fix Menu in dark mode open style affect by light mod. [#30907](https://github.com/ant-design/ant-design/pull/30907)
+- 🐞 fix: Translation bug in a Table sorter popup [PL]. [#30899](https://github.com/ant-design/ant-design/pull/30899) [@MichalJani](https://github.com/MichalJani)
+- 🐞 Fix Dropdown/DatePicker/Select/Cascader animation direction after auto adjust position. [#30892](https://github.com/ant-design/ant-design/pull/30892)
+
 ## 4.16.2
 
 `2021-06-07`
