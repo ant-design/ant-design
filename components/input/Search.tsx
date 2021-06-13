@@ -69,7 +69,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
   const searchIcon =
-    typeof enterButton === 'boolean' || typeof enterButton === 'undefined' ? (
+    typeof enterButton === 'boolean' ? (
       <SearchOutlined />
     ) : null;
   const btnClassName = `${prefixCls}-button`;
