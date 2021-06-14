@@ -22,7 +22,7 @@ export function useSiteData<T>(): [T, boolean] {
   React.useEffect(() => {
     if (Object.keys(data).length === 0 && typeof fetch !== 'undefined') {
       setLoading(true);
-      fetch(`https://raw.githubusercontent.com/ant-design/website-data/main/db.json`)
+      fetch(`https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`)
         .then(res => res.json())
         .then(result => {
           setData(result);
