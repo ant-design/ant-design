@@ -40,9 +40,11 @@ function initDocSearch(locale: string) {
     inputSelector: '#search-box input',
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(hits: { url: string }[]) {
+      const a = document.createElement('a');
       hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host);
-        hit.url = hit.url.replace('https:', window.location.protocol);
+        // `new URL` is not supported in IE
+        a.href = hit.url;
+        hit.url = `${a.pathname}${window.location.search || ''}${a.hash}`;
       });
       return hits;
     },
