@@ -6,14 +6,13 @@ import { Helmet } from 'react-helmet-async';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { Input, Tooltip } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-
 import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from '@docsearch/react';
 import '@docsearch/css';
 
 import { SharedProps } from './interface';
 import { IAlgoliaConfig } from './algolia-config';
 
-import './SearchBox.less';
+import './SearchBar.less';
 
 export interface SearchBarProps extends SharedProps {
   onTriggerFocus?: (focus: boolean) => void;
