@@ -14,7 +14,7 @@ import Navigation from './Navigation';
 import Github from './Github';
 import SiteContext from '../SiteContext';
 import { ping } from '../../utils';
-import { Algolia_Config } from './algolia-config';
+import { AlgoliaConfig } from './algolia-config';
 
 import './index.less';
 
@@ -41,7 +41,7 @@ const triggerDocSearchImport = () => {
     return Promise.resolve();
   }
 
-  return import('docsearch.js').then((ds) => {
+  return import('docsearch.js').then(ds => {
     docsearch = ds.default;
   });
 };
@@ -53,12 +53,12 @@ function initDocSearch(isZhCN: boolean) {
 
   triggerDocSearchImport().then(() => {
     docsearch({
-      appId: Algolia_Config.appId,
-      apiKey: Algolia_Config.apiKey,
-      indexName: Algolia_Config.indexName,
+      appId: AlgoliaConfig.appId,
+      apiKey: AlgoliaConfig.apiKey,
+      indexName: AlgoliaConfig.indexName,
       inputSelector: '#search-box input',
-      algoliaOptions: Algolia_Config.getSearchParams(isZhCN),
-      transformData: Algolia_Config.transformData,
+      algoliaOptions: AlgoliaConfig.getSearchParams(isZhCN),
+      transformData: AlgoliaConfig.transformData,
       debug: false, // Set debug to true if you want to inspect the dropdown
     });
   });
@@ -338,7 +338,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <SearchBar
                     key="search"
                     {...sharedProps}
-                    algoliaConfig={Algolia_Config}
+                    algoliaConfig={AlgoliaConfig}
                     responsive={responsive}
                     onTriggerFocus={this.onTriggerSearching}
                   />

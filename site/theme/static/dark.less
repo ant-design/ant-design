@@ -1,3 +1,5 @@
+@import '../template/Layout/Header/DocSearch.less';
+
 [data-theme='dark'] {
   /* Change autocomplete styles in WebKit */
   input:-webkit-autofill,
@@ -367,30 +369,20 @@
     }
   }
 
+  // customization DocSearch Modal component in dark mode
   #antd_algolia_search_modal {
-    // theme customization for DocSearch Modal
-    .DocSearch {
-      --docsearch-primary-color: @primary-color;
-      --docsearch-text-color: @text-color;
-      --docsearch-muted-color: @text-color-secondary;
-      --docsearch-container-background: @modal-mask-bg;
-      --docsearch-searchbox-shadow: inset 0 0 0 2px @primary-color;
+    .customDocSearch();
 
-      // Modal
-      --docsearch-modal-background: @modal-content-bg;
+    --docsearch-key-gradient: @background-color-light;
+    --docsearch-logo-color: @white;
 
-      // Search box
-      --docsearch-searchbox-background: @text-color-secondary;
-      --docsearch-searchbox-focus-background: @white;
+    .DocSearch-Modal,
+    .DocSearch-Commands-Key {
+      box-shadow: none;
+    }
 
-      // Footer
-      --docsearch-footer-background: @white;
-
-      // Hits
-      // --docsearch-hit-background: @primary-color;
-      --docsearch-hit-color: @primary-color;
-      --docsearch-hit-active-color: @text-color-inverse;
-      --docsearch-highlight-color: @primary-color;
+    .DocSearch-Hit a {
+      box-shadow: none;
     }
   }
 }

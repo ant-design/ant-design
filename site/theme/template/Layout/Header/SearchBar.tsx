@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Link } from 'bisheng/router';
+import { Link, useRouterHistory } from 'bisheng/router';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet-async';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
@@ -8,7 +8,7 @@ import { Input, Tooltip } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from '@docsearch/react';
-import '@docsearch/react/style';
+import '@docsearch/css';
 
 import { SharedProps } from './interface';
 import { IAlgoliaConfig } from './algolia-config';
@@ -23,30 +23,52 @@ export interface SearchBarProps extends SharedProps {
 
 let SearchModal: React.FC<DocSearchModalProps> | null = null;
 
-const Hit: DocSearchProps['hitComponent'] = ({ hit, children }) => (
-  <Link to={hit.url}>{children}</Link>
-);
+const Hit: DocSearchProps['hitComponent'] = ({ hit, children }) => {
+  const toUrl = React.useMemo(() => {
+    const a = document.createElement('a');
+    a.href = hit.url;
+
+    return `${a.pathname}${a.hash}`;
+  }, [hit.url]);
+  return <Link to={toUrl}>{children}</Link>;
+};
 
 const CTRL_KEY = 'Ctrl';
 const CMD_KEY = '⌘';
 
 function isAppleDevice() {
-  return !!navigator && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+  return typeof window !== 'undefined' && /(mac|iphone|ipod|ipad)/i.test(navigator.platform);
 }
 
 /**
- * Recompose for algolia DocSearch Component
- * Inspiring by
- *  - [@docusaurus-theme-search-algolia](https://docusaurus.io/docs/api/themes/@docusaurus/theme-search-algolia)
- *  - [DocSearchModal Docs](https://autocomplete-experimental.netlify.app/docs/DocSearchModal)
+ * Recompose for algolia DocSearch Component Inspiring by
+ *
+ * - [@docusaurus-theme-search-algolia](https://docusaurus.io/docs/api/themes/@docusaurus/theme-search-algolia)
+ * - [DocSearchModal Docs](https://autocomplete-experimental.netlify.app/docs/DocSearchModal)
  */
-export const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }: SearchBarProps) => {
+export const SearchBar = ({
+  isZhCN,
+  responsive,
+  onTriggerFocus,
+  algoliaConfig,
+}: SearchBarProps) => {
   const [isInputFocus, setInputFocus] = React.useState(false);
   const [inputSearch, setInputSearch] = React.useState('');
 
   const [isModalOpen, setModalOpen] = React.useState(false);
   const [searchModalQuery, setSearchModalQuery] = React.useState('');
   const searchPlaceholder = isZhCN ? '在 ant.design 中搜索' : 'Search in ant.design';
+  const searchInputPlaceholder = isZhCN ? '搜索' : 'Search';
+
+  const triggerSearchModalImport = React.useCallback(() => {
+    if (SearchModal) {
+      return Promise.resolve();
+    }
+
+    return import('@docsearch/react/modal').then(({ DocSearchModal }) => {
+      SearchModal = DocSearchModal;
+    });
+  }, []);
 
   const handleInputFocus = React.useCallback((focus: boolean) => {
     setInputFocus(focus);
@@ -73,16 +95,6 @@ export const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }:
     return searchModalContainer$;
   }, []);
 
-  const triggerSearchModalImport = React.useCallback(() => {
-    if (SearchModal) {
-      return Promise.resolve();
-    }
-
-    return import('@docsearch/react/modal').then(({ DocSearchModal }) => {
-      SearchModal = DocSearchModal;
-    });
-  }, []);
-
   const handleModalOpen = React.useCallback(() => {
     triggerSearchModalImport().then(() => {
       handleInputFocus(true);
@@ -104,6 +116,13 @@ export const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }:
 
   const searchParameters = React.useMemo(() => algoliaConfig.getSearchParams(isZhCN), [isZhCN]);
 
+  const history = useRouterHistory();
+  const navigator = React.useRef({
+    navigate({ itemUrl }: { itemUrl: string }) {
+      history.push(itemUrl);
+    },
+  }).current;
+
   return (
     <div
       id="search-box"
@@ -122,7 +141,7 @@ export const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }:
       </Helmet>
 
       <Input
-        placeholder={searchPlaceholder}
+        placeholder={searchInputPlaceholder}
         onTouchStart={triggerSearchModalImport}
         onMouseOver={triggerSearchModalImport}
         value={inputSearch}
@@ -136,7 +155,7 @@ export const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }:
         }}
         prefix={<SearchOutlined />}
         suffix={
-          <Tooltip title={isZhCN ? '唤起搜索窗' : 'Search in doc modal'}>
+          <Tooltip placement="right" title={isZhCN ? '唤起搜索窗' : 'Search in doc modal'}>
             <span
               className="keybindings"
               onClick={() => {
@@ -159,6 +178,7 @@ export const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }:
         isModalOpen &&
         ReactDOM.createPortal(
           <SearchModal
+            navigator={navigator}
             onClose={handleModalClose}
             initialScrollY={window.scrollY}
             initialQuery={searchModalQuery}
