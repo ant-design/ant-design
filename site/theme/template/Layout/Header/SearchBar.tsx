@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Link, useRouterHistory } from 'bisheng/router';
+import { Link, browserHistory } from 'bisheng/router';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet-async';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
@@ -31,7 +31,7 @@ const CTRL_KEY = 'Ctrl';
 const CMD_KEY = '⌘';
 
 function isAppleDevice() {
-  return typeof window !== 'undefined' && /(mac|iphone|ipod|ipad)/i.test(navigator.platform);
+  return /(mac|iphone|ipod|ipad)/i.test(navigator.platform);
 }
 
 /**
@@ -110,10 +110,9 @@ export const SearchBar = ({
 
   const searchParameters = React.useMemo(() => algoliaConfig.getSearchParams(isZhCN), [isZhCN]);
 
-  const history = useRouterHistory();
   const navigator = React.useRef({
     navigate({ itemUrl }: { itemUrl: string }) {
-      history.push(itemUrl);
+      browserHistory.push(itemUrl);
     },
   }).current;
 
@@ -149,21 +148,23 @@ export const SearchBar = ({
         }}
         prefix={<SearchOutlined />}
         suffix={
-          <Tooltip placement="right" title={isZhCN ? '唤起搜索窗' : 'Search in doc modal'}>
-            <span
-              className="keybindings"
-              onClick={() => {
-                // move userSearch to SearchModal
-                setSearchModalQuery(inputSearch);
-                setInputSearch('');
-                handleModalOpen();
-              }}
-            >
-              <span className="keybinding">{isAppleDevice() ? CMD_KEY : CTRL_KEY}</span>
-              &nbsp;
-              <span className="keybinding">K</span>
-            </span>
-          </Tooltip>
+          typeof window !== 'undefined' && (
+            <Tooltip placement="right" title={isZhCN ? '唤起搜索窗' : 'Search in doc modal'}>
+              <span
+                className="keybindings"
+                onClick={() => {
+                  // move userSearch to SearchModal
+                  setSearchModalQuery(inputSearch);
+                  setInputSearch('');
+                  handleModalOpen();
+                }}
+              >
+                <span className="keybinding">{isAppleDevice() ? CMD_KEY : CTRL_KEY}</span>
+                &nbsp;
+                <span className="keybinding">K</span>
+              </span>
+            </Tooltip>
+          )
         }
       />
 

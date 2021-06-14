@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
+// import { browserHistory } from 'bisheng/router';
 
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
@@ -59,7 +60,16 @@ function initDocSearch(isZhCN: boolean) {
       inputSelector: '#search-box input',
       algoliaOptions: AlgoliaConfig.getSearchParams(isZhCN),
       transformData: AlgoliaConfig.transformData,
-      debug: false, // Set debug to true if you want to inspect the dropdown
+      debug: AlgoliaConfig.debug,
+      // https://docsearch.algolia.com/docs/behavior#handleselected
+      // handleSelected: (input, _$1, suggestion, _$2, context) => {
+      // doesn't refresh
+      //   // Prevents the default behavior on click
+      //   if (context.selectionMethod === 'click') {
+      //     input.setVal('');
+      //     browserHistory.push(suggestion.url);
+      //   }
+      // },
     });
   });
 }

@@ -1,3 +1,5 @@
+import { DocSearchHit } from '@docsearch/react/dist/esm/types';
+
 let _internalATag: HTMLAnchorElement | null;
 
 export function transformHitUrl(hitUrl: string) {
@@ -14,7 +16,7 @@ export const AlgoliaConfig = {
   getSearchParams(isZhCN: boolean) {
     return { facetFilters: [`tags:${isZhCN ? 'cn' : 'en'}`] };
   },
-  transformData(hits: { url: string }[]) {
+  transformData(hits: DocSearchHit[]) {
     hits.forEach(hit => {
       hit.url = transformHitUrl(hit.url);
     });
