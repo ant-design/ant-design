@@ -10,7 +10,7 @@ import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from 
 import '@docsearch/css';
 
 import { SharedProps } from './interface';
-import { IAlgoliaConfig } from './algolia-config';
+import { IAlgoliaConfig, transformHitUrl } from './algolia-config';
 
 import './SearchBar.less';
 
@@ -23,12 +23,7 @@ export interface SearchBarProps extends SharedProps {
 let SearchModal: React.FC<DocSearchModalProps> | null = null;
 
 const Hit: DocSearchProps['hitComponent'] = ({ hit, children }) => {
-  const toUrl = React.useMemo(() => {
-    const a = document.createElement('a');
-    a.href = hit.url;
-
-    return `${a.pathname}${a.hash}`;
-  }, [hit.url]);
+  const toUrl = React.useMemo(() => transformHitUrl(hit.url), [hit.url]);
   return <Link to={toUrl}>{children}</Link>;
 };
 

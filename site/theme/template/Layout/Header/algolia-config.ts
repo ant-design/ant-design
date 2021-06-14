@@ -1,3 +1,12 @@
+let _internalATag: HTMLAnchorElement | null;
+
+export function transformHitUrl(hitUrl: string) {
+  _internalATag = _internalATag || document.createElement('a');
+  // `new URL` is not supported in IE
+  _internalATag.href = hitUrl;
+  return `${_internalATag.pathname}${window.location.search || ''}${_internalATag.hash}`;
+}
+
 export const AlgoliaConfig = {
   appId: 'BH4D9OD16A',
   apiKey: '60ac2c1a7d26ab713757e4a081e133d0',
@@ -6,11 +15,8 @@ export const AlgoliaConfig = {
     return { facetFilters: [`tags:${isZhCN ? 'cn' : 'en'}`] };
   },
   transformData(hits: { url: string }[]) {
-    const a = document.createElement('a');
     hits.forEach(hit => {
-      // `new URL` is not supported in IE
-      a.href = hit.url;
-      hit.url = `${a.pathname}${window.location.search || ''}${a.hash}`;
+      hit.url = transformHitUrl(hit.url);
     });
     return hits;
   },
