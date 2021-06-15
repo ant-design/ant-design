@@ -23,16 +23,10 @@
     --docsearch-hit-active-color: @text-color-inverse;
     --docsearch-highlight-color: @primary-color;
 
-    // avoid the veritcal scrollbar(looks like a white block)
-    .DocSearch-Hit-title {
-      overflow-y: hidden;
-    }
-
-    // reset original `box-shadow` style and apply antd modal style
+    // apply antd modal style
     .DocSearch-Footer {
       border-top: @modal-footer-border-width @modal-footer-border-style
         @modal-footer-border-color-split;
-      box-shadow: none;
     }
   }
 }
