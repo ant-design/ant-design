@@ -4,7 +4,7 @@ import { Link, browserHistory } from 'bisheng/router';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet-async';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
-import { Input, Tooltip } from 'antd';
+import { Input, Tooltip, Typography } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from '@docsearch/react';
 import '@docsearch/css';
@@ -13,6 +13,8 @@ import { SharedProps } from './interface';
 import { IAlgoliaConfig, transformHitUrl } from './algolia-config';
 
 import './SearchBar.less';
+
+const { Text } = Typography;
 
 export interface SearchBarProps extends SharedProps {
   onTriggerFocus?: (focus: boolean) => void;
@@ -159,9 +161,12 @@ export const SearchBar = ({
                   handleModalOpen();
                 }}
               >
-                <span className="keybinding">{isAppleDevice() ? CMD_KEY : CTRL_KEY}</span>
-                &nbsp;
-                <span className="keybinding">K</span>
+                <Text keyboard className="keybinding">
+                  {isAppleDevice() ? CMD_KEY : CTRL_KEY}
+                </Text>
+                <Text keyboard className="keybinding">
+                  K
+                </Text>
               </span>
             </Tooltip>
           )

@@ -24,6 +24,15 @@
 
   .keybinding {
     color: @search-icon-color;
+    kbd {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      // better keybinding font display using `Arial`
+      font-family: Arial; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+      text-align: center;
+    }
   }
 
   .ant-row-rtl & {
