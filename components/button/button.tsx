@@ -22,6 +22,10 @@ function isUnborderedButtonType(type: ButtonType | undefined) {
   return type === 'text' || type === 'link';
 }
 
+function isReactFragment(node: React.ReactNode) {
+  return React.isValidElement(node) && node.type === React.Fragment;
+}
+
 // Insert one space between two chinese characters automatically.
 function insertSpace(child: React.ReactChild, needInserted: boolean) {
   // Check the child if is undefined or null.
@@ -41,9 +45,9 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
     });
   }
   if (typeof child === 'string') {
-    if (isTwoCNChar(child)) {
-      child = child.split('').join(SPACE);
-    }
+    return isTwoCNChar(child) ? <span>{child.split('').join(SPACE)}</span> : <span>{child}</span>;
+  }
+  if (isReactFragment(child)) {
     return <span>{child}</span>;
   }
   return child;

@@ -202,10 +202,11 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     return overlay || title || '';
   };
 
+  const { getPopupContainer, ...otherProps } = props;
+
   const {
     prefixCls: customizePrefixCls,
     openClassName,
-    getPopupContainer,
     getTooltipContainer,
     overlayClassName,
     color,
@@ -244,7 +245,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   return (
     <RcTooltip
-      {...props}
+      {...otherProps}
       prefixCls={prefixCls}
       overlayClassName={customOverlayClassName}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}

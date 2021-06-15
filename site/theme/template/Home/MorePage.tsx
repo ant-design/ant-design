@@ -6,7 +6,7 @@ import './MorePage.less';
 
 type SourceType = 'zhihu' | 'yuque';
 
-type Icons = Record<SourceType, string>;
+type Icons = { name: string; href: string }[];
 
 interface MoreProps {
   title: string;
@@ -42,7 +42,9 @@ const MoreCard = ({ title, description, date, img, source, href, icons, loading 
         <div>
           {date}
           <span className="more-card-source">
-            {icons ? <img src={icons[source]} alt={source} /> : null}
+            {icons ? (
+              <img src={icons.find(icon => icon.name === source)?.href} alt={source} />
+            ) : null}
           </span>
         </div>
       </Card>
