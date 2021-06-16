@@ -34,12 +34,14 @@ const Demo = () => {
           setSingleCol(!singleCol);
         }}
       />
-      <Space style={{ width: singleCol ? 307 : 310, background: 'blue' }} size={[8, 8]} wrap>
-        <div style={style} />
-        <div style={style} />
-        <div style={style} />
-        <div style={style} />
-      </Space>
+      <div style={{ boxShadow: '0 0 5px green' }}>
+        <Space style={{ width: singleCol ? 307 : 310, background: 'blue' }} size={[8, 8]} wrap>
+          <div style={style} />
+          <div style={style} />
+          <div style={style} />
+          <div style={style} />
+        </Space>
+      </div>
     </>
   );
 };
