@@ -5,8 +5,8 @@
     color: @text-color;
   }
   // 输入框的不同校验状态
-  .@{ant-prefix}-input,
-  .@{ant-prefix}-input-affix-wrapper {
+  .@{ant-prefix}-input:not(.@{ant-prefix}-input-disabled),
+  .@{ant-prefix}-input-affix-wrapper:not(.@{ant-prefix}-input-affix-wrapper-disabled) {
     &,
     &:hover {
       background-color: @background-color;
@@ -16,26 +16,6 @@
     &:focus,
     &-focused {
       .active(@border-color);
-    }
-  }
-
-  .@{ant-prefix}-input-disabled {
-    &,
-    &:hover {
-      background-color: @input-disabled-bg;
-      border-color: @input-border-color;
-    }
-  }
-
-  .@{ant-prefix}-input-affix-wrapper-disabled {
-    &,
-    &:hover {
-      background-color: @input-disabled-bg;
-      border-color: @input-border-color;
-
-      input:focus {
-        box-shadow: none !important;
-      }
     }
   }
 

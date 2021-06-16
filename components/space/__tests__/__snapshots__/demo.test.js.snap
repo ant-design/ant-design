@@ -424,40 +424,44 @@ Array [
     />
   </button>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px;width:310px;background:blue"
+    style="box-shadow:0 0 5px green"
   >
     <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap:wrap;margin-bottom:-8px;width:310px;background:blue"
     >
       <div
-        style="width:150px;height:100px;background:red"
-      />
-    </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
-    >
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <div
+          style="width:150px;height:100px;background:red"
+        />
+      </div>
       <div
-        style="width:150px;height:100px;background:red"
-      />
-    </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
-    >
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <div
+          style="width:150px;height:100px;background:red"
+        />
+      </div>
       <div
-        style="width:150px;height:100px;background:red"
-      />
-    </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom:8px"
-    >
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <div
+          style="width:150px;height:100px;background:red"
+        />
+      </div>
       <div
-        style="width:150px;height:100px;background:red"
-      />
+        class="ant-space-item"
+        style="padding-bottom:8px"
+      >
+        <div
+          style="width:150px;height:100px;background:red"
+        />
+      </div>
     </div>
   </div>,
 ]
