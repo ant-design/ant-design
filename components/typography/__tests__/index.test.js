@@ -2,11 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined, LikeOutlined, HighlightOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { resetWarned } from 'rc-util/lib/warning';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
+import Text from '../Text';
 import Base from '../Base';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -527,5 +529,12 @@ describe('Typography', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
     );
+  });
+
+  it('no italic warning', () => {
+    resetWarned();
+    mount(<Text italic>Little</Text>);
+
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 });
