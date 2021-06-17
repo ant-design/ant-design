@@ -60,7 +60,7 @@ function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
       transformData: AlgoliaConfig.transformData,
       debug: AlgoliaConfig.debug,
       // https://docsearch.algolia.com/docs/behavior#handleselected
-      handleSelected: (input, _$1, suggestion, _$2, context) => {
+      handleSelected: (input: any, _$1: unknown, suggestion: any) => {
         router.push(suggestion.url);
         setTimeout(() => {
           input.setVal('');
