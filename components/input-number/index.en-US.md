@@ -20,7 +20,7 @@ When a numeric value needs to be provided.
 | decimalSeparator | Decimal separator | string | - | - |
 | defaultValue | The initial value | number | - | - |
 | disabled | If disable the input | boolean | false | - |
-| formatter | Specifies the format of the value presented | function(value: number \| string): string | - | - |
+| formatter | Specifies the format of the value presented | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |
 | keyboard | If enable keyboard behavior | boolean | true | 4.12.0 |
 | max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
