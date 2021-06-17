@@ -83,7 +83,7 @@ interface ProviderChildrenProps extends ConfigProviderProps {
   legacyLocale: Locale;
 }
 
-export const defaultPrefixCls = 'ant';
+export const defaultPrefixCls = 'ofs';
 let globalPrefixCls: string;
 
 const setGlobalConfig = (params: Pick<ConfigProviderProps, 'prefixCls'>) => {
@@ -187,9 +187,10 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     },
   );
 
-  const memoIconContextValue = React.useMemo(() => ({ prefixCls: iconPrefixCls, csp }), [
-    iconPrefixCls,
-  ]);
+  const memoIconContextValue = React.useMemo(
+    () => ({ prefixCls: iconPrefixCls, csp }),
+    [iconPrefixCls],
+  );
 
   let childNode = children;
   // Additional Form provider

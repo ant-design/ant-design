@@ -4,7 +4,7 @@
 @theme: default;
 
 // The prefix to use on all css classes from ant.
-@ant-prefix: ant;
+@ant-prefix: ofs;
 
 // An override for the html selector for theme prefixes
 @html-selector: html;
@@ -50,12 +50,12 @@
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-@text-color: fade(@black, 85%);
-@text-color-secondary: fade(@black, 45%);
+@text-color: #555555;
+@text-color-secondary: #7f7f7f;
 @text-color-inverse: @white;
 @icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
-@heading-color: fade(@black, 85%);
+@heading-color: #333333;
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 @text-selection-bg: @primary-color;
@@ -71,30 +71,30 @@
 @heading-5-size: ceil(@font-size-base * 1.14);
 // https://github.com/ant-design/ant-design/issues/20210
 @line-height-base: 1.5715;
-@border-radius-base: 2px;
+@border-radius-base: 4px;
 @border-radius-sm: @border-radius-base;
 
 // vertical paddings
-@padding-lg: 24px; // containers
-@padding-md: 16px; // small containers and buttons
-@padding-sm: 12px; // Form controls and items
-@padding-xs: 8px; // small items
-@padding-xss: 4px; // more small
+@padding-lg: 20px; // containers
+@padding-md: 10px; // small containers and buttons
+@padding-sm: 10px; // Form controls and items
+@padding-xs: 10px; // small items
+@padding-xss: 6px; // more small
 
 // vertical padding for all form controls
 @control-padding-horizontal: @padding-sm;
 @control-padding-horizontal-sm: @padding-xs;
 
 // vertical margins
-@margin-lg: 24px; // containers
-@margin-md: 16px; // small containers and buttons
-@margin-sm: 12px; // Form controls and items
-@margin-xs: 8px; // small items
-@margin-xss: 4px; // more small
+@margin-lg: 20px; // containers
+@margin-md: 10px; // small containers and buttons
+@margin-sm: 10px; // Form controls and items
+@margin-xs: 10px; // small items
+@margin-xss: 6px; // more small
 
 // height rules
-@height-base: 32px;
-@height-lg: 40px;
+@height-base: 36px;
+@height-lg: 48px;
 @height-sm: 24px;
 
 // The background colors for active and hover states for things like
