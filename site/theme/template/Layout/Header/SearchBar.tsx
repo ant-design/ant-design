@@ -115,6 +115,8 @@ export const SearchBar = ({
   const navigator = React.useRef({
     navigate({ itemUrl }: { itemUrl: string }) {
       browserHistory.push(itemUrl);
+      // should use history from bisheng and remove this `reload` calls
+      window.location.reload(false);
     },
   }).current;
 
