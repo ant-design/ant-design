@@ -91,6 +91,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
         <RcMenu
           getPopupContainer={getPopupContainer}
           overflowedIndicator={<EllipsisOutlined />}
+          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
           {...passedProps}
           inlineCollapsed={inlineCollapsed}
           className={menuClassName}
