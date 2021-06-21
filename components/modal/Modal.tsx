@@ -69,6 +69,7 @@ export interface ModalProps {
   destroyOnClose?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
+  wrapStyle?: React.CSSProperties;
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
@@ -174,6 +175,7 @@ const Modal: ModalInterface = props => {
     footer,
     visible,
     wrapClassName,
+    wrapStyle,
     centered,
     getContainer,
     closeIcon,
@@ -206,6 +208,7 @@ const Modal: ModalInterface = props => {
       getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
       prefixCls={prefixCls}
       wrapClassName={wrapClassNameExtended}
+      wrapStyle={wrapStyle}
       footer={footer === undefined ? defaultFooter : footer}
       visible={visible}
       mousePosition={mousePosition}
