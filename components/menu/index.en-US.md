@@ -14,6 +14,9 @@ Navigation is an important part of any website, as a good navigation setup allow
 
 More layouts with navigation: [Layout](/components/layout).
 
+- Menu render as `ul` element. So it only support [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children node。Your customize node should wrapped by `Menu.Item`.
+- Menu need collect node structure. So it's children node should be `Menu.*` or HOC which used by it.
+
 ## API
 
 ```jsx
@@ -55,13 +58,13 @@ More layouts with navigation: [Layout](/components/layout).
 
 ### Menu.Item
 
-| Param | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- |
-| danger | Display the danger style | boolean | false | 4.3.0 |
-| disabled | Whether menu item is disabled | boolean | false |  |
-| icon | The icon of the menu item | ReactNode | - | 4.2.0 |
-| key | Unique ID of the menu item | string | - |  |
-| title | Set display title for collapsed item | string | - |  |
+| Param    | Description                          | Type      | Default value | Version |
+| -------- | ------------------------------------ | --------- | ------------- | ------- |
+| danger   | Display the danger style             | boolean   | false         | 4.3.0   |
+| disabled | Whether menu item is disabled        | boolean   | false         |         |
+| icon     | The icon of the menu item            | ReactNode | -             | 4.2.0   |
+| key      | Unique ID of the menu item           | string    | -             |         |
+| title    | Set display title for collapsed item | string    | -             |         |
 
 > Note: `icon` is a newly added prop in `4.2.0`. For previous versions, please use the following method to define the icon.
 >
@@ -97,11 +100,17 @@ More layouts with navigation: [Layout](/components/layout).
 
 ### Menu.ItemGroup
 
-| Param | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- |
-| children | Sub-menu items | MenuItem\[] | - |  |
-| title | The title of the group | ReactNode | - |  |
+| Param    | Description            | Type        | Default value | Version |
+| -------- | ---------------------- | ----------- | ------------- | ------- |
+| children | Sub-menu items         | MenuItem\[] | -             |         |
+| title    | The title of the group | ReactNode   | -             |         |
 
 ### Menu.Divider
 
 Divider line in between menu items, only used in vertical popup Menu or Dropdown Menu.
+
+## FAQ
+
+### Why Menu children node will render twice?
+
+Menu collect structure info with [twice-render](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543) to support HOC usage. Merge into one render may cause the logic much complex, welcome contribute to help improve collection logic.
