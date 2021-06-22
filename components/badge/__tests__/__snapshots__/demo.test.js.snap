@@ -18,11 +18,11 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -94,11 +94,11 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
           class="ant-scroll-number-only"
           style="transition:none"
         >
-          <p
+          <span
             class="ant-scroll-number-only-unit current"
           >
             5
-          </p>
+          </span>
         </span>
       </sup>
     </span>
@@ -568,11 +568,11 @@ exports[`renders ./components/badge/demo/link.md correctly 1`] = `
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -617,21 +617,21 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
           class="ant-scroll-number-only"
           style="transition:none"
         >
-          <p
+          <span
             class="ant-scroll-number-only-unit current"
           >
             2
-          </p>
+          </span>
         </span>
         <span
           class="ant-scroll-number-only"
           style="transition:none"
         >
-          <p
+          <span
             class="ant-scroll-number-only-unit current"
           >
             5
-          </p>
+          </span>
         </span>
       </sup>
     </span>
@@ -684,11 +684,11 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
           class="ant-scroll-number-only"
           style="transition:none"
         >
-          <p
+          <span
             class="ant-scroll-number-only-unit current"
           >
             4
-          </p>
+          </span>
         </span>
       </sup>
     </span>
@@ -730,11 +730,11 @@ exports[`renders ./components/badge/demo/offset.md correctly 1`] = `
       class="ant-scroll-number-only"
       style="transition:none"
     >
-      <p
+      <span
         class="ant-scroll-number-only-unit current"
       >
         5
-      </p>
+      </span>
     </span>
   </sup>
 </span>
@@ -758,21 +758,21 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           9
-        </p>
+        </span>
       </span>
       <span
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           9
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -1033,11 +1033,11 @@ Array [
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>,
@@ -1057,11 +1057,11 @@ Array [
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>,
@@ -1206,11 +1206,11 @@ exports[`renders ./components/badge/demo/title.md correctly 1`] = `
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -1230,21 +1230,21 @@ exports[`renders ./components/badge/demo/title.md correctly 1`] = `
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           -
-        </p>
+        </span>
       </span>
       <span
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
