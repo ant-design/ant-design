@@ -47,7 +47,7 @@ export type SelectAllLabel =
 
 export interface TransferLocale {
   titles: React.ReactNode[];
-  notFoundContent?: React.ReactNode;
+  notFoundContent?: React.ReactNode | React.ReactNode[];
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;

@@ -75,7 +75,7 @@ interface TransferListState {
 }
 
 export default class TransferList<
-  RecordType extends KeyWiseTransferItem
+  RecordType extends KeyWiseTransferItem,
 > extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
   static defaultProps = {
     dataSource: [],
@@ -183,7 +183,7 @@ export default class TransferList<
     searchPlaceholder: string,
     filterValue: string,
     filteredItems: RecordType[],
-    notFoundContent: React.ReactNode,
+    notFoundContent: React.ReactNode | React.ReactNode,
     filteredRenderItems: RenderedItem<RecordType>[],
     checkedKeys: string[],
     renderList?: RenderListFunction<RecordType>,
@@ -210,6 +210,11 @@ export default class TransferList<
       selectedKeys: checkedKeys,
     });
 
+    const getNotFoundContent = () => {
+      const contentIndex = this.props.direction === 'left' ? 0 : 1;
+      return Array.isArray(notFoundContent) ? notFoundContent[contentIndex] : notFoundContent;
+    };
+
     let bodyNode: React.ReactNode;
     // We should wrap customize list body in a classNamed div to use flex layout.
     if (customize) {
@@ -218,7 +223,7 @@ export default class TransferList<
       bodyNode = filteredItems.length ? (
         bodyContent
       ) : (
-        <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
+        <div className={`${prefixCls}-body-not-found`}>{getNotFoundContent()}</div>
       );
     }
 
