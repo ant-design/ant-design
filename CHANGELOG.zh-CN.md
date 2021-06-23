@@ -15,7 +15,7 @@ timeline: true
 
 ---
 
-## 4.16.4
+## 4.16.5
 
 `2021-06-23`
 
@@ -26,6 +26,12 @@ timeline: true
 - 🐞 修复 Space 设置 `wrap` 时额外设置了负 `margin` 的样式问题。[#31000](https://github.com/ant-design/ant-design/pull/31000)
 - 🐞 修复 Typography 配置 `italic` 时会警告不是一个合法 DOM 属性的问题。[#31004](https://github.com/ant-design/ant-design/pull/31004)
 - 🐞 修复 Badge 没有通过 html 标签嵌套校验的问题。[#31042](https://github.com/ant-design/ant-design/pull/31042) [@conwnet](https://github.com/conwnet)
+
+## 4.16.4
+
+`2021-06-23`
+
+- npm 发布出问题了，这个版本无法使用。
 
 ## 4.16.3
 
