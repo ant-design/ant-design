@@ -51,7 +51,7 @@ class App extends React.Component {
   };
 
   renderFooter = (props, direction) => {
-    if (direction == 'left') {
+    if (direction === 'left') {
       return (
         <Button size="small" style={{ float: 'left', margin: 5 }} onClick={this.getMock}>
           Left button reload
