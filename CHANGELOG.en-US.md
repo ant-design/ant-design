@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.16.4
+
+`2021-06-23`
+
+- 🐞 Fix Menu to import `@ant-design/icons` icon directly to reduce bundle size without tree shaking. [#31011](https://github.com/ant-design/ant-design/pull/31011)
+- 🐞 Fix Menu with overflow indicator popup do not follow current theme. [#31043](https://github.com/ant-design/ant-design/pull/31043)
+- 🐞 Fix Table styles not using `@{table-prefix-cls}` less variable. [#30983](https://github.com/ant-design/ant-design/pull/30983)
+- 🐞 Fix Input.Password hover border color in Form validation. [#30999](https://github.com/ant-design/ant-design/pull/30999)
+- 🐞 Fix Space with wrap takes additional negative margin style. [#31000](https://github.com/ant-design/ant-design/pull/31000)
+- 🐞 Fix Typography warning for non-boolean attribute when set `italic` property. [#31004](https://github.com/ant-design/ant-design/pull/31004)
+- 🐞 Fix Badge not passing markup validation. [#31042](https://github.com/ant-design/ant-design/pull/31042) [](https://github.com/conwnet)
+
 ## 4.16.3
 
 `2021-06-14`
