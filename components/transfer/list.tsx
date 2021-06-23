@@ -59,7 +59,10 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   itemUnit: string;
   itemsUnit: string;
   renderList?: RenderListFunction<RecordType>;
-  footer?: (props: TransferListProps<RecordType>, direction?: TransferDirection) => React.ReactNode;
+  footer?: (
+    props: TransferListProps<RecordType>,
+    obj?: { direction: TransferDirection },
+  ) => React.ReactNode;
   onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
   direction: TransferDirection;
@@ -324,7 +327,7 @@ export default class TransferList<
 
     // Custom Layout
     const footerDom =
-      footer && (footer.length < 2 ? footer(this.props) : footer(this.props, direction));
+      footer && (footer.length < 2 ? footer(this.props) : footer(this.props, { direction }));
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-pagination`]: !!pagination,
