@@ -50,7 +50,7 @@ class App extends React.Component {
     this.setState({ targetKeys });
   };
 
-  renderFooter = (props, direction) => {
+  renderFooter = (props, { direction }) => {
     if (direction === 'left') {
       return (
         <Button size="small" style={{ float: 'left', margin: 5 }} onClick={this.getMock}>
