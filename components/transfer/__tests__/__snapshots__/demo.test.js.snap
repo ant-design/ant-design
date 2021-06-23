@@ -146,11 +146,11 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
     >
       <button
         class="ant-btn ant-btn-sm"
-        style="float:right;margin:5px"
+        style="float:left;margin:5px"
         type="button"
       >
         <span>
-          reload
+          Left button reload
         </span>
       </button>
     </div>
@@ -361,7 +361,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         type="button"
       >
         <span>
-          reload
+          Right button reload
         </span>
       </button>
     </div>
