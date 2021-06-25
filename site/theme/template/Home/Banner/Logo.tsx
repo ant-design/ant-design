@@ -74,7 +74,7 @@ export default function Logo() {
         width="500"
         height="87"
         alt="Ant Design"
-        src="https://gw.alipayobjects.com/zos/antfincdn/N2romYqpyp/AntDesign.svg"
+        src="https://gw.alipayobjects.com/zos/antfincdn/6UYtAUYPXE/AntDesign.svg"
         className="home-banner-normal"
       />
       <Hitu
