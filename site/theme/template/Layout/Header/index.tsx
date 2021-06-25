@@ -94,7 +94,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     router.listen(this.handleHideMenu);
 
     initDocSearch({
-      isZhCN: intl.locale === 'zh',
+      isZhCN: intl.locale === 'zh-CN',
       router,
     });
 
