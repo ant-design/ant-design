@@ -66,7 +66,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
 
   useEffect(() => {
     if (editing) {
-      inputRef.current!.focus();
+      inputRef.current?.focus();
     }
   }, [editing]);
 
