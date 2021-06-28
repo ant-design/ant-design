@@ -35514,9 +35514,10 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -35576,9 +35577,10 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -35666,9 +35668,10 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
 <div>
   <div
     class="config-tree config-tree-icon-hide"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -35728,9 +35731,10 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -35818,9 +35822,10 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
 <div>
   <div
     class="config-tree config-tree-icon-hide"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -35880,9 +35885,10 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -35970,9 +35976,10 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
 <div>
   <div
     class="ant-tree ant-tree-icon-hide"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -36032,9 +36039,10 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
   </div>
   <div
     class="ant-tree ant-tree-block-node ant-tree-directory"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -36122,9 +36130,10 @@ exports[`ConfigProvider components Tree normal 1`] = `
 <div>
   <div
     class="ant-tree ant-tree-icon-hide"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -36184,9 +36193,10 @@ exports[`ConfigProvider components Tree normal 1`] = `
   </div>
   <div
     class="ant-tree ant-tree-block-node ant-tree-directory"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -36274,9 +36284,10 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
 <div>
   <div
     class="prefix-Tree prefix-Tree-icon-hide"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -36336,9 +36347,10 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
   </div>
   <div
     class="prefix-Tree prefix-Tree-block-node prefix-Tree-directory"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
@@ -36462,9 +36474,10 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         <div>
           <div
             class="config-select-tree"
-            role="tree"
           >
-            <div>
+            <div
+              role="tree"
+            >
               <input
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
@@ -36596,9 +36609,10 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
         <div>
           <div
             class="config-select-tree"
-            role="tree"
           >
-            <div>
+            <div
+              role="tree"
+            >
               <input
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
@@ -36730,9 +36744,10 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
         <div>
           <div
             class="config-select-tree"
-            role="tree"
           >
-            <div>
+            <div
+              role="tree"
+            >
               <input
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
@@ -36864,9 +36879,10 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
         <div>
           <div
             class="ant-select-tree"
-            role="tree"
           >
-            <div>
+            <div
+              role="tree"
+            >
               <input
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
@@ -36998,9 +37014,10 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         <div>
           <div
             class="ant-select-tree"
-            role="tree"
           >
-            <div>
+            <div
+              role="tree"
+            >
               <input
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
@@ -37132,9 +37149,10 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         <div>
           <div
             class="prefix-TreeSelect-tree"
-            role="tree"
           >
-            <div>
+            <div
+              role="tree"
+            >
               <input
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
