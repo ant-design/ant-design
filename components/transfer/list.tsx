@@ -61,7 +61,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   renderList?: RenderListFunction<RecordType>;
   footer?: (
     props: TransferListProps<RecordType>,
-    obj?: { direction: TransferDirection },
+    info?: { direction: TransferDirection },
   ) => React.ReactNode;
   onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
