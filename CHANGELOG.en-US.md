@@ -20,7 +20,7 @@ timeline: true
 `2021-06-29`
 
 - 🐞 Fix Tree loading status not been restored when `loadData` throw error. [#31170](https://github.com/ant-design/ant-design/pull/31170)
-- ⚡️ Optimize Progress  animation CPU usage. [#31128](https://github.com/ant-design/ant-design/pull/31128) [@stygian-desolator](https://github.com/stygian-desolator)
+- ⚡️ Optimize Progress animation CPU usage. [#31128](https://github.com/ant-design/ant-design/pull/31128) [@stygian-desolator](https://github.com/stygian-desolator)
 - 🐞 Fix Popover arrow cannot show correct color. [#31127](https://github.com/ant-design/ant-design/pull/31127) [@A113n1003](https://github.com/A113n1003)
 
 ## 4.16.5
