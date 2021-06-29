@@ -32,9 +32,7 @@ function collectFilterStates<RecordType>(
   (columns || []).forEach((column, index) => {
     const columnPos = getColumnPos(index, pos);
 
-    if ('children' in column) {
-      filterStates = [...filterStates, ...collectFilterStates(column.children, init, columnPos)];
-    } else if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
+    if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
         let filteredValues = column.filteredValue;
@@ -58,6 +56,10 @@ function collectFilterStates<RecordType>(
           forceFiltered: column.filtered,
         });
       }
+    }
+
+    if ('children' in column) {
+      filterStates = [...filterStates, ...collectFilterStates(column.children, init, columnPos)];
     }
   });
 
