@@ -301,22 +301,23 @@ Rule 支持接收 object 进行配置，也支持 function 来动态获取 form 
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 ```
 
-| 名称 | 说明 | 类型 |
-| --- | --- | --- |
-| defaultField | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则 | [rule](#Rule) |
-| enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any\[] |
-| fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#Rule)> |
-| len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
-| max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
-| message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |
-| min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |
-| pattern | 正则表达式匹配 | RegExp |
-| required | 是否为必选字段 | boolean |
-| transform | 将字段值转换成目标值后进行校验 | (value) => any |
-| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string |
-| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |
-| validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |
-| whitespace | 如果字段仅包含空格则校验不通过 | boolean |
+| 名称 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| defaultField | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则 | [rule](#Rule) |  |
+| enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any\[] |  |
+| fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#Rule)> |  |
+| len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |  |
+| max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |  |
+| message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |  |
+| min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |  |
+| pattern | 正则表达式匹配 | RegExp |  |
+| required | 是否为必选字段 | boolean |  |
+| transform | 将字段值转换成目标值后进行校验 | (value) => any |  |
+| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string |  |
+| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |  |
+| validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |  |
+| warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
+| whitespace | 如果字段仅包含空格则校验不通过 | boolean |  |
 
 ## 从 v3 升级到 v4
 
