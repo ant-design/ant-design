@@ -785,7 +785,7 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
 
     expect(handleChange).not.toHaveBeenCalled();
-    expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(0);
+    expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(4);
   });
 
   it('renders custom filter icon correctly', () => {
