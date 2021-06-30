@@ -762,6 +762,32 @@ describe('Table.filter', () => {
     expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
   });
 
+  it('should not confirm filter when dropdown hidden and disableAutoConfirm property is set', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
+            disableAutoConfirm,
+          },
+        ],
+        onChange: handleChange,
+      }),
+    );
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+
+    expect(handleChange).not.toHaveBeenCalled();
+    expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(0);
+  });
+
   it('renders custom filter icon correctly', () => {
     const filterIcon = filtered => (
       <span className="customize-icon">{filtered ? 'filtered' : 'unfiltered'}</span>
@@ -886,7 +912,7 @@ describe('Table.filter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/17833
-  it('should not trigger onChange when bluring custom filterDropdown', () => {
+  it('should trigger onChange when bluring custom filterDropdown', () => {
     const onChange = jest.fn();
     const filterDropdown = ({ setSelectedKeys }) => (
       <input onChange={e => setSelectedKeys([e.target.value])} />
@@ -900,6 +926,34 @@ describe('Table.filter', () => {
             dataIndex: 'name',
             key: 'name',
             filterDropdown,
+          },
+        ],
+      }),
+    );
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper
+      .find('input')
+      .first()
+      .simulate('change', { target: { value: 'whatevervalue' } });
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    expect(onChange).toHaveBeenCalled();
+  });
+
+  it('should not trigger onChange when bluring custom filterDropdown with disableAutoConfirm param', () => {
+    const onChange = jest.fn();
+    const filterDropdown = ({ setSelectedKeys }) => (
+      <input onChange={e => setSelectedKeys([e.target.value])} />
+    );
+    const wrapper = mount(
+      createTable({
+        onChange,
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filterDropdown,
+            disableAutoConfirm,
           },
         ],
       }),
