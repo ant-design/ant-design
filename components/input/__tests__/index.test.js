@@ -212,4 +212,20 @@ describe('Input allowClear', () => {
     expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
     expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
   });
+
+  // https://github.com/ant-design/ant-design/issues/31200
+  it('should not lost focus when clear input', () => {
+    const onBlur = jest.fn();
+    const wrapper = mount(<Input allowClear defaultValue="value" onBlur={onBlur} />, {
+      attachTo: document.body,
+    });
+    wrapper.find('input').getDOMNode().focus();
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('mouseDown');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('mouseUp');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('focus');
+    wrapper.find('.ant-input-clear-icon').at(0).getDOMNode().click();
+    expect(onBlur).not.toBeCalled();
+    wrapper.unmount();
+  });
 });
