@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Link, browserHistory } from 'bisheng/router';
+import { Link } from 'bisheng/router';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet-async';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
@@ -8,7 +8,6 @@ import { Input, Tooltip, Typography } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from '@docsearch/react';
 import '@docsearch/css';
-
 import { SharedProps } from './interface';
 import { IAlgoliaConfig, transformHitUrl } from './algolia-config';
 
@@ -20,6 +19,7 @@ export interface SearchBarProps extends SharedProps {
   onTriggerFocus?: (focus: boolean) => void;
   responsive: null | 'narrow' | 'crowded';
   algoliaConfig: IAlgoliaConfig;
+  router: any;
 }
 
 let SearchModal: React.FC<DocSearchModalProps> | null = null;
@@ -42,11 +42,12 @@ function isAppleDevice() {
  * - [@docusaurus-theme-search-algolia](https://docusaurus.io/docs/api/themes/@docusaurus/theme-search-algolia)
  * - [DocSearchModal Docs](https://autocomplete-experimental.netlify.app/docs/DocSearchModal)
  */
-export const SearchBar = ({
+const SearchBar = ({
   isZhCN,
   responsive,
   onTriggerFocus,
   algoliaConfig,
+  router,
 }: SearchBarProps) => {
   const [isInputFocus, setInputFocus] = React.useState(false);
   const [inputSearch, setInputSearch] = React.useState('');
@@ -114,9 +115,7 @@ export const SearchBar = ({
 
   const navigator = React.useRef({
     navigate({ itemUrl }: { itemUrl: string }) {
-      browserHistory.push(itemUrl);
-      // should use history from bisheng and remove this `reload` calls
-      window.location.reload(false);
+      router.push(itemUrl);
     },
   }).current;
 
@@ -196,3 +195,5 @@ export const SearchBar = ({
     </div>
   );
 };
+
+export default SearchBar;

@@ -819,11 +819,11 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
         class="config-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="config-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -854,11 +854,11 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
         class="config-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="config-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -889,11 +889,11 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
         class="config-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="config-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -924,11 +924,11 @@ exports[`ConfigProvider components Badge configProvider virtual and dropdownMatc
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -959,11 +959,11 @@ exports[`ConfigProvider components Badge normal 1`] = `
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -994,11 +994,11 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
         class="prefix-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="prefix-scroll-number-only-unit current"
         >
           5
-        </p>
+        </span>
       </span>
     </sup>
   </span>
