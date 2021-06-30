@@ -14,6 +14,8 @@ Navigation is an important part of any website, as a good navigation setup allow
 
 More layouts with navigation: [Layout](/components/layout).
 
+## Notes for developers
+
 - Menu render as `ul` element. So it only support [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children node。Your customize node should wrapped by `Menu.Item`.
 - Menu need collect node structure. So it's children node should be `Menu.*` or HOC which used by it.
 
