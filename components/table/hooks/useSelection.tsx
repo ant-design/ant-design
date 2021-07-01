@@ -134,9 +134,9 @@ export default function useSelection<RecordType>(
 
           newCache.set(key, record);
         });
+        // Refresh to new cache
         preserveRecordsRef.current = newCache;
       }
-      // Refresh to new cache
     },
     [getRecordByKey, preserveSelectedRowKeys],
   );
