@@ -3,8 +3,11 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import DatePicker from '..';
+import ConfigProvider from '../../config-provider';
 import { selectDate, openPanel, clearInput, nextYear, nextMonth, hasSelected } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
+import zhCNDatePicker from '../locale/zh_CN';
+import zhCNAll from '../../locale-provider/zh_CN';
 
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -67,6 +70,23 @@ describe('DatePicker', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD');
     const wrapper = mount(<DatePicker open locale={locale} value={birthday} />);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('prop locale overrides ConfigProvider locale', () => {
+    const birthday = moment('2000-01-01', 'YYYY-MM-DD');
+    const locale = {
+      ...zhCNDatePicker,
+      lang: {
+        ...zhCNDatePicker.lang,
+        today: '即刻发送',
+      },
+    };
+    const wrapper = mount(
+      <ConfigProvider locale={zhCNAll}>
+        <DatePicker open locale={locale} value={birthday} />
+      </ConfigProvider>,
+    );
+    expect(wrapper.find('.ant-calendar-today-btn').text()).toBe('即刻发送');
   });
 
   // Fix https://github.com/ant-design/ant-design/issues/8885

@@ -146,12 +146,12 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
       this.picker.blur();
     }
 
-    renderPicker = (locale: any, localeCode: string) => {
-      const { format, showTime } = this.props;
+    renderPicker = (ctxLocale: any, localeCode: string) => {
+      const { locale, format, showTime } = this.props;
       const mergedPickerType = showTime ? `${pickerType}Time` : pickerType;
       const mergedFormat =
         format ||
-        locale[LOCALE_FORMAT_MAPPING[mergedPickerType]] ||
+        ctxLocale[LOCALE_FORMAT_MAPPING[mergedPickerType]] ||
         DEFAULT_FORMAT[mergedPickerType];
 
       return (
@@ -190,7 +190,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
                 {...showTime}
                 prefixCls={`${prefixCls}-time-picker`}
                 className={timePickerCls}
-                placeholder={locale.timePickerLocale.placeholder}
+                placeholder={ctxLocale.timePickerLocale.placeholder}
                 transitionName="slide-up"
                 onEsc={() => {}}
               />
@@ -204,7 +204,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
                 ref={this.savePicker}
                 pickerClass={pickerClass}
                 pickerInputClass={pickerInputClass}
-                locale={locale}
+                locale={{ ...ctxLocale, ...locale }}
                 localeCode={localeCode}
                 timePicker={timePicker}
                 onOpenChange={this.handleOpenChange}
