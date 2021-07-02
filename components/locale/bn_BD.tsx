@@ -105,9 +105,9 @@ const localeValues: Locale = {
       },
       string: {
         len: '${label} অবশ্যই ${len} অক্ষরের হতে হবে।',
-        min: '${label} must be at least ${min} characters',
-        max: '${label} must be up to ${max} characters',
-        range: '${label} must be between ${min}-${max} characters',
+        min: '${label} অবশ্যই অন্তত ${min} অক্ষরের হতে হবে।',
+        max: '${label} অবশ্যই ${max} পর্যন্ত অক্ষরের হতে হবে।',
+        range: '${label} অবশ্যই ${min}-${max} অক্ষরের এর মধ্যে হতে হবে।',
       },
       number: {
         len: '${label} অবশ্যই ${len} এর সমান হতে হবে',
