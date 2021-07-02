@@ -109,9 +109,6 @@ export default function useSelection<RecordType>(
     getPopupContainer,
   } = config;
 
-  // ======================== Caches ========================
-  const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
-
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
     selectedRowKeys || defaultSelectedRowKeys || [],
@@ -119,6 +116,35 @@ export default function useSelection<RecordType>(
       value: selectedRowKeys,
     },
   );
+
+  // ======================== Caches ========================
+  const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
+
+  const updatePreserveRecordsCache = useCallback(
+    (keys: Key[]) => {
+      if (preserveSelectedRowKeys) {
+        const newCache = new Map<Key, RecordType>();
+        // Keep key if mark as preserveSelectedRowKeys
+        keys.forEach(key => {
+          let record = getRecordByKey(key);
+
+          if (!record && preserveRecordsRef.current.has(key)) {
+            record = preserveRecordsRef.current.get(key)!;
+          }
+
+          newCache.set(key, record);
+        });
+        // Refresh to new cache
+        preserveRecordsRef.current = newCache;
+      }
+    },
+    [getRecordByKey, preserveSelectedRowKeys],
+  );
+
+  // Update cache with selectedKeys
+  React.useEffect(() => {
+    updatePreserveRecordsCache(mergedSelectedKeys);
+  }, [mergedSelectedKeys]);
 
   const { keyEntities } = useMemo(
     () =>
@@ -201,24 +227,11 @@ export default function useSelection<RecordType>(
       let availableKeys: Key[];
       let records: RecordType[];
 
+      updatePreserveRecordsCache(keys);
+
       if (preserveSelectedRowKeys) {
-        // Keep key if mark as preserveSelectedRowKeys
-        const newCache = new Map<Key, RecordType>();
         availableKeys = keys;
-        records = keys.map(key => {
-          let record = getRecordByKey(key);
-
-          if (!record && preserveRecordsRef.current.has(key)) {
-            record = preserveRecordsRef.current.get(key)!;
-          }
-
-          newCache.set(key, record);
-
-          return record;
-        });
-
-        // Refresh to new cache
-        preserveRecordsRef.current = newCache;
+        records = keys.map(key => preserveRecordsRef.current.get(key)!);
       } else {
         // Filter key which not exist in the `dataSource`
         availableKeys = [];

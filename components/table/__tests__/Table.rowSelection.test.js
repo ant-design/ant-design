@@ -1382,5 +1382,38 @@ describe('Table.rowSelection', () => {
         .simulate('change', { target: { checked: true } });
       expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
     });
+
+    it('selectedRows ant selectedKeys should keep sync in initial state', () => {
+      const dataSource = [{ name: 'Jack' }, { name: 'Tom' }, { name: 'Lucy' }, { name: 'John' }];
+      const onChange = jest.fn();
+      const rowSelection = {
+        preserveSelectedRowKeys: true,
+        onChange,
+        selectedRowKeys: ['Jack'],
+      };
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource.slice(0, 2)}
+          rowSelection={rowSelection}
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              key: 'name',
+            },
+          ]}
+        />,
+      );
+
+      wrapper.setProps({
+        dataSource: dataSource.slice(2, 4),
+      });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack', 'Lucy'], [{ name: 'Jack' }, { name: 'Lucy' }]);
+    });
   });
 });
