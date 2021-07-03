@@ -77,7 +77,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
   devWarning(
     multiple !== false || !treeCheckable,
     'TreeSelect',
-    '`multiple` will alway be `true` when `treeCheckable` is true',
+    '`multiple` will always be `true` when `treeCheckable` is true',
   );
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
