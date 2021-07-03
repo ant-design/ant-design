@@ -8,7 +8,7 @@ import { Locale } from '../locale-provider';
 const typeTemplate = '${label} টি সঠিক ${type} নয়।';
 
 const localeValues: Locale = {
-  locale: 'bn',
+  locale: 'bn-bd',
   Pagination,
   DatePicker,
   TimePicker,
