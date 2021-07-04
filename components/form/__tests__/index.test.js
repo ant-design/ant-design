@@ -594,6 +594,23 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
+  it('`name` support template when label is not provided', async () => {
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: '${label} is good!' }}>
+        <Form.Item name="Bamboo" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await sleep(100);
+    wrapper.update();
+    await sleep(100);
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+  });
+
   it('`messageVariables` support validate', async () => {
     const wrapper = mount(
       // eslint-disable-next-line no-template-curly-in-string

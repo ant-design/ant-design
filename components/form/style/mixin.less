@@ -5,8 +5,8 @@
     color: @text-color;
   }
   // 输入框的不同校验状态
-  .@{ant-prefix}-input:not(.@{ant-prefix}-input-disabled),
-  .@{ant-prefix}-input-affix-wrapper:not(.@{ant-prefix}-input-affix-wrapper-disabled) {
+  :not(.@{ant-prefix}-input-disabled).@{ant-prefix}-input,
+  :not(.@{ant-prefix}-input-affix-wrapper-disabled).@{ant-prefix}-input-affix-wrapper {
     &,
     &:hover {
       background-color: @background-color;

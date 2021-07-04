@@ -149,6 +149,7 @@
 // Disabled states
 @disabled-color: fade(#000, 25%);
 @disabled-bg: @background-color-base;
+@disabled-active-bg: tint(@black, 90%);
 @disabled-color-dark: fade(#fff, 35%);
 
 // Shadow
@@ -270,7 +271,7 @@
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
-@radio-disabled-button-checked-bg: tint(@black, 90%);
+@radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
 
@@ -797,8 +798,8 @@
 @pagination-font-weight-active: 500;
 @pagination-item-bg-active: @component-background;
 @pagination-item-link-bg: @component-background;
-@pagination-item-disabled-color-active: @white;
-@pagination-item-disabled-bg-active: darken(@disabled-bg, 10%);
+@pagination-item-disabled-color-active: @disabled-color;
+@pagination-item-disabled-bg-active: @disabled-active-bg;
 @pagination-item-input-bg: @component-background;
 @pagination-mini-options-size-changer-top: 0px;
 

@@ -266,7 +266,7 @@ ReactDOM.render(<EditableTable />, mountNode);
 .editable-row:hover .editable-cell-value-wrap {
   padding: 4px 11px;
   border: 1px solid #d9d9d9;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 [data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {
