@@ -1,5 +1,5 @@
 /* eslint-disable no-template-curly-in-string */
-import Pagination from 'rc-pagination/lib/locale/en_US';
+import Pagination from 'rc-pagination/lib/locale/ur_PK';
 import DatePicker from '../date-picker/locale/ur_PK';
 import TimePicker from '../time-picker/locale/ur_PK';
 import Calendar from '../calendar/locale/ur_PK';
