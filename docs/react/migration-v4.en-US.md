@@ -141,7 +141,9 @@ const Demo = () => (
 - Table rewrite.
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
-- Pagination will default set `showSizeChanger` to `true` since `4.1.0`. This change also applied on Table component.
+- Pagination
+  - will default set `showSizeChanger` to `true` since `4.1.0`. This change also applied on Table component.
+  - `onChange` will also trigger when `pageSize` value changed.
 - Tabs rewrite. ([4.3.0](https://github.com/ant-design/ant-design/pull/24552))
   - Dom structrue is changed, please check style if you override tabs css.
   - `onPrevClick` 和 `onNextClick` would be not working anymore since we improve tabs scroll behavior.
