@@ -97,6 +97,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       getPopupContainer = triggerNode => triggerNode.parentNode as HTMLElement,
       dropdownClassName,
       bordered,
+      showSearch = true,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -167,6 +168,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
               className={mergedClassName}
               getPopupContainer={getPopupContainer || getContextPopupContainer}
               dropdownClassName={rcSelectRtlDropDownClassName}
+              showSearch={showSearch}
             />
           );
         }}
