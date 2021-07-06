@@ -193,4 +193,22 @@ describe('Avatar Render', () => {
     wrapper.detach();
     global.document.body.removeChild(div);
   });
+
+  it('should exist crossorigin attribute', () => {
+    const LOAD_SUCCESS_SRC = 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png';
+    const wrapper = mount(
+      <Avatar src={LOAD_SUCCESS_SRC} crossOrigin="anonymous">
+        crossorigin
+      </Avatar>,
+    );
+    expect(wrapper.html().includes('crossorigin')).toEqual(true);
+    expect(wrapper.find('img').prop('crossOrigin')).toEqual('anonymous');
+  });
+
+  it('should not exist crossorigin attribute', () => {
+    const LOAD_SUCCESS_SRC = 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png';
+    const wrapper = mount(<Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>);
+    expect(wrapper.html().includes('crossorigin')).toEqual(false);
+    expect(wrapper.find('img').prop('crossOrigin')).toEqual(undefined);
+  });
 });
