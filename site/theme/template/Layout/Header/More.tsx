@@ -64,6 +64,16 @@ export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactNode {
         </span>
       </a>
     </Menu.Item>,
+    <Menu.Item key="blazor">
+      <a
+        href="https://antblazor.com"
+        className="header-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ant Design of Blazor
+      </a>
+    </Menu.Item>,
     isZhCN ? (
       <Menu.Item key="course" className="hide-in-home-page">
         <a
