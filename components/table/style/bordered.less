@@ -12,9 +12,7 @@
 
   > .@{table-prefix-cls}-container {
     // ============================ Content ============================
-    border: @table-border;
-    border-right: 0;
-    border-bottom: 0;
+    border-left: @table-border;
 
     > .@{table-prefix-cls}-content,
     > .@{table-prefix-cls}-header,
@@ -65,6 +63,13 @@
             content: '';
           }
         }
+      }
+    }
+
+    > .@{table-prefix-cls}-content,
+    > .@{table-prefix-cls}-header {
+      > table {
+        border-top: @table-border;
       }
     }
   }
