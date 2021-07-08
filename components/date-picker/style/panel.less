@@ -550,13 +550,14 @@
     .@{picker-prefix-cls}-content {
       width: @picker-panel-cell-width * 7;
 
-      &:is(table) {
-        text-align: center;
-      }
-
       th {
         width: @picker-panel-cell-width;
       }
+    }
+
+    .@{picker-prefix-cls}-content,
+    table {
+      text-align: center;
     }
   }
 
