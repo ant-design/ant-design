@@ -27,10 +27,12 @@
   // https://github.com/ant-design/ant-design/issues/17611
   table {
     width: 100%;
-    text-align: left;
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
     border-collapse: separate;
     border-spacing: 0;
+    &:not(.@{ant-prefix}-picker-content) {
+      text-align: left;
+    }
   }
 
   // ============================= Cell =============================
