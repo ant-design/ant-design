@@ -70,7 +70,7 @@ export interface TransferProps<RecordType> {
   onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
-  listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
+  listStyle?: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
   operationStyle?: React.CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
