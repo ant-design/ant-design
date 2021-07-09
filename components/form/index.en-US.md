@@ -317,7 +317,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string |
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |
 | validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |
-| whitespace | Failed if only has whitespace | boolean |
+| whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |
 
 ## Migrate to v4
 
