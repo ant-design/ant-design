@@ -301,7 +301,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   }
 
   handleListStyle = (
-    listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties,
+    listStyle: TransferProps<RecordType>['listStyle'],
     direction: TransferDirection,
   ) => {
     if (typeof listStyle === 'function') {
