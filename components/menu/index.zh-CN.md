@@ -54,7 +54,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` |  |
 | onClick | 点击 MenuItem 调用此函数 | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
-| onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | - |  |
+| onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: React.Key\[]) | - |  |
 | onSelect | 被选中时调用 | function({ item, key, keyPath, selectedKeys, domEvent }) | -   |  |
 
 > 更多属性查看 [rc-menu](https://github.com/react-component/menu#api)

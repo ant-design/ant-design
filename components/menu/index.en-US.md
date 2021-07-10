@@ -53,7 +53,7 @@ More layouts with navigation: [Layout](/components/layout).
 | triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
 | onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
-| onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
+| onOpenChange | Called when sub-menus are opened or closed | function(openKeys: React.Key\[]) | - |  |
 | onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
