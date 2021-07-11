@@ -77,6 +77,7 @@ import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
 import zhHK from '../zh_HK';
 import zhTW from '../zh_TW';
+import urPK from '../ur_PK';
 
 const locales = [
   azAZ,
@@ -140,6 +141,7 @@ const locales = [
   zhCN,
   zhHK,
   zhTW,
+  urPK,
 ];
 
 const { Option } = Select;
