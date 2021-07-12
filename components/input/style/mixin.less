@@ -205,6 +205,17 @@
         }
       }
     }
+
+    // https://github.com/ant-design/ant-design/issues/31333
+    .@{ant-prefix}-cascader-picker {
+      margin: -9px (-@control-padding-horizontal);
+      background-color: transparent;
+      .@{ant-prefix}-cascader-input {
+        text-align: left;
+        border: 0;
+        box-shadow: none;
+      }
+    }
   }
 
   // Reset rounded corners
