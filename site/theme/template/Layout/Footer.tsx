@@ -235,12 +235,6 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
           openExternal: true,
         },
         {
-          icon: <BookOutlined />,
-          title: <FormattedMessage id="app.footer.course" />,
-          url: 'https://www.yuque.com/ant-design/course',
-          openExternal: true,
-        },
-        {
           icon: <QuestionCircleOutlined />,
           title: <FormattedMessage id="app.footer.discussions" />,
           url: 'https://github.com/ant-design/ant-design/discussions',

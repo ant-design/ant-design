@@ -29,15 +29,15 @@ export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactNode {
       </a>
     </Menu.Item>,
     <Menu.Item key="procomponents">
-        <a
-          href="http://procomponents.ant.design"
-          className="header-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FormattedMessage id="app.header.menu.pro.components" />
-        </a>
-      </Menu.Item>,
+      <a
+        href="http://procomponents.ant.design"
+        className="header-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FormattedMessage id="app.header.menu.pro.components" />
+      </a>
+    </Menu.Item>,
     <Menu.Item key="ng">
       <a
         href="http://ng.ant.design"
@@ -52,30 +52,13 @@ export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactNode {
       </a>
     </Menu.Item>,
     <Menu.Item key="vue">
-      <a
-        href="http://antdv.com"
-        className="header-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="http://antdv.com" className="header-link" target="_blank" rel="noopener noreferrer">
         Ant Design of Vue
         <span style={smallStyle}>
           (<FormattedMessage id="app.implementation.community" />)
         </span>
       </a>
     </Menu.Item>,
-    isZhCN ? (
-      <Menu.Item key="course" className="hide-in-home-page">
-        <a
-          href="https://www.yuque.com/ant-design/course"
-          className="header-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ant Design 实战教程
-        </a>
-      </Menu.Item>
-    ) : null,
   ];
 }
 
