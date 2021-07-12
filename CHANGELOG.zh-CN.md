@@ -15,7 +15,35 @@ timeline: true
 
 ---
 
+## 4.16.7
+
+`2021-07-12`
+
+- 🐞 修复 DatePicker 在 Table 内使用时日期未居中的问题。[#31306](https://github.com/ant-design/ant-design/pull/31306) [@Map1en](https://github.com/Map1en)
+- 🐞 修复 Descriptions 在 Table 内边框丢失的问题。[#31307](https://github.com/ant-design/ant-design/pull/31307)
+- 🐞 修复 InputNumber 边框和交互范围不匹配的问题。[#31300](https://github.com/ant-design/ant-design/pull/31300) [@diyews](https://github.com/diyews)
+- Table
+  - 🐞 修复 Table 当窗口过小时上边框显示不完全的问题。[#31298](https://github.com/ant-design/ant-design/pull/31298) [@Map1en](https://github.com/Map1en)
+  - 🐞 修复 Table `rowSelection` 的 `selectedRows` 属性在初始化时不同步问题。[#31224](https://github.com/ant-design/ant-design/pull/31224) [@kerm1it](https://github.com/kerm1it)
+  - 🐞 修复 Table 组合列上的筛选状态 `filteredValue` 不生效的问题。[#30815](https://github.com/ant-design/ant-design/pull/30815) [@moraispgsi](https://github.com/moraispgsi)
+- Form
+  - 🐞 修复 Form 错误校验状态下 Input 的聚焦外框色。[#31240](https://github.com/ant-design/ant-design/pull/31240)
+  - 🆕 Form 增加 `name` 作为验证消息 `label` 的默认值。[#30179](https://github.com/ant-design/ant-design/pull/30179) [@jameslahm](https://github.com/jameslahm)
+- 💄 修复 Rate 在 Safari 下聚焦外框的样式。[#31241](https://github.com/ant-design/ant-design/pull/31241)
+- 💄 微调 Select 箭头垂直位置。[#31234](https://github.com/ant-design/ant-design/pull/31234)
+- 🐞 清除 Input 内容时不再触发 `onBlur`，修复可编辑表格 Input 无法正确清除内容的问题。[#31202](https://github.com/ant-design/ant-design/pull/31202)
+- 🐞 修复 Tooltip `arrowPointAtCenter` 有一像素偏移的问题。[#31201](https://github.com/ant-design/ant-design/pull/31201)
+- 💄 修复 Menu 项 hover 文字色彩的渐变效果。[#31189](https://github.com/ant-design/ant-design/pull/31189)
+- 🐞 修复 Dropdown.Button 不支持 `overlayClassName` 和 `overlayStyle` 的问题。[#31187](https://github.com/ant-design/ant-design/pull/31187)
+- 💄 使 Pagination 选中禁用状态的按钮样式与单选框相应按钮的样式一致。[#31185](https://github.com/ant-design/ant-design/pull/31185) [@Map1en](https://github.com/Map1en)
+- 🐞 修复在 Windows 环境下打包组件样式导出文件时路径错误。[#31277](https://github.com/ant-design/ant-design/pull/31277) [@aoxiang78](https://github.com/aoxiang78)
+- 🌐 en_GB 语言文件中增添 `selectNone`。[#31264](https://github.com/ant-design/ant-design/pull/31264) [@Map1en](https://github.com/Map1en)
+- TypeScript
+  - 🤖 调整 Transfer `listStyle` 属性为可选属性。[#31322](https://github.com/ant-design/ant-design/pull/31322) [@geekrainy](https://github.com/geekrainy)
+
 ## 4.16.6
+
+`2021-06-29`
 
 - 🐞 修复 Tree `loadData` 失败后节点 `loading` 效果没有重置的问题。[#31170](https://github.com/ant-design/ant-design/pull/31170)
 - ⚡️ 优化 Progress 动画性能，显著降低 CPU 使用率。[#31128](https://github.com/ant-design/ant-design/pull/31128) [@stygian-desolator](https://github.com/stygian-desolator)

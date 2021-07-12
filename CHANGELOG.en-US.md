@@ -15,6 +15,32 @@ timeline: true
 
 ---
 
+## 4.16.7
+
+`2021-07-12`
+
+- 🐞 Fix DatePicker date cell not centered when used in Table. [#31306](https://github.com/ant-design/ant-design/pull/31306) [@Map1en](https://github.com/Map1en)
+- 🐞 Fix Desciptions border missing when inside Table. [#31307](https://github.com/ant-design/ant-design/pull/31307)
+- 🐞 Fix InputNumber border and interactive handler not matched. [#31300](https://github.com/ant-design/ant-design/pull/31300) [@diyews](https://github.com/diyews)
+- Table
+  - 🐞 Fix incomplete display of the upper border of the table when the window is too small. [#31298](https://github.com/ant-design/ant-design/pull/31298) [@Map1en](https://github.com/Map1en)
+  - 🐞 Fix Table `rowSelection.selectedRows` don't sync in initial state. [#31224](https://github.com/ant-design/ant-design/pull/31224) [@kerm1it](https://github.com/kerm1it)
+  - 🐞 Fix Table `filteredValue` not work with nested columns. [#30815](https://github.com/ant-design/ant-design/pull/30815) [@moraispgsi](https://github.com/moraispgsi)
+- Form
+  - 🐞 Fix Form Input outline color under Form validation. [#31240](https://github.com/ant-design/ant-design/pull/31240)
+  - 🆕 Form add `name` as a default label value in `validationMessages`. [#30179](https://github.com/ant-design/ant-design/pull/30179) [@jameslahm](https://github.com/jameslahm)
+- 💄 Fix Rate focus ring style in Safari. [#31241](https://github.com/ant-design/ant-design/pull/31241)
+- 💄 Tweak Select arrow icon position. [#31234](https://github.com/ant-design/ant-design/pull/31234)
+- 🐞 Input will not trigger `onBlur` when click clear icon now which resolve that editable table input cannot be cleared. [#31202](https://github.com/ant-design/ant-design/pull/31202)
+- 🐞 Fix Tooltip `arrowPointAtCenter` 1px shift bug. [#31201](https://github.com/ant-design/ant-design/pull/31201)
+- 💄 Fix Menu.Item hover color transition style. [#31189](https://github.com/ant-design/ant-design/pull/31189)
+- 🐞 Fix Dropdown.Button don't support `overlayClassName` and `overlayStyle`. [#31187](https://github.com/ant-design/ant-design/pull/31187)
+- 💄 Adjust Pagination pattern of disabled-active buttons align with Radio style. [#31185](https://github.com/ant-design/ant-design/pull/31185) [@Map1en](https://github.com/Map1en)
+- 🐞 Fix the path error when packaging the component style export file in the Windows environment. [#31277](https://github.com/ant-design/ant-design/pull/31277) [@aoxiang78](https://github.com/aoxiang78)
+- 🌐 Add `selectNone` for en_GB locale file. [#31264](https://github.com/ant-design/ant-design/pull/31264) [@Map1en](https://github.com/Map1en)
+- TypeScript
+  - 🤖 Adjust Transfer `listStyle` definition to be optional. [#31322](https://github.com/ant-design/ant-design/pull/31322) [@geekrainy](https://github.com/geekrainy)
+
 ## 4.16.6
 
 `2021-06-29`
