@@ -166,19 +166,15 @@
 
   // =========================== Summary ============================
   &-summary {
-    margin-top: -@border-width-base;
+    position: relative;
+    z-index: @zindex-table-fixed;
     background: @table-bg;
+    box-shadow: 0 -@border-width-base 0 @table-border-color;
 
     > tr {
       > th,
       > td {
         border-bottom: @border-width-base @border-style-base @table-border-color;
-      }
-
-      &:first-child {
-        > td {
-          box-shadow: 0 @border-width-base 0 @table-border-color inset;
-        }
       }
     }
   }
