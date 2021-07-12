@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/input/demo/addon.md correctly 1`] = `
-Array [
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    style="margin-bottom:16px"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -28,9 +31,10 @@ Array [
         </span>
       </span>
     </span>
-  </div>,
+  </div>
   <div
-    style="margin-bottom:16px"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -171,9 +175,10 @@ Array [
         </span>
       </span>
     </span>
-  </div>,
+  </div>
   <div
-    style="margin-bottom:16px"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -211,9 +216,10 @@ Array [
         </span>
       </span>
     </span>
-  </div>,
+  </div>
   <div
-    style="margin-bottom:16px"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -242,8 +248,66 @@ Array [
         </span>
       </span>
     </span>
-  </div>,
-]
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-input-group-wrapper"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <span
+          class="ant-input-group-addon"
+        >
+          <span
+            class="ant-cascader-picker"
+            style="width:150px"
+            tabindex="0"
+          >
+            <span
+              class="ant-cascader-picker-label"
+            />
+            <input
+              autocomplete="off"
+              class="ant-input ant-cascader-input "
+              placeholder="cascader"
+              readonly=""
+              tabindex="-1"
+              type="text"
+              value=""
+            />
+            <span
+              aria-label="down"
+              class="anticon anticon-down ant-cascader-picker-arrow"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <input
+          class="ant-input"
+          type="text"
+          value="mysite"
+        />
+      </span>
+    </span>
+  </div>
+</div>
 `;
 
 exports[`renders ./components/input/demo/align.md correctly 1`] = `

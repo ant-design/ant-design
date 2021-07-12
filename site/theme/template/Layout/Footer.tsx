@@ -15,7 +15,6 @@ import {
   ProfileOutlined,
   BugOutlined,
   IssuesCloseOutlined,
-  BookOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
@@ -232,12 +231,6 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
           icon: <IssuesCloseOutlined />,
           title: <FormattedMessage id="app.footer.issues" />,
           url: 'https://github.com/ant-design/ant-design/issues',
-          openExternal: true,
-        },
-        {
-          icon: <BookOutlined />,
-          title: <FormattedMessage id="app.footer.course" />,
-          url: 'https://www.yuque.com/ant-design/course',
           openExternal: true,
         },
         {

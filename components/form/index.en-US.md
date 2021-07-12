@@ -318,7 +318,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |  |
 | validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |  |
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
-| whitespace | Failed if only has whitespace | boolean |  |
+| whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
 
 ## Migrate to v4
 

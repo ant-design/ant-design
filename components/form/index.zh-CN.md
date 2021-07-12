@@ -317,7 +317,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |  |
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |  |
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
-| whitespace | 如果字段仅包含空格则校验不通过 | boolean |  |
+| whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
 ## 从 v3 升级到 v4
 

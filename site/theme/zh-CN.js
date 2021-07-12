@@ -65,7 +65,6 @@ module.exports = {
     'app.home.view-more': '查看全部',
     'app.footer.repo': 'GitHub 仓库',
     'app.footer.awesome': 'Awesome Ant Design',
-    'app.footer.course': 'Ant Design 实战教程',
     'app.footer.chinamirror': '国内镜像站点 🇨🇳',
     'app.footer.primary-color-changing': '正在修改主题色...',
     'app.footer.primary-color-changed': '修改主题色成功！',
