@@ -169,7 +169,10 @@
     position: relative;
     z-index: @zindex-table-fixed;
     background: @table-bg;
-    box-shadow: 0 -@border-width-base 0 @table-border-color;
+
+    div& {
+      box-shadow: 0 -@border-width-base 0 @table-border-color;
+    }
 
     > tr {
       > th,
