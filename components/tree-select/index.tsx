@@ -11,7 +11,7 @@ import omit from 'rc-util/lib/omit';
 import { DefaultValueType } from 'rc-tree-select/lib/interface';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import { AntTreeNodeProps } from '../tree';
+import { AntTreeNodeProps, TreeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
@@ -30,11 +30,18 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 export interface TreeSelectProps<T>
   extends Omit<
     RcTreeSelectProps<T>,
-    'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
+    | 'showTreeIcon'
+    | 'treeMotion'
+    | 'inputIcon'
+    | 'mode'
+    | 'getInputElement'
+    | 'backfill'
+    | 'treeLine'
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
+  treeLine?: TreeProps['showLine'];
 }
 
 export interface RefTreeSelectProps {
@@ -140,6 +147,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
       treeCheckable={
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
+      treeLine={!!treeLine}
       inputIcon={suffixIcon}
       multiple={multiple}
       removeIcon={removeIcon}

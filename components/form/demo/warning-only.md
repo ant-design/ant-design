@@ -1,0 +1,73 @@
+---
+order: 3.2
+title:
+  zh-CN: 非阻塞校验
+  en-US: No block rule
+---
+
+## zh-CN
+
+`rule` 添加 `warningOnly` 后校验不再阻塞表单提交。
+
+## en-US
+
+`rule` with `warningOnly` will not block form submit.
+
+```tsx
+import React from 'react';
+import { Form, Input, message, Button, Space } from 'antd';
+
+const Demo = () => {
+  const [form] = Form.useForm();
+
+  const onFinish = () => {
+    message.success('Submit success!');
+  };
+
+  const onFinishFailed = () => {
+    message.error('Submit failed!');
+  };
+
+  const onFill = () => {
+    form.setFieldsValue({
+      url: 'https://taobao.com/',
+    });
+  };
+
+  return (
+    <Form
+      form={form}
+      layout="vertical"
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
+      <div style={{ overflow: 'hidden' }}>
+        <Form.Item
+          name="url"
+          label="URL"
+          rules={[
+            { required: true },
+            { type: 'url', warningOnly: true },
+            { type: 'string', min: 6 },
+          ]}
+        >
+          <Input placeholder="input placeholder" />
+        </Form.Item>
+      </div>
+      <Form.Item>
+        <Space>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+          <Button htmlType="button" onClick={onFill}>
+            Fill
+          </Button>
+        </Space>
+      </Form.Item>
+    </Form>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
+```

@@ -19,6 +19,7 @@ import LocaleProvider from '..';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
+import bnBD from '../bn_BD';
 import byBY from '../by_BY';
 import caES from '../ca_ES';
 import csCZ from '../cs_CZ';
@@ -81,6 +82,7 @@ const locales = [
   azAZ,
   arEG,
   bgBG,
+  bnBD,
   byBY,
   caES,
   csCZ,
@@ -229,9 +231,10 @@ describe('Locale Provider', () => {
           <ModalDemo />
         </LocaleProvider>,
       );
-      const currentConfirmNode = document.querySelectorAll('.ant-modal-confirm')[
-        document.querySelectorAll('.ant-modal-confirm').length - 1
-      ];
+      const currentConfirmNode =
+        document.querySelectorAll('.ant-modal-confirm')[
+          document.querySelectorAll('.ant-modal-confirm').length - 1
+        ];
       let cancelButtonText = currentConfirmNode.querySelectorAll(
         '.ant-btn:not(.ant-btn-primary) span',
       )[0].innerHTML;

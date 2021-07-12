@@ -1117,6 +1117,7 @@ exports[`Cascader support controlled mode 1`] = `
 >
   <span
     class="ant-cascader-picker-label"
+    title="Zhejiang / Hangzhou / West Lake"
   >
     Zhejiang / Hangzhou / West Lake
   </span>
