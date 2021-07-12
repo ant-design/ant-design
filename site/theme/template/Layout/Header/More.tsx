@@ -6,7 +6,7 @@ import { SharedProps } from './interface';
 
 const smallStyle = { fontSize: 12, color: '#777', marginLeft: '0.3em' };
 
-export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactNode {
+export function getEcosystemGroup(): React.ReactNode {
   return [
     <Menu.Item key="charts">
       <a

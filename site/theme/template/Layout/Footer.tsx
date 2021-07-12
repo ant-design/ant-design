@@ -15,7 +15,6 @@ import {
   ProfileOutlined,
   BugOutlined,
   IssuesCloseOutlined,
-  BookOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
