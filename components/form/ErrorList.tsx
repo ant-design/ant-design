@@ -70,8 +70,6 @@ export default function ErrorList({
       onLeaveEnd={() => {
         onDomErrorVisibleChange?.(false);
       }}
-      motionAppear
-      removeOnLeave
     >
       {({ className: motionClassName }: { className?: string }) => (
         <div

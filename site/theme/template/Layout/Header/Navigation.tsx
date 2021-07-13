@@ -24,7 +24,6 @@ export interface NavigationProps extends SharedProps {
 
 export default ({
   isZhCN,
-  isRTL,
   isMobile,
   pathname,
   responsive,
@@ -58,7 +57,7 @@ export default ({
     <Menu.Item key="switch-direction" onClick={onDirectionChange}>
       {directionText}
     </Menu.Item>,
-    getEcosystemGroup({ isZhCN, isRTL }),
+    getEcosystemGroup(),
   ];
 
   if (isMobile) {

@@ -166,6 +166,8 @@
 
   // =========================== Summary ============================
   &-summary {
+    position: relative;
+    z-index: @zindex-table-fixed;
     background: @table-bg;
 
     div& {
@@ -227,7 +229,7 @@
     // https://github.com/ant-design/ant-design/issues/30969
     &.@{table-prefix-cls}-cell-fix-left:hover,
     &.@{table-prefix-cls}-cell-fix-right:hover {
-      background: lighten(@black, 96%);
+      background: @table-fixed-header-sort-active-bg;
     }
   }
 
@@ -641,7 +643,9 @@
     &-holder {
       position: sticky;
       z-index: @table-sticky-zindex;
+      background: @component-background;
     }
+
     &-scroll {
       position: sticky;
       bottom: 0;

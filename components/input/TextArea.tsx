@@ -157,6 +157,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         handleReset={handleReset}
         ref={clearableInputRef}
         bordered={bordered}
+        style={showCount ? undefined : style}
       />
     );
 
