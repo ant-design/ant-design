@@ -112,6 +112,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 菜单项分割线，只用在弹出菜单内。
 
+| 参数   | 说明     | 类型    | 默认值 | 版本   |
+| ------ | -------- | ------- | ------ | ------ |
+| dashed | 是否虚线 | boolean | false  | 4.17.0 |
+
 ## FAQ
 
 ### 为何 Menu 的子元素会渲染两次？

@@ -821,4 +821,25 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-inline-collapsed-noicon').first().text()).toEqual('L');
     expect(wrapper.find('.ant-menu-inline-collapsed-noicon').last().text()).toEqual('B');
   });
+
+  it('divider should show', () => {
+    const wrapper = mount(
+      <Menu mode="vertical">
+        <SubMenu key="sub1" title="Navigation One">
+          <Menu.Item key="1">Option 1</Menu.Item>
+        </SubMenu>
+        <Menu.Divider dashed />
+        <SubMenu key="sub2" title="Navigation Two">
+          <Menu.Item key="2">Option 2</Menu.Item>
+        </SubMenu>
+        <Menu.Divider />
+        <SubMenu key="sub4" title="Navigation Three">
+          <Menu.Item key="3">Option 3</Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+
+    expect(wrapper.find('li.ant-menu-item-divider').length).toBe(2);
+    expect(wrapper.find('li.ant-menu-item-divider-dashed').length).toBe(1);
+  });
 });
