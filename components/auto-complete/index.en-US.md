@@ -10,7 +10,13 @@ Autocomplete function of input field.
 
 ## When To Use
 
-When there is a need for autocomplete functionality.
+- When you need an input box instead of a selector.
+- When you need input suggestions or helping text.
+
+The differences with Select are:
+
+- AutoComplete is an input box with text hints, and users can type freely. The keyword is aiding **input**.
+- Select is selecting among given choices. The keyword is **select**.
 
 ## API
 
@@ -51,15 +57,15 @@ When there is a need for autocomplete functionality.
 
 ### Why doesn't the text composition system work well with onSearch in controlled mode?
 
-Please use `onChange` to manage control state. `onSearch` is used for searching input which is not same as `onChange`. Besides, clicking on the option will not trigger the `onSearch` event.
+Please use `onChange` to manage control state. `onSearch` is used for searching input which is not the same as `onChange`. Besides, clicking on the option will not trigger the `onSearch` event.
 
 Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### Part of api from v3 not available in v4?
+### Part of the api in v3 are not available in v4?
 
-AutoComplete is a Input component support auto complete tips which should not support `labelInValue` prop to modify dispaly value in input. In v3, AutoComplete realization can not handle case that user type match of both `value` & `label` are the same. v4 not longer support `label` as the value input.
+AutoComplete is an Input component that supports auto complete tips. As such, it should not support props like `labelInValue` that affect value display. In v3, the AutoComplete implementation can not handle the case where the `value` and `label` are identical. v4 not longer support `label` as the value input.
 
-Besides, to unique API, `dataSource` replaced with `options`:
+Besides, to unify the API, `dataSource` is replaced with `options`. You can migrate with the following change:
 
 #### v3
 

@@ -10,14 +10,14 @@ A versatile menu for navigation.
 
 ## When To Use
 
-Navigation is an important part of any website, as a good navigation setup allows users to move around the site quickly and efficiently. Ant Design offers top and side navigation options. Top navigation provides all the categories and functions of the website. Side navigation provides the multi-level structure of the website.
+Navigation is an important part of any website, as a good navigation setup allows users to move around the site quickly and efficiently. Ant Design offers two navigation options: top and side. Top navigation provides all the categories and functions of the website. Side navigation provides the multi-level structure of the website.
 
 More layouts with navigation: [Layout](/components/layout).
 
 ## Notes for developers
 
-- Menu render as `ul` element. So it only support [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children node。Your customize node should wrapped by `Menu.Item`.
-- Menu need collect node structure. So it's children node should be `Menu.*` or HOC which used by it.
+- Menu is rendered as a `ul` element, so it only supports [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children nodes。Your customized node should be wrapped by `Menu.Item`.
+- Menu needs to collect its node structure, so its children should be `Menu.*` or encapsulated HOCs.
 
 ## API
 
@@ -113,6 +113,6 @@ Divider line in between menu items, only used in vertical popup Menu or Dropdown
 
 ## FAQ
 
-### Why Menu children node will render twice?
+### Why will Menu's children be rendered twice?
 
-Menu collect structure info with [twice-render](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543) to support HOC usage. Merge into one render may cause the logic much complex, welcome contribute to help improve collection logic.
+Menu collects structure info with [twice-render](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543) to support HOC usage. Merging into one render may cause the logic to become much more complex. Contributions to help improve the collection logic are welcomed.

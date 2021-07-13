@@ -9,7 +9,7 @@ Mention component.
 
 ## When To Use
 
-When need to mention someone or something.
+When you need to mention someone or something.
 
 ## API
 
