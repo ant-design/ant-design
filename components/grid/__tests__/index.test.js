@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import useBreakpoint from '../hooks/useBreakpoint';
 import ResponsiveObserve from '../../_util/responsiveObserve';
+import useValueBreakpoint from '../hooks/useValueBreakpoint';
 
 describe('Grid', () => {
   mountTest(Row);
@@ -123,5 +124,19 @@ describe('Grid', () => {
         xxl: false,
       }),
     );
+  });
+
+  it('should work with useValueBreakpoint', () => {
+    function Demo() {
+      const { value } = useValueBreakpoint({
+        xs: 'xs',
+        sm: 'anyValue',
+      });
+
+      return value;
+    }
+    const wrapper = mount(<Demo />);
+
+    expect(wrapper.text()).toEqual('xs');
   });
 });

@@ -1316,3 +1316,23 @@ exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
 `;
 
 exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `null`;
+
+exports[`renders ./components/grid/demo/useValueBreakpoint.md correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-5px;margin-right:-5px"
+>
+  <div
+    class="ant-col"
+    style="padding-left:5px;padding-right:5px;flex:auto"
+  >
+    current: FLEX
+  </div>
+  <div
+    class="ant-col"
+    style="padding-left:5px;padding-right:5px;flex:auto"
+  >
+    I can use REGULAR BREAKPOINT in sm, md, lg, xl, xxl
+  </div>
+</div>
+`;
