@@ -9,6 +9,8 @@ export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
 }
 
+export interface UploadCustomRequestParams extends RcCustomRequestOptions {}
+
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
 export interface HttpRequestHeader {
@@ -111,7 +113,7 @@ export interface UploadProps<T = any> {
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (options: RcCustomRequestOptions) => void;
+  customRequest?: (options: UploadCustomRequestParams) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
