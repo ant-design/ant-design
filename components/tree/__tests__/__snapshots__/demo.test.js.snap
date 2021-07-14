@@ -3,11 +3,11 @@
 exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -309,11 +309,11 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
 exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -824,11 +824,11 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
 exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 <div
   class="ant-tree"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -1029,11 +1029,11 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -1445,11 +1445,11 @@ Array [
   </div>,
   <div
     class="ant-tree ant-tree-block-node draggable-tree ant-tree-show-line"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -2130,11 +2130,11 @@ Array [
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -2495,11 +2495,11 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -2694,11 +2694,11 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
   </div>
   <div
     class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -3165,11 +3165,11 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
   </span>
   <div
     class="ant-tree ant-tree-icon-hide"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -3329,11 +3329,11 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
 exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
