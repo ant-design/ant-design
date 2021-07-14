@@ -143,7 +143,7 @@
     "rc-tabs": "~11.9.1",
     "rc-textarea": "~0.3.0",
     "rc-tooltip": "~5.1.1",
-    "rc-tree": "~4.2.1",
+    "rc-tree": "~5.0.0",
     "rc-tree-select": "~4.3.0",
     "rc-trigger": "^5.2.1",
     "rc-upload": "~4.3.0",
