@@ -36,6 +36,7 @@ export interface FormItemInputProps {
   extra?: React.ReactNode;
   status?: ValidateStatus;
   help?: React.ReactNode;
+  fieldId?: string;
 }
 
 const iconMap: { [key: string]: any } = {
@@ -58,6 +59,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     validateStatus,
     extra,
     help,
+    fieldId,
   } = props;
   const baseClassName = `${prefixCls}-item`;
 
@@ -90,6 +92,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   const errorListDom = (
     <FormItemPrefixContext.Provider value={{ prefixCls, status }}>
       <ErrorList
+        fieldId={fieldId}
         errors={errors}
         warnings={warnings}
         help={help}
@@ -99,9 +102,18 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     </FormItemPrefixContext.Provider>
   );
 
+  const extraProps: { id?: string } = {};
+
+  if (fieldId) {
+    extraProps.id = `${fieldId}_extra`;
+  }
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
-  const extraDom = extra ? <div className={`${baseClassName}-extra`}>{extra}</div> : null;
+  const extraDom = extra ? (
+    <div {...extraProps} className={`${baseClassName}-extra`}>
+      {extra}
+    </div>
+  ) : null;
 
   const dom =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (
