@@ -118,10 +118,15 @@
   }
 
   &-item-divider {
-    height: 1px;
     overflow: hidden;
     line-height: 0;
-    background-color: @border-color-split;
+    border-color: @border-color-split;
+    border-style: solid;
+    border-width: 1px 0 0;
+  }
+
+  &-item-divider-dashed {
+    border-style: dashed;
   }
 
   &-horizontal &-item,
@@ -238,12 +243,8 @@
   }
 
   & > &-item-divider {
-    height: 1px;
     margin: 1px 0;
     padding: 0;
-    overflow: hidden;
-    line-height: 0;
-    background-color: @border-color-split;
   }
 
   &-submenu {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RcMenu, { Divider, ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
+import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
@@ -11,6 +11,9 @@ import { SiderContext, SiderContextProps } from '../layout/Sider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import MenuContext, { MenuTheme } from './MenuContext';
+import MenuDivider from './MenuDivider';
+
+export { MenuDividerProps } from './MenuDivider';
 
 export { MenuItemGroupProps } from 'rc-menu';
 
@@ -113,7 +116,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
 
 // We should keep this as ref-able
 class Menu extends React.Component<MenuProps, {}> {
-  static Divider = Divider;
+  static Divider = MenuDivider;
 
   static Item = Item;
 
