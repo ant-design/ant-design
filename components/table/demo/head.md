@@ -15,6 +15,8 @@ title:
 
 使用 `defaultSortOrder` 属性，设置列的默认排序顺序。
 
+使用 `disableAutoConfirm` 停止对滤镜菜单模糊应用滤镜。
+
 ## en-US
 
 Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection.
@@ -26,6 +28,8 @@ Use `sorter` to make a column sortable. `sorter` can be a function of the type `
 `sortDirections: ['ascend' | 'descend']` defines available sort methods for each columns, effective for all columns when set on table props. You can set as `['ascend', 'descend', 'ascend']` to prevent sorter back to default status.
 
 Uses `defaultSortOrder` to make a column sorted by default.
+
+Use `disableAutoConfirm` to stop applying the filter on filter menu blur.
 
 If a `sortOrder` or `defaultSortOrder` is specified with the value `ascend` or `descend`, you can access this value from within the function passed to the `sorter` as explained above. Such a function can take the form: `function(a, b, sortOrder) { ... }`.
 

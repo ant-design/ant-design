@@ -118,6 +118,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const { filterDropdownVisible, onFilterDropdownVisibleChange } = column;
   const [visible, setVisible] = React.useState(false);
 
+  const isAutoConfirmEnabled = !column.disableAutoConfirm;
+
   const filtered: boolean = !!(
     filterState &&
     (filterState.filteredKeys?.length || filterState.forceFiltered)
@@ -205,7 +207,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     triggerVisible(newVisible);
 
     // Default will filter when closed
-    if (!newVisible && !column.filterDropdown) {
+    if (!newVisible && isAutoConfirmEnabled) {
       onConfirm();
     }
   };
