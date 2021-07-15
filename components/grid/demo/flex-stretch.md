@@ -20,8 +20,8 @@ ReactDOM.render(
   <>
     <Divider orientation="left">Percentage columns</Divider>
     <Row>
-      <Col flex={2}>2 / 5</Col>
-      <Col flex={3}>3 / 5</Col>
+      <Col flex="2">2 / 5</Col>
+      <Col flex="3">3 / 5</Col>
     </Row>
     <Divider orientation="left">Fill rest</Divider>
     <Row>
