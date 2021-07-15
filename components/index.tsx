@@ -58,7 +58,7 @@ export { default as Carousel } from './carousel';
 export type { CascaderProps } from './cascader';
 export { default as Cascader } from './cascader';
 
-export type { CheckboxProps, CheckboxOptionType } from './checkbox';
+export type { CheckboxProps, CheckboxOptionType, CheckboxChangeEvent } from './checkbox';
 export { default as Checkbox } from './checkbox';
 
 export type { ColProps } from './col';
