@@ -20,6 +20,8 @@ type EventType =
 
 type getContainerFunc = () => HTMLElement;
 
+type ILevelMove = number | [number, number];
+
 const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
 type placementType = typeof PlacementTypes[number];
 
@@ -57,6 +59,9 @@ export interface DrawerProps {
   footer?: React.ReactNode;
   footerStyle?: React.CSSProperties;
   level?: string | string[] | null | undefined;
+  levelMove?:
+    | ILevelMove
+    | ((e: { target: HTMLElement; open: boolean }) => ILevelMove);
 }
 
 export interface IDrawerState {
