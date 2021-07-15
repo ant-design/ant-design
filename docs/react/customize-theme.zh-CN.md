@@ -24,9 +24,10 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 @text-color: rgba(0, 0, 0, 0.65); // 主文本色
 @text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
 @disabled-color: rgba(0, 0, 0, 0.25); // 失效色
-@border-radius-base: 4px; // 组件/浮层圆角
+@border-radius-base: 2px; // 组件/浮层圆角
 @border-color-base: #d9d9d9; // 边框色
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影
+@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05); // 浮层阴影
 ```
 
 如果以上变量不能满足你的定制需求，可以给我们提 issue。
@@ -74,7 +75,7 @@ module.exports = {
 
 ### 在 Umi 里配置主题
 
-如果你在使用 [Umi](http://umijs.org/zh/)，那么可以很方便地在项目根目录的 [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45)（Umi）文件中 [theme](https://umijs.org/zh/config/#theme) 字段进行主题配置。`theme` 可以配置为一个对象或文件路径。
+如果你在使用 [Umi](https://umijs.org/zh-CN/config#theme)，那么可以很方便地在项目根目录的 `.umirc.ts` 或 [config/config.ts](https://github.com/ant-design/ant-design-pro/blob/v5/config/config.ts) 文件中 [theme](https://umijs.org/zh-CN/config#theme) 字段进行主题配置。`theme` 可以配置为一个对象或文件路径。
 
 ```js
 "theme": {
@@ -125,25 +126,17 @@ module.exports = {
 
 方式一：使用 Umi 3
 
-如果你在使用 [Umi 3](http://umijs.org/zh/)，仅需两步：
+如果你在使用 [Umi 3](http://umijs.org/zh-CN)：
 
-1. 安装 `@umijs/plugin-antd` 插件;
-
-   ```bash
-   $ npm i @umijs/plugin-antd -D
-   ```
-
-2. 配置 `dark` 和 `compact`。
-
-   ```js
-   // .umirc.ts or config/config.ts
-   export default {
-     antd: {
-       dark: true, // 开启暗色主题
-       compact: true, // 开启紧凑主题
-     },
-   },
-   ```
+```js
+// .umirc.ts or config/config.ts
+export default {
+  antd: {
+    dark: true, // 开启暗色主题
+    compact: true, // 开启紧凑主题
+  },
+},
+```
 
 方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) 或 [antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less)。
 
@@ -197,3 +190,4 @@ module.exports = {
 - [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
 - [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
 - [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
+- [Zero config custom theme generator](https://www.npmjs.com/package/@emeks/antd-custom-theme-generator)

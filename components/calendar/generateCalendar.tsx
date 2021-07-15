@@ -122,24 +122,20 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     );
 
     // Disabled Date
-    const mergedDisabledDate = React.useMemo(() => {
-      if (validRange) {
-        return (date: DateType) => {
-          return (
-            generateConfig.isAfter(validRange[0], date) ||
+    const mergedDisabledDate = React.useCallback(
+      (date: DateType) => {
+        const notInRange = validRange
+          ? generateConfig.isAfter(validRange[0], date) ||
             generateConfig.isAfter(date, validRange[1])
-          );
-        };
-      }
-
-      return disabledDate;
-    }, [disabledDate, validRange]);
+          : false;
+        return notInRange || !!disabledDate?.(date);
+      },
+      [disabledDate, validRange],
+    );
 
     // ====================== Events ======================
     const triggerPanelChange = (date: DateType, newMode: CalendarMode) => {
-      if (onPanelChange) {
-        onPanelChange(date, newMode);
-      }
+      onPanelChange?.(date, newMode);
     };
 
     const triggerChange = (date: DateType) => {
@@ -154,9 +150,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           triggerPanelChange(date, mergedMode);
         }
 
-        if (onChange) {
-          onChange(date);
-        }
+        onChange?.(date);
       }
     };
 
@@ -168,9 +162,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const onInternalSelect = (date: DateType) => {
       triggerChange(date);
 
-      if (onSelect) {
-        onSelect(date);
-      }
+      onSelect?.(date);
     };
 
     // ====================== Locale ======================
@@ -240,53 +232,55 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     return (
       <LocaleReceiver componentName="Calendar" defaultLocale={getDefaultLocale}>
-        {(mergedLocale: any) => {
-          return (
-            <div
-              className={classNames(calendarPrefixCls, className, {
+        {(mergedLocale: any) => (
+          <div
+            className={classNames(
+              calendarPrefixCls,
+              {
                 [`${calendarPrefixCls}-full`]: fullscreen,
                 [`${calendarPrefixCls}-mini`]: !fullscreen,
                 [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
-              })}
-              style={style}
-            >
-              {headerRender ? (
-                headerRender({
-                  value: mergedValue,
-                  type: mergedMode,
-                  onChange: onInternalSelect,
-                  onTypeChange: triggerModeChange,
-                })
-              ) : (
-                <CalendarHeader
-                  prefixCls={calendarPrefixCls}
-                  value={mergedValue}
-                  generateConfig={generateConfig}
-                  mode={mergedMode}
-                  fullscreen={fullscreen}
-                  locale={mergedLocale.lang}
-                  validRange={validRange}
-                  onChange={onInternalSelect}
-                  onModeChange={triggerModeChange}
-                />
-              )}
-
-              <RCPickerPanel
+              },
+              className,
+            )}
+            style={style}
+          >
+            {headerRender ? (
+              headerRender({
+                value: mergedValue,
+                type: mergedMode,
+                onChange: onInternalSelect,
+                onTypeChange: triggerModeChange,
+              })
+            ) : (
+              <CalendarHeader
+                prefixCls={calendarPrefixCls}
                 value={mergedValue}
-                prefixCls={prefixCls}
-                locale={mergedLocale.lang}
                 generateConfig={generateConfig}
-                dateRender={dateRender}
-                monthCellRender={date => monthRender(date, mergedLocale.lang)}
-                onSelect={onInternalSelect}
-                mode={panelMode}
-                picker={panelMode as any}
-                disabledDate={mergedDisabledDate}
-                hideHeader
+                mode={mergedMode}
+                fullscreen={fullscreen}
+                locale={mergedLocale.lang}
+                validRange={validRange}
+                onChange={onInternalSelect}
+                onModeChange={triggerModeChange}
               />
-            </div>
-          );
-        }}
+            )}
+
+            <RCPickerPanel
+              value={mergedValue}
+              prefixCls={prefixCls}
+              locale={mergedLocale.lang}
+              generateConfig={generateConfig}
+              dateRender={dateRender}
+              monthCellRender={date => monthRender(date, mergedLocale.lang)}
+              onSelect={onInternalSelect}
+              mode={panelMode}
+              picker={panelMode as any}
+              disabledDate={mergedDisabledDate}
+              hideHeader
+            />
+          </div>
+        )}
       </LocaleReceiver>
     );
   };

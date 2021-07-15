@@ -32,34 +32,26 @@ const fileList = [
   },
 ];
 
-const props = {
-  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-  listType: 'picture',
-  defaultFileList: [...fileList],
-};
-
-const props2 = {
-  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-  listType: 'picture',
-  defaultFileList: [...fileList],
-  className: 'upload-list-inline',
-};
-
 ReactDOM.render(
-  <div>
-    <Upload {...props}>
-      <Button>
-        <UploadOutlined /> Upload
-      </Button>
+  <>
+    <Upload
+      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      listType="picture"
+      defaultFileList={[...fileList]}
+    >
+      <Button icon={<UploadOutlined />}>Upload</Button>
     </Upload>
     <br />
     <br />
-    <Upload {...props2}>
-      <Button>
-        <UploadOutlined /> Upload
-      </Button>
+    <Upload
+      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      listType="picture"
+      defaultFileList={[...fileList]}
+      className="upload-list-inline"
+    >
+      <Button icon={<UploadOutlined />}>Upload</Button>
     </Upload>
-  </div>,
+  </>,
   mountNode,
 );
 ```
@@ -74,11 +66,5 @@ ReactDOM.render(
 
 .upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
   float: right;
-}
-.upload-list-inline .ant-upload-animate-enter {
-  animation-name: uploadAnimateInlineIn;
-}
-.upload-list-inline .ant-upload-animate-leave {
-  animation-name: uploadAnimateInlineOut;
 }
 ```

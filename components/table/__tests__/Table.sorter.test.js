@@ -182,15 +182,14 @@ describe('Table.sorter', () => {
     jest.useFakeTimers();
     const wrapper = mount(createTable({}));
     // default show sorter tooltip
-    wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseenter');
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
-    wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseout');
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
 
     // set table props showSorterTooltip is false
     wrapper.setProps({ showSorterTooltip: false });
-    expect(wrapper.find('.ant-table-column-sorters-with-tooltip')).toHaveLength(0);
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
@@ -199,17 +198,50 @@ describe('Table.sorter', () => {
       showSorterTooltip: false,
       columns: [{ ...column, showSorterTooltip: true }],
     });
-    wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseenter');
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
-    wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseout');
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
     // set table props showSorterTooltip is true, column showSorterTooltip is false
     wrapper.setProps({
       showSorterTooltip: true,
       columns: [{ ...column, showSorterTooltip: false }],
     });
-    expect(wrapper.find('.ant-table-column-sorters-with-tooltip')).toHaveLength(0);
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
+  });
+
+  it('should show correct tooltip when showSorterTooltip is an object', () => {
+    // basically copied from 'hover header show sorter tooltip'
+    jest.useFakeTimers();
+    const wrapper = mount(
+      createTable({ showSorterTooltip: { placement: 'bottom', title: 'static title' } }),
+    );
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
+
+    wrapper.setProps({ showSorterTooltip: false });
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
+    wrapper.setProps({
+      showSorterTooltip: false,
+      columns: [{ ...column, showSorterTooltip: true }],
+    });
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
+    wrapper.setProps({
+      showSorterTooltip: true,
+      columns: [{ ...column, showSorterTooltip: false }],
+    });
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);

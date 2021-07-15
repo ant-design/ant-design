@@ -28,7 +28,7 @@ function getOptions() {
 
 function App() {
   return (
-    <div>
+    <>
       <div style={{ marginBottom: 10 }}>
         <Mentions style={{ width: '100%' }} placeholder="this is disabled Mentions" disabled>
           {getOptions()}
@@ -37,7 +37,7 @@ function App() {
       <Mentions style={{ width: '100%' }} placeholder="this is readOnly Mentions" readOnly>
         {getOptions()}
       </Mentions>
-    </div>
+    </>
   );
 }
 

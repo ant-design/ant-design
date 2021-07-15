@@ -135,9 +135,13 @@ const Breadcrumb: BreadcrumbInterface = ({
     });
   }
 
-  const breadcrumbClassName = classNames(className, prefixCls, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const breadcrumbClassName = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   return (
     <div className={breadcrumbClassName} style={style} {...restProps}>

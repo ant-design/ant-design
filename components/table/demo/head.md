@@ -85,10 +85,7 @@ const columns = [
         value: 'New York',
       },
     ],
-    filterMultiple: false,
     onFilter: (value, record) => record.address.indexOf(value) === 0,
-    sorter: (a, b) => a.address.length - b.address.length,
-    sortDirections: ['descend', 'ascend'],
   },
 ];
 

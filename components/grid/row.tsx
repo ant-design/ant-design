@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
 import ResponsiveObserve, {
@@ -8,6 +8,7 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
+import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
@@ -18,50 +19,55 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: typeof RowAligns[number];
   justify?: typeof RowJustify[number];
   prefixCls?: string;
+  wrap?: boolean;
 }
 
-export interface RowState {
-  screens: ScreenMap;
-}
+const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    justify,
+    align,
+    className,
+    style,
+    children,
+    gutter = 0,
+    wrap,
+    ...others
+  } = props;
 
-export default class Row extends React.Component<RowProps, RowState> {
-  static defaultProps = {
-    gutter: 0,
-  };
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  state: RowState = {
-    screens: {
-      xs: true,
-      sm: true,
-      md: true,
-      lg: true,
-      xl: true,
-      xxl: true,
-    },
-  };
+  const [screens, setScreens] = React.useState<ScreenMap>({
+    xs: true,
+    sm: true,
+    md: true,
+    lg: true,
+    xl: true,
+    xxl: true,
+  });
 
-  token: string;
+  const supportFlexGap = useFlexGapSupport();
 
-  componentDidMount() {
-    this.token = ResponsiveObserve.subscribe(screens => {
-      const { gutter } = this.props;
+  const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
+
+  // ================================== Effect ==================================
+  React.useEffect(() => {
+    const token = ResponsiveObserve.subscribe(screen => {
+      const currentGutter = gutterRef.current || 0;
       if (
-        (!Array.isArray(gutter) && typeof gutter === 'object') ||
-        (Array.isArray(gutter) && (typeof gutter[0] === 'object' || typeof gutter[1] === 'object'))
+        (!Array.isArray(currentGutter) && typeof currentGutter === 'object') ||
+        (Array.isArray(currentGutter) &&
+          (typeof currentGutter[0] === 'object' || typeof currentGutter[1] === 'object'))
       ) {
-        this.setState({ screens });
+        setScreens(screen);
       }
     });
-  }
+    return () => ResponsiveObserve.unsubscribe(token);
+  }, []);
 
-  componentWillUnmount() {
-    ResponsiveObserve.unsubscribe(this.token);
-  }
-
-  getGutter(): [number, number] {
+  // ================================== Render ==================================
+  const getGutter = (): [number, number] => {
     const results: [number, number] = [0, 0];
-    const { gutter } = this.props;
-    const { screens } = this.state;
     const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
     normalizedGutter.forEach((g, index) => {
       if (typeof g === 'object') {
@@ -77,57 +83,54 @@ export default class Row extends React.Component<RowProps, RowState> {
       }
     });
     return results;
-  }
-
-  renderRow = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      justify,
-      align,
-      className,
-      style,
-      children,
-      ...others
-    } = this.props;
-    const prefixCls = getPrefixCls('row', customizePrefixCls);
-    const gutter = this.getGutter();
-    const classes = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-${justify}`]: justify,
-        [`${prefixCls}-${align}`]: align,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-    );
-    const rowStyle = {
-      ...(gutter[0]! > 0
-        ? {
-            marginLeft: gutter[0]! / -2,
-            marginRight: gutter[0]! / -2,
-          }
-        : {}),
-      ...(gutter[1]! > 0
-        ? {
-            marginTop: gutter[1]! / -2,
-            marginBottom: gutter[1]! / 2,
-          }
-        : {}),
-      ...style,
-    };
-    const otherProps = { ...others };
-    delete otherProps.gutter;
-
-    return (
-      <RowContext.Provider value={{ gutter }}>
-        <div {...otherProps} className={classes} style={rowStyle}>
-          {children}
-        </div>
-      </RowContext.Provider>
-    );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderRow}</ConfigConsumer>;
+  const prefixCls = getPrefixCls('row', customizePrefixCls);
+  const gutters = getGutter();
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-no-wrap`]: wrap === false,
+      [`${prefixCls}-${justify}`]: justify,
+      [`${prefixCls}-${align}`]: align,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
+
+  // Add gutter related style
+  const rowStyle: React.CSSProperties = {};
+  const horizontalGutter = gutters[0] > 0 ? gutters[0] / -2 : undefined;
+  const verticalGutter = gutters[1] > 0 ? gutters[1] / -2 : undefined;
+
+  if (horizontalGutter) {
+    rowStyle.marginLeft = horizontalGutter;
+    rowStyle.marginRight = horizontalGutter;
   }
-}
+
+  if (supportFlexGap) {
+    // Set gap direct if flex gap support
+    [, rowStyle.rowGap] = gutters;
+  } else if (verticalGutter) {
+    rowStyle.marginTop = verticalGutter;
+    rowStyle.marginBottom = verticalGutter;
+  }
+
+  const rowContext = React.useMemo(() => ({ gutter: gutters, wrap, supportFlexGap }), [
+    gutters,
+    wrap,
+    supportFlexGap,
+  ]);
+
+  return (
+    <RowContext.Provider value={rowContext}>
+      <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
+        {children}
+      </div>
+    </RowContext.Provider>
+  );
+});
+
+Row.displayName = 'Row';
+
+export default Row;

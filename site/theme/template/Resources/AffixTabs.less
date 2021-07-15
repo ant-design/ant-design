@@ -23,9 +23,11 @@
     max-width: 1208px;
     margin: 0 auto;
 
-    .ant-tabs-bar {
+    .ant-tabs-nav {
       margin: 0;
-      border-bottom-color: transparent;
+      &::before {
+        border-bottom-color: transparent;
+      }
 
       .ant-tabs-tab {
         padding: 21px 0;

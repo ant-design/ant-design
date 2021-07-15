@@ -20,7 +20,7 @@ Load options lazily with `loadData`.
 ```jsx
 import { Cascader } from 'antd';
 
-const options = [
+const optionLists = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -33,16 +33,14 @@ const options = [
   },
 ];
 
-class LazyOptions extends React.Component {
-  state = {
-    options,
-  };
+const LazyOptions = () => {
+  const [options, setOptions] = React.useState(optionLists);
 
-  onChange = (value, selectedOptions) => {
+  const onChange = (value, selectedOptions) => {
     console.log(value, selectedOptions);
   };
 
-  loadData = selectedOptions => {
+  const loadData = selectedOptions => {
     const targetOption = selectedOptions[selectedOptions.length - 1];
     targetOption.loading = true;
 
@@ -59,23 +57,12 @@ class LazyOptions extends React.Component {
           value: 'dynamic2',
         },
       ];
-      this.setState({
-        options: [...this.state.options],
-      });
+      setOptions([...options]);
     }, 1000);
   };
 
-  render() {
-    return (
-      <Cascader
-        options={this.state.options}
-        loadData={this.loadData}
-        onChange={this.onChange}
-        changeOnSelect
-      />
-    );
-  }
-}
+  return <Cascader options={options} loadData={loadData} onChange={onChange} changeOnSelect />;
+};
 
 ReactDOM.render(<LazyOptions />, mountNode);
 ```

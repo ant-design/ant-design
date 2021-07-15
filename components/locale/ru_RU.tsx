@@ -21,9 +21,11 @@ const localeValues: Locale = {
     filterTitle: 'Фильтр',
     filterConfirm: 'OK',
     filterReset: 'Сбросить',
+    filterEmptyText: 'Без фильтров',
     emptyText: 'Нет данных',
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
+    selectNone: 'Очистить все данные',
     selectionAll: 'Выбрать все данные',
     sortTitle: 'Сортировка',
     expand: 'Развернуть строку',
@@ -42,9 +44,16 @@ const localeValues: Locale = {
     cancelText: 'Отмена',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Поиск',
     itemUnit: 'элем.',
     itemsUnit: 'элем.',
+    remove: 'Удалить',
+    selectAll: 'Выбрать все данные',
+    selectCurrent: 'Выбрать текущую страницу',
+    selectInvert: 'Показать в обратном порядке',
+    removeAll: 'Удалить все данные',
+    removeCurrent: 'Удалить текущую страницу',
   },
   Upload: {
     uploading: 'Загрузка...',
@@ -60,13 +69,13 @@ const localeValues: Locale = {
     icon: 'иконка',
   },
   Text: {
-    edit: 'редактировать',
-    copy: 'копировать',
-    copied: 'скопировано',
-    expand: 'раскрыть',
+    edit: 'Редактировать',
+    copy: 'Копировать',
+    copied: 'Скопировано',
+    expand: 'Раскрыть',
   },
   PageHeader: {
-    back: 'назад',
+    back: 'Назад',
   },
   Form: {
     defaultValidateMessages: {
@@ -115,6 +124,9 @@ const localeValues: Locale = {
         mismatch: '${label} не соответствует шаблону ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'Превью',
   },
 };
 

@@ -29,7 +29,8 @@ const MINI_LIST: PanelProps[] = [
     href: 'https://antv.vision',
   },
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*I-ygS5prYksAAAAAAAAAAABkARQnAQ',
+    img:
+      'https://gw.alipayobjects.com/zos/antfincdn/888xda6kBc/Ant%252520Design%252520shouyepeitu.svg',
     title: 'Ant Design Pro',
     description: 'app.home.product-pro-slogan',
     href: 'https://pro.ant.design/',
@@ -67,7 +68,8 @@ const MiniPanel = ({
   href,
   link,
   isZhCN,
-}: PanelProps & { isZhCN: boolean }) => {
+  query,
+}: PanelProps & { isZhCN: boolean } & { query: object }) => {
   let content = (
     <Card
       hoverable
@@ -85,7 +87,7 @@ const MiniPanel = ({
       </a>
     );
   } else if (link) {
-    content = <Link to={getLocalizedPathname(link, isZhCN)}>{content}</Link>;
+    content = <Link to={getLocalizedPathname(link, isZhCN, query)}>{content}</Link>;
   }
 
   return (
@@ -95,7 +97,8 @@ const MiniPanel = ({
   );
 };
 
-export default function DesignPage() {
+const DesignPage = (props: { location: any }) => {
+  const { location } = props;
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
   const { direction } = React.useContext(SiteContext);
@@ -104,6 +107,8 @@ export default function DesignPage() {
   if (direction === 'rtl') {
     IconComponent = <LeftOutlined className="home-link-arrow home-link-arrow-rtl" />;
   }
+
+  const smallStyle = { fontSize: 12, color: '#888', marginLeft: '0.3em' };
 
   return (
     <div style={{ marginBottom: -28 }}>
@@ -122,7 +127,7 @@ export default function DesignPage() {
 
                 <Link
                   className="design-card-detail"
-                  to={getLocalizedPathname('/docs/spec/values', isZhCN)}
+                  to={getLocalizedPathname('/docs/spec/values', isZhCN, location.query)}
                 >
                   <FormattedMessage id="app.home.detail" />
                   {IconComponent}
@@ -194,13 +199,13 @@ export default function DesignPage() {
 
                 <ul>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/spec/colors', isZhCN)}>
+                    <Link to={getLocalizedPathname('/docs/spec/colors', isZhCN, location.query)}>
                       <FormattedMessage id="app.home.global-style" />
                       {IconComponent}
                     </Link>
                   </li>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/spec/overview', isZhCN)}>
+                    <Link to={getLocalizedPathname('/docs/spec/overview', isZhCN, location.query)}>
                       <FormattedMessage id="app.home.design-patterns" />
                       {IconComponent}
                     </Link>
@@ -234,33 +239,41 @@ export default function DesignPage() {
             }}
           >
             <Row>
-              <Col xs={24} sm={9} className="card-info">
+              <Col xs={24} sm={12} className="card-info">
                 <Title level={3}>
                   <FormattedMessage id="app.home.components" />
                 </Title>
 
                 <ul>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                    <Link
+                      to={getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}
+                    >
                       Ant Design of React
-                      {IconComponent}
                     </Link>
+                    <span style={smallStyle}>
+                      (<FormattedMessage id="app.implementation.official" />)
+                    </span>
                   </li>
                   <li>
                     <a href="https://ng.ant.design/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Angular
-                      {IconComponent}
                     </a>
+                    <span style={smallStyle}>
+                      (<FormattedMessage id="app.implementation.community" />)
+                    </span>
                   </li>
                   <li>
-                    <a href="https://vue.ant.design/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://antdv.com/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Vue
-                      {IconComponent}
                     </a>
+                    <span style={smallStyle}>
+                      (<FormattedMessage id="app.implementation.community" />)
+                    </span>
                   </li>
                 </ul>
               </Col>
-              <Col xs={24} sm={15} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
+              <Col xs={24} sm={12} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
                 <img
                   alt="components"
                   className="design-card-img-col"
@@ -283,9 +296,11 @@ export default function DesignPage() {
         className="design-mini-panels"
       >
         {MINI_LIST.map(panel => (
-          <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} />
+          <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} query={location.query} />
         ))}
       </Row>
     </div>
   );
-}
+};
+
+export default DesignPage;

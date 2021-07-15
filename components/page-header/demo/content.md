@@ -39,25 +39,23 @@ const menu = (
   </Menu>
 );
 
-const DropdownMenu = () => {
-  return (
-    <Dropdown key="more" overlay={menu}>
-      <Button
+const DropdownMenu = () => (
+  <Dropdown key="more" overlay={menu}>
+    <Button
+      style={{
+        border: 'none',
+        padding: 0,
+      }}
+    >
+      <EllipsisOutlined
         style={{
-          border: 'none',
-          padding: 0,
+          fontSize: 20,
+          verticalAlign: 'top',
         }}
-      >
-        <EllipsisOutlined
-          style={{
-            fontSize: 20,
-            verticalAlign: 'top',
-          }}
-        />
-      </Button>
-    </Dropdown>
-  );
-};
+      />
+    </Button>
+  </Dropdown>
+);
 
 const routes = [
   {
@@ -109,14 +107,12 @@ const content = (
   </>
 );
 
-const Content = ({ children, extraContent }) => {
-  return (
-    <Row>
-      <div style={{ flex: 1 }}>{children}</div>
-      <div className="image">{extraContent}</div>
-    </Row>
-  );
-};
+const Content = ({ children, extraContent }) => (
+  <Row>
+    <div style={{ flex: 1 }}>{children}</div>
+    <div className="image">{extraContent}</div>
+  </Row>
+);
 
 ReactDOM.render(
   <PageHeader
@@ -153,9 +149,9 @@ ReactDOM.render(
 
 ```css
 #components-page-header-demo-content .image {
-  margin: 0 0 0 60px;
   display: flex;
   align-items: center;
+  margin: 0 0 0 60px;
 }
 
 #components-page-header-demo-content .ant-page-header-rtl .image {
@@ -163,8 +159,8 @@ ReactDOM.render(
 }
 
 #components-page-header-demo-content .example-link {
-  line-height: 24px;
   margin-right: 16px;
+  line-height: 24px;
 }
 [data-theme='compact'] #components-page-header-demo-content .example-link {
   line-height: 20px;

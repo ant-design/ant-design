@@ -1,13 +1,12 @@
 @import '../../input/style/mixin';
 
 .form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
-  .@{ant-prefix}-form-item-explain,
   .@{ant-prefix}-form-item-split {
     color: @text-color;
   }
   // 输入框的不同校验状态
-  .@{ant-prefix}-input,
-  .@{ant-prefix}-input-affix-wrapper {
+  :not(.@{ant-prefix}-input-disabled).@{ant-prefix}-input,
+  :not(.@{ant-prefix}-input-affix-wrapper-disabled).@{ant-prefix}-input-affix-wrapper {
     &,
     &:hover {
       background-color: @background-color;
@@ -17,16 +16,6 @@
     &:focus,
     &-focused {
       .active(@border-color);
-    }
-
-    &:not([disabled]):hover {
-      border-color: @border-color;
-    }
-  }
-
-  .@{ant-prefix}-input-affix-wrapper {
-    input:focus {
-      box-shadow: none !important;
     }
   }
 
@@ -40,7 +29,6 @@
 
   .@{ant-prefix}-input-group-addon {
     color: @text-color;
-    background-color: @background-color;
     border-color: @border-color;
   }
 

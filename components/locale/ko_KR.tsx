@@ -17,6 +17,8 @@ const localeValues: Locale = {
     filterTitle: '필터 메뉴',
     filterConfirm: '확인',
     filterReset: '초기화',
+    filterEmptyText: '필터 없음',
+    emptyText: '데이터 없음',
     selectAll: '모두 선택',
     selectInvert: '선택 반전',
   },
@@ -51,9 +53,9 @@ const localeValues: Locale = {
       enum: '${label} [${enum}] 중에 하나여야 합니다',
       whitespace: '${label} 비워둘 수 없습니다',
       date: {
-        format: '${label} 유효하지 않은 날짜 형식입니다.',
+        format: '${label} 유효하지 않은 날짜 형식입니다',
         parse: '${label} 날짜 형식으로 변환될 수 없습니다',
-        invalid: '${label} 휴효하지 않은 날짜입니다',
+        invalid: '${label} 유효하지 않은 날짜입니다',
       },
       types: {
         string: typeTemplate,
@@ -77,15 +79,15 @@ const localeValues: Locale = {
         range: '${label} ${min}-${max}글자 사이어야 합니다',
       },
       number: {
-        len: '${label} 값은 ${len} 이어야 합니다',
-        min: '${label} 최솟값은 ${min} 입니다',
-        max: '${label} 최댓값은 ${max} 입니다',
+        len: '${label} 값은 ${len}이어야 합니다',
+        min: '${label} 최솟값은 ${min}입니다',
+        max: '${label} 최댓값은 ${max}입니다',
         range: '${label} 값은 ${min}-${max} 사이어야 합니다',
       },
       array: {
-        len: '${len} 이어야 합니다 ${label} ',
-        min: '최소 ${min} 이어야 합니다 ${label}',
-        max: '최대 ${max} 이어야 합니다 ${label}',
+        len: '${len}이어야 합니다 ${label} ',
+        min: '최소 ${min}이어야 합니다 ${label}',
+        max: '최대 ${max}이어야 합니다 ${label}',
         range: '${label} ${min}-${max} 사이어야 합니다',
       },
       pattern: {

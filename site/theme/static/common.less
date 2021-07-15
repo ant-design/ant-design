@@ -1,10 +1,31 @@
-html.rtl {
-  direction: rtl;
+@font-face {
+  font-weight: normal;
+  font-family: PuHuiTi;
+  src: url('//at.alicdn.com/t/webfont_6e11e43nfj.woff2') format('woff2'),
+    url('//at.alicdn.com/t/webfont_6e11e43nfj.woff') format('woff'),
+    /* chrome、firefox */ url('//at.alicdn.com/t/webfont_6e11e43nfj.ttf') format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: PuHuiTi;
+  src: url('//at.alicdn.com/t/webfont_exesdog9toj.woff2') format('woff2'),
+    url('//at.alicdn.com/t/webfont_exesdog9toj.woff') format('woff'),
+    /* chrome、firefox */ url('//at.alicdn.com/t/webfont_exesdog9toj.ttf') format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+  font-display: swap;
+}
+
+html {
+  &.rtl {
+    direction: rtl;
+  }
 }
 
 body {
+  overflow-x: hidden;
   color: @site-text-color;
-  font-size: 14px;
+  font-size: @font-size-base;
   font-family: @font-family;
   background: @body-background;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -96,10 +117,10 @@ a {
     // Nest Category > Type > Article
     &.ant-menu-inline {
       .ant-menu-item-group-title {
-        padding-left: 56px;
+        padding-left: 60px;
 
         .ant-row-rtl & {
-          padding-right: 56px;
+          padding-right: 60px;
           padding-left: 16px;
         }
       }
@@ -193,11 +214,8 @@ a {
 }
 
 #_hj_feedback_container {
-  .path1::before {
+  [class$='icon_emotion_path1']::before {
     color: @primary-color !important;
-  }
-  .path2::before {
-    color: @body-background !important;
   }
 }
 

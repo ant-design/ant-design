@@ -42,7 +42,7 @@ class App extends React.Component {
       this.state.disabled ? 'Disabled' : 'Enabled'
     }`;
     return (
-      <div>
+      <>
         <p style={{ marginBottom: '20px' }}>
           <Checkbox
             checked={this.state.checked}
@@ -65,7 +65,7 @@ class App extends React.Component {
             {!this.state.disabled ? 'Disable' : 'Enable'}
           </Button>
         </p>
-      </div>
+      </>
     );
   }
 }

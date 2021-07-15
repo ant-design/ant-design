@@ -64,7 +64,7 @@ class App extends React.Component {
     }
     return (
       <>
-        <span style={{ marginRight: 6 }}>Horizontal Gutter (px): </span>
+        <span>Horizontal Gutter (px): </span>
         <div style={{ width: '50%' }}>
           <Slider
             min={0}
@@ -76,7 +76,7 @@ class App extends React.Component {
             tipFormatter={value => gutters[value]}
           />
         </div>
-        <span style={{ marginRight: 6 }}>Vertical Gutter (px): </span>
+        <span>Vertical Gutter (px): </span>
         <div style={{ width: '50%' }}>
           <Slider
             min={0}
@@ -88,7 +88,7 @@ class App extends React.Component {
             tipFormatter={value => vgutters[value]}
           />
         </div>
-        <span style={{ marginRight: 6 }}>Column Count:</span>
+        <span>Column Count:</span>
         <div style={{ width: '50%', marginBottom: 48 }}>
           <Slider
             min={0}
@@ -100,9 +100,13 @@ class App extends React.Component {
             tipFormatter={value => colCounts[value]}
           />
         </div>
+        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>
+          {cols}
+          {cols}
+        </Row>
+        Another Row:
         <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
-        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
-        <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+        <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}\n${colCode}</Row>`}</pre>
         <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
       </>
     );
@@ -132,6 +136,9 @@ ReactDOM.render(<App />, mountNode);
 }
 #components-grid-demo-playground pre.demo-code {
   direction: ltr;
+}
+#components-grid-demo-playground .ant-col {
+  padding: 0;
 }
 ```
 

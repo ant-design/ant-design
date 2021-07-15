@@ -11,7 +11,7 @@ Array [
   <div>
     <div
       class="ant-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div>
         menu
@@ -32,10 +32,10 @@ Array [
   <div>
     <div
       class="ant-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <span>
-        overlayNode
+        string
       </span>
     </div>
   </div>,

@@ -11,7 +11,7 @@ import Empty from '../../../empty';
 import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
-import useSyncState from '../useSyncState';
+import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
 
 const { SubMenu, Item: MenuItem } = Menu;
@@ -34,17 +34,24 @@ function renderFilterItems({
   locale: TableLocale;
 }) {
   if (filters.length === 0) {
+    // wrapped with <div /> to avoid react warning
+    // https://github.com/ant-design/ant-design/issues/25979
     return (
-      <Empty
-        image={Empty.PRESENTED_IMAGE_SIMPLE}
-        description={locale.filterEmptyText}
-        style={{
-          margin: '16px 0',
-        }}
-        imageStyle={{
-          height: 24,
-        }}
-      />
+      <MenuItem key="empty">
+        <div
+          style={{
+            margin: '16px 0',
+          }}
+        >
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description={locale.filterEmptyText}
+            imageStyle={{
+              height: 24,
+            }}
+          />
+        </div>
+      </MenuItem>
     );
   }
   return filters.map((filter, index) => {
@@ -80,6 +87,7 @@ function renderFilterItems({
 }
 
 export interface FilterDropdownProps<RecordType> {
+  tablePrefixCls: string;
   prefixCls: string;
   dropdownPrefixCls: string;
   column: ColumnType<RecordType>;
@@ -94,6 +102,7 @@ export interface FilterDropdownProps<RecordType> {
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const {
+    tablePrefixCls,
     prefixCls,
     column,
     dropdownPrefixCls,
@@ -115,20 +124,18 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
-    if (onFilterDropdownVisibleChange) {
-      onFilterDropdownVisibleChange(newVisible);
-    }
+    onFilterDropdownVisibleChange?.(newVisible);
   };
 
   const mergedVisible =
     typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
 
   // ===================== Select Keys =====================
-  const propFilteredKeys = filterState && filterState.filteredKeys;
+  const propFilteredKeys = filterState?.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
-  const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
-    setFilteredKeysSync(selectedKeys);
+  const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
+    setFilteredKeysSync(selectedKeys!);
   };
 
   React.useEffect(() => {
@@ -146,16 +153,15 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const onMenuClick = () => {
     window.clearTimeout(openRef.current);
   };
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(
+    () => () => {
       window.clearTimeout(openRef.current);
-    };
-  }, []);
+    },
+    [],
+  );
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[] | undefined | null) => {
-    triggerVisible(false);
-
     const mergedKeys = keys && keys.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
@@ -173,12 +179,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onConfirm = () => {
+    triggerVisible(false);
     internalTriggerFilter(getFilteredKeysSync());
   };
 
   const onReset = () => {
     setFilteredKeysSync([]);
+    triggerVisible(false);
     internalTriggerFilter([]);
+  };
+
+  const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {
+    if (closeDropdown) {
+      triggerVisible(false);
+    }
+    internalTriggerFilter(getFilteredKeysSync());
   };
 
   const onVisibleChange = (newVisible: boolean) => {
@@ -207,7 +222,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       prefixCls: `${dropdownPrefixCls}-custom`,
       setSelectedKeys: (selectedKeys: Key[]) => onSelectKeys({ selectedKeys }),
       selectedKeys: getFilteredKeysSync(),
-      confirm: onConfirm,
+      confirm: doFilter,
       clearFilters: onReset,
       filters: column.filters,
       visible: mergedVisible,
@@ -268,36 +283,29 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const { direction } = React.useContext(ConfigContext);
 
   return (
-    <div className={classNames(`${prefixCls}-column`)}>
-      <span className={`${prefixCls}-column-title`}>{children}</span>
-
-      <span
-        className={classNames(`${prefixCls}-trigger-container`, {
-          [`${prefixCls}-trigger-container-open`]: mergedVisible,
-        })}
-        onClick={e => {
-          e.stopPropagation();
-        }}
+    <div className={`${prefixCls}-column`}>
+      <span className={`${tablePrefixCls}-column-title`}>{children}</span>
+      <Dropdown
+        overlay={menu}
+        trigger={['click']}
+        visible={mergedVisible}
+        onVisibleChange={onVisibleChange}
+        getPopupContainer={getPopupContainer}
+        placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
       >
-        <Dropdown
-          overlay={menu}
-          trigger={['click']}
-          visible={mergedVisible}
-          onVisibleChange={onVisibleChange}
-          getPopupContainer={getPopupContainer}
-          placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
+        <span
+          role="button"
+          tabIndex={-1}
+          className={classNames(`${prefixCls}-trigger`, {
+            active: filtered,
+          })}
+          onClick={e => {
+            e.stopPropagation();
+          }}
         >
-          <span
-            role="button"
-            tabIndex={-1}
-            className={classNames(`${prefixCls}-trigger`, {
-              active: filtered,
-            })}
-          >
-            {filterIcon}
-          </span>
-        </Dropdown>
-      </span>
+          {filterIcon}
+        </span>
+      </Dropdown>
     </div>
   );
 }

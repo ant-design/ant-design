@@ -5,7 +5,7 @@
 @pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
 .@{pagination-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   ul,
   ol {
@@ -59,7 +59,7 @@
       }
     }
 
-    &:focus,
+    &:focus-visible,
     &:hover {
       border-color: @primary-color;
       transition: all 0.3s;
@@ -77,12 +77,12 @@
         color: @primary-color;
       }
 
-      &:focus,
+      &:focus-visible,
       &:hover {
         border-color: @primary-5;
       }
 
-      &:focus a,
+      &:focus-visible a,
       &:hover a {
         color: @primary-5;
       }
@@ -119,6 +119,7 @@
         display: block;
         margin: auto;
         color: @disabled-color;
+        font-family: Arial, Helvetica, sans-serif;
         letter-spacing: 2px;
         text-align: center;
         text-indent: 0.13em;
@@ -127,7 +128,7 @@
       }
     }
 
-    &:focus,
+    &:focus-visible,
     &:hover {
       .@{pagination-prefix-cls}-item-link-icon {
         opacity: 1;
@@ -163,10 +164,12 @@
 
   &-prev,
   &-next {
+    font-family: Arial, Helvetica, sans-serif;
     outline: 0;
 
     button {
       color: @text-color;
+      cursor: pointer;
       user-select: none;
     }
 
@@ -178,6 +181,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      padding: 0;
       font-size: 12px;
       text-align: center;
       background-color: @pagination-item-link-bg;
@@ -187,7 +191,7 @@
       transition: all 0.3s;
     }
 
-    &:focus .@{pagination-prefix-cls}-item-link,
+    &:focus-visible .@{pagination-prefix-cls}-item-link,
     &:hover .@{pagination-prefix-cls}-item-link {
       color: @primary-color;
       border-color: @primary-color;
@@ -197,7 +201,7 @@
   &-disabled {
     &,
     &:hover,
-    &:focus {
+    &:focus-visible {
       cursor: not-allowed;
       .@{pagination-prefix-cls}-item-link {
         color: @disabled-color;
@@ -227,19 +231,20 @@
     &-size-changer.@{ant-prefix}-select {
       display: inline-block;
       width: auto;
-      margin-right: 8px;
     }
 
     &-quick-jumper {
       display: inline-block;
       height: @input-height-base;
+      margin-left: @margin-xs;
       line-height: @input-height-base;
       vertical-align: top;
 
       input {
-        .input;
+        .input();
 
         width: 50px;
+        height: @input-height-base;
         margin: 0 8px;
       }
     }
@@ -280,6 +285,13 @@
 
       &:hover {
         border-color: @primary-color;
+      }
+
+      &[disabled] {
+        color: @disabled-color;
+        background: @disabled-bg;
+        border-color: @border-color-base;
+        cursor: not-allowed;
       }
     }
   }
@@ -339,9 +351,10 @@
       line-height: @pagination-item-size-sm;
 
       input {
-        .input-sm;
+        .input-sm();
 
         width: 44px;
+        height: @input-height-sm;
       }
     }
   }
@@ -364,7 +377,6 @@
 
       &-active {
         background: @pagination-item-disabled-bg-active;
-        border-color: transparent;
         a {
           color: @pagination-item-disabled-color-active;
         }
@@ -376,6 +388,9 @@
       background: @disabled-bg;
       border-color: @border-color-base;
       cursor: not-allowed;
+      .@{pagination-prefix-cls}-simple& {
+        background: transparent;
+      }
     }
 
     .@{pagination-prefix-cls}-item-link-icon {
@@ -384,6 +399,10 @@
 
     .@{pagination-prefix-cls}-item-ellipsis {
       opacity: 1;
+    }
+
+    .@{pagination-prefix-cls}-simple-pager {
+      color: @disabled-color;
     }
   }
 }

@@ -13,7 +13,7 @@ const SkeletonImage = (props: SkeletonImageProps) => {
   const renderSkeletonImage = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, style } = props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-    const cls = classNames(prefixCls, className, `${prefixCls}-element`);
+    const cls = classNames(prefixCls, `${prefixCls}-element`, className);
 
     return (
       <div className={cls}>

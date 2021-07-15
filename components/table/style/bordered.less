@@ -1,7 +1,7 @@
 @import './index';
 @import './size';
 
-@table-border: @border-width-base @border-style-base @border-color-split;
+@table-border: @border-width-base @border-style-base @table-border-color;
 
 .@{table-prefix-cls}.@{table-prefix-cls}-bordered {
   // ============================ Title =============================
@@ -12,13 +12,12 @@
 
   > .@{table-prefix-cls}-container {
     // ============================ Content ============================
-    border: @table-border;
-    border-right: 0;
-    border-bottom: 0;
+    border-left: @table-border;
 
     > .@{table-prefix-cls}-content,
     > .@{table-prefix-cls}-header,
-    > .@{table-prefix-cls}-body {
+    > .@{table-prefix-cls}-body,
+    > .@{table-prefix-cls}-summary {
       > table {
         // ============================= Cell =============================
         > thead > tr > th,
@@ -30,7 +29,13 @@
         // ============================ Header ============================
         > thead {
           > tr:not(:last-child) > th {
-            border-bottom: @border-width-base @border-style-base @border-color-split;
+            border-bottom: @border-width-base @border-style-base @table-border-color;
+          }
+
+          > tr > th {
+            &::before {
+              background-color: transparent !important;
+            }
           }
         }
 
@@ -58,6 +63,13 @@
             content: '';
           }
         }
+      }
+    }
+
+    > .@{table-prefix-cls}-content,
+    > .@{table-prefix-cls}-header {
+      > table {
+        border-top: @table-border;
       }
     }
   }
@@ -114,5 +126,9 @@
   .@{table-prefix-cls}-container:first-child {
     // :first-child to avoid the case when bordered and title is set
     border-top: 0;
+  }
+
+  &-scrollbar {
+    box-shadow: 0 @border-width-base 0 @border-width-base @table-header-bg;
   }
 }

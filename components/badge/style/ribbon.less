@@ -1,0 +1,81 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@ribbon-prefix-cls: ~'@{ant-prefix}-ribbon';
+@ribbon-wrapper-prefix-cls: ~'@{ant-prefix}-ribbon-wrapper';
+
+.@{ribbon-wrapper-prefix-cls} {
+  position: relative;
+}
+
+.@{ribbon-prefix-cls} {
+  .reset-component();
+
+  position: absolute;
+  top: 8px;
+  height: 22px;
+  padding: 0 8px;
+  color: @badge-text-color;
+  line-height: 22px;
+  white-space: nowrap;
+  background-color: @primary-color;
+  border-radius: @border-radius-sm;
+
+  &-text {
+    color: @white;
+  }
+
+  &-corner {
+    position: absolute;
+    top: 100%;
+    width: 8px;
+    height: 8px;
+    color: currentColor;
+    border: 4px solid;
+    transform: scaleY(0.75);
+    transform-origin: top;
+    // If not support IE 11, use filter: brightness(75%) instead
+    &::after {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: inherit;
+      height: inherit;
+      color: rgba(0, 0, 0, 0.25);
+      border: inherit;
+      content: '';
+    }
+  }
+
+  // colors
+  // mixin to iterate over colors and create CSS class for each one
+  .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
+    .make-color-classes(@i - 1);
+    @color: extract(@preset-colors, @i);
+    @darkColor: '@{color}-6';
+    &-color-@{color} {
+      color: @@darkColor;
+      background: @@darkColor;
+    }
+  }
+  .make-color-classes();
+
+  // placement
+  &.@{ribbon-prefix-cls}-placement-end {
+    right: -8px;
+    border-bottom-right-radius: 0;
+    .@{ribbon-prefix-cls}-corner {
+      right: 0;
+      border-color: currentColor transparent transparent currentColor;
+    }
+  }
+
+  &.@{ribbon-prefix-cls}-placement-start {
+    left: -8px;
+    border-bottom-left-radius: 0;
+    .@{ribbon-prefix-cls}-corner {
+      left: 0;
+      border-color: currentColor currentColor transparent transparent;
+    }
+  }
+}

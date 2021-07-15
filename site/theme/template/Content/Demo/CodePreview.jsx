@@ -9,9 +9,7 @@ const LANGS = {
 };
 
 const CodePreview = ({ toReactComponent, codes }) => {
-  const langList = Object.keys(codes)
-    .sort()
-    .reverse();
+  const langList = Object.keys(codes).sort().reverse();
 
   let content;
 

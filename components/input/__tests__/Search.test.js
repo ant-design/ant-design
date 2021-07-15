@@ -21,11 +21,15 @@ describe('Input.Search', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should support enterButton null', () => {
+    expect(() => {
+      mount(<Search enterButton={null} />);
+    }).not.toThrow();
+  });
+
   it('should support ReactNode suffix without error', () => {
-    const fn = () => {
-      mount(<Search suffix={<div>ok</div>} />);
-    };
-    expect(fn).not.toThrow();
+    const wrapper = mount(<Search suffix={<div>ok</div>} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should disable enter button when disabled prop is true', () => {
@@ -36,14 +40,14 @@ describe('Input.Search', () => {
   it('should disable search icon when disabled prop is true', () => {
     const onSearch = jest.fn();
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} disabled />);
-    wrapper.find('.anticon-search').simulate('click');
+    wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(0);
   });
 
   it('should trigger onSearch when click search icon', () => {
     const onSearch = jest.fn();
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
-    wrapper.find('.anticon-search').simulate('click');
+    wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toHaveBeenCalledWith(
       'search text',
@@ -208,5 +212,12 @@ describe('Input.Search', () => {
     expect(() => {
       wrapper.find('button').simulate('mousedown');
     }).not.toThrow();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/27258
+  it('Search with allowClear should have one className only', () => {
+    const wrapper = mount(<Search allowClear className="className" />);
+    expect(wrapper.find('.ant-input-group-wrapper').hasClass('className')).toBe(true);
+    expect(wrapper.find('.ant-input-affix-wrapper').hasClass('className')).toBe(false);
   });
 });

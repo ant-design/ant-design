@@ -29,13 +29,18 @@ const Divider: React.FC<DividerProps> = props => (
       const prefixCls = getPrefixCls('divider', customizePrefixCls);
       const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
       const hasChildren = !!children;
-      const classString = classNames(className, prefixCls, `${prefixCls}-${type}`, {
-        [`${prefixCls}-with-text`]: hasChildren,
-        [`${prefixCls}-with-text${orientationPrefix}`]: hasChildren,
-        [`${prefixCls}-dashed`]: !!dashed,
-        [`${prefixCls}-plain`]: !!plain,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      });
+      const classString = classNames(
+        prefixCls,
+        `${prefixCls}-${type}`,
+        {
+          [`${prefixCls}-with-text`]: hasChildren,
+          [`${prefixCls}-with-text${orientationPrefix}`]: hasChildren,
+          [`${prefixCls}-dashed`]: !!dashed,
+          [`${prefixCls}-plain`]: !!plain,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        },
+        className,
+      );
       return (
         <div className={classString} {...restProps} role="separator">
           {children && <span className={`${prefixCls}-inner-text`}>{children}</span>}

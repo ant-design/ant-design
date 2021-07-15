@@ -50,6 +50,18 @@ describe('Statistic', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('loading with skeleton', async () => {
+    let loading = false;
+    const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);
+    expect(wrapper.find('.ant-skeleton')).toHaveLength(0);
+    expect(wrapper.find('.ant-statistic-content')).toHaveLength(1);
+
+    loading = true;
+    wrapper.setProps({ loading });
+    expect(wrapper.find('.ant-skeleton')).toHaveLength(1);
+    expect(wrapper.find('.ant-statistic-content')).toHaveLength(0);
+  });
+
   describe('Countdown', () => {
     it('render correctly', () => {
       const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
@@ -95,11 +107,28 @@ describe('Statistic', () => {
     it('responses hover events for Countdown', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
-      const wrapper = mount(<Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+      const wrapper = mount(
+        <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+      );
       wrapper.simulate('mouseenter');
       expect(onMouseEnter).toHaveBeenCalled();
       wrapper.simulate('mouseleave');
       expect(onMouseLeave).toHaveBeenCalled();
+    });
+
+    describe('time onchange', () => {
+      it("called if time has't passed", async () => {
+        const deadline = Date.now() + 10 * 1000;
+        let remainingTime;
+
+        const onChange = value => {
+          remainingTime = value;
+        };
+        const wrapper = mount(<Statistic.Countdown value={deadline} onChange={onChange} />);
+        wrapper.update();
+        await sleep(100);
+        expect(remainingTime).toBeGreaterThan(0);
+      });
     });
 
     describe('time finished', () => {
@@ -116,17 +145,13 @@ describe('Statistic', () => {
       });
 
       it('called if finished', async () => {
-        jest.useFakeTimers();
         const now = Date.now() + 10;
         const onFinish = jest.fn();
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
-
         MockDate.set(moment('2019-11-28 00:00:00').valueOf());
-        jest.runAllTimers();
-
+        await sleep(100);
         expect(onFinish).toHaveBeenCalled();
-        jest.useFakeTimers();
       });
     });
   });

@@ -3,15 +3,17 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
-
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as utils from '../../utils';
-import { version as antdVersion } from '../../../../../package.json';
+import packageJson from '../../../../../package.json';
 import Logo from './Logo';
-import SearchBox from './SearchBox';
+import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
 import SiteContext from '../SiteContext';
+import { ping } from '../../utils';
+import { AlgoliaConfig } from './algolia-config';
 
 import './index.less';
 
@@ -20,69 +22,97 @@ const RESPONSIVE_SM = 1200;
 
 const { Option } = Select;
 
-let docsearch: any;
-if (typeof window !== 'undefined') {
-  // eslint-disable-next-line global-require
-  docsearch = require('docsearch.js');
-}
-
-function initDocSearch(locale: string) {
-  if (!docsearch) {
-    return;
-  }
-  const lang = locale === 'zh-CN' ? 'cn' : 'en';
-  docsearch({
-    apiKey: '60ac2c1a7d26ab713757e4a081e133d0',
-    indexName: 'ant_design',
-    inputSelector: '#search-box input',
-    algoliaOptions: { facetFilters: [`tags:${lang}`] },
-    transformData(hits: { url: string }[]) {
-      hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host);
-        hit.url = hit.url.replace('https:', window.location.protocol);
-      });
-      return hits;
-    },
-    debug: false, // Set debug to true if you want to inspect the dropdown
-  });
-}
+const antdVersion: string = packageJson.version;
 
 export interface HeaderProps {
   intl: {
     locale: string;
   };
-  location: { pathname: string };
+  location: { pathname: string; query: any };
   router: any;
   themeConfig: { docVersions: Record<string, string> };
   changeDirection: (direction: string) => void;
+}
+
+let docsearch: any;
+const triggerDocSearchImport = () => {
+  if (docsearch) {
+    return Promise.resolve();
+  }
+
+  return import('docsearch.js').then(ds => {
+    docsearch = ds.default;
+  });
+};
+
+function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
+  if (!canUseDom()) {
+    return;
+  }
+
+  triggerDocSearchImport().then(() => {
+    docsearch({
+      appId: AlgoliaConfig.appId,
+      apiKey: AlgoliaConfig.apiKey,
+      indexName: AlgoliaConfig.indexName,
+      inputSelector: '#search-box input',
+      algoliaOptions: AlgoliaConfig.getSearchParams(isZhCN),
+      transformData: AlgoliaConfig.transformData,
+      debug: AlgoliaConfig.debug,
+      // https://docsearch.algolia.com/docs/behavior#handleselected
+      handleSelected: (input: any, _$1: unknown, suggestion: any) => {
+        router.push(suggestion.url);
+        setTimeout(() => {
+          input.setVal('');
+        });
+      },
+    });
+  });
 }
 
 interface HeaderState {
   menuVisible: boolean;
   windowWidth: number;
   searching: boolean;
+  showTechUIButton: boolean;
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   static contextType = SiteContext;
 
+  pingTimer: NodeJS.Timeout;
+
   state = {
     menuVisible: false,
     windowWidth: 1400,
     searching: false,
+    showTechUIButton: false,
   };
 
   componentDidMount() {
     const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
-    initDocSearch(intl.locale);
+
+    initDocSearch({
+      isZhCN: intl.locale === 'zh-CN',
+      router,
+    });
 
     window.addEventListener('resize', this.onWindowResize);
     this.onWindowResize();
+
+    this.pingTimer = ping(status => {
+      if (status !== 'timeout' && status !== 'error') {
+        this.setState({
+          showTechUIButton: true,
+        });
+      }
+    });
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.onWindowResize);
+    clearTimeout(this.pingTimer);
   }
 
   onWindowResize = () => {
@@ -146,14 +176,19 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   handleVersionChange = (url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
-    window.location.href = currentUrl
-      .replace(window.location.origin, url)
-      .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
+    if (/overview/.test(currentPathname) && /0?[1-39][0-3]?x/.test(url)) {
+      window.location.href = currentUrl
+        .replace(window.location.origin, url)
+        .replace(/\/components\/overview/, `/docs${/0(9|10)x/.test(url) ? '' : '/react'}/introduce`)
+        .replace(/\/$/, '');
+      return;
+    }
+    window.location.href = currentUrl.replace(window.location.origin, url);
   };
 
   onLangChange = () => {
     const {
-      location: { pathname },
+      location: { pathname, query },
     } = this.props;
     const currentProtocol = `${window.location.protocol}//`;
     const currentHref = window.location.href.substr(currentProtocol.length);
@@ -166,7 +201,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       currentProtocol +
       currentHref.replace(
         window.location.pathname,
-        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
+        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname), query).pathname,
       );
   };
 
@@ -174,14 +209,18 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <SiteContext.Consumer>
         {({ isMobile }) => {
-          const { menuVisible, windowWidth, searching } = this.state;
+          const { menuVisible, windowWidth, searching, showTechUIButton } = this.state;
           const { direction } = this.context;
           const {
             location,
             themeConfig,
             intl: { locale },
+            router,
           } = this.props;
-          const docVersions = { [antdVersion]: antdVersion, ...themeConfig.docVersions };
+          const docVersions: Record<string, string> = {
+            [antdVersion]: antdVersion,
+            ...themeConfig.docVersions,
+          };
           const versionOptions = Object.keys(docVersions).map(version => (
             <Option value={docVersions[version]} key={version}>
               {version}
@@ -211,15 +250,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             isRTL,
           };
 
-          const searchBox = (
-            <SearchBox
-              key="search"
-              {...sharedProps}
-              responsive={responsive}
-              onTriggerFocus={this.onTriggerSearching}
-            />
-          );
-
           const navigationNode = (
             <Navigation
               key="nav"
@@ -227,6 +257,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               location={location}
               responsive={responsive}
               isMobile={isMobile}
+              showTechUIButton={showTechUIButton}
               pathname={pathname}
               directionText={this.getNextDirectionText()}
               onLangChange={this.onLangChange}
@@ -311,10 +342,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               )}
               <Row style={{ flexFlow: 'nowrap', height: 64 }}>
                 <Col {...colProps[0]}>
-                  <Logo {...sharedProps} />
+                  <Logo {...sharedProps} location={location} />
                 </Col>
                 <Col {...colProps[1]} className="menu-row">
-                  {searchBox}
+                  <SearchBar
+                    key="search"
+                    {...sharedProps}
+                    router={router}
+                    algoliaConfig={AlgoliaConfig}
+                    responsive={responsive}
+                    onTriggerFocus={this.onTriggerSearching}
+                  />
                   {!isMobile && menu}
                 </Col>
               </Row>

@@ -4,7 +4,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
 <div>
   <div
     class="ant-picker-dropdown"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div
       class="ant-picker-panel-container"
@@ -197,7 +197,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
 <div>
   <div
     class="ant-picker-dropdown"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div
       class="ant-picker-panel-container"
@@ -361,7 +361,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-picker-cell"
+                    class="ant-picker-cell ant-picker-cell-end"
                     title="1999-12-31"
                   >
                     <div
@@ -371,7 +371,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
+                    class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view ant-picker-cell-selected"
                     title="2000-01-01"
                   >
                     <div
@@ -716,7 +716,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-picker-cell ant-picker-cell-in-view"
+                    class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                     title="2000-01-31"
                   >
                     <div
@@ -726,7 +726,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-picker-cell"
+                    class="ant-picker-cell ant-picker-cell-start"
                     title="2000-02-01"
                   >
                     <div
@@ -811,7 +811,6 @@ exports[`Picker format by locale date 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -827,6 +826,7 @@ exports[`Picker format by locale date 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"
@@ -835,7 +835,6 @@ exports[`Picker format by locale date 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -878,7 +877,6 @@ exports[`Picker format by locale dateTime 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -894,6 +892,7 @@ exports[`Picker format by locale dateTime 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"
@@ -902,7 +901,6 @@ exports[`Picker format by locale dateTime 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -945,7 +943,6 @@ exports[`Picker format by locale month 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -961,6 +958,7 @@ exports[`Picker format by locale month 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"
@@ -969,7 +967,6 @@ exports[`Picker format by locale month 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"
@@ -1012,7 +1009,6 @@ exports[`Picker format by locale week 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -1028,6 +1024,7 @@ exports[`Picker format by locale week 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"
@@ -1036,7 +1033,6 @@ exports[`Picker format by locale week 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="close-circle"
           fill="currentColor"
           focusable="false"

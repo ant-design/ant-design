@@ -18,9 +18,7 @@ import { Anchor } from 'antd';
 
 const { Link } = Anchor;
 
-const getCurrentAnchor = () => {
-  return '#components-anchor-demo-static';
-};
+const getCurrentAnchor = () => '#components-anchor-demo-static';
 
 ReactDOM.render(
   <Anchor affix={false} getCurrentAnchor={getCurrentAnchor}>

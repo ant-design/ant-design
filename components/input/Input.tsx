@@ -1,15 +1,19 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 import Password from './Password';
 import { Omit, LiteralUnion } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
+
+export interface InputFocusOptions extends FocusOptions {
+  cursor?: 'start' | 'end' | 'all';
+}
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
@@ -47,6 +51,7 @@ export interface InputProps
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   allowClear?: boolean;
+  bordered?: boolean;
 }
 
 export function fixControlledValue<T>(value: T) {
@@ -56,44 +61,91 @@ export function fixControlledValue<T>(value: T) {
   return value;
 }
 
-export function resolveOnChange(
-  target: HTMLInputElement | HTMLTextAreaElement,
+export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
+  target: E,
   e:
-    | React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-    | React.MouseEvent<HTMLElement, MouseEvent>,
-  onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
+    | React.ChangeEvent<E>
+    | React.MouseEvent<HTMLElement, MouseEvent>
+    | React.CompositionEvent<HTMLElement>,
+  onChange:
+    | undefined
+    | ((event: React.ChangeEvent<E>) => void),
+  targetValue?: string,
 ) {
-  if (onChange) {
-    let event = e;
-    if (e.type === 'click') {
-      // click clear icon
-      event = Object.create(e);
-      event.target = target;
-      event.currentTarget = target;
-      const originalInputValue = target.value;
-      // change target ref value cause e.target.value should be '' when clear input
-      target.value = '';
-      onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
-      // reset target ref value
-      target.value = originalInputValue;
-      return;
-    }
-    onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
+  if (!onChange) {
+    return;
   }
+  let event = e;
+  const originalInputValue = target.value;
+
+  if (e.type === 'click') {
+    // click clear icon
+    event = Object.create(e);
+    event.target = target;
+    event.currentTarget = target;
+    // change target ref value cause e.target.value should be '' when clear input
+    target.value = '';
+    onChange(event as React.ChangeEvent<E>);
+    // reset target ref value
+    target.value = originalInputValue;
+    return;
+  }
+
+  // Trigger by composition event, this means we need force change the input value
+  if (targetValue !== undefined) {
+    event = Object.create(e);
+    event.target = target;
+    event.currentTarget = target;
+
+    target.value = targetValue;
+    onChange(event as React.ChangeEvent<E>);
+    return;
+  }
+  onChange(event as React.ChangeEvent<E>);
 }
 
 export function getInputClassName(
   prefixCls: string,
+  bordered: boolean,
   size?: SizeType,
   disabled?: boolean,
-  direction?: any,
+  direction?: DirectionType,
 ) {
   return classNames(prefixCls, {
     [`${prefixCls}-sm`]: size === 'small',
     [`${prefixCls}-lg`]: size === 'large',
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-rtl`]: direction === 'rtl',
+    [`${prefixCls}-borderless`]: !bordered,
   });
+}
+
+export function triggerFocus(
+  element?: HTMLInputElement | HTMLTextAreaElement,
+  option?: InputFocusOptions,
+) {
+  if (!element) return;
+
+  element.focus(option);
+
+  // Selection content
+  const { cursor } = option || {};
+  if (cursor) {
+    const len = element.value.length;
+
+    switch (cursor) {
+      case 'start':
+        element.setSelectionRange(0, 0);
+        break;
+
+      case 'end':
+        element.setSelectionRange(len, len);
+        break;
+
+      default:
+        element.setSelectionRange(0, len);
+    }
+  }
 }
 
 export interface InputState {
@@ -116,13 +168,13 @@ class Input extends React.Component<InputProps, InputState> {
     type: 'text',
   };
 
-  input: HTMLInputElement;
+  input!: HTMLInputElement;
 
-  clearableInput: ClearableLabeledInput;
+  clearableInput!: ClearableLabeledInput;
 
-  removePasswordTimeout: number;
+  removePasswordTimeout: any;
 
-  direction: any = 'ltr';
+  direction: DirectionType = 'ltr';
 
   constructor(props: InputProps) {
     super(props);
@@ -168,12 +220,16 @@ class Input extends React.Component<InputProps, InputState> {
     }
   }
 
-  focus = () => {
-    this.input.focus();
+  focus = (option?: InputFocusOptions) => {
+    triggerFocus(this.input, option);
   };
 
   blur() {
     this.input.blur();
+  }
+
+  setSelectionRange(start: number, end: number, direction?: 'forward' | 'backward' | 'none') {
+    this.input.setSelectionRange(start, end, direction);
   }
 
   select() {
@@ -191,22 +247,20 @@ class Input extends React.Component<InputProps, InputState> {
   onFocus: React.FocusEventHandler<HTMLInputElement> = e => {
     const { onFocus } = this.props;
     this.setState({ focused: true }, this.clearPasswordValueAttribute);
-    if (onFocus) {
-      onFocus(e);
-    }
+    onFocus?.(e);
   };
 
   onBlur: React.FocusEventHandler<HTMLInputElement> = e => {
     const { onBlur } = this.props;
     this.setState({ focused: false }, this.clearPasswordValueAttribute);
-    if (onBlur) {
-      onBlur(e);
-    }
+    onBlur?.(e);
   };
 
   setValue(value: string, callback?: () => void) {
     if (this.props.value === undefined) {
       this.setState({ value }, callback);
+    } else {
+      callback?.();
     }
   }
 
@@ -220,11 +274,12 @@ class Input extends React.Component<InputProps, InputState> {
   renderInput = (
     prefixCls: string,
     size: SizeType | undefined,
+    bordered: boolean,
     input: ConfigConsumerProps['input'] = {},
   ) => {
     const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
     // Fix https://fb.me/react-unknown-prop
-    const otherProps = omit(this.props, [
+    const otherProps = omit(this.props as InputProps & { inputType: any }, [
       'prefixCls',
       'onPressEnter',
       'addonBefore',
@@ -237,6 +292,7 @@ class Input extends React.Component<InputProps, InputState> {
       'defaultValue',
       'size',
       'inputType',
+      'bordered',
     ]);
     return (
       <input
@@ -247,7 +303,7 @@ class Input extends React.Component<InputProps, InputState> {
         onBlur={this.onBlur}
         onKeyDown={this.handleKeyDown}
         className={classNames(
-          getInputClassName(prefixCls, customizeSize || size, disabled, this.direction),
+          getInputClassName(prefixCls, bordered, customizeSize || size, disabled, this.direction),
           {
             [className!]: className && !addonBefore && !addonAfter,
           },
@@ -277,17 +333,15 @@ class Input extends React.Component<InputProps, InputState> {
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
-    if (e.keyCode === 13 && onPressEnter) {
+    if (onPressEnter && e.keyCode === 13) {
       onPressEnter(e);
     }
-    if (onKeyDown) {
-      onKeyDown(e);
-    }
+    onKeyDown?.(e);
   };
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls } = this.props;
+    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
 
@@ -300,12 +354,13 @@ class Input extends React.Component<InputProps, InputState> {
             prefixCls={prefixCls}
             inputType="input"
             value={fixControlledValue(value)}
-            element={this.renderInput(prefixCls, size, input)}
+            element={this.renderInput(prefixCls, size, bordered, input)}
             handleReset={this.handleReset}
             ref={this.saveClearableInput}
             direction={direction}
             focused={focused}
             triggerFocus={this.focus}
+            bordered={bordered}
           />
         )}
       </SizeContext.Consumer>

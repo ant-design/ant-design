@@ -19,9 +19,7 @@ import { sortableContainer, sortableElement, sortableHandle } from 'react-sortab
 import { MenuOutlined } from '@ant-design/icons';
 import arrayMove from 'array-move';
 
-const DragHandle = sortableHandle(() => (
-  <MenuOutlined style={{ cursor: 'pointer', color: '#999' }} />
-));
+const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
   {
@@ -72,9 +70,6 @@ const data = [
 
 const SortableItem = sortableElement(props => <tr {...props} />);
 const SortableContainer = sortableContainer(props => <tbody {...props} />);
-const DragableBodyRow = ({ index, className, style, ...restProps }) => (
-  <SortableItem index={restProps['data-row-key']} {...restProps} />
-);
 
 class SortableTable extends React.Component {
   state = {
@@ -90,16 +85,26 @@ class SortableTable extends React.Component {
     }
   };
 
+  DraggableContainer = props => (
+    <SortableContainer
+      useDragHandle
+      disableAutoscroll
+      helperClass="row-dragging"
+      onSortEnd={this.onSortEnd}
+      {...props}
+    />
+  );
+
+  DraggableBodyRow = ({ className, style, ...restProps }) => {
+    const { dataSource } = this.state;
+    // function findIndex base on Table rowKey props and should always be a right array index
+    const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
+    return <SortableItem index={index} {...restProps} />;
+  };
+
   render() {
     const { dataSource } = this.state;
-    const DraggableContainer = props => (
-      <SortableContainer
-        useDragHandle
-        helperClass="row-dragging"
-        onSortEnd={this.onSortEnd}
-        {...props}
-      />
-    );
+
     return (
       <Table
         pagination={false}
@@ -108,8 +113,8 @@ class SortableTable extends React.Component {
         rowKey="index"
         components={{
           body: {
-            wrapper: DraggableContainer,
-            row: DragableBodyRow,
+            wrapper: this.DraggableContainer,
+            row: this.DraggableBodyRow,
           },
         }}
       />
@@ -128,7 +133,6 @@ ReactDOM.render(<SortableTable />, mountNode);
 
 .row-dragging td {
   padding: 16px;
-  visibility: hidden;
 }
 
 .row-dragging .drag-visible {

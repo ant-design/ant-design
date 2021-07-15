@@ -14,6 +14,11 @@ Navigation is an important part of any website, as a good navigation setup allow
 
 More layouts with navigation: [Layout](/components/layout).
 
+## Notes for developers
+
+- Menu render as `ul` element. So it only support [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children node。Your customize node should wrapped by `Menu.Item`.
+- Menu need collect node structure. So it's children node should be `Menu.*` or HOC which used by it.
+
 ## API
 
 ```jsx
@@ -31,24 +36,25 @@ More layouts with navigation: [Layout](/components/layout).
 | --- | --- | --- | --- | --- |
 | defaultOpenKeys | Array with the keys of default opened sub menus | string\[] | - |  |
 | defaultSelectedKeys | Array with the keys of default selected menu items | string\[] | - |  |
+| expandIcon | custom expand icon of submenu | ReactNode \| `(props: SubMenuProps & { isSubMenu: boolean }) => ReactNode` | - | 4.9.0 |
 | forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  |
 | inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  |
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |
-| mode | Type of menu; `vertical`, `horizontal`, or `inline` | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
+| mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
+| overflowedIndicator | Customized icon when menu is collapsed | ReactNode | - |  |
 | selectable | Allows selecting menu items | boolean | true |  |
 | selectedKeys | Array with the keys of currently selected menu items | string\[] | - |  |
 | style | Style of the root node | CSSProperties | - |  |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |
+| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
 | onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
-| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
 | onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
 | onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
-| overflowedIndicator | Customized icon when menu is collapsed | ReactNode | - |  |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
@@ -56,13 +62,13 @@ More layouts with navigation: [Layout](/components/layout).
 
 | Param    | Description                          | Type      | Default value | Version |
 | -------- | ------------------------------------ | --------- | ------------- | ------- |
+| danger   | Display the danger style             | boolean   | false         | 4.3.0   |
 | disabled | Whether menu item is disabled        | boolean   | false         |         |
+| icon     | The icon of the menu item            | ReactNode | -             | 4.2.0   |
 | key      | Unique ID of the menu item           | string    | -             |         |
 | title    | Set display title for collapsed item | string    | -             |         |
-| icon     | The icon of the menu item            | ReactNode | -             | 4.2.0   |
-| danger   | Display the danger style             | boolean   | false         | 4.3.0   |
 
-> Note: `icon` is a newly added prop in`4.2.0`. For previous versions, please use the following method to define the icon.
+> Note: `icon` is a newly added prop in `4.2.0`. For previous versions, please use the following method to define the icon.
 >
 > ```jsx
 > <Menu.Item>
@@ -85,21 +91,28 @@ More layouts with navigation: [Layout](/components/layout).
 
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
-| popupClassName | Sub-menu class name | string | - |  |
 | children | Sub-menus or sub-menu items | Array&lt;MenuItem \| SubMenu> | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
-| key | Unique ID of the sub-menu | string | - |  |
-| title | Title of sub menu | string \| ReactNode | - |  |
 | icon | Icon of sub menu | ReactNode | - | 4.2.0 |
+| key | Unique ID of the sub-menu | string | - |  |
+| popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
+| popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
+| title | Title of sub menu | ReactNode | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
 ### Menu.ItemGroup
 
-| Param    | Description            | Type                | Default value | Version |
-| -------- | ---------------------- | ------------------- | ------------- | ------- |
-| children | Sub-menu items         | MenuItem\[]         | -             |         |
-| title    | The title of the group | string \| ReactNode | -             |         |
+| Param    | Description            | Type        | Default value | Version |
+| -------- | ---------------------- | ----------- | ------------- | ------- |
+| children | Sub-menu items         | MenuItem\[] | -             |         |
+| title    | The title of the group | ReactNode   | -             |         |
 
 ### Menu.Divider
 
 Divider line in between menu items, only used in vertical popup Menu or Dropdown Menu.
+
+## FAQ
+
+### Why Menu children node will render twice?
+
+Menu collect structure info with [twice-render](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543) to support HOC usage. Merge into one render may cause the logic much complex, welcome contribute to help improve collection logic.

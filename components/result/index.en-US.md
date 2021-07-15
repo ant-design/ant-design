@@ -16,8 +16,8 @@ Use when important operations need to inform the user to process the results and
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| title | title string | ReactNode | - |
-| subTitle | subTitle string | ReactNode | - |
-| status | result status,decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
-| icon | custom back icon | ReactNode | - |
-| extra | operating area | ReactNode | - |
+| extra | Operating area | ReactNode | - |
+| icon | Custom back icon | ReactNode | - |
+| status | Result status, decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
+| subTitle | The subTitle | ReactNode | - |
+| title | The title | ReactNode | - |

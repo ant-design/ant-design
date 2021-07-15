@@ -1,30 +1,20 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import Radio from './radio';
 import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
-import { usePrevious } from '../_util/ref';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
-const RadioGroup: React.FC<RadioGroupProps> = props => {
+const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
-  let initValue;
-  if (props.value !== undefined) {
-    initValue = props.value;
-  } else if (props.defaultValue !== undefined) {
-    initValue = props.defaultValue;
-  }
-  const [value, setValue] = React.useState(initValue);
-  const prevPropValue = usePrevious(props.value);
-
-  React.useEffect(() => {
-    if (props.value !== undefined || prevPropValue !== props.value) {
-      setValue(props.value);
-    }
-  }, [props.value]);
+  const [value, setValue] = useMergedState(props.defaultValue, {
+    value: props.value,
+  });
 
   const onRadioChange = (ev: RadioChangeEvent) => {
     const lastValue = value;
@@ -44,7 +34,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       className = '',
       options,
       optionType,
-      buttonStyle,
+      buttonStyle = 'outline' as RadioGroupButtonStyle,
       disabled,
       children,
       size: customizeSize,
@@ -102,11 +92,13 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
     );
     return (
       <div
+        {...getDataOrAriaProps(props)}
         className={classString}
         style={style}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         id={id}
+        ref={ref}
       >
         {childrenToRender}
       </div>
@@ -125,10 +117,6 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       {renderGroup()}
     </RadioGroupContextProvider>
   );
-};
-
-RadioGroup.defaultProps = {
-  buttonStyle: 'outline' as RadioGroupButtonStyle,
-};
+});
 
 export default React.memo(RadioGroup);

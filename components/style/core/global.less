@@ -239,7 +239,6 @@ a {
   &[disabled] {
     color: @disabled-color;
     cursor: not-allowed;
-    pointer-events: none;
   }
 }
 
@@ -321,12 +320,6 @@ caption {
   color: @text-color-secondary;
   text-align: left;
   caption-side: bottom;
-}
-
-th {
-  // Matches default `<td>` alignment by inheriting from the `<body>`, or the
-  // closest parent with a set `text-align`.
-  text-align: inherit;
 }
 
 //

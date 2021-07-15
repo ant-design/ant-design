@@ -6,6 +6,7 @@
       "antd/es/*": ["components/*"]
     },
     "strictNullChecks": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "experimentalDecorators": true,

@@ -1,5 +1,13 @@
 @import '../../../../components/style/themes/default.less';
 
+.linear-gradient(@mid-pos, @end-pos) {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.25) @mid-pos,
+    rgba(0, 0, 0, 0.65) @end-pos
+  );
+}
+
 .recommend-block {
   position: relative;
   display: block;
@@ -17,21 +25,35 @@
     transition: all 0.36s ease-out;
   }
 
+  &-loading {
+    background: linear-gradient(
+      90deg,
+      rgba(207, 216, 220, 0.2),
+      rgba(207, 216, 220, 0.4),
+      rgba(207, 216, 220, 0.2)
+    );
+    border-radius: 4px;
+
+    img,
+    &::before {
+      display: none;
+    }
+  }
+
   &:hover img {
     transform: scale(1.04);
   }
 
   &::before {
+    .linear-gradient(40%, 100%);
+
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0, 0.25) 30%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
+    opacity: 0.3;
+    transition: all 0.5s;
     content: '';
     pointer-events: none;
   }
@@ -92,9 +114,17 @@
   .recommend-block {
     &-main {
       height: 408px;
+
+      &::before {
+        .linear-gradient(70%, 100%);
+      }
     }
 
     &:hover {
+      &::before {
+        opacity: 1;
+      }
+
       .recommend-content {
         transform: translateY(0);
 

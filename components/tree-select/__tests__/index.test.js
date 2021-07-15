@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('TreeSelect', () => {
-  focusTest(TreeSelect);
+  focusTest(TreeSelect, { refFocus: true });
   mountTest(TreeSelect);
   rtlTest(TreeSelect);
 
@@ -44,5 +44,10 @@ describe('TreeSelect', () => {
 
       expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  it('should support notFoundContent', () => {
+    const wrapper = mount(<TreeSelect treeIcon open notFoundContent="notFoundContent" />);
+    expect(wrapper.text()).toBe('notFoundContent');
   });
 });

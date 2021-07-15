@@ -227,4 +227,15 @@ describe('Descriptions', () => {
     expect(wrapper.find('th').hasClass('ant-descriptions-item-label')).toBeTruthy();
     expect(wrapper.find('td').hasClass('ant-descriptions-item-content')).toBeTruthy();
   });
+
+  it('Descriptions support extra', () => {
+    const wrapper = mount(
+      <Descriptions extra="Edit">
+        <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(true);
+    wrapper.setProps({ extra: undefined });
+    expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(false);
+  });
 });

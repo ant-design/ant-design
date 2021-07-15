@@ -1,103 +1,203 @@
 import * as React from 'react';
-import RcUpload from 'rc-upload';
+import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
   RcFile,
+  ShowUploadListInterface,
   UploadProps,
-  UploadState,
   UploadFile,
   UploadLocale,
   UploadChangeParam,
   UploadType,
   UploadListType,
 } from './interface';
-import { T, fileToObject, getFileItem, removeFileItem } from './utils';
+import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+
+const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export { UploadProps };
 
-class Upload extends React.Component<UploadProps, UploadState> {
-  static Dragger: typeof Dragger;
+const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
+  const {
+    fileList,
+    defaultFileList,
+    onRemove,
+    showUploadList,
+    listType,
+    onPreview,
+    onDownload,
+    onChange,
+    onDrop,
+    previewFile,
+    disabled,
+    locale: propLocale,
+    iconRender,
+    isImageUrl,
+    progress,
+    prefixCls: customizePrefixCls,
+    className,
+    type,
+    children,
+    style,
+    itemRender,
+    maxCount,
+  } = props;
 
-  static defaultProps = {
-    type: 'select' as UploadType,
-    multiple: false,
-    action: '',
-    data: {},
-    accept: '',
-    beforeUpload: T,
-    showUploadList: true,
-    listType: 'text' as UploadListType, // or picture
-    className: '',
-    disabled: false,
-    supportServerRender: true,
-  };
+  const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
+    value: fileList,
+    postState: list => list ?? [],
+  });
 
-  static getDerivedStateFromProps(nextProps: UploadProps) {
-    if ('fileList' in nextProps) {
-      return {
-        fileList: nextProps.fileList || [],
-      };
-    }
-    return null;
-  }
+  const [dragState, setDragState] = React.useState<string>('drop');
 
-  recentUploadStatus: boolean | PromiseLike<any>;
+  const upload = React.useRef<any>();
 
-  progressTimer: any;
-
-  upload: any;
-
-  constructor(props: UploadProps) {
-    super(props);
-
-    this.state = {
-      fileList: props.fileList || props.defaultFileList || [],
-      dragState: 'drop',
-    };
-
+  React.useEffect(() => {
     devWarning(
       'fileList' in props || !('value' in props),
       'Upload',
       '`value` is not a valid prop, do you mean `fileList`?',
     );
-  }
 
-  componentWillUnmount() {
-    this.clearProgressTimer();
-  }
+    devWarning(
+      !('transformFile' in props),
+      'Upload',
+      '`transformFile` is deprecated. Please use `beforeUpload` directly.',
+    );
+  }, []);
 
-  saveUpload = (node: any) => {
-    this.upload = node;
-  };
+  // Control mode will auto fill file uid if not provided
+  React.useMemo(() => {
+    const timestamp = Date.now();
 
-  onStart = (file: RcFile) => {
-    const { fileList } = this.state;
-    const targetItem = fileToObject(file);
-    targetItem.status = 'uploading';
+    (fileList || []).forEach((file, index) => {
+      if (!file.uid && !Object.isFrozen(file)) {
+        file.uid = `__AUTO__${timestamp}_${index}__`;
+      }
+    });
+  }, [fileList]);
 
-    const nextFileList = fileList.concat();
+  const onInternalChange = (
+    file: UploadFile,
+    changedFileList: UploadFile[],
+    event?: { percent: number },
+  ) => {
+    let cloneList = [...changedFileList];
 
-    const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === targetItem.uid);
-    if (fileIndex === -1) {
-      nextFileList.push(targetItem);
-    } else {
-      nextFileList[fileIndex] = targetItem;
+    // Cut to match count
+    if (maxCount === 1) {
+      cloneList = cloneList.slice(-1);
+    } else if (maxCount) {
+      cloneList = cloneList.slice(0, maxCount);
     }
 
-    this.onChange({
-      file: targetItem,
-      fileList: nextFileList,
+    setMergedFileList(cloneList);
+
+    const changeInfo: UploadChangeParam<UploadFile> = {
+      file: file as UploadFile,
+      fileList: cloneList,
+    };
+
+    if (event) {
+      changeInfo.event = event;
+    }
+
+    onChange?.(changeInfo);
+  };
+
+  const mergedBeforeUpload = async (file: RcFile, fileListArgs: RcFile[]) => {
+    const { beforeUpload, transformFile } = props;
+
+    let parsedFile: File | Blob | string = file;
+    if (beforeUpload) {
+      const result = await beforeUpload(file, fileListArgs);
+
+      if (result === false) {
+        return false;
+      }
+
+      // Hack for LIST_IGNORE, we add additional info to remove from the list
+      delete (file as any)[LIST_IGNORE];
+      if ((result as any) === LIST_IGNORE) {
+        Object.defineProperty(file, LIST_IGNORE, {
+          value: true,
+          configurable: true,
+        });
+        return false;
+      }
+
+      if (typeof result === 'object' && result) {
+        parsedFile = result as File;
+      }
+    }
+
+    if (transformFile) {
+      parsedFile = await transformFile(parsedFile as any);
+    }
+
+    return parsedFile as RcFile;
+  };
+
+  const onBatchStart: RcUploadProps['onBatchStart'] = batchFileInfoList => {
+    // Skip file which marked as `LIST_IGNORE`, these file will not add to file list
+    const filteredFileInfoList = batchFileInfoList.filter(info => !(info.file as any)[LIST_IGNORE]);
+
+    // Nothing to do since no file need upload
+    if (!filteredFileInfoList.length) {
+      return;
+    }
+
+    const objectFileList = filteredFileInfoList.map(info => file2Obj(info.file as RcFile));
+
+    // Concat new files with prev files
+    let newFileList = [...mergedFileList];
+
+    objectFileList.forEach(fileObj => {
+      // Replace file if exist
+      newFileList = updateFileList(fileObj, newFileList);
+    });
+
+    objectFileList.forEach((fileObj, index) => {
+      // Repeat trigger `onChange` event for compatible
+      let triggerFileObj: UploadFile = fileObj;
+
+      if (!filteredFileInfoList[index].parsedFile) {
+        // `beforeUpload` return false
+        const { originFileObj } = fileObj;
+        let clone;
+
+        try {
+          clone = (new File([originFileObj], originFileObj.name, {
+            type: originFileObj.type,
+          }) as any) as UploadFile;
+        } catch (e) {
+          clone = (new Blob([originFileObj], {
+            type: originFileObj.type,
+          }) as any) as UploadFile;
+          clone.name = originFileObj.name;
+          clone.lastModifiedDate = new Date();
+          clone.lastModified = new Date().getTime();
+        }
+
+        clone.uid = fileObj.uid;
+        triggerFileObj = clone;
+      } else {
+        // Inject `uploading` status
+        fileObj.status = 'uploading';
+      }
+
+      onInternalChange(triggerFileObj, newFileList);
     });
   };
 
-  onSuccess = (response: any, file: UploadFile, xhr: any) => {
-    this.clearProgressTimer();
+  const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
         response = JSON.parse(response);
@@ -105,279 +205,242 @@ class Upload extends React.Component<UploadProps, UploadState> {
     } catch (e) {
       /* do nothing */
     }
-    const { fileList } = this.state;
-    const targetItem = getFileItem(file, fileList);
+
     // removed
-    if (!targetItem) {
+    if (!getFileItem(file, mergedFileList)) {
       return;
     }
+
+    const targetItem = file2Obj(file);
     targetItem.status = 'done';
+    targetItem.percent = 100;
     targetItem.response = response;
     targetItem.xhr = xhr;
-    this.onChange({
-      file: { ...targetItem },
-      fileList,
-    });
+
+    const nextFileList = updateFileList(targetItem, mergedFileList);
+
+    onInternalChange(targetItem, nextFileList);
   };
 
-  onProgress = (e: { percent: number }, file: UploadFile) => {
-    const { fileList } = this.state;
-    const targetItem = getFileItem(file, fileList);
+  const onProgress = (e: { percent: number }, file: RcFile) => {
     // removed
-    if (!targetItem) {
+    if (!getFileItem(file, mergedFileList)) {
       return;
     }
+
+    const targetItem = file2Obj(file);
+    targetItem.status = 'uploading';
     targetItem.percent = e.percent;
-    this.onChange({
-      event: e,
-      file: { ...targetItem },
-      fileList,
-    });
+
+    const nextFileList = updateFileList(targetItem, mergedFileList);
+
+    onInternalChange(targetItem, nextFileList, e);
   };
 
-  onError = (error: Error, response: any, file: UploadFile) => {
-    this.clearProgressTimer();
-    const { fileList } = this.state;
-    const targetItem = getFileItem(file, fileList);
+  const onError = (error: Error, response: any, file: RcFile) => {
     // removed
-    if (!targetItem) {
+    if (!getFileItem(file, mergedFileList)) {
       return;
     }
+
+    const targetItem = file2Obj(file);
     targetItem.error = error;
     targetItem.response = response;
     targetItem.status = 'error';
-    this.onChange({
-      file: { ...targetItem },
-      fileList,
-    });
+
+    const nextFileList = updateFileList(targetItem, mergedFileList);
+
+    onInternalChange(targetItem, nextFileList);
   };
 
-  handleRemove = (file: UploadFile) => {
-    const { onRemove } = this.props;
-    const { fileList } = this.state;
-
+  const handleRemove = (file: UploadFile) => {
+    let currentFile: UploadFile;
     Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
       // Prevent removing file
       if (ret === false) {
         return;
       }
 
-      const removedFileList = removeFileItem(file, fileList);
+      const removedFileList = removeFileItem(file, mergedFileList);
 
       if (removedFileList) {
-        file.status = 'removed';
-
-        if (this.upload) {
-          this.upload.abort(file);
-        }
-
-        this.onChange({
-          file,
-          fileList: removedFileList,
+        currentFile = { ...file, status: 'removed' };
+        mergedFileList?.forEach(item => {
+          const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
+          if (item[matchKey] === currentFile[matchKey] && !Object.isFrozen(item)) {
+            item.status = 'removed';
+          }
         });
+        upload.current?.abort(currentFile);
+
+        onInternalChange(currentFile, removedFileList);
       }
     });
   };
 
-  onChange = (info: UploadChangeParam) => {
-    if (!('fileList' in this.props)) {
-      this.setState({ fileList: info.fileList });
-    }
+  const onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    setDragState(e.type);
 
-    const { onChange } = this.props;
-    if (onChange) {
-      onChange({
-        ...info,
-        fileList: [...info.fileList],
-      });
+    if (e.type === 'drop') {
+      onDrop?.(e);
     }
   };
 
-  onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    this.setState({
-      dragState: e.type,
-    });
+  // Test needs
+  React.useImperativeHandle(ref, () => ({
+    onBatchStart,
+    onSuccess,
+    onProgress,
+    onError,
+    fileList: mergedFileList,
+    upload: upload.current,
+  }));
+
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+
+  const prefixCls = getPrefixCls('upload', customizePrefixCls);
+
+  const rcUploadProps = {
+    onBatchStart,
+    onError,
+    onProgress,
+    onSuccess,
+    ...props,
+    prefixCls,
+    beforeUpload: mergedBeforeUpload,
+    onChange: undefined,
   };
 
-  beforeUpload = (file: RcFile, fileList: RcFile[]) => {
-    const { beforeUpload } = this.props;
-    const { fileList: stateFileList } = this.state;
-    if (!beforeUpload) {
-      return true;
-    }
-    const result = beforeUpload(file, fileList);
-    if (result === false) {
-      // Get unique file list
-      const uniqueList: UploadFile<any>[] = [];
-      stateFileList.concat(fileList.map(fileToObject)).forEach(f => {
-        if (uniqueList.every(uf => uf.uid !== f.uid)) {
-          uniqueList.push(f);
-        }
-      });
+  delete rcUploadProps.className;
+  delete rcUploadProps.style;
 
-      this.onChange({
-        file,
-        fileList: uniqueList,
-      });
-      return false;
-    }
-    if (result && (result as PromiseLike<any>).then) {
-      return result;
-    }
-    return true;
-  };
-
-  clearProgressTimer() {
-    clearInterval(this.progressTimer);
+  // Remove id to avoid open by label when trigger is hidden
+  // !children: https://github.com/ant-design/ant-design/issues/14298
+  // disabled: https://github.com/ant-design/ant-design/issues/16478
+  //           https://github.com/ant-design/ant-design/issues/24197
+  if (!children || disabled) {
+    delete rcUploadProps.id;
   }
 
-  renderUploadList = (locale: UploadLocale) => {
-    const {
-      showUploadList,
-      listType,
-      onPreview,
-      onDownload,
-      previewFile,
-      disabled,
-      locale: propLocale,
-      iconRender,
-      isImageUrl,
-      progress,
-    } = this.props;
-    const {
-      showRemoveIcon,
-      showPreviewIcon,
-      showDownloadIcon,
-      removeIcon,
-      downloadIcon,
-    } = showUploadList as any;
-    const { fileList } = this.state;
-    return (
-      <UploadList
-        listType={listType}
-        items={fileList}
-        previewFile={previewFile}
-        onPreview={onPreview}
-        onDownload={onDownload}
-        onRemove={this.handleRemove}
-        showRemoveIcon={!disabled && showRemoveIcon}
-        showPreviewIcon={showPreviewIcon}
-        showDownloadIcon={showDownloadIcon}
-        removeIcon={removeIcon}
-        downloadIcon={downloadIcon}
-        iconRender={iconRender}
-        locale={{ ...locale, ...propLocale }}
-        isImageUrl={isImageUrl}
-        progress={progress}
-      />
-    );
-  };
-
-  renderUpload = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      showUploadList,
-      listType,
-      type,
-      disabled,
-      children,
-      style,
-    } = this.props;
-    const { fileList, dragState } = this.state;
-
-    const prefixCls = getPrefixCls('upload', customizePrefixCls);
-
-    const rcUploadProps = {
-      onStart: this.onStart,
-      onError: this.onError,
-      onProgress: this.onProgress,
-      onSuccess: this.onSuccess,
-      ...this.props,
-      prefixCls,
-      beforeUpload: this.beforeUpload,
-    };
-
-    delete rcUploadProps.className;
-    delete rcUploadProps.style;
-
-    // Remove id to avoid open by label when trigger is hidden
-    // !children: https://github.com/ant-design/ant-design/issues/14298
-    // disabled: https://github.com/ant-design/ant-design/issues/16478
-    //           https://github.com/ant-design/ant-design/issues/24197
-    if (!children || disabled) {
-      delete rcUploadProps.id;
-    }
-
-    const uploadList = showUploadList ? (
+  const renderUploadList = (button?: React.ReactNode) =>
+    showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
-        {this.renderUploadList}
+        {(locale: UploadLocale) => {
+          const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } =
+            typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
+          return (
+            <UploadList
+              listType={listType}
+              items={mergedFileList}
+              previewFile={previewFile}
+              onPreview={onPreview}
+              onDownload={onDownload}
+              onRemove={handleRemove}
+              showRemoveIcon={!disabled && showRemoveIcon}
+              showPreviewIcon={showPreviewIcon}
+              showDownloadIcon={showDownloadIcon}
+              removeIcon={removeIcon}
+              downloadIcon={downloadIcon}
+              iconRender={iconRender}
+              locale={{ ...locale, ...propLocale }}
+              isImageUrl={isImageUrl}
+              progress={progress}
+              appendAction={button}
+              itemRender={itemRender}
+            />
+          );
+        }}
       </LocaleReceiver>
-    ) : null;
-
-    if (type === 'drag') {
-      const dragCls = classNames(
-        prefixCls,
-        {
-          [`${prefixCls}-drag`]: true,
-          [`${prefixCls}-drag-uploading`]: fileList.some(file => file.status === 'uploading'),
-          [`${prefixCls}-drag-hover`]: dragState === 'dragover',
-          [`${prefixCls}-disabled`]: disabled,
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        },
-        className,
-      );
-      return (
-        <span>
-          <div
-            className={dragCls}
-            onDrop={this.onFileDrop}
-            onDragOver={this.onFileDrop}
-            onDragLeave={this.onFileDrop}
-            style={style}
-          >
-            <RcUpload {...rcUploadProps} ref={this.saveUpload} className={`${prefixCls}-btn`}>
-              <div className={`${prefixCls}-drag-container`}>{children}</div>
-            </RcUpload>
-          </div>
-          {uploadList}
-        </span>
-      );
-    }
-
-    const uploadButtonCls = classNames(prefixCls, {
-      [`${prefixCls}-select`]: true,
-      [`${prefixCls}-select-${listType}`]: true,
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
-
-    const uploadButton = (
-      <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
-        <RcUpload {...rcUploadProps} ref={this.saveUpload} />
-      </div>
+    ) : (
+      button
     );
 
-    if (listType === 'picture-card') {
-      return (
-        <span className={classNames(className, `${prefixCls}-picture-card-wrapper`)}>
-          {uploadList}
-          {uploadButton}
-        </span>
-      );
-    }
-
+  if (type === 'drag') {
+    const dragCls = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-drag`]: true,
+        [`${prefixCls}-drag-uploading`]: mergedFileList.some(file => file.status === 'uploading'),
+        [`${prefixCls}-drag-hover`]: dragState === 'dragover',
+        [`${prefixCls}-disabled`]: disabled,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
     return (
-      <span className={className}>
-        {uploadButton}
-        {uploadList}
+      <span>
+        <div
+          className={dragCls}
+          onDrop={onFileDrop}
+          onDragOver={onFileDrop}
+          onDragLeave={onFileDrop}
+          style={style}
+        >
+          <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
+            <div className={`${prefixCls}-drag-container`}>{children}</div>
+          </RcUpload>
+        </div>
+        {renderUploadList()}
       </span>
     );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderUpload}</ConfigConsumer>;
   }
+
+  const uploadButtonCls = classNames(prefixCls, {
+    [`${prefixCls}-select`]: true,
+    [`${prefixCls}-select-${listType}`]: true,
+    [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  });
+
+  const uploadButton = (
+    <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
+      <RcUpload {...rcUploadProps} ref={upload} />
+    </div>
+  );
+
+  if (listType === 'picture-card') {
+    return (
+      <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
+        {renderUploadList(uploadButton)}
+      </span>
+    );
+  }
+
+  return (
+    <span className={className}>
+      {uploadButton}
+      {renderUploadList()}
+    </span>
+  );
+};
+
+interface CompoundedComponent
+  extends React.ForwardRefExoticComponent<
+    React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
+  > {
+  Dragger: typeof Dragger;
+  LIST_IGNORE: string;
 }
+
+const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;
+
+Upload.Dragger = Dragger;
+
+Upload.LIST_IGNORE = LIST_IGNORE;
+
+Upload.displayName = 'Upload';
+
+Upload.defaultProps = {
+  type: 'select' as UploadType,
+  multiple: false,
+  action: '',
+  data: {},
+  accept: '',
+  showUploadList: true,
+  listType: 'text' as UploadListType, // or picture
+  className: '',
+  disabled: false,
+  supportServerRender: true,
+};
 
 export default Upload;

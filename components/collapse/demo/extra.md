@@ -51,7 +51,7 @@ class Demo extends React.Component {
   render() {
     const { expandIconPosition } = this.state;
     return (
-      <div>
+      <>
         <Collapse
           defaultActiveKey={['1']}
           onChange={callback}
@@ -77,7 +77,7 @@ class Demo extends React.Component {
           <Option value="left">left</Option>
           <Option value="right">right</Option>
         </Select>
-      </div>
+      </>
     );
   }
 }

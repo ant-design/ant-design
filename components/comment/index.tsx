@@ -9,7 +9,7 @@ export interface CommentProps {
   author?: React.ReactNode;
   /** The element to display as the comment avatar - generally an antd Avatar */
   avatar?: React.ReactNode;
-  /** className of comment */
+  /** ClassName of comment */
   className?: string;
   /** The main content of the comment */
   content: React.ReactNode;
@@ -36,9 +36,9 @@ const Comment: React.FC<CommentProps> = ({
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const renderNested = (prefixCls: string, nestedChildren: any) => {
-    return <div className={classNames(`${prefixCls}-nested`)}>{nestedChildren}</div>;
-  };
+  const renderNested = (prefixCls: string, nestedChildren: any) => (
+    <div className={classNames(`${prefixCls}-nested`)}>{nestedChildren}</div>
+  );
 
   const prefixCls = getPrefixCls('comment', customizePrefixCls);
 
@@ -72,9 +72,13 @@ const Comment: React.FC<CommentProps> = ({
     </div>
   );
 
-  const cls = classNames(prefixCls, className, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const cls = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   return (
     <div {...otherProps} className={cls}>

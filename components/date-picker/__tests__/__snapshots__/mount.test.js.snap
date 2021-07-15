@@ -25,7 +25,6 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -68,7 +67,6 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -111,7 +109,6 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="calendar"
           fill="currentColor"
           focusable="false"
@@ -158,7 +155,6 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="swap-right"
           fill="currentColor"
           focusable="false"
@@ -198,7 +194,6 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="calendar"
         fill="currentColor"
         focusable="false"

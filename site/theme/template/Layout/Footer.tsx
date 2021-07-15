@@ -15,14 +15,12 @@ import {
   ProfileOutlined,
   BugOutlined,
   IssuesCloseOutlined,
-  BookOutlined,
-  MessageOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
-class Footer extends React.Component<WrappedComponentProps> {
+class Footer extends React.Component<WrappedComponentProps & { location: any }> {
   lessLoaded = false;
 
   state = {
@@ -47,41 +45,50 @@ class Footer extends React.Component<WrappedComponentProps> {
   }
 
   getColumns() {
-    const { intl } = this.props;
+    const { intl, location } = this.props;
+
     const isZhCN = intl.locale === 'zh-CN';
+
+    const getLinkHash = (path: string, hash: { zhCN: string; enUS: string }) => {
+      const pathName = getLocalizedPathname(path, isZhCN, location.query, hash);
+      const { pathname, query } = pathName;
+      const pathnames = pathname.split('#');
+      if ('direction' in query) {
+        return `${pathnames[0]}?direction=rtl#${pathnames[1]}`;
+      }
+      return pathname;
+    };
+
+    const getLink = (path: string) => {
+      const pathName = getLocalizedPathname(path, isZhCN, location.query);
+      const { pathname, query } = pathName;
+      if ('direction' in query) {
+        return `${pathname}?direction=rtl}`;
+      }
+      return pathname;
+    };
 
     const col1 = {
       title: <FormattedMessage id="app.footer.resources" />,
       items: [
-        {
-          title: 'Ant Design Pro',
-          url: 'https://pro.ant.design',
-          openExternal: true,
-        },
         {
           title: 'Ant Design Charts',
           url: 'https://charts.ant.design',
           openExternal: true,
         },
         {
+          title: 'Ant Design Pro',
+          url: 'https://pro.ant.design',
+          openExternal: true,
+        },
+        {
+          title: 'Ant Design Pro Components',
+          url: 'https://procomponents.ant.design',
+          openExternal: true,
+        },
+        {
           title: 'Ant Design Mobile',
           url: 'https://mobile.ant.design',
-          openExternal: true,
-        },
-        {
-          title: 'NG-ZORRO',
-          description: 'Ant Design of Angular',
-          url: 'https://ng.ant.design',
-          openExternal: true,
-        },
-        {
-          title: 'NG-ZORRO-MOBILE',
-          url: 'https://ng.mobile.ant.design',
-          openExternal: true,
-        },
-        {
-          title: 'Ant Design Vue',
-          url: 'https://vue.ant.design',
           openExternal: true,
         },
         {
@@ -109,15 +116,15 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
-          title: 'Remax',
-          description: <FormattedMessage id="app.footer.remax" />,
-          url: 'https://remaxjs.org/',
+          title: 'qiankun',
+          description: <FormattedMessage id="app.footer.qiankun" />,
+          url: 'https://qiankun.umijs.org',
           openExternal: true,
         },
         {
-          title: 'Umi Hooks',
+          title: 'ahooks',
           description: <FormattedMessage id="app.footer.hooks" />,
-          url: 'https://github.com/umijs/hooks',
+          url: 'https://github.com/alibaba/hooks',
           openExternal: true,
         },
         {
@@ -125,14 +132,6 @@ class Footer extends React.Component<WrappedComponentProps> {
           description: <FormattedMessage id="app.footer.motion" />,
           url: 'https://motion.ant.design',
           openExternal: true,
-        },
-        {
-          title: <FormattedMessage id="app.footer.design-resources" />,
-          url: getLocalizedPathname('/docs/resources', isZhCN, {
-            zhCN: '设计资源',
-            enUS: 'Design-Resources',
-          }),
-          LinkComponent: Link,
         },
         {
           title: <FormattedMessage id="app.footer.chinamirror" />,
@@ -193,7 +192,7 @@ class Footer extends React.Component<WrappedComponentProps> {
       col2.items.push({
         icon: <UsergroupAddOutlined />,
         title: <FormattedMessage id="app.footer.work_with_us" />,
-        url: getLocalizedPathname('/docs/resources', isZhCN, {
+        url: getLinkHash('/docs/resources', {
           zhCN: '加入我们',
           enUS: 'JoinUs',
         }),
@@ -213,13 +212,13 @@ class Footer extends React.Component<WrappedComponentProps> {
         {
           icon: <HistoryOutlined />,
           title: <FormattedMessage id="app.footer.change-log" />,
-          url: getLocalizedPathname('/changelog', isZhCN),
+          url: getLink('/changelog'),
           LinkComponent: Link,
         },
         {
           icon: <ProfileOutlined />,
           title: <FormattedMessage id="app.footer.faq" />,
-          url: getLocalizedPathname('/docs/react/faq', isZhCN),
+          url: getLink('/docs/react/faq'),
           LinkComponent: Link,
         },
         {
@@ -235,21 +234,9 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
-          icon: <BookOutlined />,
-          title: <FormattedMessage id="app.footer.course" />,
-          url: 'https://www.yuque.com/ant-design/course',
-          openExternal: true,
-        },
-        {
-          icon: <MessageOutlined />,
-          title: <FormattedMessage id="app.footer.discuss-cn" />,
-          url: 'https://gitter.im/ant-design/ant-design',
-          openExternal: true,
-        },
-        {
-          icon: <MessageOutlined />,
-          title: <FormattedMessage id="app.footer.discuss-en" />,
-          url: 'https://gitter.im/ant-design/ant-design-english',
+          icon: <QuestionCircleOutlined />,
+          title: <FormattedMessage id="app.footer.discussions" />,
+          url: 'https://github.com/ant-design/ant-design/discussions',
           openExternal: true,
         },
         {
@@ -286,18 +273,6 @@ class Footer extends React.Component<WrappedComponentProps> {
           title: <FormattedMessage id="app.footer.yuque" />,
           url: 'https://yuque.com',
           description: <FormattedMessage id="app.footer.yuque.slogan" />,
-          openExternal: true,
-        },
-        {
-          icon: (
-            <img
-              src="https://gw.alipayobjects.com/zos/rmsportal/uHocHZfNWZOdsRUonZNr.png"
-              alt="yunfengdie"
-            />
-          ),
-          title: <FormattedMessage id="app.footer.fengdie" />,
-          url: 'https://yunfengdie.com',
-          description: <FormattedMessage id="app.footer.fengdie.slogan" />,
           openExternal: true,
         },
         {

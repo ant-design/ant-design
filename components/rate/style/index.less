@@ -4,7 +4,7 @@
 @rate-prefix-cls: ~'@{ant-prefix}-rate';
 
 .@{rate-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   display: inline-block;
   margin: 0;
@@ -25,24 +25,27 @@
   &-star {
     position: relative;
     display: inline-block;
-    margin: 0;
-    padding: 0;
     color: inherit;
     cursor: pointer;
-    transition: all 0.3s;
 
     &:not(:last-child) {
       margin-right: 8px;
     }
 
     > div {
+      transition: all 0.3s, outline 0s;
+
+      &:hover,
+      &:focus-visible {
+        transform: @rate-star-hover-scale;
+      }
+
       &:focus {
         outline: 0;
       }
 
-      &:hover,
-      &:focus {
-        transform: @rate-star-hover-scale;
+      &:focus-visible {
+        outline: 1px dashed @rate-star-color;
       }
     }
 

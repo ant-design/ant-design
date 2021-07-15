@@ -80,11 +80,9 @@ class Demo extends React.Component {
     };
 
     return (
-      <div>
+      <>
         <Upload {...props}>
-          <Button>
-            <UploadOutlined /> Select File
-          </Button>
+          <Button icon={<UploadOutlined />}>Select File</Button>
         </Upload>
         <Button
           type="primary"
@@ -95,7 +93,7 @@ class Demo extends React.Component {
         >
           {uploading ? 'Uploading' : 'Start Upload'}
         </Button>
-      </div>
+      </>
     );
   }
 }

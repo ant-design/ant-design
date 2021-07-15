@@ -7,7 +7,7 @@
 @upload-picture-card-border-style: @border-style-base;
 
 .@{upload-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   outline: 0;
 
@@ -34,8 +34,6 @@
   }
 
   &&-select-picture-card {
-    display: table;
-    float: left;
     width: @upload-picture-card-size;
     height: @upload-picture-card-size;
     margin-right: 8px;
@@ -46,15 +44,14 @@
     border: @border-width-base dashed @border-color-base;
     border-radius: @border-radius-base;
     cursor: pointer;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s;
 
     > .@{upload-prefix-cls} {
-      display: table-cell;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 100%;
-      padding: @padding-xs;
       text-align: center;
-      vertical-align: middle;
     }
 
     &:hover {
@@ -134,7 +131,7 @@
   }
 
   &-picture-card-wrapper {
-    .clearfix;
+    .clearfix();
 
     display: inline-block;
     width: 100%;
@@ -142,19 +139,11 @@
 }
 
 .@{upload-prefix-cls}-list {
-  .reset-component;
-  .clearfix;
+  .reset-component();
+  .clearfix();
   line-height: @line-height-base;
-  &-item-list-type-text {
-    &:hover {
-      .@{upload-prefix-cls}-list-item-name-icon-count-1 {
-        padding-right: 14px;
-      }
-      .@{upload-prefix-cls}-list-item-name-icon-count-2 {
-        padding-right: 28px;
-      }
-    }
-  }
+
+  // ============================ Item ============================
   &-item {
     position: relative;
     height: @line-height-base * @font-size-base;
@@ -168,10 +157,6 @@
       line-height: @line-height-base;
       white-space: nowrap;
       text-overflow: ellipsis;
-    }
-
-    &-name-icon-count-1 {
-      padding-right: 14px;
     }
 
     &-card-actions {
@@ -203,7 +188,7 @@
 
     &-info {
       height: 100%;
-      padding: 0 12px 0 4px;
+      padding: 0 4px;
       transition: background-color 0.3s;
 
       > span {
@@ -216,7 +201,7 @@
       .@{upload-prefix-cls}-text-icon {
         .@{iconfont-css-prefix} {
           position: absolute;
-          top: @font-size-base / 2 - 2px;
+          top: (@font-size-base / 2) - 2px;
           color: @text-color-secondary;
           font-size: @font-size-base;
         }
@@ -224,12 +209,11 @@
     }
 
     .@{iconfont-css-prefix}-close {
-      .iconfont-size-under-12px(10px);
-
       position: absolute;
       top: 6px;
       right: 4px;
       color: @text-color-secondary;
+      font-size: 10px;
       line-height: 0;
       cursor: pointer;
       opacity: 0;
@@ -277,6 +261,7 @@
     }
   }
 
+  // =================== Picture & Picture Card ===================
   &-picture,
   &-picture-card {
     .@{upload-item} {
@@ -308,9 +293,6 @@
     }
 
     .@{upload-item}-thumbnail {
-      position: absolute;
-      top: 8px;
-      left: 8px;
       width: 48px;
       height: 48px;
       line-height: 54px;
@@ -374,14 +356,6 @@
       transition: all 0.3s;
     }
 
-    .@{upload-item}-name-icon-count-1 {
-      padding-right: 18px;
-    }
-
-    .@{upload-item}-name-icon-count-2 {
-      padding-right: 36px;
-    }
-
     .@{upload-item}-uploading .@{upload-item}-name {
       line-height: 28px;
     }
@@ -402,23 +376,23 @@
     }
   }
 
+  // ======================== Picture Card ========================
   &-picture-card {
+    &-container {
+      display: inline-block;
+      width: @upload-picture-card-size;
+      height: @upload-picture-card-size;
+      margin: 0 @margin-xs @margin-xs 0;
+      vertical-align: top;
+    }
+
     &.@{upload-prefix-cls}-list::after {
       display: none;
     }
 
-    &-container {
-      float: left;
-      width: @upload-picture-card-size;
-      height: @upload-picture-card-size;
-      margin: 0 @margin-xs @margin-xs 0;
-    }
-
     .@{upload-item} {
-      float: left;
-      width: @upload-picture-card-size;
-      height: @upload-picture-card-size;
-      margin: 0 @margin-xs @margin-xs 0;
+      height: 100%;
+      margin: 0;
     }
 
     .@{upload-item}-info {
@@ -480,7 +454,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .@{upload-item}-name {
@@ -515,55 +489,76 @@
 
     .@{upload-item}-progress {
       bottom: 32px;
+      width: calc(100% - 14px);
       padding-left: 0;
     }
   }
 
-  .@{upload-prefix-cls}-success-icon {
-    color: @success-color;
-    font-weight: bold;
+  // ======================= Picture & Text =======================
+  &-text,
+  &-picture {
+    &-container {
+      transition: opacity @animation-duration-slow, height @animation-duration-slow;
+
+      &::before {
+        display: table;
+        width: 0;
+        height: 0;
+        content: '';
+      }
+
+      // Don't know why span here, just stretch it
+      .@{upload-prefix-cls}-span {
+        display: block;
+        flex: auto;
+      }
+    }
+
+    // text & picture no need this additional element.
+    // But it used for picture-card, let's keep it.
+    .@{upload-prefix-cls}-span {
+      display: flex;
+      align-items: center;
+
+      > * {
+        flex: none;
+      }
+    }
+
+    .@{upload-item}-name {
+      flex: auto;
+      padding: 0 @padding-xs;
+    }
+
+    .@{upload-item}-card-actions {
+      position: static;
+    }
   }
 
-  .@{upload-prefix-cls}-animate-enter,
-  .@{upload-prefix-cls}-animate-leave,
+  // ============================ Text ============================
+  &-text {
+    .@{upload-prefix-cls}-text-icon {
+      .@{iconfont-css-prefix} {
+        position: static;
+      }
+    }
+  }
+
+  // =========================== Motion ===========================
+  .@{upload-prefix-cls}-animate-inline-appear,
   .@{upload-prefix-cls}-animate-inline-enter,
   .@{upload-prefix-cls}-animate-inline-leave {
-    animation-duration: 0.3s;
+    animation-duration: @animation-duration-slow;
     animation-fill-mode: @ease-in-out-circ;
   }
 
-  .@{upload-prefix-cls}-animate-enter {
-    animation-name: uploadAnimateIn;
-  }
-
-  .@{upload-prefix-cls}-animate-leave {
-    animation-name: uploadAnimateOut;
-  }
-
+  .@{upload-prefix-cls}-animate-inline-appear,
   .@{upload-prefix-cls}-animate-inline-enter {
     animation-name: uploadAnimateInlineIn;
   }
 
   .@{upload-prefix-cls}-animate-inline-leave {
     animation-name: uploadAnimateInlineOut;
-  }
-}
-
-@keyframes uploadAnimateIn {
-  from {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-  }
-}
-
-@keyframes uploadAnimateOut {
-  to {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
   }
 }
 

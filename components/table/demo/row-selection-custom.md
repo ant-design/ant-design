@@ -59,6 +59,7 @@ class App extends React.Component {
       selections: [
         Table.SELECTION_ALL,
         Table.SELECTION_INVERT,
+        Table.SELECTION_NONE,
         {
           key: 'odd',
           text: 'Select Odd Row',

@@ -153,6 +153,19 @@ describe('Radio Group', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should forward ref', () => {
+    let radioGroupRef;
+    const wrapper = mount(
+      createRadioGroupByOption({
+        ref: ref => {
+          radioGroupRef = ref;
+        },
+      }),
+    );
+
+    expect(radioGroupRef).toBe(wrapper.children().getDOMNode());
+  });
+
   describe('value is null or undefined', () => {
     it('use `defaultValue` when `value` is undefined', () => {
       const options = [{ label: 'Bamboo', value: 'bamboo' }];
@@ -178,5 +191,16 @@ describe('Radio Group', () => {
         );
       });
     });
+  });
+
+  it('should support data-* or aria-* props', () => {
+    const wrapper = mount(
+      createRadioGroup({
+        'data-radio-group-id': 'radio-group-id',
+        'aria-label': 'radio-group',
+      }),
+    );
+    expect(wrapper.getDOMNode().getAttribute('data-radio-group-id')).toBe('radio-group-id');
+    expect(wrapper.getDOMNode().getAttribute('aria-label')).toBe('radio-group');
   });
 });

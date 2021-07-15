@@ -20,9 +20,7 @@ const DemoBox = props => <p className={`height-${props.value}`}>{props.children}
 
 ReactDOM.render(
   <>
-    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
-      Align Top
-    </Divider>
+    <Divider orientation="left">Align Top</Divider>
     <Row justify="center" align="top">
       <Col span={4}>
         <DemoBox value={100}>col-4</DemoBox>
@@ -38,9 +36,7 @@ ReactDOM.render(
       </Col>
     </Row>
 
-    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
-      Align Middle
-    </Divider>
+    <Divider orientation="left">Align Middle</Divider>
     <Row justify="space-around" align="middle">
       <Col span={4}>
         <DemoBox value={100}>col-4</DemoBox>
@@ -56,9 +52,7 @@ ReactDOM.render(
       </Col>
     </Row>
 
-    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
-      Align Bottom
-    </Divider>
+    <Divider orientation="left">Align Bottom</Divider>
     <Row justify="space-between" align="bottom">
       <Col span={4}>
         <DemoBox value={100}>col-4</DemoBox>

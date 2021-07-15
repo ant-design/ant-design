@@ -16,8 +16,6 @@ The most basic usage, tell you how to use checkable, selectable, disabled, defau
 ```tsx
 import { Tree } from 'antd';
 
-const { TreeNode } = Tree;
-
 const treeData = [
   {
     title: 'parent 1',
@@ -49,11 +47,11 @@ const treeData = [
 ];
 
 const Demo = () => {
-  const onSelect = (selectedKeys, info) => {
+  const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('selected', selectedKeys, info);
   };
 
-  const onCheck = (checkedKeys, info) => {
+  const onCheck = (checkedKeys: React.Key[], info: any) => {
     console.log('onCheck', checkedKeys, info);
   };
 

@@ -1,6 +1,6 @@
-/* eslint no-use-before-define: "off" */
+/* eslint @typescript-eslint/no-use-before-define: "off" */
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Transfer from '..';
 import TransferList from '../list';
 import TransferOperation from '../operation';
@@ -97,8 +97,8 @@ describe('Transfer', () => {
   rtlTest(Transfer);
 
   it('should render correctly', () => {
-    const wrapper = render(<Transfer {...listCommonProps} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Transfer {...listCommonProps} />);
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('should move selected keys to corresponding list', () => {
@@ -400,8 +400,8 @@ describe('Transfer', () => {
       targetKeys: ['c', 'b'],
       lazy: false,
     };
-    const wrapper = render(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('should add custom styles when their props are provided', () => {
@@ -475,7 +475,7 @@ describe('Transfer', () => {
         render={record => ({ value: `${record.title} value`, label: 'label' })}
       />,
     );
-    expect(component).toMatchSnapshot();
+    expect(component).toMatchRenderedSnapshot();
   });
 
   it('should render correct checkbox label when checkboxLabel is defined', () => {
@@ -541,5 +541,20 @@ describe('Transfer', () => {
     const wrapper = mount(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
     wrapper.find('.ant-transfer-list-content-item-remove').first().simulate('click');
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
+  });
+});
+
+describe('immutable data', () => {
+  // https://github.com/ant-design/ant-design/issues/28662
+  it('dataSource is frozen', () => {
+    const mockData = [
+      Object.freeze({
+        id: 0,
+        title: `title`,
+        description: `description`,
+      }),
+    ];
+    const wrapper = mount(<Transfer rowKey={item => item.id} dataSource={mockData} />);
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 });

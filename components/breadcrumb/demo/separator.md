@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-The separator can be customized by setting the separator property: separator=">"
+The separator can be customized by setting the separator property: `separator=">"`.
 
 ```jsx
 import { Breadcrumb } from 'antd';

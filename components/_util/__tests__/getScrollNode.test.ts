@@ -1,6 +1,4 @@
-/**
- * @jest-environment node
- */
+/** @jest-environment node */
 import getScroll from '../getScroll';
 
 describe('getScroll node', () => {

@@ -24,7 +24,7 @@ import {
 
 const { Text } = Typography;
 const { Option } = Select;
-const { MonthPicker, RangePicker } = DatePicker;
+const { RangePicker } = DatePicker;
 
 const narrowStyle = {
   width: 50,
@@ -88,7 +88,7 @@ ReactDOM.render(
     <TreeSelect style={{ width: 100 }} />
     <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} />
     <RangePicker />
-    <MonthPicker />
+    <DatePicker picker="month" />
     <Radio.Group defaultValue="a">
       <Radio.Button value="a">Hangzhou</Radio.Button>
       <Radio.Button value="b">Shanghai</Radio.Button>

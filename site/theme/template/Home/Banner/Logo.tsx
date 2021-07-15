@@ -71,10 +71,10 @@ export default function Logo() {
         className="home-banner-mini"
       />
       <img
-        width="490"
+        width="500"
         height="87"
         alt="Ant Design"
-        src="https://gw.alipayobjects.com/zos/basement_prod/5b153736-dfe3-4a73-9454-68607c8103e4.svg"
+        src="https://gw.alipayobjects.com/zos/antfincdn/6UYtAUYPXE/AntDesign.svg"
         className="home-banner-normal"
       />
       <Hitu

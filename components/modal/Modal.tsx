@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import useModal from './useModal';
@@ -9,7 +8,9 @@ import { getConfirmLocale } from './locale';
 import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, DirectionType } from '../config-provider';
+import { canUseDocElement } from '../_util/styleChecker';
+import { getTransitionName } from '../_util/motion';
 
 let mousePosition: { x: number; y: number } | null;
 export const destroyFns: Array<() => void> = [];
@@ -29,8 +30,8 @@ const getClickPosition = (e: MouseEvent) => {
 };
 
 // 只有点击事件支持从鼠标位置动画展开
-if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
-  addEventListener(document.documentElement, 'click', getClickPosition);
+if (canUseDocElement()) {
+  document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
 export interface ModalProps {
@@ -80,6 +81,8 @@ export interface ModalProps {
   wrapProps?: any;
   prefixCls?: string;
   closeIcon?: React.ReactNode;
+  modalRender?: (node: React.ReactNode) => React.ReactNode;
+  focusTriggerAfterClose?: boolean;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -89,10 +92,12 @@ export interface ModalFuncProps {
   className?: string;
   visible?: boolean;
   title?: React.ReactNode;
+  closable?: boolean;
   content?: React.ReactNode;
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;
   onCancel?: (...args: any[]) => any;
+  afterClose?: () => void;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
   centered?: boolean;
@@ -107,13 +112,17 @@ export interface ModalFuncProps {
   okCancel?: boolean;
   style?: React.CSSProperties;
   maskStyle?: React.CSSProperties;
-  type?: string;
+  type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false | null;
   autoFocusButton?: null | 'ok' | 'cancel';
   transitionName?: string;
   maskTransitionName?: string;
-  direction?: string;
+  direction?: DirectionType;
+  bodyStyle?: React.CSSProperties;
+  closeIcon?: React.ReactNode;
+  modalRender?: (node: React.ReactNode) => React.ReactNode;
+  focusTriggerAfterClose?: boolean;
 }
 
 export interface ModalLocale {
@@ -133,16 +142,12 @@ const Modal: ModalInterface = props => {
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
-    if (onCancel) {
-      onCancel(e);
-    }
+    onCancel?.(e);
   };
 
   const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onOk } = props;
-    if (onOk) {
-      onOk(e);
-    }
+    onOk?.(e);
   };
 
   const renderFooter = (locale: ModalLocale) => {
@@ -172,10 +177,13 @@ const Modal: ModalInterface = props => {
     centered,
     getContainer,
     closeIcon,
+    focusTriggerAfterClose = true,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
       {renderFooter}
@@ -203,6 +211,9 @@ const Modal: ModalInterface = props => {
       mousePosition={mousePosition}
       onClose={handleCancel}
       closeIcon={closeIconToRender}
+      focusTriggerAfterClose={focusTriggerAfterClose}
+      transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+      maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
     />
   );
 };
@@ -211,8 +222,6 @@ Modal.useModal = useModal;
 
 Modal.defaultProps = {
   width: 520,
-  transitionName: 'zoom',
-  maskTransitionName: 'fade',
   confirmLoading: false,
   visible: false,
   okType: 'primary' as LegacyButtonType,

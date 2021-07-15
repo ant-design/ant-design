@@ -2,18 +2,18 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ElementOf, Omit, tuple } from '../_util/type';
 import Pagination from '../pagination';
-import { TransferItem } from '.';
 import { TransferListProps, RenderedItem } from './list';
 import ListItem from './ListItem';
 import { PaginationType } from './interface';
+import { KeyWiseTransferItem } from '.';
 
 export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
 export type OmitProp = ElementOf<typeof OmitProps>;
-type PartialTransferListProps = Omit<TransferListProps, OmitProp>;
+type PartialTransferListProps<RecordType> = Omit<TransferListProps<RecordType>, OmitProp>;
 
-export interface TransferListBodyProps extends PartialTransferListProps {
-  filteredItems: TransferItem[];
-  filteredRenderItems: RenderedItem[];
+export interface TransferListBodyProps<RecordType> extends PartialTransferListProps<RecordType> {
+  filteredItems: RecordType[];
+  filteredRenderItems: RenderedItem<RecordType>[];
   selectedKeys: string[];
 }
 
@@ -40,13 +40,16 @@ interface TransferListBodyState {
   current: number;
 }
 
-class ListBody extends React.Component<TransferListBodyProps, TransferListBodyState> {
+class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
+  TransferListBodyProps<RecordType>,
+  TransferListBodyState
+> {
   state = {
     current: 1,
   };
 
-  static getDerivedStateFromProps(
-    { filteredRenderItems, pagination }: TransferListBodyProps,
+  static getDerivedStateFromProps<T>(
+    { filteredRenderItems, pagination }: TransferListBodyProps<T>,
     { current }: TransferListBodyState,
   ) {
     const mergedPagination = parsePagination(pagination);
@@ -62,13 +65,13 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
     return null;
   }
 
-  onItemSelect = (item: TransferItem) => {
+  onItemSelect = (item: RecordType) => {
     const { onItemSelect, selectedKeys } = this.props;
     const checked = selectedKeys.indexOf(item.key) >= 0;
     onItemSelect(item.key, !checked);
   };
 
-  onItemRemove = (item: TransferItem) => {
+  onItemRemove = (item: RecordType) => {
     const { onItemRemove } = this.props;
     onItemRemove?.([item.key]);
   };
@@ -114,6 +117,8 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
       paginationNode = (
         <Pagination
           simple
+          size="small"
+          disabled={globalDisabled}
           className={`${prefixCls}-pagination`}
           total={filteredRenderItems.length}
           pageSize={mergedPagination.pageSize}
@@ -131,7 +136,7 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
           })}
           onScroll={onScroll}
         >
-          {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem) => {
+          {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem<RecordType>) => {
             const { disabled } = item;
             const checked = selectedKeys.indexOf(item.key) >= 0;
 

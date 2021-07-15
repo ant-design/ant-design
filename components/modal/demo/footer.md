@@ -46,7 +46,7 @@ class App extends React.Component {
   render() {
     const { visible, loading } = this.state;
     return (
-      <div>
+      <>
         <Button type="primary" onClick={this.showModal}>
           Open Modal with customized footer
         </Button>
@@ -62,6 +62,15 @@ class App extends React.Component {
             <Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
               Submit
             </Button>,
+            <Button
+              key="link"
+              href="https://google.com"
+              type="primary"
+              loading={loading}
+              onClick={this.handleOk}
+            >
+              Search on Google
+            </Button>,
           ]}
         >
           <p>Some contents...</p>
@@ -70,7 +79,7 @@ class App extends React.Component {
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Modal>
-      </div>
+      </>
     );
   }
 }

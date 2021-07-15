@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-
 import Button from '../button';
 import { ButtonHTMLType } from '../button/button';
 import { ButtonGroupProps } from '../button/button-group';
@@ -29,9 +28,11 @@ interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
 }
 
 const DropdownButton: DropdownButtonInterface = props => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -52,6 +53,10 @@ const DropdownButton: DropdownButtonInterface = props => {
     icon = <EllipsisOutlined />,
     title,
     buttonsRender,
+    mouseEnterDelay,
+    mouseLeaveDelay,
+    overlayClassName,
+    overlayStyle,
     ...restProps
   } = props;
 
@@ -63,6 +68,10 @@ const DropdownButton: DropdownButtonInterface = props => {
     trigger: disabled ? [] : trigger,
     onVisibleChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
+    mouseEnterDelay,
+    mouseLeaveDelay,
+    overlayClassName,
+    overlayStyle,
   } as DropDownProps;
 
   if ('visible' in props) {

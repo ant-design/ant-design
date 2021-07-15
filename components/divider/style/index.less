@@ -4,9 +4,9 @@
 @divider-prefix-cls: ~'@{ant-prefix}-divider';
 
 .@{divider-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
-  border-top: 1px solid @border-color-split;
+  border-top: @border-width-base solid @divider-color;
 
   &-vertical {
     position: relative;
@@ -16,7 +16,7 @@
     margin: 0 8px;
     vertical-align: middle;
     border-top: 0;
-    border-left: 1px solid @border-color-split;
+    border-left: @border-width-base solid @divider-color;
   }
 
   &-horizontal {
@@ -36,12 +36,17 @@
     white-space: nowrap;
     text-align: center;
     border-top: 0;
+    border-top-color: @divider-color;
+
     &::before,
     &::after {
       position: relative;
       top: 50%;
       width: 50%;
-      border-top: 1px solid @border-color-split;
+      border-top: @border-width-base solid transparent;
+      // Chrome not accept `inherit` in `border-top`
+      border-top-color: inherit;
+      border-bottom: 0;
       transform: translateY(50%);
       content: '';
     }
@@ -76,9 +81,9 @@
 
   &-dashed {
     background: none;
-    border-color: @border-color-split;
+    border-color: @divider-color;
     border-style: dashed;
-    border-width: 1px 0 0;
+    border-width: @border-width-base 0 0;
   }
 
   &-horizontal&-with-text&-dashed {
@@ -90,7 +95,7 @@
   }
 
   &-vertical&-dashed {
-    border-width: 0 0 0 1px;
+    border-width: 0 0 0 @border-width-base;
   }
 
   &-plain&-with-text {

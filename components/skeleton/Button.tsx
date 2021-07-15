@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import Element, { SkeletonElementProps } from './Element';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -13,9 +13,14 @@ const SkeletonButton = (props: SkeletonButtonProps) => {
     const { prefixCls: customizePrefixCls, className, active } = props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
     const otherProps = omit(props, ['prefixCls']);
-    const cls = classNames(prefixCls, className, `${prefixCls}-element`, {
-      [`${prefixCls}-active`]: active,
-    });
+    const cls = classNames(
+      prefixCls,
+      `${prefixCls}-element`,
+      {
+        [`${prefixCls}-active`]: active,
+      },
+      className,
+    );
     return (
       <div className={cls}>
         <Element prefixCls={`${prefixCls}-button`} {...otherProps} />

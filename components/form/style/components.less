@@ -61,7 +61,9 @@
     width: 100%;
   }
 
-  // Don't impact select inside input group
+  // Don't impact select inside input group and calendar header select
+  .@{ant-prefix}-picker-calendar-year-select,
+  .@{ant-prefix}-picker-calendar-month-select,
   .@{ant-prefix}-input-group .@{ant-prefix}-select,
   .@{ant-prefix}-input-group .@{ant-prefix}-cascader-picker {
     width: auto;

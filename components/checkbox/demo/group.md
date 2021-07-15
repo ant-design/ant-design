@@ -33,7 +33,7 @@ const optionsWithDisabled = [
 ];
 
 ReactDOM.render(
-  <div>
+  <>
     <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
     <br />
     <br />
@@ -46,7 +46,7 @@ ReactDOM.render(
       defaultValue={['Apple']}
       onChange={onChange}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

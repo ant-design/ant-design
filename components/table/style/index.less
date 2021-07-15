@@ -5,23 +5,24 @@
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
+@descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
-@table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
+@table-sticky-zindex: (@zindex-table-fixed + 1);
+@table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 
 .@{table-prefix-cls}-wrapper {
+  clear: both;
   max-width: 100%;
-  .clearfix;
+  .clearfix();
 }
 
 .@{table-prefix-cls} {
-  .reset-component;
+  .reset-component();
   position: relative;
-  z-index: 0;
-  clear: both;
   font-size: @table-font-size;
   background: @table-bg;
-  border-radius: @border-radius-base;
+  border-radius: @table-border-radius-base;
 
   // https://github.com/ant-design/ant-design/issues/17611
   table {
@@ -59,6 +60,12 @@
         text-overflow: ellipsis;
       }
     }
+
+    .@{table-prefix-cls}-column-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: keep-all;
+    }
   }
 
   // ============================ Title =============================
@@ -77,15 +84,28 @@
   &-thead {
     > tr {
       > th {
+        position: relative;
         color: @table-header-color;
         font-weight: 500;
         text-align: left;
         background: @table-header-bg;
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s ease;
 
         &[colspan]:not([colspan='1']) {
           text-align: center;
+        }
+
+        &:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(.@{table-prefix-cls}-row-expand-icon-cell):not([colspan])::before {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 1px;
+          height: 1.6em;
+          background-color: @table-header-cell-split-color;
+          transform: translateY(-50%);
+          transition: background-color 0.3s;
+          content: '';
         }
       }
     }
@@ -101,8 +121,26 @@
   &-tbody {
     > tr {
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s;
+
+        // ========================= Nest Table ===========================
+        > .@{table-prefix-cls}-wrapper:only-child,
+        > .@{table-prefix-cls}-expanded-row-fixed > .@{table-prefix-cls}-wrapper:only-child {
+          .@{table-prefix-cls} {
+            margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+                  ceil(@font-size-sm * 1.4));
+
+            &-tbody > tr:last-child > td {
+              border-bottom: 0;
+
+              &:first-child,
+              &:last-child {
+                border-radius: 0;
+              }
+            }
+          }
+        }
       }
 
       &.@{table-prefix-cls}-row:hover {
@@ -123,36 +161,23 @@
           }
         }
       }
-
-      // ========================= Nest Table ===========================
-      .@{table-prefix-cls}-wrapper:only-child {
-        .@{table-prefix-cls} {
-          margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-                ceil(@font-size-sm * 1.4));
-
-          td {
-            background: transparent;
-          }
-
-          &-tbody > tr:last-child > td {
-            border-bottom: 0;
-
-            &:first-child,
-            &:last-child {
-              border-radius: 0;
-            }
-          }
-        }
-      }
     }
   }
 
   // =========================== Summary ============================
-  tfoot {
+  &-summary {
+    position: relative;
+    z-index: @zindex-table-fixed;
+    background: @table-bg;
+
+    div& {
+      box-shadow: 0 -@border-width-base 0 @table-border-color;
+    }
+
     > tr {
       > th,
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base @table-border-color;
       }
     }
   }
@@ -163,16 +188,24 @@
   }
 
   &-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: @padding-xs;
+
+    > * {
+      flex: none;
+    }
+
     &-left {
-      float: left;
+      justify-content: flex-start;
     }
 
     &-center {
-      text-align: center;
+      justify-content: center;
     }
 
     &-right {
-      float: right;
+      justify-content: flex-end;
     }
   }
 
@@ -182,47 +215,64 @@
 
   // ============================ Sorter ============================
   &-thead th.@{table-prefix-cls}-column-has-sorters {
-    padding: 0;
     cursor: pointer;
     transition: all 0.3s;
 
     &:hover {
       background: @table-header-sort-active-bg;
 
-      .@{table-prefix-cls}-filter-trigger-container {
-        background: @table-header-sort-active-filter-bg;
+      &::before {
+        background-color: transparent !important;
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/30969
+    &.@{table-prefix-cls}-cell-fix-left:hover,
+    &.@{table-prefix-cls}-cell-fix-right:hover {
+      background: @table-fixed-header-sort-active-bg;
     }
   }
 
   &-thead th.@{table-prefix-cls}-column-sort {
     background: @table-header-sort-bg;
+
+    &::before {
+      background-color: transparent !important;
+    }
   }
+
   td&-column-sort {
     background: @table-body-sort-bg;
   }
 
-  &-column-sorters-with-tooltip {
-    display: inline-block;
-    width: 100%;
+  &-column-title {
+    position: relative;
+    z-index: 1;
+    flex: 1;
   }
 
   &-column-sorters {
-    display: inline-flex;
+    display: flex;
+    flex: auto;
     align-items: center;
-    padding: @table-padding-vertical @table-padding-horizontal;
+    justify-content: space-between;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
+    }
   }
 
   &-column-sorter {
-    margin-top: 0.15em;
-    margin-bottom: -0.15em;
-    margin-left: @padding-xs;
     color: @table-header-icon-color;
-
-    &-full {
-      margin-top: -0.2em;
-      margin-bottom: 0;
-    }
+    font-size: 0;
+    transition: color 0.3s;
 
     &-inner {
       display: inline-flex;
@@ -232,7 +282,7 @@
 
     &-up,
     &-down {
-      .iconfont-size-under-12px(11px);
+      font-size: 11px;
 
       &.active {
         color: @primary-color;
@@ -244,65 +294,31 @@
     }
   }
 
+  &-column-sorters:hover &-column-sorter {
+    color: darken(@table-header-icon-color, 10%);
+  }
+
   // ============================ Filter ============================
   &-filter-column {
     display: flex;
-    align-items: center;
-    margin: -@table-padding-vertical -@table-padding-horizontal;
-  }
-
-  &-filter-column-title {
-    flex: auto;
-    padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
-  }
-
-  // Remove padding when sorter also provided
-  &-thead tr th.@{table-prefix-cls}-column-has-sorters {
-    .@{table-prefix-cls}-filter-column {
-      margin: 0;
-    }
-
-    .@{table-prefix-cls}-filter-column-title {
-      padding: 0 2.3em 0 0;
-    }
-  }
-
-  &-filter-trigger-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex: none;
-    align-items: stretch;
-    align-self: stretch;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &-open,
-    &:hover,
-    .@{table-prefix-cls}-thead th.@{table-prefix-cls}-column-has-sorters:hover &:hover {
-      background: @table-header-filter-active-bg;
-    }
+    justify-content: space-between;
   }
 
   &-filter-trigger {
-    display: block;
-    width: 2.3em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: -4px (-@table-padding-horizontal / 2) -4px 4px;
+    padding: 0 4px;
     color: @table-header-icon-color;
     font-size: @font-size-sm;
-    transition: color 0.3s;
+    border-radius: @border-radius-base;
+    cursor: pointer;
+    transition: all 0.3s;
 
-    .@{iconfont-css-prefix} {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .@{table-prefix-cls}-filter-trigger-container-open &,
     &:hover {
       color: @text-color-secondary;
+      background: @table-header-filter-active-bg;
     }
 
     &.active {
@@ -312,7 +328,7 @@
 
   // Dropdown
   &-filter-dropdown {
-    .reset-component;
+    .reset-component();
 
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
@@ -351,13 +367,17 @@
       padding: 7px 8px 7px 3px;
       overflow: hidden;
       background-color: @table-filter-btns-bg;
-      border-top: @border-width-base @border-style-base @border-color-split;
+      border-top: @border-width-base @border-style-base @table-border-color;
     }
   }
 
   // ========================== Selections ==========================
-  .@{table-prefix-cls}-selection-col {
+  &-selection-col {
     width: @table-selection-column-width;
+  }
+
+  &-bordered &-selection-col {
+    width: @table-selection-column-width + 18px;
   }
 
   table tr th&-selection-column,
@@ -371,19 +391,27 @@
     }
   }
 
+  table tr th&-selection-column::after {
+    background-color: transparent !important;
+  }
+
   &-selection {
     position: relative;
+    display: inline-flex;
+    flex-direction: column;
 
     &-extra {
       position: absolute;
       top: 0;
-      right: @table-selection-extra-right;
+      z-index: 1;
       cursor: pointer;
       transition: all 0.3s;
+      margin-inline-start: 100%;
+      padding-inline-start: @padding-xss;
 
       .@{iconfont-css-prefix} {
-        .iconfont-size-under-12px(10px);
         color: @table-header-icon-color;
+        font-size: 10px;
 
         &:hover {
           color: @table-header-icon-color-hover;
@@ -412,19 +440,21 @@
     display: inline-flex;
     float: left;
     box-sizing: border-box;
-
-    width: ceil(@font-size-sm * 1.4);
-    height: ceil(@font-size-sm * 1.4);
+    width: @expand-icon-size;
+    height: @expand-icon-size;
     padding: 0;
     color: inherit;
-    line-height: @font-size-sm;
-    vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
+    line-height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base *
+      3;
     background: @table-expand-icon-bg;
-    border: @border-width-base @border-style-base @border-color-split;
+    border: @border-width-base @border-style-base @table-border-color;
     border-radius: @border-radius-base;
     outline: none;
+    transform: scale((unit(@checkbox-size) / unit(@expand-icon-size)));
     transition: all 0.3s;
     user-select: none;
+    @expand-icon-size: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 +
+      @border-width-base * 3;
 
     &:focus,
     &:hover,
@@ -441,7 +471,7 @@
     }
 
     &::before {
-      top: 7px;
+      top: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       right: 3px;
       left: 3px;
       height: @border-width-base;
@@ -450,7 +480,7 @@
     &::after {
       top: 3px;
       bottom: 3px;
-      left: 7px;
+      left: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       width: @border-width-base;
       transform: rotate(90deg);
     }
@@ -475,7 +505,8 @@
     }
 
     .@{table-prefix-cls}-row-indent + & {
-      margin-top: (@font-size-base * @line-height-base - ceil(@font-size-sm * 1.4)) / 2;
+      margin-top: ((@font-size-base * @line-height-base - @border-width-base * 3) / 2) -
+        ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       margin-right: @padding-xs;
     }
   }
@@ -485,6 +516,16 @@
     &:hover {
       > td {
         background: @table-expanded-row-bg;
+      }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/25573
+    .@{descriptions-prefix-cls}-view {
+      display: flex;
+
+      table {
+        flex: auto;
+        width: auto;
       }
     }
   }
@@ -514,7 +555,7 @@
   &-cell-fix-right {
     position: -webkit-sticky !important;
     position: sticky !important;
-    z-index: 2;
+    z-index: @zindex-table-fixed;
     background: @table-bg;
   }
 
@@ -530,6 +571,7 @@
     content: '';
     pointer-events: none;
   }
+
   &-cell-fix-right-first::after,
   &-cell-fix-right-last::after {
     position: absolute;
@@ -577,6 +619,10 @@
     .@{table-prefix-cls}-cell-fix-left-last::after {
       box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
     }
+
+    .@{table-prefix-cls}-cell-fix-left-last::before {
+      background-color: transparent !important;
+    }
   }
 
   &-ping-right {
@@ -591,6 +637,38 @@
     .@{table-prefix-cls}-cell-fix-right-first::after,
     .@{table-prefix-cls}-cell-fix-right-last::after {
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+    }
+  }
+  &-sticky {
+    &-holder {
+      position: sticky;
+      z-index: @table-sticky-zindex;
+      background: @component-background;
+    }
+
+    &-scroll {
+      position: sticky;
+      bottom: 0;
+      z-index: @table-sticky-zindex;
+      display: flex;
+      align-items: center;
+      background: lighten(@table-border-color, 80%);
+      border-top: 1px solid @table-border-color;
+      opacity: 0.6;
+      &:hover {
+        transform-origin: center bottom;
+      }
+      &-bar {
+        height: 8px;
+        background-color: @table-sticky-scroll-bar-bg;
+        border-radius: @table-sticky-scroll-bar-radius;
+        &:hover {
+          background-color: @table-sticky-scroll-bar-active-bg;
+        }
+        &-active {
+          background-color: @table-sticky-scroll-bar-active-bg;
+        }
+      }
     }
   }
 }

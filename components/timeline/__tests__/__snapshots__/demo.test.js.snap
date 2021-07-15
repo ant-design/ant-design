@@ -51,7 +51,6 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -121,7 +120,6 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -393,7 +391,6 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"
@@ -642,12 +639,11 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
             aria-hidden="true"
-            class="anticon-spin"
             data-icon="loading"
             fill="currentColor"
             focusable="false"
@@ -731,7 +727,6 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="clock-circle"
           fill="currentColor"
           focusable="false"

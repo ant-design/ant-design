@@ -36,7 +36,7 @@ title: 数据录入
 
 为提升数据录入效率，通常可以在输入框内增加暗提示以帮助提醒用户。
 
-> 注：输入框通常与标签（label）搭配使用，标签（label）默认放于输入区域的左侧，当文案过长或英文环境下也可放于在上方，但同个系统中需保持统一。
+> 注：输入框通常与标签（label）搭配使用，标签（label）默认放于输入区域的左侧，当文案过长或英文环境下也可放于输入区域的上方，但在同系统中需保持统一。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xcDCXmgTCeXWelIovxvh.png" description="当说明文案较长时，你可以使用一个「信息」图标或者提示工具。">
 

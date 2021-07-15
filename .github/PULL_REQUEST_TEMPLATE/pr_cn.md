@@ -2,11 +2,11 @@
 首先，感谢你的贡献！😄
 
 新特性请提交至 feature 分支，其余可提交至 master 分支。
-在一个维护者审核通过后合并。
+在维护者审核通过后会合并。
 请确保填写以下 pull request 的信息，谢谢！~
-
-[[English Template / 英文模板](?expand=1)]
 -->
+
+[[English Template / 英文模板](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE.md)]
 
 ### 🤔 这个变动的性质是？
 
@@ -14,10 +14,12 @@
 - [ ] 日常 bug 修复
 - [ ] 站点、文档改进
 - [ ] 演示代码改进
-- [ ] 组件样式改进
+- [ ] 组件样式/交互改进
 - [ ] TypeScript 定义更新
 - [ ] 包体积优化
 - [ ] 性能优化
+- [ ] 功能增强
+- [ ] 国际化改进
 - [ ] 重构
 - [ ] 代码风格优化
 - [ ] 测试用例
@@ -38,10 +40,10 @@
 3. 涉及UI/交互变动需要有截图或 GIF。
 -->
 
-### 📝 更新日志怎么写？
+### 📝 更新日志
 
 <!--
-> 从用户角度描述具体变化，以及可能的 breaking change 和其他风险？
+从用户角度描述具体变化，以及可能的 breaking change 和其他风险。
 -->
 
 | 语言    | 更新描述 |

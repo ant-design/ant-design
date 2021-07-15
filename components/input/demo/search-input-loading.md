@@ -24,6 +24,9 @@ ReactDOM.render(
     <br />
     <br />
     <Search placeholder="input search loading with enterButton" loading enterButton />
+    <br />
+    <br />
+    <Search placeholder="input search text" enterButton="Search" size="large" loading />
   </>,
   mountNode,
 );

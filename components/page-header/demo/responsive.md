@@ -52,17 +52,15 @@ const extraContent = (
   </div>
 );
 
-const Content = ({ children, extra }) => {
-  return (
-    <div className="content">
-      <div className="main">{children}</div>
-      <div className="extra">{extra}</div>
-    </div>
-  );
-};
+const Content = ({ children, extra }) => (
+  <div className="content">
+    <div className="main">{children}</div>
+    <div className="extra">{extra}</div>
+  </div>
+);
 
 ReactDOM.render(
-  <div>
+  <>
     <PageHeader
       className="site-page-header-responsive"
       onBack={() => window.history.back()}
@@ -84,7 +82,7 @@ ReactDOM.render(
     >
       <Content extra={extraContent}>{renderContent()}</Content>
     </PageHeader>
-  </div>,
+  </>,
   mountNode,
 );
 ```

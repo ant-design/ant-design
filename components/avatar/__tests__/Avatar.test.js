@@ -1,13 +1,19 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import useBreakpoint from '../../grid/hooks/useBreakpoint';
+
+jest.mock('../../grid/hooks/useBreakpoint');
 
 describe('Avatar Render', () => {
   mountTest(Avatar);
   rtlTest(Avatar);
 
+  const sizes = { xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 };
   let originOffsetWidth;
   beforeAll(() => {
     // Mock offsetHeight
@@ -152,10 +158,39 @@ describe('Avatar Render', () => {
     expect(wrapper).toMatchRenderedSnapshot();
   });
 
+  Object.entries(sizes).forEach(([key, value]) => {
+    it(`adjusts component size to ${value} when window size is ${key}`, () => {
+      const wrapper = global.document.createElement('div');
+
+      useBreakpoint.mockReturnValue({ [key]: true });
+      act(() => {
+        ReactDOM.render(<Avatar size={sizes} />, wrapper);
+      });
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
   it('support onMouseEnter', () => {
     const onMouseEnter = jest.fn();
     const wrapper = mount(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);
     wrapper.simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
+  });
+
+  it('fallback', () => {
+    const div = global.document.createElement('div');
+    global.document.body.appendChild(div);
+    const wrapper = mount(
+      <Avatar shape="circle" src="http://error.url">
+        A
+      </Avatar>,
+      { attachTo: div },
+    );
+    wrapper.find('img').simulate('error');
+    wrapper.update();
+    expect(wrapper).toMatchRenderedSnapshot();
+    wrapper.detach();
+    global.document.body.removeChild(div);
   });
 });

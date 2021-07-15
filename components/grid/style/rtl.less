@@ -7,12 +7,6 @@
   }
 }
 
-.@{ant-prefix}-col {
-  &&-rtl {
-    float: right;
-  }
-}
-
 // mixin
 .loop-grid-columns(@index, @class) when (@index > 0) {
   .@{ant-prefix}-col@{class}-push-@{index} {

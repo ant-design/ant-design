@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Spacified the prop name of Option which will be rendered in select box.
+Specify the prop name of Option which will be rendered in select box.
 
 ```jsx
 import { Select } from 'antd';

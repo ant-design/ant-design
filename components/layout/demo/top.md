@@ -17,7 +17,7 @@ The most basic "header-content-footer" layout.
 
 Generally, the mainnav is placed at the top of the page, and includes the logo, the first level navigation, and the secondary menu (users, settings, notifications) from left to right in it. We always put contents in a fixed size navigation (eg: `1200px`), the layout of the whole page is stable, it's not affected by viewing area.
 
-Top-bottom structure is conform with the top-bottom viewing habit, it's a classical navigation pattern of websites. This pattern demonstrates efficiency in the main workarea, while using some vertical space. And because the horizontal space of the navigation is limited, this pattern is not suitable for cases when the first level navigation contains many elements or links
+Top-bottom structure is conform with the top-bottom viewing habit, it's a classical navigation pattern of websites. This pattern demonstrates efficiency in the main workarea, while using some vertical space. And because the horizontal space of the navigation is limited, this pattern is not suitable for cases when the first level navigation contains many elements or links.
 
 ```jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -29,9 +29,10 @@ ReactDOM.render(
     <Header>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+        {new Array(15).fill(null).map((_, index) => {
+          const key = index + 1;
+          return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
+        })}
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px' }}>
@@ -50,24 +51,25 @@ ReactDOM.render(
 
 ```css
 .site-layout-content {
-  background: #fff;
-  padding: 24px;
   min-height: 280px;
+  padding: 24px;
+  background: #fff;
 }
 #components-layout-demo-top .logo {
+  float: left;
   width: 120px;
   height: 31px;
-  background: rgba(255, 255, 255, 0.2);
   margin: 16px 24px 16px 0;
-  float: left;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl #components-layout-demo-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
 }
 ```
 
 <style>
   [data-theme="dark"] .site-layout-content {
     background: #141414;
-  }
-  [data-theme="dark"] #components-layout-demo-top .logo {
-    background: rgba(255,255,255,0.3);
   }
 </style>

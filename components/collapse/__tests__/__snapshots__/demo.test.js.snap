@@ -21,7 +21,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -53,7 +52,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -85,7 +83,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -124,7 +121,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -172,7 +168,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -189,13 +184,13 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-collapse-item ant-collapse-item-disabled"
+    class="ant-collapse-item"
   >
     <div
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
-      tabindex="-1"
+      tabindex="0"
     >
       <span
         aria-label="right"
@@ -204,7 +199,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -243,7 +237,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -289,7 +282,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -321,7 +313,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -335,6 +326,112 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
         </svg>
       </span>
       This is panel header 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-collapse ant-collapse-icon-position-left"
+    >
+      <div
+        class="ant-collapse-item ant-collapse-item-active"
+      >
+        <div
+          aria-expanded="true"
+          class="ant-collapse-header ant-collapse-header-collapsible-only"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-collapse-header-text"
+          >
+            This panel can only be collapsed by clicking text
+          </span>
+        </div>
+        <div
+          class="ant-collapse-content ant-collapse-content-active"
+        >
+          <div
+            class="ant-collapse-content-box"
+          >
+            <p>
+              
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-collapse ant-collapse-icon-position-left"
+    >
+      <div
+        class="ant-collapse-item ant-collapse-item-disabled"
+      >
+        <div
+          aria-expanded="false"
+          class="ant-collapse-header"
+          role="button"
+          tabindex="-1"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+          This panel can't be collapsed
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -360,7 +457,6 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="caret-right"
           fill="currentColor"
           focusable="false"
@@ -408,7 +504,6 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="caret-right"
           fill="currentColor"
           focusable="false"
@@ -440,7 +535,6 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="caret-right"
           fill="currentColor"
           focusable="false"
@@ -460,7 +554,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 `;
 
 exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-collapse ant-collapse-icon-position-left"
   >
@@ -480,7 +574,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -506,7 +599,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="setting"
               fill="currentColor"
               focusable="false"
@@ -553,7 +645,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -578,7 +669,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="setting"
               fill="currentColor"
               focusable="false"
@@ -610,7 +700,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -635,7 +724,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="setting"
               fill="currentColor"
               focusable="false"
@@ -651,11 +739,11 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <span>
     Expand Icon Position: 
-  </span>
+  </span>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="margin:0 8px"
@@ -677,12 +765,14 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
       </span>
       <span
         class="ant-select-selection-item"
+        title="left"
       >
         left
       </span>
@@ -700,7 +790,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -714,8 +803,8 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
@@ -738,7 +827,6 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -786,7 +874,6 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -818,7 +905,6 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -857,7 +943,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -889,7 +974,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -921,7 +1005,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -960,7 +1043,6 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"

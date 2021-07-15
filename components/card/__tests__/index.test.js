@@ -52,10 +52,7 @@ describe('Card', () => {
         xxx
       </Card>,
     );
-    wrapper
-      .find('.ant-tabs-tab')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.ant-tabs-tab').at(1).simulate('click');
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 

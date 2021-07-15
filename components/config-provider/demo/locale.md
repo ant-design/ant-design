@@ -28,8 +28,8 @@ import {
   Transfer,
   Radio,
 } from 'antd';
-import enUS from 'antd/es/locale/en_US';
-import zhCN from 'antd/es/locale/zh_CN';
+import enUS from 'antd/lib/locale/en_US';
+import zhCN from 'antd/lib/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
@@ -176,8 +176,8 @@ ReactDOM.render(<App />, mountNode);
 }
 
 .locale-components {
-  border-top: 1px solid #d9d9d9;
   padding-top: 16px;
+  border-top: 1px solid #d9d9d9;
 }
 
 .code-box-demo .example {

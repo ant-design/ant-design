@@ -4,7 +4,7 @@
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 
 .@{menu-prefix-cls} {
-  &-rtl {
+  &&-rtl {
     direction: rtl;
     text-align: right;
   }
@@ -33,10 +33,6 @@
   &-vertical&-sub,
   &-vertical-left&-sub,
   &-vertical-right&-sub {
-    .@{menu-prefix-cls}-rtl& {
-      transform-origin: top right;
-    }
-
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
       .@{menu-prefix-cls}-rtl& {
@@ -47,6 +43,7 @@
 
   &-item,
   &-submenu-title {
+    .@{menu-prefix-cls}-item-icon,
     .@{iconfont-css-prefix} {
       .@{menu-prefix-cls}-rtl & {
         margin-right: auto;
@@ -55,6 +52,7 @@
     }
 
     &.@{menu-prefix-cls}-item-only-child {
+      > .@{menu-prefix-cls}-item-icon,
       > .@{iconfont-css-prefix} {
         .@{menu-prefix-cls}-rtl & {
           margin-left: 0;
@@ -64,6 +62,10 @@
   }
 
   &-submenu {
+    &-rtl.@{menu-prefix-cls}-submenu-popup {
+      transform-origin: 100% 0;
+    }
+
     &-vertical,
     &-vertical-left,
     &-vertical-right,
@@ -136,7 +138,7 @@
   &-inline-collapsed&-vertical {
     .@{menu-prefix-cls}-submenu-title {
       .@{menu-prefix-cls}-rtl& {
-        padding: 0 (@menu-collapsed-width - @menu-icon-size-lg) / 2;
+        padding: 0 ~'calc(50% - @{menu-icon-size-lg} / 2)';
       }
     }
   }

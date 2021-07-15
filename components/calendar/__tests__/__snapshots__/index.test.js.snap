@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Calendar Calendar should support locale 1`] = `
+exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full"
 >
@@ -28,14 +28,16 @@ exports[`Calendar Calendar should support locale 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            type="search"
             unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="2019"
         >
-          2018年
+          2019
         </span>
       </div>
       <span
@@ -51,7 +53,6 @@ exports[`Calendar Calendar should support locale 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -87,12 +88,958 @@ exports[`Calendar Calendar should support locale 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            type="search"
             unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="Jan"
+        >
+          Jan
+        </span>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+    >
+      <label
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      >
+        <span
+          class="ant-radio-button ant-radio-button-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-button-input"
+            type="radio"
+            value="month"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Month
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+            value="year"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Year
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-picker-panel"
+    tabindex="0"
+  >
+    <div
+      class="ant-picker-date-panel"
+    >
+      <div
+        class="ant-picker-body"
+      >
+        <table
+          class="ant-picker-content"
+        >
+          <thead>
+            <tr>
+              <th>
+                Su
+              </th>
+              <th>
+                Mo
+              </th>
+              <th>
+                Tu
+              </th>
+              <th>
+                We
+              </th>
+              <th>
+                Th
+              </th>
+              <th>
+                Fr
+              </th>
+              <th>
+                Sa
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                class="ant-picker-cell"
+                title="2018-12-30"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-end"
+                title="2018-12-31"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    31
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view ant-picker-cell-selected"
+                title="2019-01-01"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-02"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-03"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-04"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-05"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-06"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-07"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-08"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-09"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-10"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    10
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-11"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    11
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-12"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    12
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-13"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    13
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-14"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    14
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-15"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    15
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-16"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    16
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-17"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    17
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-18"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    18
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-19"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    19
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-20"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    20
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-21"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    21
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-22"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    22
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-23"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    23
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-24"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    24
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-25"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    25
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-26"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    26
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-27"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    27
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-28"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    28
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-29"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    29
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-01-30"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                title="2019-01-31"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    31
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-start"
+                title="2019-02-01"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2019-02-02"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell"
+                title="2019-02-03"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2019-02-04"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2019-02-05"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2019-02-06"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2019-02-07"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2019-02-08"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2019-02-09"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Calendar Calendar should support locale 1`] = `
+<div
+  class="ant-picker-calendar ant-picker-calendar-full"
+>
+  <div
+    class="ant-picker-calendar-header"
+  >
+    <div
+      class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="2018年"
+        >
+          2018年
+        </span>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="10月"
         >
           10月
         </span>
@@ -110,7 +1057,6 @@ exports[`Calendar Calendar should support locale 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -210,7 +1156,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           <tbody>
             <tr>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                 title="2018-10-01"
               >
                 <div
@@ -728,7 +1674,7 @@ exports[`Calendar Calendar should support locale 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                 title="2018-10-31"
               >
                 <div
@@ -745,7 +1691,7 @@ exports[`Calendar Calendar should support locale 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell"
+                class="ant-picker-cell ant-picker-cell-start"
                 title="2018-11-01"
               >
                 <div
@@ -950,7 +1896,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-picker-calendar-year-select ant-select-rtl ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-rtl ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -969,12 +1915,14 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="2000"
         >
           2000
         </span>
@@ -992,7 +1940,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1008,7 +1955,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-select ant-picker-calendar-month-select ant-select-rtl ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-rtl ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1027,12 +1974,14 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="Sep"
         >
           Sep
         </span>
@@ -1050,7 +1999,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="down"
             fill="currentColor"
             focusable="false"
@@ -1218,7 +2166,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
               <td
-                class="ant-picker-cell"
+                class="ant-picker-cell ant-picker-cell-end"
                 title="2000-08-31"
               >
                 <div
@@ -1235,7 +2183,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                 title="2000-09-01"
               >
                 <div
@@ -1736,7 +2684,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                 title="2000-09-30"
               >
                 <div
@@ -1755,7 +2703,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             </tr>
             <tr>
               <td
-                class="ant-picker-cell"
+                class="ant-picker-cell ant-picker-cell-start"
                 title="2000-10-01"
               >
                 <div

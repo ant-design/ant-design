@@ -1,5 +1,6 @@
 @import './index';
 
+@select-overflow-prefix-cls: ~'@{select-prefix-cls}-selection-overflow';
 @select-multiple-item-border-width: 1px;
 
 @select-multiple-padding: max(
@@ -13,13 +14,25 @@
  * since chrome may update to redesign with its align logic.
  */
 
+// =========================== Overflow ===========================
+.@{select-overflow-prefix-cls} {
+  position: relative;
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  max-width: 100%;
+
+  &-item {
+    flex: none;
+    align-self: center;
+    max-width: 100%;
+  }
+}
+
 .@{select-prefix-cls} {
   &-multiple {
     // ========================= Selector =========================
     .@{select-prefix-cls}-selector {
-      .select-selector();
-      .select-search-input-without-border();
-
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -28,6 +41,11 @@
 
       .@{select-prefix-cls}-show-search& {
         cursor: text;
+      }
+
+      .@{select-prefix-cls}-disabled& {
+        background: @select-multiple-disabled-background;
+        cursor: not-allowed;
       }
 
       &::after {
@@ -39,6 +57,7 @@
       }
     }
 
+    &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selector,
     &.@{select-prefix-cls}-allow-clear .@{select-prefix-cls}-selector {
       padding-right: @font-size-sm + @control-padding-horizontal;
     }
@@ -53,9 +72,7 @@
 
       height: @select-multiple-item-height;
       margin-top: @select-multiple-item-spacing-half;
-      margin-right: @input-padding-vertical-base;
       margin-bottom: @select-multiple-item-spacing-half;
-      padding: 0 (@padding-xs / 2) 0 @padding-xs;
       line-height: @select-multiple-item-height - @select-multiple-item-border-width * 2;
       background: @select-selection-item-bg;
       border: 1px solid @select-selection-item-border-color;
@@ -63,13 +80,22 @@
       cursor: default;
       transition: font-size 0.3s, line-height 0.3s, height 0.3s;
       user-select: none;
+      margin-inline-end: @input-padding-vertical-base;
+      padding-inline-start: @padding-xs;
+      padding-inline-end: (@padding-xs / 2);
+
+      .@{select-prefix-cls}-disabled& {
+        color: @select-multiple-item-disabled-color;
+        border-color: @select-multiple-item-disabled-border-color;
+        cursor: not-allowed;
+      }
 
       // It's ok not to do this, but 24px makes bottom narrow in view should adjust
       &-content {
         display: inline-block;
-        margin-right: @padding-xs / 2;
+        margin-right: (@padding-xs / 2);
         overflow: hidden;
-        white-space: nowrap;
+        white-space: pre; // fix whitespace wrapping. custom tags display all whitespace within.
         text-overflow: ellipsis;
       }
 
@@ -78,10 +104,9 @@
         display: inline-block;
         color: @text-color-secondary;
         font-weight: bold;
-        font-size: @font-size-sm;
+        font-size: 10px;
         line-height: inherit;
         cursor: pointer;
-        .iconfont-size-under-12px(10px);
 
         > .@{iconfont-css-prefix} {
           vertical-align: -0.2em;
@@ -94,20 +119,30 @@
     }
 
     // ========================== Input ==========================
+    .@{select-overflow-prefix-cls}-item + .@{select-overflow-prefix-cls}-item {
+      .@{select-prefix-cls}-selection-search {
+        margin-inline-start: 0;
+      }
+    }
+
     .@{select-prefix-cls}-selection-search {
       position: relative;
-      margin-left: @select-multiple-padding / 2;
+      max-width: 100%;
+      margin-top: @select-multiple-item-spacing-half;
+      margin-bottom: @select-multiple-item-spacing-half;
+      margin-inline-start: @input-padding-horizontal-base - @input-padding-vertical-base;
 
       &-input,
       &-mirror {
+        height: @select-multiple-item-height;
         font-family: @font-family;
-        line-height: @line-height-base;
+        line-height: @select-multiple-item-height;
         transition: all 0.3s;
       }
 
       &-input {
         width: 100%;
-        min-width: 3px;
+        min-width: 4.1px; // fix search cursor missing
       }
 
       &-mirror {
@@ -115,13 +150,8 @@
         top: 0;
         left: 0;
         z-index: 999;
-        white-space: nowrap;
+        white-space: pre; // fix whitespace wrapping caused width calculation bug
         visibility: hidden;
-      }
-
-      // https://github.com/ant-design/ant-design/issues/22906
-      &:first-child .@{select-prefix-cls}-selection-search-input {
-        margin-left: 6.5px;
       }
     }
 
@@ -154,8 +184,8 @@
         }
 
         .@{select-prefix-cls}-selection-search {
-          height: @select-selection-height + @select-multiple-padding;
-          line-height: @select-selection-height + @select-multiple-padding;
+          height: @select-selection-height;
+          line-height: @select-selection-height;
 
           &-input,
           &-mirror {
@@ -174,10 +204,9 @@
       .@{select-prefix-cls}-selection-placeholder {
         left: @input-padding-horizontal-sm;
       }
-      // https://github.com/ant-design/ant-design/issues/22906
-      .@{select-prefix-cls}-selection-search:first-child
-        .@{select-prefix-cls}-selection-search-input {
-        margin-left: 3px;
+      // https://github.com/ant-design/ant-design/issues/29559
+      .@{select-prefix-cls}-selection-search {
+        margin-inline-start: 3px;
       }
     }
     &.@{select-prefix-cls}-lg {

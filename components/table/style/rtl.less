@@ -44,7 +44,7 @@
     > tr {
       // ========================= Nest Table ===========================
       .@{table-prefix-cls}-wrapper:only-child {
-        .@{table-prefix-cls}-rtl {
+        .@{table-prefix-cls}.@{table-prefix-cls}-rtl {
           margin: -@table-padding-vertical (@table-padding-horizontal + ceil(@font-size-sm * 1.4)) -@table-padding-vertical -@table-padding-horizontal;
         }
       }
@@ -53,26 +53,15 @@
 
   // ========================== Pagination ==========================
   &-pagination {
-    .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
-      float: left;
-    }
-
     &-left {
       .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
-        float: left;
+        justify-content: flex-end;
       }
     }
 
     &-right {
       .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
-        float: right;
-      }
-    }
-
-    &-center {
-      .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
-        float: initial;
-        text-align: center;
+        justify-content: flex-start;
       }
     }
   }
@@ -130,13 +119,6 @@
   &-selection {
     .@{table-wrapepr-rtl-cls} & {
       text-align: center;
-    }
-
-    &-extra {
-      .@{table-wrapepr-rtl-cls} & {
-        right: auto;
-        left: @table-selection-extra-right;
-      }
     }
   }
 

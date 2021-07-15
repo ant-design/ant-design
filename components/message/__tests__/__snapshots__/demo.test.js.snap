@@ -22,6 +22,17 @@ exports[`renders ./components/message/demo/duration.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/message/demo/hooks.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Display normal message
+  </span>
+</button>
+`;
+
 exports[`renders ./components/message/demo/info.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"

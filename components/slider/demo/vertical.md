@@ -35,7 +35,7 @@ const marks = {
 };
 
 ReactDOM.render(
-  <div>
+  <>
     <div style={style}>
       <Slider vertical defaultValue={30} />
     </div>
@@ -45,7 +45,7 @@ ReactDOM.render(
     <div style={style}>
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
     </div>
-  </div>,
+  </>,
   mountNode,
 );
 ```
