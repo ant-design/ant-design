@@ -154,7 +154,7 @@ ReactDOM.render(
   margin: 0 0 0 60px;
 }
 
-#components-page-header-demo-content .ant-page-header-rtl .image {
+#components-page-header-demo-content .ofs-page-header-rtl .image {
   margin: 0 60px 0 0;
 }
 
@@ -174,12 +174,12 @@ ReactDOM.render(
   height: 20px;
 }
 
-#components-page-header-demo-content .ant-page-header-rtl .example-link {
+#components-page-header-demo-content .ofs-page-header-rtl .example-link {
   float: right;
   margin-right: 0;
   margin-left: 16px;
 }
-#components-page-header-demo-content .ant-page-header-rtl .example-link-icon {
+#components-page-header-demo-content .ofs-page-header-rtl .example-link-icon {
   margin-right: 0;
   margin-left: 8px;
 }

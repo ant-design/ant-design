@@ -600,7 +600,7 @@ ReactDOM.render(<App />, mountNode);
   [data-theme="dark"] #table-demo-summary tfoot td {
     background: #272727;
   }
-  [data-theme="dark"] #components-transfer-table.ant-table td {
+  [data-theme="dark"] #components-transfer-table.ofs-table td {
     background: transparent;
   }
 </style>

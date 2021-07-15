@@ -32,7 +32,7 @@ ReactDOM.render(
 ```
 
 <style>
-.ant-popover-content p {
+.ofs-popover-content p {
   margin: 0;
 }
 </style>

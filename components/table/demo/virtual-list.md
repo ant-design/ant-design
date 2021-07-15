@@ -143,8 +143,8 @@ ReactDOM.render(
 ```
 
 <style>
-  .virtual-table .ant-table-container:before,
-  .virtual-table .ant-table-container:after {
+  .virtual-table .ofs-table-container:before,
+  .virtual-table .ofs-table-container:after {
     display: none;
   }
   .virtual-table-cell {

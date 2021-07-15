@@ -183,7 +183,7 @@ ReactDOM.render(<App />, mountNode);
   line-height: 1.66667;
 }
 
-.ant-drawer-body p.site-description-item-profile-p {
+.ofs-drawer-body p.site-description-item-profile-p {
   display: block;
   margin-bottom: 16px;
   color: rgba(0, 0, 0, 0.85);
@@ -191,7 +191,7 @@ ReactDOM.render(<App />, mountNode);
   line-height: 1.5715;
 }
 
-[data-theme='compact'] .ant-drawer-body p.site-description-item-profile-p {
+[data-theme='compact'] .ofs-drawer-body p.site-description-item-profile-p {
   font-size: 14px;
   line-height: 1.66667;
 }

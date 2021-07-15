@@ -20,7 +20,7 @@ import { DownOutlined } from '@ant-design/icons';
 const menu = (
   <Menu>
     <Menu.Item key="0">
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <a target="_blank" rel="noopener noreferrer" href="https://www.ofsgroup.com">
         1st menu item
       </a>
     </Menu.Item>

@@ -33,7 +33,7 @@ ReactDOM.render(
 ```
 
 ```css
-.myCustomClassName .ant-picker-time-panel-cell-inner {
+.myCustomClassName .ofs-picker-time-panel-cell-inner {
   color: red !important;
 }
 ```

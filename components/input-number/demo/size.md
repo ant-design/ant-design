@@ -31,10 +31,10 @@ ReactDOM.render(
 ```
 
 ```css
-.code-box-demo .ant-input-number {
+.code-box-demo .ofs-input-number {
   margin-right: 10px;
 }
-.ant-row-rtl .code-box-demo .ant-input-number {
+.ofs-row-rtl .code-box-demo .ofs-input-number {
   margin-right: 0;
   margin-left: 10px;
 }

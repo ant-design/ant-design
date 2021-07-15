@@ -45,7 +45,7 @@ ReactDOM.render(<ImageDemo />, mountNode);
   font-size: 20px;
   opacity: 1;
 }
-.customize-mask .anticon {
+.customize-mask .ofsicon {
   font-size: 32px;
 }
 ```

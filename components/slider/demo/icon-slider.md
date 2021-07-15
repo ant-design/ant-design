@@ -51,7 +51,7 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
   padding: 0px 30px;
 }
 
-.icon-wrapper .anticon {
+.icon-wrapper .ofsicon {
   position: absolute;
   top: -2px;
   width: 16px;
@@ -65,17 +65,17 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
   color: rgba(0, 0, 0, 0.45);
 }
 
-.icon-wrapper .anticon:first-child {
+.icon-wrapper .ofsicon:first-child {
   left: 0;
 }
 
-.icon-wrapper .anticon:last-child {
+.icon-wrapper .ofsicon:last-child {
   right: 0;
 }
 ```
 
 <style>
-  [data-theme="dark"] .icon-wrapper .anticon {
+  [data-theme="dark"] .icon-wrapper .ofsicon {
     color: rgba(255, 255, 255, 0.25);
   }
   [data-theme="dark"] .icon-wrapper .icon-wrapper-active {

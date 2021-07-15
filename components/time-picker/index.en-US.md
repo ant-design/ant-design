@@ -58,22 +58,22 @@ import moment from 'moment';
 
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### RangePicker
 
 Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicker. And includes additional props:
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| order | Order start and end time | boolean | true | 4.1.0 |
+| Property | Description              | Type    | Default | Version |
+| -------- | ------------------------ | ------- | ------- | ------- |
+| order    | Order start and end time | boolean | true    | 4.1.0   |
 
 <style>
-.code-box-demo .ant-picker { margin: 0 8px 12px 0; }
-.ant-row-rtl .code-box-demo .ant-picker { margin: 0 0 12px 8px; }
+.code-box-demo .ofs-picker { margin: 0 8px 12px 0; }
+.ofs-row-rtl .code-box-demo .ofs-picker { margin: 0 0 12px 8px; }
 </style>
 
 ## FAQ

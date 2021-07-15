@@ -79,7 +79,7 @@ ReactDOM.render(<AsyncMention />, mountNode);
 ```
 
 <style>
-.antd-demo-dynamic-option img {
+.ofsd-demo-dynamic-option img {
   width: 20px;
   height: 20px;
   margin-right: 8px;

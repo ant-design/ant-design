@@ -75,7 +75,7 @@ ReactDOM.render(
 ```
 
 <style>
-.code-box-demo .ant-alert {
+.code-box-demo .ofs-alert {
   margin-bottom: 16px;
 }
 </style>

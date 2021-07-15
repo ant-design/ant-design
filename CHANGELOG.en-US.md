@@ -192,7 +192,7 @@ timeline: true
 - 🐞 Fix PageHeader `<Tabs type="card" />` padding missing. [#29819](https://github.com/ant-design/ant-design/pull/29819)
 - Table
   - 💄 Optimize Table pagination style when narrow width. [#30065](https://github.com/ant-design/ant-design/pull/30065)
-  - 🐞 Fix Table `@table-border-radius-base` not being applied to `.ant-table` node. [#29966](https://github.com/ant-design/ant-design/pull/29966) [@VoliBearCat](https://github.com/VoliBearCat)
+  - 🐞 Fix Table `@table-border-radius-base` not being applied to `.ofs-table` node. [#29966](https://github.com/ant-design/ant-design/pull/29966) [@VoliBearCat](https://github.com/VoliBearCat)
 - 🐞 Fix Input.TextArea `maxLength` does not work in control mode. [#30070](https://github.com/ant-design/ant-design/pull/30070)
 - TypeScript
   - 🤖 Fix Select can not contain `undefined` type. [#30068](https://github.com/ant-design/ant-design/pull/30068) [@Gamote](https://github.com/Gamote)

@@ -563,13 +563,13 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 ```css
-.button-demo .ant-btn,
-.button-demo .ant-btn-group {
+.button-demo .ofs-btn,
+.button-demo .ofs-btn-group {
   margin-right: 8px;
   margin-bottom: 12px;
 }
-.button-demo .ant-btn-group > .ant-btn,
-.button-demo .ant-btn-group > span > .ant-btn {
+.button-demo .ofs-btn-group > .ofs-btn,
+.button-demo .ofs-btn-group > span > .ofs-btn {
   margin-right: 0;
   margin-left: 0;
 }
@@ -583,10 +583,10 @@ ReactDOM.render(<App />, mountNode);
   border-radius: 4px;
 }
 
-.ant-badge:not(.ant-badge-not-a-wrapper) {
+.ofs-badge:not(.ofs-badge-not-a-wrapper) {
   margin-right: 20px;
 }
-.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
+.ofs-badge-rtl:not(.ofs-badge-not-a-wrapper) {
   margin-right: 0;
   margin-left: 20px;
 }

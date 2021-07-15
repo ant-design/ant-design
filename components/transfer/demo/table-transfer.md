@@ -161,7 +161,7 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 ```css
-#components-transfer-demo-table-transfer .ant-table td {
+#components-transfer-demo-table-transfer .ofs-table td {
   background: transparent;
 }
 ```

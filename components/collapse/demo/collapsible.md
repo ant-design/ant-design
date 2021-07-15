@@ -45,7 +45,7 @@ ReactDOM.render(
 [data-theme="compact"] p, p {
   margin: 0;
 }
-#components-collapse-demo-collapsible .ant-space {
+#components-collapse-demo-collapsible .ofs-space {
   width: 100%;
 }
 </style>

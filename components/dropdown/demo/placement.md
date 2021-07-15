@@ -19,7 +19,7 @@ import { Menu, Dropdown, Button, Space } from 'antd';
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <a target="_blank" rel="noopener noreferrer" href="https://www.ofsgroup.com">
         1st menu item
       </a>
     </Menu.Item>

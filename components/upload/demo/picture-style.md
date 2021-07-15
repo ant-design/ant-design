@@ -58,13 +58,13 @@ ReactDOM.render(
 
 ```css
 /* tile uploaded pictures */
-.upload-list-inline .ant-upload-list-item {
+.upload-list-inline .ofs-upload-list-item {
   float: left;
   width: 200px;
   margin-right: 8px;
 }
 
-.upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+.upload-list-inline [class*='-upload-list-rtl'] .ofs-upload-list-item {
   float: right;
 }
 ```

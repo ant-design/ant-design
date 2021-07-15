@@ -103,7 +103,7 @@ ReactDOM.render(<NumericInputDemo />, mountNode);
 ```css
 /* to prevent the arrow overflow the popup container,
 or the height is not enough when content is empty */
-.numeric-input .ant-tooltip-inner {
+.numeric-input .ofs-tooltip-inner {
   min-width: 32px;
   min-height: 37px;
 }

@@ -9,7 +9,7 @@ title:
 
 带行编辑功能的表格。
 
-> 🛎️ 想要 3 分钟实现？试试 [ProTable 的可编辑表格](https://procomponents.ant.design/components/editable-table)！
+> 🛎️ 想要 3 分钟实现？试试 [ProTable 的可编辑表格](https://procomponents.ofs.design/components/editable-table)！
 
 ## en-US
 
@@ -201,7 +201,7 @@ ReactDOM.render(<EditableTable />, mountNode);
 ```
 
 ```css
-.editable-row .ant-form-item-explain {
+.editable-row .ofs-form-item-explain {
   position: absolute;
   top: 100%;
   font-size: 12px;
