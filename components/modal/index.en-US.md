@@ -41,6 +41,7 @@ When requiring users to interact with the application, but without jumping to a 
 | visible | Whether the modal dialog is visible or not | boolean | false |  |
 | width | Width of the modal dialog | string \| number | 520 |  |
 | wrapClassName | The class name of the container of the modal dialog | string | - |  |
+| wrapStyle | Style of the container of the modal dialog | CSSProperties | - |  |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  |
 | onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |  |
