@@ -7,21 +7,62 @@ const Simple = () => {
   return (
     <svg
       className={prefixCls}
-      width="64"
-      height="41"
-      viewBox="0 0 64 41"
+      data-name="3"
       xmlns="http://www.w3.org/2000/svg"
+      width="192"
+      height="192"
+      viewBox="0 0 192 192"
     >
-      <g transform="translate(0 1)" fill="none" fillRule="evenodd">
-        <ellipse className={`${prefixCls}-ellipse`} cx="32" cy="33" rx="32" ry="7" />
-        <g className={`${prefixCls}-g`} fillRule="nonzero">
-          <path d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z" />
-          <path
-            d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-            className={`${prefixCls}-path`}
+      <defs>
+        <radialGradient id="radial-gradient" cx="96" cy="96" r="96" gradientUnits="userSpaceOnUse">
+          <stop offset="0" />
+          <stop offset="1" stopColor="#fff" />
+        </radialGradient>
+        <filter id="filter" x="24" y="30" width="144" height="132" filterUnits="userSpaceOnUse">
+          <feGaussianBlur result="blur" stdDeviation="3.464" in="SourceAlpha" />
+          <feFlood result="flood" floodColor="#515c68" floodOpacity="0.2" />
+          <feComposite result="composite" operator="out" in2="blur" />
+          <feOffset result="offset" />
+          <feComposite result="composite-2" operator="in" in2="SourceAlpha" />
+          <feBlend result="blend" in2="SourceGraphic" />
+        </filter>
+        <filter id="filter-2" x="39" y="62" width="119" height="47" filterUnits="userSpaceOnUse">
+          <feOffset result="offset" dx="2.121" dy="2.121" in="SourceAlpha" />
+          <feGaussianBlur result="blur" stdDeviation="3.464" />
+          <feFlood result="flood" floodOpacity="0.1" />
+          <feComposite result="composite" operator="in" in2="blur" />
+          <feBlend result="blend" in="SourceGraphic" />
+          <feImage
+            preserveAspectRatio="none"
+            x="48"
+            y="71"
+            width="96"
+            height="24"
+            result="image"
+            xlinkHref="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTYiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA5NiAyNCI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgb3BhY2l0eTogMC4zOwogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMzYiIHgyPSI2MCIgeTI9IjI0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iLTAuMjUiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxLjI1IiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSI5NiIgaGVpZ2h0PSIyNCIvPgo8L3N2Zz4K"
           />
-        </g>
-      </g>
+          <feComposite result="composite-2" operator="in" in2="SourceGraphic" />
+          <feBlend result="blend-2" in2="blend" />
+          <feGaussianBlur result="blur-2" stdDeviation="1" in="SourceAlpha" />
+          <feFlood result="flood-2" floodColor="#fff" />
+          <feComposite result="composite-3" operator="out" in2="blur-2" />
+          <feOffset result="offset-2" dx="0.707" dy="0.707" />
+          <feComposite result="composite-4" operator="in" in2="SourceAlpha" />
+          <feBlend result="blend-3" in2="blend-2" />
+        </filter>
+      </defs>
+      <rect id="bg" className="cls-1" width="192" height="192" />
+      <path
+        id="bg-2"
+        data-name="bg"
+        className="cls-2"
+        d="M150,138H66L42,162V138a18,18,0,0,1-18-18V48A18,18,0,0,1,42,30H150a18,18,0,0,1,18,18v72A18,18,0,0,1,150,138Z"
+      />
+      <path
+        id="nodata"
+        className="cls-3"
+        d="M132,95H96a12,12,0,0,1,0-24l0.041,0h35.918L132,71A12,12,0,0,1,132,95ZM60,95A12,12,0,1,1,72,83,12,12,0,0,1,60,95Z"
+      />
     </svg>
   );
 };

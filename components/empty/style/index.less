@@ -34,7 +34,7 @@
     color: @disabled-color;
 
     .@{empty-prefix-cls}-image {
-      height: 40px;
+      height: 96px;
     }
   }
 
@@ -43,7 +43,7 @@
     color: @disabled-color;
 
     .@{empty-prefix-cls}-image {
-      height: 35px;
+      height: 96px;
     }
   }
 }
@@ -133,3 +133,24 @@
 }
 
 @import './rtl';
+
+.cls-1 {
+  fill: #fff;
+  stroke: url(#radial-gradient);
+  stroke-width: 3px;
+}
+
+.cls-2 {
+  filter: url(#filter);
+  fill: #f9f9f9;
+}
+
+.cls-2,
+.cls-3 {
+  fill-rule: evenodd;
+}
+
+.cls-3 {
+  filter: url(#filter-2);
+  fill: #fbfbfb;
+}
