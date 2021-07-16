@@ -285,13 +285,10 @@
         }
       }
 
-      &-selected {
-        &.@{select-prefix-cls}-item-option-disabled {
+      &-disabled {
+        &.@{select-prefix-cls}-item-option-selected {
           background-color: @input-disabled-bg;
         }
-      }
-
-      &-disabled {
         color: @disabled-color;
         cursor: not-allowed;
       }
