@@ -257,7 +257,7 @@ ReactDOM.render(<Demo />, mountNode);
 ```
 
 <style>
-.components-table-demo-control-bar .ant-form-item {
+.components-table-demo-control-bar .ofs-form-item {
   margin-right: 16px;
   margin-bottom: 8px;
 }

@@ -91,7 +91,7 @@ ReactDOM.render(<Demo />, mountNode);
   margin-right: 16px;
 }
 
-.ant-row-rtl .tabs-extra-demo-button {
+.ofs-row-rtl .tabs-extra-demo-button {
   margin-right: 0;
   margin-left: 16px;
 }

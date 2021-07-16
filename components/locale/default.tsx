@@ -1,92 +1,91 @@
 /* eslint-disable no-template-curly-in-string */
-import Pagination from 'rc-pagination/lib/locale/en_US';
-import DatePicker from '../date-picker/locale/en_US';
-import TimePicker from '../time-picker/locale/en_US';
-import Calendar from '../calendar/locale/en_US';
+import Pagination from 'rc-pagination/lib/locale/zh_CN';
+import DatePicker from '../date-picker/locale/zh_CN';
+import TimePicker from '../time-picker/locale/zh_CN';
+import Calendar from '../calendar/locale/zh_CN';
 import { Locale } from '../locale-provider';
 
-const typeTemplate = '${label} is not a valid ${type}';
+const typeTemplate = '${label}不是一个有效的${type}';
 
 const localeValues: Locale = {
-  locale: 'en',
+  locale: 'zh-cn',
   Pagination,
   DatePicker,
   TimePicker,
   Calendar,
+  // locales for all components
   global: {
-    placeholder: 'Please select',
+    placeholder: '请选择',
   },
   Table: {
-    filterTitle: 'Filter menu',
-    filterConfirm: 'OK',
-    filterReset: 'Reset',
-    filterEmptyText: 'No filters',
-    emptyText: 'No data',
-    selectAll: 'Select current page',
-    selectInvert: 'Invert current page',
-    selectNone: 'Clear all data',
-    selectionAll: 'Select all data',
-    sortTitle: 'Sort',
-    expand: 'Expand row',
-    collapse: 'Collapse row',
-    triggerDesc: 'Click to sort descending',
-    triggerAsc: 'Click to sort ascending',
-    cancelSort: 'Click to cancel sorting',
+    filterTitle: '筛选',
+    filterConfirm: '确定',
+    filterReset: '重置',
+    filterEmptyText: '无筛选项',
+    selectAll: '全选当页',
+    selectInvert: '反选当页',
+    selectNone: '清空所有',
+    selectionAll: '全选所有',
+    sortTitle: '排序',
+    expand: '展开行',
+    collapse: '关闭行',
+    triggerDesc: '点击降序',
+    triggerAsc: '点击升序',
+    cancelSort: '取消排序',
   },
   Modal: {
-    okText: 'OK',
-    cancelText: 'Cancel',
-    justOkText: 'OK',
+    okText: '确定',
+    cancelText: '取消',
+    justOkText: '知道了',
   },
   Popconfirm: {
-    okText: 'OK',
-    cancelText: 'Cancel',
+    cancelText: '取消',
+    okText: '确定',
   },
   Transfer: {
-    titles: ['', ''],
-    searchPlaceholder: 'Search here',
-    itemUnit: 'item',
-    itemsUnit: 'items',
-    remove: 'Remove',
-    selectCurrent: 'Select current page',
-    removeCurrent: 'Remove current page',
-    selectAll: 'Select all data',
-    removeAll: 'Remove all data',
-    selectInvert: 'Invert current page',
+    searchPlaceholder: '请输入搜索内容',
+    itemUnit: '项',
+    itemsUnit: '项',
+    remove: '删除',
+    selectCurrent: '全选当页',
+    removeCurrent: '删除当页',
+    selectAll: '全选所有',
+    removeAll: '删除全部',
+    selectInvert: '反选当页',
   },
   Upload: {
-    uploading: 'Uploading...',
-    removeFile: 'Remove file',
-    uploadError: 'Upload error',
-    previewFile: 'Preview file',
-    downloadFile: 'Download file',
+    uploading: '文件上传中',
+    removeFile: '删除文件',
+    uploadError: '上传错误',
+    previewFile: '预览文件',
+    downloadFile: '下载文件',
   },
   Empty: {
-    description: 'No Data',
+    description: '暂无数据',
   },
   Icon: {
-    icon: 'icon',
+    icon: '图标',
   },
   Text: {
-    edit: 'Edit',
-    copy: 'Copy',
-    copied: 'Copied',
-    expand: 'Expand',
+    edit: '编辑',
+    copy: '复制',
+    copied: '复制成功',
+    expand: '展开',
   },
   PageHeader: {
-    back: 'Back',
+    back: '返回',
   },
   Form: {
-    optional: '(optional)',
+    optional: '（可选）',
     defaultValidateMessages: {
-      default: 'Field validation error for ${label}',
-      required: 'Please enter ${label}',
-      enum: '${label} must be one of [${enum}]',
-      whitespace: '${label} cannot be a blank character',
+      default: '字段验证错误${label}',
+      required: '请输入${label}',
+      enum: '${label}必须是其中一个[${enum}]',
+      whitespace: '${label}不能为空字符',
       date: {
-        format: '${label} date format is invalid',
-        parse: '${label} cannot be converted to a date',
-        invalid: '${label} is an invalid date',
+        format: '${label}日期格式无效',
+        parse: '${label}不能转换为日期',
+        invalid: '${label}是一个无效日期',
       },
       types: {
         string: typeTemplate,
@@ -104,30 +103,30 @@ const localeValues: Locale = {
         hex: typeTemplate,
       },
       string: {
-        len: '${label} must be ${len} characters',
-        min: '${label} must be at least ${min} characters',
-        max: '${label} must be up to ${max} characters',
-        range: '${label} must be between ${min}-${max} characters',
+        len: '${label}须为${len}个字符',
+        min: '${label}最少${min}个字符',
+        max: '${label}最多${max}个字符',
+        range: '${label}须在${min}-${max}字符之间',
       },
       number: {
-        len: '${label} must be equal to ${len}',
-        min: '${label} must be minimum ${min}',
-        max: '${label} must be maximum ${max}',
-        range: '${label} must be between ${min}-${max}',
+        len: '${label}必须等于${len}',
+        min: '${label}最小值为${min}',
+        max: '${label}最大值为${max}',
+        range: '${label}须在${min}-${max}之间',
       },
       array: {
-        len: 'Must be ${len} ${label}',
-        min: 'At least ${min} ${label}',
-        max: 'At most ${max} ${label}',
-        range: 'The amount of ${label} must be between ${min}-${max}',
+        len: '须为${len}个${label}',
+        min: '最少${min}个${label}',
+        max: '最多${max}个${label}',
+        range: '${label}数量须在${min}-${max}之间',
       },
       pattern: {
-        mismatch: '${label} does not match the pattern ${pattern}',
+        mismatch: '${label}与模式不匹配${pattern}',
       },
     },
   },
   Image: {
-    preview: 'Preview',
+    preview: '预览',
   },
 };
 

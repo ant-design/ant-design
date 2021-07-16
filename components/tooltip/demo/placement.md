@@ -75,16 +75,16 @@ ReactDOM.render(
 .code-box-demo .demo {
   overflow: auto;
 }
-.code-box-demo .ant-btn {
+.code-box-demo .ofs-btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }
-.code-box-demo .ant-btn-rtl {
+.code-box-demo .ofs-btn-rtl {
   margin-right: 0;
   margin-left: 8px;
   margin-bottom: 8px;
 }
-#components-tooltip-demo-placement .ant-btn {
+#components-tooltip-demo-placement .ofs-btn {
   width: 70px;
   text-align: center;
   padding: 0;

@@ -81,10 +81,10 @@ ReactDOM.render(
 ```
 
 ```css
-.custom-icons-list > .anticon {
+.custom-icons-list > .ofsicon {
   margin-right: 6px;
 }
-.ant-row-rtl .custom-icons-list > .anticon {
+.ofs-row-rtl .custom-icons-list > .ofsicon {
   margin-right: 0;
   margin-left: 6px;
 }

@@ -137,7 +137,7 @@ ReactDOM.render(<App />, mountNode);
 #components-grid-demo-playground pre.demo-code {
   direction: ltr;
 }
-#components-grid-demo-playground .ant-col {
+#components-grid-demo-playground .ofs-col {
   padding: 0;
 }
 ```

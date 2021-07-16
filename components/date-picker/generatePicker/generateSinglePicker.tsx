@@ -6,7 +6,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import RCPicker from 'rc-picker';
 import { PickerMode } from 'rc-picker/lib/interface';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
-import enUS from '../locale/en_US';
+import zhCN from '../locale/zh_CN';
 import { getPlaceholder } from '../util';
 import devWarning from '../../_util/devWarning';
 import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
@@ -136,7 +136,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
       render() {
         return (
-          <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
+          <LocaleReceiver componentName="DatePicker" defaultLocale={zhCN}>
             {this.renderPicker}
           </LocaleReceiver>
         );

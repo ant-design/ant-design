@@ -96,7 +96,7 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 <style>
-.tree-transfer .ant-transfer-list:first-child {
+.tree-transfer .ofs-transfer-list:first-child {
   flex: none;
   width: 50%;
 }

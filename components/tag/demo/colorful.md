@@ -45,7 +45,7 @@ ReactDOM.render(
 ```
 
 <style>
-.code-box-demo .ant-tag {
+.code-box-demo .ofs-tag {
   margin-bottom: 8px;
 }
 <style>

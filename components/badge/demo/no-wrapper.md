@@ -46,7 +46,7 @@ ReactDOM.render(<Demo />, mountNode);
 ```
 
 ```css
-.site-badge-count-4 .ant-badge-count {
+.site-badge-count-4 .ofs-badge-count {
   color: #999;
   background-color: #fff;
   box-shadow: 0 0 0 1px #d9d9d9 inset;
@@ -54,7 +54,7 @@ ReactDOM.render(<Demo />, mountNode);
 ```
 
 <style>
-[data-theme="dark"] .site-badge-count-4 .ant-badge-count {
+[data-theme="dark"] .site-badge-count-4 .ofs-badge-count {
   background-color: #141414;
   box-shadow: 0 0 0 1px #434343 inset;
 }

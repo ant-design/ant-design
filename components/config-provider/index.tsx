@@ -17,6 +17,7 @@ import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
+import defaultLocal from '../locale/default';
 
 export {
   RenderEmptyHandler,
@@ -134,7 +135,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     space,
     virtual,
     dropdownMatchSelectWidth,
-    legacyLocale,
+    legacyLocale = defaultLocal,
     parentContext,
     iconPrefixCls,
   } = props;

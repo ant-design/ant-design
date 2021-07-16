@@ -113,14 +113,14 @@ ReactDOM.render(
 .code-box-demo .demo {
   overflow: auto;
 }
-.code-box-demo .ant-popover-wrap > a {
+.code-box-demo .ofs-popover-wrap > a {
   margin-right: 8px;
 }
-.code-box-demo .ant-btn {
+.code-box-demo .ofs-btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }
-#components-popconfirm-demo-placement .ant-btn {
+#components-popconfirm-demo-placement .ofs-btn {
   width: 70px;
   text-align: center;
   padding: 0;

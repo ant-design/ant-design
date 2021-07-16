@@ -19,7 +19,7 @@ import { Menu, Dropdown, Button } from 'antd';
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <a target="_blank" rel="noopener noreferrer" href="https://www.ofsgroup.com">
         1st menu item
       </a>
     </Menu.Item>
@@ -63,11 +63,11 @@ ReactDOM.render(
 ```
 
 ```css
-#components-dropdown-demo-arrow .ant-btn {
+#components-dropdown-demo-arrow .ofs-btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }
-.ant-row-rtl #components-dropdown-demo-arrow .ant-btn {
+.ofs-row-rtl #components-dropdown-demo-arrow .ofs-btn {
   margin-right: 0;
   margin-bottom: 8px;
   margin-left: 8px;

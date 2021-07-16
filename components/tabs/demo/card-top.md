@@ -46,24 +46,24 @@ ReactDOM.render(
 .card-container p {
   margin: 0;
 }
-.card-container > .ant-tabs-card .ant-tabs-content {
+.card-container > .ofs-tabs-card .ofs-tabs-content {
   height: 120px;
   margin-top: -16px;
 }
-.card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
+.card-container > .ofs-tabs-card .ofs-tabs-content > .ofs-tabs-tabpane {
   padding: 16px;
   background: #fff;
 }
-.card-container > .ant-tabs-card > .ant-tabs-nav::before {
+.card-container > .ofs-tabs-card > .ofs-tabs-nav::before {
   display: none;
 }
-.card-container > .ant-tabs-card .ant-tabs-tab,
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab {
+.card-container > .ofs-tabs-card .ofs-tabs-tab,
+[data-theme='compact'] .card-container > .ofs-tabs-card .ofs-tabs-tab {
   background: transparent;
   border-color: transparent;
 }
-.card-container > .ant-tabs-card .ant-tabs-tab-active,
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab-active {
+.card-container > .ofs-tabs-card .ofs-tabs-tab-active,
+[data-theme='compact'] .card-container > .ofs-tabs-card .ofs-tabs-tab-active {
   background: #fff;
   border-color: #fff;
 }
@@ -72,21 +72,21 @@ ReactDOM.render(
   overflow: hidden;
   background: #f5f5f5;
 }
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-content {
+[data-theme='compact'] .card-container > .ofs-tabs-card .ofs-tabs-content {
   height: 120px;
   margin-top: -8px;
 }
-[data-theme='dark'] .card-container > .ant-tabs-card .ant-tabs-tab {
+[data-theme='dark'] .card-container > .ofs-tabs-card .ofs-tabs-tab {
   background: transparent;
   border-color: transparent;
 }
 [data-theme='dark'] #components-tabs-demo-card-top .code-box-demo {
   background: #000;
 }
-[data-theme='dark'] .card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
+[data-theme='dark'] .card-container > .ofs-tabs-card .ofs-tabs-content > .ofs-tabs-tabpane {
   background: #141414;
 }
-[data-theme='dark'] .card-container > .ant-tabs-card .ant-tabs-tab-active {
+[data-theme='dark'] .card-container > .ofs-tabs-card .ofs-tabs-tab-active {
   background: #141414;
   border-color: #141414;
 }

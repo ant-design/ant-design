@@ -48,7 +48,7 @@ ReactDOM.render(
 ```
 
 ```css
-#components-button-demo-legacy-group .ant-btn {
+#components-button-demo-legacy-group .ofs-btn {
   margin: 0;
 }
 ```

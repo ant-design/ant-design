@@ -91,7 +91,7 @@ ReactDOM.render(
 tr:last-child td {
   padding-bottom: 0;
 }
-.ant-statistic-content {
+.ofs-statistic-content {
   font-size: 20px;
   line-height: 28px;
 }

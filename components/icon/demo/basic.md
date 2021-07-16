@@ -36,11 +36,11 @@ ReactDOM.render(
 ```
 
 <style>
-.icons-list > .anticon {
+.icons-list > .ofsicon {
   margin-right: 6px;
   font-size: 24px;
 }
-.ant-row-rtl .icons-list > .anticon {
+.ofs-row-rtl .icons-list > .ofsicon {
   margin-right: 0;
   margin-left: 6px;
 }

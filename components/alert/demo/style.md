@@ -28,7 +28,7 @@ ReactDOM.render(
 ```
 
 <style>
-[data-theme="compact"] .code-box-demo .ant-alert {
+[data-theme="compact"] .code-box-demo .ofs-alert {
   margin-bottom: 8px;
 }
 </style>

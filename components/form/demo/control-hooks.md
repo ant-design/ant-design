@@ -108,7 +108,7 @@ ReactDOM.render(<Demo />, mountNode);
 ```
 
 ```css
-#components-form-demo-control-hooks .ant-btn {
+#components-form-demo-control-hooks .ofs-btn {
   margin-right: 8px;
 }
 ```

@@ -11,7 +11,7 @@ import {
   PickerPanelTimeProps as RCPickerPanelTimeProps,
 } from 'rc-picker/lib/PickerPanel';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import enUS from './locale/en_US';
+import zhCN from './locale/zh_CN';
 import { ConfigContext } from '../config-provider';
 import CalendarHeader from './Header';
 
@@ -19,7 +19,7 @@ type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'prevIcon' | 'nextIcon' | 'superPrevIcon' | 'superNextIcon'
 > & {
-  locale?: typeof enUS;
+  locale?: typeof zhCN;
   size?: 'large' | 'default' | 'small';
 };
 
@@ -45,7 +45,7 @@ export interface CalendarProps<DateType> {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  locale?: typeof enUS;
+  locale?: typeof zhCN;
   validRange?: [DateType, DateType];
   disabledDate?: (date: DateType) => boolean;
   dateFullCellRender?: (date: DateType) => React.ReactNode;
@@ -169,7 +169,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const getDefaultLocale = () => {
       const { locale } = props;
       const result = {
-        ...enUS,
+        ...zhCN,
         ...locale,
       };
       result.lang = {

@@ -323,7 +323,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 如果你是 antd v3 的用户，你可以参考[迁移示例](/components/form/v3)。
 
 <style>
-.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
+.code-box-demo .ofs-form:not(.ofs-form-inline):not(.ofs-form-vertical) {
   max-width: 600px;
 }
 .markdown.api-container table td:nth-of-type(4) {

@@ -88,7 +88,7 @@ ReactDOM.render(
   padding: 0;
   list-style: none;
 }
-.events .ant-badge-status {
+.events .ofs-badge-status {
   width: 100%;
   overflow: hidden;
   font-size: 12px;
