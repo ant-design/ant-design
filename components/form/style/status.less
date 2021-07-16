@@ -48,11 +48,20 @@
     > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
     > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear {
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
+    :not(.@{ant-prefix}-input-number-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-number-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-clear {
       right: 32px;
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-number-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection-selected-value {
       padding-right: 42px;
@@ -179,12 +188,15 @@
     }
 
     // fixes https://github.com/ant-design/ant-design/issues/20482
-    .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
-      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
-        .@{ant-prefix}-select-selector {
-        background-color: inherit;
-        border: 0;
-        box-shadow: none;
+    .@{ant-prefix}-input-group-addon,
+    .@{ant-prefix}-input-number-group-addon {
+      .@{ant-prefix}-select {
+        &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
+          .@{ant-prefix}-select-selector {
+          background-color: inherit;
+          border: 0;
+          box-shadow: none;
+        }
       }
     }
 
