@@ -275,14 +275,18 @@
         background-color: @select-item-active-bg;
       }
 
-      &-selected:not(&-disabled) {
+      &-selected {
         color: @select-item-selected-color;
         font-weight: @select-item-selected-font-weight;
-        background-color: @select-item-selected-bg;
+        background-color: @input-disabled-bg;
 
         .@{select-prefix-cls}-item-option-state {
           color: @primary-color;
         }
+      }
+
+      &-selected:not(&-disabled) {
+        background-color: @select-item-selected-bg;
       }
 
       &-disabled {
