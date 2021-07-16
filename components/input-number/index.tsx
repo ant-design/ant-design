@@ -7,12 +7,15 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { ConfigContext } from '../config-provider';
 import { Omit } from '../_util/type';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { cloneElement } from '../_util/reactNode';
 
 type ValueType = string | number;
 
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'size'> {
   prefixCls?: string;
+  addonBefore?: React.ReactNode;
+  addonAfter?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
 }
@@ -25,6 +28,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     className,
     size: customizeSize,
     prefixCls: customizePrefixCls,
+    addonBefore,
+    addonAfter,
     bordered = true,
     readOnly,
     ...others
@@ -46,7 +51,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     className,
   );
 
-  return (
+  const element = (
     <RcInputNumber
       ref={ref}
       className={inputNumberClass}
@@ -57,6 +62,40 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       {...others}
     />
   );
+
+  if (addonBefore != null || addonAfter != null) {
+    const wrapperClassName = `${prefixCls}-group`;
+    const addonClassName = `${wrapperClassName}-addon`;
+    const addonBeforeNode = addonBefore ? (
+      <span className={addonClassName}>{addonBefore}</span>
+    ) : null;
+    const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
+
+    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, {
+      [`${wrapperClassName}-rtl`]: direction === 'rtl',
+    });
+
+    const mergedGroupClassName = classNames(
+      `${prefixCls}-group-wrapper`,
+      {
+        [`${prefixCls}-group-wrapper-sm`]: size === 'small',
+        [`${prefixCls}-group-wrapper-lg`]: size === 'large',
+        [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
+    return (
+      <span className={mergedGroupClassName} style={props.style}>
+        <span className={mergedWrapperClassName}>
+          {addonBeforeNode}
+          {cloneElement(element, { style: null })}
+          {addonAfterNode}
+        </span>
+      </span>
+    );
+  }
+
+  return element;
 });
 
 export default InputNumber as (<T extends ValueType = ValueType>(
