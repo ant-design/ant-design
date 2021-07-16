@@ -26,6 +26,7 @@ class Demo extends React.Component {
     copyable: false,
     editable: false,
     expandable: false,
+    narrow: true,
   };
 
   onChange = rows => {
@@ -33,7 +34,7 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { rows, longText, copyable, editable, expandable } = this.state;
+    const { rows, longText, copyable, editable, expandable, narrow } = this.state;
     return (
       <>
         <Switch
@@ -66,6 +67,11 @@ class Demo extends React.Component {
 
         <p>
           2333<Text ellipsis>2333</Text>2333
+        </p>
+
+        <Switch onChange={val => this.setState({ narrow: val })} checked={narrow} />
+        <p style={{ width: narrow ? '50px' : '100%', border: '1px solid red' }}>
+          <Text ellipsis={{ tooltip: true }}>How are you ? I am fine; thank you; and you ?</Text>
         </p>
       </>
     );
