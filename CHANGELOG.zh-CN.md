@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.16.8
+
+`2021-07-19`
+
+- 🐞 修复 TextArea `style` 在配置 `allowClear` 时失效的问题。[#31391](https://github.com/ant-design/ant-design/pull/31391)
+- 🐞 修复 BackTop 隐出后仍然可以交互的问题。[#31357](https://github.com/ant-design/ant-design/pull/31357)
+- 💄 修复 Cascader 在 Input `addonBefore` 中的样式问题。[#31350](https://github.com/ant-design/ant-design/pull/31350)
+- 💄 修复 DatePicker 自定义 `dateRender` 时禁用日期样式错误的问题。[#31349](https://github.com/ant-design/ant-design/pull/31349)
+- 💄 修复 Select 组件 disabled 时背景颜色错误的问题。[#31430](https://github.com/ant-design/ant-design/pull/31430) [@DerrickTel](https://github.com/DerrickTel)
+- 💄 修复 Radio.Group 和 Button 不对齐的问题。[#31421](https://github.com/ant-design/ant-design/pull/31421) [@gtb104](https://github.com/gtb104)
+- 💄 修复 Input 清除按钮某些情况下颜色不对的问题。[#31378](https://github.com/ant-design/ant-design/pull/31378)
+- Table
+  - 💄 修复 Table `sticky` 列头一个背景色透明的问题。[#31373](https://github.com/ant-design/ant-design/pull/31373)
+  - 💄 修复表格总结栏第一个单元格上边框消失的问题。[#31363](https://github.com/ant-design/ant-design/pull/31363)
+- 🌐 国际化
+  - 🇷🇺 俄语本地化增加 Table.SELECTION_NONE 文案。[#31361](https://github.com/ant-design/ant-design/pull/31361) [@wwyx778](https://github.com/wwyx778)
+  - 🇭🇰 补充 zh_HK 中 Transfer 组件缺失的部分字段。[#31404](https://github.com/ant-design/ant-design/pull/31404) [@kanweiwei](https://github.com/kanweiwei)
+  - 🇪🇸 补充 es_ES 中 Image 组件缺失的字段。[#31330](https://github.com/ant-design/ant-design/pull/31330) [@Andu15](https://github.com/Andu15)
+
 ## 4.16.7
 
 `2021-07-12`

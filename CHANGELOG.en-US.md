@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.16.8
+
+`2021-07-19`
+
+- 🐞 Fix TextArea `style` not work when `allowClear` configured. [#31391](https://github.com/ant-design/ant-design/pull/31391)
+- 🐞 Fix BackTop not disappear when fade out. [#31357](https://github.com/ant-design/ant-design/pull/31357)
+- 💄 Fix Cascader style bug inside Input `addonBefore`. [#31350](https://github.com/ant-design/ant-design/pull/31350)
+- 💄 Fix DatePicker disabled cell style when customize `dateRender`. [#31349](https://github.com/ant-design/ant-design/pull/31349)
+- 💄 Fix Select background in disabled. [#31430](https://github.com/ant-design/ant-design/pull/31430) [@DerrickTel](https://github.com/DerrickTel)
+- 💄 Fix alignment between Radio.Group and Button. [#31421](https://github.com/ant-design/ant-design/pull/31421) [@gtb104](https://github.com/gtb104)
+- 💄 Fix Input clear icon color in some situation. [#31378](https://github.com/ant-design/ant-design/pull/31378)
+- Table
+  - 💄 Fix Table `sticky` header background is transparent when has sorters. [#31373](https://github.com/ant-design/ant-design/pull/31373)
+  - 💄 Fix missing top border of the first cell in table summary. [#31363](https://github.com/ant-design/ant-design/pull/31363)
+- 🌐 Internationalization
+  - 🇷🇺 Add Table.SELECTION_NONE for Russian localization. [#31361](https://github.com/ant-design/ant-design/pull/31361) [@wwyx778](https://github.com/wwyx778)
+  - 🇭🇰 Add missing translations for Transfer in zh_HK. [#31404](https://github.com/ant-design/ant-design/pull/31404) [@kanweiwei](https://github.com/kanweiwei)
+  - 🇪🇸 Add missing translation for Image in es_ES. [#31330](https://github.com/ant-design/ant-design/pull/31330) [@Andu15](https://github.com/Andu15)
+
 ## 4.16.7
 
 `2021-07-12`
