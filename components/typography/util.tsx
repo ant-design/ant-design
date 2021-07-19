@@ -80,7 +80,8 @@ export default (
   const maxHeight =
     Math.floor(lineHeight) * (rows + 1) +
     pxToNumber(originStyle.paddingTop) +
-    pxToNumber(originStyle.paddingBottom);
+    pxToNumber(originStyle.paddingBottom) -
+    1;
 
   // Set shadow
   ellipsisContainer.setAttribute('style', originCSS);
