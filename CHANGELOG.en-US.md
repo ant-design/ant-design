@@ -29,9 +29,9 @@ timeline: true
 - Table
   - 💄 Fix Table `sticky` header background is transparent when has sorters. [#31373](https://github.com/ant-design/ant-design/pull/31373)
   - 💄 Fix missing top border of the first cell in table summary. [#31363](https://github.com/ant-design/ant-design/pull/31363)
-  - 🌐 Add Table.SELECTION_NONE for Russian localization. [#31361](https://github.com/ant-design/ant-design/pull/31361) [@wwyx778](https://github.com/wwyx778)
-- 🌐 Add missing translations for Transfer in zh_HK. [#31404](https://github.com/ant-design/ant-design/pull/31404) [@kanweiwei](https://github.com/kanweiwei)
-- 🌐 Add missing translation for Image in es_ES. [#31330](https://github.com/ant-design/ant-design/pull/31330) [@Andu15](https://github.com/Andu15)
+  - 🇷🇺 Add Table.SELECTION_NONE for Russian localization. [#31361](https://github.com/ant-design/ant-design/pull/31361) [@wwyx778](https://github.com/wwyx778)
+- 🇭🇰 Add missing translations for Transfer in zh_HK. [#31404](https://github.com/ant-design/ant-design/pull/31404) [@kanweiwei](https://github.com/kanweiwei)
+- 🇪🇸 Add missing translation for Image in es_ES. [#31330](https://github.com/ant-design/ant-design/pull/31330) [@Andu15](https://github.com/Andu15)
 
 ## 4.16.7
 

@@ -29,9 +29,9 @@ timeline: true
 - Table
   - 💄 修复 Table `sticky` 列头一个背景色透明的问题。[#31373](https://github.com/ant-design/ant-design/pull/31373)
   - 💄 修复表格总结栏第一个单元格上边框消失的问题。[#31363](https://github.com/ant-design/ant-design/pull/31363)
-  - 🌐 俄语本地化增加 Table.SELECTION_NONE 文案。[#31361](https://github.com/ant-design/ant-design/pull/31361) [@wwyx778](https://github.com/wwyx778)
-- 🌐 补充 zh_HK 中 Transfer 组件缺失的部分字段。[#31404](https://github.com/ant-design/ant-design/pull/31404) [@kanweiwei](https://github.com/kanweiwei)
-- 🌐 补充 es_ES 中 Image 组件缺失的字段。[#31330](https://github.com/ant-design/ant-design/pull/31330) [@Andu15](https://github.com/Andu15)
+  - 🇷🇺 俄语本地化增加 Table.SELECTION_NONE 文案。[#31361](https://github.com/ant-design/ant-design/pull/31361) [@wwyx778](https://github.com/wwyx778)
+- 🇭🇰 补充 zh_HK 中 Transfer 组件缺失的部分字段。[#31404](https://github.com/ant-design/ant-design/pull/31404) [@kanweiwei](https://github.com/kanweiwei)
+- 🇪🇸 补充 es_ES 中 Image 组件缺失的字段。[#31330](https://github.com/ant-design/ant-design/pull/31330) [@Andu15](https://github.com/Andu15)
 
 ## 4.16.7
 
