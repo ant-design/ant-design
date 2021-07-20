@@ -55,44 +55,40 @@ function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
   return childList;
 }
 
-function getRealLineHeight(originEle: HTMLElement) {
-  const heightContainer = document.createElement('p');
-  heightContainer.setAttribute('aria-hidden', 'true');
-
-  const originStyle = window.getComputedStyle(originEle);
+function resetDomStyles(target: HTMLElement, origin: HTMLElement) {
+  target.setAttribute('aria-hidden', 'true');
+  const originStyle = window.getComputedStyle(origin);
   const originCSS = styleToString(originStyle);
-
   // Set shadow
-  heightContainer.setAttribute('style', originCSS);
-  heightContainer.style.position = 'fixed';
-  heightContainer.style.left = '0';
-  heightContainer.style.height = 'auto';
-  heightContainer.style.minHeight = 'auto';
-  heightContainer.style.maxHeight = 'auto';
-  heightContainer.style.top = '-999999px';
-  heightContainer.style.zIndex = '-1000';
-
+  target.setAttribute('style', originCSS);
+  target.style.position = 'fixed';
+  target.style.left = '0';
+  target.style.height = 'auto';
+  target.style.minHeight = 'auto';
+  target.style.maxHeight = 'auto';
+  target.style.top = '-999999px';
+  target.style.zIndex = '-1000';
   // clean up css overflow
-  heightContainer.style.textOverflow = 'clip';
-  heightContainer.style.whiteSpace = 'normal';
-  (heightContainer.style as any).webkitLineClamp = 'none';
+  target.style.textOverflow = 'clip';
+  target.style.whiteSpace = 'normal';
+  (target.style as any).webkitLineClamp = 'none';
+}
 
+function getRealLineHeight(originElement: HTMLElement) {
+  const heightContainer = document.createElement('div');
+  resetDomStyles(heightContainer, originElement);
   heightContainer.appendChild(document.createTextNode('text'));
   document.body.appendChild(heightContainer);
-
   let realLineHeight = pxToNumber(getComputedStyle(heightContainer).lineHeight);
-
   if (realLineHeight !== heightContainer.offsetHeight) {
     realLineHeight = heightContainer.offsetHeight;
   }
-
   document.body.removeChild(heightContainer);
-
   return realLineHeight;
 }
 
 export default (
-  originEle: HTMLElement,
+  originElement: HTMLElement,
   option: Option,
   content: React.ReactNode,
   fixedContent: React.ReactNode[],
@@ -110,28 +106,14 @@ export default (
 
   const { rows, suffix = '' } = option;
   // Get origin style
-  const originStyle = window.getComputedStyle(originEle);
-  const originCSS = styleToString(originStyle);
-  const lineHeight = getRealLineHeight(originEle);
+  const originStyle = window.getComputedStyle(originElement);
+  const lineHeight = getRealLineHeight(originElement);
   const maxHeight =
     Math.floor(lineHeight) * (rows + 1) +
     pxToNumber(originStyle.paddingTop) +
     pxToNumber(originStyle.paddingBottom);
 
-  // Set shadow
-  ellipsisContainer.setAttribute('style', originCSS);
-  ellipsisContainer.style.position = 'fixed';
-  ellipsisContainer.style.left = '0';
-  ellipsisContainer.style.height = 'auto';
-  ellipsisContainer.style.minHeight = 'auto';
-  ellipsisContainer.style.maxHeight = 'auto';
-  ellipsisContainer.style.top = '-999999px';
-  ellipsisContainer.style.zIndex = '-1000';
-
-  // clean up css overflow
-  ellipsisContainer.style.textOverflow = 'clip';
-  ellipsisContainer.style.whiteSpace = 'normal';
-  (ellipsisContainer.style as any).webkitLineClamp = 'none';
+  resetDomStyles(ellipsisContainer, originElement);
 
   // Render in the fake container
   const contentList: React.ReactNode[] = mergeChildren(toArray(content));
