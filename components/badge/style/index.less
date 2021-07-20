@@ -54,6 +54,11 @@
     box-shadow: 0 0 0 1px @shadow-color-inverse;
   }
 
+  // Tricky way to resolve https://github.com/ant-design/ant-design/issues/30088
+  &-dot.@{number-prefix-cls} {
+    transition: background 1.5s;
+  }
+
   &-count,
   &-dot,
   .@{number-prefix-cls}-custom-component {
@@ -157,7 +162,7 @@
     }
 
     .@{number-prefix-cls}-custom-component,
-    .@{ant-prefix}-scroll-number {
+    .@{number-prefix-cls} {
       position: relative;
       top: auto;
       display: block;
