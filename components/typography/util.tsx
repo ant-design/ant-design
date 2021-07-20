@@ -55,6 +55,42 @@ function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
   return childList;
 }
 
+function getRealLineHeight(originEle: HTMLElement) {
+  const heightContainer = document.createElement('p');
+  heightContainer.setAttribute('aria-hidden', 'true');
+
+  const originStyle = window.getComputedStyle(originEle);
+  const originCSS = styleToString(originStyle);
+
+  // Set shadow
+  heightContainer.setAttribute('style', originCSS);
+  heightContainer.style.position = 'fixed';
+  heightContainer.style.left = '0';
+  heightContainer.style.height = 'auto';
+  heightContainer.style.minHeight = 'auto';
+  heightContainer.style.maxHeight = 'auto';
+  heightContainer.style.top = '-999999px';
+  heightContainer.style.zIndex = '-1000';
+
+  // clean up css overflow
+  heightContainer.style.textOverflow = 'clip';
+  heightContainer.style.whiteSpace = 'normal';
+  (heightContainer.style as any).webkitLineClamp = 'none';
+
+  heightContainer.appendChild(document.createTextNode('text'));
+  document.body.appendChild(heightContainer);
+
+  let realLineHeight = pxToNumber(getComputedStyle(heightContainer).lineHeight);
+
+  if (realLineHeight !== heightContainer.offsetHeight) {
+    realLineHeight = heightContainer.offsetHeight;
+  }
+
+  document.body.removeChild(heightContainer);
+
+  return realLineHeight;
+}
+
 export default (
   originEle: HTMLElement,
   option: Option,
@@ -76,12 +112,11 @@ export default (
   // Get origin style
   const originStyle = window.getComputedStyle(originEle);
   const originCSS = styleToString(originStyle);
-  const lineHeight = pxToNumber(originStyle.lineHeight);
+  const lineHeight = getRealLineHeight(originEle);
   const maxHeight =
     Math.floor(lineHeight) * (rows + 1) +
     pxToNumber(originStyle.paddingTop) +
-    pxToNumber(originStyle.paddingBottom) -
-    1;
+    pxToNumber(originStyle.paddingBottom);
 
   // Set shadow
   ellipsisContainer.setAttribute('style', originCSS);
@@ -113,7 +148,7 @@ export default (
 
   // Check if ellipsis in measure div is height enough for content
   function inRange() {
-    return ellipsisContainer.offsetHeight < maxHeight;
+    return Math.ceil(ellipsisContainer.getBoundingClientRect().height) < maxHeight;
   }
 
   // Skip ellipsis if already match
