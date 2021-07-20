@@ -79,10 +79,7 @@ function getRealLineHeight(originElement: HTMLElement) {
   resetDomStyles(heightContainer, originElement);
   heightContainer.appendChild(document.createTextNode('text'));
   document.body.appendChild(heightContainer);
-  let realLineHeight = pxToNumber(getComputedStyle(heightContainer).lineHeight);
-  if (realLineHeight !== heightContainer.offsetHeight) {
-    realLineHeight = heightContainer.offsetHeight;
-  }
+  const realLineHeight = heightContainer.offsetHeight;
   document.body.removeChild(heightContainer);
   return realLineHeight;
 }
