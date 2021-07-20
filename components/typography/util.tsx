@@ -26,7 +26,9 @@ const wrapperStyle: React.CSSProperties = {
 };
 
 function pxToNumber(value: string | null): number {
-  if (!value) return 0;
+  if (!value) {
+    return 0;
+  }
 
   const match = value.match(/^\d*(\.\d*)?/);
 
@@ -79,9 +81,10 @@ function getRealLineHeight(originElement: HTMLElement) {
   resetDomStyles(heightContainer, originElement);
   heightContainer.appendChild(document.createTextNode('text'));
   document.body.appendChild(heightContainer);
-  const realLineHeight = heightContainer.offsetHeight;
+  const { offsetHeight } = heightContainer;
+  const lineHeight = pxToNumber(window.getComputedStyle(originElement).lineHeight);
   document.body.removeChild(heightContainer);
-  return realLineHeight;
+  return offsetHeight > lineHeight ? offsetHeight : lineHeight;
 }
 
 export default (
