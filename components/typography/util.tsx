@@ -26,10 +26,10 @@ const wrapperStyle: React.CSSProperties = {
 };
 
 function pxToNumber(value: string | null): number {
-  if (!value) return 0;
-
+  if (!value) {
+    return 0;
+  }
   const match = value.match(/^\d*(\.\d*)?/);
-
   return match ? Number(match[0]) : 0;
 }
 
@@ -55,8 +55,38 @@ function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
   return childList;
 }
 
+function resetDomStyles(target: HTMLElement, origin: HTMLElement) {
+  target.setAttribute('aria-hidden', 'true');
+  const originStyle = window.getComputedStyle(origin);
+  const originCSS = styleToString(originStyle);
+  // Set shadow
+  target.setAttribute('style', originCSS);
+  target.style.position = 'fixed';
+  target.style.left = '0';
+  target.style.height = 'auto';
+  target.style.minHeight = 'auto';
+  target.style.maxHeight = 'auto';
+  target.style.top = '-999999px';
+  target.style.zIndex = '-1000';
+  // clean up css overflow
+  target.style.textOverflow = 'clip';
+  target.style.whiteSpace = 'normal';
+  (target.style as any).webkitLineClamp = 'none';
+}
+
+function getRealLineHeight(originElement: HTMLElement) {
+  const heightContainer = document.createElement('div');
+  resetDomStyles(heightContainer, originElement);
+  heightContainer.appendChild(document.createTextNode('text'));
+  document.body.appendChild(heightContainer);
+  const { offsetHeight } = heightContainer;
+  const lineHeight = pxToNumber(window.getComputedStyle(originElement).lineHeight);
+  document.body.removeChild(heightContainer);
+  return offsetHeight > lineHeight ? offsetHeight : lineHeight;
+}
+
 export default (
-  originEle: HTMLElement,
+  originElement: HTMLElement,
   option: Option,
   content: React.ReactNode,
   fixedContent: React.ReactNode[],
@@ -74,28 +104,14 @@ export default (
 
   const { rows, suffix = '' } = option;
   // Get origin style
-  const originStyle = window.getComputedStyle(originEle);
-  const originCSS = styleToString(originStyle);
-  const lineHeight = pxToNumber(originStyle.lineHeight);
+  const originStyle = window.getComputedStyle(originElement);
+  const lineHeight = getRealLineHeight(originElement);
   const maxHeight =
     Math.floor(lineHeight) * (rows + 1) +
     pxToNumber(originStyle.paddingTop) +
     pxToNumber(originStyle.paddingBottom);
 
-  // Set shadow
-  ellipsisContainer.setAttribute('style', originCSS);
-  ellipsisContainer.style.position = 'fixed';
-  ellipsisContainer.style.left = '0';
-  ellipsisContainer.style.height = 'auto';
-  ellipsisContainer.style.minHeight = 'auto';
-  ellipsisContainer.style.maxHeight = 'auto';
-  ellipsisContainer.style.top = '-999999px';
-  ellipsisContainer.style.zIndex = '-1000';
-
-  // clean up css overflow
-  ellipsisContainer.style.textOverflow = 'clip';
-  ellipsisContainer.style.whiteSpace = 'normal';
-  (ellipsisContainer.style as any).webkitLineClamp = 'none';
+  resetDomStyles(ellipsisContainer, originElement);
 
   // Render in the fake container
   const contentList: React.ReactNode[] = mergeChildren(toArray(content));
@@ -112,7 +128,7 @@ export default (
 
   // Check if ellipsis in measure div is height enough for content
   function inRange() {
-    return ellipsisContainer.offsetHeight < maxHeight;
+    return Math.ceil(ellipsisContainer.getBoundingClientRect().height) < maxHeight;
   }
 
   // Skip ellipsis if already match
