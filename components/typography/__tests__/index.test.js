@@ -36,13 +36,24 @@ describe('Typography', () => {
     HTMLElement.prototype,
     'offsetHeight',
   ).get;
-  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-    get() {
+
+  const mockGetBoundingClientRect = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+
+  beforeAll(() => {
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      get() {
+        let html = this.innerHTML;
+        html = html.replace(/<[^>]*>/g, '');
+        const lines = Math.ceil(html.length / LINE_STR_COUNT);
+        return lines * 16;
+      },
+    });
+    mockGetBoundingClientRect.mockImplementation(function fn() {
       let html = this.innerHTML;
       html = html.replace(/<[^>]*>/g, '');
       const lines = Math.ceil(html.length / LINE_STR_COUNT);
-      return lines * 16;
-    },
+      return { height: lines * 16 };
+    });
   });
 
   // Mock getComputedStyle
@@ -62,6 +73,7 @@ describe('Typography', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       get: originOffsetHeight,
     });
+    mockGetBoundingClientRect.mockRestore();
     window.getComputedStyle = originGetComputedStyle;
   });
 
@@ -235,6 +247,13 @@ describe('Typography', () => {
 
       it('can use css ellipsis', () => {
         const wrapper = mount(<Base ellipsis component="p" />);
+        expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+      });
+
+      it('should calculate padding', () => {
+        const wrapper = mount(
+          <Base ellipsis component="p" style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
+        );
         expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
       });
 

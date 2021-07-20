@@ -286,6 +286,9 @@
       }
 
       &-disabled {
+        &.@{select-prefix-cls}-item-option-selected {
+          background-color: @select-multiple-disabled-background;
+        }
         color: @disabled-color;
         cursor: not-allowed;
       }

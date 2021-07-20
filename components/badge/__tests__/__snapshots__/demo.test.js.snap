@@ -825,31 +825,312 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
 `;
 
 exports[`renders ./components/badge/demo/ribbbon.md correctly 1`] = `
-<div
-  class="ant-ribbon-wrapper"
->
+Array [
   <div
-    class="ant-card ant-card-bordered"
+    class="ant-ribbon-wrapper"
   >
     <div
-      class="ant-card-body"
+      class="ant-card ant-card-bordered ant-card-small"
     >
-      And raises the spyglass.
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Pushes open the window
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        and raises the spyglass.
+      </div>
     </div>
-  </div>
-  <div
-    class="ant-ribbon ant-ribbon-placement-end"
-  >
-    <span
-      class="ant-ribbon-text"
-    >
-      Pushes open the window
-    </span>
     <div
-      class="ant-ribbon-corner"
-    />
-  </div>
-</div>
+      class="ant-ribbon ant-ribbon-placement-end"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        Hippies
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Pushes open the window
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        and raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-pink"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        Hippies
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Pushes open the window
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        and raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-red"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        Hippies
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Pushes open the window
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        and raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-cyan"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        Hippies
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Pushes open the window
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        and raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-green"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        Hippies
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Pushes open the window
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        and raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        Hippies
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Pushes open the window
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        and raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-volcano"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        Hippies
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Pushes open the window
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        and raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-magenta"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        Hippies
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
