@@ -250,6 +250,13 @@ describe('Typography', () => {
         expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
       });
 
+      it('should calculate padding', () => {
+        const wrapper = mount(
+          <Base ellipsis component="p" style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
+        );
+        expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+      });
+
       describe('should tooltip support', () => {
         function getWrapper(tooltip) {
           return mount(
