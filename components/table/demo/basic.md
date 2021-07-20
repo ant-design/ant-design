@@ -3,7 +3,6 @@ order: 0
 title:
   en-US: Basic Usage
   zh-CN: 基本用法
-only: true
 ---
 
 ## zh-CN
@@ -15,7 +14,7 @@ only: true
 Simple table with actions.
 
 ```jsx
-import { Table, Tag, Space, Typography } from 'antd';
+import { Table, Tag, Space } from 'antd';
 
 const columns = [
   {
@@ -33,26 +32,36 @@ const columns = [
     title: 'Address',
     dataIndex: 'address',
     key: 'address',
-    render: text => {
-      return (
-        <Typography.Text ellipsis copyable>
-          {text}
-          {text}
-          {text}
-          {text}
-        </Typography.Text>
-      );
-    },
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: 'Tags',
+    key: 'tags',
+    dataIndex: 'tags',
+    render: tags => (
+      <>
+        {tags.map(tag => {
+          let color = tag.length > 5 ? 'geekblue' : 'green';
+          if (tag === 'loser') {
+            color = 'volcano';
+          }
+          return (
+            <Tag color={color} key={tag}>
+              {tag.toUpperCase()}
+            </Tag>
+          );
+        })}
+      </>
+    ),
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: 'Action',
+    key: 'action',
+    render: (text, record) => (
+      <Space size="middle">
+        <a>Invite {record.name}</a>
+        <a>Delete</a>
+      </Space>
+    ),
   },
 ];
 
@@ -64,7 +73,21 @@ const data = [
     address: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer'],
   },
+  {
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+    tags: ['loser'],
+  },
+  {
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+    tags: ['cool', 'teacher'],
+  },
 ];
 
-ReactDOM.render(<Table tableLayout="fixed" columns={columns} dataSource={data} />, mountNode);
+ReactDOM.render(<Table columns={columns} dataSource={data} />, mountNode);
 ```
