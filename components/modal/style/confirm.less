@@ -1,6 +1,7 @@
 @import '../../style/mixins/index';
 
 @confirm-prefix-cls: ~'@{ant-prefix}-modal-confirm';
+@confirm-delete-prefix-cls: ~'@{ant-prefix}-modal-confirm-delete';
 
 .@{confirm-prefix-cls} {
   .@{ant-prefix}-modal-header {
@@ -74,5 +75,23 @@
 
   &-success &-body > .@{iconfont-css-prefix} {
     color: @success-color;
+  }
+}
+
+.@{confirm-delete-prefix-cls} {
+  .@{ant-prefix}-modal-body {
+    padding-bottom: 0px;
+  }
+
+  .@{confirm-prefix-cls}-btns {
+    display: flex;
+    justify-content: flex-end;
+    float: none;
+    // model-body has 32px padding on right and bottom, so, tweak it.
+    margin: 32px -32px 0px -32px;
+    margin-top: 24px;
+    padding: 10px 16px;
+    background: #f8f8f8;
+    border-top: 1px solid #f0f0f0;
   }
 }

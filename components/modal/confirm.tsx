@@ -14,9 +14,7 @@ function getRootPrefixCls() {
   return defaultRootPrefixCls;
 }
 
-export type ModalFunc = (
-  props: ModalFuncProps,
-) => {
+export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void;
   update: (newConfig: ModalFuncProps) => void;
 };
@@ -28,6 +26,7 @@ export interface ModalStaticFunctions {
   warn: ModalFunc;
   warning: ModalFunc;
   confirm: ModalFunc;
+  delete: ModalFunc;
 }
 
 export default function confirm(config: ModalFuncProps) {
@@ -142,6 +141,31 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   return {
     type: 'confirm',
     icon: <ExclamationCircleOutlined />,
+    okCancel: true,
+    ...props,
+  };
+}
+
+export function withDelete(props: ModalFuncProps): ModalFuncProps {
+  // Ok button with as 'danger'
+  if (props.okButtonProps) {
+    props.okButtonProps.danger = true;
+  } else if (props.okButtonProps === undefined) {
+    props.okButtonProps = { danger: true };
+  }
+  // auto focus to 'cancel'
+  if (props.autoFocusButton === undefined) {
+    props.autoFocusButton = 'cancel';
+  }
+  // default title and okText
+  if (props.okText === undefined) {
+    props.okText = 'Delete';
+  }
+  if (props.title === undefined) {
+    props.title = 'Delete';
+  }
+  return {
+    type: 'delete',
     okCancel: true,
     ...props,
   };
