@@ -79,15 +79,27 @@
 }
 
 .@{confirm-delete-prefix-cls} {
-  .@{ant-prefix}-modal-body {
-    padding: 0px;
+  .@{confirm-prefix-cls}-delete-close-icon {
+    .@{ant-prefix}-modal-close {
+      top: -1px; //to align with the title (confirmDialog.tsx)
+      display: block;
+    }
   }
+
+  .@{ant-prefix}-modal-body {
+    padding: 0;
+  }
+
+  .@{ant-prefix}-modal-content {
+    border-radius: 4px;
+  }
+
   .@{confirm-prefix-cls}-title {
     padding: 16px 24px;
   }
 
   .@{confirm-prefix-cls}-content {
-    margin-top: 0px;
+    margin-top: 0;
     padding: 16px 24px;
   }
 
@@ -98,6 +110,6 @@
     padding: 10px 16px;
     background: #f8f8f8;
     border-radius: 0px 0px @border-radius-base @border-radius-base;
-    box-shadow: 0px -1px 0px #e1e1e1;
+    box-shadow: 0 -1px 0 #e1e1e1;
   }
 }
