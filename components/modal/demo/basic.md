@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Basic modals.
+Basic modal.
 
 ```jsx
 import { Modal, Button } from 'antd';
@@ -22,14 +22,6 @@ class App extends React.Component {
   showModal = () => {
     this.setState({
       visible: true,
-    });
-  };
-
-  delModal = () => {
-    Modal.delete({
-      content: <div>Do you really wanted to delete? This process cannot be undone.</div>,
-      onOk: () => console.log('deleted'),
-      onCancel: () => console.log('not deleted'),
     });
   };
 
@@ -63,14 +55,6 @@ class App extends React.Component {
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Modal>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <Button type="primary" onClick={this.delModal}>
-          Delete Modal
-        </Button>
       </>
     );
   }
