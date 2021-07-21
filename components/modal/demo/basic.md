@@ -27,7 +27,7 @@ class App extends React.Component {
 
   delModal = () => {
     Modal.delete({
-      content: <p>Do you really wanted to delete? This process cannot be undone.</p>,
+      content: <div>Do you really wanted to delete? This process cannot be undone.</div>,
     });
   };
 

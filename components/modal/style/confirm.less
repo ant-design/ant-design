@@ -80,18 +80,24 @@
 
 .@{confirm-delete-prefix-cls} {
   .@{ant-prefix}-modal-body {
-    padding-bottom: 0px;
+    padding: 0px;
+  }
+  .@{confirm-prefix-cls}-title {
+    padding: 16px 24px;
+  }
+
+  .@{confirm-prefix-cls}-content {
+    margin-top: 0px;
+    padding: 16px 24px;
   }
 
   .@{confirm-prefix-cls}-btns {
     display: flex;
     justify-content: flex-end;
     float: none;
-    // model-body has 32px padding on right and bottom, so, tweak it.
-    margin: 32px -32px 0px -32px;
-    margin-top: 24px;
     padding: 10px 16px;
     background: #f8f8f8;
-    border-top: 1px solid #f0f0f0;
+    border-radius: 0px 0px @border-radius-base @border-radius-base;
+    box-shadow: 0px -1px 0px #e1e1e1;
   }
 }
