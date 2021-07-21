@@ -12,7 +12,7 @@ title: 社区精选组件
 | 表单 | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) [react-grid-system](https://github.com/sealninja/react-grid-system) [rc-dock](https://github.com/ticlo/rc-dock) |
-| 拖拽 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
+| 拖拽 | [dnd-kit](https://github.com/clauderic/dnd-kit) [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
 | 代码编辑器 | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/superRaytin/react-monaco-editor) |
 | 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) [braft-editor](https://github.com/margox/braft-editor) |
 | JSON 显示器 | [react-json-view](https://github.com/mac-s-g/react-json-view) |
