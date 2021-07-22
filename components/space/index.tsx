@@ -123,12 +123,13 @@ const Space: React.FC<SpaceProps> = props => {
     // Patch for gap not support
     if (!supportFlexGap) {
       gapStyle.marginBottom = -verticalSize;
+      gapStyle[marginDirection] = -horizontalSize;
     }
   }
 
   if (supportFlexGap) {
     gapStyle.columnGap = horizontalSize;
-    gapStyle.rowGap = verticalSize;
+    gapStyle.rowGap = verticalSize / (split ? 2 : 1);
   }
 
   return (
