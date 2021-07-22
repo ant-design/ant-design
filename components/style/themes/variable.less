@@ -10,7 +10,14 @@
 @html-selector: html;
 
 html {
+  // ========= Primary Color
   --ant-primary-color: @blue-6;
+  // Deprecated
+  --ant-primary-color-deprecated-l-35: lighten(@blue-6, 35%);
+  --ant-primary-color-deprecated-l-20: lighten(@blue-6, 20%);
+  --ant-primary-color-deprecated-t-20: tint(@blue-6, 20%);
+  --ant-primary-color-deprecated-t-50: tint(@blue-6, 50%);
+  --ant-primary-color-deprecated-f-12: fade(@blue-6, 12%);
 }
 
 // -------- Colors -----------
@@ -644,10 +651,10 @@ html {
 @picker-bg: @component-background;
 @picker-basic-cell-hover-color: @item-hover-bg;
 @picker-basic-cell-active-with-range-color: @primary-1;
-@picker-basic-cell-hover-with-range-color: lighten(@primary-color, 35%);
+@picker-basic-cell-hover-with-range-color: ~'var(--ant-primary-color-deprecated-l-35)';
 @picker-basic-cell-disabled-bg: rgba(0, 0, 0, 0.04);
 @picker-border-color: @border-color-split;
-@picker-date-hover-range-border-color: lighten(@primary-color, 20%);
+@picker-date-hover-range-border-color: ~'var(--ant-primary-color-deprecated-l-20)';
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
 @picker-time-panel-column-width: 56px;
 @picker-time-panel-column-height: 224px;
@@ -844,14 +851,14 @@ html {
 @slider-handle-background-color: @component-background;
 @slider-handle-color: @primary-3;
 @slider-handle-color-hover: @primary-4;
-@slider-handle-color-focus: tint(@primary-color, 20%);
-@slider-handle-color-focus-shadow: fade(@primary-color, 12%);
+@slider-handle-color-focus: ~'var(--ant-primary-color-deprecated-t-20)';
+@slider-handle-color-focus-shadow: ~'var(--ant-primary-color-deprecated-f-12)';
 @slider-handle-color-tooltip-open: @primary-color;
 @slider-handle-size: 14px;
 @slider-handle-margin-top: -5px;
 @slider-handle-shadow: 0;
 @slider-dot-border-color: @border-color-split;
-@slider-dot-border-color-active: tint(@primary-color, 50%);
+@slider-dot-border-color-active: ~'var(--ant-primary-color-deprecated-t-50)';
 @slider-disabled-color: @disabled-color;
 @slider-disabled-background-color: @component-background;
 
