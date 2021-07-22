@@ -12,7 +12,17 @@
 html {
   // ========= Primary Color
   --ant-primary-color: @blue-6;
+
+  --ant-primary-1: color(~`colorPalette('@{blue-6}', 1) `);
+  --ant-primary-2: color(~`colorPalette('@{blue-6}', 2) `);
+  --ant-primary-3: color(~`colorPalette('@{blue-6}', 3) `);
+  --ant-primary-4: color(~`colorPalette('@{blue-6}', 4) `);
+  --ant-primary-5: color(~`colorPalette('@{blue-6}', 5) `);
+  --ant-primary-6: @blue-6;
+  --ant-primary-7: color(~`colorPalette('@{blue-6}', 7) `);
+
   // Deprecated
+  --ant-primary-color-deprecated-pure: ~'';
   --ant-primary-color-deprecated-l-35: lighten(@blue-6, 35%);
   --ant-primary-color-deprecated-l-20: lighten(@blue-6, 20%);
   --ant-primary-color-deprecated-t-20: tint(@blue-6, 20%);
@@ -34,18 +44,13 @@ html {
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
-@primary-2: color(~`colorPalette('@{primary-color}', 2) `); // replace tint(@primary-color, 80%)
-@primary-3: color(~`colorPalette('@{primary-color}', 3) `); // unused
-@primary-4: color(~`colorPalette('@{primary-color}', 4) `); // unused
-@primary-5: color(
-  ~`colorPalette('@{primary-color}', 5) `
-); // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
-@primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: color(~`colorPalette('@{primary-color}', 7) `); // replace shade(@primary-color, 5%)
-@primary-8: color(~`colorPalette('@{primary-color}', 8) `); // unused
-@primary-9: color(~`colorPalette('@{primary-color}', 9) `); // unused
-@primary-10: color(~`colorPalette('@{primary-color}', 10) `); // unused
+@primary-1: ~'var(--ant-primary-1)'; // replace tint(@primary-color, 90%)
+@primary-2: ~'var(--ant-primary-2)'; // replace tint(@primary-color, 80%)
+@primary-3: ~'var(--ant-primary-3)'; // unused
+@primary-4: ~'var(--ant-primary-4)'; // unused
+@primary-5: ~'var(--ant-primary-5)'; // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
+@primary-6: ~'var(--ant-primary-6)'; // color used to control the text color of active buttons, don't use, use @primary-color
+@primary-7: ~'var(--ant-primary-7)'; // replace shade(@primary-color, 5%)
 
 // Base Scaffolding Variables
 // ---
@@ -607,7 +612,7 @@ html {
 @table-selected-row-color: inherit;
 @table-selected-row-bg: @primary-1;
 @table-body-selected-sort-bg: @table-selected-row-bg;
-@table-selected-row-hover-bg: darken(@table-selected-row-bg, 2%);
+@table-selected-row-hover-bg: @primary-2; // FIXME: darken(@table-selected-row-bg, 2%);
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;

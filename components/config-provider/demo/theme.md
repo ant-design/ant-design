@@ -17,7 +17,7 @@ Modify global theme color.
 ```jsx
 import { SketchPicker } from 'react-color';
 import React, { useState } from 'react';
-import { ConfigProvider, Button, Radio, Space } from 'antd';
+import { ConfigProvider, Button, Radio, Space, Form, Input } from 'antd';
 
 const FormSizeDemo = () => {
   const [color, setColor] = useState('#1890ff');
@@ -33,15 +33,25 @@ const FormSizeDemo = () => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      <SketchPicker color={color} onChange={onColorChange} />
+      <SketchPicker
+        presetColors={['#1890ff', '#25b864', '#ff6f00']}
+        color={color}
+        onChange={onColorChange}
+      />
 
       <Radio.Group>
-        <Radio.Button value="Bamboo">Bamboo</Radio.Button>
-        <Radio.Button value="Light">Light</Radio.Button>
-        <Radio.Button value="little">Little</Radio.Button>
+        <Radio value="Bamboo">Bamboo</Radio>
+        <Radio value="Light">Light</Radio>
+        <Radio value="little">Little</Radio>
       </Radio.Group>
 
       <Button type="primary">Primary Color</Button>
+
+      <Form>
+        <Form.Item status="error">
+          <Input />
+        </Form.Item>
+      </Form>
 
       <span style={{ color: 'var(--ant-primary-color)' }}>Primary Color String</span>
     </Space>
