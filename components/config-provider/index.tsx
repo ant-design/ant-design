@@ -12,11 +12,13 @@ import {
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
+  Theme,
 } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
+import { registerTheme } from './cssVariables';
 
 export {
   RenderEmptyHandler,
@@ -91,12 +93,17 @@ let globalIconPrefixCls: string;
 const setGlobalConfig = ({
   prefixCls,
   iconPrefixCls,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'>) => {
+  theme,
+}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
   if (iconPrefixCls !== undefined) {
     globalIconPrefixCls = iconPrefixCls;
+  }
+
+  if (theme) {
+    registerTheme(theme);
   }
 };
 
