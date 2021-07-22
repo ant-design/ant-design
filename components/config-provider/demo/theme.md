@@ -57,7 +57,7 @@ const FormSizeDemo = () => {
   }
 
   return (
-    <Row gutter={16}>
+    <Row gutter={16} wrap={false}>
       <Col flex="none">
         <Space direction="vertical" align="center">
           {/* Primary Color */}
@@ -269,10 +269,26 @@ const FormSizeDemo = () => {
             <Steps.Step title="Waiting" description="You can hover on the dot." />
           </Steps>
 
-          {/* Input */}
-          <SplitSpace>
-            <Input />
-          </SplitSpace>
+          {/* Form */}
+          <Form>
+            <SplitSpace>
+              <Form.Item>
+                <Input />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="success">
+                <Input />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="warning">
+                <Input />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="error">
+                <Input />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="validating">
+                <Input />
+              </Form.Item>
+            </SplitSpace>
+          </Form>
 
           <SplitSpace>
             <Radio.Group defaultValue="bamboo">

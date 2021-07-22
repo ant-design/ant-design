@@ -22,6 +22,7 @@ export function registerTheme(theme: Theme) {
     variables[`${type}-color-disabled`] = colorPalettes[1];
     variables[`${type}-color-hover`] = colorPalettes[4];
     variables[`${type}-color-active`] = colorPalettes[7];
+    variables[`${type}-color-outline`] = baseColor.clone().setAlpha(0.2).toHexString();
   };
 
   // ================ Primary Color ================

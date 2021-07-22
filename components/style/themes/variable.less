@@ -10,42 +10,48 @@
 @html-selector: html;
 
 html {
+  @base-primary: @blue-6;
+
   // ========= Primary Color =========
-  --ant-primary-color: @blue-6;
-  --ant-primary-color-hover: color(~`colorPalette('@{blue-6}', 5) `);
-  --ant-primary-color-active: color(~`colorPalette('@{blue-6}', 7) `);
+  --ant-primary-color: @base-primary;
+  --ant-primary-color-hover: color(~`colorPalette('@{base-primary}', 5) `);
+  --ant-primary-color-active: color(~`colorPalette('@{base-primary}', 7) `);
+  --ant-primary-color-outline: fade(@base-primary, @outline-fade);
 
   // Legacy
-  --ant-primary-1: color(~`colorPalette('@{blue-6}', 1) `);
-  --ant-primary-2: color(~`colorPalette('@{blue-6}', 2) `);
-  --ant-primary-3: color(~`colorPalette('@{blue-6}', 3) `);
-  --ant-primary-4: color(~`colorPalette('@{blue-6}', 4) `);
-  --ant-primary-5: color(~`colorPalette('@{blue-6}', 5) `);
-  --ant-primary-6: @blue-6;
-  --ant-primary-7: color(~`colorPalette('@{blue-6}', 7) `);
+  --ant-primary-1: color(~`colorPalette('@{base-primary}', 1) `);
+  --ant-primary-2: color(~`colorPalette('@{base-primary}', 2) `);
+  --ant-primary-3: color(~`colorPalette('@{base-primary}', 3) `);
+  --ant-primary-4: color(~`colorPalette('@{base-primary}', 4) `);
+  --ant-primary-5: color(~`colorPalette('@{base-primary}', 5) `);
+  --ant-primary-6: @base-primary;
+  --ant-primary-7: color(~`colorPalette('@{base-primary}', 7) `);
 
   // Deprecated
   --ant-primary-color-deprecated-pure: ~'';
-  --ant-primary-color-deprecated-l-35: lighten(@blue-6, 35%);
-  --ant-primary-color-deprecated-l-20: lighten(@blue-6, 20%);
-  --ant-primary-color-deprecated-t-20: tint(@blue-6, 20%);
-  --ant-primary-color-deprecated-t-50: tint(@blue-6, 50%);
-  --ant-primary-color-deprecated-f-12: fade(@blue-6, 12%);
+  --ant-primary-color-deprecated-l-35: lighten(@base-primary, 35%);
+  --ant-primary-color-deprecated-l-20: lighten(@base-primary, 20%);
+  --ant-primary-color-deprecated-t-20: tint(@base-primary, 20%);
+  --ant-primary-color-deprecated-t-50: tint(@base-primary, 50%);
+  --ant-primary-color-deprecated-f-12: fade(@base-primary, 12%);
 
   // ========= Success Color =========
   --ant-success-color: @green-6;
   --ant-success-color-hover: color(~`colorPalette('@{green-6}', 5) `);
   --ant-success-color-active: color(~`colorPalette('@{green-6}', 7) `);
+  --ant-success-color-outline: fade(@green-6, @outline-fade);
 
   // ========== Error Color ==========
   --ant-error-color: @red-5;
   --ant-error-color-hover: color(~`colorPalette('@{red-5}', 5) `);
   --ant-error-color-active: color(~`colorPalette('@{red-5}', 7) `);
+  --ant-error-color-outline: fade(@red-5, @outline-fade);
 
   // ========= Warning Color =========
   --ant-warning-color: @gold-6;
   --ant-warning-color-hover: color(~`colorPalette('@{gold-6}', 5) `);
   --ant-warning-color-active: color(~`colorPalette('@{gold-6}', 7) `);
+  --ant-warning-color-outline: fade(@gold-6, @outline-fade);
 }
 
 // -------- Colors -----------
@@ -53,6 +59,7 @@ html {
 @primary-color: ~'var(--ant-primary-color)';
 @primary-color-hover: ~'var(--ant-primary-color-hover)';
 @primary-color-active: ~'var(--ant-primary-color-active)';
+@primary-color-outline: ~'var(--ant-primary-color-outline)';
 
 @info-color: @primary-color;
 @processing-color: @primary-color;
@@ -61,16 +68,19 @@ html {
 @success-color: ~'var(--ant-success-color)';
 @success-color-hover: ~'var(--ant-success-color-hover)';
 @success-color-active: ~'var(--ant-success-color-active)';
+@success-color-outline: ~'var(--ant-success-color-outline)';
 
 // >>> Warning
 @warning-color: ~'var(--ant-warning-color)';
 @warning-color-hover: ~'var(--ant-warning-color-hover)';
 @warning-color-active: ~'var(--ant-warning-color-active)';
+@warning-color-outline: ~'var(--ant-warning-color-outline)';
 
 // >>> Error
 @error-color: ~'var(--ant-error-color)';
 @error-color-hover: ~'var(--ant-error-color-hover)';
 @error-color-active: ~'var(--ant-error-color-active)';
+@error-color-outline: ~'var(--ant-error-color-outline)';
 
 @highlight-color: @red-5;
 @normal-color: #d9d9d9;
@@ -191,7 +201,6 @@ html {
 // Outline
 @outline-blur-size: 0;
 @outline-width: 2px;
-@outline-color: @primary-color;
 @outline-fade: 20%;
 
 @background-color-light: hsv(0, 0, 98%); // background of header and selected item
