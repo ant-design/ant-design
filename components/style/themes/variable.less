@@ -32,6 +32,11 @@ html {
   --ant-primary-color-deprecated-t-50: tint(@blue-6, 50%);
   --ant-primary-color-deprecated-f-12: fade(@blue-6, 12%);
 
+  // ========= Success Color =========
+  --ant-success-color: @green-6;
+  --ant-success-color-hover: color(~`colorPalette('@{green-6}', 5) `);
+  --ant-success-color-active: color(~`colorPalette('@{green-6}', 7) `);
+
   // ========== Error Color ==========
   --ant-error-color: @red-5;
   --ant-error-color-hover: color(~`colorPalette('@{red-5}', 5) `);
@@ -50,8 +55,12 @@ html {
 @primary-color-active: ~'var(--ant-primary-color-active)';
 
 @info-color: @primary-color;
-@success-color: @green-6;
-@processing-color: @blue-6;
+@processing-color: @primary-color;
+
+// >>> Success
+@success-color: ~'var(--ant-success-color)';
+@success-color-hover: ~'var(--ant-success-color-hover)';
+@success-color-active: ~'var(--ant-success-color-active)';
 
 // >>> Warning
 @warning-color: ~'var(--ant-warning-color)';

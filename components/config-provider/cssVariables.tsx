@@ -46,6 +46,11 @@ export function registerTheme(theme: Theme) {
     );
   }
 
+  // ================ Success Color ================
+  if (theme.successColor) {
+    fillColor(theme.successColor, 'success');
+  }
+
   // ================ Warning Color ================
   if (theme.warningColor) {
     fillColor(theme.warningColor, 'warning');

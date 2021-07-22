@@ -17,9 +17,10 @@ Modify global theme color.
 ```jsx
 import { SketchPicker } from 'react-color';
 import React, { useState } from 'react';
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import {
   ConfigProvider,
+  Steps,
   Button,
   Radio,
   Space,
@@ -31,6 +32,7 @@ import {
   Menu,
   Dropdown,
   Divider,
+  Pagination,
 } from 'antd';
 
 const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
@@ -40,6 +42,7 @@ const FormSizeDemo = () => {
     primaryColor: '#1890ff',
     errorColor: '#ff4d4f',
     warningColor: '#faad14',
+    successColor: '#52c41a',
   });
 
   function onColorChange(nextColor) {
@@ -95,11 +98,24 @@ const FormSizeDemo = () => {
           />
 
           <span style={{ color: 'var(--ant-warning-color)' }}>var(`--ant-warning-color`)</span>
+
+          {/* Success Color */}
+          <SketchPicker
+            presetColors={['#52c41a']}
+            color={color.successColor}
+            onChange={({ hex }) => {
+              onColorChange({
+                successColor: hex,
+              });
+            }}
+          />
+
+          <span style={{ color: 'var(--ant-success-color)' }}>var(`--ant-success-color`)</span>
         </Space>
       </Col>
 
-      <Col>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+      <Col flex="auto">
+        <Space direction="vertical" split={<Divider />} style={{ width: '100%' }} size={0}>
           {/* Primary Button */}
           <SplitSpace>
             <Button type="primary">Primary</Button>
@@ -169,6 +185,93 @@ const FormSizeDemo = () => {
                 Hover me <DownOutlined />
               </a>
             </Dropdown>
+          </SplitSpace>
+
+          {/* Menu - horizontal */}
+          <Row gutter={16}>
+            <Col flex="1 1 50%">
+              <Menu mode="horizontal">
+                <Menu.Item key="mail" icon={<MailOutlined />}>
+                  Mail
+                </Menu.Item>
+                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
+                  <Menu.ItemGroup title="Item 1">
+                    <Menu.Item key="setting:1">Option 1</Menu.Item>
+                    <Menu.Item key="setting:2">Option 2</Menu.Item>
+                  </Menu.ItemGroup>
+                </Menu.SubMenu>
+              </Menu>
+            </Col>
+            <Col flex="1 1 50%">
+              <Menu mode="horizontal" theme="dark">
+                <Menu.Item key="mail" icon={<MailOutlined />}>
+                  Mail
+                </Menu.Item>
+                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
+                  <Menu.ItemGroup title="Item 1">
+                    <Menu.Item key="setting:1">Option 1</Menu.Item>
+                    <Menu.Item key="setting:2">Option 2</Menu.Item>
+                  </Menu.ItemGroup>
+                </Menu.SubMenu>
+              </Menu>
+            </Col>
+          </Row>
+
+          {/* Menu - vertical */}
+          <Row gutter={16}>
+            <Col flex="1 1 50%">
+              <Menu mode="inline">
+                <Menu.Item key="mail" icon={<MailOutlined />}>
+                  Mail
+                </Menu.Item>
+                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
+                  <Menu.ItemGroup title="Item 1">
+                    <Menu.Item key="setting:1">Option 1</Menu.Item>
+                    <Menu.Item key="setting:2">Option 2</Menu.Item>
+                  </Menu.ItemGroup>
+                </Menu.SubMenu>
+              </Menu>
+            </Col>
+            <Col flex="1 1 50%">
+              <Menu mode="vertical" theme="dark">
+                <Menu.Item key="mail" icon={<MailOutlined />}>
+                  Mail
+                </Menu.Item>
+                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
+                  <Menu.ItemGroup title="Item 1">
+                    <Menu.Item key="setting:1">Option 1</Menu.Item>
+                    <Menu.Item key="setting:2">Option 2</Menu.Item>
+                  </Menu.ItemGroup>
+                </Menu.SubMenu>
+              </Menu>
+            </Col>
+          </Row>
+
+          {/* Pagination */}
+          <Pagination showQuickJumper defaultCurrent={2} total={500} />
+
+          {/* Steps */}
+          <Steps current={1} percent={60}>
+            <Steps.Step title="Finished" description="This is a description." />
+            <Steps.Step
+              title="In Progress"
+              subTitle="Left 00:00:08"
+              description="This is a description."
+            />
+            <Steps.Step title="Waiting" description="This is a description." />
+          </Steps>
+
+          {/* Steps - dot */}
+          <Steps current={2} status="error" progressDot>
+            <Steps.Step title="Finished" description="You can hover on the dot." />
+            <Steps.Step title="In Progress" description="You can hover on the dot." />
+            <Steps.Step title="Error" description="You can hover on the dot." />
+            <Steps.Step title="Waiting" description="You can hover on the dot." />
+          </Steps>
+
+          {/* Input */}
+          <SplitSpace>
+            <Input />
           </SplitSpace>
 
           <SplitSpace>
