@@ -300,11 +300,14 @@
           `
       );
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(
         ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
           `
       );
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-hover, @btn-default-bg, @error-color-hover);
     }
   }
   &:active {
@@ -314,11 +317,14 @@
           `
       );
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(
         ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
           `
       );
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-active, @btn-default-bg, @error-color-active);
     }
   }
   .button-disabled();
@@ -332,16 +338,22 @@
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-hover; transparent; transparent);
     }
   }
   &:active {
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-active; transparent; transparent);
     }
   }
   .button-disabled(@disabled-color; transparent; transparent);
@@ -387,8 +399,11 @@
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg; transparent);
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg; transparent);
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-hover; @btn-text-hover-bg; transparent);
     }
   }
 
@@ -396,8 +411,11 @@
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 5) `; fadein(@btn-text-hover-bg, 1%); transparent);
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(~`colorPalette('@{error-color}', 7) `; fadein(@btn-text-hover-bg, 1%); transparent);
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-active; fadein(@btn-text-hover-bg, 1%); transparent);
     }
   }
   .button-disabled(@disabled-color; transparent; transparent);

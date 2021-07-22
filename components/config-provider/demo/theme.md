@@ -22,7 +22,7 @@ import { ConfigProvider, Button, Radio, Space, Form, Input, Row, Col } from 'ant
 const FormSizeDemo = () => {
   const [color, setColor] = useState({
     primaryColor: '#1890ff',
-    errorColor: '#1890ff',
+    errorColor: '#ff4d4f',
   });
 
   function onColorChange(nextColor) {
@@ -55,7 +55,7 @@ const FormSizeDemo = () => {
 
           {/* Error Color */}
           <SketchPicker
-            presetColors={['#1890ff', '#25b864', '#ff6f00']}
+            presetColors={['#ff4d4f']}
             color={color.errorColor}
             onChange={({ hex }) => {
               onColorChange({
