@@ -17,44 +17,100 @@ Modify global theme color.
 ```jsx
 import { SketchPicker } from 'react-color';
 import React, { useState } from 'react';
-import { ConfigProvider, Button, Radio, Space, Form, Input } from 'antd';
+import { ConfigProvider, Button, Radio, Space, Form, Input, Row, Col } from 'antd';
 
 const FormSizeDemo = () => {
-  const [color, setColor] = useState('#1890ff');
+  const [color, setColor] = useState({
+    primaryColor: '#1890ff',
+    errorColor: '#1890ff',
+  });
 
-  function onColorChange({ hex }) {
-    setColor(hex);
+  function onColorChange(nextColor) {
+    const mergedNextColor = {
+      ...color,
+      ...nextColor,
+    };
+    setColor(mergedNextColor);
     ConfigProvider.config({
-      theme: {
-        primaryColor: hex,
-      },
+      theme: mergedNextColor,
     });
   }
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
-      <SketchPicker
-        presetColors={['#1890ff', '#25b864', '#ff6f00']}
-        color={color}
-        onChange={onColorChange}
-      />
+    <Row gutter={16}>
+      <Col flex="none">
+        <Space direction="vertical" align="center">
+          {/* Primary Color */}
+          <SketchPicker
+            presetColors={['#1890ff', '#25b864', '#ff6f00']}
+            color={color.primaryColor}
+            onChange={({ hex }) => {
+              onColorChange({
+                primaryColor: hex,
+              });
+            }}
+          />
 
-      <Radio.Group>
-        <Radio value="Bamboo">Bamboo</Radio>
-        <Radio value="Light">Light</Radio>
-        <Radio value="little">Little</Radio>
-      </Radio.Group>
+          <span style={{ color: 'var(--ant-primary-color)' }}>var(`--ant-primary-color`)</span>
 
-      <Button type="primary">Primary Color</Button>
+          {/* Error Color */}
+          <SketchPicker
+            presetColors={['#1890ff', '#25b864', '#ff6f00']}
+            color={color.errorColor}
+            onChange={({ hex }) => {
+              onColorChange({
+                errorColor: hex,
+              });
+            }}
+          />
 
-      <Form>
-        <Form.Item status="error">
-          <Input />
-        </Form.Item>
-      </Form>
+          <span style={{ color: 'var(--ant-error-color)' }}>var(`--ant-error-color`)</span>
+        </Space>
+      </Col>
 
-      <span style={{ color: 'var(--ant-primary-color)' }}>Primary Color String</span>
-    </Space>
+      <Col>
+        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+          <Space>
+            <Button type="primary">Primary</Button>
+            <Button>Default</Button>
+            <Button type="dashed">Dashed</Button>
+            <Button type="text">Text</Button>
+            <Button type="link">Link</Button>
+          </Space>
+          <Space>
+            <Button danger type="primary">
+              Primary
+            </Button>
+            <Button danger>Default</Button>
+            <Button danger type="dashed">
+              Dashed
+            </Button>
+            <Button danger type="text">
+              Text
+            </Button>
+            <Button danger type="link">
+              Link
+            </Button>
+          </Space>
+
+          <Space>
+            <Radio.Group defaultValue="bamboo">
+              <Radio value="bamboo">Bamboo</Radio>
+              <Radio value="light">Light</Radio>
+              <Radio value="little">Little</Radio>
+            </Radio.Group>
+          </Space>
+
+          <Space>
+            <Form>
+              <Form.Item status="error">
+                <Input />
+              </Form.Item>
+            </Form>
+          </Space>
+        </Space>
+      </Col>
+    </Row>
   );
 };
 ReactDOM.render(<FormSizeDemo />, mountNode);
