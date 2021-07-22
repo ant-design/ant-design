@@ -70,6 +70,7 @@ const FormSizeDemo = () => {
 
       <Col>
         <Space direction="vertical" style={{ width: '100%' }} size="middle">
+          {/* Primary Button */}
           <Space>
             <Button type="primary">Primary</Button>
             <Button>Default</Button>
@@ -77,6 +78,8 @@ const FormSizeDemo = () => {
             <Button type="text">Text</Button>
             <Button type="link">Link</Button>
           </Space>
+
+          {/* Danger Button */}
           <Space>
             <Button danger type="primary">
               Primary
@@ -90,6 +93,26 @@ const FormSizeDemo = () => {
             </Button>
             <Button danger type="link">
               Link
+            </Button>
+          </Space>
+
+          {/* Ghost Button */}
+          <Space style={{ background: 'rgb(190, 200, 200)' }}>
+            <Button type="primary" ghost>
+              Primary
+            </Button>
+            <Button ghost>Default</Button>
+            <Button type="dashed" ghost>
+              Dashed
+            </Button>
+            <Button type="primary" ghost danger>
+              Primary
+            </Button>
+            <Button ghost danger>
+              Default
+            </Button>
+            <Button type="dashed" ghost danger>
+              Dashed
             </Button>
           </Space>
 
