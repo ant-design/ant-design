@@ -15,6 +15,8 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Nulstil',
     selectAll: 'Vælg alle',
+    triggerDesc: 'Klik for at sortere faldende',
+    triggerAsc: 'Klik for at sortere stigende',
     selectInvert: 'Inverter valg',
   },
   Modal: {
