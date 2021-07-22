@@ -17,12 +17,29 @@ Modify global theme color.
 ```jsx
 import { SketchPicker } from 'react-color';
 import React, { useState } from 'react';
-import { ConfigProvider, Button, Radio, Space, Form, Input, Row, Col } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import {
+  ConfigProvider,
+  Button,
+  Radio,
+  Space,
+  Form,
+  Input,
+  Row,
+  Col,
+  Typography,
+  Menu,
+  Dropdown,
+  Divider,
+} from 'antd';
+
+const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
 
 const FormSizeDemo = () => {
   const [color, setColor] = useState({
     primaryColor: '#1890ff',
     errorColor: '#ff4d4f',
+    warningColor: '#faad14',
   });
 
   function onColorChange(nextColor) {
@@ -65,22 +82,35 @@ const FormSizeDemo = () => {
           />
 
           <span style={{ color: 'var(--ant-error-color)' }}>var(`--ant-error-color`)</span>
+
+          {/* Warning Color */}
+          <SketchPicker
+            presetColors={['#faad14']}
+            color={color.warningColor}
+            onChange={({ hex }) => {
+              onColorChange({
+                warningColor: hex,
+              });
+            }}
+          />
+
+          <span style={{ color: 'var(--ant-warning-color)' }}>var(`--ant-warning-color`)</span>
         </Space>
       </Col>
 
       <Col>
         <Space direction="vertical" style={{ width: '100%' }} size="middle">
           {/* Primary Button */}
-          <Space>
+          <SplitSpace>
             <Button type="primary">Primary</Button>
             <Button>Default</Button>
             <Button type="dashed">Dashed</Button>
             <Button type="text">Text</Button>
             <Button type="link">Link</Button>
-          </Space>
+          </SplitSpace>
 
           {/* Danger Button */}
-          <Space>
+          <SplitSpace>
             <Button danger type="primary">
               Primary
             </Button>
@@ -94,10 +124,10 @@ const FormSizeDemo = () => {
             <Button danger type="link">
               Link
             </Button>
-          </Space>
+          </SplitSpace>
 
           {/* Ghost Button */}
-          <Space style={{ background: 'rgb(190, 200, 200)' }}>
+          <SplitSpace style={{ background: 'rgb(190, 200, 200)' }}>
             <Button type="primary" ghost>
               Primary
             </Button>
@@ -114,23 +144,48 @@ const FormSizeDemo = () => {
             <Button type="dashed" ghost danger>
               Dashed
             </Button>
-          </Space>
+          </SplitSpace>
 
-          <Space>
+          {/* Typography */}
+          <SplitSpace>
+            <Typography.Text type="success">Text (success)</Typography.Text>
+            <Typography.Text type="warning">Text(warning)</Typography.Text>
+            <Typography.Text type="danger">Text(danger)</Typography.Text>
+            <Typography.Link href="https://ant.design" target="_blank">
+              Link
+            </Typography.Link>
+            <Typography.Text copyable>Text</Typography.Text>
+
+            {/* Dropdown */}
+            <Dropdown
+              overlay={
+                <Menu>
+                  <Menu.Item>1st menu item</Menu.Item>
+                  <Menu.Item danger>a danger item</Menu.Item>
+                </Menu>
+              }
+            >
+              <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                Hover me <DownOutlined />
+              </a>
+            </Dropdown>
+          </SplitSpace>
+
+          <SplitSpace>
             <Radio.Group defaultValue="bamboo">
               <Radio value="bamboo">Bamboo</Radio>
               <Radio value="light">Light</Radio>
               <Radio value="little">Little</Radio>
             </Radio.Group>
-          </Space>
+          </SplitSpace>
 
-          <Space>
+          <SplitSpace>
             <Form>
               <Form.Item status="error">
                 <Input />
               </Form.Item>
             </Form>
-          </Space>
+          </SplitSpace>
         </Space>
       </Col>
     </Row>

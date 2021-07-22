@@ -14,15 +14,23 @@ export function registerTheme(theme: Theme) {
     return clone.toHexString();
   };
 
+  const fillColor = (colorVal: string, type: string) => {
+    const baseColor = new TinyColor(colorVal);
+    const colorPalettes = generate(baseColor.toHexString());
+
+    variables[`${type}-color`] = formatColor(baseColor);
+    variables[`${type}-color-disabled`] = colorPalettes[1];
+    variables[`${type}-color-hover`] = colorPalettes[4];
+    variables[`${type}-color-active`] = colorPalettes[7];
+  };
+
   // ================ Primary Color ================
   if (theme.primaryColor) {
+    fillColor(theme.primaryColor, 'primary');
+
+    // FIXME: Remove these if no need anymore
     const primaryColor = new TinyColor(theme.primaryColor);
     const primaryColors = generate(primaryColor.toHexString());
-
-    variables['primary-color'] = formatColor(primaryColor);
-    variables['primary-color-disabled'] = primaryColors[1];
-    variables['primary-color-hover'] = primaryColors[4];
-    variables['primary-color-active'] = primaryColors[7];
 
     // Legacy - We should use semantic naming standard
     primaryColors.forEach((color, index) => {
@@ -38,15 +46,14 @@ export function registerTheme(theme: Theme) {
     );
   }
 
+  // ================ Warning Color ================
+  if (theme.warningColor) {
+    fillColor(theme.warningColor, 'warning');
+  }
+
   // ================= Error Color =================
   if (theme.errorColor) {
-    const errorColor = new TinyColor(theme.errorColor);
-    const errorColors = generate(errorColor.toHexString());
-
-    variables['error-color'] = formatColor(errorColor);
-    variables['error-color-disabled'] = errorColors[1];
-    variables['error-color-hover'] = errorColors[4];
-    variables['error-color-active'] = errorColors[7];
+    fillColor(theme.errorColor, 'error');
   }
 
   // Convert to css variables

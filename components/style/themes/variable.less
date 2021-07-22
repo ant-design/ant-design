@@ -36,6 +36,11 @@ html {
   --ant-error-color: @red-5;
   --ant-error-color-hover: color(~`colorPalette('@{red-5}', 5) `);
   --ant-error-color-active: color(~`colorPalette('@{red-5}', 7) `);
+
+  // ========= Warning Color =========
+  --ant-warning-color: @gold-6;
+  --ant-warning-color-hover: color(~`colorPalette('@{gold-6}', 5) `);
+  --ant-warning-color-active: color(~`colorPalette('@{gold-6}', 7) `);
 }
 
 // -------- Colors -----------
@@ -48,13 +53,17 @@ html {
 @success-color: @green-6;
 @processing-color: @blue-6;
 
+// >>> Warning
+@warning-color: ~'var(--ant-warning-color)';
+@warning-color-hover: ~'var(--ant-warning-color-hover)';
+@warning-color-active: ~'var(--ant-warning-color-active)';
+
 // >>> Error
 @error-color: ~'var(--ant-error-color)';
 @error-color-hover: ~'var(--ant-error-color-hover)';
 @error-color-active: ~'var(--ant-error-color-active)';
 
 @highlight-color: @red-5;
-@warning-color: @gold-6;
 @normal-color: #d9d9d9;
 @white: #fff;
 @black: #000;
@@ -140,8 +149,8 @@ html {
 
 // LINK
 @link-color: @primary-color;
-@link-hover-color: color(~`colorPalette('@{link-color}', 5) `);
-@link-active-color: color(~`colorPalette('@{link-color}', 7) `);
+@link-hover-color: @primary-color-hover;
+@link-active-color: @primary-color-active;
 @link-decoration: none;
 @link-hover-decoration: none;
 @link-focus-decoration: none;
