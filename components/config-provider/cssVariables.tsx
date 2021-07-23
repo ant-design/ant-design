@@ -11,18 +11,18 @@ export function registerTheme(theme: Theme) {
   const formatColor = (color: TinyColor, updater?: (cloneColor: TinyColor) => void) => {
     const clone = color.clone();
     updater?.(clone);
-    return clone.toHexString();
+    return clone.toRgbString();
   };
 
   const fillColor = (colorVal: string, type: string) => {
     const baseColor = new TinyColor(colorVal);
-    const colorPalettes = generate(baseColor.toHexString());
+    const colorPalettes = generate(baseColor.toRgbString());
 
     variables[`${type}-color`] = formatColor(baseColor);
     variables[`${type}-color-disabled`] = colorPalettes[1];
     variables[`${type}-color-hover`] = colorPalettes[4];
     variables[`${type}-color-active`] = colorPalettes[7];
-    variables[`${type}-color-outline`] = baseColor.clone().setAlpha(0.2).toHexString();
+    variables[`${type}-color-outline`] = baseColor.clone().setAlpha(0.2).toRgbString();
   };
 
   // ================ Primary Color ================
@@ -31,7 +31,7 @@ export function registerTheme(theme: Theme) {
 
     // FIXME: Remove these if no need anymore
     const primaryColor = new TinyColor(theme.primaryColor);
-    const primaryColors = generate(primaryColor.toHexString());
+    const primaryColors = generate(primaryColor.toRgbString());
 
     // Legacy - We should use semantic naming standard
     primaryColors.forEach((color, index) => {

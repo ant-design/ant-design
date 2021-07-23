@@ -33,9 +33,19 @@ import {
   Dropdown,
   Divider,
   Pagination,
+  Select,
 } from 'antd';
 
 const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
+
+const selectProps = {
+  options: [
+    { value: 'light', label: 'Light' },
+    { value: 'bamboo', label: 'Bamboo' },
+    { value: 'little', label: 'Little' },
+  ],
+  style: { width: 100 },
+};
 
 const FormSizeDemo = () => {
   const [color, setColor] = useState({
@@ -190,7 +200,7 @@ const FormSizeDemo = () => {
           {/* Menu - horizontal */}
           <Row gutter={16}>
             <Col flex="1 1 50%">
-              <Menu mode="horizontal">
+              <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
                 <Menu.Item key="mail" icon={<MailOutlined />}>
                   Mail
                 </Menu.Item>
@@ -203,7 +213,7 @@ const FormSizeDemo = () => {
               </Menu>
             </Col>
             <Col flex="1 1 50%">
-              <Menu mode="horizontal" theme="dark">
+              <Menu mode="horizontal" theme="dark" defaultSelectedKeys={['mail']}>
                 <Menu.Item key="mail" icon={<MailOutlined />}>
                   Mail
                 </Menu.Item>
@@ -220,7 +230,7 @@ const FormSizeDemo = () => {
           {/* Menu - vertical */}
           <Row gutter={16}>
             <Col flex="1 1 50%">
-              <Menu mode="inline">
+              <Menu mode="inline" defaultSelectedKeys={['mail']}>
                 <Menu.Item key="mail" icon={<MailOutlined />}>
                   Mail
                 </Menu.Item>
@@ -233,7 +243,7 @@ const FormSizeDemo = () => {
               </Menu>
             </Col>
             <Col flex="1 1 50%">
-              <Menu mode="vertical" theme="dark">
+              <Menu mode="vertical" theme="dark" defaultSelectedKeys={['mail']}>
                 <Menu.Item key="mail" icon={<MailOutlined />}>
                   Mail
                 </Menu.Item>
@@ -269,7 +279,7 @@ const FormSizeDemo = () => {
             <Steps.Step title="Waiting" description="You can hover on the dot." />
           </Steps>
 
-          {/* Form */}
+          {/* Form - Input */}
           <Form>
             <SplitSpace>
               <Form.Item>
@@ -286,6 +296,27 @@ const FormSizeDemo = () => {
               </Form.Item>
               <Form.Item hasFeedback validateStatus="validating">
                 <Input />
+              </Form.Item>
+            </SplitSpace>
+          </Form>
+
+          {/* Form - Select */}
+          <Form>
+            <SplitSpace>
+              <Form.Item>
+                <Select {...selectProps} />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="success">
+                <Select {...selectProps} />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="warning">
+                <Select {...selectProps} />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="error">
+                <Select {...selectProps} />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="validating">
+                <Select {...selectProps} />
               </Form.Item>
             </SplitSpace>
           </Form>
