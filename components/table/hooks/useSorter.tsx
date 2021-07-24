@@ -154,7 +154,9 @@ function injectSorter<RecordType>(
         title: (renderProps: ColumnTitleProps<RecordType>) => {
           const renderSortTitle = (
             <div className={`${prefixCls}-column-sorters`}>
-              <span>{renderColumnTitle(column.title, renderProps)}</span>
+              <span className={`${prefixCls}-column-title`}>
+                {renderColumnTitle(column.title, renderProps)}
+              </span>
               <span
                 className={classNames(`${prefixCls}-column-sorter`, {
                   [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),

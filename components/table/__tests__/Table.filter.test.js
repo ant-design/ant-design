@@ -1636,4 +1636,96 @@ describe('Table.filter', () => {
     expect(onFilterDropdownVisibleChange).toHaveBeenCalledTimes(2);
     expect(onFilterDropdownVisibleChange).toHaveBeenLastCalledWith(false);
   });
+
+  it('Column with filter and children filters properly.', () => {
+    class App extends React.Component {
+      state = {
+        filteredInfo: null,
+        sortedInfo: null,
+      };
+
+      handleChange = (pagination, filters, sorter) => {
+        this.setState({
+          filteredInfo: filters,
+          sortedInfo: sorter,
+        });
+      };
+
+      render() {
+        let { sortedInfo, filteredInfo } = this.state;
+        sortedInfo = sortedInfo || {};
+        filteredInfo = filteredInfo || {};
+        const columns = [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filters: [
+              { text: 'Joe', value: 'Joe' },
+              { text: 'Jim', value: 'Jim' },
+            ],
+            filteredValue: filteredInfo.name || null,
+            onFilter: (value, record) => record.name.includes(value),
+            children: [
+              {
+                title: 'Age',
+                dataIndex: 'age',
+                key: 'age',
+              },
+            ],
+          },
+          {
+            title: 'Age',
+            dataIndex: 'age',
+            key: 'age',
+            sorter: (a, b) => a.age - b.age,
+            sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order,
+            ellipsis: true,
+          },
+        ];
+        return (
+          <>
+            <Table
+              columns={columns}
+              dataSource={[
+                {
+                  key: '1',
+                  name: 'John Brown',
+                  age: 32,
+                  address: 'New York No. 1 Lake Park',
+                },
+                {
+                  key: '2',
+                  name: 'Jim Green',
+                  age: 42,
+                  address: 'London No. 1 Lake Park',
+                },
+                {
+                  key: '3',
+                  name: 'Joe Black',
+                  age: 66,
+                  address: 'Sidney No. 1 Lake Park',
+                },
+                {
+                  key: '4',
+                  name: 'Jim Red',
+                  age: 32,
+                  address: 'London No. 2 Lake Park',
+                },
+              ]}
+              onChange={this.handleChange}
+            />
+          </>
+        );
+      }
+    }
+
+    const wrapper = mount(<App />);
+
+    expect(wrapper.find('.ant-table-tbody .ant-table-cell').first().text()).toEqual(`${32}`);
+    wrapper.find('.ant-dropdown-trigger.ant-table-filter-trigger').simulate('click');
+    wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+    wrapper.find('.ant-btn.ant-btn-primary.ant-btn-sm').simulate('click');
+    expect(wrapper.find('.ant-table-tbody .ant-table-cell').first().text()).toEqual(`${66}`);
+  });
 });

@@ -2,8 +2,8 @@
 
 #articles {
   h4 {
-    margin: 48px 0 16px 0;
-    font-weight: normal;
+    margin: 40px 0 24px 0;
+    font-weight: 500;
     font-size: 20px;
   }
 
@@ -24,8 +24,14 @@
 
   .article-list {
     li {
-      margin: 0;
+      margin: 1em 0;
+      padding: 0;
+      font-size: 14px;
       list-style: none;
+    }
+
+    .ant-avatar > img {
+      max-width: unset;
     }
   }
 
@@ -35,40 +41,7 @@
 
     td {
       width: 50%;
-    }
-  }
-
-  .resource-avatars {
-    vertical-align: top;
-
-    ul {
-      margin-top: 24px;
-      margin-right: 60px;
-    }
-
-    ul,
-    li {
-      list-style: none;
-    }
-
-    li {
-      display: inline-block;
-      margin: 0 20px 20px 0;
-
-      img {
-        width: 60px;
-        max-width: none;
-        height: 60px;
-        object-fit: cover;
-        background: #d8d8d8;
-        border-radius: 100%;
-        cursor: pointer;
-        transition: box-shadow 0.3s;
-
-        &:hover {
-          box-shadow: @shadow-2;
-        }
-      }
+      vertical-align: top;
     }
   }
 }

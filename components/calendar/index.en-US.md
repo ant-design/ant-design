@@ -35,7 +35,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | dateCellRender | Customize the display of the date cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |  |
 | dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | function(date: moment): ReactNode | - |  |
 | defaultValue | The date selected by default | [moment](http://momentjs.com/) | - |  |
-| disabledDate | Function that specifies the dates that cannot be selected | (currentDate: moment) => boolean | - |  |
+| disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same moment object as `value` prop which you shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: moment) => boolean | - |  |
 | fullscreen | Whether to display in full-screen | boolean | true |  |
 | headerRender | Render custom header in panel | function(object:{value: moment, type: string, onChange: f(), onTypeChange: f()}) | - |  |
 | locale | The calendar's locale | object | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |

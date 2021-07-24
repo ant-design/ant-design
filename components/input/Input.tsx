@@ -61,15 +61,15 @@ export function fixControlledValue<T>(value: T) {
   return value;
 }
 
-export function resolveOnChange(
-  target: HTMLInputElement | HTMLTextAreaElement,
+export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
+  target: E,
   e:
-    | React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    | React.ChangeEvent<E>
     | React.MouseEvent<HTMLElement, MouseEvent>
     | React.CompositionEvent<HTMLElement>,
   onChange:
     | undefined
-    | ((event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void),
+    | ((event: React.ChangeEvent<E>) => void),
   targetValue?: string,
 ) {
   if (!onChange) {
@@ -85,7 +85,7 @@ export function resolveOnChange(
     event.currentTarget = target;
     // change target ref value cause e.target.value should be '' when clear input
     target.value = '';
-    onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
+    onChange(event as React.ChangeEvent<E>);
     // reset target ref value
     target.value = originalInputValue;
     return;
@@ -98,10 +98,10 @@ export function resolveOnChange(
     event.currentTarget = target;
 
     target.value = targetValue;
-    onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
+    onChange(event as React.ChangeEvent<E>);
     return;
   }
-  onChange(event as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
+  onChange(event as React.ChangeEvent<E>);
 }
 
 export function getInputClassName(
@@ -168,9 +168,9 @@ class Input extends React.Component<InputProps, InputState> {
     type: 'text',
   };
 
-  input: HTMLInputElement;
+  input!: HTMLInputElement;
 
-  clearableInput: ClearableLabeledInput;
+  clearableInput!: ClearableLabeledInput;
 
   removePasswordTimeout: any;
 

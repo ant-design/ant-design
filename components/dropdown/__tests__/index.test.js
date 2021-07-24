@@ -41,9 +41,9 @@ describe('Dropdown', () => {
     const props = {
       overlay: (
         <Menu expandIcon={<span id="customExpandIcon" />}>
-          <Menu.Item>foo</Menu.Item>
+          <Menu.Item key="1">foo</Menu.Item>
           <Menu.SubMenu title="SubMenu">
-            <Menu.Item>foo</Menu.Item>
+            <Menu.Item key="1">foo</Menu.Item>
           </Menu.SubMenu>
         </Menu>
       ),

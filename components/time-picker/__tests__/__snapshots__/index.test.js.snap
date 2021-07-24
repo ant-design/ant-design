@@ -89,6 +89,7 @@ Array [
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
@@ -1567,6 +1568,7 @@ exports[`TimePicker should support bordered 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"

@@ -40,7 +40,7 @@ Empty state placeholder.
 <style>
   .site-empty-buildIn-img {
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
   .site-empty-buildIn-simple {
     width: 55px;

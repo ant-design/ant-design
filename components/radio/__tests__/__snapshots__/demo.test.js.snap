@@ -35,11 +35,11 @@ exports[`renders ./components/radio/demo/badge.md correctly 1`] = `
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           1
-        </p>
+        </span>
       </span>
     </sup>
   </span>
@@ -74,11 +74,11 @@ exports[`renders ./components/radio/demo/badge.md correctly 1`] = `
         class="ant-scroll-number-only"
         style="transition:none"
       >
-        <p
+        <span
           class="ant-scroll-number-only-unit current"
         >
           2
-        </p>
+        </span>
       </span>
     </sup>
   </span>

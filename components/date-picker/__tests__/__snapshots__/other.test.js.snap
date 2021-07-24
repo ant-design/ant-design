@@ -826,6 +826,7 @@ exports[`Picker format by locale date 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"
@@ -891,6 +892,7 @@ exports[`Picker format by locale dateTime 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"
@@ -956,6 +958,7 @@ exports[`Picker format by locale month 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"
@@ -1021,6 +1024,7 @@ exports[`Picker format by locale week 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"

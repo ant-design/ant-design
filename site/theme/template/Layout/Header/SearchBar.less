@@ -1,6 +1,7 @@
 @import '../../../static/theme.less';
 @import '../../../../../components/style/themes/default.less';
 @import './index.less';
+@import './DocSearch.less';
 
 @search-icon-color: #ced4d9;
 
@@ -16,6 +17,23 @@
   white-space: nowrap;
   border-left: 1px solid @site-border-color-split;
   transition: width 0.5s;
+
+  .keybindings {
+    cursor: pointer;
+  }
+
+  .keybinding {
+    color: @search-icon-color;
+    kbd {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      // better keybinding font display using `Arial`
+      font-family: Arial; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+      text-align: center;
+    }
+  }
 
   .ant-row-rtl & {
     margin: 0 0 0 auto !important;
@@ -37,6 +55,12 @@
     color: @search-icon-color;
     transform: translateY(-50%);
     pointer-events: none;
+  }
+
+  .ant-input-affix-wrapper {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
   }
 
   input {
@@ -135,4 +159,29 @@
   #search-box {
     display: none;
   }
+}
+
+.DocSearch {
+  font-family: @font-family;
+}
+
+#antd_algolia_search_modal {
+  // avoid the veritcal scrollbar(looks like a white block)
+  .DocSearch-Hit-title {
+    overflow-y: hidden;
+
+    mark {
+      padding: 0;
+    }
+  }
+
+  // reset original `box-shadow` style
+  .DocSearch-Footer {
+    box-shadow: none;
+  }
+}
+
+// customization DocSearch Modal component in light mode
+body[data-theme='default'] #antd_algolia_search_modal {
+  .customDocSearch();
 }
