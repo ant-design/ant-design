@@ -1,4 +1,4 @@
-import CalendarLocale from 'rc-picker/lib/locale/en_US'; // TODO: replace with ml_IN once it is implemented in rc-picker
+import CalendarLocale from 'rc-picker/lib/locale/ml_IN';
 import TimePickerLocale from '../../time-picker/locale/ml_IN';
 import { PickerLocale } from '../generatePicker';
 

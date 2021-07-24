@@ -1,5 +1,5 @@
 /* eslint-disable no-template-curly-in-string */
-import Pagination from 'rc-pagination/lib/locale/en_US'; // TODO: replace with ml_IN once it is available in rc-pagination
+import Pagination from 'rc-pagination/lib/locale/ml_IN';
 import DatePicker from '../date-picker/locale/ml_IN';
 import TimePicker from '../time-picker/locale/ml_IN';
 import Calendar from '../calendar/locale/ml_IN';
