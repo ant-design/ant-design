@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-
 import Button from '../button';
 import { ButtonHTMLType } from '../button/button';
 import { ButtonGroupProps } from '../button/button-group';
@@ -56,6 +55,8 @@ const DropdownButton: DropdownButtonInterface = props => {
     buttonsRender,
     mouseEnterDelay,
     mouseLeaveDelay,
+    overlayClassName,
+    overlayStyle,
     ...restProps
   } = props;
 
@@ -69,6 +70,8 @@ const DropdownButton: DropdownButtonInterface = props => {
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     mouseEnterDelay,
     mouseLeaveDelay,
+    overlayClassName,
+    overlayStyle,
   } as DropDownProps;
 
   if ('visible' in props) {

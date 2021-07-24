@@ -4,15 +4,17 @@
 @import './affix';
 @import './allow-clear';
 
+@input-prefix-cls: ~'@{ant-prefix}-input';
+
 // Input styles
-.@{ant-prefix}-input {
+.@{input-prefix-cls} {
   .reset-component();
   .input();
 
   //== Style for input-group: input with label, with button or dropdown...
   &-group {
     .reset-component();
-    .input-group(~'@{ant-prefix}-input');
+    .input-group(~'@{input-prefix-cls}');
     &-wrapper {
       display: inline-block;
       width: 100%;
@@ -34,10 +36,10 @@
   &[type='color'] {
     height: @input-height-base;
 
-    &.@{ant-prefix}-input-lg {
+    &.@{input-prefix-cls}-lg {
       height: @input-height-lg;
     }
-    &.@{ant-prefix}-input-sm {
+    &.@{input-prefix-cls}-sm {
       height: @input-height-sm;
       padding-top: 3px;
       padding-bottom: 3px;

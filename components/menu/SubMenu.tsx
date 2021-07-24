@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { SubMenu as RcSubMenu } from 'rc-menu';
-import { useFullPath } from 'rc-menu/lib/context/PathContext';
+import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import MenuContext from './MenuContext';
@@ -40,7 +39,7 @@ function SubMenu(props: SubMenuProps) {
       inlineCollapsed && !parentPath.length && title && typeof title === 'string' ? (
         <div className={`${prefixCls}-inline-collapsed-noicon`}>{title.charAt(0)}</div>
       ) : (
-        title
+        <span className={`${prefixCls}-title-content`}>{title}</span>
       );
   } else {
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span

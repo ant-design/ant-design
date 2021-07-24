@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -89,6 +90,8 @@ class InternalMenu extends React.Component<InternalMenuProps> {
       >
         <RcMenu
           getPopupContainer={getPopupContainer}
+          overflowedIndicator={<EllipsisOutlined />}
+          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
           {...passedProps}
           inlineCollapsed={inlineCollapsed}
           className={menuClassName}

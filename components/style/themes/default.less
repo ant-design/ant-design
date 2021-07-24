@@ -149,6 +149,7 @@
 // Disabled states
 @disabled-color: fade(#000, 25%);
 @disabled-bg: @background-color-base;
+@disabled-active-bg: tint(@black, 90%);
 @disabled-color-dark: fade(#fff, 35%);
 
 // Shadow
@@ -270,7 +271,7 @@
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
-@radio-disabled-button-checked-bg: tint(@black, 90%);
+@radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
 
@@ -557,7 +558,8 @@
 @menu-item-vertical-margin: 4px;
 @menu-item-font-size: @font-size-base;
 @menu-item-boundary-margin: 8px;
-@menu-item-padding: 0 20px;
+@menu-item-padding-horizontal: 20px;
+@menu-item-padding: 0 @menu-item-padding-horizontal;
 @menu-horizontal-line-height: 46px;
 @menu-icon-margin-right: 10px;
 @menu-icon-size: @menu-item-font-size;
@@ -613,6 +615,8 @@
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
 @table-header-sort-active-bg: rgba(0, 0, 0, 0.04);
+@table-fixed-header-sort-active-bg: hsv(0, 0, 96%);
+
 // Filter
 @table-header-filter-active-bg: rgba(0, 0, 0, 0.04);
 @table-filter-btns-bg: inherit;
@@ -636,7 +640,7 @@
 @picker-basic-cell-hover-color: @item-hover-bg;
 @picker-basic-cell-active-with-range-color: @primary-1;
 @picker-basic-cell-hover-with-range-color: lighten(@primary-color, 35%);
-@picker-basic-cell-disabled-bg: @disabled-bg;
+@picker-basic-cell-disabled-bg: rgba(0, 0, 0, 0.04);
 @picker-border-color: @border-color-split;
 @picker-date-hover-range-border-color: lighten(@primary-color, 20%);
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
@@ -796,8 +800,8 @@
 @pagination-font-weight-active: 500;
 @pagination-item-bg-active: @component-background;
 @pagination-item-link-bg: @component-background;
-@pagination-item-disabled-color-active: @white;
-@pagination-item-disabled-bg-active: darken(@disabled-bg, 10%);
+@pagination-item-disabled-color-active: @disabled-color;
+@pagination-item-disabled-bg-active: @disabled-active-bg;
 @pagination-item-input-bg: @component-background;
 @pagination-mini-options-size-changer-top: 0px;
 

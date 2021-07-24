@@ -1,0 +1,12 @@
+.@{menu-prefix-cls} {
+  // light theme
+  &-light {
+    .@{menu-prefix-cls}-item:hover,
+    .@{menu-prefix-cls}-item-active,
+    .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-inline) .@{menu-prefix-cls}-submenu-open,
+    .@{menu-prefix-cls}-submenu-active,
+    .@{menu-prefix-cls}-submenu-title:hover {
+      color: @menu-highlight-color;
+    }
+  }
+}

@@ -15,7 +15,7 @@ title:
 
 Crowded components vertical spacing.
 
-Can set `width: 100%` fill a row.
+Can set `width: 100%` to fill a row.
 
 ```jsx
 import { Space, Card } from 'antd';

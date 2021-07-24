@@ -19,7 +19,7 @@ title: 替换 Moment.js
 
 ```tsx
 import { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import dayjsGenerateConfig from 'rc-picker/es/generate/dayjs';
 import generatePicker from 'antd/es/date-picker/generatePicker';
 import 'antd/es/date-picker/style/index';
 
@@ -60,7 +60,7 @@ export default TimePicker;
 
 ```tsx
 import { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import dayjsGenerateConfig from 'rc-picker/es/generate/dayjs';
 import generateCalendar from 'antd/es/calendar/generateCalendar';
 import 'antd/es/calendar/style';
 
@@ -126,7 +126,7 @@ module.exports = {
 编写如下代码:
 
 ```tsx
-import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
+import dateFnsGenerateConfig from 'rc-picker/es/generate/dateFns';
 import generatePicker from 'antd/es/date-picker/generatePicker';
 import 'antd/es/date-picker/style/index';
 

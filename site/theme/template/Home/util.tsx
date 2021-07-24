@@ -15,26 +15,21 @@ export function preLoad(list: string[]) {
   }
 }
 
-const siteData: Record<string, any> = {};
-export function useSiteData<T>(endpoint: string, language?: 'cn' | 'en'): T {
-  const getData = () => {
-    const endpointData = siteData[endpoint];
-    if (!endpointData) return null;
-    return language ? endpointData[language] : endpointData;
-  };
-
-  const [data, setData] = React.useState<any>(getData());
+export function useSiteData<T>(): [T, boolean] {
+  const [data, setData] = React.useState<T>({} as any);
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if (!data && typeof fetch !== 'undefined') {
-      fetch(`https://my-json-server.typicode.com/ant-design/website-data/${endpoint}`)
+    if (Object.keys(data).length === 0 && typeof fetch !== 'undefined') {
+      setLoading(true);
+      fetch(`https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`)
         .then(res => res.json())
-        .then((res: any) => {
-          siteData[endpoint] = res;
-          setData(getData());
+        .then(result => {
+          setData(result);
+          setLoading(false);
         });
     }
-  }, [endpoint]);
+  }, []);
 
-  return data;
+  return [data, loading];
 }

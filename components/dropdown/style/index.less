@@ -32,7 +32,7 @@
     }
 
     .@{iconfont-css-prefix}-down::before {
-      transition: transform 0.2s;
+      transition: transform @animation-duration-base;
     }
   }
 
@@ -133,7 +133,7 @@
     &-item-group-title {
       padding: 5px @control-padding-horizontal;
       color: @text-color-secondary;
-      transition: all 0.3s;
+      transition: all @animation-duration-slow;
     }
 
     &-submenu-popup {
@@ -154,6 +154,42 @@
       }
     }
 
+    // ======================= Item Content =======================
+    &-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    &-item-icon {
+      min-width: 12px;
+      margin-right: 8px;
+      font-size: @font-size-sm;
+    }
+
+    &-title-content {
+      flex: auto;
+
+      > a {
+        color: inherit;
+        transition: all @animation-duration-slow;
+
+        &:hover {
+          color: inherit;
+        }
+
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          content: '';
+        }
+      }
+    }
+
+    // =========================== Item ===========================
     &-item,
     &-submenu-title {
       clear: both;
@@ -165,35 +201,7 @@
       line-height: @dropdown-line-height;
       white-space: nowrap;
       cursor: pointer;
-      transition: all 0.3s;
-
-      > .@{iconfont-css-prefix}:first-child,
-      > a > .@{iconfont-css-prefix}:first-child,
-      > span > .@{iconfont-css-prefix}:first-child {
-        min-width: 12px;
-        margin-right: 8px;
-        font-size: @font-size-sm;
-        vertical-align: -0.1em;
-      }
-
-      > a {
-        display: block;
-        margin: -5px -@control-padding-horizontal;
-        padding: 5px @control-padding-horizontal;
-        color: @text-color;
-        transition: all 0.3s;
-        &:hover {
-          color: @text-color;
-        }
-      }
-
-      > .@{iconfont-css-prefix} + span > a {
-        color: @text-color;
-        transition: all 0.3s;
-        &:hover {
-          color: @text-color;
-        }
-      }
+      transition: all @animation-duration-slow;
 
       &:first-child {
         & when (@dropdown-edge-child-vertical-padding = 0) {
@@ -207,8 +215,7 @@
         }
       }
 
-      &-selected,
-      &-selected > a {
+      &-selected {
         color: @dropdown-selected-color;
         background-color: @item-active-bg;
       }
@@ -227,21 +234,8 @@
           cursor: not-allowed;
         }
 
-        > .@{iconfont-css-prefix} + span > a,
-        > a {
-          position: relative;
-          color: @disabled-color;
+        a {
           pointer-events: none;
-
-          &::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            cursor: not-allowed;
-            content: '';
-          }
         }
       }
 
@@ -304,33 +298,33 @@
     }
   }
 
-  &.slide-down-enter.slide-down-enter-active&-placement-bottomLeft,
-  &.slide-down-appear.slide-down-appear-active&-placement-bottomLeft,
-  &.slide-down-enter.slide-down-enter-active&-placement-bottomCenter,
-  &.slide-down-appear.slide-down-appear-active&-placement-bottomCenter,
-  &.slide-down-enter.slide-down-enter-active&-placement-bottomRight,
-  &.slide-down-appear.slide-down-appear-active&-placement-bottomRight {
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-bottomLeft,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-bottomLeft,
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-bottomCenter,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-bottomCenter,
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-bottomRight,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-bottomRight {
     animation-name: antSlideUpIn;
   }
 
-  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
-  &.slide-up-appear.slide-up-appear-active&-placement-topLeft,
-  &.slide-up-enter.slide-up-enter-active&-placement-topCenter,
-  &.slide-up-appear.slide-up-appear-active&-placement-topCenter,
-  &.slide-up-enter.slide-up-enter-active&-placement-topRight,
-  &.slide-up-appear.slide-up-appear-active&-placement-topRight {
+  &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topLeft,
+  &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topLeft,
+  &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topCenter,
+  &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topCenter,
+  &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topRight,
+  &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topRight {
     animation-name: antSlideDownIn;
   }
 
-  &.slide-down-leave.slide-down-leave-active&-placement-bottomLeft,
-  &.slide-down-leave.slide-down-leave-active&-placement-bottomCenter,
-  &.slide-down-leave.slide-down-leave-active&-placement-bottomRight {
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottomLeft,
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottomCenter,
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottomRight {
     animation-name: antSlideUpOut;
   }
 
-  &.slide-up-leave.slide-up-leave-active&-placement-topLeft,
-  &.slide-up-leave.slide-up-leave-active&-placement-topCenter,
-  &.slide-up-leave.slide-up-leave-active&-placement-topRight {
+  &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topLeft,
+  &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topCenter,
+  &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topRight {
     animation-name: antSlideDownOut;
   }
 }

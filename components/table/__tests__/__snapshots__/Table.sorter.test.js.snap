@@ -11,7 +11,9 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
       <div
         class="ant-table-column-sorters"
       >
-        <span>
+        <span
+          class="ant-table-column-title"
+        >
           Name
         </span>
         <span
@@ -99,7 +101,9 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      <span>
+                      <span
+                        class="ant-table-column-title"
+                      >
                         Age
                       </span>
                       <span

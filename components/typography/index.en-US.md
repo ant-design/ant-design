@@ -108,8 +108,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Called when input at textarea | function(event) | - |  |
 | onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
 | onStart | Called when enter editable state | function | - |  |
-| onCancel | Called when type ESC to exit editable state | function | - |  |
-| onEnd | Called when type ENTER to exit editable state | function | - |  |
+
 
 ### ellipsis
 

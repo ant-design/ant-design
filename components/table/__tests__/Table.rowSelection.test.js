@@ -865,6 +865,74 @@ describe('Table.rowSelection', () => {
     expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
   });
 
+  it('should make select all checked when each item is checked and disabled', () => {
+    const wrapper = mount(
+      createTable({
+        rowSelection: {
+          selectedRowKeys: [0, 1, 2, 3],
+          getCheckboxProps: () => ({
+            disabled: true,
+          }),
+        },
+      }),
+    );
+
+    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeTruthy();
+    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeTruthy();
+  });
+
+  it('should make select all indeterminated when each item is disabled and some item is checked', () => {
+    const wrapper = mount(
+      createTable({
+        rowSelection: {
+          selectedRowKeys: [0],
+          getCheckboxProps: () => ({
+            disabled: true,
+          }),
+        },
+      }),
+    );
+
+    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeTruthy();
+    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
+    expect(
+      wrapper.find('thead .ant-checkbox-indeterminate.ant-checkbox-disabled').exists(),
+    ).toBeTruthy();
+  });
+
+  it('should make select all checked when each item is checked and some item is disabled', () => {
+    const wrapper = mount(
+      createTable({
+        rowSelection: {
+          selectedRowKeys: [0, 1, 2, 3],
+          getCheckboxProps: record => ({
+            disabled: record.key === 0,
+          }),
+        },
+      }),
+    );
+
+    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeFalsy();
+    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeTruthy();
+  });
+
+  it('should not make select all checked when some item is checked and disabled', () => {
+    const wrapper = mount(
+      createTable({
+        rowSelection: {
+          selectedRowKeys: [1],
+          getCheckboxProps: record => ({
+            disabled: record.key === 0,
+          }),
+        },
+      }),
+    );
+
+    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeFalsy();
+    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
+    expect(wrapper.find('thead .ant-checkbox-indeterminate').exists()).toBeTruthy();
+  });
+
   it('should onRowClick not called when checkbox clicked', () => {
     const onRowClick = jest.fn();
 
@@ -1313,6 +1381,39 @@ describe('Table.rowSelection', () => {
         .first()
         .simulate('change', { target: { checked: true } });
       expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+    });
+
+    it('selectedRows ant selectedKeys should keep sync in initial state', () => {
+      const dataSource = [{ name: 'Jack' }, { name: 'Tom' }, { name: 'Lucy' }, { name: 'John' }];
+      const onChange = jest.fn();
+      const rowSelection = {
+        preserveSelectedRowKeys: true,
+        onChange,
+        selectedRowKeys: ['Jack'],
+      };
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource.slice(0, 2)}
+          rowSelection={rowSelection}
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              key: 'name',
+            },
+          ]}
+        />,
+      );
+
+      wrapper.setProps({
+        dataSource: dataSource.slice(2, 4),
+      });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack', 'Lucy'], [{ name: 'Jack' }, { name: 'Lucy' }]);
     });
   });
 });

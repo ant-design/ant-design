@@ -433,7 +433,7 @@ describe('Upload', () => {
 
     wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
 
-    setImmediate(() => {
+    setTimeout(() => {
       wrapper.update();
 
       expect(mockRemove).toHaveBeenCalled();
@@ -499,7 +499,7 @@ describe('Upload', () => {
 
     wrapper.find('div.ant-upload-list-item .anticon-download').simulate('click');
 
-    setImmediate(() => {
+    setTimeout(() => {
       wrapper.update();
 
       expect(props.fileList).toHaveLength(1);

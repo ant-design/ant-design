@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn"
     type="button"
@@ -9,7 +9,7 @@ exports[`renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`
     <span>
       Align edge / 边缘对齐
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn"
     type="button"
@@ -17,8 +17,8 @@ exports[`renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`
     <span>
       Arrow points to center / 箭头指向中心
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md correctly 1`] = `

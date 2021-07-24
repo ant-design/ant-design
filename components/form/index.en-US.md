@@ -240,8 +240,8 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | getFieldValue | Get the value by the field name | (name: [NamePath](#NamePath)) => any |  |
 | isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |  |
-| isFieldValidating | Check fields if is in validating | (name: [NamePath](#NamePath)) => boolean |  |
-| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
+| isFieldValidating | Check field if is in validating | (name: [NamePath](#NamePath)) => boolean |  |
+| resetFields | Reset fields to `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
 | scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | Set fields status | (fields: [FieldData](#FieldData)\[]) => void |  |
 | setFieldsValue | Set fields value | (values) => void |  |
@@ -317,7 +317,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string |
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |
 | validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |
-| whitespace | Failed if only has whitespace | boolean |
+| whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |
 
 ## Migrate to v4
 

@@ -16,3 +16,4 @@ jobs:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         pattern: "./dist/**/*.min.{js,css}"
         build-script: "dist:esbuild"
+        clean-script: "clean-lockfiles"

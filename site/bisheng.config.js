@@ -1,7 +1,6 @@
 const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');
@@ -59,10 +58,6 @@ module.exports = {
     javascriptEnabled: true,
   },
   webpackConfig(config) {
-    config.cache = {
-      type: 'filesystem',
-    };
-
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
@@ -90,8 +85,8 @@ module.exports = {
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
           target: 'es2015',
+          css: true,
         }),
-        new CssMinimizerPlugin(),
       ];
     }
 
