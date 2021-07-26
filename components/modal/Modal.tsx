@@ -72,7 +72,7 @@ export interface ModalProps {
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
-  getContainer?: string | HTMLElement | getContainerFunc | false | null;
+  getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   bodyStyle?: React.CSSProperties;
   maskStyle?: React.CSSProperties;
@@ -114,7 +114,7 @@ export interface ModalFuncProps {
   maskStyle?: React.CSSProperties;
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc | false | null;
+  getContainer?: string | HTMLElement | getContainerFunc | false;
   autoFocusButton?: null | 'ok' | 'cancel';
   transitionName?: string;
   maskTransitionName?: string;
@@ -136,9 +136,11 @@ interface ModalInterface extends React.FC<ModalProps> {
 }
 
 const Modal: ModalInterface = props => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
@@ -203,7 +205,9 @@ const Modal: ModalInterface = props => {
   return (
     <Dialog
       {...restProps}
-      getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
+      getContainer={
+        getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
+      }
       prefixCls={prefixCls}
       wrapClassName={wrapClassNameExtended}
       footer={footer === undefined ? defaultFooter : footer}
