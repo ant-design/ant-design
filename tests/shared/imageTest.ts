@@ -17,7 +17,7 @@ expect.extend({ toMatchImageSnapshot });
 
 // eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement) {
-  describe('test', () => {
+  describe('', () => {
     let browser: Browser;
     let page: Page;
 
