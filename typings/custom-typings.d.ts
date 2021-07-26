@@ -20,6 +20,12 @@ declare module 'rc-pagination/*';
 
 declare module 'rc-util*';
 
+declare module 'rc-checkbox';
+
+declare module 'rc-rate';
+
+declare module 'rc-switch';
+
 declare module '*.json' {
   const value: any;
   export const version: string;
