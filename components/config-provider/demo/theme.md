@@ -54,6 +54,8 @@ import {
   Timeline,
   Tree,
   Alert,
+  Progress,
+  Spin,
 } from 'antd';
 
 const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
@@ -268,11 +270,14 @@ const FormSizeDemo = () => {
                 Hover me <DownOutlined />
               </a>
             </Dropdown>
+
+            {/* Spin */}
+            <Spin />
           </SplitSpace>
 
           {/* Menu - horizontal */}
           <Row gutter={16}>
-            <Col flex="1 1 50%">
+            <Col span={12}>
               <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
                 <Menu.Item key="mail" icon={<MailOutlined />}>
                   Mail
@@ -285,7 +290,7 @@ const FormSizeDemo = () => {
                 </Menu.SubMenu>
               </Menu>
             </Col>
-            <Col flex="1 1 50%">
+            <Col span={12}>
               <Menu mode="horizontal" theme="dark" defaultSelectedKeys={['mail']}>
                 <Menu.Item key="mail" icon={<MailOutlined />}>
                   Mail
@@ -302,7 +307,7 @@ const FormSizeDemo = () => {
 
           {/* Menu - vertical */}
           <Row gutter={16}>
-            <Col flex="1 1 50%">
+            <Col span={12}>
               <Menu mode="inline" defaultSelectedKeys={['mail']}>
                 <Menu.Item key="mail" icon={<MailOutlined />}>
                   Mail
@@ -315,7 +320,7 @@ const FormSizeDemo = () => {
                 </Menu.SubMenu>
               </Menu>
             </Col>
-            <Col flex="1 1 50%">
+            <Col span={12}>
               <Menu mode="vertical" theme="dark" defaultSelectedKeys={['mail']}>
                 <Menu.Item key="mail" icon={<MailOutlined />}>
                   Mail
@@ -483,7 +488,7 @@ const FormSizeDemo = () => {
           </SplitSpace>
 
           <Row gutter={16}>
-            <Col flex="1 1 33%">
+            <Col span={8}>
               {/* Card */}
               <Card
                 style={{ width: '100%' }}
@@ -491,7 +496,7 @@ const FormSizeDemo = () => {
                 tabBarExtraContent={<a href="#">More</a>}
               />
             </Col>
-            <Col flex="1 1 33%">
+            <Col span={8}>
               {/* Table */}
               <Table
                 size="small"
@@ -523,7 +528,7 @@ const FormSizeDemo = () => {
                 ]}
               />
             </Col>
-            <Col flex="1 1 33%">
+            <Col span={8}>
               {/* Table */}
               <Tabs defaultActiveKey="1">
                 <Tabs.TabPane tab="Tab 1" key="1">
@@ -581,6 +586,20 @@ const FormSizeDemo = () => {
             </Col>
             <Col span={6}>
               <Alert showIcon message="Error Text" type="error" />
+            </Col>
+          </Row>
+
+          {/* Progress */}
+          <Row gutter={16}>
+            <Col flex="auto">
+              <Progress percent={30} />
+              <Progress percent={70} status="exception" />
+              <Progress percent={100} />
+            </Col>
+            <Col flex="none">
+              <Progress type="circle" percent={75} />
+              <Progress type="circle" percent={70} status="exception" />
+              <Progress type="circle" percent={100} />
             </Col>
           </Row>
         </Space>

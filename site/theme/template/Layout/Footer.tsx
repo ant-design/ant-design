@@ -1,9 +1,8 @@
 import React from 'react';
 import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl';
-import { Modal, message } from 'antd';
+import { Modal } from 'antd';
 import { Link } from 'bisheng/router';
 import RcFooter from 'rc-footer';
-import { presetPalettes } from '@ant-design/colors';
 import {
   AntDesignOutlined,
   MediumOutlined,
@@ -16,16 +15,12 @@ import {
   BugOutlined,
   IssuesCloseOutlined,
   QuestionCircleOutlined,
+  BgColorsOutlined,
 } from '@ant-design/icons';
-import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
-import ColorPicker from '../Color/ColorPicker';
+import { isLocalStorageNameSupported, getLocalizedPathname } from '../utils';
 
 class Footer extends React.Component<WrappedComponentProps & { location: any }> {
   lessLoaded = false;
-
-  state = {
-    color: presetPalettes.blue.primary,
-  };
 
   componentDidMount() {
     // for some iOS
@@ -323,7 +318,13 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
           openExternal: true,
         },
         {
-          title: this.renderThemeChanger(),
+          icon: <BgColorsOutlined />,
+          title: <FormattedMessage id="app.footer.theme" />,
+          url: getLinkHash('/components/config-provider/', {
+            zhCN: 'components-config-provider-demo-theme',
+            enUS: 'components-config-provider-demo-theme',
+          }),
+          LinkComponent: Link,
           style: {
             marginTop: 20,
           },
@@ -333,44 +334,6 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
 
     return [col1, col2, col3, col4];
   }
-
-  handleColorChange = (color: string) => {
-    const {
-      intl: { messages },
-    } = this.props;
-    message.loading({
-      content: messages['app.footer.primary-color-changing'],
-      key: 'change-primary-color',
-    });
-    const changeColor = () => {
-      (window as any).less
-        .modifyVars({
-          '@primary-color': color,
-        })
-        .then(() => {
-          message.success({
-            content: messages['app.footer.primary-color-changed'],
-            key: 'change-primary-color',
-          });
-          this.setState({ color });
-        });
-    };
-
-    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less/3.10.3/dist/less.min.js';
-
-    if (this.lessLoaded) {
-      changeColor();
-    } else {
-      (window as any).less = {
-        async: true,
-        javascriptEnabled: true,
-      };
-      loadScript(lessUrl).then(() => {
-        this.lessLoaded = true;
-        changeColor();
-      });
-    }
-  };
 
   infoNewVersion() {
     const {
@@ -403,24 +366,6 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
       className: 'new-version-info-modal',
       width: 470,
     });
-  }
-
-  renderThemeChanger() {
-    const { color } = this.state;
-    const colors = Object.keys(presetPalettes).filter(item => item !== 'grey');
-    return (
-      <ColorPicker
-        small
-        color={color}
-        position="top"
-        presetColors={[
-          ...colors.map(c => presetPalettes[c][5]),
-          ...colors.map(c => presetPalettes[c][4]),
-          ...colors.map(c => presetPalettes[c][6]),
-        ]}
-        onChangeComplete={this.handleColorChange}
-      />
-    );
   }
 
   render() {
