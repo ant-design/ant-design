@@ -19,6 +19,5 @@ module.exports = {
       tsConfigFile: './tsconfig.test.json',
     },
   },
-  preset: 'jest-puppeteer',
   testTimeout: 10000,
 };

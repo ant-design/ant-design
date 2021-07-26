@@ -6,6 +6,7 @@ import ReactDOMServer from 'react-dom/server';
 import glob from 'glob';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { chromium, Browser, Page } from 'playwright';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -16,32 +17,47 @@ expect.extend({ toMatchImageSnapshot });
 
 // eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement) {
-  it('component image screenshot should correct', async () => {
-    await jestPuppeteer.resetPage();
-    await page.setRequestInterception(true);
-    const onRequestHandle = (request: any) => {
-      if (['image'].indexOf(request.resourceType()) !== -1) {
-        request.abort();
-      } else {
-        request.continue();
-      }
-    };
+  describe('test', () => {
+    let browser: Browser;
+    let page: Page;
 
-    MockDate.set(moment('2016-11-22').valueOf());
-    page.on('request', onRequestHandle);
-    await page.goto(`file://${process.cwd()}/tests/index.html`);
-    await page.addStyleTag({ path: `${process.cwd()}/dist/antd.css` });
-    const html = ReactDOMServer.renderToString(component);
-    await page.evaluate(innerHTML => {
-      document.querySelector('#root')!.innerHTML = innerHTML;
-    }, html);
+    beforeAll(async () => {
+      browser = await chromium.launch({
+        args: [
+          // Required for Docker version of Puppeteer
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          // This will write shared memory files into /tmp instead of /dev/shm,
+          // because Docker’s default for /dev/shm is 64MB
+          '--disable-dev-shm-usage',
+        ],
+      });
+    });
+    afterAll(async () => {
+      await browser.close();
+    });
+    beforeEach(async () => {
+      page = await browser.newPage();
+    });
+    afterEach(async () => {
+      await page.close();
+    });
 
-    const image = await page.screenshot();
+    it('component image screenshot should correct', async () => {
+      MockDate.set(moment('2016-11-22').valueOf());
+      await page.goto(`file://${process.cwd()}/tests/index.html`);
+      await page.addStyleTag({ path: `${process.cwd()}/dist/antd.css` });
+      const html = ReactDOMServer.renderToString(component);
+      await page.evaluate(innerHTML => {
+        document.querySelector('#root')!.innerHTML = innerHTML;
+      }, html);
 
-    expect(image).toMatchImageSnapshot();
+      const image = await page.screenshot();
 
-    MockDate.reset();
-    page.removeListener('request', onRequestHandle);
+      expect(image).toMatchImageSnapshot();
+
+      MockDate.reset();
+    });
   });
 }
 

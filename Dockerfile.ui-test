@@ -1,4 +1,4 @@
-FROM buildkite/puppeteer:v3.0.4
+FROM mcr.microsoft.com/playwright:focal
 RUN mkdir /app
 WORKDIR /app
 COPY package.json ./
