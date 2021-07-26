@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.16.9
 
-`2021-07-25`
+`2021-07-27`
 
 - 🐞 Fix Typography `ellipsis` calculation bug when browser zoomed. [#31449](https://github.com/ant-design/ant-design/pull/31449)
 - 💄 Fix Input wrong class when using `prefixCls`. [#31479](https://github.com/ant-design/ant-design/pull/31479) [@spawnia](https://github.com/spawnia)

@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.16.9
 
-`2021-07-25`
+`2021-07-27`
 
 - 🐞 修复 Typography `ellipsis` 在屏幕放大缩小时计算错误的问题。[#31449](https://github.com/ant-design/ant-design/pull/31449)
 - 💄 修复 Input 使用 `prefixCls` class 错误的问题。[#31479](https://github.com/ant-design/ant-design/pull/31479) [@spawnia](https://github.com/spawnia)
