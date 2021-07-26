@@ -95,6 +95,7 @@ Basic text writing, including headings, body text, lists, and more.
       onChange: function(string),
       onCancel: function,
       onEnd: function,
+      iconEnter: ReactNode,
     }
 
 | Property | Description | Type | Default | Version |
@@ -110,6 +111,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onStart | Called when enter editable state | function | - |  |
 | onCancel | Called when type ESC to exit editable state | function | - |  |
 | onEnd | Called when type ENTER to exit editable state | function | - |  |
+| iconEnter | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | &lt;EnterOutlined /> |  |
 
 ### ellipsis
 

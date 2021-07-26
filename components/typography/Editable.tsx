@@ -18,6 +18,7 @@ interface EditableProps {
   direction?: DirectionType;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
+  iconEnter?: React.ReactNode;
 }
 
 const Editable: React.FC<EditableProps> = ({
@@ -32,6 +33,7 @@ const Editable: React.FC<EditableProps> = ({
   onSave,
   onCancel,
   onEnd,
+  iconEnter,
 }) => {
   const ref = React.useRef<any>();
 
@@ -129,7 +131,13 @@ const Editable: React.FC<EditableProps> = ({
         aria-label={ariaLabel}
         autoSize={autoSize}
       />
-      <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
+      {iconEnter !== undefined ? (
+        <div className={`${prefixCls}-edit-content-confirm`} style={{ verticalAlign: 'middle' }}>
+          {iconEnter}
+        </div>
+      ) : (
+        <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
+      )}
     </div>
   );
 };

@@ -111,6 +111,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | onStart | 进入编辑中状态时触发 | function | - |  |
 | onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - |  |
+| iconEnter | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | &lt;EnterOutlined /> |  |
 
 ### ellipsis
 
