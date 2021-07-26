@@ -8,18 +8,25 @@ only: true
 
 ## zh-CN
 
-修改全局主题色。
+通过 css variable 修改全局主题色，不支持 IE。自动生成的变量可能会根据设计调整，请勿直接依赖。
 
 ## en-US
 
-Modify global theme color.
+Modify global theme color by css variable which IE not support. Css variable depends on the design, it may adjust so please do not directly use it.
 
 ```jsx
 import { SketchPicker } from 'react-color';
 import React, { useState } from 'react';
-import { DownOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import {
+  DownOutlined,
+  MailOutlined,
+  SettingOutlined,
+  ClockCircleOutlined,
+} from '@ant-design/icons';
 import {
   ConfigProvider,
+  Tag,
+  Mentions,
   Steps,
   Button,
   Radio,
@@ -34,18 +41,70 @@ import {
   Divider,
   Pagination,
   Select,
+  Checkbox,
+  DatePicker,
+  TimePicker,
+  InputNumber,
+  Slider,
+  Switch,
+  TreeSelect,
+  Card,
+  Table,
+  Tabs,
+  Timeline,
+  Tree,
+  Alert,
 } from 'antd';
 
 const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
 
+const inputProps = {
+  style: { width: 128 },
+};
+
 const selectProps = {
+  ...inputProps,
   options: [
     { value: 'light', label: 'Light' },
     { value: 'bamboo', label: 'Bamboo' },
     { value: 'little', label: 'Little' },
   ],
-  style: { width: 100 },
 };
+
+const treeData = [
+  {
+    value: 'little',
+    key: 'little',
+    label: 'Little',
+    title: 'Little',
+    children: [
+      { value: 'light', key: 'light', label: 'Light', title: 'Light' },
+      { value: 'bamboo', key: 'bamboo', label: 'Bamboo', title: 'Bamboo' },
+    ],
+  },
+];
+
+const treeSelectProps = {
+  ...inputProps,
+  treeCheckable: true,
+  maxTagCount: 'responsive',
+  treeData,
+};
+
+const carTabListNoTitle = [
+  {
+    key: 'article',
+    tab: 'article',
+  },
+  {
+    key: 'app',
+    tab: 'app',
+  },
+  {
+    key: 'project',
+    tab: 'project',
+  },
+];
 
 const FormSizeDemo = () => {
   const [color, setColor] = useState({
@@ -53,6 +112,7 @@ const FormSizeDemo = () => {
     errorColor: '#ff4d4f',
     warningColor: '#faad14',
     successColor: '#52c41a',
+    infoColor: '#1890ff',
   });
 
   function onColorChange(nextColor) {
@@ -121,6 +181,19 @@ const FormSizeDemo = () => {
           />
 
           <span style={{ color: 'var(--ant-success-color)' }}>var(`--ant-success-color`)</span>
+
+          {/* Info Color */}
+          <SketchPicker
+            presetColors={['#1890ff']}
+            color={color.infoColor}
+            onChange={({ hex }) => {
+              onColorChange({
+                infoColor: hex,
+              });
+            }}
+          />
+
+          <span style={{ color: 'var(--ant-info-color)' }}>var(`--ant-info-color`)</span>
         </Space>
       </Col>
 
@@ -283,19 +356,19 @@ const FormSizeDemo = () => {
           <Form>
             <SplitSpace>
               <Form.Item>
-                <Input />
+                <Input {...inputProps} />
               </Form.Item>
               <Form.Item hasFeedback validateStatus="success">
-                <Input />
+                <Input {...inputProps} />
               </Form.Item>
               <Form.Item hasFeedback validateStatus="warning">
-                <Input />
+                <Input {...inputProps} />
               </Form.Item>
               <Form.Item hasFeedback validateStatus="error">
-                <Input />
+                <Input {...inputProps} />
               </Form.Item>
               <Form.Item hasFeedback validateStatus="validating">
-                <Input />
+                <Input {...inputProps} />
               </Form.Item>
             </SplitSpace>
           </Form>
@@ -321,21 +394,195 @@ const FormSizeDemo = () => {
             </SplitSpace>
           </Form>
 
+          {/* Form - TreeSelect */}
+          <Form>
+            <SplitSpace>
+              <Form.Item>
+                <TreeSelect {...treeSelectProps} />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="success">
+                <TreeSelect {...treeSelectProps} />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="warning">
+                <TreeSelect {...treeSelectProps} />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="error">
+                <TreeSelect {...treeSelectProps} />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="validating">
+                <TreeSelect {...treeSelectProps} />
+              </Form.Item>
+            </SplitSpace>
+          </Form>
+
+          {/* Form - InputNumber */}
+          <Form>
+            <SplitSpace>
+              <Form.Item>
+                <InputNumber />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="success">
+                <InputNumber />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="warning">
+                <InputNumber />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="error">
+                <InputNumber />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="validating">
+                <InputNumber />
+              </Form.Item>
+            </SplitSpace>
+          </Form>
+
+          {/* Form - DatePicker */}
+          <Form>
+            <SplitSpace>
+              <Form.Item>
+                <DatePicker />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="success">
+                <DatePicker />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="warning">
+                <DatePicker />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="error">
+                <DatePicker />
+              </Form.Item>
+              <Form.Item hasFeedback validateStatus="validating">
+                <DatePicker />
+              </Form.Item>
+            </SplitSpace>
+          </Form>
+
           <SplitSpace>
+            <Checkbox>Checkbox</Checkbox>
+
             <Radio.Group defaultValue="bamboo">
               <Radio value="bamboo">Bamboo</Radio>
               <Radio value="light">Light</Radio>
               <Radio value="little">Little</Radio>
             </Radio.Group>
+
+            <Mentions placeholder="Mention by @">
+              <Mentions.Option value="afc163">afc163</Mentions.Option>
+              <Mentions.Option value="zombieJ">zombieJ</Mentions.Option>
+              <Mentions.Option value="yesmeck">yesmeck</Mentions.Option>
+            </Mentions>
+
+            <Slider defaultValue={30} style={{ width: 100 }} />
+
+            <Switch defaultChecked />
           </SplitSpace>
 
           <SplitSpace>
-            <Form>
-              <Form.Item status="error">
-                <Input />
-              </Form.Item>
-            </Form>
+            <DatePicker.RangePicker />
+            <TimePicker.RangePicker />
           </SplitSpace>
+
+          <Row gutter={16}>
+            <Col flex="1 1 33%">
+              {/* Card */}
+              <Card
+                style={{ width: '100%' }}
+                tabList={carTabListNoTitle}
+                tabBarExtraContent={<a href="#">More</a>}
+              />
+            </Col>
+            <Col flex="1 1 33%">
+              {/* Table */}
+              <Table
+                size="small"
+                bordered
+                rowSelection={{}}
+                columns={[
+                  {
+                    title: 'Key',
+                    dataIndex: 'key',
+                    filters: [
+                      {
+                        text: 'Little',
+                        value: 'little',
+                      },
+                    ],
+                    sorter: (a, b) => a.key.length - b.key.length,
+                  },
+                ]}
+                dataSource={[
+                  {
+                    key: 'Bamboo',
+                  },
+                  {
+                    key: 'Light',
+                  },
+                  {
+                    key: 'Little',
+                  },
+                ]}
+              />
+            </Col>
+            <Col flex="1 1 33%">
+              {/* Table */}
+              <Tabs defaultActiveKey="1">
+                <Tabs.TabPane tab="Tab 1" key="1">
+                  Content of Tab Pane 1
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="Tab 2" key="2">
+                  Content of Tab Pane 2
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="Tab 3" key="3">
+                  Content of Tab Pane 3
+                </Tabs.TabPane>
+              </Tabs>
+            </Col>
+          </Row>
+
+          <SplitSpace>
+            <Tag color="success">success</Tag>
+            <Tag color="processing">processing</Tag>
+            <Tag color="error">error</Tag>
+            <Tag color="warning">warning</Tag>
+            <Tag color="default">default</Tag>
+            <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
+          </SplitSpace>
+
+          <Row gutter={16}>
+            <Col span={16}>
+              <Timeline mode="alternate">
+                <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+                <Timeline.Item color="gray">
+                  Solve initial network problems 2015-09-01
+                </Timeline.Item>
+                <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                  veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </Timeline.Item>
+              </Timeline>
+            </Col>
+
+            <Col span={8}>
+              <Tree treeData={treeData} height={200} defaultExpandAll checkable />
+            </Col>
+          </Row>
+
+          {/* Alert */}
+          <Row gutter={16}>
+            <Col span={6}>
+              <Alert showIcon message="Success Text" type="success" />
+            </Col>
+            <Col span={6}>
+              <Alert showIcon message="Info Text" type="info" />
+            </Col>
+            <Col span={6}>
+              <Alert showIcon message="Warning Text" type="warning" />
+            </Col>
+            <Col span={6}>
+              <Alert showIcon message="Error Text" type="error" />
+            </Col>
+          </Row>
         </Space>
       </Col>
     </Row>

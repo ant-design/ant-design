@@ -8,9 +8,12 @@ import { Theme } from './context';
 export function registerTheme(theme: Theme) {
   const variables: Record<string, string> = {};
 
-  const formatColor = (color: TinyColor, updater?: (cloneColor: TinyColor) => void) => {
-    const clone = color.clone();
-    updater?.(clone);
+  const formatColor = (
+    color: TinyColor,
+    updater?: (cloneColor: TinyColor) => TinyColor | undefined,
+  ) => {
+    let clone = color.clone();
+    clone = updater?.(clone) || clone;
     return clone.toRgbString();
   };
 
@@ -23,6 +26,8 @@ export function registerTheme(theme: Theme) {
     variables[`${type}-color-hover`] = colorPalettes[4];
     variables[`${type}-color-active`] = colorPalettes[7];
     variables[`${type}-color-outline`] = baseColor.clone().setAlpha(0.2).toRgbString();
+    variables[`${type}-color-deprecated-bg`] = colorPalettes[1];
+    variables[`${type}-color-deprecated-border`] = colorPalettes[3];
   };
 
   // ================ Primary Color ================
@@ -60,6 +65,11 @@ export function registerTheme(theme: Theme) {
   // ================= Error Color =================
   if (theme.errorColor) {
     fillColor(theme.errorColor, 'error');
+  }
+
+  // ================= Info Color ==================
+  if (theme.infoColor) {
+    fillColor(theme.infoColor, 'info');
   }
 
   // Convert to css variables

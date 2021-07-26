@@ -40,18 +40,29 @@ html {
   --ant-success-color-hover: color(~`colorPalette('@{green-6}', 5) `);
   --ant-success-color-active: color(~`colorPalette('@{green-6}', 7) `);
   --ant-success-color-outline: fade(@green-6, @outline-fade);
+  --ant-success-color-deprecated-bg: ~`colorPalette('@{green-6}', 1) `;
+  --ant-success-color-deprecated-border: ~`colorPalette('@{green-6}', 3) `;
 
   // ========== Error Color ==========
   --ant-error-color: @red-5;
   --ant-error-color-hover: color(~`colorPalette('@{red-5}', 5) `);
   --ant-error-color-active: color(~`colorPalette('@{red-5}', 7) `);
   --ant-error-color-outline: fade(@red-5, @outline-fade);
+  --ant-error-color-deprecated-bg: ~`colorPalette('@{red-5}', 1) `;
+  --ant-error-color-deprecated-border: ~`colorPalette('@{red-5}', 3) `;
 
   // ========= Warning Color =========
   --ant-warning-color: @gold-6;
   --ant-warning-color-hover: color(~`colorPalette('@{gold-6}', 5) `);
   --ant-warning-color-active: color(~`colorPalette('@{gold-6}', 7) `);
   --ant-warning-color-outline: fade(@gold-6, @outline-fade);
+  --ant-warning-color-deprecated-bg: ~`colorPalette('@{gold-6}', 1) `;
+  --ant-warning-color-deprecated-border: ~`colorPalette('@{gold-6}', 3) `;
+
+  // ========== Info Color ===========
+  --ant-info-color: @base-primary;
+  --ant-info-color-deprecated-bg: ~`colorPalette('@{base-primary}', 1) `;
+  --ant-info-color-deprecated-border: ~`colorPalette('@{base-primary}', 3) `;
 }
 
 // -------- Colors -----------
@@ -61,26 +72,36 @@ html {
 @primary-color-active: ~'var(--ant-primary-color-active)';
 @primary-color-outline: ~'var(--ant-primary-color-outline)';
 
-@info-color: @primary-color;
 @processing-color: @primary-color;
+
+// >>> Info
+@info-color: ~'var(--ant-info-color)';
+@info-color-deprecated-bg: ~'var(--ant-info-color-deprecated-bg)';
+@info-color-deprecated-border: ~'var(--ant-info-color-deprecated-border)';
 
 // >>> Success
 @success-color: ~'var(--ant-success-color)';
 @success-color-hover: ~'var(--ant-success-color-hover)';
 @success-color-active: ~'var(--ant-success-color-active)';
 @success-color-outline: ~'var(--ant-success-color-outline)';
+@success-color-deprecated-bg: ~'var(--ant-success-color-deprecated-bg)';
+@success-color-deprecated-border: ~'var(--ant-success-color-deprecated-border)';
 
 // >>> Warning
 @warning-color: ~'var(--ant-warning-color)';
 @warning-color-hover: ~'var(--ant-warning-color-hover)';
 @warning-color-active: ~'var(--ant-warning-color-active)';
 @warning-color-outline: ~'var(--ant-warning-color-outline)';
+@warning-color-deprecated-bg: ~'var(--ant-warning-color-deprecated-bg)';
+@warning-color-deprecated-border: ~'var(--ant-warning-color-deprecated-border)';
 
 // >>> Error
 @error-color: ~'var(--ant-error-color)';
 @error-color-hover: ~'var(--ant-error-color-hover)';
 @error-color-active: ~'var(--ant-error-color-active)';
 @error-color-outline: ~'var(--ant-error-color-outline)';
+@error-color-deprecated-bg: ~'var(--ant-error-color-deprecated-bg)';
+@error-color-deprecated-border: ~'var(--ant-error-color-deprecated-border)';
 
 @highlight-color: @red-5;
 @normal-color: #d9d9d9;
@@ -960,17 +981,17 @@ html {
 
 // Alert
 // ---
-@alert-success-border-color: ~`colorPalette('@{success-color}', 3) `;
-@alert-success-bg-color: ~`colorPalette('@{success-color}', 1) `;
+@alert-success-border-color: @success-color-deprecated-border;
+@alert-success-bg-color: @success-color-deprecated-bg;
 @alert-success-icon-color: @success-color;
-@alert-info-border-color: ~`colorPalette('@{info-color}', 3) `;
-@alert-info-bg-color: ~`colorPalette('@{info-color}', 1) `;
+@alert-info-border-color: @info-color-deprecated-border;
+@alert-info-bg-color: @info-color-deprecated-bg;
 @alert-info-icon-color: @info-color;
-@alert-warning-border-color: ~`colorPalette('@{warning-color}', 3) `;
-@alert-warning-bg-color: ~`colorPalette('@{warning-color}', 1) `;
+@alert-warning-border-color: @warning-color-deprecated-border;
+@alert-warning-bg-color: @warning-color-deprecated-bg;
 @alert-warning-icon-color: @warning-color;
-@alert-error-border-color: ~`colorPalette('@{error-color}', 3) `;
-@alert-error-bg-color: ~`colorPalette('@{error-color}', 1) `;
+@alert-error-border-color: @error-color-deprecated-border;
+@alert-error-bg-color: @error-color-deprecated-bg;
 @alert-error-icon-color: @error-color;
 @alert-message-color: @heading-color;
 @alert-text-color: @text-color;
