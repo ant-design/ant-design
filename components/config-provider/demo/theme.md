@@ -3,7 +3,6 @@ order: 5
 title:
   zh-CN: 全局样式
   en-US: Global Theme
-only: true
 ---
 
 ## zh-CN
