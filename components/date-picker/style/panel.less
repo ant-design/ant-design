@@ -340,10 +340,10 @@
 
     // >>> Disabled
     &-disabled {
+      color: @disabled-color;
       pointer-events: none;
 
       .@{cellClassName} {
-        color: @disabled-color;
         background: transparent;
       }
 
@@ -366,11 +366,6 @@
       color: @text-color;
     }
 
-    // Disabled
-    &-disabled {
-      cursor: not-allowed;
-    }
-
     .picker-cell-inner(~'@{picker-cell-inner-cls}');
   }
 
@@ -384,12 +379,6 @@
 
     .@{picker-cell-inner-cls} {
       padding: 0 @padding-xs;
-    }
-
-    .@{picker-prefix-cls}-cell {
-      &-disabled .@{picker-cell-inner-cls} {
-        background: @picker-basic-cell-disabled-bg;
-      }
     }
   }
 

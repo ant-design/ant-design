@@ -60,6 +60,12 @@
         text-overflow: ellipsis;
       }
     }
+
+    .@{table-prefix-cls}-column-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: keep-all;
+    }
   }
 
   // ============================ Title =============================
@@ -160,6 +166,8 @@
 
   // =========================== Summary ============================
   &-summary {
+    position: relative;
+    z-index: @zindex-table-fixed;
     background: @table-bg;
 
     div& {
@@ -217,6 +225,12 @@
         background-color: transparent !important;
       }
     }
+
+    // https://github.com/ant-design/ant-design/issues/30969
+    &.@{table-prefix-cls}-cell-fix-left:hover,
+    &.@{table-prefix-cls}-cell-fix-right:hover {
+      background: @table-fixed-header-sort-active-bg;
+    }
   }
 
   &-thead th.@{table-prefix-cls}-column-sort {
@@ -229,6 +243,12 @@
 
   td&-column-sort {
     background: @table-body-sort-bg;
+  }
+
+  &-column-title {
+    position: relative;
+    z-index: 1;
+    flex: 1;
   }
 
   &-column-sorters {
@@ -623,7 +643,9 @@
     &-holder {
       position: sticky;
       z-index: @table-sticky-zindex;
+      background: @component-background;
     }
+
     &-scroll {
       position: sticky;
       bottom: 0;

@@ -80,6 +80,10 @@ describe('Skeleton', () => {
       const wrapper = genSkeletonButton({ active: true });
       expect(wrapper.render()).toMatchSnapshot();
     });
+    it('block', () => {
+      const wrapper = genSkeletonButton({ block: true });
+      expect(wrapper.render()).toMatchSnapshot();
+    });
     it('size', () => {
       const wrapperDefault = genSkeletonButton({ size: 'default' });
       expect(wrapperDefault.render()).toMatchSnapshot();

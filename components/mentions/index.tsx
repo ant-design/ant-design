@@ -158,7 +158,7 @@ Mentions.getMentions = (value: string = '', config?: MentionsConfig): MentionsEn
       if (hitPrefix !== null) {
         return {
           prefix: hitPrefix,
-          value: str.slice(hitPrefix!.length),
+          value: str.slice((hitPrefix as string).length),
         };
       }
       return null;

@@ -114,7 +114,7 @@ Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design
 
 ### message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider?
 
-Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to indepent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
+Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
 1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-notification) and [Modal.useModal](/components/modal/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-Modal.xxx).
 

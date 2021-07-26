@@ -47,7 +47,7 @@ export type SelectAllLabel =
 
 export interface TransferLocale {
   titles: React.ReactNode[];
-  notFoundContent?: React.ReactNode;
+  notFoundContent?: React.ReactNode | React.ReactNode[];
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
@@ -70,7 +70,7 @@ export interface TransferProps<RecordType> {
   onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
-  listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
+  listStyle?: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
   operationStyle?: React.CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
@@ -165,11 +165,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   };
 
   getTitles(transferLocale: TransferLocale): React.ReactNode[] {
-    const { titles } = this.props;
-    if (titles) {
-      return titles;
-    }
-    return transferLocale.titles;
+    return this.props.titles ?? transferLocale.titles;
   }
 
   getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
@@ -305,7 +301,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   }
 
   handleListStyle = (
-    listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties,
+    listStyle: TransferProps<RecordType>['listStyle'],
     direction: TransferDirection,
   ) => {
     if (typeof listStyle === 'function') {

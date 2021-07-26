@@ -24,9 +24,9 @@ One or more elements can be selected from either column, one click on the proper
 | dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop | [RecordType extends TransferItem = TransferItem](https://git.io/vMM64)\[] | \[] |  |
 | disabled | Whether disabled transfer | boolean | false |  |
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean | - |  |
-| footer | A function used for rendering the footer | (props) => ReactNode | - |  |
+| footer | A function used for rendering the footer | (props, { direction }) => ReactNode | - | direction: 4.17.0 |
 | listStyle | A custom CSS style used for rendering the transfer columns | object \| ({direction: `left` \| `right`}) => object | - |  |
-| locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `The list is empty`, searchPlaceholder: `Search here` } |  |
+| locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `The list is empty`, searchPlaceholder: `Search here` } |  |
 | oneWay | Display as single direction style | boolean | false | 4.3.0 |
 | operations | A set of operations that are sorted from top to bottom | string\[] | \[`>`, `<`] |  |
 | operationStyle | A custom CSS style used for rendering the operations column | object | - |  |

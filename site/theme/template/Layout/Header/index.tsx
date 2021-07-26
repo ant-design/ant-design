@@ -3,16 +3,17 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
-
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
 import Logo from './Logo';
-import SearchBox from './SearchBox';
+import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
 import SiteContext from '../SiteContext';
 import { ping } from '../../utils';
+import { AlgoliaConfig } from './algolia-config';
 
 import './index.less';
 
@@ -23,33 +24,6 @@ const { Option } = Select;
 
 const antdVersion: string = packageJson.version;
 
-let docsearch: any;
-if (typeof window !== 'undefined') {
-  // eslint-disable-next-line global-require
-  docsearch = require('docsearch.js');
-}
-
-function initDocSearch(locale: string) {
-  if (!docsearch) {
-    return;
-  }
-  const lang = locale === 'zh-CN' ? 'cn' : 'en';
-  docsearch({
-    apiKey: '60ac2c1a7d26ab713757e4a081e133d0',
-    indexName: 'ant_design',
-    inputSelector: '#search-box input',
-    algoliaOptions: { facetFilters: [`tags:${lang}`] },
-    transformData(hits: { url: string }[]) {
-      hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host);
-        hit.url = hit.url.replace('https:', window.location.protocol);
-      });
-      return hits;
-    },
-    debug: false, // Set debug to true if you want to inspect the dropdown
-  });
-}
-
 export interface HeaderProps {
   intl: {
     locale: string;
@@ -58,6 +32,42 @@ export interface HeaderProps {
   router: any;
   themeConfig: { docVersions: Record<string, string> };
   changeDirection: (direction: string) => void;
+}
+
+let docsearch: any;
+const triggerDocSearchImport = () => {
+  if (docsearch) {
+    return Promise.resolve();
+  }
+
+  return import('docsearch.js').then(ds => {
+    docsearch = ds.default;
+  });
+};
+
+function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
+  if (!canUseDom()) {
+    return;
+  }
+
+  triggerDocSearchImport().then(() => {
+    docsearch({
+      appId: AlgoliaConfig.appId,
+      apiKey: AlgoliaConfig.apiKey,
+      indexName: AlgoliaConfig.indexName,
+      inputSelector: '#search-box input',
+      algoliaOptions: AlgoliaConfig.getSearchParams(isZhCN),
+      transformData: AlgoliaConfig.transformData,
+      debug: AlgoliaConfig.debug,
+      // https://docsearch.algolia.com/docs/behavior#handleselected
+      handleSelected: (input: any, _$1: unknown, suggestion: any) => {
+        router.push(suggestion.url);
+        setTimeout(() => {
+          input.setVal('');
+        });
+      },
+    });
+  });
 }
 
 interface HeaderState {
@@ -82,7 +92,11 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   componentDidMount() {
     const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
-    initDocSearch(intl.locale);
+
+    initDocSearch({
+      isZhCN: intl.locale === 'zh-CN',
+      router,
+    });
 
     window.addEventListener('resize', this.onWindowResize);
     this.onWindowResize();
@@ -201,6 +215,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             location,
             themeConfig,
             intl: { locale },
+            router,
           } = this.props;
           const docVersions: Record<string, string> = {
             [antdVersion]: antdVersion,
@@ -234,15 +249,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             isZhCN,
             isRTL,
           };
-
-          const searchBox = (
-            <SearchBox
-              key="search"
-              {...sharedProps}
-              responsive={responsive}
-              onTriggerFocus={this.onTriggerSearching}
-            />
-          );
 
           const navigationNode = (
             <Navigation
@@ -339,7 +345,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <Logo {...sharedProps} location={location} />
                 </Col>
                 <Col {...colProps[1]} className="menu-row">
-                  {searchBox}
+                  <SearchBar
+                    key="search"
+                    {...sharedProps}
+                    router={router}
+                    algoliaConfig={AlgoliaConfig}
+                    responsive={responsive}
+                    onTriggerFocus={this.onTriggerSearching}
+                  />
                   {!isMobile && menu}
                 </Col>
               </Row>

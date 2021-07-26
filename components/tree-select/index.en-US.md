@@ -50,6 +50,7 @@ Tree selection control.
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |  |
 | treeExpandedKeys | Set expanded keys | string\[] | - |  |
 | treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
+| treeLine | Show the line. Ref [Tree - showLine](/components/tree/#components-tree-demo-line) | boolean \| object | false | 4.17.0 |
 | treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | `value` |  |
 | treeNodeLabelProp | Will render as content of select | string | `title` |  |
 | value | To set the current selected treeNode(s) | string \| string\[] | - |  |
@@ -62,10 +63,10 @@ Tree selection control.
 
 ### Tree Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### TreeNode props
 

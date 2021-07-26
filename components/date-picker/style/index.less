@@ -235,27 +235,27 @@
       }
     }
 
-    &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
-    &.slide-up-enter.slide-up-enter-active&-placement-topRight,
-    &.slide-up-appear.slide-up-appear-active&-placement-topLeft,
-    &.slide-up-appear.slide-up-appear-active&-placement-topRight {
+    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topLeft,
+    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topRight,
+    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topLeft,
+    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topRight {
       animation-name: antSlideDownIn;
     }
 
-    &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
-    &.slide-up-enter.slide-up-enter-active&-placement-bottomRight,
-    &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft,
-    &.slide-up-appear.slide-up-appear-active&-placement-bottomRight {
+    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-bottomLeft,
+    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-bottomRight,
+    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-bottomLeft,
+    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-bottomRight {
       animation-name: antSlideUpIn;
     }
 
-    &.slide-up-leave.slide-up-leave-active&-placement-topLeft,
-    &.slide-up-leave.slide-up-leave-active&-placement-topRight {
+    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topLeft,
+    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topRight {
       animation-name: antSlideDownOut;
     }
 
-    &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft,
-    &.slide-up-leave.slide-up-leave-active&-placement-bottomRight {
+    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-bottomLeft,
+    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-bottomRight {
       animation-name: antSlideUpOut;
     }
   }
@@ -345,6 +345,11 @@
       background: transparent;
       border-width: 0 0 @border-width-base 0;
       border-radius: 0;
+
+      .@{picker-prefix-cls}-content,
+      table {
+        text-align: center;
+      }
 
       &-focused {
         border-color: @border-color-split;

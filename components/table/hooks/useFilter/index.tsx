@@ -1,4 +1,5 @@
 import * as React from 'react';
+import devWarning from '../../../_util/devWarning';
 import {
   TransformColumns,
   ColumnsType,
@@ -31,9 +32,7 @@ function collectFilterStates<RecordType>(
   (columns || []).forEach((column, index) => {
     const columnPos = getColumnPos(index, pos);
 
-    if ('children' in column) {
-      filterStates = [...filterStates, ...collectFilterStates(column.children, init, columnPos)];
-    } else if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
+    if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
         let filteredValues = column.filteredValue;
@@ -57,6 +56,10 @@ function collectFilterStates<RecordType>(
           forceFiltered: column.filtered,
         });
       }
+    }
+
+    if ('children' in column) {
+      filterStates = [...filterStates, ...collectFilterStates(column.children, init, columnPos)];
     }
   });
 
@@ -87,6 +90,7 @@ function injectFilter<RecordType>(
         ...newColumn,
         title: (renderProps: ColumnTitleProps<RecordType>) => (
           <FilterDropdown
+            tablePrefixCls={prefixCls}
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls}
             column={newColumn}
@@ -206,17 +210,32 @@ function useFilter<RecordType>({
   const mergedFilterStates = React.useMemo(() => {
     const collectedStates = collectFilterStates(mergedColumns, false);
 
+    const filteredKeysIsNotControlled = collectedStates.every(
+      ({ filteredKeys }) => filteredKeys === undefined,
+    );
+
     // Return if not controlled
-    if (collectedStates.every(({ filteredKeys }) => filteredKeys === undefined)) {
+    if (filteredKeysIsNotControlled) {
       return filterStates;
     }
+
+    const filteredKeysIsAllControlled = collectedStates.every(
+      ({ filteredKeys }) => filteredKeys !== undefined,
+    );
+
+    devWarning(
+      filteredKeysIsNotControlled || filteredKeysIsAllControlled,
+      'Table',
+      '`FilteredKeys` should all be controlled or not controlled.',
+    );
 
     return collectedStates;
   }, [mergedColumns, filterStates]);
 
-  const getFilters = React.useCallback(() => generateFilterInfo(mergedFilterStates), [
-    mergedFilterStates,
-  ]);
+  const getFilters = React.useCallback(
+    () => generateFilterInfo(mergedFilterStates),
+    [mergedFilterStates],
+  );
 
   const triggerFilter = (filterState: FilterState<RecordType>) => {
     const newFilterStates = mergedFilterStates.filter(({ key }) => key !== filterState.key);

@@ -18,8 +18,8 @@ describe('Select', () => {
     act(() => {
       wrapper.find('.ant-select-selector').simulate('mousedown');
       jest.runAllTimers();
-      wrapper.update();
     });
+    wrapper.update();
   }
 
   beforeEach(() => {

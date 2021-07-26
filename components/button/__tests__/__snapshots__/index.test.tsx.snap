@@ -263,6 +263,17 @@ exports[`Button rtl render component should be rendered correctly in RTL directi
 />
 `;
 
+exports[`Button should handle fragment as children 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
 exports[`Button should merge text if children using variable 1`] = `
 <button
   class="ant-btn"

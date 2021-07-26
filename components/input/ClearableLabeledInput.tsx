@@ -65,6 +65,9 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     return (
       <CloseCircleFilled
         onClick={handleReset}
+        // Do not trigger onBlur when clear input
+        // https://github.com/ant-design/ant-design/issues/31200
+        onMouseDown={e => e.preventDefault()}
         className={classNames(
           {
             [`${className}-hidden`]: !needClear,
