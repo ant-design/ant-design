@@ -1,9 +1,10 @@
 {
-  "name": "antd",
-  "version": "4.16.9",
-  "description": "An enterprise-class UI design language and React components implementation",
-  "title": "Ant Design",
+  "name": "infrad",
+  "version": "4.16.11",
+  "description": "based on AntD",
+  "title": "Infra Design",
   "keywords": [
+    "infrad",
     "ant",
     "component",
     "components",
@@ -14,22 +15,18 @@
     "react-component",
     "ui"
   ],
-  "homepage": "https://ant.design",
+  "homepage": "https://infra-fe.github.io/infra-design/",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/ant-design"
+    "url": "git+https://github.com/infra-fe/infra-design.git"
   },
   "license": "MIT",
   "contributors": [
     "ant"
   ],
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/ant-design"
-  },
   "files": [
     "dist",
     "lib",
@@ -154,7 +151,7 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/tools": "^13.6.0",
+    "@infra-fe/tools": "^13.6.7",
     "@docsearch/react": "^3.0.0-alpha.37",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@stackblitz/sdk": "^1.3.0",
@@ -236,6 +233,8 @@
     "pretty-quick": "^3.0.0",
     "querystring": "^0.2.0",
     "rc-footer": "^0.6.6",
+    "rc-queue-anim": "^1.6.12",
+    "rc-scroll-anim": "^2.5.8",
     "rc-tween-one": "^2.4.1",
     "rc-virtual-list": "^3.2.4",
     "react": "^17.0.1",
@@ -307,5 +306,6 @@
   ],
   "tnpm": {
     "mode": "npm"
-  }
+  },
+  "author": "shengbo.ma@shopee.com"
 }

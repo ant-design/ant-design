@@ -1,6 +1,6 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
-const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
+const getWebpackConfig = require('@infra-fe/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
