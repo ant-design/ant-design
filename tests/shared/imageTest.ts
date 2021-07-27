@@ -37,7 +37,7 @@ export default function imageTest(component: React.ReactElement) {
       await browser.close();
     });
     beforeEach(async () => {
-      page = await browser.newPage();
+      page = await browser.newPage({ screen: { width: 1280, height: 720 } });
     });
     afterEach(async () => {
       await page.close();
@@ -52,7 +52,7 @@ export default function imageTest(component: React.ReactElement) {
         document.querySelector('#root')!.innerHTML = innerHTML;
       }, html);
 
-      const image = await page.screenshot();
+      const image = await page.screenshot({ fullPage: true });
 
       expect(image).toMatchImageSnapshot();
 
