@@ -20,6 +20,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 | --- | --- | --- | --- | --- |
 | autoFocus | 自动获取焦点 | boolean | false | - |
 | bordered | 是否有边框 | boolean | true | 4.12.0 |
+| controls | 是否显示增减按钮 | boolean | true | 4.17.0 |
 | decimalSeparator | 小数点 | string | - | - |
 | defaultValue | 初始值 | number | - | - |
 | disabled | 禁用 | boolean | false | - |
