@@ -55,6 +55,7 @@ import {
   Alert,
   Progress,
   Spin,
+  Transfer,
 } from 'antd';
 
 const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
@@ -106,6 +107,26 @@ const carTabListNoTitle = [
     tab: 'project',
   },
 ];
+
+const MyTransfer = () => {
+  const mockData = [];
+  for (let i = 0; i < 20; i++) {
+    mockData.push({
+      key: i.toString(),
+      title: `content${i + 1}`,
+      description: `description of content${i + 1}`,
+    });
+  }
+
+  return (
+    <Transfer
+      dataSource={mockData}
+      targetKeys={['18']}
+      selectedKeys={['3']}
+      render={item => item.title}
+    />
+  );
+};
 
 const FormSizeDemo = () => {
   const [color, setColor] = useState({
@@ -601,6 +622,8 @@ const FormSizeDemo = () => {
               <Progress type="circle" percent={100} />
             </Col>
           </Row>
+
+          <MyTransfer />
         </Space>
       </Col>
     </Row>

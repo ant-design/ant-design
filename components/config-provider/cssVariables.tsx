@@ -34,7 +34,6 @@ export function registerTheme(theme: Theme) {
   if (theme.primaryColor) {
     fillColor(theme.primaryColor, 'primary');
 
-    // FIXME: Remove these if no need anymore
     const primaryColor = new TinyColor(theme.primaryColor);
     const primaryColors = generate(primaryColor.toRgbString());
 
