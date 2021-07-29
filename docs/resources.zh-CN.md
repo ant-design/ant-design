@@ -4,13 +4,13 @@ title: 资源
 toc: false
 ---
 
-这里汇总了与 Ant Design 相关的所有资源。
+这里汇总了与 Infra Design 相关的所有资源。
 
 ---
 
 ## 设计资源
 
-这里提供 Ant Design 相关设计资源和设计工具的下载，更多设计资源正在整理和完善中。你可以在这个[地址](https://www.yuque.com/kitchen/topics/216)中反馈对新版本 Sketch Symbols 组件的意见。
+这里提供 Infra Design 相关设计资源和设计工具的下载，更多设计资源正在整理和完善中。你可以在这个[地址](https://www.yuque.com/kitchen/topics/216)中反馈对新版本 Sketch Symbols 组件的意见。
 
 <div class="next-block-use-cards"></div>
 
@@ -22,11 +22,11 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
   - 移动组件 Sketch 模板
   - https://gw.alipayobjects.com/os/bmw-prod/d6266aef-25b7-4892-b275-ce214121831c.sketch
-- Ant Design Pro
+- Infra Design Pro
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - 典型页面 + 通用业务模板
   - https://gw.alipayobjects.com/os/bmw-prod/22208f9d-f8c5-4d7c-b87a-fec290e96527.sketch
-- Ant Design Library
+- Infra Design Library
   - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
   - 一套强大的 Axure 部件库
   - http://library.ant.design
@@ -34,7 +34,7 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
   - Sketch 工具集
   - http://kitchen.alipay.com
-- Ant Design Landing
+- Infra Design Landing
   - https://gw.alipayobjects.com/zos/basement_prod/b443f4be-5116-49b7-873f-a7c8502b8f0e.svg
   - 首页模板集
   - https://landing.ant.design/docs/download-cn
@@ -42,13 +42,13 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
   - 一套页面逻辑原型库
   - http://ux.ant.design
-- Ant Design 原型 (xiaopiu)
+- Infra Design 原型 (xiaopiu)
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
   - 可在线编辑的组件库和交互原型
   - https://www.xiaopiu.com/topic/ant-design
 - Figma 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
-  - 在 Figma 使用 Ant Design 进行设计
+  - 在 Figma 使用 Infra Design 进行设计
   - https://www.antforfigma.com
 - Figma 开源组件包
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
@@ -60,7 +60,7 @@ toc: false
   - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
 - 墨刀原型设计
   - https://cdn.modao.cc/logo_mockingbot.svg
-  - 内置丰富的 Ant Design 组件资源
+  - 内置丰富的 Infra Design 组件资源
   - https://modao.cc/square/ant-design
 - 全套资源包（即时设计）
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
@@ -69,7 +69,7 @@ toc: false
 
 ## 文章
 
-想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://www.zhihu.com/column/c_1310524851418480640)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
+想要了解 Infra Design 设计体系背后的故事？如何才能更好的应用 Infra Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Infra Design 官方专栏](https://www.zhihu.com/column/c_1310524851418480640)，这里常有关于 Infra Design 设计体系下相关话题内容的最新分享和讨论，如 Infra Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
 
 ```__react
 import Articles from '../site/theme/template/Resources/Articles';
@@ -79,7 +79,7 @@ ReactDOM.render(<Articles />, mountNode);
 
 ## 致敬
 
-在 Ant Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
+在 Infra Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
 
 <div class="next-block-use-cards"></div>
 
@@ -114,7 +114,7 @@ ReactDOM.render(<Articles />, mountNode);
 
 ## 加入我们
 
-我们（蚂蚁金服体验技术部）是一支兼具设计视角和工程视角的团队，服务蚂蚁金服上百个中后台系统，主打产品 Ant Design 服务全球 100 万设计师和工程师，是西湖区学院路西侧最具影响力的设计语言。欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。
+我们（蚂蚁金服体验技术部）是一支兼具设计视角和工程视角的团队，服务蚂蚁金服上百个中后台系统，主打产品 Infra Design 服务全球 100 万设计师和工程师，是西湖区学院路西侧最具影响力的设计语言。欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。
 
 ### UI/UE 设计师
 
@@ -134,7 +134,7 @@ ReactDOM.render(<Articles />, mountNode);
 - 岗位职责：
   - 参与[蚂蚁链](https://blockchain.antgroup.com/)、人工智能、数据平台等企业级产品的设计工作；
   - 参与[语雀](https://www.yuque.com/) 等创新产品的设计工作；
-  - 参与 Ant Design 的打磨，将其建设成全球卓越的设计体系。
+  - 参与 Infra Design 的打磨，将其建设成全球卓越的设计体系。
   - 参与 AntV 的打磨，将其建设成全球一流的数据可视化体系。
 - One More Thing ❤️ ：
 
@@ -155,7 +155,7 @@ ReactDOM.render(<Articles />, mountNode);
   - 丰富的中后台前端研发经验。
   - 爱 🐱。
 - 岗位职责：
-  - 负责 Ant Design 前端基础设施研发。
+  - 负责 Infra Design 前端基础设施研发。
   - 负责中后台设计/前端工具体系建设。
 
 ### ADI（Artificial Design Intelligence） 工程师
@@ -171,5 +171,5 @@ ReactDOM.render(<Articles />, mountNode);
   - 对人工智能应用在设计行业，有坚定的信心和意愿；
   - 已经有相关实践工作，优先考虑。
 - 岗位职责：
-  - 负责 Ant Design 工具体系和智能设计的研发，并配合团队成员进行商业化实践，把设计做成业务；
+  - 负责 Infra Design 工具体系和智能设计的研发，并配合团队成员进行商业化实践，把设计做成业务；
   - 组建和培养有梯度的研发团队。

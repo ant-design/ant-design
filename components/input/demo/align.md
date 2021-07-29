@@ -71,7 +71,7 @@ ReactDOM.render(
     <Input.TextArea rows={1} style={{ width: 100 }} />
     <Button type="primary">Button</Button>
     <Input style={{ width: 100 }} />
-    <Text copyable>Ant Design</Text>
+    <Text copyable>Infra Design</Text>
     <Input prefix="1" suffix="2" style={{ width: 100 }} />
     <Input addonBefore="1" addonAfter="2" style={{ width: 100 }} />
     <InputNumber style={{ width: 100 }} />

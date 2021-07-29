@@ -20,21 +20,21 @@ const { Text, Link } = Typography;
 
 ReactDOM.render(
   <Space direction="vertical">
-    <Text>Ant Design (default)</Text>
-    <Text type="secondary">Ant Design (secondary)</Text>
-    <Text type="success">Ant Design (success)</Text>
-    <Text type="warning">Ant Design (warning)</Text>
-    <Text type="danger">Ant Design (danger)</Text>
-    <Text disabled>Ant Design (disabled)</Text>
-    <Text mark>Ant Design (mark)</Text>
-    <Text code>Ant Design (code)</Text>
-    <Text keyboard>Ant Design (keyboard)</Text>
-    <Text underline>Ant Design (underline)</Text>
-    <Text delete>Ant Design (delete)</Text>
-    <Text strong>Ant Design (strong)</Text>
-    <Text italic>Ant Design (italic)</Text>
+    <Text>Infra Design (default)</Text>
+    <Text type="secondary">Infra Design (secondary)</Text>
+    <Text type="success">Infra Design (success)</Text>
+    <Text type="warning">Infra Design (warning)</Text>
+    <Text type="danger">Infra Design (danger)</Text>
+    <Text disabled>Infra Design (disabled)</Text>
+    <Text mark>Infra Design (mark)</Text>
+    <Text code>Infra Design (code)</Text>
+    <Text keyboard>Infra Design (keyboard)</Text>
+    <Text underline>Infra Design (underline)</Text>
+    <Text delete>Infra Design (delete)</Text>
+    <Text strong>Infra Design (strong)</Text>
+    <Text italic>Infra Design (italic)</Text>
     <Link href="https://ant.design" target="_blank">
-      Ant Design (Link)
+      Infra Design (Link)
     </Link>
   </Space>,
   mountNode,

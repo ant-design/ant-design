@@ -46,7 +46,7 @@ class Article extends React.Component<ArticleProps> {
   }
 
   onResourceClick: React.MouseEventHandler<HTMLAnchorElement> = event => {
-    const { target } = (event as unknown) as { target: HTMLAnchorElement };
+    const { target } = event as unknown as { target: HTMLAnchorElement };
     if (!window.gtag) {
       return;
     }
@@ -103,7 +103,7 @@ class Article extends React.Component<ArticleProps> {
     const { meta, description } = content;
     const { title, subtitle, filename } = meta;
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
-    const helmetTitle = `${(title as LocaleString)[locale] || title} - Ant Design`;
+    const helmetTitle = `${(title as LocaleString)[locale] || title} - Infra Design`;
     const helmetDesc = getMetaDescription(description);
     const contentChild = getMetaDescription(getChildren(content.content));
     const metaDesc = helmetDesc || contentChild;
@@ -166,4 +166,4 @@ class Article extends React.Component<ArticleProps> {
   }
 }
 
-export default (injectIntl(Article as any) as any) as React.ComponentClass<ArticleProps>;
+export default injectIntl(Article as any) as any as React.ComponentClass<ArticleProps>;

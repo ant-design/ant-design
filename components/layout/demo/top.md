@@ -43,7 +43,7 @@ ReactDOM.render(
       </Breadcrumb>
       <div className="site-layout-content">Content</div>
     </Content>
-    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+    <Footer style={{ textAlign: 'center' }}>Infra Design ©2018 Created by Ant UED</Footer>
   </Layout>,
   mountNode,
 );

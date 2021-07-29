@@ -1,6 +1,6 @@
 const path = require('path');
-const replaceLib = require('@ant-design/tools/lib/replaceLib');
-const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
+const replaceLib = require('@infra-fe/tools/lib/replaceLib');
+const getWebpackConfig = require('@infra-fe/tools/lib/getWebpackConfig');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');

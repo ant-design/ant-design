@@ -3,7 +3,7 @@ order: 11
 title: FAQ
 ---
 
-以下整理了一些 Ant Design 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。此外我们也维护了一个反馈较多 [FAQ issues 标签](http://u.ant.design/faq) 亦可参考。
+以下整理了一些 Infra Design 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。此外我们也维护了一个反馈较多 [FAQ issues 标签](http://u.ant.design/faq) 亦可参考。
 
 ---
 
@@ -27,11 +27,11 @@ title: FAQ
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
-### 如何修改 Ant Design 的默认主题？
+### 如何修改 Infra Design 的默认主题？
 
 可以参考[定制主题](/docs/react/customize-theme)。
 
-### 如何修改 Ant Design 组件的默认样式？
+### 如何修改 Infra Design 组件的默认样式？
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。
 
@@ -140,9 +140,9 @@ ConfigProvider.config({
 });
 ```
 
-### 如何正确的拼写 Ant Design？
+### 如何正确的拼写 Infra Design？
 
-- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
+- ✅ **Infra Design**：用空格分隔的首字母大写单词，指代设计语言。
 - ✅ **antd**：全小写，指代 React UI 组件库。
 - ✅ **ant.design**：特指 ant.design 网站网址。
 

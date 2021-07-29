@@ -1,16 +1,16 @@
 ---
-category: Ant Design
+category: Infra Design
 order: 1
 title: Design Values
 ---
 
-The design values of Ant Design provide designers with internal standards for evaluation, enlighten and inspire the design principles and design patterns, and then offer guidance and general solutions for specific design problems.
+The design values of Infra Design provide designers with internal standards for evaluation, enlighten and inspire the design principles and design patterns, and then offer guidance and general solutions for specific design problems.
 
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*sGufTKB_F5QAAAAAAAAAAABkARQnAQ" alt="General" />
 </div>
 
-Here are four design values of Ant Design:
+Here are four design values of Infra Design:
 
 ## Natural
 
@@ -18,7 +18,7 @@ Here are four design values of Ant Design:
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ" alt="Natural" />
 </div>
 
-The light-speed iteration of the digital world makes products more complex. However, human consciousness and attention resources are limited. Facing this design contradiction, the pursuit of natural interaction will be the consistent direction of Ant Design.
+The light-speed iteration of the digital world makes products more complex. However, human consciousness and attention resources are limited. Facing this design contradiction, the pursuit of natural interaction will be the consistent direction of Infra Design.
 
 - **Natural user cognition:** According to cognitive psychology, about 80% of external information is obtained through visual channels. The most important visual elements in the interface design, including layout, colors, illustrations, icons, etc., should fully absorb the laws of nature, thereby reducing the user's cognitive cost and bringing authentic and smooth feelings. In some scenarios, opportunely adding other sensory channels such as hearing, touch can create a richer and more natural product experience.
 - **Natural user behavior:** In the interaction with the system, the designer should fully understand the relationship between users, system roles, and task objectives, and also contextually organize system functions and services. At the same time, a series of methods such as behavior analysis, artificial intelligence and sensors could be applied to assist users to make effective decisions and reduce extra operations of users, to save users' mental and physical resources and make human-computer interaction more natural.
@@ -31,7 +31,7 @@ The light-speed iteration of the digital world makes products more complex. Howe
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OCU3RKZrw8QAAAAAAAAAAABkARQnAQ" alt="Certain" />
 </div>
 
-Interfaces are the medium of interaction between users and the system. They are the means rather than the purpose. Based on the pursuit of "natural" interaction, the product interfaces created by Ant Design should be high certainty and low cooperative entropy.
+Interfaces are the medium of interaction between users and the system. They are the means rather than the purpose. Based on the pursuit of "natural" interaction, the product interfaces created by Infra Design should be high certainty and low cooperative entropy.
 
 - **Designer certainty:** Enterprise products are made by collaboration. The more participants, the higher the entropy of cooperation. This is why low-efficiency design and difficult maintenance of the product system exists. By exploring the design rules and modular design ideas, designers should be provided with simplified design rules, components and patterns so they can reduce the cooperative entropy and a more efficient design process.
   - **Keep restraint:** Don't make a decision before you figure it out. Designers should focus on the most valuable product features using minimal design elements to express. As Antoine de St. Exupery said: "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."

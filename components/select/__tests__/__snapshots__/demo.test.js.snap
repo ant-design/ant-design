@@ -325,7 +325,7 @@ Array [
   <h3
     class="ant-typography"
   >
-    Ant Design 4.0
+    Infra Design 4.0
   </h3>,
   <h4
     class="ant-typography"
@@ -437,12 +437,12 @@ Array [
   <h3
     class="ant-typography"
   >
-    Ant Design 3.0
+    Infra Design 3.0
   </h3>,
   <iframe
     src="https://codesandbox.io/embed/solitary-voice-m3vme?fontsize=14&hidenavigation=1&theme=dark&view=preview"
     style="width:100%;height:300px"
-    title="Ant Design 3.0 Select demo"
+    title="Infra Design 3.0 Select demo"
   />,
 ]
 `;

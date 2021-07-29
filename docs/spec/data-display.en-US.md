@@ -44,7 +44,7 @@ A card is a container for carrying information. There is not too much limit to t
 > Note:
 >
 > 1. Cards are usually arranged according to the grid, and a maximum of four lines is recommended.
-> 2. In the limited card space, you need to pay attention to the spacing between the information. If the information is too long, you can cut off the information. For example, "Ant Design is suitable for the middle station..."
+> 2. In the limited card space, you need to pay attention to the spacing between the information. If the information is too long, you can cut off the information. For example, "Infra Design is suitable for the middle station..."
 
 ---
 

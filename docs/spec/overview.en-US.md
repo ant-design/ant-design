@@ -6,7 +6,7 @@ title: Overview
 
 The use of design patterns in enterprise-level businesses can significantly increase the certainty of the R&D team, save unnecessary design and maintain system consistency, allowing the “designer” to focus on creativity where it is most needed.
 
-Design patterns adhere to Ant Design design values and provide a general solution to recurring design issues in enterprise products. The designer can directly use the design pattern to complete the interface design, or the design pattern can be used as a starting point to derive a more business-specific solution to meet the individual design needs.
+Design patterns adhere to Infra Design design values and provide a general solution to recurring design issues in enterprise products. The designer can directly use the design pattern to complete the interface design, or the design pattern can be used as a starting point to derive a more business-specific solution to meet the individual design needs.
 
 At the same time, this is a dynamically updated design document, and your reading and feedback is the driving force behind our progress, [Github Feedback Address](https://github.com/ant-design/ant-design/issues).
 
@@ -25,6 +25,6 @@ The complete design pattern will include examples of templates, components (ETC)
 
 We work with engineers to transform design patterns into reusable code that maximizes your productivity and communication efficiency.
 
-- [Ant Design Pro](https://pro.ant.design): Out-of-the-box solution with 20+ templates and 10+ business components
-- [Ant Design Components](/docs/react/introduce): Ant Design's React UI library is a global component library with 50+ base components
-- [Ant Design Library](http://library.ant.design/): Axure resource packs are included with the code to make your prototype look like a visual draft, including templates, components, and more.
+- [Infra Design Pro](https://pro.ant.design): Out-of-the-box solution with 20+ templates and 10+ business components
+- [Infra Design Components](/docs/react/introduce): Infra Design's React UI library is a global component library with 50+ base components
+- [Infra Design Library](http://library.ant.design/): Axure resource packs are included with the code to make your prototype look like a visual draft, including templates, components, and more.

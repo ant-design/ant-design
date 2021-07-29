@@ -29,15 +29,14 @@ const MINI_LIST: PanelProps[] = [
     href: 'https://antv.vision',
   },
   {
-    img:
-      'https://gw.alipayobjects.com/zos/antfincdn/888xda6kBc/Ant%252520Design%252520shouyepeitu.svg',
-    title: 'Ant Design Pro',
+    img: 'https://gw.alipayobjects.com/zos/antfincdn/888xda6kBc/Ant%252520Design%252520shouyepeitu.svg',
+    title: 'Infra Design Pro',
     description: 'app.home.product-pro-slogan',
     href: 'https://pro.ant.design/',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mb-WQILTlSEAAAAAAAAAAABkARQnAQ',
-    title: 'Ant Design Mobile',
+    title: 'Infra Design Mobile',
     description: 'app.home.product-mobile-slogan',
     href: 'https://mobile.ant.design/',
   },
@@ -249,7 +248,7 @@ const DesignPage = (props: { location: any }) => {
                     <Link
                       to={getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}
                     >
-                      Ant Design of React
+                      Infra Design of React
                     </Link>
                     <span style={smallStyle}>
                       (<FormattedMessage id="app.implementation.official" />)
@@ -257,7 +256,7 @@ const DesignPage = (props: { location: any }) => {
                   </li>
                   <li>
                     <a href="https://ng.ant.design/" target="_blank" rel="noopener noreferrer">
-                      Ant Design of Angular
+                      Infra Design of Angular
                     </a>
                     <span style={smallStyle}>
                       (<FormattedMessage id="app.implementation.community" />)
@@ -265,7 +264,7 @@ const DesignPage = (props: { location: any }) => {
                   </li>
                   <li>
                     <a href="https://antdv.com/" target="_blank" rel="noopener noreferrer">
-                      Ant Design of Vue
+                      Infra Design of Vue
                     </a>
                     <span style={smallStyle}>
                       (<FormattedMessage id="app.implementation.community" />)

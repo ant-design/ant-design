@@ -19,7 +19,7 @@ import { ConfigProvider, Select, Button } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 
-// Ant Design site use `es` module for view
+// Infra Design site use `es` module for view
 // but do not replace related lib `lib` with `es`
 // which do not show correct in site.
 // We may need do convert in site also.

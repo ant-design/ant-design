@@ -3,7 +3,7 @@ order: 2
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers. Before starting, it is recommended to learn [React](https://reactjs.org) and [ES2015](http://babeljs.io/docs/learn-es2015/) first, and correctly install and configure [Node.js](https://nodejs.org/) v8 or above.
+Infra Design React is dedicated to providing a **good development experience** for programmers. Before starting, it is recommended to learn [React](https://reactjs.org) and [ES2015](http://babeljs.io/docs/learn-es2015/) first, and correctly install and configure [Node.js](https://nodejs.org/) v8 or above.
 
 The official guide also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript, and React. If you are just starting to learn front-end or React, it may not be the best idea to use the UI framework as your first step.
 
@@ -13,7 +13,7 @@ Finally, if you are working in a local development environment, please refer to 
 
 ## Your First Example
 
-Here is a simple online codesandbox demo of an Ant Design component to show the usage of Ant Design React.
+Here is a simple online codesandbox demo of an Infra Design component to show the usage of Infra Design React.
 
 <iframe
   src="https://codesandbox.io/embed/antd-reproduction-template-6e93z?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
@@ -23,7 +23,7 @@ Here is a simple online codesandbox demo of an Ant Design component to show the 
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 />
 
-Follow the steps below to play around with Ant Design yourself:
+Follow the steps below to play around with Infra Design yourself:
 
 ### 1. Create a codesandbox
 
@@ -92,7 +92,7 @@ OK! Now that you know the basics of using antd components, you are welcome to ex
 
 During actual real-world project development, you will most likely need a development workflow consisting of `compile/build/deploy/lint/debug/` deployment. You can read the following documents on the subject or use the following scaffolds and examples provided below:
 
-- [Ant Design Pro](http://pro.ant.design/)
+- [Infra Design Pro](http://pro.ant.design/)
 - [antd-admin](https://github.com/zuiidea/antd-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
 - More scaffolds at [Scaffold Market](http://scaffold.ant.design/)
@@ -101,7 +101,7 @@ During actual real-world project development, you will most likely need a develo
 
 If you use `create-react-app` follow the instructions [here](/docs/react/use-with-create-react-app#Test-with-Jest) instead.
 
-Jest does not support `esm` modules, and Ant Design uses them. In order to test your Ant Design application with Jest you have to add the following to your Jest config :
+Jest does not support `esm` modules, and Infra Design uses them. In order to test your Infra Design application with Jest you have to add the following to your Jest config :
 
 ```json
 "transform": { "^.+\\.(ts|tsx|js|jsx)?$": "ts-jest" }

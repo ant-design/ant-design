@@ -3,7 +3,7 @@ order: 11
 title: FAQ
 ---
 
-Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common github issues.
+Here are the frequently asked questions about Infra Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common github issues.
 
 ---
 
@@ -27,7 +27,7 @@ And make sure that parentElement is `position: relative` or `position: absolute`
 
 Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
-### How do I modify the default theme of Ant Design?
+### How do I modify the default theme of Infra Design?
 
 See: https://ant.design/docs/react/customize-theme .
 
@@ -126,9 +126,9 @@ ConfigProvider.config({
 });
 ```
 
-### How to spell Ant Design correctly?
+### How to spell Infra Design correctly?
 
-- ✅ **Ant Design**: Capitalized with space, for the design language.
+- ✅ **Infra Design**: Capitalized with space, for the design language.
 - ✅ **antd**: all lowercase, for the React UI library.
 - ✅ **ant.design**：For ant.design website url.
 

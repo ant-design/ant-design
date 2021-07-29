@@ -1,12 +1,12 @@
 ---
-category: Ant Design
+category: Infra Design
 order: 2
 title: 实践案例
 ---
 
-从 2015 年 4 月起，Ant Design 在蚂蚁集团中后台产品线迅速推广，对接多条业务线，覆盖系统 800 个以上。定位于中台业务的 Ant Design 兼顾专业和非专业的设计人员，具有学习成本低、上手速度快、实现效果好等特点，并且提供从界面设计到前端开发的全链路生态，可以大大提升设计和开发的效率。
+从 2015 年 4 月起，Infra Design 在蚂蚁集团中后台产品线迅速推广，对接多条业务线，覆盖系统 800 个以上。定位于中台业务的 Infra Design 兼顾专业和非专业的设计人员，具有学习成本低、上手速度快、实现效果好等特点，并且提供从界面设计到前端开发的全链路生态，可以大大提升设计和开发的效率。
 
-Ant Design 目前在外部也有许多产品实践，如果你的公司和产品从中受益，[欢迎留言](https://github.com/ant-design/ant-design/issues/477)。
+Infra Design 目前在外部也有许多产品实践，如果你的公司和产品从中受益，[欢迎留言](https://github.com/ant-design/ant-design/issues/477)。
 
 ## 最佳实践
 
@@ -42,13 +42,13 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 ![语雀](https://gw.alipayobjects.com/zos/rmsportal/doPiJWqbRNWCrHPBOcuo.png)
 
-### Ant Design Pro
+### Infra Design Pro
 
-Ant Design Pro 是一个企业级中后台前端/设计解决方案，秉承 Ant Design 的设计价值观，致力于在设计规范和基础组件的基础上，继续向上构建，提炼出典型模板/业务组件/配套设计资源，进一步提升企业级中后台产品设计研发过程中的「用户」和「设计者」的体验。
+Infra Design Pro 是一个企业级中后台前端/设计解决方案，秉承 Infra Design 的设计价值观，致力于在设计规范和基础组件的基础上，继续向上构建，提炼出典型模板/业务组件/配套设计资源，进一步提升企业级中后台产品设计研发过程中的「用户」和「设计者」的体验。
 
 [立即访问](https://pro.ant.design)
 
-![Ant Design Pro](https://gw.alipayobjects.com/zos/rmsportal/KZIUjJJZTEqMOgBHQkCb.png)
+![Infra Design Pro](https://gw.alipayobjects.com/zos/rmsportal/KZIUjJJZTEqMOgBHQkCb.png)
 
 ### 阿里云流计算
 

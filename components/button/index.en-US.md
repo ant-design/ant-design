@@ -11,7 +11,7 @@ To trigger an operation.
 
 A button means an operation (or a series of operations). Clicking a button will trigger corresponding business logic.
 
-In Ant Design we provide 5 types of button.
+In Infra Design we provide 5 types of button.
 
 - Primary button: indicate the main action, one primary button at most in one section.
 - Default button: indicate a series of actions without priority.
@@ -52,7 +52,7 @@ It accepts all props which native buttons support.
 
 ### How to remove space between 2 chinese characters?
 
-Following the Ant Design specification, we will add one space between if Button (exclude Text button and Link button) contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
+Following the Infra Design specification, we will add one space between if Button (exclude Text button and Link button) contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0; width: 100px" alt="Button with two Chinese characters" />
 

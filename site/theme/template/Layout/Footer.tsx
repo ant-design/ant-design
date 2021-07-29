@@ -72,27 +72,27 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
       title: <FormattedMessage id="app.footer.resources" />,
       items: [
         {
-          title: 'Ant Design Charts',
+          title: 'Infra Design Charts',
           url: 'https://charts.ant.design',
           openExternal: true,
         },
         {
-          title: 'Ant Design Pro',
+          title: 'Infra Design Pro',
           url: 'https://pro.ant.design',
           openExternal: true,
         },
         {
-          title: 'Ant Design Pro Components',
+          title: 'Infra Design Pro Components',
           url: 'https://procomponents.ant.design',
           openExternal: true,
         },
         {
-          title: 'Ant Design Mobile',
+          title: 'Infra Design Mobile',
           url: 'https://mobile.ant.design',
           openExternal: true,
         },
         {
-          title: 'Ant Design Landing',
+          title: 'Infra Design Landing',
           description: <FormattedMessage id="app.footer.landing" />,
           url: 'https://landing.ant.design',
           openExternal: true,
@@ -382,7 +382,7 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
         <div>
           <img
             src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-            alt="Ant Design"
+            alt="Infra Design"
           />
           <p>
             {messages['app.publish.greeting']}

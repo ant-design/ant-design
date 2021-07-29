@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">Ant Design</h1>
+<h1 align="center">Infra Design</h1>
 
 <div align="center">
 
@@ -109,15 +109,15 @@ Veja [i18n](https://ant.design/docs/react/i18n).
 
 - [Página inicial](https://ant.design/)
 - [Componentes](https://ant.design/components/overview)
-- [Ant Design Pro](http://pro.ant.design/)
-- [Ant Design Charts](https://charts.ant.design)
+- [Infra Design Pro](http://pro.ant.design/)
+- [Infra Design Charts](https://charts.ant.design)
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
-- [Ant Design Icones](https://github.com/ant-design/ant-design-icons)
-- [Ant Design Cores](https://github.com/ant-design/ant-design-colors)
-- [Ant Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)
-- [Ant Design Pro Blocks](https://github.com/ant-design/pro-blocks)
+- [Infra Design Icones](https://github.com/ant-design/ant-design-icons)
+- [Infra Design Cores](https://github.com/ant-design/ant-design-colors)
+- [Infra Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)
+- [Infra Design Pro Blocks](https://github.com/ant-design/pro-blocks)
 - [Tema escuro](https://github.com/ant-design/ant-design-dark-theme)
 - [Página de aterrissagem](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
@@ -126,7 +126,7 @@ Veja [i18n](https://ant.design/docs/react/i18n).
 - [Versionando as notas de atualização](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://ant.design/docs/react/faq)
 - [CodeSandbox Template](https://u.ant.design/codesandbox-repro) para relatório de erros
-- [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
+- [Awesome Infra Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](https://ant.design/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 

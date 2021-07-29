@@ -1,5 +1,5 @@
 ---
-category: Ant Design
+category: Infra Design
 order: 0
 title: Introduction
 ---
@@ -42,30 +42,30 @@ const LinkIcon = () => (
 const LinksList = () => (
   <ul>
     <li>
-      <a href="/docs/react/introduce" target="_blank">Ant Design of React </a>
+      <a href="/docs/react/introduce" target="_blank">Infra Design of React </a>
       (official implementation)
     </li>
     <li>
       <a href="http://ng.ant.design" target="_blank">
-        NG-ZORRO - Ant Design of Angular
+        NG-ZORRO - Infra Design of Angular
       </a>
     </li>
     <li>
       <a href="http://ng.mobile.ant.design" target="_blank">
-        NG-ZORRO-MOBILE - Ant Design Mobile of Angular
+        NG-ZORRO-MOBILE - Infra Design Mobile of Angular
       </a>
     </li>
     <li>
-      <a href="http://antdv.com" target="_blank">Ant Design of Vue</a>
+      <a href="http://antdv.com" target="_blank">Infra Design of Vue</a>
     </li>
     <li>
       <a href="https://ant-design-blazor.github.io/" target="_blank">
-        Ant Design Blazor
+        Infra Design Blazor
       </a>
     </li>
     <li>
       <a href="https://ecomfe.github.io/santd" target="_blank">
-        San UI Toolkit for Ant Design
+        San UI Toolkit for Infra Design
       </a>
     </li>
     <li>
@@ -79,7 +79,7 @@ const LinksList = () => (
 ReactDOM.render(<LinksList />, mountNode);
 ```
 
-## Who's using Ant Design
+## Who's using Infra Design
 
 - [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
 - [Alibaba](http://www.alibaba.com/)
@@ -91,16 +91,16 @@ ReactDOM.render(<LinksList />, mountNode);
 - [Eleme](https://www.ele.me/)
 - [Other Users](https://github.com/ant-design/ant-design/issues/477)
 
-> If your company or products use Ant Design, and you'd like to be added to this growing list, click [here](https://github.com/ant-design/ant-design/issues/477) to leave us a message.
+> If your company or products use Infra Design, and you'd like to be added to this growing list, click [here](https://github.com/ant-design/ant-design/issues/477) to leave us a message.
 
 ## Words From Community
 
 - Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
-- Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
-- [Introduction to Ant Design](https://blog.logrocket.com/introduction-to-ant-design/)
-- [Build a React App with Ant Design Principles](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
+- Alligator: [Crafting Beautiful UIs in React Using Infra Design](https://alligator.io/react/beautiful-uis-ant-design/)
+- [Introduction to Infra Design](https://blog.logrocket.com/introduction-to-ant-design/)
+- [Build a React App with Infra Design Principles](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
 - [Meet Antd, an enterprise React UI library](https://medium.com/javascript-in-plain-english/antd-library-what-why-useful-or-not-5fec225b639d)
 
 ## How to Contribute
 
-Contributions to Ant Design on Github are welcomed! Whether you have questions, concerns, or suggestions for improving Ant Design - please don't hesitate to reach out to us [here](https://github.com/ant-design/ant-design/issues).
+Contributions to Infra Design on Github are welcomed! Whether you have questions, concerns, or suggestions for improving Infra Design - please don't hesitate to reach out to us [here](https://github.com/ant-design/ant-design/issues).

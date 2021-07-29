@@ -1,9 +1,9 @@
 ---
 order: 0
-title: Ant Design of React
+title: Infra Design of React
 ---
 
-`antd` 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。
+`antd` 是基于 Infra Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。
 
 <div class="pic-plus">
   <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
@@ -106,15 +106,15 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 - [首页](/)
 - [组件库](/components/overview)
-- [Ant Design Pro](https://pro.ant.design/)
-- [Ant Design Charts](https://charts.ant.design)
+- [Infra Design Pro](https://pro.ant.design/)
+- [Infra Design Charts](https://charts.ant.design)
 - [更新日志](/changelog)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
-- [Ant Design 图标](https://github.com/ant-design/ant-design-icons)
-- [Ant Design 色彩](https://github.com/ant-design/ant-design-colors)
-- [Ant Design Pro 布局组件](https://github.com/ant-design/ant-design-pro-layout)
-- [Ant Design Pro 区块集](https://github.com/ant-design/pro-blocks)
+- [Infra Design 图标](https://github.com/ant-design/ant-design-icons)
+- [Infra Design 色彩](https://github.com/ant-design/ant-design-colors)
+- [Infra Design Pro 布局组件](https://github.com/ant-design/ant-design-pro-layout)
+- [Infra Design Pro 区块集](https://github.com/ant-design/pro-blocks)
 - [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
 - [首页模板集](https://landing.ant.design)
 - [动效](https://motion.ant.design)
@@ -124,7 +124,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [常见问题](/docs/react/faq)
 - [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
-- [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
+- [Awesome Infra Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](/docs/react/customize-theme)
 - [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
@@ -139,7 +139,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [滴滴](http://www.xiaojukeji.com/)
 - [饿了么](https://www.ele.me/)
 
-> 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
+> 如果你的公司和产品使用了 Infra Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 
 ## 如何贡献
 

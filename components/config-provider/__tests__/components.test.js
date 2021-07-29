@@ -366,8 +366,8 @@ describe('ConfigProvider', () => {
               avatar={
                 <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
               }
-              title="Ant Design"
-              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+              title="Infra Design"
+              description="Infra Design, a design language for background applications, is refined by Ant UED Team"
             />
           </List.Item>
         )}

@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">Ant Design</h1>
+<h1 align="center">Infra Design</h1>
 
 <div align="center">
 
@@ -109,14 +109,14 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 - [Домашня сторінка](https://ant.design/)
 - [Компоненти](https://ant.design/components/overview)
-- [Ant Design Pro](http://pro.ant.design/)
+- [Infra Design Pro](http://pro.ant.design/)
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
-- [Ant Design Pro Components](https://procomponents.ant.design)
-- [Ant Design Charts](https://charts.ant.design)
-- [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
-- [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
+- [Infra Design Pro Components](https://procomponents.ant.design)
+- [Infra Design Charts](https://charts.ant.design)
+- [Infra Design Icons](https://github.com/ant-design/ant-design-icons)
+- [Infra Design Colors](https://github.com/ant-design/ant-design-colors)
 - [Лендінги](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
 - [Scaffold Market](http://scaffold.ant.design)

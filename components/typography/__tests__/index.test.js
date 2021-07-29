@@ -122,13 +122,13 @@ describe('Typography', () => {
       });
 
       it('string with parentheses', async () => {
-        const parenthesesStr = `Ant Design, a design language (for background applications, is refined by
-          Ant UED Team. Ant Design, a design language for background applications,
-          is refined by Ant UED Team. Ant Design, a design language for background
-          applications, is refined by Ant UED Team. Ant Design, a design language
-          for background applications, is refined by Ant UED Team. Ant Design, a
+        const parenthesesStr = `Infra Design, a design language (for background applications, is refined by
+          Ant UED Team. Infra Design, a design language for background applications,
+          is refined by Ant UED Team. Infra Design, a design language for background
+          applications, is refined by Ant UED Team. Infra Design, a design language
+          for background applications, is refined by Ant UED Team. Infra Design, a
           design language for background applications, is refined by Ant UED Team.
-          Ant Design, a design language for background applications, is refined by
+          Infra Design, a design language for background applications, is refined by
           Ant UED Team.`;
         const onEllipsis = jest.fn();
         const wrapper = mount(
@@ -139,17 +139,17 @@ describe('Typography', () => {
 
         await sleep(20);
         wrapper.update();
-        expect(wrapper.text()).toEqual('Ant Design, a des...');
+        expect(wrapper.text()).toEqual('Infra Design, a des...');
         const ellipsisSpan = wrapper.find('span[title]');
         expect(ellipsisSpan.text()).toEqual('...');
         expect(ellipsisSpan.props().title)
           .toEqual(`ign language (for background applications, is refined by
-          Ant UED Team. Ant Design, a design language for background applications,
-          is refined by Ant UED Team. Ant Design, a design language for background
-          applications, is refined by Ant UED Team. Ant Design, a design language
-          for background applications, is refined by Ant UED Team. Ant Design, a
+          Ant UED Team. Infra Design, a design language for background applications,
+          is refined by Ant UED Team. Infra Design, a design language for background
+          applications, is refined by Ant UED Team. Infra Design, a design language
+          for background applications, is refined by Ant UED Team. Infra Design, a
           design language for background applications, is refined by Ant UED Team.
-          Ant Design, a design language for background applications, is refined by
+          Infra Design, a design language for background applications, is refined by
           Ant UED Team.`);
         onEllipsis.mockReset();
 

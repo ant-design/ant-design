@@ -669,7 +669,7 @@ timeline: true
 - 🐞 修复 Badge 在初始化时样式抖动的问题。[#28003](https://github.com/ant-design/ant-design/pull/28003)
 - 💄 优化 Modal 相关样式的冗余。[#27998](https://github.com/ant-design/ant-design/pull/27998)
 - 🐞 修复 Layout.Sider 在 `width='0'` 时不能展开的问题。[#28000](https://github.com/ant-design/ant-design/pull/28000)
-- 🐞 修复 Menu 使用非 Ant Design 图标时的样式问题。[#27983](https://github.com/ant-design/ant-design/pull/27983)
+- 🐞 修复 Menu 使用非 Infra Design 图标时的样式问题。[#27983](https://github.com/ant-design/ant-design/pull/27983)
 - Input
   - 🐞 修复 Input.Search 自定义 less 变量时的按钮高度问题。[#27986](https://github.com/ant-design/ant-design/pull/27986)
   - 🐞 修复 Input.Search `addonBefore` 样式异常。[#27960](https://github.com/ant-design/ant-design/pull/27960)
@@ -2030,7 +2030,7 @@ timeline: true
 
 `2020-02-28`
 
-- 🏆 Ant Design v4 发布！点击[此处](https://github.com/ant-design/ant-design/issues/21656)查看更多信息。
+- 🏆 Infra Design v4 发布！点击[此处](https://github.com/ant-design/ant-design/issues/21656)查看更多信息。
 - 🐞 Breadcrumb 使用 `path` 作为默认 key 以修复 `name` 作为 key 重名的冲突问题。[#21583](https://github.com/ant-design/ant-design/pull/21583) [@douxc](https://github.com/douxc)
 - 🌟 Timeline.Item 支持 `label`。[#21560](https://github.com/ant-design/ant-design/pull/21560) [@shaodahong](https://github.com/shaodahong)
 - 🐞 修复 Table 筛选菜单高度溢出屏幕的问题。[#21602](https://github.com/ant-design/ant-design/pull/21602)
@@ -2235,7 +2235,7 @@ timeline: true
 
 `2020-01-04`
 
-Ant Design 4.0-rc 发布，发布文档请查看[此处](https://github.com/ant-design/ant-design/issues/20661)。
+Infra Design 4.0-rc 发布，发布文档请查看[此处](https://github.com/ant-design/ant-design/issues/20661)。
 
 ⚠️ 从 v3 迁移到 v4 请参考[迁移文档](/docs/react/migration-v4)。
 

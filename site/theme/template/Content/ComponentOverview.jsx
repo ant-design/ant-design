@@ -38,7 +38,7 @@ const ComponentOverview = ({
   utils: { toReactComponent },
 }) => {
   const { locale, formatMessage } = useIntl();
-  const documentTitle = `${title} - Ant Design`;
+  const documentTitle = `${title} - Infra Design`;
   const contentChild = getMetaDescription(getChildren(content));
   const themeConfig = getThemeConfig();
   const menuItems = getMenuItems(

@@ -84,7 +84,7 @@ We are successfully running antd components now, go build your own application!
 
 ## Test with Jest
 
-`create-react-app` comes with `jest` built in. Jest does not support `esm` modules, and Ant Design uses them. In order to test your Ant Design application with Jest you have to add the following to your `package.json` :
+`create-react-app` comes with `jest` built in. Jest does not support `esm` modules, and Infra Design uses them. In order to test your Infra Design application with Jest you have to add the following to your `package.json` :
 
 ```json
 "jest": {

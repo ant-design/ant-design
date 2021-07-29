@@ -3,11 +3,11 @@ order: 7
 title: Customize Theme
 ---
 
-Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
+Infra Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
 
 ![customized themes](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
 
-## Ant Design Less variables
+## Infra Design Less variables
 
 We are using [Less](http://lesscss.org/) as the development language for styling. A set of less variables are defined for each design aspect that can be customized to your needs.
 
@@ -99,7 +99,7 @@ Another approach to customize theme is creating a `less` file within variables t
 
 ```css
 @import '~antd/lib/style/themes/default.less';
-@import '~antd/dist/antd.less'; // Import Ant Design styles by less entry
+@import '~antd/dist/antd.less'; // Import Infra Design styles by less entry
 @import 'your-theme-file.less'; // variables to override above
 ```
 
@@ -207,9 +207,9 @@ module.exports = {
 
 ## Related Articles
 
-- [Using Ant Design in Sass-Styled Webpack Projects with `antd-scss-theme-plugin`](https://intoli.com/blog/antd-scss-theme-plugin/)
-- [How to Customize Ant Design with React & Webpack… the Missing Guide](https://medium.com/@GeoffMiller/how-to-customize-ant-design-with-react-webpack-the-missing-guide-c6430f2db10f)
-- [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
+- [Using Infra Design in Sass-Styled Webpack Projects with `antd-scss-theme-plugin`](https://intoli.com/blog/antd-scss-theme-plugin/)
+- [How to Customize Infra Design with React & Webpack… the Missing Guide](https://medium.com/@GeoffMiller/how-to-customize-ant-design-with-react-webpack-the-missing-guide-c6430f2db10f)
+- [Theming Infra Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
 - [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
-- [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
+- [Dynamic Theming in Browser using Infra Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
 - [Zero config custom theme generator](https://www.npmjs.com/package/@emeks/antd-custom-theme-generator)

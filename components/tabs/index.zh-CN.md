@@ -13,7 +13,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/lkI2hNEDr2V/Tabs.svg
 
 提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
 
-Ant Design 依次提供了三级选项卡，分别用于不同的场景。
+Infra Design 依次提供了三级选项卡，分别用于不同的场景。
 
 - 卡片式的页签，提供可关闭的样式，常用于容器顶部。
 - 既可用于容器顶部，也可用于容器内部，是最通用的 Tabs。
@@ -46,9 +46,9 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 ### Tabs.TabPane
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| closeIcon | 自定义关闭图标，`在 type="editable-card"`时有效 | ReactNode | - |
-| forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |
-| key | 对应 activeKey | string | - |
-| tab | 选项卡头显示文字 | ReactNode | - |
+| 参数        | 说明                                            | 类型      | 默认值 |
+| ----------- | ----------------------------------------------- | --------- | ------ |
+| closeIcon   | 自定义关闭图标，`在 type="editable-card"`时有效 | ReactNode | -      |
+| forceRender | 被隐藏时是否渲染 DOM 结构                       | boolean   | false  |
+| key         | 对应 activeKey                                  | string    | -      |
+| tab         | 选项卡头显示文字                                | ReactNode | -      |

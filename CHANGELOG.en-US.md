@@ -669,7 +669,7 @@ It is a wrong release which same as `4.10.3`, don't use it.
 - 🐞 Fix Badge style blink when mounted. [#28003](https://github.com/ant-design/ant-design/pull/28003)
 - 💄 Reduce Modal style size. [#27998](https://github.com/ant-design/ant-design/pull/27998)
 - 🐞 Fix Layout.Sider can not collapse when `width='0'`. [#28000](https://github.com/ant-design/ant-design/pull/28000)
-- 🐞 Fix Menu style when using none Ant Design icons. [#27983](https://github.com/ant-design/ant-design/pull/27983)
+- 🐞 Fix Menu style when using none Infra Design icons. [#27983](https://github.com/ant-design/ant-design/pull/27983)
 - Input
   - 🐞 Fix Input.Search button height when customize less variables. [#27986](https://github.com/ant-design/ant-design/pull/27986)
   - 🐞 Fix Input.Search `addonBefore` abnormal style. [#27960](https://github.com/ant-design/ant-design/pull/27960)
@@ -2029,7 +2029,7 @@ It is a wrong release which same as `4.10.3`, don't use it.
 
 `2020-02-28`
 
-- 🏆 Ant Design v4 is out! Check [here](https://github.com/ant-design/ant-design/issues/21656) for more info.
+- 🏆 Infra Design v4 is out! Check [here](https://github.com/ant-design/ant-design/issues/21656) for more info.
 - 🐞 Breadcrumb use `path` as default key to fix `name` key conflict. [#21583](https://github.com/ant-design/ant-design/pull/21583) [@douxc](https://github.com/douxc)
 - 🌟 Timeline.Item support `label`. [#21560](https://github.com/ant-design/ant-design/pull/21560) [@shaodahong](https://github.com/shaodahong)
 - 🐞 Fix Table filter menu max height style with many items. [#21602](https://github.com/ant-design/ant-design/pull/21602)
@@ -2234,7 +2234,7 @@ It is a wrong release which same as `4.10.3`, don't use it.
 
 `2020-01-04`
 
-Ant Design 4.0-rc released! Here is the release [document](https://github.com/ant-design/ant-design/issues/20661).
+Infra Design 4.0-rc released! Here is the release [document](https://github.com/ant-design/ant-design/issues/20661).
 
 ⚠️ Migrate from v3 to v4 please ref to [migration document](/docs/react/migration-v4).
 

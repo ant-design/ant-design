@@ -10,7 +10,7 @@ Tabs make it easy to switch between different views.
 
 ### When To Use
 
-Ant Design has 3 types of Tabs for different situations.
+Infra Design has 3 types of Tabs for different situations.
 
 - Card Tabs: for managing too many closeable views.
 - Normal Tabs: for functional aspects of a page.
@@ -28,7 +28,7 @@ Ant Design has 3 types of Tabs for different situations.
 | centered | Centers tabs | boolean | false | 4.4.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
-| moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0  |
+| moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | Preset tab bar size | `large` \| `default` \| `small` | `default` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |

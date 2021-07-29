@@ -56,7 +56,7 @@ export default function NotFound(props: NotFoundProps) {
           extra={
             <Link to={utils.getLocalizedPathname('/', isZhCN)}>
               <Button type="primary" icon={<HomeOutlined />}>
-                {isZhCN ? '返回 Ant Design 首页' : 'Back to home page'}
+                {isZhCN ? '返回 Infra Design 首页' : 'Back to home page'}
               </Button>
             </Link>
           }

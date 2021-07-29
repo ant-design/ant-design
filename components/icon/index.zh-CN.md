@@ -15,11 +15,11 @@ npm install --save @ant-design/icons
 
 ## 设计师专属
 
-安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Ant Design 和 Iconfont 的海量图标，还可以关联自有项目。
+安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Infra Design 和 Iconfont 的海量图标，还可以关联自有项目。
 
 ## 图标列表
 
-```_\_react
+```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
 ReactDOM.render(<IconDisplay />, mountNode);
 ```
@@ -148,10 +148,10 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段 | 说明 | 类型 | 只读值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 计算后的 `svg` 类名 | string | - |  |
-| fill | `svg` 元素填充的颜色 | string | `currentColor` |  |
-| height | `svg` 元素高度 | string \| number | `1em` |  |
-| style | 计算后的 `svg` 元素样式 | CSSProperties | - |  |
-| width | `svg` 元素宽度 | string \| number | `1em` |  |
+| 字段      | 说明                    | 类型             | 只读值         | 版本 |
+| --------- | ----------------------- | ---------------- | -------------- | ---- |
+| className | 计算后的 `svg` 类名     | string           | -              |      |
+| fill      | `svg` 元素填充的颜色    | string           | `currentColor` |      |
+| height    | `svg` 元素高度          | string \| number | `1em`          |      |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |
+| width     | `svg` 元素宽度          | string \| number | `1em`          |      |

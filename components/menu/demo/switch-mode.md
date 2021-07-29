@@ -73,7 +73,7 @@ const Demo = () => {
         </SubMenu>
         <Menu.Item key="link" icon={<LinkOutlined />}>
           <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-            Ant Design
+            Infra Design
           </a>
         </Menu.Item>
       </Menu>

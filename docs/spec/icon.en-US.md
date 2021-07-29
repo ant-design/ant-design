@@ -4,7 +4,7 @@ order: 5
 title: Icons
 ---
 
-An icon is a graphical representation of meaning. Icons can be used to express actions, state, and even to categorize data. Ant Design's icons adhere to the following two principles and are designed for cross-platform consistency:
+An icon is a graphical representation of meaning. Icons can be used to express actions, state, and even to categorize data. Infra Design's icons adhere to the following two principles and are designed for cross-platform consistency:
 
 - Graphics that are clear, intuitive, and simple enjoy a higher degree of recognition and are more easily understood
 - All icons in the user interface should be consistent in style (detail design, perspective, stroke weight, etc.)
@@ -15,13 +15,13 @@ An icon is a graphical representation of meaning. Icons can be used to express a
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/XzOPonWCsPjvgkrklCzo.png" alt="System Icons">
 
-System icons are often used to represent commonly used operations, such as: save, edit, delete. Ant Design also includes icons to represent file types and state.
+System icons are often used to represent commonly used operations, such as: save, edit, delete. Infra Design also includes icons to represent file types and state.
 
 - [View the icons](/components/icon/)
 
 ### Key Contour Lines
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/beTZeZjJBVuhMyTOhebs.png" alt="Ant Design's grid and key contour lines" alt="Key Contour Lines">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/beTZeZjJBVuhMyTOhebs.png" alt="Infra Design's grid and key contour lines" alt="Key Contour Lines">
 
 Contour lines play an important role in making various icons with the same visual effect.
 
@@ -40,7 +40,7 @@ Please make all icons in the 1024×1024 resolution (16×16 64 times).
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uoNmxXiqKpfoFDdEVjUB.png" alt="Correct example" description="Line thickness is consistently 72px">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cnFYbWzcKaPFSiHcptCF.png" alt="Incorrect example" description="Line thickness is not uniform">
 
-Consistent stroke weight is the key to maintaining the visual unity of the entire icon system. Ant Design's icons have a consistent line width of 72px.
+Consistent stroke weight is the key to maintaining the visual unity of the entire icon system. Infra Design's icons have a consistent line width of 72px.
 
 ### Corners
 
@@ -49,7 +49,7 @@ Consistent stroke weight is the key to maintaining the visual unity of the entir
 
 Consistent rounding of corners and sizing of angles is also an important element in maintaining visual unity.
 
-Icons that follow Ant Design should have rounded corners and edges using a 72px radius.
+Icons that follow Infra Design should have rounded corners and edges using a 72px radius.
 
 ### Visual Correction
 
@@ -75,7 +75,7 @@ Uniform naming conventions make finding icons faster and easier. For example, ic
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jAuedlyhNIDyOIZTqbqN.png" alt="Icon Sizing">
 
-Icons should be scaled according to the text size, according to the Ant Design specification.
+Icons should be scaled according to the text size, according to the Infra Design specification.
 
 For example, icons inline with 12pt font should be 12px in size with 8px of spacing.
 

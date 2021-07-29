@@ -39,13 +39,13 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 <a
                   href="https://ant.design"
                 >
-                  Ant Design Title 1
+                  Infra Design Title 1
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                Infra Design, a design language for background applications, is refined by Ant UED Team
               </div>
             </div>
           </div>
@@ -76,13 +76,13 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 <a
                   href="https://ant.design"
                 >
-                  Ant Design Title 2
+                  Infra Design Title 2
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                Infra Design, a design language for background applications, is refined by Ant UED Team
               </div>
             </div>
           </div>
@@ -113,13 +113,13 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 <a
                   href="https://ant.design"
                 >
-                  Ant Design Title 3
+                  Infra Design Title 3
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                Infra Design, a design language for background applications, is refined by Ant UED Team
               </div>
             </div>
           </div>
@@ -150,13 +150,13 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 <a
                   href="https://ant.design"
                 >
-                  Ant Design Title 4
+                  Infra Design Title 4
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                Infra Design, a design language for background applications, is refined by Ant UED Team
               </div>
             </div>
           </div>
@@ -1645,7 +1645,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                  Infra Design, a design language for background applications, is refined by Ant UED Team.
                 </div>
               </div>
             </div>
@@ -1811,7 +1811,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                  Infra Design, a design language for background applications, is refined by Ant UED Team.
                 </div>
               </div>
             </div>
@@ -1977,7 +1977,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                  Infra Design, a design language for background applications, is refined by Ant UED Team.
                 </div>
               </div>
             </div>

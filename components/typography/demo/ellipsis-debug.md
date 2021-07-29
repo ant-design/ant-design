@@ -47,7 +47,7 @@ class Demo extends React.Component {
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
         {longText ? (
           <Paragraph ellipsis={{ rows, expandable }} copyable={copyable} editable={editable}>
-            Ant Design, a design language for background applications, is refined by Ant UED Team.
+            Infra Design, a design language for background applications, is refined by Ant UED Team.
             This is a nest sample{' '}
             <Text code strong delete>
               Test

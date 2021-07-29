@@ -59,7 +59,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
 </div>
 </div>
 
-In most business situations, Ant Design needs to solve a lot of information storage problems within the design area, so based on 12 Grids System, we divided the design area into 24 sections.
+In most business situations, Infra Design needs to solve a lot of information storage problems within the design area, so based on 12 Grids System, we divided the design area into 24 sections.
 
 We name the divided area 'box'. We suggest four boxes for horizontal arrangement at most, one at least. Boxes are proportional to the entire screen as shown in the picture above. To ensure a high level of visual comfort, we customize the typography inside of the box based on the box unit.
 
@@ -80,7 +80,7 @@ Layout uses a 24 grid layout to define the width of each "box", but does not rig
 
 ## API
 
-If the Ant Design grid layout component does not meet your needs, you can use the excellent layout components of the community:
+If the Infra Design grid layout component does not meet your needs, you can use the excellent layout components of the community:
 
 - [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
 - [react-blocks](https://github.com/whoisandy/react-blocks/)

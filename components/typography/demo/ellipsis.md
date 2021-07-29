@@ -31,7 +31,7 @@ const Demo = () => {
       />
 
       <Paragraph ellipsis={ellipsis}>
-        Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Infra Design, a design language for background applications, is refined by Ant UED Team. Ant
         Design, a design language for background applications, is refined by Ant UED Team. Ant
         Design, a design language for background applications, is refined by Ant UED Team. Ant
         Design, a design language for background applications, is refined by Ant UED Team. Ant
@@ -40,7 +40,7 @@ const Demo = () => {
       </Paragraph>
 
       <Paragraph ellipsis={ellipsis ? { rows: 2, expandable: true, symbol: 'more' } : false}>
-        Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Infra Design, a design language for background applications, is refined by Ant UED Team. Ant
         Design, a design language for background applications, is refined by Ant UED Team. Ant
         Design, a design language for background applications, is refined by Ant UED Team. Ant
         Design, a design language for background applications, is refined by Ant UED Team. Ant
@@ -52,7 +52,7 @@ const Demo = () => {
         style={ellipsis ? { width: 100 } : undefined}
         ellipsis={ellipsis ? { tooltip: 'I am ellipsis now!' } : false}
       >
-        Ant Design, a design language for background applications, is refined by Ant UED Team.
+        Infra Design, a design language for background applications, is refined by Ant UED Team.
       </Text>
     </>
   );

@@ -143,7 +143,7 @@ class ComponentDoc extends React.Component {
     });
 
     const { title, subtitle, filename } = meta;
-    const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
+    const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Infra Design`;
     const contentChild = getMetaDescription(getChildren(content));
 
     return (

@@ -3,7 +3,7 @@ order: 9
 title: 社区精选组件
 ---
 
-`antd` 是基于 Ant Design 设计规范实现的 [高质量 React 组件库](/components/overview)，我们倾向于只提供符合该规范且带有视觉展现的 UI 组件，也尽量不重复造轮子。我们推荐使用以下社区已有的优秀实现，与 antd 形成互补。
+`antd` 是基于 Infra Design 设计规范实现的 [高质量 React 组件库](/components/overview)，我们倾向于只提供符合该规范且带有视觉展现的 UI 组件，也尽量不重复造轮子。我们推荐使用以下社区已有的优秀实现，与 antd 形成互补。
 
 | 类型 | 推荐组件 |
 | --- | --- |

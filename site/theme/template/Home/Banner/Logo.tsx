@@ -66,14 +66,14 @@ export default function Logo() {
       }}
     >
       <img
-        alt="Ant Design"
+        alt="Infra Design"
         src="https://gw.alipayobjects.com/zos/basement_prod/80e7d303-aa05-4c2d-94e9-2255ab5cea6c.svg"
         className="home-banner-mini"
       />
       <img
         width="500"
         height="87"
-        alt="Ant Design"
+        alt="Infra Design"
         src="https://gw.alipayobjects.com/zos/antfincdn/6UYtAUYPXE/AntDesign.svg"
         className="home-banner-normal"
       />

@@ -19,7 +19,7 @@ title:
 
 ## 设计原则
 
-从最底层的设计价值观到最上层的设计方法，HiTu 沿袭了 Ant Design 的 ETCG 的设计思路，将图形化资产组件化，分可形成模板，合则可拼搭成案例。为设计值提供强大的灵活性和定制性。
+从最底层的设计价值观到最上层的设计方法，HiTu 沿袭了 Infra Design 的 ETCG 的设计思路，将图形化资产组件化，分可形成模板，合则可拼搭成案例。为设计值提供强大的灵活性和定制性。
 
 <div style="text-align:center;">
   <img alt="Design principle" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WKEzS5-_zYAAAAAAAAAAAABkARQnAQ" />
@@ -39,7 +39,7 @@ title:
 
 <img class="preview-img no-padding" align="right" description="海兔色板" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ZE6RrjW-jQAAAAAAAAAAABkARQnAQ" />
 
-海兔的色彩配色体系是基于 Ant Design 色板的场景应用，与 UI 色彩体系的应用会有所不同。图形化的配色体系会相对更加的灵活可变。基于 Ant Design 的基础色板我们进行了明度的调整，扩大图形化设计的宽容度，使用选择时候更加高效易用，由于是出自 Ant Design 的色彩体系，和其他 UI 资产完美兼容。
+海兔的色彩配色体系是基于 Infra Design 色板的场景应用，与 UI 色彩体系的应用会有所不同。图形化的配色体系会相对更加的灵活可变。基于 Infra Design 的基础色板我们进行了明度的调整，扩大图形化设计的宽容度，使用选择时候更加高效易用，由于是出自 Infra Design 的色彩体系，和其他 UI 资产完美兼容。
 
 ### 海兔默认资产颜色
 

@@ -53,7 +53,7 @@ const Demo: React.FC = () => {
         {lengthLimitedStr}
       </Paragraph>
       <Paragraph copyable>This is a copyable text.</Paragraph>
-      <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
+      <Paragraph copyable={{ text: 'Hello, Infra Design!' }}>Replace copy text.</Paragraph>
       <Paragraph
         copyable={{
           icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />],

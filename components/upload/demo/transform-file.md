@@ -36,7 +36,7 @@ const props = {
           ctx.fillStyle = 'red';
           ctx.textBaseline = 'middle';
           ctx.font = '33px Arial';
-          ctx.fillText('Ant Design', 20, 20);
+          ctx.fillText('Infra Design', 20, 20);
           canvas.toBlob(resolve);
         };
       };

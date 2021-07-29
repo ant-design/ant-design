@@ -3,7 +3,7 @@ order: 2
 title: 快速上手
 ---
 
-Ant Design React 致力于提供给程序员**愉悦**的开发体验。
+Infra Design React 致力于提供给程序员**愉悦**的开发体验。
 
 > 在开始之前，推荐先学习 [React](http://reactjs.org) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v8 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
 
@@ -11,7 +11,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ## 第一个例子
 
-这是一个最简单的 Ant Design 组件的在线 codesandbox 演示。
+这是一个最简单的 Infra Design 组件的在线 codesandbox 演示。
 
 <iframe
   src="https://codesandbox.io/embed/antd-reproduction-template-6e93z?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
@@ -94,7 +94,7 @@ render(<App />, document.getElementById('root'));
 
 实际项目开发中，你会需要构建、调试、代理、打包部署等一系列工程化的需求。您可以阅读后面的文档或者使用以下脚手架和范例：
 
-- [Ant Design Pro](http://pro.ant.design/)
+- [Infra Design Pro](http://pro.ant.design/)
 - [antd-admin](https://github.com/zuiidea/antd-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
 - 更多脚手架可以查看 [脚手架市场](http://scaffold.ant.design/)

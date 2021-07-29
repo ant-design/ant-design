@@ -11,7 +11,7 @@ title: 亲密性
 
 ## 纵向间距关系
 
-<img class="preview-img" align="right" alt="纵向间距示例" description="在 Ant Design 中，这三种规格分别为：8px（小号间距）、16px（中号间距）、24px（大号间距）。" src="https://gw.alipayobjects.com/zos/rmsportal/goazWUHPXsGEDFIGsNlm.png">
+<img class="preview-img" align="right" alt="纵向间距示例" description="在 Infra Design 中，这三种规格分别为：8px（小号间距）、16px（中号间距）、24px（大号间距）。" src="https://gw.alipayobjects.com/zos/rmsportal/goazWUHPXsGEDFIGsNlm.png">
 
 通过「小号间距」、「中号间距」、「大号间距」这三种规格来划分信息层次结构。
 
@@ -21,7 +21,7 @@ title: 亲密性
 
 在这三种规格不适用的情况下，可以通过加减「基础间距」的倍数，或者增加元素来拉开信息层次。
 
-> 注：在 Ant Design 中，`y = 8 + 8 * n`。其中，`n >= 0`，y 是纵向间距，8 是「基础间距」。
+> 注：在 Infra Design 中，`y = 8 + 8 * n`。其中，`n >= 0`，y 是纵向间距，8 是「基础间距」。
 
 ---
 

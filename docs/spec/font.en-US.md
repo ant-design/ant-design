@@ -6,7 +6,7 @@ title: Font
 
 The font system is one of the most foundational parts of any interface design.
 
-Text is a major channel for users to understand application content and complete their work, and a well designed font system will greatly enhance the user's reading experience and work efficiency. The Ant Design typography system is based on the design principle of "dynamic order" combined with the law of natural logarithm and temperament. We strongly recommend it since it has been verified by a large number of Ant products. While defining the font system for a visual system, we propose to start from the following five aspects:
+Text is a major channel for users to understand application content and complete their work, and a well designed font system will greatly enhance the user's reading experience and work efficiency. The Infra Design typography system is based on the design principle of "dynamic order" combined with the law of natural logarithm and temperament. We strongly recommend it since it has been verified by a large number of Ant products. While defining the font system for a visual system, we propose to start from the following five aspects:
 
 1. Font Family
 2. Base Font Size
@@ -18,7 +18,7 @@ Text is a major channel for users to understand application content and complete
 
 ## Font Family
 
-In order to implement a good font system, the first thing is to choose an appropriate font family. Ant Design prefers the system default font family and then also provides a set of alternative font libraries to maintain readability for screens on different platforms and browsers and to make sure it's always user friendly, stable and professional to end user.
+In order to implement a good font system, the first thing is to choose an appropriate font family. Infra Design prefers the system default font family and then also provides a set of alternative font libraries to maintain readability for screens on different platforms and browsers and to make sure it's always user friendly, stable and professional to end user.
 
 ```css
 @font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
@@ -34,7 +34,7 @@ In addition, in many applications, numbers often need to be displayed vertically
 
 ## Base Font Size
 
-We have updated Ant Design's base font size from the original 12 to 14 to ensure the best user reading efficiency on most common monitors based on display screen reading distance (50 cm) and optimal reading angle (0.3).
+We have updated Infra Design's base font size from the original 12 to 14 to ensure the best user reading efficiency on most common monitors based on display screen reading distance (50 cm) and optimal reading angle (0.3).
 
 <div style="text-align:center;margin:40px 0;">
   <img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/yriUFbqOPtVniYYiikfb.png">
@@ -48,11 +48,11 @@ The font scale and line height determine the beauty of the dynamics and order of
   <img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/xpykKKFJQorFJltdXkie.png">
 </div>
 
-Ant Design was inspired by the pentatonic scale and natural law to define 10 different font sizes and corresponding line heights.
+Infra Design was inspired by the pentatonic scale and natural law to define 10 different font sizes and corresponding line heights.
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/iFjgfIBExksqCqGMwUlw.png" />
 
-In Ant Design's visual system, our recommended base font size is 14, and its corresponding line height is 22. The choice of the rest of the font scale can be freely defined according to the specific circumstances. It is recommended that in a design system (except for display pages), the choice of font scale should be controlled within 3 to 5 types, and the principle of restraint should be maintained.
+In Infra Design's visual system, our recommended base font size is 14, and its corresponding line height is 22. The choice of the rest of the font scale can be freely defined according to the specific circumstances. It is recommended that in a design system (except for display pages), the choice of font scale should be controlled within 3 to 5 types, and the principle of restraint should be maintained.
 
 ## Font Weight
 

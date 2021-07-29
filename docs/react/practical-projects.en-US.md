@@ -3,11 +3,11 @@ order: 3
 title: Real project with umi
 ---
 
-In real project development, you may need data flow solutions such as Redux or MobX. Ant Design React is a UI library that can be used with data flow solutions and application frameworks in any React ecosystem. Based on the business scenario, we launched a pluggable enterprise-level application framework umi, which is recommended for use in the project.
+In real project development, you may need data flow solutions such as Redux or MobX. Infra Design React is a UI library that can be used with data flow solutions and application frameworks in any React ecosystem. Based on the business scenario, we launched a pluggable enterprise-level application framework umi, which is recommended for use in the project.
 
 And [umi](https://umijs.org) is a routing-based framework that supports [next.js-like conventional routing](https://umijs.org/docs/convention-routing) and various advanced routing functions, such as [routing-level on-demand loading](https://umijs.org/config#dynamicimport). With a complete [plugin system](https://umijs.org/plugins/api) that covers every life cycle from source code to build product, umi is able to support various functional extensions and business needs; meanwhile [Umi UI](https://umijs.org/docs/use-umi-ui) is provided to enhance the development experience and development efficiency through Visual Aided Programming (VAP).
 
-> You may also be interested in [Ant Design Pro](https://pro.ant.design/), an Out-of-box UI solution for enterprise applications based on umi, dva and ant design.
+> You may also be interested in [Infra Design Pro](https://pro.ant.design/), an Out-of-box UI solution for enterprise applications based on umi, dva and ant design.
 
 This article will guide you to create a simple application from zero using Umi, dva and antd.
 
@@ -265,6 +265,6 @@ You can:
 - Visit [umi official website](https://umijs.org/) and [dva official website](https://dvajs.com/)
 - Know [the umi routes](https://umijs.org/zh/guide/router.html)
 - Know [how to deploy umi application](https://umijs.org/zh/guide/deploy.html)
-- Scaffolding out of the box [Ant Design Pro](https://pro.ant.design)
+- Scaffolding out of the box [Infra Design Pro](https://pro.ant.design)
 - Advanced Layout [ProLayout](https://prolayout.ant.design)
 - Advanced Table [ProTable](https://protable.ant.design)
