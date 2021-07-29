@@ -51,6 +51,11 @@ ReactDOM.render(
       <Badge color="#87d068" text="#87d068" />
       <br />
       <Badge color="#108ee9" text="#108ee9" />
+      <br />
+      <br />
+      <Badge color="#ff8d07" count={5}>
+        #ff8d07
+      </Badge>
     </div>
   </>,
   mountNode,
