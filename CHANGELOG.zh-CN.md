@@ -21,7 +21,7 @@ timeline: true
 
 - 🐞 修复 Progress 环形进度条 `success.strokeColor` 不生效的问题。[#31589](https://github.com/ant-design/ant-design/pull/31589)
 - 🐞 修复 Pagination 的 totalBoundaryShowSizeChanger 属性类型错误。[#31549](https://github.com/ant-design/ant-design/pull/31549) [@Monty-Ma](https://github.com/Monty-Ma)
-- 🐞 修复应用于 SkeletonAvatar wrapper 和元素本身的 `className`。 [#31536](https://github.com/ant-design/ant-design/pull/31536) [@Greatshock](https://github.com/Greatshock)
+- 🐞 修复 Skeleton.Avatar `className` 重复应用的问题。 [#31536](https://github.com/ant-design/ant-design/pull/31536) [@Greatshock](https://github.com/Greatshock)
 - 💄 修复 Form 内 `<Input bordered={false} />` 错误样式有异常外框样式的问题。[#31562](https://github.com/ant-design/ant-design/pull/31562)
 - 🌐 国际化
   - 为 Image 组件中 "预览" 文案增加土耳其语翻译 [#31593](https://github.com/ant-design/ant-design/pull/31593) [@mburakkalkan](https://github.com/mburakkalkan)
