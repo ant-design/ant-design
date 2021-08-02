@@ -1,9 +1,8 @@
 ---
-order: 99
+order: 2
 title:
-  zh-CN: Style debug
-  en-US: Style debug
-debug: true
+  zh-CN: 顶部横向导航
+  en-US: Top Horizontal Navigator
 ---
 
 ## zh-CN
