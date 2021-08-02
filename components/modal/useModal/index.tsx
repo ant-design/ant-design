@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ModalFuncProps } from '../Modal';
+import { destroyFns } from '../Modal';
 import usePatchElement from '../../_util/hooks/usePatchElement';
 import HookModal, { HookModalRef } from './HookModal';
 import {
@@ -69,6 +70,8 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
         );
 
         closeFunc = holderRef.current?.patchElement(modal);
+
+        destroyFns.push(closeFunc as () => void);
 
         return {
           destroy: () => {
