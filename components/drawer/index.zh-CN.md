@@ -27,6 +27,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | contentWrapperStyle | 可用于设置 Drawer 包裹内容部分的样式 | CSSProperties | - |  |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
 | drawerStyle | 用于设置 Drawer 弹出层的样式 | CSSProperties | - |  |
+| extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 |
 | footer | 抽屉的页脚 | ReactNode | - |  |
 | footerStyle | 抽屉页脚部件的样式 | CSSProperties | - |  |
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |
@@ -39,9 +40,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | maskStyle | 遮罩样式 | CSSProperties | {} |  |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
+| size | 预设抽屉宽度（或高度），default `378px` 和 large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | style | 可用于设置 Drawer 最外层容器的样式，和 `drawerStyle` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
 | visible | Drawer 是否可见 | boolean | - |  |
-| width | 宽度 | string \| number | 256 |  |
+| width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |

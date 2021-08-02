@@ -8,7 +8,7 @@ import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
-import { globalConfig } from '../config-provider';
+import ConfigProvider, { globalConfig } from '../config-provider';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -108,7 +108,11 @@ function getPlacementStyle(
 
 function getNotificationInstance(
   args: ArgsProps,
-  callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
+  callback: (info: {
+    prefixCls: string;
+    iconPrefixCls: string;
+    instance: RCNotificationInstance;
+  }) => void,
 ) {
   const {
     placement = defaultPlacement,
@@ -118,14 +122,15 @@ function getNotificationInstance(
     closeIcon = defaultCloseIcon,
     prefixCls: customizePrefixCls,
   } = args;
-  const { getPrefixCls } = globalConfig();
+  const { getPrefixCls, getIconPrefixCls } = globalConfig();
   const prefixCls = getPrefixCls('notification', customizePrefixCls || defaultPrefixCls);
+  const iconPrefixCls = getIconPrefixCls();
 
   const cacheKey = `${prefixCls}-${placement}`;
   const cacheInstance = notificationInstance[cacheKey];
   if (cacheInstance) {
     Promise.resolve(cacheInstance).then(instance => {
-      callback({ prefixCls: `${prefixCls}-notice`, instance });
+      callback({ prefixCls: `${prefixCls}-notice`, iconPrefixCls, instance });
     });
 
     return;
@@ -154,6 +159,7 @@ function getNotificationInstance(
         resolve(notification);
         callback({
           prefixCls: `${prefixCls}-notice`,
+          iconPrefixCls,
           instance: notification,
         });
       },
@@ -188,7 +194,7 @@ export interface ArgsProps {
   closeIcon?: React.ReactNode;
 }
 
-function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
+function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: string) {
   const {
     duration: durationArg,
     icon,
@@ -221,15 +227,17 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
 
   return {
     content: (
-      <div className={iconNode ? `${prefixCls}-with-icon` : ''} role="alert">
-        {iconNode}
-        <div className={`${prefixCls}-message`}>
-          {autoMarginTag}
-          {message}
+      <ConfigProvider iconPrefixCls={iconPrefixCls}>
+        <div className={iconNode ? `${prefixCls}-with-icon` : ''} role="alert">
+          {iconNode}
+          <div className={`${prefixCls}-message`}>
+            {autoMarginTag}
+            {message}
+          </div>
+          <div className={`${prefixCls}-description`}>{description}</div>
+          {btn ? <span className={`${prefixCls}-btn`}>{btn}</span> : null}
         </div>
-        <div className={`${prefixCls}-description`}>{description}</div>
-        {btn ? <span className={`${prefixCls}-btn`}>{btn}</span> : null}
-      </div>
+      </ConfigProvider>
     ),
     duration,
     closable: true,
@@ -244,8 +252,8 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
 }
 
 function notice(args: ArgsProps) {
-  getNotificationInstance(args, ({ prefixCls, instance }) => {
-    instance.notice(getRCNoticeProps(args, prefixCls));
+  getNotificationInstance(args, ({ prefixCls, iconPrefixCls, instance }) => {
+    instance.notice(getRCNoticeProps(args, prefixCls, iconPrefixCls));
   });
 }
 

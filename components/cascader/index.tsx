@@ -316,7 +316,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   getLabel() {
-    const { options, displayRender = defaultDisplayRender as Function } = this.props;
+    const { options, displayRender = defaultDisplayRender } = this.props;
     const names = getFilledFieldNames(this.props);
     const { value } = this.state;
     const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
@@ -618,9 +618,15 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           inputIcon = <DownOutlined className={arrowCls} />;
         }
 
+        const label = this.getLabel();
         const input: React.ReactElement = children || (
           <span style={style} className={pickerCls}>
-            <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
+            <span
+              className={`${prefixCls}-picker-label`}
+              title={typeof label === 'string' && label ? label : undefined}
+            >
+              {label}
+            </span>
             <Input
               {...inputProps}
               tabIndex={-1}
