@@ -93,6 +93,26 @@
     transition: color @animation-duration-slow;
   }
 
+  &-inline &-sub &-title-content::before {
+    /* add the new bullet point */
+    position: absolute;
+    top: 19px;
+    left: 30px;
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    margin-right: 0.5rem;
+    background-color: #b7b7b7;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    content: '';
+  }
+
+  &-inline &-sub &-item-selected &-title-content::before {
+    /* add the new bullet point */
+    background-color: #2673dd;
+  }
+
   &-item a {
     color: @menu-item-color;
     &:hover {
@@ -139,7 +159,6 @@
     color: #2673dd;
     font-weight: bold;
     font-size: 14px;
-    font-family: 'Roboto';
     a,
     a:hover {
       color: #2673dd;
