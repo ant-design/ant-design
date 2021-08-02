@@ -128,6 +128,7 @@ describe('Badge', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/21331
+  // https://github.com/ant-design/ant-design/issues/31590
   it('render Badge status/color when contains children', () => {
     const wrapper = mount(
       <div>
@@ -143,6 +144,9 @@ describe('Badge', () => {
       </div>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find(Badge).at(0).find('.ant-scroll-number-only-unit').text()).toBe('5');
+    expect(wrapper.find(Badge).at(1).find('.ant-scroll-number-only-unit').text()).toBe('5');
+    expect(wrapper.find(Badge).at(2).find('.ant-scroll-number-only-unit').text()).toBe('5');
   });
 
   it('Badge should work when status/color is empty string', () => {
