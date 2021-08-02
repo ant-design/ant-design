@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.16.10
+
+`2021-08-02`
+
+- 🐞 Fix circle Progress `success.strokeColor` cannot take effect. [#31589](https://github.com/ant-design/ant-design/pull/31589)
+- 🐞 Fix Pagination's totalBoundaryShowSizeChanger property type error. [#31549](https://github.com/ant-design/ant-design/pull/31549) [@Monty-Ma](https://github.com/Monty-Ma)
+- 🐞 Fix `className` applied to both SkeletonAvatar wrapper and element itself. [#31536](https://github.com/ant-design/ant-design/pull/31536) [@Greatshock](https://github.com/Greatshock)
+- 💄 Fix Form `<Input bordered={false} />` outline style. [#31562](https://github.com/ant-design/ant-design/pull/31562)
+- 🌐 Internationalization
+  - Added Turkish translation for Image 'Preview' text. [#31593](https://github.com/ant-design/ant-design/pull/31593) [@mburakkalkan](https://github.com/mburakkalkan)
+  - Fix a typo in the Korean language. [#31575](https://github.com/ant-design/ant-design/pull/31575) [@chatoo2412](https://github.com/chatoo2412)
+
 ## 4.16.9
 
 `2021-07-27`
