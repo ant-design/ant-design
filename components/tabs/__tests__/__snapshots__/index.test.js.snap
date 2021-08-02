@@ -128,7 +128,6 @@ exports[`Tabs tabBarGutter should work 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          style="margin-left:0"
         >
           <div
             aria-selected="true"
@@ -246,7 +245,6 @@ exports[`Tabs tabBarGutter should work 2`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          style="margin-top:0"
         >
           <div
             aria-selected="true"

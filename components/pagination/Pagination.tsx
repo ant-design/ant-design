@@ -43,6 +43,7 @@ export interface PaginationProps {
   ) => React.ReactNode;
   role?: string;
   showLessItems?: boolean;
+  totalBoundaryShowSizeChanger?: number;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';

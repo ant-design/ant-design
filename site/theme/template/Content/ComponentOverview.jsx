@@ -9,11 +9,11 @@ import { getChildren } from 'jsonml.js/lib/utils';
 import { getMetaDescription, getLocalizedPathname, getThemeConfig, getMenuItems } from '../utils';
 import './ComponentOverview.less';
 
-const onClickCard = href => {
+const onClickCard = pathname => {
   if (window.gtag) {
     window.gtag('event', '点击', {
       event_category: '组件总览卡片',
-      event_label: href,
+      event_label: pathname,
     });
   }
 };
@@ -107,7 +107,7 @@ const ComponentOverview = ({
                     const href = getLocalizedPathname(url, locale === 'zh-CN', location.query);
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
-                        <Link to={href} onClick={() => onClickCard(href)}>
+                        <Link to={href} onClick={() => onClickCard(href.onClickCard)}>
                           <Card
                             size="small"
                             className="components-overview-card"
