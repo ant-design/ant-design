@@ -19,7 +19,9 @@ timeline: true
 
 `2021-08-02`
 
-- 🐞 修复 Progress 环形进度条 `success.strokeColor` 不生效的问题。[#31589](https://github.com/ant-design/ant-design/pull/31589)
+- 🐞 修复 Badge 设置自定义 `color` 不显示数字的问题。[#31617](https://github.com/ant-design/ant-design/pull/31617)
+- 🐞 修复 Progress 环形进度条 `success.strokeColor` 不生效的问题。[#31589](https://github.com/ ant-design/ant-design/pull/31589)
+- 🐞 修复 Select 组件没有忽略 `getRawInputElement` prop 导致的类型报错问题。[#31566](https://github.com/ant-design/ant-design/pull/31566) [@aoilti](https://github.com/aoilti)
 - 🐞 修复 Pagination 的 totalBoundaryShowSizeChanger 属性类型错误。[#31549](https://github.com/ant-design/ant-design/pull/31549) [@Monty-Ma](https://github.com/Monty-Ma)
 - 🐞 修复 Skeleton.Avatar `className` 重复应用的问题。 [#31536](https://github.com/ant-design/ant-design/pull/31536) [@Greatshock](https://github.com/Greatshock)
 - 💄 修复 Form 内 `<Input bordered={false} />` 错误样式有异常外框样式的问题。[#31562](https://github.com/ant-design/ant-design/pull/31562)
