@@ -65,7 +65,7 @@ const Badge: CompoundedComponent = ({
   const hasStatus =
     (status !== null && status !== undefined) || (color !== null && color !== undefined);
 
-  const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
+  const isZero = Number(numberedDisplayCount) === 0;
 
   const showAsDot = dot && !isZero;
 
