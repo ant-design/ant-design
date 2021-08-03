@@ -71,7 +71,7 @@ export default function Logo() {
         className="home-banner-mini"
       />
       {/* TODO:  */}
-      <div style={{ fontSize: 100, position: 'relative', top: -33, left: -13 }}>Infra Design</div>
+      <div style={{ fontSize: 90, position: 'relative', top: -43, left: 1 }}>Infra Design</div>
       <Hitu
         ref={hituRef}
         width={64}
