@@ -37,7 +37,7 @@ export default function imageTest(component: React.ReactElement) {
       await browser.close();
     });
     beforeEach(async () => {
-      page = await browser.newPage({ screen: { width: 1280, height: 720 } });
+      page = await browser.newPage({ screen: { width: 800, height: 720 } });
     });
     afterEach(async () => {
       await page.close();
