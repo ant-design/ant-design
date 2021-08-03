@@ -17,6 +17,7 @@ import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
+import defaultLocale from '../locale/default';
 
 export {
   RenderEmptyHandler,
@@ -187,16 +188,21 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     },
   );
 
-  const memoIconContextValue = React.useMemo(() => ({ prefixCls: iconPrefixCls, csp }), [
-    iconPrefixCls,
-  ]);
+  const memoIconContextValue = React.useMemo(
+    () => ({ prefixCls: iconPrefixCls, csp }),
+    [iconPrefixCls],
+  );
 
   let childNode = children;
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
 
-  if (locale && locale.Form && locale.Form.defaultValidateMessages) {
-    validateMessages = locale.Form.defaultValidateMessages;
+  if (locale) {
+    if (locale.Form && locale.Form.defaultValidateMessages) {
+      validateMessages = locale.Form.defaultValidateMessages;
+    } else {
+      validateMessages = defaultLocale.Form!.defaultValidateMessages;
+    }
   }
   if (form && form.validateMessages) {
     validateMessages = { ...validateMessages, ...form.validateMessages };
