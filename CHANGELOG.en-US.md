@@ -19,6 +19,7 @@ timeline: true
 
 `2021-08-02`
 
+- 🐞 Fix Modal destroyAll() not working when using `useModal` call confirm. [#31190](https://github.com/ant-design/ant-design/issues/31190) [@yklydxtt](https://github.com/yklydxtt)
 - 🐞 Fix Badge not showing count when customize `color` prop. [#31617](https://github.com/ant-design/ant-design/pull/31617) [@eokoneyo](https://github.com/eokoneyo)
 - 🐞 Fix circle Progress `success.strokeColor` cannot take effect. [#31589](https://github.com/ant-design/ant-design/pull/31589)
 - 🐞 Fix the type error due to the Select component didn't ignore the `getRawInputElement` prop. [#31566](https://github.com/ant-design/ant-design/pull/31566) [@aoilti](https://github.com/aoilti)

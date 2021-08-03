@@ -19,6 +19,7 @@ timeline: true
 
 `2021-08-02`
 
+- 🐞 修复 Modal destroyAll() 不生效，当使用 `useModal`渲染 confirm 时. [#31190](https://github.com/ant-design/ant-design/issues/31190) [@yklydxtt](https://github.com/yklydxtt)
 - 🐞 修复 Badge 设置自定义 `color` 不显示数字的问题。[#31617](https://github.com/ant-design/ant-design/pull/31617) [@eokoneyo](https://github.com/eokoneyo)
 - 🐞 修复 Progress 环形进度条 `success.strokeColor` 不生效的问题。[#31589](https://github.com/ant-design/ant-design/pull/31589)
 - 🐞 修复 Select 组件没有忽略 `getRawInputElement` 属性导致的类型报错问题。[#31566](https://github.com/ant-design/ant-design/pull/31566) [@aoilti](https://github.com/aoilti)
