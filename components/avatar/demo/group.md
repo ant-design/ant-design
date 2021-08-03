@@ -25,7 +25,7 @@ const Demo = () => (
       <Tooltip title="Ant User" placement="top">
         <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
       </Tooltip>
-      <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
+      <Avatar style={{ backgroundColor: '#2673dd' }} icon={<AntDesignOutlined />} />
     </Avatar.Group>
     <Divider />
     <Avatar.Group maxCount={2} maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
@@ -34,7 +34,7 @@ const Demo = () => (
       <Tooltip title="Ant User" placement="top">
         <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
       </Tooltip>
-      <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
+      <Avatar style={{ backgroundColor: '#2673dd' }} icon={<AntDesignOutlined />} />
     </Avatar.Group>
     <Divider />
     <Avatar.Group
@@ -47,7 +47,7 @@ const Demo = () => (
       <Tooltip title="Ant User" placement="top">
         <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
       </Tooltip>
-      <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
+      <Avatar style={{ backgroundColor: '#2673dd' }} icon={<AntDesignOutlined />} />
     </Avatar.Group>
   </>
 );

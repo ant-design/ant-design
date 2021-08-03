@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 0
 title:
   zh-CN: 顶部横向导航
   en-US: Top Horizontal Navigator

@@ -95,7 +95,7 @@ class App extends React.Component {
         </Space>
       </div>
     ),
-    filterIcon: filtered => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
+    filterIcon: filtered => <SearchOutlined style={{ color: filtered ? '#2673dd' : undefined }} />,
     onFilter: (value, record) =>
       record[dataIndex]
         ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())

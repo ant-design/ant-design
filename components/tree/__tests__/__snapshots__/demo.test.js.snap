@@ -292,7 +292,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
                 class="ant-tree-title"
               >
                 <span
-                  style="color:#1890ff"
+                  style="color:#2673dd"
                 >
                   sss
                 </span>

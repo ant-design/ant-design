@@ -144,9 +144,9 @@ ReactDOM.render(<DragSortingUpload />, mountNode);
   border-bottom: 2px dashed rgba(0, 0, 0, 0);
 }
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-downward {
-  border-bottom-color: #1890ff;
+  border-bottom-color: #2673dd;
 }
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-upward {
-  border-top-color: #1890ff;
+  border-top-color: #2673dd;
 }
 ```

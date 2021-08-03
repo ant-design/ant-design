@@ -14,8 +14,8 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 以下是一些最常用的通用变量，所有样式变量可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到。
 
 ```less
-@primary-color: #1890ff; // 全局主色
-@link-color: #1890ff; // 链接色
+@primary-color: #2673dd; // 全局主色
+@link-color: #2673dd; // 链接色
 @success-color: #52c41a; // 成功色
 @warning-color: #faad14; // 警告色
 @error-color: #f5222d; // 错误色

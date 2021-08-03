@@ -2889,7 +2889,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
               aria-label="audio"
               class="anticon anticon-audio"
               role="img"
-              style="font-size:16px;color:#1890ff"
+              style="font-size:16px;color:#2673dd"
             >
               <svg
                 aria-hidden="true"

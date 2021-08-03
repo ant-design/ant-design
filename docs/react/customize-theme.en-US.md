@@ -14,8 +14,8 @@ We are using [Less](http://lesscss.org/) as the development language for styling
 There are some major variables below, all less variables could be found in [Default Variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less).
 
 ```less
-@primary-color: #1890ff; // primary color for all components
-@link-color: #1890ff; // link color
+@primary-color: #2673dd; // primary color for all components
+@link-color: #2673dd; // link color
 @success-color: #52c41a; // success state color
 @warning-color: #faad14; // warning state color
 @error-color: #f5222d; // error state color

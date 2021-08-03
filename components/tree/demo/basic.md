@@ -40,7 +40,7 @@ const treeData = [
       {
         title: 'parent 1-1',
         key: '0-0-1',
-        children: [{ title: <span style={{ color: '#1890ff' }}>sss</span>, key: '0-0-1-0' }],
+        children: [{ title: <span style={{ color: '#2673dd' }}>sss</span>, key: '0-0-1-0' }],
       },
     ],
   },

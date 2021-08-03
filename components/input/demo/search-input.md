@@ -23,7 +23,7 @@ const suffix = (
   <AudioOutlined
     style={{
       fontSize: 16,
-      color: '#1890ff',
+      color: '#2673dd',
     }}
   />
 );

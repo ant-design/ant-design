@@ -140,10 +140,10 @@ ReactDOM.render(<DragSortingTable />, mountNode);
 
 ```css
 #components-table-demo-drag-sorting tr.drop-over-downward td {
-  border-bottom: 2px dashed #1890ff;
+  border-bottom: 2px dashed #2673dd;
 }
 
 #components-table-demo-drag-sorting tr.drop-over-upward td {
-  border-top: 2px dashed #1890ff;
+  border-top: 2px dashed #2673dd;
 }
 ```
