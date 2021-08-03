@@ -14,7 +14,7 @@ title:
 The count will be animated as it changes.
 
 ```jsx
-import { Badge, Button, Switch } from 'antd';
+import { Badge, Button, Switch, Divider, Avatar } from 'antd';
 import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
 
 const ButtonGroup = Button.Group;
@@ -49,30 +49,27 @@ class Demo extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <Badge count={this.state.count}>
-            <a href="#" className="head-example" />
-          </Badge>
-          <ButtonGroup>
-            <Button onClick={this.decline}>
-              <MinusOutlined />
-            </Button>
-            <Button onClick={this.increase}>
-              <PlusOutlined />
-            </Button>
-            <Button onClick={this.random}>
-              <QuestionOutlined />
-            </Button>
-          </ButtonGroup>
-        </div>
-        <div style={{ marginTop: 10 }}>
-          <Badge dot={this.state.show}>
-            <a href="#" className="head-example" />
-          </Badge>
-          <Switch onChange={this.onChange} checked={this.state.show} />
-        </div>
-      </div>
+      <>
+        <Badge count={this.state.count}>
+          <Avatar shape="square" size="large" />
+        </Badge>
+        <ButtonGroup>
+          <Button onClick={this.decline}>
+            <MinusOutlined />
+          </Button>
+          <Button onClick={this.increase}>
+            <PlusOutlined />
+          </Button>
+          <Button onClick={this.random}>
+            <QuestionOutlined />
+          </Button>
+        </ButtonGroup>
+        <Divider />
+        <Badge dot={this.state.show}>
+          <Avatar shape="square" size="large" />
+        </Badge>
+        <Switch onChange={this.onChange} checked={this.state.show} />
+      </>
     );
   }
 }

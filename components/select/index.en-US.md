@@ -62,7 +62,7 @@ Select component to select value from options.
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | tagRender | Customize tag render | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize on `tag` and `multiple` mode | string\[] | - |  |
-| value | Current selected option | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| value | Current selected option (considered as a immutable array) | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
@@ -81,26 +81,26 @@ Select component to select value from options.
 
 ### Select Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### Option props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| className | The additional class to option | string | - |  |
-| disabled | Disable this option | boolean | false |  |
-| title | `title` of Select after select this Option | string | - |  |
-| value | Default to filter with this property | string \| number | - |  |
+| Property  | Description                                | Type             | Default | Version |
+| --------- | ------------------------------------------ | ---------------- | ------- | ------- |
+| className | The additional class to option             | string           | -       |         |
+| disabled  | Disable this option                        | boolean          | false   |         |
+| title     | `title` of Select after select this Option | string           | -       |         |
+| value     | Default to filter with this property       | string \| number | -       |         |
 
 ### OptGroup props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| key | Group key | string | - |  |
-| label | Group label | string \| React.Element | - |  |
+| Property | Description | Type                    | Default | Version |
+| -------- | ----------- | ----------------------- | ------- | ------- |
+| key      | Group key   | string                  | -       |         |
+| label    | Group label | string \| React.Element | -       |         |
 
 ## FAQ
 
