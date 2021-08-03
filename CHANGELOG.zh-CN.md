@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.16.10
+
+`2021-08-02`
+
+- 🐞 修复 Badge 设置自定义 `color` 不显示数字的问题。[#31617](https://github.com/ant-design/ant-design/pull/31617) [@eokoneyo](https://github.com/eokoneyo)
+- 🐞 修复 Progress 环形进度条 `success.strokeColor` 不生效的问题。[#31589](https://github.com/ant-design/ant-design/pull/31589)
+- 🐞 修复 Select 组件没有忽略 `getRawInputElement` 属性导致的类型报错问题。[#31566](https://github.com/ant-design/ant-design/pull/31566) [@aoilti](https://github.com/aoilti)
+- 🐞 修复 Pagination 的 `totalBoundaryShowSizeChanger` 属性类型错误。[#31549](https://github.com/ant-design/ant-design/pull/31549) [@Monty-Ma](https://github.com/Monty-Ma)
+- 🐞 修复 Skeleton.Avatar `className` 重复应用的问题。 [#31536](https://github.com/ant-design/ant-design/pull/31536) [@Greatshock](https://github.com/Greatshock)
+- 💄 修复 Form 内 `<Input bordered={false} />` 错误状态下有异常外框样式的问题。[#31562](https://github.com/ant-design/ant-design/pull/31562)
+- 🌐 国际化
+  - 🇹🇷 为 Image 组件中 `预览` 文案增加土耳其语翻译。[#31593](https://github.com/ant-design/ant-design/pull/31593) [@mburakkalkan](https://github.com/mburakkalkan)
+  - 🇰🇷 修复韩语中的错别字。[#31575](https://github.com/ant-design/ant-design/pull/31575) [@chatoo2412](https://github.com/chatoo2412)
+
 ## 4.16.9
 
 `2021-07-27`
@@ -2288,6 +2302,7 @@ Infra Design 4.0-rc 发布，发布文档请查看[此处](https://github.com/an
   - 🌟 `value` 为 `undefined` 时，改为非受控模式。
 - 🌟 TreeSelect 使用虚拟滚动并优化键盘支持。[#19040](https://github.com/ant-design/ant-design/pull/19040)
   - 🌟 `value` 为 `undefined` 时，改为非受控模式。
+  - 🌟 `value` 引用未变化时，不再重新渲染多选 Select。
 - 🌟 Button 添加 `danger` 的 `default` 和 `link` 样式。[#19837](https://github.com/ant-design/ant-design/pull/19837)
 - 🌟 Form 与 ConfigProvider 支持 `size` 设置包含组件尺寸。[#20570](https://github.com/ant-design/ant-design/pull/20570)
 - 🌟 Typography 增加 `suffix` 属性。[#20224](https://github.com/ant-design/ant-design/pull/20224)

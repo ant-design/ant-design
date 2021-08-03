@@ -20,9 +20,9 @@ import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-const type = 'DragableBodyRow';
+const type = 'DraggableBodyRow';
 
-const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
+const DraggableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
   const ref = useRef();
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
@@ -101,7 +101,7 @@ const DragSortingTable: React.FC = () => {
 
   const components = {
     body: {
-      row: DragableBodyRow,
+      row: DraggableBodyRow,
     },
   };
 
