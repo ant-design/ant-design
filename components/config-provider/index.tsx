@@ -198,11 +198,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   let validateMessages: ValidateMessages = {};
 
   if (locale) {
-    if (locale.Form && locale.Form.defaultValidateMessages) {
-      validateMessages = locale.Form.defaultValidateMessages;
-    } else {
-      validateMessages = defaultLocale.Form!.defaultValidateMessages;
-    }
+    validateMessages = locale.Form?.defaultValidateMessages || defaultLocale.Form?.defaultValidateMessages;
   }
   if (form && form.validateMessages) {
     validateMessages = { ...validateMessages, ...form.validateMessages };
