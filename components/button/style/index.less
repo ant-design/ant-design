@@ -192,8 +192,13 @@
 
   &-background-ghost {
     color: @btn-default-ghost-color;
-    background: @btn-default-ghost-bg !important;
     border-color: @btn-default-ghost-border;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      background: @btn-default-ghost-bg;
+    }
   }
 
   &-background-ghost&-primary {
