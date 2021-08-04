@@ -51,7 +51,7 @@ const Demo: React.FC = () => {
           icon: <HighlightOutlined />,
           tooltip: 'click to edit text',
           onChange: setCustomEnterIconStr,
-          iconEnter: <CheckOutlined />,
+          enterIcon: <CheckOutlined />,
         }}
       >
         {customEnterIconStr}
@@ -61,7 +61,7 @@ const Demo: React.FC = () => {
           icon: <HighlightOutlined />,
           tooltip: 'click to edit text',
           onChange: setNoEnterIconStr,
-          iconEnter: null,
+          enterIcon: null,
         }}
       >
         {noEnterIconStr}
