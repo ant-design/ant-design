@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ElementOf, Omit, tuple } from '../_util/type';
+import { ElementOf, tuple } from '../_util/type';
 import Pagination from '../pagination';
 import { TransferListProps, RenderedItem } from './list';
 import ListItem from './ListItem';

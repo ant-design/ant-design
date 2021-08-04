@@ -5,7 +5,6 @@ import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 
 import { ConfigContext } from '../config-provider';
-import { Omit } from '../_util/type';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 type ValueType = string | number;
