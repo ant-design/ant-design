@@ -819,10 +819,6 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
     class="config-badge"
   >
     <span />
-    <sup
-      class="config-scroll-number config-badge-dot"
-      data-show="true"
-    />
   </span>
 </div>
 `;
@@ -854,10 +850,6 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
     class="config-badge"
   >
     <span />
-    <sup
-      class="config-scroll-number config-badge-dot"
-      data-show="true"
-    />
   </span>
 </div>
 `;
@@ -889,10 +881,6 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
     class="config-badge"
   >
     <span />
-    <sup
-      class="config-scroll-number config-badge-dot"
-      data-show="true"
-    />
   </span>
 </div>
 `;
@@ -924,10 +912,6 @@ exports[`ConfigProvider components Badge configProvider virtual and dropdownMatc
     class="ant-badge"
   >
     <span />
-    <sup
-      class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-    />
   </span>
 </div>
 `;
@@ -959,10 +943,6 @@ exports[`ConfigProvider components Badge normal 1`] = `
     class="ant-badge"
   >
     <span />
-    <sup
-      class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-    />
   </span>
 </div>
 `;
@@ -994,10 +974,6 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
     class="prefix-Badge"
   >
     <span />
-    <sup
-      class="prefix-scroll-number prefix-Badge-dot"
-      data-show="true"
-    />
   </span>
 </div>
 `;

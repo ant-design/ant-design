@@ -76,10 +76,6 @@ Array [
           </svg>
         </span>
       </span>
-      <sup
-        class="ant-scroll-number ant-badge-dot"
-        data-show="true"
-      />
     </span>
   </span>,
 ]

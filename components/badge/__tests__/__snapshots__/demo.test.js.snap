@@ -212,10 +212,6 @@ Array [
         style="opacity:0"
       />
     </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-    />
   </span>,
   <button
     aria-checked="true"
@@ -522,10 +518,6 @@ Array [
         />
       </svg>
     </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-    />
   </span>,
   <span
     class="ant-badge"
@@ -535,10 +527,6 @@ Array [
     >
       Link something
     </a>
-    <sup
-      class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-    />
   </span>,
 ]
 `;
@@ -704,10 +692,6 @@ Array [
         style="opacity:0"
       />
     </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-success"
-      data-show="true"
-    />
   </span>,
   <span
     class="ant-badge ant-badge-status"
@@ -720,10 +704,6 @@ Array [
         style="opacity:0"
       />
     </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-warning"
-      data-show="true"
-    />
   </span>,
   <span
     class="ant-badge ant-badge-status"
@@ -736,10 +716,6 @@ Array [
         style="opacity:0"
       />
     </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-blue"
-      data-show="true"
-    />
   </span>,
   <span
     class="ant-badge ant-badge-status"
@@ -752,11 +728,6 @@ Array [
         style="opacity:0"
       />
     </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-      style="background:#fa541c"
-    />
   </span>,
 ]
 `;
