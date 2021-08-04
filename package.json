@@ -192,6 +192,7 @@
     "cross-env": "^7.0.0",
     "dekko": "^0.2.1",
     "docsearch.js": "^2.6.3",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "enquire-js": "^0.2.1",
     "enzyme": "^3.10.0",
     "enzyme-to-json": "^3.6.0",
