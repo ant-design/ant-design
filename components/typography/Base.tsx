@@ -20,7 +20,7 @@ import Editable from './Editable';
 import measure from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
-export type EditTriggerType = 'icon' | 'value' | 'both' | undefined;
+export type TriggerType = 'icon' | 'text' | 'both' | undefined;
 
 const isLineClampSupport = isStyleSupport('webkitLineClamp');
 const isTextOverflowSupport = isStyleSupport('textOverflow');
@@ -42,8 +42,7 @@ interface EditConfig {
   onEnd?: () => void;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
-  editTrigger?: EditTriggerType;
-  alwaysShowEditIcon?: boolean;
+  triggerType?: TriggerType;
 }
 
 export interface EllipsisConfig {
@@ -375,18 +374,18 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { editable } = this.props;
     if (!editable) return;
 
-    const { icon, tooltip, editTrigger, alwaysShowEditIcon } = editable as EditConfig;
+    const { icon, tooltip, triggerType } = editable as EditConfig;
 
     const title = toArray(tooltip)[0] || this.editStr;
     const ariaLabel = typeof title === 'string' ? title : '';
 
-    return alwaysShowEditIcon === true || editTrigger === 'icon' || editTrigger === 'both' ? (
+    return triggerType === 'icon' || triggerType === 'both' ? (
       <Tooltip key="edit" title={tooltip === false ? '' : title}>
         <TransButton
           ref={this.setEditRef}
           className={`${this.getPrefixCls()}-edit`}
           onClick={
-            editTrigger === undefined || editTrigger === 'icon' || editTrigger === 'both'
+            triggerType === undefined || triggerType === 'icon' || triggerType === 'both'
               ? this.onEditClick
               : e => (e !== undefined ? e.stopPropagation() : () => {})
           }
@@ -462,7 +461,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { component, children, className, type, disabled, style, ...restProps } = this.props;
     const { direction } = this.context;
     const { rows, suffix, tooltip } = this.getEllipsis();
-    const { editTrigger } = this.getEditable() as EditConfig;
+    const { triggerType } = this.getEditable() as EditConfig;
 
     const prefixCls = this.getPrefixCls();
 
@@ -558,7 +557,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                 ref={this.contentRef}
                 direction={direction}
                 onClick={
-                  editTrigger === 'value' || editTrigger === 'both' ? this.onEditClick : () => {}
+                  triggerType === 'text' || triggerType === 'both' ? this.onEditClick : () => {}
                 }
                 {...textProps}
               >

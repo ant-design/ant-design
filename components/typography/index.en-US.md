@@ -95,8 +95,7 @@ Basic text writing, including headings, body text, lists, and more.
       onChange: function(string),
       onCancel: function,
       onEnd: function,
-      editTrigger: 'icon' | 'value' | 'both',
-      alwaysShowEditIcon: boolean,
+      triggerType: 'icon' | 'text' | 'both',
     }
 
 | Property | Description | Type | Default | Version |
@@ -112,8 +111,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onStart | Called when enter editable state | function | - |  |
 | onCancel | Called when type ESC to exit editable state | function | - |  |
 | onEnd | Called when type ENTER to exit editable state | function | - |  |
-| editTrigger | Edit mode trigger - icon, value (text) or both (in case of "value" icon is hidden) | `icon`\|`value`\|`both` | `icon` |  |
-| alwaysShowEditIcon | Used when `editTrigger = "value"` - icon is hidden by default but can be shown | boolean | false |  |
+| triggerType | Edit mode trigger - icon, text or both (in case of "text" icon is hidden) | `icon`\|`text`\|`both` | `icon` |  |
 
 ### ellipsis
 
