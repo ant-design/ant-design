@@ -71,9 +71,9 @@ export type ItemRender<T = any> = (
   file: UploadFile,
   fileList: Array<UploadFile<T>>,
   actions: {
-    download: () => void;
-    preview: () => void;
-    remove: () => void;
+    download: (file: UploadFile<T>) => void;
+    preview: (file: UploadFile<T>) => void;
+    remove: (file: UploadFile<T>) => void;
   },
 ) => React.ReactNode;
 
