@@ -36,16 +36,16 @@ type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 interface MemoInputProps {
   value: any;
   update: any;
-  childProps: any;
+  childProps: any[];
   children: React.ReactNode;
 }
 
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
-  (prev, next) =>
-    prev.value === next.value &&
+  (prev, next) => prev.value === next.value &&
     prev.update === next.update &&
-    JSON.stringify(prev.childProps) === JSON.stringify(next.childProps),
+    prev.childProps.length === next.childProps.length && 
+    prev.childProps.every((value, index) => value === next.childProps[index]),
 );
 
 export interface FormItemProps<Values = any>
@@ -419,11 +419,14 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             };
           });
 
+          // List of props that need to be watched for changes -> if changes are detected in MemoInput -> rerender
+          const watchingChildProps = [childProps['aria-required'], childProps['aria-invalid'], childProps['aria-describedby']];
+
           childNode = (
             <MemoInput
               value={mergedControl[props.valuePropName || 'value']}
               update={children}
-              childProps={childProps}
+              childProps={watchingChildProps}
             >
               {cloneElement(children, childProps)}
             </MemoInput>
