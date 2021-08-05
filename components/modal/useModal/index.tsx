@@ -9,6 +9,7 @@ import {
   withSuccess,
   withError,
   withWarn,
+  withDelete,
 } from '../confirm';
 
 let uuid = 0;
@@ -58,6 +59,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
       error: getConfirmFunc(withError),
       warning: getConfirmFunc(withWarn),
       confirm: getConfirmFunc(withConfirm),
+      delete: getConfirmFunc(withDelete),
     },
     <>{elements}</>,
   ];

@@ -41,6 +41,13 @@ function error() {
     content: 'some messages...some messages...',
   });
 }
+function deleteWarn() {
+  Modal.delete({
+    content: 'Do you really wanted to delete? This process cannot be undone',
+    onOk: () => console.log('deleted'),
+    onCancel: () => console.log('not deleted'),
+  });
+}
 
 function warning() {
   Modal.warning({
@@ -55,6 +62,7 @@ ReactDOM.render(
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
+    <Button onClick={deleteWarn}>Delete</Button>
   </Space>,
   mountNode,
 );

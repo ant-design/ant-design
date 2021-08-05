@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
 import devWarning from '../_util/devWarning';
@@ -72,6 +73,25 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
+  const closeIconToRender = (
+    <span className={`${prefixCls}-close-x`}>
+      <CloseOutlined className={`${prefixCls}-close-icon`} />
+    </span>
+  );
+
+  const closeButton = okCancel && (
+    <span className={`${contentPrefixCls}-delete-close-icon`}>
+      <ActionButton
+        actionFn={onCancel}
+        closeModal={close}
+        buttonProps={cancelButtonProps}
+        prefixCls={`${rootPrefixCls}-modal-close`}
+      >
+        {closeIconToRender}
+      </ActionButton>
+    </span>
+  );
+
   return (
     <Dialog
       prefixCls={prefixCls}
@@ -100,6 +120,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
           {props.title === undefined ? null : (
             <span className={`${contentPrefixCls}-title`}>{props.title}</span>
           )}
+          {closeButton}
           <div className={`${contentPrefixCls}-content`}>{props.content}</div>
         </div>
         <div className={`${contentPrefixCls}-btns`}>

@@ -1,6 +1,7 @@
 import OriginModal, { ModalFuncProps, destroyFns } from './Modal';
 import confirm, {
   withWarn,
+  withDelete,
   withInfo,
   withSuccess,
   withError,
@@ -38,6 +39,10 @@ Modal.warn = modalWarn;
 
 Modal.confirm = function confirmFn(props: ModalFuncProps) {
   return confirm(withConfirm(props));
+};
+
+Modal.delete = function confirmFn(props: ModalFuncProps) {
+  return confirm(withDelete(props));
 };
 
 Modal.destroyAll = function destroyAllFn() {
