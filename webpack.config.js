@@ -120,6 +120,8 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         emitError: true,
       }),
     );
+
+    config.bail = true;
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
