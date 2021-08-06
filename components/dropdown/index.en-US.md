@@ -19,6 +19,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | --- | --- | --- | --- | --- |
 | arrow | Whether the dropdown arrow should be visible | boolean | false |  |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
+| destroyPopupOnHide | Whether destroy dropdown when hidden | boolean | false |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
 | overlayClassName | The class name of the dropdown root element | string | - |  |
