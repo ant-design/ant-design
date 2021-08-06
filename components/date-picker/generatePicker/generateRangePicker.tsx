@@ -75,6 +75,10 @@ export default function generateRangePicker<DateType>(
                 placeholder={getRangePlaceholder(picker, locale, placeholder)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
                 clearIcon={<CloseCircleFilled />}
+                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                 allowClear
                 transitionName={`${rootPrefixCls}-slide-up`}
                 {...restProps}
@@ -90,10 +94,6 @@ export default function generateRangePicker<DateType>(
                 prefixCls={prefixCls}
                 getPopupContainer={customGetPopupContainer || getPopupContainer}
                 generateConfig={generateConfig}
-                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                 components={Components}
                 direction={direction}
               />
