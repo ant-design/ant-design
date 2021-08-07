@@ -30,6 +30,50 @@ describe('Input', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  // 参考 textarea 中的 showCount 测试
+  describe('should support showCount', () => {
+    it('maxLength', () => {
+      const wrapper = mount(<Input maxLength={5} showCount value="12345" />);
+      expect(wrapper.find('input').prop('value')).toBe('12345');
+      expect(wrapper.find('.ant-input-show-count').prop('data-count')).toBe('5 / 5');
+    });
+
+    it('control exceed maxLength', () => {
+      const wrapper = mount(<Input maxLength={5} showCount value="12345678" />);
+      expect(wrapper.find('input').prop('value')).toBe('12345678');
+      expect(wrapper.find('.ant-input-show-count').prop('data-count')).toBe('8 / 5');
+    });
+
+    describe('emoji', () => {
+      it('should minimize value between emoji length and maxLength', () => {
+        const wrapper = mount(<Input maxLength={1} showCount value="👀" />);
+        expect(wrapper.find('input').prop('value')).toBe('👀');
+        expect(wrapper.find('.ant-input-show-count').prop('data-count')).toBe('1 / 1');
+
+        const wrapper1 = mount(<Input maxLength={2} showCount value="👀" />);
+        expect(wrapper1.find('.ant-input-show-count').prop('data-count')).toBe('1 / 2');
+      });
+
+      it('slice emoji', () => {
+        const wrapper = mount(<Input maxLength={5} showCount value="1234😂" />);
+        expect(wrapper.find('input').prop('value')).toBe('1234😂');
+        expect(wrapper.find('.ant-input-show-count').prop('data-count')).toBe('5 / 5');
+      });
+    });
+
+    it('count formatter', () => {
+      const wrapper = mount(
+        <Input
+          maxLength={5}
+          showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+          value="12345"
+        />,
+      );
+      expect(wrapper.find('input').prop('value')).toBe('12345');
+      expect(wrapper.find('.ant-input-show-count').prop('data-count')).toBe('5, 5');
+    });
+  });
+
   it('select()', () => {
     const wrapper = mount(<Input />);
     wrapper.instance().select();

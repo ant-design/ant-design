@@ -6,12 +6,14 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigContext } from '../config-provider';
-import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
+import {
+  fixControlledValue,
+  resolveOnChange,
+  triggerFocus,
+  InputFocusOptions,
+  ShowCountProps,
+} from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-
-interface ShowCountProps {
-  formatter: (args: { count: number; maxLength?: number }) => string;
-}
 
 function fixEmojiLength(value: string, maxLength: number) {
   return [...(value || '')].slice(0, maxLength).join('');
@@ -179,7 +181,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             {
               [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
             },
-            `${prefixCls}-textarea-show-count`,
+            `${prefixCls}-show-count`,
             className,
           )}
           style={style}

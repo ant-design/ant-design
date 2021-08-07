@@ -11,6 +11,10 @@ import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-pr
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 
+export interface ShowCountProps {
+  formatter: (args: { count: number; maxLength?: number }) => string;
+}
+
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
 }
@@ -52,6 +56,7 @@ export interface InputProps
   suffix?: React.ReactNode;
   allowClear?: boolean;
   bordered?: boolean;
+  showCount?: boolean | ShowCountProps;
 }
 
 export function fixControlledValue<T>(value: T) {
@@ -67,9 +72,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     | React.ChangeEvent<E>
     | React.MouseEvent<HTMLElement, MouseEvent>
     | React.CompositionEvent<HTMLElement>,
-  onChange:
-    | undefined
-    | ((event: React.ChangeEvent<E>) => void),
+  onChange: undefined | ((event: React.ChangeEvent<E>) => void),
   targetValue?: string,
 ) {
   if (!onChange) {
@@ -293,6 +296,7 @@ class Input extends React.Component<InputProps, InputState> {
       'size',
       'inputType',
       'bordered',
+      'showCount',
     ]);
     return (
       <input
@@ -341,11 +345,21 @@ class Input extends React.Component<InputProps, InputState> {
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      bordered = true,
+      showCount = false,
+      maxLength,
+      style,
+      className,
+    } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
 
-    return (
+    // Max length value
+    const hasMaxLength = Number(maxLength) > 0;
+
+    const inputNode = (
       <SizeContext.Consumer>
         {size => (
           <ClearableLabeledInput
@@ -361,10 +375,40 @@ class Input extends React.Component<InputProps, InputState> {
             focused={focused}
             triggerFocus={this.focus}
             bordered={bordered}
+            style={showCount ? undefined : style}
           />
         )}
       </SizeContext.Consumer>
     );
+
+    if (showCount) {
+      const valueLength = [...fixControlledValue(value)].length;
+
+      let dataCount = '';
+      if (typeof showCount === 'object') {
+        dataCount = showCount.formatter({ count: valueLength, maxLength });
+      } else {
+        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      }
+
+      return (
+        <div
+          className={classNames(
+            {
+              [`${prefixCls}-rtl`]: direction === 'rtl',
+            },
+            `${prefixCls}-show-count`,
+            className,
+          )}
+          style={style}
+          data-count={dataCount}
+        >
+          {inputNode}
+        </div>
+      );
+    }
+
+    return inputNode;
   };
 
   render() {
