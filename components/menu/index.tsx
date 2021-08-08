@@ -124,7 +124,7 @@ class Menu extends React.Component<MenuProps, {}> {
   render() {
     return (
       <SiderContext.Consumer>
-        {(context: SiderContextProps) => <InternalMenu {...this.props} {...context} />}
+        {(context: SiderContextProps) => <InternalMenu {...context} {...this.props} />}
       </SiderContext.Consumer>
     );
   }
