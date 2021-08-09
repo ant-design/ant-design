@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.16.11
+
+`2021-08-08`
+
+- 🐞 修复 ConfigProvider 切换国际化时子组件 rerender 的问题。[#31630](https://github.com/ant-design/ant-design/pull/31630) [@Map1en](https://github.com/Map1en)
+- 💄 简化 ghost 按钮的样式代码，去掉 `!important` 样式规则。[#31659](https://github.com/ant-design/ant-design/pull/31659)
+- 💄 优化 RangePicker 的范围样式的 transition 效果。[#31645](https://github.com/ant-design/ant-design/pull/31645)
+- 🤖 修复 Dropdown `destroyPopupOnHide` TypeScript 定义丢失的问题。[#31700](https://github.com/ant-design/ant-design/pull/31700) [@linxianxi](https://github.com/linxianxi)
+- 🤖 移除多余的 Omit 类型定义。[#31661](https://github.com/ant-design/ant-design/pull/31661) [@Dreamerryao](https://github.com/Dreamerryao)
+
 ## 4.16.10
 
 `2021-08-02`
