@@ -128,6 +128,10 @@ const localeValues: Locale = {
   Image: {
     preview: '预览',
   },
+  Switch: {
+    checkedText: '开启',
+    unCheckedText: '关闭',
+  },
 };
 
 export default localeValues;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
@@ -43,6 +44,8 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
       loading,
       className = '',
       disabled,
+      checkedChildren,
+      unCheckedChildren,
       ...props
     },
     ref,
@@ -52,7 +55,11 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
       'Switch',
       '`value` is not a valid prop, do you mean `checked`?',
     );
-
+    const { locale: contextLocale } = useContext(ConfigContext);
+    const checkedText =
+      checkedChildren !== undefined ? checkedChildren : contextLocale?.Switch?.checkedText;
+    const unCheckedText =
+      unCheckedChildren !== undefined ? unCheckedChildren : contextLocale?.Switch?.unCheckedText;
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
@@ -80,6 +87,8 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
           disabled={disabled || loading}
           ref={ref}
           loadingIcon={loadingIcon}
+          checkedChildren={checkedText}
+          unCheckedChildren={unCheckedText}
         />
       </Wave>
     );
