@@ -161,6 +161,7 @@
       z-index: 1;
       height: @picker-panel-cell-height;
       transform: translateY(-50%);
+      transition: all @animation-duration-slow;
       content: '';
     }
 
@@ -247,6 +248,7 @@
         border-top: @border-width-base dashed @picker-date-hover-range-border-color;
         border-bottom: @border-width-base dashed @picker-date-hover-range-border-color;
         transform: translateY(-50%);
+        transition: all @animation-duration-slow;
         content: '';
       }
     }
@@ -292,6 +294,7 @@
         bottom: 0;
         z-index: -1;
         background: @picker-date-hover-range-color;
+        transition: all @animation-duration-slow;
         content: '';
       }
     }

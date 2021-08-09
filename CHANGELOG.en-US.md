@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.16.11
+
+`2021-08-08`
+
+- 🐞 Fix ConfigProvider rerender unexpectedly when switching some languages. [#31630](https://github.com/ant-design/ant-design/pull/31630) [@Map1en](https://github.com/Map1en)
+- 💄 Improve ghost button style rules, no more `!important`. [#31659](https://github.com/ant-design/ant-design/pull/31659)
+- 💄 Improve RangePicker range transition style. [#31645](https://github.com/ant-design/ant-design/pull/31645)
+- 🤖 Fix Dropdown `destroyPopupOnHide` TypeScript definition missing. [#31700](https://github.com/ant-design/ant-design/pull/31700) [@linxianxi](https://github.com/linxianxi)
+- 🤖 Remove useless Omit type which is built-in in TypeScript 3.5+. [#31661](https://github.com/ant-design/ant-design/pull/31661) [@Dreamerryao](https://github.com/Dreamerryao)
+
 ## 4.16.10
 
 `2021-08-02`
