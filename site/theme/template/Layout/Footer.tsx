@@ -2,9 +2,7 @@ import React from 'react';
 import { message } from 'antd';
 import RcFooter from 'rc-footer';
 import { Link } from 'bisheng/router';
-import ColorPicker from '../Color/ColorPicker';
 import { presetPalettes } from '@ant-design/colors';
-import { loadScript, getLocalizedPathname } from '../utils';
 import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl';
 import {
   AntDesignOutlined,
@@ -19,6 +17,8 @@ import {
   IssuesCloseOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
+import ColorPicker from '../Color/ColorPicker';
+import { loadScript, getLocalizedPathname } from '../utils';
 
 class Footer extends React.Component<WrappedComponentProps & { location: any }> {
   lessLoaded = false;
