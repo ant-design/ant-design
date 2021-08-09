@@ -319,8 +319,10 @@ class MainContent extends Component {
     if (selectedTheme !== theme) {
       setTheme(theme);
       if (theme === 'default') {
+        document.documentElement.style.colorScheme = 'light';
         delete query.theme;
       } else {
+        if (theme === 'dark') document.documentElement.style.colorScheme = 'dark';
         query.theme = theme;
       }
       browserHistory.push({
