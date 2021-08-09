@@ -163,4 +163,41 @@ describe('Modal.hook', () => {
 
     expect(wrapper.exists('.ant-modal-confirm-title')).toBeFalsy();
   });
+
+  it('Modal.destoryAll work',()=>{
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      function showConfirm(){
+        ['info', 'success', 'warning', 'error'].forEach(type => {
+          modal[type]({
+            title: 'title',
+            content: 'content',
+          });
+        });
+      }
+
+      return (
+        <div className="App">
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={showConfirm}>
+            confirm
+          </div>
+        </div>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    wrapper.find('.open-hook-modal-btn').simulate('click');
+
+    // destoryAll
+    act(()=>{
+      Modal.destroyAll();
+    })
+    wrapper.update();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      expect(wrapper.find(`.ant-modal-confirm-${type}`)).toHaveLength(0);
+    });
+    expect(wrapper.find('Modal')).toHaveLength(0);
+  })
 });
