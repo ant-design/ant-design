@@ -91,7 +91,11 @@
           document.head.appendChild(styleElement);
           document.documentElement.style.backgroundColor = 'black';
           window.addEventListener('load', () => styleElement.remove(), { once: true });
+
+          // 设置系统主题
+          document.documentElement.style.colorScheme = 'dark';
         } else {
+          document.documentElement.style.colorScheme = 'light';
           darkThemeLinkEl.remove();
         }
       })();
