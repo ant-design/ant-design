@@ -171,13 +171,13 @@ describe('Affix Render', () => {
       const originLength = getObserverLength();
       const getTarget = () => target;
       affixWrapper = mount(<Affix target={getTarget}>{null}</Affix>);
-      await sleep(50);
+      await sleep(100);
 
       expect(getObserverLength()).toBe(originLength + 1);
       target = null;
       affixWrapper.setProps({});
       affixWrapper.update();
-      await sleep(50);
+      await sleep(100);
       expect(getObserverLength()).toBe(originLength);
     });
   });
