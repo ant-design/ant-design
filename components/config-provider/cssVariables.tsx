@@ -47,10 +47,11 @@ export function registerTheme(theme: Theme) {
     variables['primary-color-deprecated-t-20'] = formatColor(primaryColor, c => c.tint(20));
     variables['primary-color-deprecated-t-50'] = formatColor(primaryColor, c => c.tint(50));
     variables['primary-color-deprecated-f-12'] = formatColor(primaryColor, c =>
-      c.setAlpha(primaryColor.getAlpha() * 0.12),
+      c.setAlpha(c.getAlpha() * 0.12),
     );
-    variables['primary-color-active-deprecated-f-50'] = formatColor(primaryColor, c =>
-      c.setAlpha(primaryColor.getAlpha() * 0.5),
+    variables['primary-color-active-deprecated-f-30'] = formatColor(
+      new TinyColor(primaryColors[0]),
+      c => c.setAlpha(c.getAlpha() * 0.3),
     );
   }
 
