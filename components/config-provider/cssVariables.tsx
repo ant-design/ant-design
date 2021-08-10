@@ -49,6 +49,9 @@ export function registerTheme(theme: Theme) {
     variables['primary-color-deprecated-f-12'] = formatColor(primaryColor, c =>
       c.setAlpha(primaryColor.getAlpha() * 0.12),
     );
+    variables['primary-color-active-deprecated-f-50'] = formatColor(primaryColor, c =>
+      c.setAlpha(primaryColor.getAlpha() * 0.5),
+    );
   }
 
   // ================ Success Color ================
