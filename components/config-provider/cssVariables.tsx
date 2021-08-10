@@ -49,9 +49,13 @@ export function registerTheme(theme: Theme) {
     variables['primary-color-deprecated-f-12'] = formatColor(primaryColor, c =>
       c.setAlpha(c.getAlpha() * 0.12),
     );
-    variables['primary-color-active-deprecated-f-30'] = formatColor(
-      new TinyColor(primaryColors[0]),
-      c => c.setAlpha(c.getAlpha() * 0.3),
+
+    const primaryActiveColor = new TinyColor(primaryColors[0]);
+    variables['primary-color-active-deprecated-f-30'] = formatColor(primaryActiveColor, c =>
+      c.setAlpha(c.getAlpha() * 0.3),
+    );
+    variables['primary-color-active-deprecated-d-02'] = formatColor(primaryActiveColor, c =>
+      c.darken(2),
     );
   }
 

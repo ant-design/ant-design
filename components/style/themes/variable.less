@@ -37,6 +37,7 @@ html {
   --ant-primary-color-deprecated-t-50: tint(@base-primary, 50%);
   --ant-primary-color-deprecated-f-12: fade(@base-primary, 12%);
   --ant-primary-color-active-deprecated-f-30: fade(@legacy-primary-1, 30%);
+  --ant-primary-color-active-deprecated-d-02: darken(@legacy-primary-1, 2%);
 
   // ========= Success Color =========
   --ant-success-color: @green-6;
@@ -680,7 +681,7 @@ html {
 @table-selected-row-color: inherit;
 @table-selected-row-bg: @primary-1;
 @table-body-selected-sort-bg: @table-selected-row-bg;
-@table-selected-row-hover-bg: @primary-2; // FIXME: darken(@table-selected-row-bg, 2%);
+@table-selected-row-hover-bg: ~'var(--ant-primary-color-active-deprecated-d-02)';
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
