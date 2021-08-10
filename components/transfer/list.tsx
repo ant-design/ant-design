@@ -75,7 +75,7 @@ interface TransferListState {
 }
 
 export default class TransferList<
-  RecordType extends KeyWiseTransferItem
+  RecordType extends KeyWiseTransferItem,
 > extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
   static defaultProps = {
     dataSource: [],
@@ -234,16 +234,20 @@ export default class TransferList<
     );
   }
 
-  getCheckBox(
-    filteredItems: RecordType[],
-    onItemSelectAll: (dataSource: string[], checkAll: boolean) => void,
-    showSelectAll?: boolean,
-    disabled?: boolean,
-    prefixCls?: string,
-  ): false | JSX.Element {
+  getCheckBox({
+    filteredItems,
+    onItemSelectAll,
+    disabled,
+    prefixCls,
+  }: {
+    filteredItems: RecordType[];
+    onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
+    disabled?: boolean;
+    prefixCls?: string;
+  }): false | JSX.Element {
     const checkStatus = this.getCheckStatus(filteredItems);
     const checkedAll = checkStatus === 'all';
-    const checkAllCheckbox = showSelectAll !== false && (
+    const checkAllCheckbox = (
       <Checkbox
         disabled={disabled}
         checked={checkedAll}
@@ -311,7 +315,7 @@ export default class TransferList<
       renderList,
       onItemSelectAll,
       onItemRemove,
-      showSelectAll,
+      showSelectAll = true,
       showRemove,
       pagination,
     } = this.props;
@@ -349,7 +353,7 @@ export default class TransferList<
     const checkAllCheckbox =
       !showRemove &&
       !pagination &&
-      this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled, prefixCls);
+      this.getCheckBox({ filteredItems, onItemSelectAll, disabled, prefixCls });
 
     let menu: React.ReactElement | null = null;
     if (showRemove) {
@@ -444,8 +448,12 @@ export default class TransferList<
       <div className={listCls} style={style}>
         {/* Header */}
         <div className={`${prefixCls}-header`}>
-          {checkAllCheckbox}
-          {dropdown}
+          {showSelectAll ? (
+            <>
+              {checkAllCheckbox}
+              {dropdown}
+            </>
+          ) : null}
           <span className={`${prefixCls}-header-selected`}>
             {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
           </span>
