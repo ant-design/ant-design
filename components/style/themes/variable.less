@@ -13,99 +13,99 @@ html {
   @base-primary: @blue-6;
 
   // ========= Primary Color =========
-  --ant-primary-color: @base-primary;
-  --ant-primary-color-hover: color(~`colorPalette('@{base-primary}', 5) `);
-  --ant-primary-color-active: color(~`colorPalette('@{base-primary}', 7) `);
-  --ant-primary-color-outline: fade(@base-primary, @outline-fade);
+  --@{ant-prefix}-primary-color: @base-primary;
+  --@{ant-prefix}-primary-color-hover: color(~`colorPalette('@{base-primary}', 5) `);
+  --@{ant-prefix}-primary-color-active: color(~`colorPalette('@{base-primary}', 7) `);
+  --@{ant-prefix}-primary-color-outline: fade(@base-primary, @outline-fade);
 
   // Legacy
   @legacy-primary-1: color(~`colorPalette('@{base-primary}', 1) `);
 
-  --ant-primary-1: @legacy-primary-1;
-  --ant-primary-2: color(~`colorPalette('@{base-primary}', 2) `);
-  --ant-primary-3: color(~`colorPalette('@{base-primary}', 3) `);
-  --ant-primary-4: color(~`colorPalette('@{base-primary}', 4) `);
-  --ant-primary-5: color(~`colorPalette('@{base-primary}', 5) `);
-  --ant-primary-6: @base-primary;
-  --ant-primary-7: color(~`colorPalette('@{base-primary}', 7) `);
+  --@{ant-prefix}-primary-1: @legacy-primary-1;
+  --@{ant-prefix}-primary-2: color(~`colorPalette('@{base-primary}', 2) `);
+  --@{ant-prefix}-primary-3: color(~`colorPalette('@{base-primary}', 3) `);
+  --@{ant-prefix}-primary-4: color(~`colorPalette('@{base-primary}', 4) `);
+  --@{ant-prefix}-primary-5: color(~`colorPalette('@{base-primary}', 5) `);
+  --@{ant-prefix}-primary-6: @base-primary;
+  --@{ant-prefix}-primary-7: color(~`colorPalette('@{base-primary}', 7) `);
 
   // Deprecated
-  --ant-primary-color-deprecated-pure: ~'';
-  --ant-primary-color-deprecated-l-35: lighten(@base-primary, 35%);
-  --ant-primary-color-deprecated-l-20: lighten(@base-primary, 20%);
-  --ant-primary-color-deprecated-t-20: tint(@base-primary, 20%);
-  --ant-primary-color-deprecated-t-50: tint(@base-primary, 50%);
-  --ant-primary-color-deprecated-f-12: fade(@base-primary, 12%);
-  --ant-primary-color-active-deprecated-f-30: fade(@legacy-primary-1, 30%);
-  --ant-primary-color-active-deprecated-d-02: darken(@legacy-primary-1, 2%);
+  --@{ant-prefix}-primary-color-deprecated-pure: ~'';
+  --@{ant-prefix}-primary-color-deprecated-l-35: lighten(@base-primary, 35%);
+  --@{ant-prefix}-primary-color-deprecated-l-20: lighten(@base-primary, 20%);
+  --@{ant-prefix}-primary-color-deprecated-t-20: tint(@base-primary, 20%);
+  --@{ant-prefix}-primary-color-deprecated-t-50: tint(@base-primary, 50%);
+  --@{ant-prefix}-primary-color-deprecated-f-12: fade(@base-primary, 12%);
+  --@{ant-prefix}-primary-color-active-deprecated-f-30: fade(@legacy-primary-1, 30%);
+  --@{ant-prefix}-primary-color-active-deprecated-d-02: darken(@legacy-primary-1, 2%);
 
   // ========= Success Color =========
-  --ant-success-color: @green-6;
-  --ant-success-color-hover: color(~`colorPalette('@{green-6}', 5) `);
-  --ant-success-color-active: color(~`colorPalette('@{green-6}', 7) `);
-  --ant-success-color-outline: fade(@green-6, @outline-fade);
-  --ant-success-color-deprecated-bg: ~`colorPalette('@{green-6}', 1) `;
-  --ant-success-color-deprecated-border: ~`colorPalette('@{green-6}', 3) `;
+  --@{ant-prefix}-success-color: @green-6;
+  --@{ant-prefix}-success-color-hover: color(~`colorPalette('@{green-6}', 5) `);
+  --@{ant-prefix}-success-color-active: color(~`colorPalette('@{green-6}', 7) `);
+  --@{ant-prefix}-success-color-outline: fade(@green-6, @outline-fade);
+  --@{ant-prefix}-success-color-deprecated-bg: ~`colorPalette('@{green-6}', 1) `;
+  --@{ant-prefix}-success-color-deprecated-border: ~`colorPalette('@{green-6}', 3) `;
 
   // ========== Error Color ==========
-  --ant-error-color: @red-5;
-  --ant-error-color-hover: color(~`colorPalette('@{red-5}', 5) `);
-  --ant-error-color-active: color(~`colorPalette('@{red-5}', 7) `);
-  --ant-error-color-outline: fade(@red-5, @outline-fade);
-  --ant-error-color-deprecated-bg: ~`colorPalette('@{red-5}', 1) `;
-  --ant-error-color-deprecated-border: ~`colorPalette('@{red-5}', 3) `;
+  --@{ant-prefix}-error-color: @red-5;
+  --@{ant-prefix}-error-color-hover: color(~`colorPalette('@{red-5}', 5) `);
+  --@{ant-prefix}-error-color-active: color(~`colorPalette('@{red-5}', 7) `);
+  --@{ant-prefix}-error-color-outline: fade(@red-5, @outline-fade);
+  --@{ant-prefix}-error-color-deprecated-bg: ~`colorPalette('@{red-5}', 1) `;
+  --@{ant-prefix}-error-color-deprecated-border: ~`colorPalette('@{red-5}', 3) `;
 
   // ========= Warning Color =========
-  --ant-warning-color: @gold-6;
-  --ant-warning-color-hover: color(~`colorPalette('@{gold-6}', 5) `);
-  --ant-warning-color-active: color(~`colorPalette('@{gold-6}', 7) `);
-  --ant-warning-color-outline: fade(@gold-6, @outline-fade);
-  --ant-warning-color-deprecated-bg: ~`colorPalette('@{gold-6}', 1) `;
-  --ant-warning-color-deprecated-border: ~`colorPalette('@{gold-6}', 3) `;
+  --@{ant-prefix}-warning-color: @gold-6;
+  --@{ant-prefix}-warning-color-hover: color(~`colorPalette('@{gold-6}', 5) `);
+  --@{ant-prefix}-warning-color-active: color(~`colorPalette('@{gold-6}', 7) `);
+  --@{ant-prefix}-warning-color-outline: fade(@gold-6, @outline-fade);
+  --@{ant-prefix}-warning-color-deprecated-bg: ~`colorPalette('@{gold-6}', 1) `;
+  --@{ant-prefix}-warning-color-deprecated-border: ~`colorPalette('@{gold-6}', 3) `;
 
   // ========== Info Color ===========
-  --ant-info-color: @base-primary;
-  --ant-info-color-deprecated-bg: ~`colorPalette('@{base-primary}', 1) `;
-  --ant-info-color-deprecated-border: ~`colorPalette('@{base-primary}', 3) `;
+  --@{ant-prefix}-info-color: @base-primary;
+  --@{ant-prefix}-info-color-deprecated-bg: ~`colorPalette('@{base-primary}', 1) `;
+  --@{ant-prefix}-info-color-deprecated-border: ~`colorPalette('@{base-primary}', 3) `;
 }
 
 // -------- Colors -----------
 // >>> Primary
-@primary-color: ~'var(--ant-primary-color)';
-@primary-color-hover: ~'var(--ant-primary-color-hover)';
-@primary-color-active: ~'var(--ant-primary-color-active)';
-@primary-color-outline: ~'var(--ant-primary-color-outline)';
+@primary-color: ~'var(--@{ant-prefix}-primary-color)';
+@primary-color-hover: ~'var(--@{ant-prefix}-primary-color-hover)';
+@primary-color-active: ~'var(--@{ant-prefix}-primary-color-active)';
+@primary-color-outline: ~'var(--@{ant-prefix}-primary-color-outline)';
 
 @processing-color: @primary-color;
 
 // >>> Info
-@info-color: ~'var(--ant-info-color)';
-@info-color-deprecated-bg: ~'var(--ant-info-color-deprecated-bg)';
-@info-color-deprecated-border: ~'var(--ant-info-color-deprecated-border)';
+@info-color: ~'var(--@{ant-prefix}-info-color)';
+@info-color-deprecated-bg: ~'var(--@{ant-prefix}-info-color-deprecated-bg)';
+@info-color-deprecated-border: ~'var(--@{ant-prefix}-info-color-deprecated-border)';
 
 // >>> Success
-@success-color: ~'var(--ant-success-color)';
-@success-color-hover: ~'var(--ant-success-color-hover)';
-@success-color-active: ~'var(--ant-success-color-active)';
-@success-color-outline: ~'var(--ant-success-color-outline)';
-@success-color-deprecated-bg: ~'var(--ant-success-color-deprecated-bg)';
-@success-color-deprecated-border: ~'var(--ant-success-color-deprecated-border)';
+@success-color: ~'var(--@{ant-prefix}-success-color)';
+@success-color-hover: ~'var(--@{ant-prefix}-success-color-hover)';
+@success-color-active: ~'var(--@{ant-prefix}-success-color-active)';
+@success-color-outline: ~'var(--@{ant-prefix}-success-color-outline)';
+@success-color-deprecated-bg: ~'var(--@{ant-prefix}-success-color-deprecated-bg)';
+@success-color-deprecated-border: ~'var(--@{ant-prefix}-success-color-deprecated-border)';
 
 // >>> Warning
-@warning-color: ~'var(--ant-warning-color)';
-@warning-color-hover: ~'var(--ant-warning-color-hover)';
-@warning-color-active: ~'var(--ant-warning-color-active)';
-@warning-color-outline: ~'var(--ant-warning-color-outline)';
-@warning-color-deprecated-bg: ~'var(--ant-warning-color-deprecated-bg)';
-@warning-color-deprecated-border: ~'var(--ant-warning-color-deprecated-border)';
+@warning-color: ~'var(--@{ant-prefix}-warning-color)';
+@warning-color-hover: ~'var(--@{ant-prefix}-warning-color-hover)';
+@warning-color-active: ~'var(--@{ant-prefix}-warning-color-active)';
+@warning-color-outline: ~'var(--@{ant-prefix}-warning-color-outline)';
+@warning-color-deprecated-bg: ~'var(--@{ant-prefix}-warning-color-deprecated-bg)';
+@warning-color-deprecated-border: ~'var(--@{ant-prefix}-warning-color-deprecated-border)';
 
 // >>> Error
-@error-color: ~'var(--ant-error-color)';
-@error-color-hover: ~'var(--ant-error-color-hover)';
-@error-color-active: ~'var(--ant-error-color-active)';
-@error-color-outline: ~'var(--ant-error-color-outline)';
-@error-color-deprecated-bg: ~'var(--ant-error-color-deprecated-bg)';
-@error-color-deprecated-border: ~'var(--ant-error-color-deprecated-border)';
+@error-color: ~'var(--@{ant-prefix}-error-color)';
+@error-color-hover: ~'var(--@{ant-prefix}-error-color-hover)';
+@error-color-active: ~'var(--@{ant-prefix}-error-color-active)';
+@error-color-outline: ~'var(--@{ant-prefix}-error-color-outline)';
+@error-color-deprecated-bg: ~'var(--@{ant-prefix}-error-color-deprecated-bg)';
+@error-color-deprecated-border: ~'var(--@{ant-prefix}-error-color-deprecated-border)';
 
 @highlight-color: @red-5;
 @normal-color: #d9d9d9;
@@ -114,13 +114,13 @@ html {
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: ~'var(--ant-primary-1)'; // replace tint(@primary-color, 90%)
-@primary-2: ~'var(--ant-primary-2)'; // replace tint(@primary-color, 80%)
-@primary-3: ~'var(--ant-primary-3)'; // unused
-@primary-4: ~'var(--ant-primary-4)'; // unused
-@primary-5: ~'var(--ant-primary-5)'; // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
-@primary-6: ~'var(--ant-primary-6)'; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: ~'var(--ant-primary-7)'; // replace shade(@primary-color, 5%)
+@primary-1: ~'var(--@{ant-prefix}-primary-1)'; // replace tint(@primary-color, 90%)
+@primary-2: ~'var(--@{ant-prefix}-primary-2)'; // replace tint(@primary-color, 80%)
+@primary-3: ~'var(--@{ant-prefix}-primary-3)'; // unused
+@primary-4: ~'var(--@{ant-prefix}-primary-4)'; // unused
+@primary-5: ~'var(--@{ant-prefix}-primary-5)'; // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
+@primary-6: ~'var(--@{ant-prefix}-primary-6)'; // color used to control the text color of active buttons, don't use, use @primary-color
+@primary-7: ~'var(--@{ant-prefix}-primary-7)'; // replace shade(@primary-color, 5%)
 
 // Base Scaffolding Variables
 // ---
@@ -681,7 +681,7 @@ html {
 @table-selected-row-color: inherit;
 @table-selected-row-bg: @primary-1;
 @table-body-selected-sort-bg: @table-selected-row-bg;
-@table-selected-row-hover-bg: ~'var(--ant-primary-color-active-deprecated-d-02)';
+@table-selected-row-hover-bg: ~'var(--@{ant-prefix}-primary-color-active-deprecated-d-02)';
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
@@ -725,10 +725,10 @@ html {
 @picker-bg: @component-background;
 @picker-basic-cell-hover-color: @item-hover-bg;
 @picker-basic-cell-active-with-range-color: @primary-1;
-@picker-basic-cell-hover-with-range-color: ~'var(--ant-primary-color-deprecated-l-35)';
+@picker-basic-cell-hover-with-range-color: ~'var(--@{ant-prefix}-primary-color-deprecated-l-35)';
 @picker-basic-cell-disabled-bg: rgba(0, 0, 0, 0.04);
 @picker-border-color: @border-color-split;
-@picker-date-hover-range-border-color: ~'var(--ant-primary-color-deprecated-l-20)';
+@picker-date-hover-range-border-color: ~'var(--@{ant-prefix}-primary-color-deprecated-l-20)';
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
 @picker-time-panel-column-width: 56px;
 @picker-time-panel-column-height: 224px;
@@ -744,7 +744,7 @@ html {
 @calendar-input-bg: @input-bg;
 @calendar-border-color: @border-color-inverse;
 @calendar-item-active-bg: @item-active-bg;
-@calendar-column-active-bg: ~'var(--ant-primary-color-active-deprecated-f-30)';
+@calendar-column-active-bg: ~'var(--@{ant-prefix}-primary-color-active-deprecated-f-30)';
 @calendar-full-bg: @calendar-bg;
 @calendar-full-panel-bg: @calendar-full-bg;
 
@@ -926,14 +926,14 @@ html {
 @slider-handle-background-color: @component-background;
 @slider-handle-color: @primary-3;
 @slider-handle-color-hover: @primary-4;
-@slider-handle-color-focus: ~'var(--ant-primary-color-deprecated-t-20)';
-@slider-handle-color-focus-shadow: ~'var(--ant-primary-color-deprecated-f-12)';
+@slider-handle-color-focus: ~'var(--@{ant-prefix}-primary-color-deprecated-t-20)';
+@slider-handle-color-focus-shadow: ~'var(--@{ant-prefix}-primary-color-deprecated-f-12)';
 @slider-handle-color-tooltip-open: @primary-color;
 @slider-handle-size: 14px;
 @slider-handle-margin-top: -5px;
 @slider-handle-shadow: 0;
 @slider-dot-border-color: @border-color-split;
-@slider-dot-border-color-active: ~'var(--ant-primary-color-deprecated-t-50)';
+@slider-dot-border-color-active: ~'var(--@{ant-prefix}-primary-color-deprecated-t-50)';
 @slider-disabled-color: @disabled-color;
 @slider-disabled-background-color: @component-background;
 
@@ -973,7 +973,7 @@ html {
 @transfer-disabled-bg: @disabled-bg;
 @transfer-list-height: 200px;
 @transfer-item-hover-bg: @item-hover-bg;
-@transfer-item-selected-hover-bg: ~'var(--ant-primary-color-active-deprecated-d-02)';
+@transfer-item-selected-hover-bg: ~'var(--@{ant-prefix}-primary-color-active-deprecated-d-02)';
 @transfer-item-padding-vertical: 6px;
 @transfer-list-search-icon-top: 12px;
 
