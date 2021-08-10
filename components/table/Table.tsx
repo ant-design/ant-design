@@ -38,7 +38,7 @@ import useTitleColumns from './hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
 import scrollTo from '../_util/scrollTo';
 import defaultLocale from '../locale/default';
-import { SizeType } from '../config-provider/SizeContext';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import devWarning from '../_util/devWarning';
@@ -147,7 +147,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
 
-  const size = 'small';
+  const size = React.useContext(SizeContext);
   const {
     locale: contextLocale = defaultLocale,
     renderEmpty,
