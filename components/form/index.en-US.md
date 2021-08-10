@@ -193,11 +193,11 @@ Note: You should not configure Form.Item `initialValue` under Form.List. It alwa
 
 Some operator functions in render form of Form.List.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
-| move | move form item | (from: number, to: number) => void | - |
-| remove | remove form item | (index: number \| number\[]) => void | number\[]: 4.5.0 |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex | 4.6.0 |
+| move | move form item | (from: number, to: number) => void | - |  |
+| remove | remove form item | (index: number \| number\[]) => void | number\[] | 4.5.0 |
 
 ## Form.ErrorList
 
