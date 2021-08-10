@@ -1,5 +1,3 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import ConfigProvider from '..';
 
 describe('ConfigProvider.Theme', () => {
@@ -12,7 +10,7 @@ describe('ConfigProvider.Theme', () => {
     });
 
     const styles = [...document.querySelectorAll('style')];
-    const themeStyle = styles.find(style => style['rc-util-key'] === 'bamboo-dynamic-theme');
+    const themeStyle = styles.find(style => style['rc-util-key'].includes('-dynamic-theme'));
     expect(themeStyle).toBeTruthy();
 
     expect(themeStyle.innerHTML).toContain('--bamboo-primary-color: rgb(0, 0, 255)');
