@@ -18,26 +18,14 @@ import { Badge } from 'antd';
 import { NotificationOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div>
+  <>
     <Badge dot>
-      <NotificationOutlined />
-    </Badge>
-    <Badge count={0} dot>
-      <NotificationOutlined />
+      <NotificationOutlined style={{ fontSize: 16 }} />
     </Badge>
     <Badge dot>
       <a href="#">Link something</a>
     </Badge>
-  </div>,
+  </>,
   mountNode,
 );
 ```
-
-<style>
-.anticon-notification {
-  width: 16px;
-  height: 16px;
-  line-height: 16px;
-  font-size: 16px;
-}
-</style>

@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 10
 title:
   zh-CN: 缎带
   en-US: Ribbon

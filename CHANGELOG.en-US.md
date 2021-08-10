@@ -15,6 +15,33 @@ timeline: true
 
 ---
 
+## 4.16.10
+
+`2021-08-02`
+
+- 🐞 Fix Badge not showing count when customize `color` prop. [#31617](https://github.com/ant-design/ant-design/pull/31617) [@eokoneyo](https://github.com/eokoneyo)
+- 🐞 Fix circle Progress `success.strokeColor` cannot take effect. [#31589](https://github.com/ant-design/ant-design/pull/31589)
+- 🐞 Fix the type error due to the Select component didn't ignore the `getRawInputElement` prop. [#31566](https://github.com/ant-design/ant-design/pull/31566) [@aoilti](https://github.com/aoilti)
+- 🐞 Fix Pagination's `totalBoundaryShowSizeChanger` property type error. [#31549](https://github.com/ant-design/ant-design/pull/31549) [@Monty-Ma](https://github.com/Monty-Ma)
+- 🐞 Fix `className` applied to both Skeleton.Avatar wrapper and element itself. [#31536](https://github.com/ant-design/ant-design/pull/31536) [@Greatshock](https://github.com/Greatshock)
+- 💄 Fix Form `<Input bordered={false} />` outline style. [#31562](https://github.com/ant-design/ant-design/pull/31562)
+- 🌐 Internationalization
+  - 🇹🇷 Added Turkish translation for Image `Preview` text. [#31593](https://github.com/ant-design/ant-design/pull/31593) [@mburakkalkan](https://github.com/mburakkalkan)
+  - 🇰🇷 Fix a typo in the Korean language. [#31575](https://github.com/ant-design/ant-design/pull/31575) [@chatoo2412](https://github.com/chatoo2412)
+
+## 4.16.9
+
+`2021-07-27`
+
+- 🐞 Fix Typography `ellipsis` calculation bug when browser zoomed. [#31449](https://github.com/ant-design/ant-design/pull/31449)
+- 💄 Fix Input wrong class when using `prefixCls`. [#31479](https://github.com/ant-design/ant-design/pull/31479) [@spawnia](https://github.com/spawnia)
+- 💄 Fix Input.Password unexpected focus style of error status. [#31456](https://github.com/ant-design/ant-design/pull/31456)
+- 💄 Fix Badge color transition issue when toggle visibility. [#31458](https://github.com/ant-design/ant-design/pull/31458)
+- 💄 Fix Tabs `tabBarGutter` abnormal style behaviors. [#31469](https://github.com/ant-design/ant-design/pull/31469)
+- 🌐 Internationalization
+  - 🇷🇺 Update translation for Image in ru_RU. [#31448](https://github.com/ant-design/ant-design/pull/31448) [@KirillSBarsukov](https://github.com/KirillSBarsukov)
+  - 🇩🇰 Add missing translation for Table in da_DK. [#31486](https://github.com/ant-design/ant-design/pull/31486) [@bischmlb](https://github.com/bischmlb)
+
 ## 4.16.8
 
 `2021-07-19`
@@ -2272,6 +2299,7 @@ Ant Design 4.0-rc released! Here is the release [document](https://github.com/an
 - 🌟 Tree Enhanced accessibility support and keyboard interaction. [#18866](https://github.com/ant-design/ant-design/pull/18866)
 - 🌟 Select uses virtual scrolling and enhanced accessibility support and keyboard interaction. [#18658](https://github.com/ant-design/ant-design/pull/18658)
   - 🌟 Uncontrolled mode when `value` is `undefined` now.
+  - 🌟 multiple Select won't rerender if `value` is mutable.
 - 🌟 TreeSelect uses virtual scrolling and optimizes keyboard support. [#19040](https://github.com/ant-design/ant-design/pull/19040)
   - 🌟 Uncontrolled mode when `value` is `undefined` now.
 - 🌟 Button adds `default` and `link` styles for `danger`. [#19837](https://github.com/ant-design/ant-design/pull/19837)

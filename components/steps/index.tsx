@@ -1,6 +1,7 @@
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import RcSteps from 'rc-steps';
+import type { ProgressDotRender } from 'rc-steps/lib/Steps';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
@@ -17,7 +18,7 @@ export interface StepsProps {
   initial?: number;
   labelPlacement?: 'horizontal' | 'vertical';
   prefixCls?: string;
-  progressDot?: boolean | Function;
+  progressDot?: boolean | ProgressDotRender;
   responsive?: boolean;
   size?: 'default' | 'small';
   status?: 'wait' | 'process' | 'finish' | 'error';
@@ -39,7 +40,7 @@ export interface StepProps {
 }
 
 interface StepsType extends React.FC<StepsProps> {
-  Step: React.ClassicComponentClass<StepProps>;
+  Step: typeof RcSteps.Step;
 }
 
 const Steps: StepsType = props => {
@@ -47,10 +48,10 @@ const Steps: StepsType = props => {
   const { xs } = useBreakpoint();
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
-  const getDirection = React.useCallback(() => (responsive && xs ? 'vertical' : direction), [
-    xs,
-    direction,
-  ]);
+  const getDirection = React.useCallback(
+    () => (responsive && xs ? 'vertical' : direction),
+    [xs, direction],
+  );
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
   const iconPrefix = getPrefixCls('', props.iconPrefix);
