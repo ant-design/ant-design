@@ -5,7 +5,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { generate } from '@ant-design/colors';
 import { Theme } from './context';
 
-export function registerTheme(theme: Theme) {
+export function registerTheme(globalPrefixCls: string, theme: Theme) {
   const variables: Record<string, string> = {};
 
   const formatColor = (
@@ -80,7 +80,9 @@ export function registerTheme(theme: Theme) {
   }
 
   // Convert to css variables
-  const cssList = Object.keys(variables).map(key => `--ant-${key}: ${variables[key]};`);
+  const cssList = Object.keys(variables).map(
+    key => `--${globalPrefixCls}-${key}: ${variables[key]};`,
+  );
 
   updateCSS(
     `
@@ -88,6 +90,6 @@ export function registerTheme(theme: Theme) {
     ${cssList.join('\n')}
   }
   `,
-    'ant-dynamic-theme',
+    `${globalPrefixCls}-dynamic-theme`,
   );
 }

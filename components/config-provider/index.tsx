@@ -90,6 +90,14 @@ export const defaultIconPrefixCls = 'anticon';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 
+function getGlobalPrefixCls() {
+  return globalPrefixCls || defaultPrefixCls;
+}
+
+function getGlobalIconPrefixCls() {
+  return globalIconPrefixCls || defaultIconPrefixCls;
+}
+
 const setGlobalConfig = ({
   prefixCls,
   iconPrefixCls,
@@ -103,17 +111,9 @@ const setGlobalConfig = ({
   }
 
   if (theme) {
-    registerTheme(theme);
+    registerTheme(getGlobalPrefixCls(), theme);
   }
 };
-
-function getGlobalPrefixCls() {
-  return globalPrefixCls || defaultPrefixCls;
-}
-
-function getGlobalIconPrefixCls() {
-  return globalIconPrefixCls || defaultIconPrefixCls;
-}
 
 export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
