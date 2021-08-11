@@ -179,7 +179,7 @@
     "antd-pro-merge-less": "^3.0.11",
     "antd-theme-generator": "^1.2.3",
     "argos-cli": "^0.3.0",
-    "array-move": "^3.0.0",
+    "array-move": "^4.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "^3.0.0",
     "bisheng-plugin-description": "^0.1.4",
