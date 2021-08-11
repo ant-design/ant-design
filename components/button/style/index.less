@@ -101,7 +101,12 @@
 
   &-icon-only {
     .btn-square(@btn-prefix-cls);
-    vertical-align: -1px;
+    vertical-align: -3px;
+
+    > .@{iconfont-css-prefix} {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &-round {
