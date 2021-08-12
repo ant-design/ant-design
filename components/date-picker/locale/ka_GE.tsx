@@ -1,5 +1,5 @@
-import CalendarLocale from 'rc-picker/lib/locale/en_US';
-import TimePickerLocale from '../../time-picker/locale/en_US';
+import CalendarLocale from 'rc-picker/lib/locale/ka_GE';
+import TimePickerLocale from '../../time-picker/locale/ka_GE';
 import { PickerLocale } from '../generatePicker';
 
 const locale: PickerLocale = {
