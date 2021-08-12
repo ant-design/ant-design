@@ -38,6 +38,10 @@ export interface Locale {
   Image?: {
     preview: string;
   };
+  Switch?: {
+    checkedText: string;
+    unCheckedText: string;
+  };
 }
 
 export interface LocaleProviderProps {

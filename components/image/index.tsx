@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage, { ImageProps } from 'rc-image';
-import defaultLocale from '../locale/en_US';
+import defaultLocale from '../locale/default';
 import PreviewGroup, { icons } from './PreviewGroup';
 import { ConfigContext } from '../config-provider';
 import { getTransitionName } from '../_util/motion';
