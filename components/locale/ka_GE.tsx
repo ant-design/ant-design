@@ -1,8 +1,8 @@
 /* eslint-disable no-template-curly-in-string */
-import Pagination from 'rc-pagination/lib/locale/en_US';
-import DatePicker from '../date-picker/locale/en_US';
-import TimePicker from '../time-picker/locale/en_US';
-import Calendar from '../calendar/locale/en_US';
+import Pagination from 'rc-pagination/lib/locale/ka_GE';
+import DatePicker from '../date-picker/locale/ka_GE';
+import TimePicker from '../time-picker/locale/ka_GE';
+import Calendar from '../calendar/locale/ka_GE';
 import { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} არ არის სწორი ${type}';
