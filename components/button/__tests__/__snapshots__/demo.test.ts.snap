@@ -325,6 +325,14 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
       Dashed
     </span>
   </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-background-ghost ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger
+    </span>
+  </button>
 </div>
 `;
 
