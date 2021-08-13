@@ -3244,6 +3244,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3763,6 +3764,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         Required Mark
         <span
           class="ant-form-item-optional"
+          title=""
         >
           (optional)
         </span>
@@ -3859,6 +3861,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3913,6 +3916,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
           aria-label="info-circle"
           class="anticon anticon-info-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3933,6 +3937,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         </span>
         <span
           class="ant-form-item-optional"
+          title=""
         >
           (optional)
         </span>
