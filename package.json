@@ -262,7 +262,7 @@
     "remark": "^14.0.1",
     "remark-cli": "^10.0.0",
     "remark-lint": "^8.0.0",
-    "remark-preset-lint-recommended": "^5.0.0",
+    "remark-preset-lint-recommended": "^6.0.0",
     "reqwest": "^2.0.5",
     "rimraf": "^3.0.0",
     "scrollama": "^2.0.0",
