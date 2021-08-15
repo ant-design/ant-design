@@ -30,7 +30,17 @@ export interface CarouselRef {
 }
 
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
-  ({ dots = true, arrows = false, draggable = false, dotPosition = 'bottom', ...props }, ref) => {
+  (
+    {
+      autoplay = false,
+      dots = true,
+      arrows = false,
+      draggable = false,
+      dotPosition = 'bottom',
+      ...props
+    },
+    ref,
+  ) => {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const slickRef = React.useRef<any>();
 
@@ -58,6 +68,16 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
         prevCount.current = React.Children.count(props.children);
       }
     }, [props.children]);
+
+    React.useEffect(() => {
+      if (slickRef.current.innerSlider) {
+        if (autoplay) {
+          slickRef.current.innerSlider.autoPlay();
+        } else {
+          slickRef.current.innerSlider.pause();
+        }
+      }
+    }, [autoplay]);
 
     const newProps = {
       ...props,
@@ -88,6 +108,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
         <SlickCarousel
           ref={slickRef}
           {...newProps}
+          autoplay={autoplay}
           dots={enableDots}
           dotsClass={dsClass}
           arrows={arrows}
