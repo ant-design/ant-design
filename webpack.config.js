@@ -89,17 +89,6 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
 
     // apply ${theme} less variables
     injectLessVariables(config, vars);
-    // config.module.rules.forEach(rule => {
-    //   // filter less rule
-    //   if (rule.test instanceof RegExp && rule.test.test('.less')) {
-    //     const lessRule = rule.use[rule.use.length - 1];
-    //     if (lessRule.options.lessOptions) {
-    //       lessRule.options.lessOptions.modifyVars = vars;
-    //     } else {
-    //       lessRule.options.modifyVars = vars;
-    //     }
-    //   }
-    // });
 
     const themeReg = new RegExp(`${theme}(.min)?\\.js(\\.map)?$`);
     // ignore emit ${theme} entry js & js.map file
@@ -113,6 +102,9 @@ const legacyEntryVars = {
 const webpackConfig = injectLessVariables(getWebpackConfig(false), legacyEntryVars);
 const webpackDarkConfig = injectLessVariables(getWebpackConfig(false), legacyEntryVars);
 const webpackCompactConfig = injectLessVariables(getWebpackConfig(false), legacyEntryVars);
+const webpackVariableConfig = injectLessVariables(getWebpackConfig(false), {
+  'root-entry-name': 'variable',
+});
 
 webpackConfig.forEach(config => {
   injectWarningCondition(config);
@@ -144,6 +136,12 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
   processWebpackThemeConfig(webpackCompactConfig, 'compact', compactVars);
+  processWebpackThemeConfig(webpackVariableConfig, 'variable', {});
 }
 
-module.exports = [...webpackConfig, ...webpackDarkConfig, ...webpackCompactConfig];
+module.exports = [
+  ...webpackConfig,
+  ...webpackDarkConfig,
+  ...webpackCompactConfig,
+  ...webpackVariableConfig,
+];
