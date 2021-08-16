@@ -126,7 +126,7 @@ const localeValues: Locale = {
     },
   },
   Image: {
-    preview: 'Превью',
+    preview: 'Предпросмотр',
   },
 };
 

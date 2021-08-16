@@ -7,7 +7,6 @@ import Tabs, { TabsProps } from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigContext } from '../config-provider';
-import { Omit } from '../_util/type';
 import SizeContext from '../config-provider/SizeContext';
 
 function getAction(actions: React.ReactNode[]) {

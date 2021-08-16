@@ -183,7 +183,10 @@ DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale
 
 ### How to modify start day of week?
 
-Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: <https://codesandbox.io/s/moment-day-of-week-6dby5>
+Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: 
+
+- Example: <https://codesandbox.io/s/moment-day-of-week-6dby5>
+- Alternate example: <https://stackblitz.com/edit/react-9aegkj>
 
 ### Why origin panel don't switch when using `panelRender`?
 
