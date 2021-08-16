@@ -5,6 +5,7 @@ import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
 import Tree from '../../../tree';
+import type { DataNode } from '../../../tree';
 import Checkbox from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
@@ -63,14 +64,17 @@ function renderFilterItems({
   });
 }
 
-function getTreeData({ filters }: { filters: ColumnFilterItem[] }) {
+function getTreeData({ filters }: { filters: ColumnFilterItem[] }): DataNode[] {
   return filters.map((filter, index) => {
     const key = String(filter.value);
-    return {
+    const item: DataNode = {
       title: filter.text,
       key: filter.value !== undefined ? key : index,
-      children: getTreeData({ filters: filter.children || [] }),
     };
+    if (filter.children) {
+      item.children = getTreeData({ filters: filter.children || [] });
+    }
+    return item;
   });
 }
 
@@ -124,8 +128,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const propFilteredKeys = filterState?.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
-  const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
+  const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
     setFilteredKeysSync(selectedKeys!);
+  };
+
+  const onSelectInTreeMode = (selectedKeys: Key[]) => {
+    onSelectKeys({ selectedKeys });
   };
 
   React.useEffect(() => {
@@ -245,11 +253,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       if (filterMode === 'tree') {
         return (
-          <Tree
-            onCheck={onSelectKeys}
+          <Tree.DirectoryTree
             checkable
-            checkStrictly
+            className={`${dropdownPrefixCls}-tree`}
+            onCheck={onSelectInTreeMode}
+            onSelect={onSelectInTreeMode}
             checkedKeys={selectedKeys}
+            selectedKeys={selectedKeys}
+            showIcon={false}
             treeData={getTreeData({ filters: column.filters || [] })}
           />
         );
@@ -272,7 +283,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             prefixCls,
             filteredKeys: getFilteredKeysSync(),
             filterMultiple,
-            locale,
           })}
         </Menu>
       );

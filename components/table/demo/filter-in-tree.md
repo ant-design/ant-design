@@ -12,7 +12,7 @@ only: true
 
 ## en-US
 
-You can use `filterMode` to change default filter interface, options: `menu`(default) and `tree-select`.
+You can use `filterMode` to change default filter interface, options: `menu`(default) and `tree`.
 
 ```jsx
 import { Table } from 'antd';
@@ -27,12 +27,22 @@ const columns = [
         value: 'Joe',
       },
       {
-        text: 'Jim',
-        value: 'Jim',
+        text: 'Category 1',
+        value: 'Category 1',
+        children: [
+          {
+            text: 'Yellow',
+            value: 'Yellow',
+          },
+          {
+            text: 'Pink',
+            value: 'Pink',
+          },
+        ],
       },
       {
-        text: 'Submenu',
-        value: 'Submenu',
+        text: 'Category 2',
+        value: 'Category 2',
         children: [
           {
             text: 'Green',
@@ -46,11 +56,6 @@ const columns = [
       },
     ],
     filterMode: 'tree',
-    // specify the condition of filtering result
-    // here is that finding the name started with `value`
-    onFilter: (value, record) => record.name.indexOf(value) === 0,
-    sorter: (a, b) => a.name.length - b.name.length,
-    sortDirections: ['descend'],
   },
   {
     title: 'Age',
