@@ -1,13 +1,14 @@
 ---
 order: 6.1
 title:
-  en-US: Filter by TreeSelect
-  zh-CN: 筛选菜单使用 TreeSelect 来渲染
+  en-US: Filter in Tree
+  zh-CN: 树型筛选菜单
+only: true
 ---
 
 ## zh-CN
 
-可以使用 `filterMode` 来修改筛选菜单的 UI，可选值有 `menu`（默认）和 `tree-select`。
+可以使用 `filterMode` 来修改筛选菜单的 UI，可选值有 `menu`（默认）和 `tree`。
 
 ## en-US
 
@@ -44,7 +45,7 @@ const columns = [
         ],
       },
     ],
-    filterMode: 'tree-select',
+    filterMode: 'tree',
     // specify the condition of filtering result
     // here is that finding the name started with `value`
     onFilter: (value, record) => record.name.indexOf(value) === 0,

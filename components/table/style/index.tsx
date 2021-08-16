@@ -12,3 +12,4 @@ import '../../dropdown/style';
 import '../../spin/style';
 import '../../pagination/style';
 import '../../tooltip/style';
+import '../../tree/style';

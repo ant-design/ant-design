@@ -4,6 +4,7 @@ import isEqual from 'lodash/isEqual';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
+import Tree from '../../../tree';
 import Checkbox from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
@@ -25,35 +26,12 @@ function renderFilterItems({
   prefixCls,
   filteredKeys,
   filterMultiple,
-  locale,
 }: {
   filters: ColumnFilterItem[];
   prefixCls: string;
   filteredKeys: Key[];
   filterMultiple: boolean;
-  locale: TableLocale;
 }) {
-  if (filters.length === 0) {
-    // wrapped with <div /> to avoid react warning
-    // https://github.com/ant-design/ant-design/issues/25979
-    return (
-      <MenuItem key="empty">
-        <div
-          style={{
-            margin: '16px 0',
-          }}
-        >
-          <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
-            description={locale.filterEmptyText}
-            imageStyle={{
-              height: 24,
-            }}
-          />
-        </div>
-      </MenuItem>
-    );
-  }
   return filters.map((filter, index) => {
     const key = String(filter.value);
 
@@ -69,7 +47,6 @@ function renderFilterItems({
             prefixCls,
             filteredKeys,
             filterMultiple,
-            locale,
           })}
         </SubMenu>
       );
@@ -86,6 +63,17 @@ function renderFilterItems({
   });
 }
 
+function getTreeData({ filters }: { filters: ColumnFilterItem[] }) {
+  return filters.map((filter, index) => {
+    const key = String(filter.value);
+    return {
+      title: filter.text,
+      key: filter.value !== undefined ? key : index,
+      children: getTreeData({ filters: filter.children || [] }),
+    };
+  });
+}
+
 export interface FilterDropdownProps<RecordType> {
   tablePrefixCls: string;
   prefixCls: string;
@@ -93,6 +81,7 @@ export interface FilterDropdownProps<RecordType> {
   column: ColumnType<RecordType>;
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
+  filterMode?: 'menu' | 'tree';
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
@@ -108,6 +97,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     dropdownPrefixCls,
     columnKey,
     filterMultiple,
+    filterMode = 'menu',
     filterState,
     triggerFilter,
     locale,
@@ -231,8 +221,40 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     dropdownContent = column.filterDropdown;
   } else {
     const selectedKeys = (getFilteredKeysSync() || []) as any;
-    dropdownContent = (
-      <>
+    const getFilterComponent = () => {
+      if ((column.filters || []).length === 0) {
+        // wrapped with <div /> to avoid react warning
+        // https://github.com/ant-design/ant-design/issues/25979
+        return (
+          <MenuItem key="empty">
+            <div
+              style={{
+                margin: '16px 0',
+              }}
+            >
+              <Empty
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
+                description={locale.filterEmptyText}
+                imageStyle={{
+                  height: 24,
+                }}
+              />
+            </div>
+          </MenuItem>
+        );
+      }
+      if (filterMode === 'tree') {
+        return (
+          <Tree
+            onCheck={onSelectKeys}
+            checkable
+            checkStrictly
+            checkedKeys={selectedKeys}
+            treeData={getTreeData({ filters: column.filters || [] })}
+          />
+        );
+      }
+      return (
         <Menu
           multiple={filterMultiple}
           prefixCls={`${dropdownPrefixCls}-menu`}
@@ -253,6 +275,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             locale,
           })}
         </Menu>
+      );
+    };
+
+    dropdownContent = (
+      <>
+        {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
           <Button type="link" size="small" disabled={selectedKeys.length === 0} onClick={onReset}>
             {locale.filterReset}

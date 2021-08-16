@@ -136,7 +136,7 @@ const columns = [
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
 | filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | false |  |
 | filterMultiple | 是否多选 | boolean | true |  |
-| filterMode | 指定筛选菜单的用户界面 | 'menu' \| `tree-select` | 'menu' | 4.17.0 |
+| filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | 4.17.0 |
 | filters | 表头的筛选菜单项 | object\[] | - |  |
 | fixed | （IE 下无效）列是否固定，可选 true (等效于 left) `left` `right` | boolean \| string | false |  |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |  |
