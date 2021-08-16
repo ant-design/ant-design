@@ -32,6 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | disabled | 将树禁用 | boolean | false |  |
 | draggable | 设置节点可拖拽（IE>8） | boolean \| ((node: DataNode) => boolean) | false |  |
 | expandedKeys | （受控）展开指定的树节点 | string\[] | \[] |  |
+| fieldNames | 自定义节点 title、key、children 的字段 | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - |  |
 | height | 设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动 | number | - |  |
 | icon | 自定义树节点图标。 | ReactNode \| (props) => ReactNode | - |  |

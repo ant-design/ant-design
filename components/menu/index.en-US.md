@@ -111,6 +111,10 @@ More layouts with navigation: [Layout](/components/layout).
 
 Divider line in between menu items, only used in vertical popup Menu or Dropdown Menu.
 
+| Param  | Description            | Type    | Default value | Version |
+| ------ | ---------------------- | ------- | ------------- | ------- |
+| dashed | Whether line is dashed | boolean | false         | 4.17.0  |
+
 ## FAQ
 
 ### Why will Menu's children be rendered twice?

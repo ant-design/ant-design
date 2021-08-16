@@ -12199,7 +12199,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
     />
     <div
       class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="config-drawer-content"
@@ -12208,34 +12208,37 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
           class="config-drawer-wrapper-body"
         >
           <div
-            class="config-drawer-header-no-title"
+            class="config-drawer-header config-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="config-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="config-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="config-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="config-drawer-body"
@@ -12260,7 +12263,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
     />
     <div
       class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="config-drawer-content"
@@ -12269,34 +12272,37 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
           class="config-drawer-wrapper-body"
         >
           <div
-            class="config-drawer-header-no-title"
+            class="config-drawer-header config-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="config-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="config-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="config-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="config-drawer-body"
@@ -12321,7 +12327,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
     />
     <div
       class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="config-drawer-content"
@@ -12330,34 +12336,37 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
           class="config-drawer-wrapper-body"
         >
           <div
-            class="config-drawer-header-no-title"
+            class="config-drawer-header config-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="config-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="config-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="config-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="config-drawer-body"
@@ -12382,7 +12391,7 @@ exports[`ConfigProvider components Drawer configProvider virtual and dropdownMat
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -12391,34 +12400,37 @@ exports[`ConfigProvider components Drawer configProvider virtual and dropdownMat
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -12443,7 +12455,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -12452,34 +12464,37 @@ exports[`ConfigProvider components Drawer normal 1`] = `
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -12504,7 +12519,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
     />
     <div
       class="prefix-Drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="prefix-Drawer-content"
@@ -12513,34 +12528,37 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
           class="prefix-Drawer-wrapper-body"
         >
           <div
-            class="prefix-Drawer-header-no-title"
+            class="prefix-Drawer-header prefix-Drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="prefix-Drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="prefix-Drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="prefix-Drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="prefix-Drawer-body"
@@ -13260,9 +13278,10 @@ exports[`ConfigProvider components Form configProvider 1`] = `
         </div>
       </div>
       <div
-        class="config-form-item-explain config-form-item-explain-error"
+        class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
+          class="config-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13297,9 +13316,10 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
         </div>
       </div>
       <div
-        class="config-form-item-explain config-form-item-explain-error"
+        class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
+          class="config-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13334,9 +13354,10 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
         </div>
       </div>
       <div
-        class="config-form-item-explain config-form-item-explain-error"
+        class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
+          class="config-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13371,9 +13392,10 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13408,9 +13430,10 @@ exports[`ConfigProvider components Form normal 1`] = `
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -13445,9 +13468,10 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
         </div>
       </div>
       <div
-        class="prefix-Form-item-explain prefix-Form-item-explain-error"
+        class="prefix-Form-item-explain prefix-Form-item-explain-connected"
       >
         <div
+          class="prefix-Form-item-explain-error"
           role="alert"
         >
           Bamboo is Light
@@ -35502,11 +35526,11 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -35565,11 +35589,11 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -35656,11 +35680,11 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
 <div>
   <div
     class="config-tree config-tree-icon-hide"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -35719,11 +35743,11 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -35810,11 +35834,11 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
 <div>
   <div
     class="config-tree config-tree-icon-hide"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -35873,11 +35897,11 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -35964,11 +35988,11 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
 <div>
   <div
     class="ant-tree ant-tree-icon-hide"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -36027,11 +36051,11 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
   </div>
   <div
     class="ant-tree ant-tree-block-node ant-tree-directory"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -36118,11 +36142,11 @@ exports[`ConfigProvider components Tree normal 1`] = `
 <div>
   <div
     class="ant-tree ant-tree-icon-hide"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -36181,11 +36205,11 @@ exports[`ConfigProvider components Tree normal 1`] = `
   </div>
   <div
     class="ant-tree ant-tree-block-node ant-tree-directory"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -36272,11 +36296,11 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
 <div>
   <div
     class="prefix-Tree prefix-Tree-icon-hide"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -36335,11 +36359,11 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
   </div>
   <div
     class="prefix-Tree prefix-Tree-block-node prefix-Tree-directory"
+    role="tree"
   >
-    <div
-      role="tree"
-    >
+    <div>
       <input
+        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
