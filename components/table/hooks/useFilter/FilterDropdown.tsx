@@ -253,8 +253,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       if (filterMode === 'tree') {
         return (
-          <Tree.DirectoryTree
+          <Tree
             checkable
+            blockNode
             className={`${dropdownPrefixCls}-tree`}
             onCheck={onSelectInTreeMode}
             onSelect={onSelectInTreeMode}
