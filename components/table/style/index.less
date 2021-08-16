@@ -10,6 +10,7 @@
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-sticky-zindex: calc(@zindex-table-fixed + 1);
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
+@table-filter-dropdown-max-height: 264px;
 
 .@{table-prefix-cls}-wrapper {
   clear: both;
@@ -334,7 +335,7 @@
     .@{dropdown-prefix-cls}-menu {
       // https://github.com/ant-design/ant-design/issues/4916
       // https://github.com/ant-design/ant-design/issues/19542
-      max-height: 264px;
+      max-height: @table-filter-dropdown-max-height;
       overflow-x: hidden;
       border: 0;
       box-shadow: none;
@@ -342,7 +343,9 @@
 
     // Reset tree
     .@{dropdown-prefix-cls}-tree {
+      max-height: @table-filter-dropdown-max-height;
       padding: 4px 0;
+      overflow-x: hidden;
     }
 
     min-width: 120px;
