@@ -1,6 +1,6 @@
 {
-  "name": "antd",
-  "version": "4.16.11",
+  "name": "uniubi-design",
+  "version": "1.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -16,11 +16,11 @@
   ],
   "homepage": "https://ant.design",
   "bugs": {
-    "url": "https://github.com/ant-design/ant-design/issues"
+    "url": "https://github.com/UniUbi-FE/uniubi-design/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/ant-design"
+    "url": "https://github.com/UniUbi-FE/uniubi-design"
   },
   "license": "MIT",
   "contributors": [
