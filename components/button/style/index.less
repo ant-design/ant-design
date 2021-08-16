@@ -101,7 +101,12 @@
 
   &-icon-only {
     .btn-square(@btn-prefix-cls);
-    vertical-align: -1px;
+    vertical-align: -3px;
+
+    > .@{iconfont-css-prefix} {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &-round {
@@ -190,10 +195,15 @@
     margin-left: @margin-xs;
   }
 
-  &-background-ghost {
+  &&-background-ghost {
     color: @btn-default-ghost-color;
-    background: @btn-default-ghost-bg !important;
     border-color: @btn-default-ghost-border;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      background: @btn-default-ghost-bg;
+    }
   }
 
   &-background-ghost&-primary {

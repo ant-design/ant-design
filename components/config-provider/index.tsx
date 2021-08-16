@@ -17,6 +17,7 @@ import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
+import defaultLocale from '../locale/default';
 
 export {
   RenderEmptyHandler,
@@ -209,8 +210,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
 
-  if (locale && locale.Form && locale.Form.defaultValidateMessages) {
-    validateMessages = locale.Form.defaultValidateMessages;
+  if (locale) {
+    validateMessages =
+      locale.Form?.defaultValidateMessages || defaultLocale.Form?.defaultValidateMessages || {};
   }
   if (form && form.validateMessages) {
     validateMessages = { ...validateMessages, ...form.validateMessages };
