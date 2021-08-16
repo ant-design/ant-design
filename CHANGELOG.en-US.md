@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 4.16.12
+
+`2021-08-16`
+
+- 🐞 Fix Form shows `title` on help icon and optional text. [#31785](https://github.com/ant-design/ant-design/pull/31785)
+- 💄 Fix Button broken style when using `ghost` and `danger`. [#31780](https://github.com/ant-design/ant-design/pull/31780)
+- 🐞 Fix Button icon not aligned center vertically in Chrome. [#31755](https://github.com/ant-design/ant-design/pull/31755)
+- 💄 Fix Form `<Input bordered={false} />` outline style. [#31754](https://github.com/ant-design/ant-design/pull/31754)
+- 🐞 Fix Input clear icon margin missing with `suffix`. [#31745](https://github.com/ant-design/ant-design/pull/31745)
+- 🐞 Fix Transfer `showSelectAll={false}` does not hide selection dropdown. [#31746](https://github.com/ant-design/ant-design/pull/31746)
+- 💄 Fix Input should not have focus style when disabled. [#31738](https://github.com/ant-design/ant-design/pull/31738)
+- 💄 Fix Checkbox not aligned center in Checkbox.Group. [#31726](https://github.com/ant-design/ant-design/pull/31726)
+
 ## 4.16.11
 
 `2021-08-08`
