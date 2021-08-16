@@ -1,5 +1,6 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
+const chalk = require('chalk');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -83,7 +84,17 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
 
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
-      config.entry[entryName.replace('antd', `antd.${theme}`)] = config.entry[entryName];
+      const originPath = config.entry[entryName];
+      let replacedPath = [...originPath];
+
+      // We will replace `./index` to `./index-style-only` since theme dist only use style file
+      if (originPath.length === 1 && originPath[0] === './index') {
+        replacedPath = ['./index-style-only'];
+      } else {
+        console.log(chalk.red('🆘 Seems entry has changed! It should be `./index`'));
+      }
+
+      config.entry[entryName.replace('antd', `antd.${theme}`)] = replacedPath;
       delete config.entry[entryName];
     });
 
