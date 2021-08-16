@@ -9,6 +9,30 @@ const compactVars = require('./scripts/compact-vars');
 
 const { webpack } = getWebpackConfig;
 
+function injectLessVariables(config, variables) {
+  (Array.isArray(config) ? config : [config]).forEach(conf => {
+    conf.module.rules.forEach(rule => {
+      // filter less rule
+      if (rule.test instanceof RegExp && rule.test.test('.less')) {
+        const lessRule = rule.use[rule.use.length - 1];
+        if (lessRule.options.lessOptions) {
+          lessRule.options.lessOptions.modifyVars = {
+            ...lessRule.options.lessOptions.modifyVars,
+            ...variables,
+          };
+        } else {
+          lessRule.options.modifyVars = {
+            ...lessRule.options.modifyVars,
+            ...variables,
+          };
+        }
+      }
+    });
+  });
+
+  return config;
+}
+
 // noParse still leave `require('./locale' + name)` in dist files
 // ignore is better: http://stackoverflow.com/q/25384360
 function ignoreMomentLocale(webpackConfig) {
@@ -64,17 +88,18 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     });
 
     // apply ${theme} less variables
-    config.module.rules.forEach(rule => {
-      // filter less rule
-      if (rule.test instanceof RegExp && rule.test.test('.less')) {
-        const lessRule = rule.use[rule.use.length - 1];
-        if (lessRule.options.lessOptions) {
-          lessRule.options.lessOptions.modifyVars = vars;
-        } else {
-          lessRule.options.modifyVars = vars;
-        }
-      }
-    });
+    injectLessVariables(config, vars);
+    // config.module.rules.forEach(rule => {
+    //   // filter less rule
+    //   if (rule.test instanceof RegExp && rule.test.test('.less')) {
+    //     const lessRule = rule.use[rule.use.length - 1];
+    //     if (lessRule.options.lessOptions) {
+    //       lessRule.options.lessOptions.modifyVars = vars;
+    //     } else {
+    //       lessRule.options.modifyVars = vars;
+    //     }
+    //   }
+    // });
 
     const themeReg = new RegExp(`${theme}(.min)?\\.js(\\.map)?$`);
     // ignore emit ${theme} entry js & js.map file
@@ -82,9 +107,12 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
   });
 }
 
-const webpackConfig = getWebpackConfig(false);
-const webpackDarkConfig = getWebpackConfig(false);
-const webpackCompactConfig = getWebpackConfig(false);
+const legacyEntryVars = {
+  'root-entry-name': 'default',
+};
+const webpackConfig = injectLessVariables(getWebpackConfig(false), legacyEntryVars);
+const webpackDarkConfig = injectLessVariables(getWebpackConfig(false), legacyEntryVars);
+const webpackCompactConfig = injectLessVariables(getWebpackConfig(false), legacyEntryVars);
 
 webpackConfig.forEach(config => {
   injectWarningCondition(config);
