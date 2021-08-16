@@ -61,7 +61,8 @@ module.exports = {
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
-      antd: path.join(process.cwd(), 'index'),
+      // Change antd from `index.js` to `site/antd.js` to remove deps of root style
+      antd: path.join(process.cwd(), 'site', 'antd'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
