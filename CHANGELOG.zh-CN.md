@@ -19,13 +19,16 @@ timeline: true
 
 `2021-08-16`
 
-- 🐞 修复 Form 帮助图标和可选文案上有 `title` 提示的问题。[#31785](https://github.com/ant-design/ant-design/pull/31785)
-- 💄 修复 Button `ghost` 和 `danger` 一起使用时的样式问题。[#31780](https://github.com/ant-design/ant-design/pull/31780)
-- 🐞 修复 Button 图标在 Chrome 下没有居中对齐的问题。[#31755](https://github.com/ant-design/ant-design/pull/31755)
-- 💄 修复 Form 内 `<Input bordered={false} />` 错误样式有异常外框样式的问题。[#31754](https://github.com/ant-design/ant-design/pull/31754)
-- 🐞 修复 Input 清除图标和 `suffix` 之间边距丢失的问题。[#31745](https://github.com/ant-design/ant-design/pull/31745)
+- Form
+  - 🐞 修复 Form 帮助图标和可选文案上有 `title` 提示的问题。[#31785](https://github.com/ant-design/ant-design/pull/31785)
+  - 💄 修复 Form 内 `<Input bordered={false} />` 错误样式有异常外框样式的问题。[#31754](https://github.com/ant-design/ant-design/pull/31754)
+- Button
+  - 💄 修复 Button `ghost` 和 `danger` 一起使用时的样式问题。[#31780](https://github.com/ant-design/ant-design/pull/31780)
+  - 🐞 修复 Button 图标在 Chrome 下没有居中对齐的问题。[#31755](https://github.com/ant-design/ant-design/pull/31755)
+- Input
+  - 🐞 修复 Input 清除图标和 `suffix` 之间边距丢失的问题。[#31745](https://github.com/ant-design/ant-design/pull/31745)
+  - 💄 修复 Input 禁用状态下依然有 focus 样式的问题。[#31738](https://github.com/ant-design/ant-design/pull/31738)
 - 🐞 修复 Transfer `showSelectAll={false}` 没有隐藏选择下拉框的问题。[#31746](https://github.com/ant-design/ant-design/pull/31746)
-- 💄 修复 Input 禁用状态下依然有 focus 样式的问题。[#31738](https://github.com/ant-design/ant-design/pull/31738)
 - 💄 修复 Checkbox.Group 中打勾样式没有居中对齐的问题。[#31726](https://github.com/ant-design/ant-design/pull/31726)
 
 
