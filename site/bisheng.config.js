@@ -56,6 +56,9 @@ module.exports = {
   },
   lessConfig: {
     javascriptEnabled: true,
+    modifyVars: {
+      'root-entry-name': 'variable',
+    },
   },
   webpackConfig(config) {
     config.resolve.alias = {
