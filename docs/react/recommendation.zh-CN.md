@@ -6,8 +6,8 @@ title: 社区精选组件
 `antd` 是基于 Ant Design 设计规范实现的 [高质量 React 组件库](/components/overview)，我们倾向于只提供符合该规范且带有视觉展现的 UI 组件，也尽量不重复造轮子。我们推荐使用以下社区已有的优秀实现，与 antd 形成互补。
 
 | 类型 | 推荐组件 |
-| --- | --- | --- |
-| 可视化图表 | [Ant Design Charts](https://charts.ant.design) | [AntV 数据可视化解决方案](https://antv.vision/zh) |
+| --- | --- |
+| 可视化图表 | [Ant Design Charts](https://charts.ant.design) [AntV 数据可视化解决方案](https://antv.vision/zh) |
 | React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 表单 | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
