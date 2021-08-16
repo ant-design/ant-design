@@ -22,7 +22,11 @@ function finalizeCompile() {
     fs.readdir(componentsPath, (err, files) => {
       files.forEach(file => {
         if (fs.existsSync(path.join(componentsPath, file, 'style', 'index.less'))) {
-          componentsLessContent += `@import "../${path.posix.join(file, 'style', 'index.less')}";\n`;
+          componentsLessContent += `@import "../${path.posix.join(
+            file,
+            'style',
+            'index.less',
+          )}";\n`;
         }
       });
       fs.writeFileSync(
@@ -123,6 +127,11 @@ module.exports = {
 
 module.exports = {
   compile: {
+    lessConfig: {
+      modifyVars: {
+        'root-entry-name': 'variable',
+      },
+    },
     finalize: finalizeCompile,
   },
   dist: {
