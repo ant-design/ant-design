@@ -50,7 +50,6 @@ timeline: true
 - 🐞 修复 Select 组件没有忽略 `getRawInputElement` 属性导致的类型报错问题。[#31566](https://github.com/ant-design/ant-design/pull/31566) [@aoilti](https://github.com/aoilti)
 - 🐞 修复 Pagination 的 `totalBoundaryShowSizeChanger` 属性类型错误。[#31549](https://github.com/ant-design/ant-design/pull/31549) [@Monty-Ma](https://github.com/Monty-Ma)
 - 🐞 修复 Skeleton.Avatar `className` 重复应用的问题。 [#31536](https://github.com/ant-design/ant-design/pull/31536) [@Greatshock](https://github.com/Greatshock)
-- 💄 修复 Form 内 `<Input bordered={false} />` 错误状态下有异常外框样式的问题。[#31562](https://github.com/ant-design/ant-design/pull/31562)
 - 🌐 国际化
   - 🇹🇷 为 Image 组件中 `预览` 文案增加土耳其语翻译。[#31593](https://github.com/ant-design/ant-design/pull/31593) [@mburakkalkan](https://github.com/mburakkalkan)
   - 🇰🇷 修复韩语中的错别字。[#31575](https://github.com/ant-design/ant-design/pull/31575) [@chatoo2412](https://github.com/chatoo2412)
