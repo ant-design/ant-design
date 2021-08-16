@@ -31,7 +31,6 @@ timeline: true
 - 🐞 修复 Transfer `showSelectAll={false}` 没有隐藏选择下拉框的问题。[#31746](https://github.com/ant-design/ant-design/pull/31746)
 - 💄 修复 Checkbox.Group 中打勾样式没有居中对齐的问题。[#31726](https://github.com/ant-design/ant-design/pull/31726)
 
-
 ## 4.16.11
 
 `2021-08-08`
