@@ -29,16 +29,24 @@ components.forEach(dir => {
 
   console.log(chalk.cyan('Path:'), styleIndxPath);
 
-  if (content.includes('babel-plugin-import.less')) {
+  if (content.includes('babel-inject.less')) {
     console.log('  ->', chalk.yellow('Skip'));
   } else {
-    content = [
-      // Inject variable
-      "import '../../style/themes/babel-plugin-import.less';",
-      content,
-    ].join('\n');
-
+    // Replace path to proxy one
+    content = content.replace("'./index.less'", "'./index-babel-import.less'");
     fse.writeFileSync(styleIndxPath, content, 'utf8');
+
+    // Create a proxy file
+    fse.writeFileSync(
+      path.resolve(path.dirname(styleIndxPath), 'index-babel-import.less'),
+      [
+        // Declare variables
+        '@root-entry-name: default;',
+        // Import origin one
+        "@import './index';",
+      ].join('\n'),
+      'utf8',
+    );
 
     console.log('  ->', chalk.green('Update'));
     count += 1;
