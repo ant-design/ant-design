@@ -294,12 +294,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               defaultExpandAll
               filterTreeNode={
                 searchValue.trim()
-                  ? node => {
-                      return node.title
-                        ?.toString()
+                  ? node =>
+                      (node.title || '')
+                        .toString()
                         .toLowerCase()
-                        .includes(searchValue.trim().toLowerCase());
-                    }
+                        .includes(searchValue.trim().toLowerCase())
                   : undefined
               }
             />
