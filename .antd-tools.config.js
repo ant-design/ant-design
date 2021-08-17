@@ -129,20 +129,14 @@ module.exports = {
   compile: {
     transformLess(data, lessFilePath) {
       if (lessFilePath.endsWith('style/index.less')) {
-        console.log('Convert Path:', lessFilePath);
         return [
           // Inject default less
           '@root-entry-name: default;',
           // Origin content
           data,
-        ].join('\n');
+        ].join('\n\n');
       }
     },
-    // lessConfig: {
-    //   modifyVars: {
-    //     'root-entry-name': 'default',
-    //   },
-    // },
     finalize: finalizeCompile,
   },
   dist: {
