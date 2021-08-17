@@ -129,7 +129,7 @@ module.exports = {
   compile: {
     lessConfig: {
       modifyVars: {
-        'root-entry-name': 'variable',
+        'root-entry-name': 'default',
       },
     },
     finalize: finalizeCompile,
