@@ -11,6 +11,7 @@ const path = require('path');
 const chalk = require('chalk');
 
 const components = fse.readdirSync('./components');
+const originName = 'index.less';
 const replaceName = 'index-default.less';
 
 let count = 0;
@@ -27,17 +28,24 @@ components.forEach(dir => {
   }
 
   const injectLessPath = path.resolve(path.dirname(styleIndxPath), replaceName);
-  fse.removeSync(injectLessPath);
 
   let content = fse.readFileSync(styleIndxPath, 'utf8');
 
   console.log(chalk.cyan('Path:'), styleIndxPath);
 
-  if (content.includes(replaceName) && fse.existsSync(injectLessPath)) {
+  // Revert
+  if (content.includes(replaceName)) {
+    content = content.replace(`./${replaceName}`, `./${originName}`);
+    fse.writeFileSync(styleIndxPath, content, 'utf8');
+  }
+  fse.removeSync(injectLessPath);
+
+  // Replace
+  if (content.includes(replaceName)) {
     console.log('  ->', chalk.yellow('Skip'));
   } else {
     // Replace path to proxy one
-    content = content.replace('./index.less', `./${replaceName}`);
+    content = content.replace(`./${originName}`, `./${replaceName}`);
     fse.writeFileSync(styleIndxPath, content, 'utf8');
 
     // Create a proxy file

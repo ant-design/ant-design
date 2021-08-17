@@ -90,6 +90,7 @@ function finalizeDist() {
     buildThemeFile('default', defaultVars);
     buildThemeFile('dark', darkVars);
     buildThemeFile('compact', compactVars);
+    buildThemeFile('variable', {});
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', `theme.js`),
       `
@@ -127,16 +128,6 @@ module.exports = {
 
 module.exports = {
   compile: {
-    // transformLess(data, lessFilePath) {
-    //   if (lessFilePath.endsWith('style/index.less')) {
-    //     return [
-    //       // Inject default less
-    //       '@root-entry-name: default;',
-    //       // Origin content
-    //       data,
-    //     ].join('\n\n');
-    //   }
-    // },
     lessConfig: {
       modifyVars: {
         'root-entry-name': 'default',

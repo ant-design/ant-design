@@ -1,5 +1,5 @@
 import '../../style/index.less';
-import './index-default.less';
+import './index.less';
 
 // style dependencies
 import '../../affix/style';
