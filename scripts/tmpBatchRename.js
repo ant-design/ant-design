@@ -11,7 +11,7 @@ const path = require('path');
 const chalk = require('chalk');
 
 const components = fse.readdirSync('./components');
-const replaceName = './index-default.less';
+const replaceName = 'index-default.less';
 
 let count = 0;
 
@@ -34,7 +34,7 @@ components.forEach(dir => {
     console.log('  ->', chalk.yellow('Skip'));
   } else {
     // Replace path to proxy one
-    content = content.replace("'./index.less'", replaceName);
+    content = content.replace('./index.less', `./${replaceName}`);
     fse.writeFileSync(styleIndxPath, content, 'utf8');
 
     // Create a proxy file
