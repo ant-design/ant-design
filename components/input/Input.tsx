@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import Group from './Group';
-import Search from './Search';
-import TextArea from './TextArea';
-import Password from './Password';
+import type Group from './Group';
+import type Search from './Search';
+import type TextArea from './TextArea';
+import type Password from './Password';
 import { LiteralUnion } from '../_util/type';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';

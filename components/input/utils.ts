@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import { DirectionType } from '../config-provider';
-import { SizeType } from '../config-provider/SizeContext';
-import { ClearableInputProps } from './ClearableLabeledInput';
-import { InputProps } from './Input';
+import type { DirectionType } from '../config-provider';
+import type { SizeType } from '../config-provider/SizeContext';
+import type { ClearableInputProps } from './ClearableLabeledInput';
+import type { InputProps } from './Input';
 
 export function getInputClassName(
   prefixCls: string,
