@@ -34,7 +34,7 @@ components.forEach(dir => {
   } else {
     content = [
       // Inject variable
-      "import '../../style/theme/babel-plugin-import.less';",
+      "import '../../style/themes/babel-plugin-import.less';",
       content,
     ].join('\n');
 
@@ -43,8 +43,6 @@ components.forEach(dir => {
     console.log('  ->', chalk.green('Update'));
     count += 1;
   }
-
-  
 });
 
 console.log('Done:', count, 'Updated!');
