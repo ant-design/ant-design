@@ -2,17 +2,20 @@ import * as React from 'react';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import Button from '../../../button';
 import Menu from '../../../menu';
 import Tree from '../../../tree';
 import type { DataNode } from '../../../tree';
 import Checkbox from '../../../checkbox';
+import type { CheckboxChangeEvent } from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
+import Input from '../../../input';
 import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
-import { FilterState } from '.';
+import { FilterState, flattenKeys } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
 
@@ -213,6 +216,15 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     [`${dropdownPrefixCls}-menu-without-submenu`]: !hasSubMenu(column.filters || []),
   });
 
+  const onCheckAll = (e: CheckboxChangeEvent) => {
+    if (e.target.checked) {
+      const allFilterKeys = flattenKeys(column?.filters).map(key => String(key));
+      setFilteredKeysSync(allFilterKeys);
+    } else {
+      setFilteredKeysSync([]);
+    }
+  };
+
   let dropdownContent: React.ReactNode;
 
   if (typeof column.filterDropdown === 'function') {
@@ -253,17 +265,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       if (filterMode === 'tree') {
         return (
-          <Tree
-            checkable
-            blockNode
-            className={`${dropdownPrefixCls}-tree`}
-            onCheck={onSelectInTreeMode}
-            onSelect={onSelectInTreeMode}
-            checkedKeys={selectedKeys}
-            selectedKeys={selectedKeys}
-            showIcon={false}
-            treeData={getTreeData({ filters: column.filters || [] })}
-          />
+          <>
+            <Input suffix={<SearchOutlined />} />
+            <Checkbox onChange={onCheckAll}>全选</Checkbox>
+            <Tree
+              checkable
+              blockNode
+              className={`${dropdownPrefixCls}-tree`}
+              onCheck={onSelectInTreeMode}
+              onSelect={onSelectInTreeMode}
+              checkedKeys={selectedKeys}
+              selectedKeys={selectedKeys}
+              showIcon={false}
+              treeData={getTreeData({ filters: column.filters || [] })}
+            />
+          </>
         );
       }
       return (

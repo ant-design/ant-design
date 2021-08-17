@@ -128,7 +128,7 @@ function injectFilter<RecordType>(
   });
 }
 
-function flattenKeys(filters?: ColumnFilterItem[]) {
+export function flattenKeys(filters?: ColumnFilterItem[]) {
   let keys: FilterValue = [];
   (filters || []).forEach(({ value, children }) => {
     keys.push(value);
