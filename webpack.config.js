@@ -4,6 +4,7 @@ const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
 
@@ -110,6 +111,13 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         analyzerMode: 'static',
         openAnalyzer: false,
         reportFilename: '../report.html',
+      }),
+    );
+
+    config.plugins.push(
+      new DuplicatePackageCheckerPlugin({
+        verbose: true,
+        emitError: true,
       }),
     );
   });

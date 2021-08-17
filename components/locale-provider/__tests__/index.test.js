@@ -54,6 +54,7 @@ import kuIQ from '../ku_IQ';
 import lvLV from '../lv_LV';
 import ltLT from '../lt_LT';
 import mkMK from '../mk_MK';
+import mlIN from '../ml_IN';
 import mnMN from '../mn_MN';
 import msMY from '../ms_MY';
 import nbNO from '../nb_NO';
@@ -116,6 +117,7 @@ const locales = [
   kuIQ,
   ltLT,
   mkMK,
+  mlIN,
   msMY,
   mnMN,
   nbNO,

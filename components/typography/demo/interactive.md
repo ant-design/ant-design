@@ -20,7 +20,7 @@ import { CheckOutlined, HighlightOutlined, SmileOutlined, SmileFilled } from '@a
 
 const { Paragraph } = Typography;
 
-const Demo: React.FC = () => {
+const Demo = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
   const [customIconStr, setCustomIconStr] = useState('Custom Edit icon and replace tooltip text.');
   const [customEnterIconStr, setCustomEnterIconStr] = useState(

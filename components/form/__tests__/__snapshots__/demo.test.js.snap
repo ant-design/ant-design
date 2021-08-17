@@ -3253,6 +3253,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3773,6 +3774,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         Required Mark
         <span
           class="ant-form-item-optional"
+          title=""
         >
           (optional)
         </span>
@@ -3869,6 +3871,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3923,6 +3926,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
           aria-label="info-circle"
           class="anticon anticon-info-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3943,6 +3947,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         </span>
         <span
           class="ant-form-item-optional"
+          title=""
         >
           (optional)
         </span>
@@ -7662,7 +7667,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <span
                 aria-label="close-circle"
-                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix ant-input-clear-icon"
                 role="button"
                 tabindex="-1"
               >

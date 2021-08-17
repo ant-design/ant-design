@@ -7,31 +7,64 @@ exports[`Badge render Badge status/color when contains children 1`] = `
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-success"
+      class="ant-scroll-number ant-badge-count ant-badge-status-success"
       data-show="true"
       title="5"
-    />
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
   </span>
   <span
     class="ant-badge ant-badge-status"
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-blue"
+      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
       data-show="true"
       title="5"
-    />
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
   </span>
   <span
     class="ant-badge ant-badge-status"
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-dot"
+      class="ant-scroll-number ant-badge-count"
       data-show="true"
       style="background: rgb(0, 136, 204);"
       title="5"
-    />
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
   </span>
 </div>
 `;
@@ -546,21 +579,4 @@ exports[`Badge should support offset when count is a ReactNode 1`] = `
     style="margin-top: 20px; right: -10px; color: rgb(245, 34, 45);"
   />
 </span>
-`;
-
-exports[`Ribbon rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-ribbon-wrapper"
->
-  <div
-    class="ant-ribbon ant-ribbon-placement-end ant-ribbon-rtl"
-  >
-    <span
-      class="ant-ribbon-text"
-    />
-    <div
-      class="ant-ribbon-corner"
-    />
-  </div>
-</div>
 `;

@@ -6,7 +6,7 @@ import omit from 'rc-util/lib/omit';
 import Group from './button-group';
 import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
-import { Omit, tuple } from '../_util/type';
+import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
