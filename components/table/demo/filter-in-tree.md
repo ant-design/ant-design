@@ -56,6 +56,7 @@ const columns = [
       },
     ],
     filterMode: 'tree',
+    filterSearch: true,
     onFilter: (value, record) => record.name.includes(value),
     width: '30%',
   },
@@ -79,6 +80,7 @@ const columns = [
       },
     ],
     onFilter: (value, record) => record.address.startsWith(value),
+    filterSearch: true,
     width: '40%',
   },
 ];

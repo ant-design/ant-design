@@ -345,6 +345,15 @@
       overflow-x: hidden;
       border: 0;
       box-shadow: none;
+
+      &:empty::after {
+        display: block;
+        padding: 8px 0;
+        color: @disabled-color;
+        font-size: @font-size-sm;
+        text-align: center;
+        content: 'Not Found';
+      }
     }
 
     &-tree {

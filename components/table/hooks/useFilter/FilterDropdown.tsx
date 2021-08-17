@@ -30,11 +30,13 @@ function renderFilterItems({
   prefixCls,
   filteredKeys,
   filterMultiple,
+  searchValue,
 }: {
   filters: ColumnFilterItem[];
   prefixCls: string;
   filteredKeys: Key[];
   filterMultiple: boolean;
+  searchValue?: string;
 }) {
   return filters.map((filter, index) => {
     const key = String(filter.value);
@@ -51,6 +53,7 @@ function renderFilterItems({
             prefixCls,
             filteredKeys,
             filterMultiple,
+            searchValue,
           })}
         </SubMenu>
       );
@@ -58,12 +61,18 @@ function renderFilterItems({
 
     const Component = filterMultiple ? Checkbox : Radio;
 
-    return (
+    const item = (
       <MenuItem key={filter.value !== undefined ? key : index}>
         <Component checked={filteredKeys.includes(key)} />
         <span>{filter.text}</span>
       </MenuItem>
     );
+    if (searchValue?.trim()) {
+      return filter.text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase())
+        ? item
+        : null;
+    }
+    return item;
   });
 }
 
@@ -75,6 +84,7 @@ export interface FilterDropdownProps<RecordType> {
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
+  filterSearch?: boolean;
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
@@ -91,6 +101,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     columnKey,
     filterMultiple,
     filterMode = 'menu',
+    filterSearch = false,
     filterState,
     triggerFilter,
     locale,
@@ -232,6 +243,16 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     });
 
   let dropdownContent: React.ReactNode;
+  const searchInput = filterSearch && (
+    <div className={`${tablePrefixCls}-filter-dropdown-search`}>
+      <Input
+        prefix={<SearchOutlined />}
+        placeholder="Search"
+        onChange={onSearch}
+        className={`${tablePrefixCls}-filter-dropdown-search-input`}
+      />
+    </div>
+  );
 
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
@@ -271,15 +292,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       if (filterMode === 'tree') {
         return (
-          <div>
-            <div className={`${tablePrefixCls}-filter-dropdown-search`}>
-              <Input
-                prefix={<SearchOutlined />}
-                placeholder="Search"
-                onChange={onSearch}
-                className={`${tablePrefixCls}-filter-dropdown-search-input`}
-              />
-            </div>
+          <>
+            {searchInput}
             <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
               <Checkbox
                 className={`${tablePrefixCls}-filter-dropdown-checkall`}
@@ -310,29 +324,34 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 }
               />
             </div>
-          </div>
+          </>
         );
       }
       return (
-        <Menu
-          multiple={filterMultiple}
-          prefixCls={`${dropdownPrefixCls}-menu`}
-          className={dropdownMenuClass}
-          onClick={onMenuClick}
-          onSelect={onSelectKeys}
-          onDeselect={onSelectKeys}
-          selectedKeys={selectedKeys}
-          getPopupContainer={getPopupContainer}
-          openKeys={openKeys}
-          onOpenChange={onOpenChange}
-        >
-          {renderFilterItems({
-            filters: column.filters || [],
-            prefixCls,
-            filteredKeys: getFilteredKeysSync(),
-            filterMultiple,
-          })}
-        </Menu>
+        <>
+          {searchInput}
+
+          <Menu
+            multiple={filterMultiple}
+            prefixCls={`${dropdownPrefixCls}-menu`}
+            className={dropdownMenuClass}
+            onClick={onMenuClick}
+            onSelect={onSelectKeys}
+            onDeselect={onSelectKeys}
+            selectedKeys={selectedKeys}
+            getPopupContainer={getPopupContainer}
+            openKeys={openKeys}
+            onOpenChange={onOpenChange}
+          >
+            {renderFilterItems({
+              filters: column.filters || [],
+              prefixCls,
+              filteredKeys: getFilteredKeysSync(),
+              filterMultiple,
+              searchValue,
+            })}
+          </Menu>
+        </>
       );
     };
 
