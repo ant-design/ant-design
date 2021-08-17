@@ -11,6 +11,7 @@ const path = require('path');
 const chalk = require('chalk');
 
 const components = fse.readdirSync('./components');
+const replaceName = './index-default.less';
 
 let count = 0;
 
@@ -29,16 +30,16 @@ components.forEach(dir => {
 
   console.log(chalk.cyan('Path:'), styleIndxPath);
 
-  if (content.includes('index-babel-import.less')) {
+  if (content.includes(replaceName)) {
     console.log('  ->', chalk.yellow('Skip'));
   } else {
     // Replace path to proxy one
-    content = content.replace("'./index.less'", "'./index-babel-import.less'");
+    content = content.replace("'./index.less'", replaceName);
     fse.writeFileSync(styleIndxPath, content, 'utf8');
 
     // Create a proxy file
     fse.writeFileSync(
-      path.resolve(path.dirname(styleIndxPath), 'index-babel-import.less'),
+      path.resolve(path.dirname(styleIndxPath), replaceName),
       [
         // Declare variables
         '@root-entry-name: default;',
