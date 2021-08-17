@@ -51,24 +51,11 @@
         }
 
         var searchParam = getSearchParam(location.search) || {}; // 查询参数对象
-        var localStorageTheme = localStorage.getItem('site-theme');
 
-        var isDarkMode = localStorageTheme === 'dark'; // 判断当前主题
+        var isDarkMode = searchParam.theme === 'dark'; // 判断当前主题
         var isComponentsPage = location.pathname.startsWith('/components'); // 判断是否组件页面
 
-        // 1. 设置路由主题。初始时根据之前设置的主题(依据localstorage)自动切换
-        if (
-          localStorageTheme && // 必须要有localstorage.getItem('site-theme')
-          localStorageTheme !== 'default' && // 必须不是默认主题
-          searchParam.theme !== localStorageTheme && // 必须不相等
-          isComponentsPage // 必须在组件页面下
-        ) {
-          // 当dark时将查询参数设置成theme=dark
-          searchParam.theme = localStorageTheme;
-          location.search = fromSearchParam(searchParam);
-        }
-
-        // 2. 暗色主题刷新时无白屏
+        // 1. 暗色主题刷新时无白屏
         // 如果是暗色主题，且在components路由下
         var darkThemeLinkEl = document.getElementById('darkThemeLink');
         if (isDarkMode && isComponentsPage) {
