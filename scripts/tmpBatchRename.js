@@ -26,11 +26,14 @@ components.forEach(dir => {
     return;
   }
 
+  const injectLessPath = path.resolve(path.dirname(styleIndxPath), replaceName);
+  fse.removeSync(injectLessPath);
+
   let content = fse.readFileSync(styleIndxPath, 'utf8');
 
   console.log(chalk.cyan('Path:'), styleIndxPath);
 
-  if (content.includes(replaceName)) {
+  if (content.includes(replaceName) && fse.existsSync(injectLessPath)) {
     console.log('  ->', chalk.yellow('Skip'));
   } else {
     // Replace path to proxy one
@@ -39,7 +42,7 @@ components.forEach(dir => {
 
     // Create a proxy file
     fse.writeFileSync(
-      path.resolve(path.dirname(styleIndxPath), replaceName),
+      injectLessPath,
       [
         // Declare variables
         '@root-entry-name: default;',

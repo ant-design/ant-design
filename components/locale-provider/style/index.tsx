@@ -1,1 +1,1 @@
-import './index.less';
+import './index-default.less';

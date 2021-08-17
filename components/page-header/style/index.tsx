@@ -1,4 +1,4 @@
-import './index.less';
+import './index-default.less';
 
 // style dependencies
 import '../../breadcrumb/style';
