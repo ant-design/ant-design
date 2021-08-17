@@ -29,7 +29,7 @@ components.forEach(dir => {
 
   console.log(chalk.cyan('Path:'), styleIndxPath);
 
-  if (content.includes('babel-inject.less')) {
+  if (content.includes('index-babel-import.less')) {
     console.log('  ->', chalk.yellow('Skip'));
   } else {
     // Replace path to proxy one
