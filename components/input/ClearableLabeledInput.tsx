@@ -56,7 +56,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   };
 
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, readOnly, handleReset } = this.props;
+    const { allowClear, value, disabled, readOnly, handleReset, suffix } = this.props;
     if (!allowClear) {
       return null;
     }
@@ -71,6 +71,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         className={classNames(
           {
             [`${className}-hidden`]: !needClear,
+            [`${className}-has-suffix`]: !!suffix,
           },
           className,
         )}

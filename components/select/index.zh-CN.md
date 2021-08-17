@@ -63,7 +63,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | tagRender | 自定义 tag 内容 render | (props) => ReactNode | - |  |
 | tokenSeparators | 在 `tags` 和 `multiple` 模式下自动分词的分隔符 | string\[] | - |  |
-| value | 指定当前选中的条目 | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
@@ -82,26 +82,26 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 ### Select Methods
 
-| 名称 | 说明 | 版本 |
-| --- | --- | --- |
-| blur() | 取消焦点 |  |
-| focus() | 获取焦点 |  |
+| 名称    | 说明     | 版本 |
+| ------- | -------- | ---- |
+| blur()  | 取消焦点 |      |
+| focus() | 获取焦点 |      |
 
 ### Option props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | Option 器类名 | string | - |  |
-| disabled | 是否禁用 | boolean | false |  |
-| title | 选中该 Option 后，Select 的 title | string | - |  |
-| value | 默认根据此属性值进行筛选 | string \| number | - |  |
+| 参数      | 说明                              | 类型             | 默认值 | 版本 |
+| --------- | --------------------------------- | ---------------- | ------ | ---- |
+| className | Option 器类名                     | string           | -      |      |
+| disabled  | 是否禁用                          | boolean          | false  |      |
+| title     | 选中该 Option 后，Select 的 title | string           | -      |      |
+| value     | 默认根据此属性值进行筛选          | string \| number | -      |      |
 
 ### OptGroup props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| key | Key | string | - |  |
-| label | 组名 | string \| React.Element | - |  |
+| 参数  | 说明 | 类型                    | 默认值 | 版本 |
+| ----- | ---- | ----------------------- | ------ | ---- |
+| key   | Key  | string                  | -      |      |
+| label | 组名 | string \| React.Element | -      |      |
 
 ## FAQ
 
