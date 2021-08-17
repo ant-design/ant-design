@@ -95,7 +95,7 @@ Basic text writing, including headings, body text, lists, and more.
       onChange: function(string),
       onCancel: function,
       onEnd: function,
-      triggerType: 'icon' | 'text' | 'both',
+      triggerType: ('icon' | 'text')[],
     }
 
 | Property | Description | Type | Default | Version |
@@ -111,7 +111,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onStart | Called when enter editable state | function | - |  |
 | onCancel | Called when type ESC to exit editable state | function | - |  |
 | onEnd | Called when type ENTER to exit editable state | function | - |  |
-| triggerType | Edit mode trigger - icon, text or both (in case of "text" icon is hidden) | `icon`\|`text`\|`both` | `icon` |  |
+| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 
 ### ellipsis
 

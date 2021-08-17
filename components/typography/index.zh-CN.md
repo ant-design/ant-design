@@ -96,7 +96,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       onChange: function(string),
       onCancel: function,
       onEnd: function,
-      triggerType: 'icon' | 'text' | 'both',
+      triggerType: ('icon' | 'text')[],
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -112,7 +112,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | onStart | 进入编辑中状态时触发 | function | - |  |
 | onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - |  |
-| triggerType | 编辑模式触发器 - 图标、值（文本）或两者皆有（在有“值”的情况下图标会被隐藏） | `icon`\|`text`\|`both` | `icon` |  |
+| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 
 ### ellipsis
 

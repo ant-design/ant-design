@@ -27,11 +27,29 @@ const Demo: React.FC = () => {
     'Text or icon as trigger - click to start editing.',
   );
   const [chooseTrigger, setChooseTrigger] = useState('icon');
-  const [alwaysShowIcon, setAlwaysShowIcon] = useState(false);
   const [hideTooltipStr, setHideTooltipStr] = useState('Hide Edit tooltip.');
   const [lengthLimitedStr, setLengthLimitedStr] = useState(
     'This is an editable text with limited length.',
   );
+
+  const radioToState = input => {
+    switch (input) {
+      case 'text':
+        return ['text'];
+      case 'both':
+        return ['icon', 'text'];
+      case 'icon':
+      default:
+        return ['icon'];
+    }
+  };
+
+  const stateToRadio = () => {
+    if (chooseTrigger.indexOf('text') !== -1) {
+      return chooseTrigger.indexOf('icon') !== -1 ? 'both' : 'text';
+    }
+    return 'icon';
+  };
 
   return (
     <>
@@ -46,7 +64,10 @@ const Demo: React.FC = () => {
         {customIconStr}
       </Paragraph>
       Trigger edit with:{' '}
-      <Radio.Group onChange={e => setChooseTrigger(e.target.value)} value={chooseTrigger}>
+      <Radio.Group
+        onChange={e => setChooseTrigger(radioToState(e.target.value))}
+        value={stateToRadio()}
+      >
         <Radio value="icon">icon</Radio>
         <Radio value="text">text</Radio>
         <Radio value="both">both</Radio>
