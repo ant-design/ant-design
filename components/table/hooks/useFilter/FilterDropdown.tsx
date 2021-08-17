@@ -67,20 +67,6 @@ function renderFilterItems({
   });
 }
 
-function getTreeData({ filters }: { filters: ColumnFilterItem[] }): DataNode[] {
-  return filters.map((filter, index) => {
-    const key = String(filter.value);
-    const item: DataNode = {
-      title: filter.text,
-      key: filter.value !== undefined ? key : index,
-    };
-    if (filter.children) {
-      item.children = getTreeData({ filters: filter.children || [] });
-    }
-    return item;
-  });
-}
-
 export interface FilterDropdownProps<RecordType> {
   tablePrefixCls: string;
   prefixCls: string;
@@ -225,6 +211,33 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     }
   };
 
+  // search in tree mode column filter
+  const [searchValue, setSearchValue] = React.useState('');
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearchValue(value);
+  };
+
+  const getTreeData = ({ filters }: { filters?: ColumnFilterItem[] }) =>
+    (filters || [])
+      .map((filter, index) => {
+        const key = String(filter.value);
+        const item: DataNode = {
+          title: filter.text,
+          key: filter.value !== undefined ? key : index,
+        };
+        if (filter.children) {
+          item.children = getTreeData({ filters: filter.children });
+        }
+        if (searchValue.trim()) {
+          return filter.text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase())
+            ? item
+            : undefined;
+        }
+        return item;
+      })
+      .filter(item => !!item) as DataNode[];
+
   let dropdownContent: React.ReactNode;
 
   if (typeof column.filterDropdown === 'function') {
@@ -266,7 +279,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       if (filterMode === 'tree') {
         return (
           <>
-            <Input suffix={<SearchOutlined />} />
+            <Input prefix={<SearchOutlined />} placeholder="Search" onChange={onSearch} />
             <Checkbox onChange={onCheckAll}>全选</Checkbox>
             <Tree
               checkable
@@ -277,7 +290,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               checkedKeys={selectedKeys}
               selectedKeys={selectedKeys}
               showIcon={false}
-              treeData={getTreeData({ filters: column.filters || [] })}
+              treeData={getTreeData({ filters: column.filters })}
             />
           </>
         );
