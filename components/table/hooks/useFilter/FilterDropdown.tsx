@@ -229,6 +229,13 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     setSearchValue(value);
   };
 
+  // clear search value after close filter dropdown
+  React.useEffect(() => {
+    if (!visible) {
+      setSearchValue('');
+    }
+  }, [visible]);
+
   const getTreeData = ({ filters }: { filters?: ColumnFilterItem[] }) =>
     (filters || []).map((filter, index) => {
       const key = String(filter.value);
@@ -249,6 +256,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         prefix={<SearchOutlined />}
         placeholder="Search"
         onChange={onSearch}
+        value={searchValue}
         className={`${tablePrefixCls}-filter-dropdown-search-input`}
       />
     </div>
@@ -330,7 +338,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       return (
         <>
           {searchInput}
-
           <Menu
             multiple={filterMultiple}
             prefixCls={`${dropdownPrefixCls}-menu`}
