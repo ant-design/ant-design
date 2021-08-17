@@ -28,7 +28,7 @@ components.forEach(dir => {
   const styleFolderPath = path.dirname(styleIndxPath);
   const styleMvPath = path.resolve(styleFolderPath, 'style.tsx');
 
-  fse.moveSync(styleIndxPath, styleMvPath);
+  fse.moveSync(styleIndxPath, styleMvPath, { overwrite: true });
   fse.writeFileSync(
     styleIndxPath,
     [
