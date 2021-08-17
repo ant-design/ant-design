@@ -25,24 +25,26 @@ components.forEach(dir => {
     return;
   }
 
-  const styleFolderPath = path.dirname(styleIndxPath);
-  const styleMvPath = path.resolve(styleFolderPath, 'style.tsx');
+  let content = fse.readFileSync(styleIndxPath, 'utf8');
 
-  fse.moveSync(styleIndxPath, styleMvPath, { overwrite: true });
-  fse.writeFileSync(
-    styleIndxPath,
-    [
+  console.log(chalk.cyan('Path:'), styleIndxPath);
+
+  if (content.includes('babel-plugin-import.less')) {
+    console.log('  ->', chalk.yellow('Skip'));
+  } else {
+    content = [
       // Inject variable
       "import '../../style/theme/babel-plugin-import.less';",
-      // Link origin
-      "import '.';",
-    ].join('\n'),
-    'utf8',
-  );
+      content,
+    ].join('\n');
 
-  console.log(chalk.cyan('SRC:'), styleIndxPath);
-  console.log(chalk.green('TGT:'), styleMvPath);
-  count += 1;
+    fse.writeFileSync(styleIndxPath, content, 'utf8');
+
+    console.log('  ->', chalk.green('Update'));
+    count += 1;
+  }
+
+  
 });
 
-console.log('>>>', count);
+console.log('Done:', count, 'Updated!');
