@@ -1456,7 +1456,7 @@ describe('Table.filter', () => {
     expect(checkbox.props().checked).toEqual(false);
   });
 
-  it('should not trigger onChange when filter is empty', () => {
+  it('should not trigger onChange when filters is empty', () => {
     const onChange = jest.fn();
     const Test = ({ filters }) => (
       <Table

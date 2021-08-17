@@ -276,24 +276,18 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     const selectedKeys = (getFilteredKeysSync() || []) as any;
     const getFilterComponent = () => {
       if ((column.filters || []).length === 0) {
-        // wrapped with <div /> to avoid react warning
-        // https://github.com/ant-design/ant-design/issues/25979
         return (
-          <Menu.Item key="empty">
-            <div
-              style={{
-                margin: '16px 0',
-              }}
-            >
-              <Empty
-                image={Empty.PRESENTED_IMAGE_SIMPLE}
-                description={locale.filterEmptyText}
-                imageStyle={{
-                  height: 24,
-                }}
-              />
-            </div>
-          </Menu.Item>
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description={locale.filterEmptyText}
+            imageStyle={{
+              height: 24,
+            }}
+            style={{
+              margin: 0,
+              padding: '16px 0',
+            }}
+          />
         );
       }
       if (filterMode === 'tree') {
