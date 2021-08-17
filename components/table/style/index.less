@@ -348,6 +348,28 @@
       overflow-x: hidden;
     }
 
+    &-tree {
+      padding: 8px;
+    }
+
+    &-search {
+      padding: 8px;
+      border-bottom: @border-width-base @border-color-split @border-style-base;
+
+      &-input {
+        min-width: 180px;
+
+        .@{iconfont-css-prefix} {
+          color: @disabled-color;
+        }
+      }
+    }
+
+    &-checkall {
+      width: 100%;
+      margin-left: 4px;
+    }
+
     min-width: 120px;
     background-color: @table-filter-dropdown-bg;
 

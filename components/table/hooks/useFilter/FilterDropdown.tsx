@@ -271,37 +271,46 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       if (filterMode === 'tree') {
         return (
-          <div style={{ padding: 4 }}>
-            <Input
-              prefix={<SearchOutlined />}
-              placeholder="Search"
-              onChange={onSearch}
-              style={{ width: 200 }}
-            />
-            <br />
-            <Checkbox onChange={onCheckAll}>全选</Checkbox>
-            <Tree
-              checkable
-              blockNode
-              className={`${dropdownPrefixCls}-tree`}
-              onCheck={onSelectInTreeMode}
-              onSelect={onSelectInTreeMode}
-              checkedKeys={selectedKeys}
-              selectedKeys={selectedKeys}
-              showIcon={false}
-              treeData={getTreeData({ filters: column.filters })}
-              autoExpandParent
-              defaultExpandAll
-              filterTreeNode={
-                searchValue.trim()
-                  ? node =>
-                      (node.title || '')
-                        .toString()
-                        .toLowerCase()
-                        .includes(searchValue.trim().toLowerCase())
-                  : undefined
-              }
-            />
+          <div>
+            <div className={`${tablePrefixCls}-filter-dropdown-search`}>
+              <Input
+                prefix={<SearchOutlined />}
+                placeholder="Search"
+                onChange={onSearch}
+                className={`${tablePrefixCls}-filter-dropdown-search-input`}
+              />
+            </div>
+            <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
+              <Checkbox
+                className={`${tablePrefixCls}-filter-dropdown-checkall`}
+                onChange={onCheckAll}
+              >
+                全选
+              </Checkbox>
+              <Tree
+                checkable
+                selectable={false}
+                blockNode
+                className={`${dropdownPrefixCls}-tree`}
+                onCheck={onSelectInTreeMode}
+                onSelect={onSelectInTreeMode}
+                checkedKeys={selectedKeys}
+                selectedKeys={selectedKeys}
+                showIcon={false}
+                treeData={getTreeData({ filters: column.filters })}
+                autoExpandParent
+                defaultExpandAll
+                filterTreeNode={
+                  searchValue.trim()
+                    ? node =>
+                        (node.title || '')
+                          .toString()
+                          .toLowerCase()
+                          .includes(searchValue.trim().toLowerCase())
+                    : undefined
+                }
+              />
+            </div>
           </div>
         );
       }
