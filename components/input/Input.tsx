@@ -6,10 +6,11 @@ import Search from './Search';
 import TextArea from './TextArea';
 import Password from './Password';
 import { LiteralUnion } from '../_util/type';
-import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
+import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
+import { getInputClassName, hasPrefixSuffix } from './utils';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -100,22 +101,6 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     return;
   }
   onChange(event as React.ChangeEvent<E>);
-}
-
-export function getInputClassName(
-  prefixCls: string,
-  bordered: boolean,
-  size?: SizeType,
-  disabled?: boolean,
-  direction?: DirectionType,
-) {
-  return classNames(prefixCls, {
-    [`${prefixCls}-sm`]: size === 'small',
-    [`${prefixCls}-lg`]: size === 'large',
-    [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-borderless`]: !bordered,
-  });
 }
 
 export function triggerFocus(
