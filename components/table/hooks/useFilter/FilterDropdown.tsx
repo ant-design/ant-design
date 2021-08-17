@@ -19,8 +19,6 @@ import { FilterState, flattenKeys } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
 
-const { SubMenu, Item: MenuItem } = Menu;
-
 function hasSubMenu(filters: ColumnFilterItem[]) {
   return filters.some(({ children }) => children);
 }
@@ -43,7 +41,7 @@ function renderFilterItems({
 
     if (filter.children) {
       return (
-        <SubMenu
+        <Menu.SubMenu
           key={key || index}
           title={filter.text}
           popupClassName={`${prefixCls}-dropdown-submenu`}
@@ -55,17 +53,17 @@ function renderFilterItems({
             filterMultiple,
             searchValue,
           })}
-        </SubMenu>
+        </Menu.SubMenu>
       );
     }
 
     const Component = filterMultiple ? Checkbox : Radio;
 
     const item = (
-      <MenuItem key={filter.value !== undefined ? key : index}>
+      <Menu.Item key={filter.value !== undefined ? key : index}>
         <Component checked={filteredKeys.includes(key)} />
         <span>{filter.text}</span>
-      </MenuItem>
+      </Menu.Item>
     );
     if (searchValue?.trim()) {
       return filter.text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase())
@@ -281,7 +279,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         // wrapped with <div /> to avoid react warning
         // https://github.com/ant-design/ant-design/issues/25979
         return (
-          <MenuItem key="empty">
+          <Menu.Item key="empty">
             <div
               style={{
                 margin: '16px 0',
@@ -295,7 +293,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 }}
               />
             </div>
-          </MenuItem>
+          </Menu.Item>
         );
       }
       if (filterMode === 'tree') {
