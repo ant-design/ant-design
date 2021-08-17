@@ -3,7 +3,6 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
-import useModal from './useModal';
 import { getConfirmLocale } from './locale';
 import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
@@ -13,7 +12,6 @@ import { canUseDocElement } from '../_util/styleChecker';
 import { getTransitionName } from '../_util/motion';
 
 let mousePosition: { x: number; y: number } | null;
-export const destroyFns: Array<() => void> = [];
 
 // ref: https://github.com/ant-design/ant-design/issues/15795
 const getClickPosition = (e: MouseEvent) => {
@@ -131,11 +129,7 @@ export interface ModalLocale {
   justOkText: string;
 }
 
-interface ModalInterface extends React.FC<ModalProps> {
-  useModal: typeof useModal;
-}
-
-const Modal: ModalInterface = props => {
+const Modal: React.FC<ModalProps> = props => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -221,8 +215,6 @@ const Modal: ModalInterface = props => {
     />
   );
 };
-
-Modal.useModal = useModal;
 
 Modal.defaultProps = {
   width: 520,
