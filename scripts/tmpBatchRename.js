@@ -20,15 +20,27 @@ components.forEach(dir => {
     return;
   }
 
-  const stylePath = path.resolve(dirPath, 'style', 'index.tsx');
-  if (!fse.existsSync(stylePath) || !fse.lstatSync(stylePath).isFile) {
+  const styleIndxPath = path.resolve(dirPath, 'style', 'index.tsx');
+  if (!fse.existsSync(styleIndxPath) || !fse.lstatSync(styleIndxPath).isFile) {
     return;
   }
 
-  const styleFolderPath = path.dirname(stylePath);
+  const styleFolderPath = path.dirname(styleIndxPath);
   const styleMvPath = path.resolve(styleFolderPath, 'style.tsx');
 
-  console.log(chalk.cyan('SRC:'), stylePath);
+  fse.moveSync(styleIndxPath, styleMvPath);
+  fse.writeFileSync(
+    styleIndxPath,
+    [
+      // Inject variable
+      "import '../../style/theme/babel-plugin-import.less';",
+      // Link origin
+      "import '.';",
+    ].join('\n'),
+    'utf8',
+  );
+
+  console.log(chalk.cyan('SRC:'), styleIndxPath);
   console.log(chalk.green('TGT:'), styleMvPath);
   count += 1;
 });
