@@ -219,24 +219,17 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const getTreeData = ({ filters }: { filters?: ColumnFilterItem[] }) =>
-    (filters || [])
-      .map((filter, index) => {
-        const key = String(filter.value);
-        const item: DataNode = {
-          title: filter.text,
-          key: filter.value !== undefined ? key : index,
-        };
-        if (filter.children) {
-          item.children = getTreeData({ filters: filter.children });
-        }
-        if (searchValue.trim()) {
-          return filter.text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase())
-            ? item
-            : undefined;
-        }
-        return item;
-      })
-      .filter(item => !!item) as DataNode[];
+    (filters || []).map((filter, index) => {
+      const key = String(filter.value);
+      const item: DataNode = {
+        title: filter.text,
+        key: filter.value !== undefined ? key : index,
+      };
+      if (filter.children) {
+        item.children = getTreeData({ filters: filter.children });
+      }
+      return item;
+    });
 
   let dropdownContent: React.ReactNode;
 
@@ -278,8 +271,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       if (filterMode === 'tree') {
         return (
-          <>
-            <Input prefix={<SearchOutlined />} placeholder="Search" onChange={onSearch} />
+          <div style={{ padding: 4 }}>
+            <Input
+              prefix={<SearchOutlined />}
+              placeholder="Search"
+              onChange={onSearch}
+              style={{ width: 200 }}
+            />
+            <br />
             <Checkbox onChange={onCheckAll}>全选</Checkbox>
             <Tree
               checkable
@@ -291,8 +290,20 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               selectedKeys={selectedKeys}
               showIcon={false}
               treeData={getTreeData({ filters: column.filters })}
+              autoExpandParent
+              defaultExpandAll
+              filterTreeNode={
+                searchValue.trim()
+                  ? node => {
+                      return node.title
+                        ?.toString()
+                        .toLowerCase()
+                        .includes(searchValue.trim().toLowerCase());
+                    }
+                  : undefined
+              }
             />
-          </>
+          </div>
         );
       }
       return (
