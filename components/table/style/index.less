@@ -4,6 +4,7 @@
 @import './bordered';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
+@tree-prefix-cls: ~'@{ant-prefix}-tree';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
@@ -331,6 +332,11 @@
   &-filter-dropdown {
     .reset-component();
 
+    min-width: 120px;
+    background-color: @table-filter-dropdown-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
       // https://github.com/ant-design/ant-design/issues/4916
@@ -341,15 +347,15 @@
       box-shadow: none;
     }
 
-    // Reset tree
-    .@{dropdown-prefix-cls}-tree {
-      max-height: @table-filter-dropdown-max-height;
-      padding: 4px 0;
-      overflow-x: hidden;
-    }
-
     &-tree {
-      padding: 8px;
+      padding: 8px 8px 0 8px;
+
+      .@{tree-prefix-cls}-treenode-checkbox-checked .@{tree-prefix-cls}-node-content-wrapper {
+        &,
+        &:hover {
+          background-color: @tree-node-selected-bg;
+        }
+      }
     }
 
     &-search {
@@ -357,7 +363,7 @@
       border-bottom: @border-width-base @border-color-split @border-style-base;
 
       &-input {
-        min-width: 180px;
+        width: 200px;
 
         .@{iconfont-css-prefix} {
           color: @disabled-color;
@@ -367,14 +373,9 @@
 
     &-checkall {
       width: 100%;
+      margin-bottom: 4px;
       margin-left: 4px;
     }
-
-    min-width: 120px;
-    background-color: @table-filter-dropdown-bg;
-
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
 
     &-submenu > ul {
       max-height: calc(100vh - 130px);

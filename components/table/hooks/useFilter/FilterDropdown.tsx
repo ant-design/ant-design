@@ -289,9 +289,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               </Checkbox>
               <Tree
                 checkable
-                selectable={false}
                 blockNode
-                className={`${dropdownPrefixCls}-tree`}
+                className={`${dropdownPrefixCls}-menu`}
                 onCheck={onSelectInTreeMode}
                 onSelect={onSelectInTreeMode}
                 checkedKeys={selectedKeys}
