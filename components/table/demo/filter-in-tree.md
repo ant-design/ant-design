@@ -56,6 +56,8 @@ const columns = [
       },
     ],
     filterMode: 'tree',
+    onFilter: (value, record) => record.name.includes(value),
+    width: '30%',
   },
   {
     title: 'Age',
@@ -76,7 +78,8 @@ const columns = [
         value: 'New York',
       },
     ],
-    onFilter: (value, record) => record.address.indexOf(value) === 0,
+    onFilter: (value, record) => record.address.startsWith(value),
+    width: '40%',
   },
 ];
 
