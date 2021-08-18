@@ -30,7 +30,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
 const spaceSize = {
   small: 8,
   middle: 16,
-  large: 24,
+  large: 32,
 };
 
 function getNumberSize(size: SpaceSize) {
@@ -41,7 +41,7 @@ const Space: React.FC<SpaceProps> = props => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
-    size = space?.size || 'small',
+    size = space?.size || 'middle',
     align,
     className,
     children,

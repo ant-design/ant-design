@@ -58,7 +58,7 @@ ReactDOM.render(
           </SubMenu>
         </Menu>
       </Sider>
-      <Layout style={{ padding: '0 24px 24px' }}>
+      <Layout style={{ padding: '0 32px 32px' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>List</Breadcrumb.Item>

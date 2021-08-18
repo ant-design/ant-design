@@ -2253,7 +2253,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     </aside>
     <section
       class="ant-layout"
-      style="padding:0 24px 24px"
+      style="padding:0 32px 32px"
     >
       <div
         class="ant-breadcrumb"
