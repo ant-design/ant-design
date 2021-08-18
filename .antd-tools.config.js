@@ -182,4 +182,5 @@ module.exports = {
     finalize: finalizeDist,
   },
   generateThemeFileContent,
+  bail: true,
 };

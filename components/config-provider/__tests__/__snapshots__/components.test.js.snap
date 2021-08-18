@@ -16193,14 +16193,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       </button>
     </li>
     <li
-      class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
+      class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -16345,14 +16345,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       </button>
     </li>
     <li
-      class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
+      class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -16502,14 +16502,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       </button>
     </li>
     <li
-      class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
+      class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -16654,14 +16654,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       </button>
     </li>
     <li
-      class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
+      class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -16811,14 +16811,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       </button>
     </li>
     <li
-      class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
+      class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -16963,14 +16963,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       </button>
     </li>
     <li
-      class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
+      class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -17120,14 +17120,14 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       </button>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -17272,14 +17272,14 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       </button>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -17429,14 +17429,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       </button>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -17581,14 +17581,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       </button>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -17738,14 +17738,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       </button>
     </li>
     <li
-      class="prefix-Pagination-item prefix-Pagination-item-0 prefix-Pagination-disabled prefix-Pagination-item-disabled"
+      class="prefix-Pagination-item prefix-Pagination-item-1 prefix-Pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li
@@ -17890,14 +17890,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       </button>
     </li>
     <li
-      class="prefix-Pagination-item prefix-Pagination-item-0 prefix-Pagination-disabled prefix-Pagination-item-disabled"
+      class="prefix-Pagination-item prefix-Pagination-item-1 prefix-Pagination-item-disabled"
       tabindex="0"
-      title="0"
+      title="1"
     >
       <a
         rel="nofollow"
       >
-        0
+        1
       </a>
     </li>
     <li

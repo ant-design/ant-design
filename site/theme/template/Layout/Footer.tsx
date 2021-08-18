@@ -1,8 +1,9 @@
 import React from 'react';
-import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl';
-import { Modal } from 'antd';
-import { Link } from 'bisheng/router';
+import { message } from 'antd';
 import RcFooter from 'rc-footer';
+import { Link } from 'bisheng/router';
+import { presetPalettes } from '@ant-design/colors';
+import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl';
 import {
   AntDesignOutlined,
   MediumOutlined,
@@ -17,27 +18,15 @@ import {
   QuestionCircleOutlined,
   BgColorsOutlined,
 } from '@ant-design/icons';
-import { isLocalStorageNameSupported, getLocalizedPathname } from '../utils';
+import ColorPicker from '../Color/ColorPicker';
+import { loadScript, getLocalizedPathname } from '../utils';
 
 class Footer extends React.Component<WrappedComponentProps & { location: any }> {
   lessLoaded = false;
 
-  componentDidMount() {
-    // for some iOS
-    // http://stackoverflow.com/a/14555361
-    if (!isLocalStorageNameSupported()) {
-      return;
-    }
-    // 大版本发布后全局弹窗提示
-    //   1. 点击『知道了』之后不再提示
-    //   2. 超过截止日期后不再提示
-    if (
-      localStorage.getItem('antd@3.0.0-notification-sent') !== 'true' &&
-      Date.now() < new Date('2017/12/20').getTime()
-    ) {
-      this.infoNewVersion();
-    }
-  }
+  state = {
+    color: presetPalettes.blue.primary,
+  };
 
   getColumns() {
     const { intl, location } = this.props;
@@ -335,37 +324,60 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
     return [col1, col2, col3, col4];
   }
 
-  infoNewVersion() {
+  handleColorChange = (color: string) => {
     const {
       intl: { messages },
     } = this.props;
-    Modal.info({
-      title: messages['app.publish.title'],
-      content: (
-        <div>
-          <img
-            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-            alt="Ant Design"
-          />
-          <p>
-            {messages['app.publish.greeting']}
-            <a target="_blank" rel="noopener noreferrer" href="/changelog">
-              antd@3.0.0
-            </a>
-            {messages['app.publish.intro']}
-            {messages['app.publish.old-version-guide']}
-            <a target="_blank" rel="noopener noreferrer" href="http://2x.ant.design">
-              2x.ant.design
-            </a>
-            {messages['app.publish.old-version-tips']}
-          </p>
-        </div>
-      ),
-      okText: 'OK',
-      onOk: () => localStorage.setItem('antd@3.0.0-notification-sent', 'true'),
-      className: 'new-version-info-modal',
-      width: 470,
+    message.loading({
+      content: messages['app.footer.primary-color-changing'],
+      key: 'change-primary-color',
     });
+    const changeColor = () => {
+      (window as any).less
+        .modifyVars({
+          '@primary-color': color,
+        })
+        .then(() => {
+          message.success({
+            content: messages['app.footer.primary-color-changed'],
+            key: 'change-primary-color',
+          });
+          this.setState({ color });
+        });
+    };
+
+    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less/3.10.3/dist/less.min.js';
+
+    if (this.lessLoaded) {
+      changeColor();
+    } else {
+      (window as any).less = {
+        async: true,
+        javascriptEnabled: true,
+      };
+      loadScript(lessUrl).then(() => {
+        this.lessLoaded = true;
+        changeColor();
+      });
+    }
+  };
+
+  renderThemeChanger() {
+    const { color } = this.state;
+    const colors = Object.keys(presetPalettes).filter(item => item !== 'grey');
+    return (
+      <ColorPicker
+        small
+        color={color}
+        position="top"
+        presetColors={[
+          ...colors.map(c => presetPalettes[c][5]),
+          ...colors.map(c => presetPalettes[c][4]),
+          ...colors.map(c => presetPalettes[c][6]),
+        ]}
+        onChangeComplete={this.handleColorChange}
+      />
+    );
   }
 
   render() {

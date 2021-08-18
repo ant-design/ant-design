@@ -13,8 +13,10 @@
 
 .button-color(@color; @background; @border) {
   color: @color;
-  background: @background;
   border-color: @border; // a inside Button which only work in Chrome
+  & when not(@background = null) {
+    background: @background;
+  }
   // http://stackoverflow.com/a/17253457
   > a:only-child {
     color: currentColor;
@@ -120,17 +122,18 @@
   }
   .button-disabled();
 }
+
 .button-variant-ghost(@color; @border; @borderHover: yellow; @borderActive: yellow) {
-  .button-color(@color; transparent; @border);
+  .button-color(@color; null; @border);
   text-shadow: none;
   &:hover,
   &:focus {
     & when (@border = transparent) {
       & when (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 7) `; transparent; transparent);
+        .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
       }
       & when (not (@theme = dark) and not (@theme = variable)) {
-        .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
+        .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
       }
       & when (@theme = variable) {
         .button-color(@borderActive; transparent; transparent);
@@ -139,12 +142,12 @@
     & when not (@border = transparent) {
       & when (@theme = dark) {
         .button-color(
-          ~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `
+          ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
         );
       }
       & when (not (@theme = dark) and not (@theme = variable)) {
         .button-color(
-          ~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `
+          ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
         );
       }
       & when (@theme = variable) {
@@ -155,24 +158,24 @@
   &:active {
     & when (@border = transparent) {
       & when (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
+        .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
       }
       & when (not (@theme = dark) and not (@theme = variable)) {
-        .button-color(~`colorPalette('@{color}', 7) `; transparent; transparent);
+        .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
       }
       & when (@theme = variable) {
         .button-color(@borderActive; transparent; transparent);
       }
     }
-    & when not(@border = transparent) {
+    & when not (@border = transparent) {
       & when (@theme = dark) {
         .button-color(
-          ~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `
+          ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
         );
       }
       & when (not (@theme = dark) and not (@theme = variable)) {
         .button-color(
-          ~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `
+          ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
         );
       }
       & when (@theme = variable) {
