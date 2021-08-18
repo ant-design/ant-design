@@ -9,6 +9,9 @@
 // An override for the html selector for theme prefixes
 @html-selector: html;
 
+// [CSS-VARIABLE-REPLACE-BEGIN: html-variables]
+// [CSS-VARIABLE-REPLACE-END: html-variables]
+
 // -------- Colors -----------
 // >>> Primary
 @primary-color: @blue-6;
@@ -171,7 +174,7 @@
 // Outline
 @outline-blur-size: 0;
 @outline-width: 2px;
-@outline-color: @primary-color;
+@outline-color: @primary-color; // No use anymore
 @outline-fade: 20%;
 
 @background-color-light: hsv(0, 0, 98%); // background of header and selected item
