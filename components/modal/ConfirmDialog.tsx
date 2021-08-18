@@ -104,7 +104,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       focusTriggerAfterClose={focusTriggerAfterClose}
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
-        <ConfigProvider prefixCls={rootPrefixCls}>
+        <ConfigProvider prefixCls={rootPrefixCls} direction={direction}>
           <div className={`${contentPrefixCls}-body`} style={bodyStyle}>
             {icon}
             {props.title === undefined ? null : (
