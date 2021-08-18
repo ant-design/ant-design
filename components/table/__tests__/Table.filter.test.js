@@ -7,6 +7,7 @@ import Input from '../../input';
 import Tooltip from '../../tooltip';
 import Button from '../../button';
 import Select from '../../select';
+import Tree from '../../tree';
 import ConfigProvider from '../../config-provider';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
@@ -1725,5 +1726,28 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
     wrapper.find('.ant-btn.ant-btn-primary.ant-btn-sm').simulate('click');
     expect(wrapper.find('.ant-table-tbody .ant-table-cell').first().text()).toEqual(`${66}`);
+  });
+
+  describe('filter tree mode', () => {
+    it('supports filter tree', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Tree).length).toBe(1);
+    });
   });
 });
