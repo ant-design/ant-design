@@ -62,7 +62,6 @@
     "presite": "npm run version",
     "color-less": "node ./scripts/generate-color-less",
     "compile": "npm run clean && antd-tools run compile",
-    "compile:less": "antd-tools run compile:less",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
@@ -94,7 +93,7 @@
     "test-node": "jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false --force-exit",
-    "test-image": "npm run compile:less && docker-compose run tests",
+    "test-image": "npm run dist && docker-compose run tests",
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save react@16 react-dom@16 react-test-renderer@16 enzyme-adapter-react-16",
     "argos": "argos upload imageSnapshots"
