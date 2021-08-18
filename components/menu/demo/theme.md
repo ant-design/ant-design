@@ -1,21 +1,21 @@
 ---
-order: 0
+order: 4
 title:
-  zh-CN: 顶部横向导航
-  en-US: Top Horizontal Navigator
+  zh-CN: 主题
+  en-US: Menu Themes
 ---
 
 ## zh-CN
 
-buggy!
+内建了两套主题 `light` 和 `dark`，默认 `light`。
 
 ## en-US
 
-buggy!
+There are two built-in themes: `light` and `dark`. The default value is `light`.
 
 ```jsx
 import { Menu, Switch } from 'antd';
-import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -52,10 +52,12 @@ class Sider extends React.Component {
         <Menu
           theme={this.state.theme}
           onClick={this.handleClick}
+          style={{ width: 256 }}
+          defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current]}
-          mode="horizontal"
+          mode="inline"
         >
-          <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One Long Long Long Long">
+          <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
             <Menu.Item key="1">Option 1</Menu.Item>
             <Menu.Item key="2">Option 2</Menu.Item>
             <Menu.Item key="3">Option 3</Menu.Item>
@@ -69,8 +71,12 @@ class Sider extends React.Component {
               <Menu.Item key="8">Option 8</Menu.Item>
             </SubMenu>
           </SubMenu>
-          <Menu.Item key="11">Option 11</Menu.Item>
-          <Menu.Item key="12">Option 12</Menu.Item>
+          <SubMenu key="sub4" icon={<SettingOutlined />} title="Navigation Three">
+            <Menu.Item key="9">Option 9</Menu.Item>
+            <Menu.Item key="10">Option 10</Menu.Item>
+            <Menu.Item key="11">Option 11</Menu.Item>
+            <Menu.Item key="12">Option 12</Menu.Item>
+          </SubMenu>
         </Menu>
       </>
     );

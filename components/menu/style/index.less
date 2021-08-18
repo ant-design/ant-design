@@ -93,26 +93,6 @@
     transition: color @animation-duration-slow;
   }
 
-  &-inline &-sub &-title-content::before {
-    /* add the new bullet point */
-    position: absolute;
-    top: 19px;
-    left: 30px;
-    display: inline-block;
-    width: 2px;
-    height: 2px;
-    margin-right: 0.5rem;
-    background-color: #b7b7b7;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    content: '';
-  }
-
-  &-inline &-sub &-item-selected &-title-content::before {
-    /* add the new bullet point */
-    background-color: #2673dd;
-  }
-
   &-item a {
     color: @menu-item-color;
     &:hover {
@@ -156,17 +136,15 @@
   }
 
   &-item-selected {
-    color: #2673dd;
-    font-weight: 500;
-    font-size: 14px;
+    color: @menu-highlight-color;
     a,
     a:hover {
-      color: #2673dd;
+      color: @menu-highlight-color;
     }
   }
 
-  &:not(&-horizontal):not(&-dark) &-item-selected {
-    background-color: #f6f9fe;
+  &:not(&-horizontal) &-item-selected {
+    background-color: @menu-item-active-bg;
   }
 
   &-inline,
@@ -375,6 +353,12 @@
     }
   }
 
+  &-vertical &-submenu-selected,
+  &-vertical-left &-submenu-selected,
+  &-vertical-right &-submenu-selected {
+    color: @menu-highlight-color;
+  }
+
   &-horizontal {
     line-height: @menu-horizontal-line-height;
     border: 0;
@@ -452,18 +436,18 @@
   &-inline {
     .@{menu-prefix-cls}-item {
       position: relative;
-      // &::after {
-      //   position: absolute;
-      //   top: 0;
-      //   right: 0;
-      //   bottom: 0;
-      //   border-right: @menu-item-active-border-width solid @menu-highlight-color;
-      //   transform: scaleY(0.0001);
-      //   opacity: 0;
-      //   transition: transform @menu-animation-duration-normal @ease-out,
-      //     opacity @menu-animation-duration-normal @ease-out;
-      //   content: '';
-      // }
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-right: @menu-item-active-border-width solid @menu-highlight-color;
+        transform: scaleY(0.0001);
+        opacity: 0;
+        transition: transform @menu-animation-duration-normal @ease-out,
+          opacity @menu-animation-duration-normal @ease-out;
+        content: '';
+      }
     }
 
     .@{menu-prefix-cls}-item,
@@ -631,6 +615,7 @@
 
   &-sub&-inline {
     padding: 0;
+    background: @menu-inline-submenu-bg;
     border: 0;
     border-radius: 0;
     box-shadow: none;
