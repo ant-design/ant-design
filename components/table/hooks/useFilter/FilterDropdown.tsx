@@ -22,6 +22,13 @@ function hasSubMenu(filters: ColumnFilterItem[]) {
   return filters.some(({ children }) => children);
 }
 
+function searchValueMatched(searchValue: string, text: React.ReactNode) {
+  if (typeof text === 'string' || typeof text === 'number') {
+    return text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase());
+  }
+  return false;
+}
+
 function renderFilterItems({
   filters,
   prefixCls,
@@ -33,7 +40,7 @@ function renderFilterItems({
   prefixCls: string;
   filteredKeys: Key[];
   filterMultiple: boolean;
-  searchValue?: string;
+  searchValue: string;
 }) {
   return filters.map((filter, index) => {
     const key = String(filter.value);
@@ -64,10 +71,8 @@ function renderFilterItems({
         <span>{filter.text}</span>
       </Menu.Item>
     );
-    if (searchValue?.trim()) {
-      return filter.text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase())
-        ? item
-        : null;
+    if (searchValue.trim()) {
+      return searchValueMatched(searchValue, filter.text) ? item : undefined;
     }
     return item;
   });
@@ -306,11 +311,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 defaultExpandAll
                 filterTreeNode={
                   searchValue.trim()
-                    ? node =>
-                        (node.title || '')
-                          .toString()
-                          .toLowerCase()
-                          .includes(searchValue.trim().toLowerCase())
+                    ? node => searchValueMatched(searchValue, node.title)
                     : undefined
                 }
               />
