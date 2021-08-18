@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import FilterFilled from '@ant-design/icons/FilterFilled';
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import Button from '../../../button';
 import Menu from '../../../menu';
 import Tree from '../../../tree';
@@ -12,9 +11,9 @@ import type { CheckboxChangeEvent } from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import Input from '../../../input';
 import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
+import FilterSearch from './FilterSearch';
 import { FilterState, flattenKeys } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
@@ -226,7 +225,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     const { value } = e.target;
     setSearchValue(value);
   };
-
   // clear search value after close filter dropdown
   React.useEffect(() => {
     if (!visible) {
@@ -248,18 +246,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     });
 
   let dropdownContent: React.ReactNode;
-  const searchInput = filterSearch && (
-    <div className={`${tablePrefixCls}-filter-dropdown-search`}>
-      <Input
-        prefix={<SearchOutlined />}
-        placeholder="Search"
-        onChange={onSearch}
-        value={searchValue}
-        className={`${tablePrefixCls}-filter-dropdown-search-input`}
-      />
-    </div>
-  );
-
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
@@ -293,7 +279,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       if (filterMode === 'tree') {
         return (
           <>
-            {searchInput}
+            <FilterSearch
+              filterSearch={filterSearch}
+              value={searchValue}
+              onChange={onSearch}
+              tablePrefixCls={tablePrefixCls}
+            />
             <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
               <Checkbox
                 className={`${tablePrefixCls}-filter-dropdown-checkall`}
@@ -329,7 +320,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       return (
         <>
-          {searchInput}
+          <FilterSearch
+            filterSearch={filterSearch}
+            value={searchValue}
+            onChange={onSearch}
+            tablePrefixCls={tablePrefixCls}
+          />
           <Menu
             multiple={filterMultiple}
             prefixCls={`${dropdownPrefixCls}-menu`}
