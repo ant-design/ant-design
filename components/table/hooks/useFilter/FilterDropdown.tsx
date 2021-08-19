@@ -160,6 +160,19 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     [],
   );
 
+  // search in tree mode column filter
+  const [searchValue, setSearchValue] = React.useState('');
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearchValue(value);
+  };
+  // clear search value after close filter dropdown
+  React.useEffect(() => {
+    if (!visible) {
+      setSearchValue('');
+    }
+  }, [visible]);
+
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[] | undefined | null) => {
     const mergedKeys = keys && keys.length ? keys : null;
@@ -184,9 +197,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onReset = () => {
+    setSearchValue('');
     setFilteredKeysSync([]);
-    triggerVisible(false);
-    internalTriggerFilter([]);
   };
 
   const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {
@@ -223,19 +235,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       setFilteredKeysSync([]);
     }
   };
-
-  // search in tree mode column filter
-  const [searchValue, setSearchValue] = React.useState('');
-  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setSearchValue(value);
-  };
-  // clear search value after close filter dropdown
-  React.useEffect(() => {
-    if (!visible) {
-      setSearchValue('');
-    }
-  }, [visible]);
 
   const getTreeData = ({ filters }: { filters?: ColumnFilterItem[] }) =>
     (filters || []).map((filter, index) => {

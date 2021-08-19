@@ -208,6 +208,7 @@ describe('Table.filter', () => {
     wrapper.find('#confirm').simulate('click');
     expect(getFilterMenu().props().filterState.filteredKeys).toEqual([42]);
     wrapper.find('#reset').simulate('click');
+    wrapper.find('#confirm').simulate('click');
     expect(getFilterMenu().props().filterState.filteredKeys).toBeFalsy();
 
     // try to use confirm btn
@@ -691,15 +692,21 @@ describe('Table.filter', () => {
     const wrapper = mount(<App />);
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
-
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(true);
     wrapper.find('MenuItem').first().simulate('click');
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     wrapper.update();
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(false);
     expect(renderedNames(wrapper)).toEqual(['Jack']);
 
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').simulate('click');
     wrapper.update();
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(true);
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(false);
   });
 
   it('works with grouping columns in controlled mode', () => {
