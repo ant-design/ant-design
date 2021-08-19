@@ -2366,7 +2366,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
     >
       <label
         class=""
-        for="layout"
+        for="_layout"
         title="Form Layout"
       >
         Form Layout
@@ -2383,7 +2383,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline"
-            id="layout"
+            id="_layout"
           >
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -2994,7 +2994,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
     >
       <label
         class=""
-        for="test"
+        for="_test"
         title="test"
       >
         test
@@ -3011,7 +3011,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
         >
           <input
             class="ant-input"
-            id="test"
+            id="_test"
             type="text"
             value=""
           />
@@ -3033,7 +3033,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
         >
           <input
             class="ant-input"
-            id="list_0"
+            id="_list_0"
             type="text"
             value="light"
           />
@@ -3758,7 +3758,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required-mark-optional"
-        for="requiredMarkValue"
+        for="_requiredMarkValue"
         title="Required Mark"
       >
         Required Mark
@@ -3781,7 +3781,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline"
-            id="requiredMarkValue"
+            id="_requiredMarkValue"
           >
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -4001,7 +4001,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
     >
       <label
         class=""
-        for="size"
+        for="_size"
         title="Form Size"
       >
         Form Size
@@ -4018,7 +4018,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
-            id="size"
+            id="_size"
           >
             <label
               class="ant-radio-button-wrapper"

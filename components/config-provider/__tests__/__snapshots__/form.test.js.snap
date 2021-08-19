@@ -12,7 +12,7 @@ exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
     >
       <label
         class="ant-form-item-required-mark-optional"
-        for="age"
+        for="_age"
         title="年龄"
       >
         年龄
@@ -34,7 +34,7 @@ exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
-            id="age"
+            id="_age"
             value="18"
           />
         </div>

@@ -3571,7 +3571,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
     >
       <label
         class=""
-        for="photos"
+        for="_photos"
         title="Photos"
       >
         Photos

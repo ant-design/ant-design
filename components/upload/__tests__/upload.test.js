@@ -224,9 +224,9 @@ describe('Upload', () => {
       </Demo>,
     );
 
-    expect(wrapper.find('input#upload').length).toBe(1);
+    expect(wrapper.find('input#_upload').length).toBe(1);
     wrapper.setProps({ children: null });
-    expect(wrapper.find('input#upload').length).toBe(0);
+    expect(wrapper.find('input#_upload').length).toBe(0);
   });
 
   // https://github.com/ant-design/ant-design/issues/16478
@@ -242,9 +242,9 @@ describe('Upload', () => {
     );
 
     const wrapper = mount(<Demo />);
-    expect(wrapper.find('input#upload').length).toBe(1);
+    expect(wrapper.find('input#_upload').length).toBe(1);
     wrapper.setProps({ disabled: true });
-    expect(wrapper.find('input#upload').length).toBe(0);
+    expect(wrapper.find('input#_upload').length).toBe(0);
   });
 
   // https://github.com/ant-design/ant-design/issues/24197
@@ -260,9 +260,9 @@ describe('Upload', () => {
     );
 
     const wrapper = mount(<Demo />);
-    expect(wrapper.find('input#upload').length).toBe(1);
+    expect(wrapper.find('input#_upload').length).toBe(1);
     wrapper.setProps({ disabled: true });
-    expect(wrapper.find('input#upload').length).toBe(0);
+    expect(wrapper.find('input#_upload').length).toBe(0);
   });
 
   it('should be controlled by fileList', () => {
