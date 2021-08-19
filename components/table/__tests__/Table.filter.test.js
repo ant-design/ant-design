@@ -9,6 +9,8 @@ import Button from '../../button';
 import Select from '../../select';
 import Tree from '../../tree';
 import ConfigProvider from '../../config-provider';
+import Checkbox from '../../checkbox';
+import Menu from '../../menu';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
@@ -1748,6 +1750,163 @@ describe('Table.filter', () => {
         wrapper.update();
       });
       expect(wrapper.find(Tree).length).toBe(1);
+      expect(wrapper.find('.ant-tree-checkbox').length).toBe(5);
+    });
+
+    it('supports search input in filter tree', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Tree).length).toBe(1);
+      expect(wrapper.find(Input).length).toBe(1);
+      wrapper
+        .find(Input)
+        .find('input')
+        .simulate('change', { target: { value: '111' } });
+    });
+
+    it('supports search input in filter menu', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Menu).length).toBe(1);
+      expect(wrapper.find(Input).length).toBe(1);
+      wrapper
+        .find(Input)
+        .find('input')
+        .simulate('change', { target: { value: '111' } });
+    });
+
+    it('should skip search when filters[0].text is ReactNode', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filters: [
+                {
+                  text: '123',
+                  value: '456',
+                },
+                {
+                  text: 123456,
+                  value: '456',
+                },
+                {
+                  text: <span>123</span>,
+                  value: '456',
+                },
+              ],
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Menu).length).toBe(1);
+      expect(wrapper.find(Input).length).toBe(1);
+      expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(3);
+      wrapper
+        .find(Input)
+        .find('input')
+        .simulate('change', { target: { value: '123' } });
+      expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(2);
+    });
+
+    it('supports check all items', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Checkbox).length).toBe(1);
+      expect(wrapper.find(Checkbox).text()).toBe('全选');
+      expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+      wrapper
+        .find(Checkbox)
+        .find('input')
+        .simulate('change', { target: { checked: true } });
+      expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(5);
+      wrapper
+        .find(Checkbox)
+        .find('input')
+        .simulate('change', { target: { checked: false } });
+      expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+    });
+
+    it('supports check item by selecting it', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Checkbox).length).toBe(1);
+      expect(wrapper.find(Checkbox).text()).toBe('全选');
+      wrapper.find('.ant-tree-node-content-wrapper').at(0).simulate('click');
+      expect(wrapper.find('.ant-tree-checkbox').at(0).hasClass('ant-tree-checkbox-checked')).toBe(
+        true,
+      );
     });
   });
 });
