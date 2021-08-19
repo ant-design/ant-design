@@ -139,6 +139,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   React.useEffect(() => {
+    if (!visible) {
+      return;
+    }
     onSelectKeys({ selectedKeys: propFilteredKeys || [] });
   }, [propFilteredKeys]);
 
@@ -300,6 +303,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               <Tree
                 checkable
                 blockNode
+                multiple={filterMultiple}
                 className={`${dropdownPrefixCls}-menu`}
                 onCheck={onSelectInTreeMode}
                 onSelect={onSelectInTreeMode}
