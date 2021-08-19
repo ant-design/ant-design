@@ -39,17 +39,6 @@
           return searchParam;
         }
 
-        /* 转成查询参数字符串 */
-        function fromSearchParam(searchParam) {
-          // 处理入参错误
-          if (searchParam === undefined) return;
-
-          var search = Object.entries(searchParam)
-            .map(item => item.join('='))
-            .join('&');
-          return search;
-        }
-
         var searchParam = getSearchParam(location.search) || {}; // 查询参数对象
 
         var isDarkMode = searchParam.theme === 'dark'; // 判断当前主题
