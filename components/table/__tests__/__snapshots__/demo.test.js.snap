@@ -5659,7 +5659,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                     </div>
                   </th>
                   <th
-                    class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
+                    class="ant-table-cell ant-table-column-has-sorters"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -5696,7 +5696,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                           </span>
                           <span
                             aria-label="caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down active"
+                            class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="img"
                           >
                             <svg
@@ -5762,26 +5762,6 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Jim Green
-                  </td>
-                  <td
-                    class="ant-table-cell ant-table-column-sort"
-                  >
-                    42
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London No. 1 Lake Park
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -5790,7 +5770,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                     John Brown
                   </td>
                   <td
-                    class="ant-table-cell ant-table-column-sort"
+                    class="ant-table-cell"
                   >
                     32
                   </td>
@@ -5798,6 +5778,26 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -5810,7 +5810,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                     Joe Black
                   </td>
                   <td
-                    class="ant-table-cell ant-table-column-sort"
+                    class="ant-table-cell"
                   >
                     32
                   </td>
@@ -5830,7 +5830,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                     Jim Red
                   </td>
                   <td
-                    class="ant-table-cell ant-table-column-sort"
+                    class="ant-table-cell"
                   >
                     32
                   </td>

@@ -66,7 +66,6 @@ const columns = [
   {
     title: 'Age',
     dataIndex: 'age',
-    defaultSortOrder: 'descend',
     sorter: (a, b) => a.age - b.age,
   },
   {

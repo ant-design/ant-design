@@ -28,6 +28,7 @@ const FilterSearch: React.FC<FilterSearchProps> = ({
         placeholder={locale.filterSearchPlaceholder}
         onChange={onChange}
         value={value}
+        htmlSize={1}
         className={`${tablePrefixCls}-filter-dropdown-search-input`}
       />
     </div>
