@@ -50,7 +50,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     >
       <label
         class=""
-        for="coders"
+        for="_coders"
         title="Top coders"
       >
         Top coders
@@ -70,7 +70,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
           >
             <textarea
               class="rc-textarea"
-              id="coders"
+              id="_coders"
               rows="1"
             />
           </div>
@@ -86,7 +86,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="bio"
+        for="_bio"
         title="Bio"
       >
         Bio
@@ -106,7 +106,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
           >
             <textarea
               class="rc-textarea"
-              id="bio"
+              id="_bio"
               placeholder="You can use @ to ref user here"
               rows="3"
             />
