@@ -1,12 +1,14 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import Input from '../../../input';
+import { TableLocale } from '../../interface';
 
 interface FilterSearchProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   filterSearch: Boolean;
   tablePrefixCls: string;
+  locale: TableLocale;
 }
 
 const FilterSearch: React.FC<FilterSearchProps> = ({
@@ -14,6 +16,7 @@ const FilterSearch: React.FC<FilterSearchProps> = ({
   onChange,
   filterSearch,
   tablePrefixCls,
+  locale,
 }) => {
   if (!filterSearch) {
     return null;
@@ -22,7 +25,7 @@ const FilterSearch: React.FC<FilterSearchProps> = ({
     <div className={`${tablePrefixCls}-filter-dropdown-search`}>
       <Input
         prefix={<SearchOutlined />}
-        placeholder="Search"
+        placeholder={locale.filterSearchPlaceholder}
         onChange={onChange}
         value={value}
         className={`${tablePrefixCls}-filter-dropdown-search-input`}

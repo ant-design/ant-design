@@ -288,13 +288,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               value={searchValue}
               onChange={onSearch}
               tablePrefixCls={tablePrefixCls}
+              locale={locale}
             />
             <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
               <Checkbox
                 className={`${tablePrefixCls}-filter-dropdown-checkall`}
                 onChange={onCheckAll}
               >
-                全选
+                {locale.filterCheckall}
               </Checkbox>
               <Tree
                 checkable
@@ -325,6 +326,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             value={searchValue}
             onChange={onSearch}
             tablePrefixCls={tablePrefixCls}
+            locale={locale}
           />
           <Menu
             multiple={filterMultiple}
