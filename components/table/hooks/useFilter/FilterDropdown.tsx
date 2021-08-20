@@ -131,7 +131,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
-    setFilteredKeysSync(selectedKeys!);
+    setFilteredKeysSync(selectedKeys);
   };
 
   const treeOnSelectOrCheckProps = {
@@ -313,6 +313,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               ) : null}
               <Tree
                 checkable
+                selectable={false}
                 blockNode
                 multiple={filterMultiple}
                 checkStrictly={!filterMultiple}
