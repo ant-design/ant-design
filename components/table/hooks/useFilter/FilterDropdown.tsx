@@ -134,17 +134,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     setFilteredKeysSync(selectedKeys);
   };
 
-  const treeOnSelectOrCheckProps = {
-    onCheck: (keys: Key[], { node, checked }: { node: EventDataNode; checked: boolean }) => {
-      if (!filterMultiple) {
-        onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
-      } else {
-        onSelectKeys({ selectedKeys: keys as Key[] });
-      }
-    },
-    onSelect: (keys: Key[]) => {
-      onSelectKeys({ selectedKeys: keys });
-    },
+  const onCheck = (keys: Key[], { node, checked }: { node: EventDataNode; checked: boolean }) => {
+    if (!filterMultiple) {
+      onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
+    } else {
+      onSelectKeys({ selectedKeys: keys as Key[] });
+    }
   };
 
   React.useEffect(() => {
@@ -318,7 +313,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 multiple={filterMultiple}
                 checkStrictly={!filterMultiple}
                 className={`${dropdownPrefixCls}-menu`}
-                {...treeOnSelectOrCheckProps}
+                onCheck={onCheck}
                 checkedKeys={selectedKeys}
                 selectedKeys={selectedKeys}
                 showIcon={false}
