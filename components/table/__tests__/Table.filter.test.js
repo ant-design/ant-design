@@ -2001,4 +2001,55 @@ describe('Table.filter', () => {
     );
     expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
   });
+
+  it('should select children when select parent', () => {
+    jest.useFakeTimers();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [
+              { text: 'Boy', value: 'boy' },
+              { text: 'Girl', value: 'girl' },
+              {
+                text: 'Title',
+                value: 'title',
+                children: [
+                  { text: 'Jack', value: 'Jack' },
+                  { text: 'Coder', value: 'coder' },
+                ],
+              },
+            ],
+            filterMode: 'tree',
+          },
+        ],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    // check parentnode
+    wrapper.find('.ant-tree-checkbox').at(2).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(2).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox').at(3).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox').at(4).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
+    wrapper.find('.ant-tree-checkbox').at(2).simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    wrapper.find('.ant-tree-node-content-wrapper').at(2).simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
+  });
 });
