@@ -5,7 +5,7 @@ import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
 import Tree from '../../../tree';
-import type { DataNode } from '../../../tree';
+import type { DataNode, EventDataNode } from '../../../tree';
 import Checkbox from '../../../checkbox';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Radio from '../../../radio';
@@ -134,8 +134,17 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     setFilteredKeysSync(selectedKeys!);
   };
 
-  const onSelectInTreeMode = (selectedKeys: Key[]) => {
-    onSelectKeys({ selectedKeys });
+  const treeOnSelectOrCheckProps = {
+    onCheck: (keys: Key[], { node, checked }: { node: EventDataNode; checked: boolean }) => {
+      if (!filterMultiple) {
+        onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
+      } else {
+        onSelectKeys({ selectedKeys: keys as Key[] });
+      }
+    },
+    onSelect: (keys: Key[]) => {
+      onSelectKeys({ selectedKeys: keys });
+    },
   };
 
   React.useEffect(() => {
@@ -294,19 +303,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               locale={locale}
             />
             <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
-              <Checkbox
-                className={`${tablePrefixCls}-filter-dropdown-checkall`}
-                onChange={onCheckAll}
-              >
-                {locale.filterCheckall}
-              </Checkbox>
+              {filterMultiple ? (
+                <Checkbox
+                  className={`${tablePrefixCls}-filter-dropdown-checkall`}
+                  onChange={onCheckAll}
+                >
+                  {locale.filterCheckall}
+                </Checkbox>
+              ) : null}
               <Tree
                 checkable
                 blockNode
                 multiple={filterMultiple}
+                checkStrictly={!filterMultiple}
                 className={`${dropdownPrefixCls}-menu`}
-                onCheck={onSelectInTreeMode}
-                onSelect={onSelectInTreeMode}
+                {...treeOnSelectOrCheckProps}
                 checkedKeys={selectedKeys}
                 selectedKeys={selectedKeys}
                 showIcon={false}

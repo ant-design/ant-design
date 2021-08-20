@@ -1924,4 +1924,81 @@ describe('Table.filter', () => {
       );
     });
   });
+
+  it('filterMultiple is false - check item', () => {
+    jest.useFakeTimers();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterMode: 'tree',
+            filterMultiple: false,
+          },
+        ],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-tree-checkbox').length).toBe(5);
+    expect(wrapper.find('.ant-table-filter-dropdown-checkall').exists()).toBe(false);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+    wrapper.find('.ant-tree-checkbox').at(2).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(2).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-tree-checkbox').at(1).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(1).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-tree-checkbox').at(1).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(1).hasClass('ant-tree-checkbox-checked')).toBe(
+      false,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+  });
+
+  it('filterMultiple is false - select item', () => {
+    jest.useFakeTimers();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterMode: 'tree',
+            filterMultiple: false,
+          },
+        ],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-tree-checkbox').length).toBe(5);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+    wrapper.find('.ant-tree-node-content-wrapper').at(2).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(2).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-tree-node-content-wrapper').at(1).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(1).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-tree-node-content-wrapper').at(1).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(1).hasClass('ant-tree-checkbox-checked')).toBe(
+      false,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+  });
 });
