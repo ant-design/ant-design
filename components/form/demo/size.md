@@ -89,7 +89,7 @@ const FormSizeDemo = () => {
         <Form.Item label="InputNumber">
           <InputNumber />
         </Form.Item>
-        <Form.Item label="Switch">
+        <Form.Item label="Switch" valuePropName="checked">
           <Switch />
         </Form.Item>
         <Form.Item label="Button">
