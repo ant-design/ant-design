@@ -11,7 +11,6 @@ import confirm, {
 import useModal from './useModal';
 import destroyFns from './destroyFns';
 
-export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
 
 function modalWarn(props: ModalFuncProps) {

@@ -1,7 +1,6 @@
 @import '../../style/mixins/index';
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
-@tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
 @tree-node-padding: (@padding-xs / 2);
@@ -259,15 +258,15 @@
       }
     }
   }
-}
 
-.@{tree-node-prefix-cls}-leaf-last {
-  .@{tree-prefix-cls}-switcher {
-    &-leaf-line {
-      &::before {
-        top: auto !important;
-        bottom: auto !important;
-        height: @tree-title-height - 10px !important;
+  .@{custom-tree-node-prefix-cls}-leaf-last {
+    .@{custom-tree-prefix-cls}-switcher {
+      &-leaf-line {
+        &::before {
+          top: auto !important;
+          bottom: auto !important;
+          height: @tree-title-height - 10px !important;
+        }
       }
     }
   }
