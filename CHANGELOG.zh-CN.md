@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.16.13
+
+`2021-08-23`
+
+- 🐞 修复 Form `label` 中使用 `<Typography.Text ellipsis />` 时省略不生效的问题。[#31838](https://github.com/ant-design/ant-design/pull/31838)
+- 🐞 修复 Collapse 在 HMR 时报错的问题。[#31827](https://github.com/ant-design/ant-design/pull/31827) [@v4](https://github.com/v4)
+- 🐞 修复 Modal 和 Input 组件中的循环依赖。[#31817](https://github.com/ant-design/ant-design/pull/31817) [@zhyupe](https://github.com/zhyupe)
+- RTL
+  - 🐞 修复 Modal.confirm 自定义内容全局 rtl 配置缺失的问题。[#31828](https://github.com/ant-design/ant-design/pull/31828)
+
 ## 4.16.12
 
 `2021-08-16`
