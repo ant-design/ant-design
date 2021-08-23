@@ -75,8 +75,8 @@ import locale from 'antd/lib/locale/zh_CN';
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| superNextIcon | 自定义超级下一个图标 | ReactNode | - |  |
-| superPrevIcon | 自定义超级上一个图标 | ReactNode | - |  |
+| superNextIcon | 自定义 `<<` 切换图标 | ReactNode | - |  |
+| superPrevIcon | 自定义 `>>` 切换图标 | ReactNode | - |  |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 
