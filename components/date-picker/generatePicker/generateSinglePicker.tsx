@@ -105,6 +105,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                     mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
                   }
                   clearIcon={<CloseCircleFilled />}
+                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                   allowClear
                   transitionName={`${rootPrefixCls}-slide-up`}
                   {...additionalProps}
@@ -121,10 +125,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   prefixCls={prefixCls}
                   getPopupContainer={customizeGetPopupContainer || getPopupContainer}
                   generateConfig={generateConfig}
-                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                   components={Components}
                   direction={direction}
                 />

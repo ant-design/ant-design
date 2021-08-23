@@ -64,14 +64,18 @@ The following APIs are shared by DatePicker, RangePicker.
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
+| nextIcon | The custom next icon | ReactNode | - |  |
 | open | The open state of picker | boolean | - |  |
 | panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | The placeholder of date input | string \| \[string,string] | - |  |
 | popupStyle | To customize the style of the popup calendar | CSSProperties | {} |  |
+| prevIcon | The custom prev icon | ReactNode | - |  |
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
 | style | To customize the style of the input box | CSSProperties | {} |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
+| superNextIcon | The custom super next icon | ReactNode | - |  |
+| superPrevIcon | The custom super prev icon | ReactNode | - |  |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
 
@@ -183,7 +187,7 @@ DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale
 
 ### How to modify start day of week?
 
-Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: 
+Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config:
 
 - Example: <https://codesandbox.io/s/moment-day-of-week-6dby5>
 - Alternate example: <https://stackblitz.com/edit/react-9aegkj>
