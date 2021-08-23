@@ -5,10 +5,11 @@ import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import { getConfirmLocale } from './locale';
-import { ModalFuncProps, destroyFns } from './Modal';
+import type { ModalFuncProps } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 import { globalConfig } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import destroyFns from './destroyFns';
 
 let defaultRootPrefixCls = '';
 

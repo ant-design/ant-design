@@ -6,7 +6,7 @@ import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import Modal from '..';
-import { destroyFns } from '../Modal';
+import destroyFns from '../destroyFns';
 import { sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 

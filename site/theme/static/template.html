@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1890ff" />
     <title>{% if title %}{{ title | safe }}{% else %}{% endif %}</title>
     {% if meta %}{{ meta | safe }}{% endif %}
     <link
@@ -21,6 +22,69 @@
     </style>
     <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
     <script src="https://b.alicdn.com/s/polyfill.min.js?features=default,es2015,Intl"></script>
+    <link id="darkThemeLink" rel="stylesheet" href="/dark.css" />
+    <script>
+      /* 设置 meta theme-color 的值，默认会设置一个 #1890ff   */
+      function setColor(isDarken) {
+        try {
+          const theme = document.getElementsByTagName('meta')['theme-color'];
+          theme.setAttribute('content', isDarken ? 'rgba(0,0,0,0.65)' : '#1890ff');
+        } catch (error) {}
+      }
+      /* -------------------------- 主题相关 -------------------------- */
+      (function () {
+        /* 获取查询参数对象 */
+        function getSearchParam(search) {
+          // 处理入参错误
+          var search = search || location.search;
+          if (search === undefined) return;
+
+          var pattern = /(\w+)=(\w+)/gi; // 定义正则
+          var matches = search.match(pattern);
+          if (!matches) return;
+
+          var searchParam = Object.fromEntries(matches.map(item => item.split('=')));
+          return searchParam;
+        }
+
+        var searchParam = getSearchParam(location.search) || {}; // 查询参数对象
+
+        var isDarkMode = searchParam.theme === 'dark'; // 判断当前主题
+        var isComponentsPage = location.pathname.startsWith('/components'); // 判断是否组件页面
+
+        // 1. 暗色主题刷新时无白屏
+        // 如果是暗色主题，且在components路由下
+        var darkThemeLinkEl = document.getElementById('darkThemeLink');
+        if (isDarkMode && isComponentsPage) {
+          // 将预先定义的暗色主题link移动到body内
+          document.addEventListener(
+            'readystatechange',
+            () => {
+              document.body.prepend(darkThemeLinkEl);
+            },
+            { once: true },
+          );
+          // load后卸载
+          window.addEventListener('load', () => darkThemeLinkEl.remove(), { once: true });
+          setColor(true);
+          // 清除dark.css中的全部transition 待解析完后恢复
+          var styleElement = document.createElement('style');
+          styleElement.type = 'text/css';
+          styleElement.innerHTML =
+            '* {transition: none !important;} html {background: rgb(20, 20, 20)}';
+          document.head.appendChild(styleElement);
+          document.documentElement.style.backgroundColor = 'black';
+          window.addEventListener('load', () => styleElement.remove(), { once: true });
+
+          // 设置系统主题
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          setColor(false);
+          document.documentElement.style.colorScheme = 'light';
+          darkThemeLinkEl.remove();
+        }
+      })();
+    </script>
     <script>
       (function () {
         function isLocalStorageNameSupported() {
