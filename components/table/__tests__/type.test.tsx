@@ -44,7 +44,7 @@ describe('Table.typescript types', () => {
       name: string;
     }
 
-    const columns: ColumnProps<User>[] = [
+    const columns: readonly ColumnProps<User>[] = [
       {
         title: 'Name',
         dataIndex: 'name',
