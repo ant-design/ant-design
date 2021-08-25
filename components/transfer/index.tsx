@@ -400,7 +400,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               footer={footer}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
-              direction="left"
+              direction={direction === 'rtl' ? 'right' : 'left'}
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
@@ -437,7 +437,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               footer={footer}
               onScroll={this.handleRightScroll}
               disabled={disabled}
-              direction="right"
+              direction={direction === 'rtl' ? 'left' : 'right'}
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
