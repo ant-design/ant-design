@@ -21,6 +21,21 @@
 @white: #fff;
 @black: #000;
 
+// -------- infra gray Colors -----------
+@infra-gray-1: #fff;
+@infra-gray-2: #fafafa;
+@infra-gray-3: #f6f6f6;
+@infra-gray-4: #eee;
+@infra-gray-5: #d8d8d8;
+@infra-gray-6: #b7b7b7;
+@infra-gray-7: #999;
+@infra-gray-8: #666;
+@infra-gray-9: #434343;
+@infra-gray-10: #333;
+@infra-gray-11: #1f1f1f;
+@infra-gray-12: #141414;
+@infra-gray-13: #000;
+
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
 @primary-1: color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
@@ -149,7 +164,7 @@
 
 // Disabled states
 @disabled-color: #b7b7b7;
-@disabled-bg: @background-color-base;
+@disabled-bg: @infra-gray-3;
 @disabled-active-bg: tint(@black, 90%);
 @disabled-color-dark: fade(#fff, 35%);
 
@@ -183,7 +198,7 @@
 
 @btn-default-color: @text-color;
 @btn-default-bg: @component-background;
-@btn-default-border: @border-color-base;
+@btn-default-border: @infra-gray-5;
 
 @btn-danger-color: #fff;
 @btn-danger-bg: @error-color;
@@ -361,7 +376,7 @@
 //Dropdown
 @dropdown-menu-bg: @component-background;
 @dropdown-vertical-padding: 5px;
-@dropdown-edge-child-vertical-padding: 4px;
+@dropdown-edge-child-vertical-padding: 8px;
 @dropdown-font-size: @font-size-base;
 @dropdown-line-height: 22px;
 
@@ -809,9 +824,9 @@
 // PageHeader
 // ---
 @page-header-padding: @padding-lg;
-@page-header-padding-vertical: @padding-md;
-@page-header-padding-breadcrumb: @padding-sm;
-@page-header-content-padding-vertical: @padding-sm;
+@page-header-padding-vertical: @padding-xs;
+@page-header-padding-breadcrumb: @padding-md;
+@page-header-content-padding-vertical: @padding-lg;
 @page-header-back-color: #000;
 @page-header-ghost-bg: inherit;
 @page-header-heading-title: @heading-4-size;
