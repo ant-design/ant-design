@@ -6,10 +6,11 @@
 .@{pageheader-prefix-cls} {
   .reset-component();
   position: relative;
-  padding: @page-header-padding-vertical @page-header-padding;
+  padding: @page-header-padding @page-header-padding @page-header-padding-vertical;
   background-color: @component-background;
 
   &-ghost {
+    padding: @page-header-padding;
     background-color: @page-header-ghost-bg;
   }
 
@@ -40,7 +41,7 @@
   }
 
   .@{ant-prefix}-breadcrumb + &-heading {
-    margin-top: @margin-xs;
+    margin-top: @margin-md;
   }
 
   .text-overflow-ellipsis() {
@@ -56,14 +57,13 @@
     &-left {
       display: flex;
       align-items: center;
-      margin: (@margin-xs / 2) 0;
       overflow: hidden;
     }
 
     &-title {
       margin-right: @margin-sm;
       margin-bottom: 0;
-      color: @heading-color;
+      color: @infra-gray-10;
       font-weight: 600;
       font-size: @page-header-heading-title;
       line-height: 32px;
@@ -83,11 +83,10 @@
     }
 
     &-extra {
-      margin: (@margin-xs / 2) 0;
       white-space: nowrap;
 
       > * {
-        margin-left: @margin-sm;
+        margin-left: @margin-md;
         white-space: unset;
       }
       > *:first-child {

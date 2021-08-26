@@ -3,6 +3,7 @@ import { Link } from 'bisheng/router';
 import * as utils from '../../utils';
 
 import './Logo.less';
+import InfraLogo from './Infra-logo.svg';
 
 export interface LogoProps {
   isZhCN: boolean;
@@ -12,7 +13,7 @@ export interface LogoProps {
 const Logo = ({ isZhCN, location }: LogoProps) => (
   <h1>
     <Link to={utils.getLocalizedPathname('/', isZhCN, location.query)} id="logo">
-      <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+      <img alt="logo" src={InfraLogo} />
       Infra Design
     </Link>
   </h1>
