@@ -138,6 +138,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-item"
+          title="Node1"
         >
           <span
             class="ant-select-selection-item-content"
