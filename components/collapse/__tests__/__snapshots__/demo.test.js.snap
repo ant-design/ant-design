@@ -337,7 +337,7 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-collapse ant-collapse-icon-position-left"

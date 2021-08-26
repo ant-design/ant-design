@@ -493,7 +493,7 @@ exports[`renders ./components/input-number/demo/keyboard.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <div
       class="ant-input-number"
@@ -604,7 +604,7 @@ exports[`renders ./components/input-number/demo/out-of-range.md correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <div
       class="ant-input-number ant-input-number-out-of-range"

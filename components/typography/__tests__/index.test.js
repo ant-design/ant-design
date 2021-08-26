@@ -139,7 +139,7 @@ describe('Typography', () => {
 
         await sleep(20);
         wrapper.update();
-        expect(wrapper.text()).toEqual('Infra Design, a des...');
+        expect(wrapper.text()).toEqual('Infra Design, a d...');
         const ellipsisSpan = wrapper.find('span[title]');
         expect(ellipsisSpan.text()).toEqual('...');
         expect(ellipsisSpan.props().title)

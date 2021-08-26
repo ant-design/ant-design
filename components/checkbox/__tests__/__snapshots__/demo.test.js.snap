@@ -166,7 +166,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -187,7 +187,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <div>
         Bamboo
@@ -223,7 +223,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <label
         class="ant-radio-wrapper"
@@ -244,7 +244,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <div>
         Bamboo

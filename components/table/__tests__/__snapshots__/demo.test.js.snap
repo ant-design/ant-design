@@ -12417,7 +12417,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <button
         class="ant-btn"
@@ -12430,7 +12430,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <button
         class="ant-btn"
@@ -17596,7 +17596,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       CheckStrictly: 
     </div>

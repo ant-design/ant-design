@@ -12,13 +12,13 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:16px"
       >
         center
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:16px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -48,13 +48,13 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:16px"
       >
         start
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:16px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -84,13 +84,13 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:16px"
       >
         end
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:16px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -120,13 +120,13 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:16px"
       >
         baseline
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right:16px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -157,13 +157,13 @@ exports[`renders ./components/space/demo/base.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     Space
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -176,7 +176,7 @@ exports[`renders ./components/space/demo/base.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <span
       class=""
@@ -338,13 +338,13 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     Button
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <button
       class="ant-btn"
@@ -357,13 +357,13 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     Button
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <button
       class="ant-btn"
@@ -376,7 +376,7 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <span
       class="ant-popover-disabled-compatible-wrapper"
@@ -396,7 +396,7 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     1
   </div>
@@ -597,7 +597,7 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:4px"
+    style="margin-right:8px"
   >
     <a
       class="ant-typography"
@@ -607,7 +607,7 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px"
+    style="margin-right:8px"
   >
     <div
       class="ant-divider ant-divider-vertical"
@@ -616,7 +616,7 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
   </span>
   <div
     class="ant-space-item"
-    style="margin-right:4px"
+    style="margin-right:8px"
   >
     <a
       class="ant-typography"
@@ -626,7 +626,7 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px"
+    style="margin-right:8px"
   >
     <div
       class="ant-divider ant-divider-vertical"
@@ -651,7 +651,7 @@ exports[`renders ./components/space/demo/vertical.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-card ant-card-bordered"

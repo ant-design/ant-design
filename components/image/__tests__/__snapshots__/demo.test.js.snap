@@ -406,7 +406,7 @@ exports[`renders ./components/image/demo/preview-mask.md correctly 1`] = `
     >
       <div
         class="ant-space-item"
-        style="margin-bottom:8px"
+        style="margin-bottom:16px"
       >
         <span
           aria-label="zoom-in"
