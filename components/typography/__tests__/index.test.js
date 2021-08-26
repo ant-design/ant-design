@@ -143,7 +143,7 @@ describe('Typography', () => {
         const ellipsisSpan = wrapper.find('span[title]');
         expect(ellipsisSpan.text()).toEqual('...');
         expect(ellipsisSpan.props().title)
-          .toEqual(`ign language (for background applications, is refined by
+          .toEqual(`esign language (for background applications, is refined by
           Ant UED Team. Infra Design, a design language for background applications,
           is refined by Ant UED Team. Infra Design, a design language for background
           applications, is refined by Ant UED Team. Infra Design, a design language
