@@ -108,7 +108,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -120,7 +120,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -132,7 +132,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right:16px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"

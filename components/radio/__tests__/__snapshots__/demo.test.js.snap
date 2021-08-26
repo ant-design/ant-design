@@ -677,7 +677,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
+      style="margin-bottom:16px"
     >
       <label
         class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -702,7 +702,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
+      style="margin-bottom:16px"
     >
       <label
         class="ant-radio-wrapper"
@@ -726,7 +726,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
+      style="margin-bottom:16px"
     >
       <label
         class="ant-radio-wrapper"

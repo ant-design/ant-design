@@ -6,7 +6,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -34,7 +34,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -178,7 +178,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -219,7 +219,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -1253,15 +1253,15 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
+      style="flex-wrap:wrap;margin-bottom:-16px"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <button
           class="ant-btn"
@@ -1274,7 +1274,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <button
           class="ant-btn"
@@ -1287,7 +1287,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <button
           class="ant-btn"
@@ -1300,7 +1300,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <button
           class="ant-btn"
@@ -1313,7 +1313,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
+        style="padding-bottom:16px"
       >
         <button
           aria-checked="true"
@@ -1335,7 +1335,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <br />
   </div>
@@ -2436,7 +2436,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-affix-wrapper ant-input-password"
@@ -2636,7 +2636,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -2684,7 +2684,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -2760,7 +2760,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
@@ -2807,7 +2807,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <span
       class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"

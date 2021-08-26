@@ -6,7 +6,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-picker"
@@ -50,7 +50,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-picker"
@@ -94,7 +94,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-picker"
@@ -138,7 +138,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-picker"
@@ -3276,7 +3276,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <div
       class="ant-picker"
@@ -3740,7 +3740,7 @@ exports[`renders ./components/date-picker/demo/switchable.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"

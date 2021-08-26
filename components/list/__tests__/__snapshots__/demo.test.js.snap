@@ -1659,7 +1659,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="star"
@@ -1697,7 +1697,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="like"
@@ -1735,7 +1735,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="message"
@@ -1825,7 +1825,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="star"
@@ -1863,7 +1863,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="like"
@@ -1901,7 +1901,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="message"
@@ -1991,7 +1991,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="star"
@@ -2029,7 +2029,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="like"
@@ -2067,7 +2067,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right:16px"
                   >
                     <span
                       aria-label="message"

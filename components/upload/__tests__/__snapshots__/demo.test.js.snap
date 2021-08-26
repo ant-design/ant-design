@@ -1924,7 +1924,7 @@ exports[`renders ./components/upload/demo/max-count.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:24px"
+    style="margin-bottom:32px"
   >
     <span
       class=""

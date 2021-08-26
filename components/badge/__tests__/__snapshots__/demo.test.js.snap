@@ -767,7 +767,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <button
       aria-checked="true"
@@ -785,7 +785,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
@@ -820,7 +820,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right:16px"
   >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
@@ -1317,7 +1317,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -1347,7 +1347,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -1377,7 +1377,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -1409,7 +1409,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-ribbon-wrapper"
