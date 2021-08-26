@@ -171,14 +171,14 @@ describe('Progress', () => {
   it('steps should be changable when has strokeColor', () => {
     const wrapper = mount(<Progress steps={5} percent={60} strokeColor="#2673dd" />);
     expect(wrapper.find('.ant-progress-steps-item').at(0).getDOMNode().style.backgroundColor).toBe(
-      'rgb(38, 25, 221)',
+      'rgb(38, 115, 221)',
     );
     wrapper.setProps({ percent: 40 });
     expect(wrapper.find('.ant-progress-steps-item').at(2).getDOMNode().style.backgroundColor).toBe(
       '',
     );
     expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
-      'rgb(38, 25, 221)',
+      'rgb(38, 115, 221)',
     );
   });
 
