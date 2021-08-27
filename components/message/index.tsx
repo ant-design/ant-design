@@ -77,7 +77,7 @@ function getRCNotificationInstance(
     instance: RCNotificationInstance;
   }) => void,
 ) {
-  const { prefixCls: customizePrefixCls } = args;
+  const { prefixCls: customizePrefixCls, getPopupContainer: getContextPopupContainer } = args;
   const { getPrefixCls, getRootPrefixCls } = globalConfig();
   const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
   const rootPrefixCls = getRootPrefixCls(args.rootPrefixCls, prefixCls);
@@ -91,7 +91,7 @@ function getRCNotificationInstance(
     prefixCls,
     transitionName: hasTransitionName ? transitionName : `${rootPrefixCls}-${transitionName}`,
     style: { top: defaultTop }, // 覆盖原来的样式
-    getContainer,
+    getContainer: getContainer || getContextPopupContainer,
     maxCount,
   };
 
@@ -131,6 +131,7 @@ export interface ArgsProps {
   type: NoticeType;
   prefixCls?: string;
   rootPrefixCls?: string;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
