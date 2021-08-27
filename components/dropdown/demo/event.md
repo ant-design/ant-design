@@ -15,7 +15,7 @@ An event will be triggered when you click menu items, in which you can make diff
 
 ```jsx
 import { Menu, Dropdown, message } from 'antd';
-import { ShopeeArrowDown } from 'infra-design-icons';
+import { IArrowDown } from 'infra-design-icons';
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -32,7 +32,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me, Click menu item <ShopeeArrowDown />
+      Hover me, Click menu item <IArrowDown />
     </a>
   </Dropdown>,
   mountNode,

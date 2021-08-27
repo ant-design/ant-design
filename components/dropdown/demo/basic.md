@@ -15,7 +15,7 @@ The most basic dropdown menu.
 
 ```jsx
 import { Menu, Dropdown } from 'antd';
-import { ShopeeArrowDown } from 'infra-design-icons';
+import { IArrowDown } from 'infra-design-icons';
 
 const menu = (
   <Menu>
@@ -24,7 +24,7 @@ const menu = (
         1st menu item
       </a>
     </Menu.Item>
-    <Menu.Item icon={<ShopeeArrowDown />} disabled>
+    <Menu.Item icon={<IArrowDown />} disabled>
       <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
         2nd menu item (disabled)
       </a>
@@ -41,7 +41,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me <ShopeeArrowDown />
+      Hover me <IArrowDown />
     </a>
   </Dropdown>,
   mountNode,

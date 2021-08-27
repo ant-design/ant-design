@@ -16,7 +16,7 @@ A button is on the left, and a related functional menu is on the right. You can 
 ```jsx
 import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { ShopeeArrowDown } from 'infra-design-icons';
+import { IArrowDown } from 'infra-design-icons';
 
 function handleButtonClick(e) {
   message.info('Click on left button.');
@@ -66,7 +66,7 @@ ReactDOM.render(
     </Dropdown.Button>
     <Dropdown overlay={menu}>
       <Button>
-        Button <ShopeeArrowDown />
+        Button <IArrowDown />
       </Button>
     </Dropdown>
   </Space>,
