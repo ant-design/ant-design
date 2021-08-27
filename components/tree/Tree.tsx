@@ -8,6 +8,7 @@ import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import renderSwitcherIcon from './utils/iconUtil';
 import dropIndicatorRender from './utils/dropIndicator';
+import { updateTreeData } from './utils/updateTreeData';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -134,6 +135,7 @@ export interface TreeProps extends Omit<RcTreeProps, 'prefixCls' | 'showLine' | 
   prefixCls?: string;
   children?: React.ReactNode;
   blockNode?: boolean;
+  replaceFields?: { key?: string; children?: string; title?: string } | undefined;
 }
 
 interface CompoundedComponent
@@ -154,10 +156,22 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     children,
     checkable,
     selectable,
+    replaceFields,
+    treeData,
   } = props;
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
+  let newTreeData: DataNode[] = [];
+  if (
+    treeData !== undefined &&
+    ((replaceFields?.key !== undefined && replaceFields?.key !== 'key') ||
+      (replaceFields?.children !== undefined && replaceFields?.children !== 'children') ||
+      (replaceFields?.title !== undefined && replaceFields?.title !== 'title'))
+  ) {
+    newTreeData = updateTreeData(treeData, replaceFields);
+  }
   const newProps = {
     ...props,
+    treeData: newTreeData.length === 0 ? treeData : newTreeData,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
