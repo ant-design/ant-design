@@ -112,7 +112,7 @@
     "array-tree-filter": "^2.1.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
-    "infra-design-icons": "^4.7.10",
+    "infra-design-icons": "^4.7.11",
     "lodash": "^4.17.21",
     "moment": "^2.25.3",
     "rc-cascader": "~1.4.0",
@@ -152,8 +152,8 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@infra-fe/tools": "^13.6.7",
     "@docsearch/react": "^3.0.0-alpha.37",
+    "@infra-fe/tools": "^13.6.7",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@stackblitz/sdk": "^1.3.0",
     "@types/classnames": "^2.2.8",
