@@ -17,10 +17,18 @@ npm install --save @ant-design/icons
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Infra Design 和 Iconfont 的海量图标，还可以关联自有项目。
 
-## 图标列表
+## Shopee 图标列表
+
+```__react
+import IconShopee from 'site/theme/template/IconShopee';
+ReactDOM.render(<IconShopee />, mountNode);
+```
+
+## ANTD 原图标列表
 
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
+
 ReactDOM.render(<IconDisplay />, mountNode);
 ```
 
