@@ -20,7 +20,8 @@ This demo was created for debugging Menu styles inside Dropdown.
 
 ```jsx
 import { Menu, Dropdown } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined, DownOutlined } from '@ant-design/icons';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { ShopeeArrowDown } from 'infra-design-icons';
 
 const { SubMenu } = Menu;
 
@@ -60,7 +61,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover to check menu style <DownOutlined />
+      Hover to check menu style <ShopeeArrowDown />
     </a>
   </Dropdown>,
   mountNode,
