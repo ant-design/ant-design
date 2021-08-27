@@ -36486,11 +36486,11 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         <div>
           <div
             class="config-select-tree"
+            role="tree"
           >
-            <div
-              role="tree"
-            >
+            <div>
               <input
+                aria-label="for screen reader"
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
                 value=""
@@ -36621,11 +36621,11 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
         <div>
           <div
             class="config-select-tree"
+            role="tree"
           >
-            <div
-              role="tree"
-            >
+            <div>
               <input
+                aria-label="for screen reader"
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
                 value=""
@@ -36756,11 +36756,11 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
         <div>
           <div
             class="config-select-tree"
+            role="tree"
           >
-            <div
-              role="tree"
-            >
+            <div>
               <input
+                aria-label="for screen reader"
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
                 value=""
@@ -36891,11 +36891,11 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
         <div>
           <div
             class="ant-select-tree"
+            role="tree"
           >
-            <div
-              role="tree"
-            >
+            <div>
               <input
+                aria-label="for screen reader"
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
                 value=""
@@ -37026,11 +37026,11 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         <div>
           <div
             class="ant-select-tree"
+            role="tree"
           >
-            <div
-              role="tree"
-            >
+            <div>
               <input
+                aria-label="for screen reader"
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
                 value=""
@@ -37161,11 +37161,11 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         <div>
           <div
             class="prefix-TreeSelect-tree"
+            role="tree"
           >
-            <div
-              role="tree"
-            >
+            <div>
               <input
+                aria-label="for screen reader"
                 disabled=""
                 style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
                 value=""
