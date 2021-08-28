@@ -75,18 +75,30 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     return;
   }
   let event = e;
-  const originalInputValue = target.value;
 
   if (e.type === 'click') {
     // click clear icon
     event = Object.create(e);
-    event.target = target;
-    event.currentTarget = target;
-    // change target ref value cause e.target.value should be '' when clear input
-    target.value = '';
+
+    // Clone a new target for event.
+    // Avoid the following usage, the setQuery method gets the original value.
+    //
+    // const [query, setQuery] = React.useState('');
+    // <Input
+    //   allowClear
+    //   value={query}
+    //   onChange={(e)=> {
+    //     setQuery((prevStatus) => e.target.value);
+    //   }}
+    // />
+
+    const currentTarget = target.cloneNode(true) as E;
+
+    event.target = currentTarget;
+    event.currentTarget = currentTarget;
+
+    currentTarget.value = '';
     onChange(event as React.ChangeEvent<E>);
-    // reset target ref value
-    target.value = originalInputValue;
     return;
   }
 

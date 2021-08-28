@@ -380,14 +380,14 @@ describe('TextArea allowClear', () => {
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('Light');
   });
 
-  it('onChange event should return HTMLInputElement', () => {
+  it('onChange event should return HTMLTextAreaElement', () => {
     const onChange = jest.fn();
     const wrapper = mount(<Input.TextArea onChange={onChange} allowClear />);
 
     function isNativeElement() {
       expect(onChange).toHaveBeenCalledWith(
         expect.objectContaining({
-          target: wrapper.find('textarea').instance(),
+          target: expect.any(HTMLTextAreaElement),
         }),
       );
 
