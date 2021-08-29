@@ -345,7 +345,7 @@ describe('Anchor Render', () => {
 
   // https://github.com/ant-design/ant-design/issues/31941
   it('Anchor targetOffset prop when contain spaces', async () => {
-    const hash = getHashUrl() + 's p a c e s';
+    const hash = `${getHashUrl()} s p a c e s`;
     let dateNowMock;
 
     function dataNowMockFn() {
