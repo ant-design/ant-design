@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcCascader from 'rc-cascader';
 import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
+import type { ShowSearchType } from 'rc-cascader/lib/interface';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -10,6 +11,59 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import getIcons from '../select/utils/iconUtil';
 import { getTransitionName } from '../_util/motion';
+
+// Align the design since we use `rc-select` in root. This help:
+// - List search content will show all content
+// - Hover opacity style
+
+function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
+  const cells = str
+    .toLowerCase()
+    .split(lowerKeyword)
+    .reduce((list, cur, index) => (index === 0 ? [cur] : [...list, lowerKeyword, cur]), []);
+  const fillCells: React.ReactNode[] = [];
+  let start = 0;
+
+  cells.forEach((cell, index) => {
+    const end = start + cell.length;
+    let originWorld: React.ReactNode = str.slice(start, end);
+    start = end;
+
+    if (index % 2 === 1) {
+      originWorld = (
+        <span className={`${prefixCls}-menu-item-keyword`} key="seperator">
+          {originWorld}
+        </span>
+      );
+    }
+
+    fillCells.push(originWorld);
+  });
+
+  return fillCells;
+}
+
+const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixCls, fieldNames) => {
+  const optionList: React.ReactNode[] = [];
+
+  // We do lower here to save perf
+  const lower = inputValue.toLowerCase();
+
+  path.forEach((node, index) => {
+    if (index !== 0) {
+      optionList.push(' / ');
+    }
+
+    let label = (node as any)[fieldNames.label!];
+    const type = typeof label;
+    if (type === 'string' || type === 'number') {
+      label = highlightKeyword(String(label), lower, prefixCls);
+    }
+
+    optionList.push(label);
+  });
+  return optionList;
+};
 
 export interface CascaderProps extends Omit<RcCascaderProps, 'checkable'> {
   multiple?: boolean;
@@ -33,6 +87,8 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
     choiceTransitionName = '',
     dropdownClassName,
     expandIcon,
+    showSearch,
+    allowClear = true,
     ...restProps
   } = props;
 
@@ -56,6 +112,26 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
   const mergedDropdownClassName = classNames(dropdownClassName, `${cascaderPrefixCls}-dropdown`, {
     [`${cascaderPrefixCls}-dropdown-rtl`]: direction === 'rtl',
   });
+
+  // ==================== Search =====================
+  const mergedShowSearch = React.useMemo(() => {
+    if (!showSearch) {
+      return showSearch;
+    }
+
+    let searchConfig: ShowSearchType = {
+      render: defaultSearchRender,
+    };
+
+    if (typeof showSearch === 'object') {
+      searchConfig = {
+        ...searchConfig,
+        ...showSearch,
+      };
+    }
+
+    return searchConfig;
+  }, [showSearch]);
 
   // ===================== Size ======================
   const size = React.useContext(SizeContext);
@@ -101,6 +177,8 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
         className,
       )}
       {...(restProps as any)}
+      allowClear={allowClear}
+      showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
       inputIcon={suffixIcon}
       removeIcon={removeIcon}
