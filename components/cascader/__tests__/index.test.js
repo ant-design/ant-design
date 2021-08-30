@@ -1,13 +1,12 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
 import ConfigProvider from '../../config-provider';
-import excludeWarning from '../../../tests/shared/excludeWarning';
+import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
 
 function toggleOpen(wrapper) {
   wrapper.find('.ant-select-selector').simulate('mousedown');
@@ -68,7 +67,7 @@ function filter(inputValue, path) {
 }
 
 describe('Cascader', () => {
-  excludeWarning();
+  excludeAllWarning();
 
   focusTest(Cascader, { refFocus: true });
   mountTest(Cascader);
