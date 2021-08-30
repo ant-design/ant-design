@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcCascader from 'rc-cascader';
 import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
-import type { ShowSearchType } from 'rc-cascader/lib/interface';
+import type { ShowSearchType, FieldNames } from 'rc-cascader/lib/interface';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -15,6 +15,10 @@ import { getTransitionName } from '../_util/motion';
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
 // - Hover opacity style
+
+export type FieldNamesType = FieldNames;
+
+export type FilledFieldNamesType = Required<FieldNamesType>;
 
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
   const cells = str
@@ -89,19 +93,23 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
     expandIcon,
     showSearch,
     allowClear = true,
+    notFoundContent,
     ...restProps
   } = props;
 
   const {
     // getPopupContainer: getContextPopupContainer,
     getPrefixCls,
-    // renderEmpty,
+    renderEmpty,
     direction,
     // virtual,
     // dropdownMatchSelectWidth,
   } = React.useContext(ConfigContext);
 
   const isRtl = direction === 'rtl';
+
+  // =================== No Found ====================
+  const mergedNotFoundContent = notFoundContent || renderEmpty('Cascader');
 
   // ==================== Prefix =====================
   const rootPrefixCls = getPrefixCls();
@@ -177,6 +185,7 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
         className,
       )}
       {...(restProps as any)}
+      notFoundContent={mergedNotFoundContent}
       allowClear={allowClear}
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}

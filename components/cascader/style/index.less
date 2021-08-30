@@ -11,6 +11,13 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: flex-start;
+
+    &.@{cascader-prefix-cls}-menu-empty {
+      .@{cascader-prefix-cls}-menu {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 
   &-menu {
@@ -47,6 +54,12 @@
         &:hover {
           background: transparent;
         }
+      }
+
+      .@{cascader-prefix-cls}-menu-empty & {
+        color: @disabled-color;
+        cursor: default;
+        pointer-events: none;
       }
 
       &-active:not(&-disabled) {
