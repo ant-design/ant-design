@@ -28,6 +28,7 @@ const FilterSearch: React.FC<FilterSearchProps> = ({
         placeholder={locale.filterSearchPlaceholder}
         onChange={onChange}
         value={value}
+        // for skip min-width of input
         htmlSize={1}
         className={`${tablePrefixCls}-filter-dropdown-search-input`}
       />
