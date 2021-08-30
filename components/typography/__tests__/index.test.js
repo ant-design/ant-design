@@ -542,9 +542,8 @@ describe('Typography', () => {
   });
 
   it('warning if use setContentRef', () => {
-    function refFunc() {}
+    const refFunc = () => {};
     mount(<Typography setContentRef={refFunc} />);
-
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
     );
