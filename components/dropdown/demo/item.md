@@ -15,7 +15,7 @@ Divider and disabled menu item.
 
 ```jsx
 import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { IArrowDown } from 'infra-design-icons';
 
 const menu = (
   <Menu>
@@ -39,7 +39,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me <DownOutlined />
+      Hover me <IArrowDown />
     </a>
   </Dropdown>,
   mountNode,

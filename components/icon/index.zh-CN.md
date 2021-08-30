@@ -7,26 +7,36 @@ toc: false
 cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
 ---
 
-语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+语义化的矢量图形。使用图标组件，你需要安装 `infra-design-icons` 图标组件包：
 
 ```bash
-npm install --save @ant-design/icons
+npm install --save infra-design-icons
 ```
+
+其中`i`的大写字母`I`加大写字母开头的组件是 Shopee Infra 的 icon 图标库，见下列 Shopee Icon 图标下名字
 
 ## 设计师专属
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Infra Design 和 Iconfont 的海量图标，还可以关联自有项目。
 
-## 图标列表
+## Shopee 图标列表
+
+```__react
+import IconShopee from 'site/theme/template/IconShopee';
+ReactDOM.render(<IconShopee />, mountNode);
+```
+
+## ANTD 原图标列表
 
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
+
 ReactDOM.render(<IconDisplay />, mountNode);
 ```
 
 ## API
 
-从 4.0 开始，antd 不再内置 Icon 组件，请使用独立的包 `@ant-design/icons`。
+从 4.0 开始，antd 不再内置 Icon 组件，请使用独立的包 `infra-design-icons`。
 
 ### 通用图标
 
@@ -41,7 +51,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
 ```jsx
-import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
+import { StarOutlined, StarFilled, StarTwoTone } from 'infra-design-icons';
 
 <StarOutlined />
 <StarFilled />
@@ -71,7 +81,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 所有的图标都会以 `<svg>` 标签渲染，可以使用 `style` 和 `className` 设置图标的大小和单色图标的颜色。例如：
 
 ```jsx
-import { MessageOutlined } from '@ant-design/icons';
+import { MessageOutlined } from 'infra-design-icons';
 
 <MessageOutlined style={{ fontSize: '16px', color: '#08c' }} />;
 ```
@@ -81,10 +91,10 @@ import { MessageOutlined } from '@ant-design/icons';
 对于双色图标，可以通过使用 `getTwoToneColor()` 和 `setTwoToneColor(colorString)` 来全局设置图标主色。
 
 ```jsx
-import { getTwoToneColor, setTwoToneColor } from '@ant-design/icons';
+import { getTwoToneColor, setTwoToneColor } from 'infra-design-icons';
 
 setTwoToneColor('#eb2f96');
-getTwoToneColor(); // #eb2f96
+getTwoToneColor(); // #EB2F96
 ```
 
 ### 自定义 font 图标
@@ -92,7 +102,7 @@ getTwoToneColor(); // #eb2f96
 在 `3.9.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
 
 ```js
-import { createFromIconfontCN } from '@ant-design/icons';
+import { createFromIconfontCN } from 'infra-design-icons';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
@@ -138,7 +148,7 @@ options 的配置项如下：
 ```
 
 ```jsx
-import Icon from '@ant-design/icons';
+import Icon from 'infra-design-icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
