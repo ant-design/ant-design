@@ -95,6 +95,7 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
     showSearch,
     allowClear = true,
     notFoundContent,
+    direction,
     ...restProps
   } = props;
 
@@ -102,12 +103,13 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
     // getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
-    direction,
+    direction: rootDirection,
     // virtual,
     // dropdownMatchSelectWidth,
   } = React.useContext(ConfigContext);
 
-  const isRtl = direction === 'rtl';
+  const mergedDirection = direction || rootDirection;
+  const isRtl = mergedDirection === 'rtl';
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty('Cascader');
@@ -119,7 +121,7 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
 
   // =================== Dropdown ====================
   const mergedDropdownClassName = classNames(dropdownClassName, `${cascaderPrefixCls}-dropdown`, {
-    [`${cascaderPrefixCls}-dropdown-rtl`]: direction === 'rtl',
+    [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
   });
 
   // ==================== Search =====================
@@ -180,12 +182,13 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
         {
           [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-sm`]: mergedSize === 'small',
-          [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-rtl`]: isRtl,
           [`${prefixCls}-borderless`]: !bordered,
         },
         className,
       )}
       {...(restProps as any)}
+      direction={mergedDirection}
       notFoundContent={mergedNotFoundContent}
       allowClear={allowClear}
       showSearch={mergedShowSearch}

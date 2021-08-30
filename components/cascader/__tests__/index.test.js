@@ -357,124 +357,93 @@ describe('Cascader', () => {
     }).not.toThrow();
   });
 
-  // // https://github.com/ant-design/ant-design/issues/18176
-  // it('have a notFoundContent that fit trigger input width', () => {
-  //   const wrapper = mount(
-  //     <Cascader
-  //       popupVisible
-  //       options={[]}
-  //       fieldNames={{ label: 'name', value: 'code', children: 'items' }}
-  //     />,
-  //   );
-  //   const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-  //   expect(popupWrapper.render()).toMatchSnapshot();
-  // });
+  it('placeholder works correctly', () => {
+    const wrapper = mount(<Cascader options={[]} />);
+    expect(wrapper.find('.ant-select-selection-placeholder').text()).toEqual('');
 
-  // it('placeholder works correctly', () => {
-  //   const wrapper = mount(<Cascader options={[]} />);
-  //   expect(wrapper.find('input').prop('placeholder')).toBe('Please select');
+    const customPlaceholder = 'Custom placeholder';
+    wrapper.setProps({
+      placeholder: customPlaceholder,
+    });
+    expect(wrapper.find('.ant-select-selection-placeholder').text()).toEqual(customPlaceholder);
+  });
 
-  //   const customPlaceholder = 'Custom placeholder';
-  //   wrapper.setProps({
-  //     placeholder: customPlaceholder,
-  //   });
-  //   expect(wrapper.find('input').prop('placeholder')).toBe(customPlaceholder);
-  // });
+  it('popup correctly with defaultValue RTL', () => {
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} open />
+      </ConfigProvider>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
-  // it('popup correctly with defaultValue RTL', () => {
-  //   const wrapper = mount(
-  //     <ConfigProvider direction="rtl">
-  //       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />
-  //     </ConfigProvider>,
-  //   );
-  //   wrapper.find('Cascader').find('input').simulate('click');
-  //   expect(
-  //     render(wrapper.find('Cascader').find('Trigger').instance().getComponent()),
-  //   ).toMatchSnapshot();
-  // });
+  it('can be selected in RTL direction', () => {
+    const options2 = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              {
+                value: 'xihu',
+                label: 'West Lake',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: 'jiangsu',
+        label: 'Jiangsu',
+        children: [
+          {
+            value: 'nanjing',
+            label: 'Nanjing',
+            children: [
+              {
+                value: 'zhonghuamen',
+                label: 'Zhong Hua Men',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Cascader
+          options={options2}
+          defaultValue={['zhejiang', 'hangzhou']}
+          onChange={onChange}
+          popupPlacement="bottomRight"
+        />
+      </ConfigProvider>,
+    );
 
-  // it('can be selected in RTL direction', () => {
-  //   const options2 = [
-  //     {
-  //       value: 'zhejiang',
-  //       label: 'Zhejiang',
-  //       children: [
-  //         {
-  //           value: 'hangzhou',
-  //           label: 'Hangzhou',
-  //           children: [
-  //             {
-  //               value: 'xihu',
-  //               label: 'West Lake',
-  //             },
-  //           ],
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       value: 'jiangsu',
-  //       label: 'Jiangsu',
-  //       children: [
-  //         {
-  //           value: 'nanjing',
-  //           label: 'Nanjing',
-  //           children: [
-  //             {
-  //               value: 'zhonghuamen',
-  //               label: 'Zhong Hua Men',
-  //             },
-  //           ],
-  //         },
-  //       ],
-  //     },
-  //   ];
-  //   const onChange = jest.fn();
-  //   const wrapper = mount(
-  //     <ConfigProvider direction="rtl">
-  //       <Cascader
-  //         options={options2}
-  //         defaultValue={['zhejiang', 'hangzhou']}
-  //         onChange={onChange}
-  //         popupPlacement="bottomRight"
-  //       />
-  //     </ConfigProvider>,
-  //   );
+    toggleOpen(wrapper);
+    clickOption(wrapper, 0, 0);
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
 
-  //   wrapper.find('Cascader').find('input').simulate('click');
-  //   let popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
-  //   popupWrapper
-  //     .find('.ant-cascader-menu')
-  //     .at(0)
-  //     .find('.ant-cascader-menu-item')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(
-  //     render(wrapper.find('Cascader').find('Trigger').instance().getComponent()),
-  //   ).toMatchSnapshot();
-  //   popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
-  //   popupWrapper
-  //     .find('.ant-cascader-menu')
-  //     .at(1)
-  //     .find('.ant-cascader-menu-item')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(
-  //     render(wrapper.find('Cascader').find('Trigger').instance().getComponent()),
-  //   ).toMatchSnapshot();
-  //   popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
-  //   popupWrapper
-  //     .find('.ant-cascader-menu')
-  //     .at(2)
-  //     .find('.ant-cascader-menu-item')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
-  // });
+    toggleOpen(wrapper);
+    clickOption(wrapper, 1, 0);
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
 
-  // it('defaultValue works correctly when no match options', () => {
-  //   const wrapper = mount(<Cascader options={options} defaultValue={['options1', 'options2']} />);
-  //   expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('options1 / options2');
-  // });
+    toggleOpen(wrapper);
+    clickOption(wrapper, 2, 0);
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
+  });
+
+  it('defaultValue works correctly when no match options', () => {
+    const wrapper = mount(<Cascader options={options} defaultValue={['options1', 'options2']} />);
+    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('options1 / options2');
+  });
 
   // it('can be selected when showSearch', () => {
   //   const onChange = jest.fn();
