@@ -1,11 +1,19 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
+@import '../../checkbox/style/mixin';
 
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
 
+.antCheckboxFn(@checkbox-prefix-cls: ~'@{cascader-prefix-cls}-checkbox');
+
 .@{cascader-prefix-cls} {
   width: 184px;
+
+  &-checkbox {
+    top: 0;
+    margin-right: @padding-xs;
+  }
 
   &-menus {
     display: flex;

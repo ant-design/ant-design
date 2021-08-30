@@ -165,7 +165,7 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
 
   // =================== Multiple ====================
   const checkable = React.useMemo(
-    () => (multiple ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : false),
+    () => (multiple ? <span className={`${cascaderPrefixCls}-checkbox-inner`} /> : false),
     [multiple],
   );
 
