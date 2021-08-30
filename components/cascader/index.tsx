@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import RcCascader from 'rc-cascader';
 import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
 import type { ShowSearchType, FieldNames } from 'rc-cascader/lib/interface';
+import omit from 'rc-util/lib/omit';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -96,8 +97,10 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
     allowClear = true,
     notFoundContent,
     direction,
-    ...restProps
+    ...rest
   } = props;
+
+  const restProps = omit(rest, ['suffixIcon' as any]);
 
   const {
     // getPopupContainer: getContextPopupContainer,

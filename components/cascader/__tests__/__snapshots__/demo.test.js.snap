@@ -859,7 +859,6 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
 Array [
   <div
     class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
-    suffixicon="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -920,7 +919,6 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
-    suffixicon="ab"
   >
     <div
       class="ant-select-selector"
