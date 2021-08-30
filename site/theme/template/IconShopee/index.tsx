@@ -11,7 +11,6 @@ export default function ShopeeIconDisplay() {
   const ShopeeIcons = React.useMemo(() => {
     return iconKeys.filter(isShopeeIcon).map(key => allIcons[key]);
   }, []);
-  const fillRows = [1, 2, 3, 4, 5];
   return (
     <div>
       <h2>Shopee Icon - {ShopeeIcons.length} 个</h2>
@@ -25,7 +24,7 @@ export default function ShopeeIconDisplay() {
           );
         })}
         {new Array(5).fill('').map((v, i) => (
-          <div key={i} className={'icon-item-box'} />
+          <div key={i + v} className={'icon-item-box'} />
         ))}
       </div>
     </div>
