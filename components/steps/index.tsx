@@ -112,7 +112,7 @@ Steps.Step = RcSteps.Step;
 
 Steps.defaultProps = {
   current: 0,
-  responsive: true
+  responsive: true,
 };
 
 export default Steps;
