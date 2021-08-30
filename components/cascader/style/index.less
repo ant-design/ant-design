@@ -35,6 +35,7 @@
     &-item {
       display: flex;
       flex-wrap: nowrap;
+      align-items: center;
       padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
       overflow: hidden;
       line-height: @cascader-dropdown-line-height;
@@ -42,7 +43,6 @@
       text-overflow: ellipsis;
       cursor: pointer;
       transition: all 0.3s;
-      align-items: center;
 
       &:hover {
         background: @item-hover-bg;
@@ -76,9 +76,9 @@
 
       &-expand &-expand-icon,
       &-loading-icon {
+        margin-left: @padding-xss;
         color: @text-color-secondary;
         font-size: 10px;
-        margin-left: @padding-xss;
 
         .@{cascader-prefix-cls}-menu-item-disabled& {
           color: @disabled-color;
