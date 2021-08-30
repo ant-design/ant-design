@@ -191,178 +191,143 @@ describe('Cascader', () => {
     expect(getDropdown(wrapper).render()).toMatchSnapshot();
   });
 
-  // it('should support to clear selection', async () => {
-  //   const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
-  //   const willUnmount = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
-  //   const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
-  //   expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('Zhejiang / Hangzhou');
-  //   wrapper.find('.ant-cascader-picker-clear').at(0).simulate('click');
-  //   await sleep(300);
-  //   expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('');
-  //   wrapper.unmount();
-  //   expect(willUnmount).toHaveBeenCalled();
-  //   expect(clearTimeoutSpy).toHaveBeenCalled();
-  //   clearTimeoutSpy.mockRestore();
-  // });
+  it('should support to clear selection', () => {
+    const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
+    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('Zhejiang / Hangzhou');
+    wrapper.find('.ant-select-clear').at(0).simulate('mouseDown');
+    expect(wrapper.exists('.ant-select-selection-item')).toBeFalsy();
+  });
 
-  // it('should close popup when clear selection', () => {
-  //   const onPopupVisibleChange = jest.fn();
-  //   const wrapper = mount(
-  //     <Cascader
-  //       options={options}
-  //       popupVisible
-  //       defaultValue={['zhejiang', 'hangzhou']}
-  //       onPopupVisibleChange={onPopupVisibleChange}
-  //     />,
-  //   );
-  //   wrapper.find('.ant-cascader-picker-clear').at(0).simulate('click');
-  //   expect(onPopupVisibleChange).toHaveBeenCalledWith(false);
-  // });
+  it('should clear search input when clear selection', () => {
+    const wrapper = mount(
+      <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} showSearch />,
+    );
+    wrapper.find('input').simulate('change', { target: { value: 'xxx' } });
 
-  // it('should clear search input when clear selection', () => {
-  //   const wrapper = mount(
-  //     <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} showSearch />,
-  //   );
-  //   wrapper.find('input').simulate('click');
-  //   wrapper.find('input').simulate('change', { target: { value: 'xxx' } });
-  //   expect(wrapper.state('inputValue')).toBe('xxx');
-  //   wrapper.find('.ant-cascader-picker-clear').at(0).simulate('click');
-  //   expect(wrapper.state('inputValue')).toBe('');
-  // });
+    wrapper.find('.ant-select-clear').at(0).simulate('mouseDown');
+    expect(wrapper.find('input').props().value).toEqual('');
+  });
 
-  // it('should not trigger visible change when click search input', () => {
-  //   const onPopupVisibleChange = jest.fn();
-  //   const wrapper = mount(
-  //     <Cascader options={options} showSearch onPopupVisibleChange={onPopupVisibleChange} />,
-  //   );
-  //   wrapper.find('input').simulate('focus');
-  //   expect(onPopupVisibleChange).toHaveBeenCalledTimes(0);
-  //   wrapper.find('input').simulate('click');
-  //   expect(onPopupVisibleChange).toHaveBeenCalledTimes(1);
-  //   wrapper.find('input').simulate('click');
-  //   expect(onPopupVisibleChange).toHaveBeenCalledTimes(1);
-  //   wrapper.find('input').simulate('blur');
-  //   wrapper.setState({ popupVisible: false });
-  //   wrapper.find('input').simulate('click');
-  //   expect(onPopupVisibleChange).toHaveBeenCalledTimes(2);
-  // });
+  it('should change filtered item when options are changed', () => {
+    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
+    wrapper.find('input').simulate('change', { target: { value: 'a' } });
+    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
+    wrapper.setProps({ options: [options[0]] });
+    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
+  });
 
-  // it('should change filtered item when options are changed', () => {
-  //   const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
-  //   wrapper.find('input').simulate('click');
-  //   wrapper.find('input').simulate('change', { target: { value: 'a' } });
-  //   expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
-  //   wrapper.setProps({ options: [options[0]] });
-  //   expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
-  // });
+  it('should select item immediately when searching and pressing down arrow key', () => {
+    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
+    wrapper.find('input').simulate('change', { target: { value: 'a' } });
+    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
+    expect(wrapper.find('.ant-cascader-menu-item-active').length).toBe(0);
 
-  // it('should select item immediately when searching and pressing down arrow key', () => {
-  //   const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
-  //   wrapper.find('input').simulate('click');
-  //   wrapper.find('input').simulate('change', { target: { value: 'a' } });
-  //   expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
-  //   expect(wrapper.find('.ant-cascader-menu-item-active').length).toBe(0);
-  //   wrapper.find('input').simulate('keyDown', {
-  //     keyCode: KeyCode.DOWN,
-  //   });
-  //   expect(wrapper.find('.ant-cascader-menu-item-active').length).toBe(1);
-  // });
+    wrapper.find('input').simulate('keyDown', {
+      which: KeyCode.DOWN,
+    });
+    expect(wrapper.find('.ant-cascader-menu-item-active').length).toBe(1);
+  });
 
-  // it('can use fieldNames', () => {
-  //   const customerOptions = [
-  //     {
-  //       code: 'zhejiang',
-  //       name: 'Zhejiang',
-  //       items: [
-  //         {
-  //           code: 'hangzhou',
-  //           name: 'Hangzhou',
-  //           items: [
-  //             {
-  //               code: 'xihu',
-  //               name: 'West Lake',
-  //             },
-  //           ],
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       code: 'jiangsu',
-  //       name: 'Jiangsu',
-  //       items: [
-  //         {
-  //           code: 'nanjing',
-  //           name: 'Nanjing',
-  //           items: [
-  //             {
-  //               code: 'zhonghuamen',
-  //               name: 'Zhong Hua Men',
-  //             },
-  //           ],
-  //         },
-  //       ],
-  //     },
-  //   ];
-  //   const wrapper = mount(
-  //     <Cascader
-  //       options={customerOptions}
-  //       fieldNames={{
-  //         children: 'items',
-  //         label: 'name',
-  //         value: 'code',
-  //       }}
-  //     />,
-  //   );
-  //   wrapper.instance().handleChange(['zhejiang', 'hangzhou', 'xihu'], customerOptions);
-  //   expect(wrapper.find('.ant-cascader-picker-label').text().split('/').length).toBe(3);
-  // });
+  it('can use fieldNames', () => {
+    const customerOptions = [
+      {
+        code: 'zhejiang',
+        name: 'Zhejiang',
+        items: [
+          {
+            code: 'hangzhou',
+            name: 'Hangzhou',
+            items: [
+              {
+                code: 'xihu',
+                name: 'West Lake',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        code: 'jiangsu',
+        name: 'Jiangsu',
+        items: [
+          {
+            code: 'nanjing',
+            name: 'Nanjing',
+            items: [
+              {
+                code: 'zhonghuamen',
+                name: 'Zhong Hua Men',
+              },
+            ],
+          },
+        ],
+      },
+    ];
 
-  // it('should show not found content when options.length is 0', () => {
-  //   const customerOptions = [];
-  //   const wrapper = mount(<Cascader options={customerOptions} />);
-  //   wrapper.find('input').simulate('click');
-  //   const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-  //   expect(popupWrapper.render()).toMatchSnapshot();
-  // });
+    const onChange = jest.fn();
 
-  // it('not found content shoule be disabled', () => {
-  //   const wrapper = mount(<Cascader options={[]} />);
-  //   wrapper.find('input').simulate('click');
-  //   expect(wrapper.find('.ant-cascader-menu-item-disabled').length).toBe(1);
-  // });
+    const wrapper = mount(
+      <Cascader
+        options={customerOptions}
+        onChange={onChange}
+        fieldNames={{
+          children: 'items',
+          label: 'name',
+          value: 'code',
+        }}
+        open
+      />,
+    );
 
-  // describe('limit filtered item count', () => {
-  //   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    clickOption(wrapper, 0, 0);
+    clickOption(wrapper, 1, 0);
+    clickOption(wrapper, 2, 0);
+    expect(wrapper.find('.ant-select-selection-item').text()).toEqual(
+      'Zhejiang / Hangzhou / West Lake',
+    );
+    expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
+  });
 
-  //   afterAll(() => {
-  //     errorSpy.mockRestore();
-  //   });
+  it('should show not found content when options.length is 0', () => {
+    const customerOptions = [];
+    const wrapper = mount(<Cascader options={customerOptions} />);
+    toggleOpen(wrapper);
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+  });
 
-  //   it('limit with positive number', () => {
-  //     const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: 1 }} />);
-  //     wrapper.find('input').simulate('click');
-  //     wrapper.find('input').simulate('change', { target: { value: 'a' } });
-  //     expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
-  //   });
+  it('not found content should be disabled', () => {
+    const wrapper = mount(<Cascader options={[]} open />);
+    expect(wrapper.find('.ant-cascader-menu-item-disabled').length).toBe(1);
+  });
 
-  //   it('not limit', () => {
-  //     const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: false }} />);
-  //     wrapper.find('input').simulate('click');
-  //     wrapper.find('input').simulate('change', { target: { value: 'a' } });
-  //     expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
-  //   });
+  describe('limit filtered item count', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  //   it('negative limit', () => {
-  //     const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: -1 }} />);
-  //     wrapper.find('input').simulate('click');
-  //     wrapper.find('input').simulate('change', { target: { value: 'a' } });
-  //     expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
-  //     expect(errorSpy).toHaveBeenCalledWith(
-  //       "Warning: [antd: Cascader] 'limit' of showSearch should be positive number or false.",
-  //     );
-  //   });
-  // });
+    afterAll(() => {
+      errorSpy.mockRestore();
+    });
 
+    it('limit with positive number', () => {
+      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: 1 }} />);
+      wrapper.find('input').simulate('change', { target: { value: 'a' } });
+      expect(wrapper.find('.ant-cascader-menu-item')).toHaveLength(1);
+    });
+
+    it('not limit', () => {
+      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: false }} />);
+      wrapper.find('input').simulate('change', { target: { value: 'a' } });
+      expect(wrapper.find('.ant-cascader-menu-item')).toHaveLength(2);
+    });
+
+    it('negative limit', () => {
+      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: -1 }} />);
+      wrapper.find('input').simulate('click');
+      wrapper.find('input').simulate('change', { target: { value: 'a' } });
+      expect(wrapper.find('.ant-cascader-menu-item')).toHaveLength(2);
+    });
+  });
+
+  // FIXME: Move to `rc-tree-select` instead
   // it('should warning if not find `value` in `options`', () => {
   //   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   //   mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
@@ -372,25 +337,25 @@ describe('Cascader', () => {
   //   errorSpy.mockRestore();
   // });
 
-  // // https://github.com/ant-design/ant-design/issues/17690
-  // it('should not breaks when children is null', () => {
-  //   const optionsWithChildrenNull = [
-  //     {
-  //       value: 'zhejiang',
-  //       label: 'Zhejiang',
-  //       children: [
-  //         {
-  //           value: 'hangzhou',
-  //           label: 'Hangzhou',
-  //           children: null,
-  //         },
-  //       ],
-  //     },
-  //   ];
-  //   expect(() => {
-  //     mount(<Cascader options={optionsWithChildrenNull} />);
-  //   }).not.toThrow();
-  // });
+  // https://github.com/ant-design/ant-design/issues/17690
+  it('should not breaks when children is null', () => {
+    const optionsWithChildrenNull = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: null,
+          },
+        ],
+      },
+    ];
+    expect(() => {
+      mount(<Cascader options={optionsWithChildrenNull} />);
+    }).not.toThrow();
+  });
 
   // // https://github.com/ant-design/ant-design/issues/18176
   // it('have a notFoundContent that fit trigger input width', () => {
