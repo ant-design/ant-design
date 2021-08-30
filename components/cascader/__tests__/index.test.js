@@ -21,6 +21,13 @@ function getDropdown(wrapper) {
   return wrapper.find('.ant-select-dropdown');
 }
 
+function clickOption(wrapper, menuIndex, itemIndex, type = 'click') {
+  const menu = wrapper.find('ul.ant-cascader-menu').at(menuIndex);
+  const itemList = menu.find('li.ant-cascader-menu-item');
+
+  itemList.at(itemIndex).simulate(type);
+}
+
 const options = [
   {
     value: 'zhejiang',
@@ -96,111 +103,93 @@ describe('Cascader', () => {
     expect(getDropdown(wrapper).render()).toMatchSnapshot();
   });
 
-  // it('should support popupVisible', () => {
-  //   const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
-  //   expect(wrapper.find('Trigger').instance().getComponent().props.visible).toBeFalsy();
-  //   wrapper.setProps({ popupVisible: true });
-  //   expect(wrapper.find('Trigger').instance().getComponent().props.visible).toBeTruthy();
-  // });
+  it('should support popupVisible', () => {
+    const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
+    expect(isOpen(wrapper)).toBeFalsy();
+    wrapper.setProps({ popupVisible: true });
+    expect(isOpen(wrapper)).toBeTruthy();
+  });
 
-  // it('can be selected', () => {
-  //   const onChange = jest.fn();
-  //   const wrapper = mount(<Cascader options={options} onChange={onChange} />);
-  //   wrapper.find('input').simulate('click');
-  //   let popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-  //   popupWrapper
-  //     .find('.ant-cascader-menu')
-  //     .at(0)
-  //     .find('.ant-cascader-menu-item')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
-  //   popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-  //   popupWrapper
-  //     .find('.ant-cascader-menu')
-  //     .at(1)
-  //     .find('.ant-cascader-menu-item')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
-  //   popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-  //   popupWrapper
-  //     .find('.ant-cascader-menu')
-  //     .at(2)
-  //     .find('.ant-cascader-menu-item')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
-  //   expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
-  // });
+  it('can be selected', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<Cascader options={options} onChange={onChange} />);
 
-  // it('backspace should work with `Cascader[showSearch]`', () => {
-  //   const wrapper = mount(<Cascader options={options} showSearch />);
-  //   wrapper.find('input').simulate('change', { target: { value: '123' } });
-  //   expect(wrapper.state('inputValue')).toBe('123');
-  //   wrapper.find('input').simulate('keydown', { keyCode: KeyCode.BACKSPACE });
-  //   // Simulate onKeyDown will not trigger onChange by default, so the value is still '123'
-  //   expect(wrapper.state('inputValue')).toBe('123');
-  // });
+    toggleOpen(wrapper);
+    expect(isOpen(wrapper)).toBeTruthy();
 
-  // it('should highlight keyword and filter when search in Cascader', () => {
-  //   const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
-  //   wrapper.find('input').simulate('click');
-  //   wrapper.find('input').simulate('change', { target: { value: 'z' } });
-  //   expect(wrapper.state('inputValue')).toBe('z');
-  //   const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-  //   expect(popupWrapper.render()).toMatchSnapshot();
-  // });
+    clickOption(wrapper, 0, 0);
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
 
-  // it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
-  //   const customOptions = [
-  //     {
-  //       name: 'Zhejiang',
-  //       value: 'Zhejiang',
-  //       children: [
-  //         {
-  //           name: 'Hangzhou',
-  //           value: 'Hangzhou',
-  //           children: [
-  //             {
-  //               name: 'West Lake',
-  //               value: 'West Lake',
-  //             },
-  //             {
-  //               name: 'Xia Sha',
-  //               value: 'Xia Sha',
-  //               disabled: true,
-  //             },
-  //           ],
-  //         },
-  //       ],
-  //     },
-  //   ];
-  //   function customFilter(inputValue, path) {
-  //     return path.some(option => option.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
-  //   }
-  //   const wrapper = mount(
-  //     <Cascader
-  //       options={customOptions}
-  //       fieldNames={{ label: 'name', value: 'name' }}
-  //       showSearch={{ filter: customFilter }}
-  //     />,
-  //   );
-  //   wrapper.find('input').simulate('click');
-  //   wrapper.find('input').simulate('change', { target: { value: 'z' } });
-  //   expect(wrapper.state('inputValue')).toBe('z');
-  //   const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-  //   expect(popupWrapper.render()).toMatchSnapshot();
-  // });
+    clickOption(wrapper, 1, 0);
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
 
-  // it('should render not found content', () => {
-  //   const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
-  //   wrapper.find('input').simulate('click');
-  //   wrapper.find('input').simulate('change', { target: { value: '__notfoundkeyword__' } });
-  //   expect(wrapper.state('inputValue')).toBe('__notfoundkeyword__');
-  //   const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-  //   expect(popupWrapper.render()).toMatchSnapshot();
-  // });
+    clickOption(wrapper, 2, 0);
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
+  });
+
+  it('backspace should work with `Cascader[showSearch]`', () => {
+    const wrapper = mount(<Cascader options={options} showSearch />);
+    wrapper.find('input').simulate('change', { target: { value: '123' } });
+    expect(isOpen(wrapper)).toBeTruthy();
+
+    wrapper.find('input').simulate('keydown', { which: KeyCode.BACKSPACE });
+    expect(isOpen(wrapper)).toBeTruthy();
+
+    wrapper.find('input').simulate('change', { target: { value: '' } });
+    expect(isOpen(wrapper)).toBeTruthy();
+
+    wrapper.find('input').simulate('keydown', { which: KeyCode.BACKSPACE });
+    expect(isOpen(wrapper)).toBeFalsy();
+  });
+
+  it('should highlight keyword and filter when search in Cascader', () => {
+    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
+    wrapper.find('input').simulate('change', { target: { value: 'z' } });
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+  });
+
+  it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
+    const customOptions = [
+      {
+        name: 'Zhejiang',
+        children: [
+          {
+            name: 'Hangzhou',
+            children: [
+              {
+                name: 'West Lake',
+              },
+              {
+                name: 'Xia Sha',
+                disabled: true,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    function customFilter(inputValue, path) {
+      return path.some(option => option.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+    }
+    const wrapper = mount(
+      <Cascader
+        options={customOptions}
+        fieldNames={{ label: 'name', value: 'name' }}
+        showSearch={{ filter: customFilter }}
+      />,
+    );
+    wrapper.find('input').simulate('change', { target: { value: 'z' } });
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+  });
+
+  it('should render not found content', () => {
+    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
+    wrapper.find('input').simulate('change', { target: { value: '__notfoundkeyword__' } });
+    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+  });
 
   // it('should support to clear selection', async () => {
   //   const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);

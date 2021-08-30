@@ -15,6 +15,7 @@ import { getTransitionName } from '../_util/motion';
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
 // - Hover opacity style
+// - Search filter match case
 
 export type FieldNamesType = FieldNames;
 
