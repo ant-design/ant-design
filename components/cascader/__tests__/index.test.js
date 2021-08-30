@@ -445,45 +445,33 @@ describe('Cascader', () => {
     expect(wrapper.find('.ant-select-selection-item').text()).toEqual('options1 / options2');
   });
 
-  // it('can be selected when showSearch', () => {
-  //   const onChange = jest.fn();
-  //   const wrapper = mount(<Cascader options={options} onChange={onChange} showSearch />);
-  //   wrapper.find('input').simulate('click');
-  //   wrapper.find('input').simulate('change', { target: { value: 'Zh' } });
-  //   const popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
-  //   expect(popupWrapper.find('.ant-cascader-menu').length).toBe(1);
-  //   popupWrapper
-  //     .find('.ant-cascader-menu')
-  //     .at(0)
-  //     .find('.ant-cascader-menu-item')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
-  // });
+  it('can be selected when showSearch', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<Cascader options={options} onChange={onChange} showSearch />);
+    wrapper.find('input').simulate('change', { target: { value: 'Zh' } });
+    expect(wrapper.find('.ant-cascader-menu').length).toBe(1);
+    clickOption(wrapper, 0, 0);
+    expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
+  });
 
-  // it('options should open after press esc and then search', () => {
-  //   const wrapper = mount(<Cascader options={options} showSearch />);
-  //   wrapper.find('input').simulate('change', { target: { value: 'jin' } });
-  //   wrapper.find('input').simulate('keydown', { keyCode: KeyCode.ESC });
-  //   wrapper.find('input').simulate('change', { target: { value: 'jin' } });
-  //   expect(wrapper.state('popupVisible')).toBeTruthy();
-  // });
+  it('options should open after press esc and then search', () => {
+    const wrapper = mount(<Cascader options={options} showSearch />);
+    wrapper.find('input').simulate('change', { target: { value: 'jin' } });
+    expect(isOpen(wrapper)).toBeTruthy();
+    wrapper.find('input').simulate('keydown', { which: KeyCode.ESC });
+    expect(isOpen(wrapper)).toBeFalsy();
+    wrapper.find('input').simulate('change', { target: { value: 'jin' } });
+    expect(isOpen(wrapper)).toBeTruthy();
+  });
 
-  // it('onChange works correctly when the label of fieldNames is the same as value', () => {
-  //   const onChange = jest.fn();
-  //   const sameNames = { label: 'label', value: 'label', children: 'children' };
-  //   const wrapper = mount(
-  //     <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
-  //   );
-  //   wrapper.find('input').simulate('click');
-  //   wrapper.find('input').simulate('change', { target: { value: 'est' } });
-  //   const popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
-  //   popupWrapper
-  //     .find('.ant-cascader-menu')
-  //     .at(0)
-  //     .find('.ant-cascader-menu-item')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
-  // });
+  it('onChange works correctly when the label of fieldNames is the same as value', () => {
+    const onChange = jest.fn();
+    const sameNames = { label: 'label', value: 'label' };
+    const wrapper = mount(
+      <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
+    );
+    wrapper.find('input').simulate('change', { target: { value: 'est' } });
+    clickOption(wrapper, 0, 0);
+    expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
+  });
 });
