@@ -2,7 +2,7 @@ import { kebabCase } from 'lodash';
 import ConfigProvider from '..';
 
 describe('ConfigProvider.Theme', () => {
-  const colorList = ['primaryColor'];
+  const colorList = ['primaryColor', 'successColor', 'warningColor', 'errorColor', 'infoColor'];
 
   colorList.forEach(colorName => {
     it(colorName, () => {
