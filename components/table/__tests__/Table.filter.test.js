@@ -13,9 +13,7 @@ import ConfigProvider from '../../config-provider';
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
 
 describe('Table.filter', () => {
-  window.requestAnimationFrame = function (callback) {
-    return window.setTimeout(callback, 16);
-  };
+  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
   const filterFn = (value, record) => record.name.indexOf(value) !== -1;
