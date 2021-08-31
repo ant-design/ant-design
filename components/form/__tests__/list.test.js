@@ -200,34 +200,6 @@ describe('Form.List', () => {
     jest.useRealTimers();
   });
 
-  describe('ErrorList component', () => {
-    it('should trigger onDomErrorVisibleChange by motion end', async () => {
-      jest.useFakeTimers();
-
-      const onDomErrorVisibleChange = jest.fn();
-      const wrapper = mount(
-        <Form.ErrorList
-          errors={['bamboo is light']}
-          onDomErrorVisibleChange={onDomErrorVisibleChange}
-        />,
-      );
-
-      await act(async () => {
-        await sleep();
-        jest.runAllTimers();
-        wrapper.update();
-      });
-
-      act(() => {
-        wrapper.find('CSSMotion').props().onLeaveEnd();
-      });
-
-      expect(onDomErrorVisibleChange).toHaveBeenCalledWith(false);
-
-      jest.useRealTimers();
-    });
-  });
-
   it('should render empty without errors', () => {
     const wrapper = mount(<Form.ErrorList />);
     expect(wrapper.render()).toMatchSnapshot();
