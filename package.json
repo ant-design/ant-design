@@ -117,7 +117,7 @@
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.21",
     "moment": "^2.25.3",
-    "rc-cascader": "~1.4.0",
+    "rc-cascader": "~2.0.0-alpha.17",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.1.0",
     "rc-dialog": "~8.6.0",
