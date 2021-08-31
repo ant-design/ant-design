@@ -15,6 +15,8 @@ When a numeric value needs to be provided.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
+| addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | autoFocus | If get focus when component mounted | boolean | false | - |
 | bordered | Whether has border style | boolean | true | 4.12.0 |
 | controls | Whether to show `+-` controls | boolean | true | 4.17.0 |
