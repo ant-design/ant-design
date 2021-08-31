@@ -18,6 +18,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 
 | 成员 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| addonAfter | 带标签的 input，设置后置标签 | ReactNode | - | 4.17.0 |
+| addonBefore | 带标签的 input，设置前置标签 | ReactNode | - | 4.17.0 |
 | autoFocus | 自动获取焦点 | boolean | false | - |
 | bordered | 是否有边框 | boolean | true | 4.12.0 |
 | controls | 是否显示增减按钮 | boolean | true | 4.17.0 |
