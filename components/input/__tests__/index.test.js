@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
@@ -226,6 +226,33 @@ describe('Input allowClear', () => {
     wrapper.find('.ant-input-clear-icon').at(0).simulate('focus');
     wrapper.find('.ant-input-clear-icon').at(0).getDOMNode().click();
     expect(onBlur).not.toBeCalled();
+    wrapper.unmount();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/31927
+  it('should correctly when useState', () => {
+    const App = () => {
+      const [query, setQuery] = useState('');
+      return (
+        <Input
+          allowClear
+          value={query}
+          onChange={e => {
+            setQuery(() => e.target.value);
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<App />);
+
+    wrapper.find('input').getDOMNode().focus();
+    wrapper.find('input').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111');
+
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    expect(wrapper.find('input').getDOMNode().value).toEqual('');
+
     wrapper.unmount();
   });
 });
