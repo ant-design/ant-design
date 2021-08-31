@@ -70,10 +70,6 @@ type InjectDefaultProps<Props> = Omit<
   Props,
   | 'locale'
   | 'generateConfig'
-  | 'prevIcon'
-  | 'nextIcon'
-  | 'superPrevIcon'
-  | 'superNextIcon'
   | 'hideHeader'
   | 'components'
 > & {

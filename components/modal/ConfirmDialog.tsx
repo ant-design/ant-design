@@ -80,7 +80,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   );
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls}>
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
       <Dialog
         prefixCls={prefixCls}
         className={classString}

@@ -348,6 +348,7 @@ Array [
         >
           <span
             class="ant-select-selection-item ant-select-selection-item-disabled"
+            title="a10"
           >
             <span
               class="ant-select-selection-item-content"
@@ -362,6 +363,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="c12"
           >
             <span
               class="ant-select-selection-item-content"
@@ -982,6 +984,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
         >
           <span
             class="ant-select-selection-item"
+            title="Lucy"
           >
             <span
               class="ant-select-selection-item-content"
@@ -1199,6 +1202,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="a10"
           >
             <span
               class="ant-select-selection-item-content"
@@ -1239,6 +1243,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="c12"
           >
             <span
               class="ant-select-selection-item-content"
@@ -1350,6 +1355,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="a10"
           >
             <span
               class="ant-select-selection-item-content"
@@ -1364,6 +1370,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="c12"
           >
             <span
               class="ant-select-selection-item-content"
@@ -1491,6 +1498,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-item"
+          title="China"
         >
           <span
             class="ant-select-selection-item-content"
@@ -1587,6 +1595,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
           >
             <span
               class="ant-select-selection-item"
+              title="+ 4 ..."
             >
               <span
                 class="ant-select-selection-item-content"
@@ -1650,6 +1659,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
           >
             <span
               class="ant-select-selection-item"
+              title="+ 4 ..."
             >
               <span
                 class="ant-select-selection-item-content"
@@ -2044,6 +2054,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="a10"
           >
             <span
               class="ant-select-selection-item-content"
@@ -2084,6 +2095,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="c12"
           >
             <span
               class="ant-select-selection-item-content"
@@ -2169,6 +2181,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="a10"
           >
             <span
               class="ant-select-selection-item-content"
@@ -2209,6 +2222,7 @@ Array [
         >
           <span
             class="ant-select-selection-item"
+            title="c12"
           >
             <span
               class="ant-select-selection-item-content"

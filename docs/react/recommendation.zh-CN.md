@@ -7,7 +7,7 @@ title: 社区精选组件
 
 | 类型 | 推荐组件 |
 | --- | --- |
-| 可视化图表 | [AntV 数据可视化解决方案](https://antv.vision/zh) [🔥 AntV 图表库](https://g2plot.antv.vision/zh) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
+| 可视化图表 | [Ant Design Charts](https://charts.ant.design/zh-CN/) [AntV 数据可视化解决方案](https://antv.vision/zh) |
 | React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 表单 | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
@@ -23,7 +23,7 @@ title: 社区精选组件
 | 图标 | [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) [react-icons](https://github.com/gorangajic/react-icons) |
 | 二维码 | [qrcode.react](https://github.com/zpao/qrcode.react) |
 | 顶部进度条 | [nprogress](https://github.com/rstacruz/nprogress) |
-| 应用国际化 | [react-intl](https://github.com/yahoo/react-intl) |
+| 应用国际化 | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
 | 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-virtualized](https://github.com/bvaughn/react-virtualized) [antd-table-infinity](https://github.com/Leonard-Li777/antd-table-infinity) |
