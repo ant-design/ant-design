@@ -20,6 +20,9 @@ const options = [
   {
     label: 'Light',
     value: 'light',
+    children: new Array(20)
+      .fill(null)
+      .map((_, index) => ({ label: `Number ${index}`, value: index })),
   },
   {
     label: 'Bamboo',
@@ -52,7 +55,13 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <Cascader options={options} onChange={onChange} multiple maxTagCount="responsive" />,
+  <Cascader
+    style={{ width: 233 }}
+    options={options}
+    onChange={onChange}
+    multiple
+    maxTagCount="responsive"
+  />,
   mountNode,
 );
 ```
