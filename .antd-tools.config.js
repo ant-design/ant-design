@@ -134,5 +134,5 @@ module.exports = {
   },
   generateThemeFileContent,
   // comment in feature branch temporarily
-  // bail: true,
+  bail: true,
 };
