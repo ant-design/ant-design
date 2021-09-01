@@ -65,12 +65,8 @@ describe('DatePicker', () => {
   });
 
   it('disabled date', () => {
-    function disabledDate(current) {
-      return current && current < moment().endOf('day');
-    }
-
+    const disabledDate = current => current && current < moment().endOf('day');
     const wrapper = mount(<DatePicker disabledDate={disabledDate} open />);
-
     expect(wrapper.render()).toMatchSnapshot();
   });
 

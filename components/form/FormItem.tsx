@@ -102,11 +102,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
-  function setDomErrorVisible(visible: boolean) {
+  const setDomErrorVisible = (visible: boolean) => {
     if (!destroyRef.current) {
       innerSetDomErrorVisible(visible);
     }
-  }
+  };
 
   const hasName = hasValidName(name);
 
