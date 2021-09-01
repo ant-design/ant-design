@@ -32,6 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 | trigger | 触发下拉的行为, 移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | visible | 菜单是否显示 | boolean | - |  |
 | onVisibleChange | 菜单显示状态改变时调用，参数为 `visible` | (visible: boolean) => void | - |  |
+| onOverlayClick | 菜单被点击时调用 | (event: Event) => void | - |  |
 
 `overlay` 菜单使用 [Menu](/components/menu/)，还包括菜单项 `Menu.Item`，分割线 `Menu.Divider`。
 
