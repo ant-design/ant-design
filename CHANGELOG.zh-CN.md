@@ -56,8 +56,8 @@ timeline: true
   - 🔥 Form `rule` 支持 `warningOnly` 实现非阻塞校验。[#30829](https://github.com/ant-design/ant-design/pull/30829)
 - 🌐 国际化
   - 🇮🇳 添加马拉雅拉姆语 (ml_IN) 语言环境。[#31521](https://github.com/ant-design/ant-design/pull/31521) [@khjabir](https://github.com/khjabir)
-  - 🇵🇰 添加了乌尔都语 (ur_PK) 语言环境。[#31346](https://github.com/ant-design/ant-design/pull/31346) [@MuhammadAnas190](https://github.com/MuhammadAnas190)
-  - 🇧🇩 添加了 bn_BD（孟加拉语）语言环境。[#31257](https://github.com/ant-design/ant-design/pull/31257) [@AminulBD](https://github.com/AminulBD)
+  - 🇵🇰 添加乌尔都语 (ur_PK) 语言环境。[#31346](https://github.com/ant-design/ant-design/pull/31346) [@MuhammadAnas190](https://github.com/MuhammadAnas190)
+  - 🇧🇩 添加孟加拉语 (bn_BD) 语言环境。[#31257](https://github.com/ant-design/ant-design/pull/31257) [@AminulBD](https://github.com/AminulBD)
 
 ## 4.16.13
 
