@@ -20,6 +20,8 @@ title: 动态主题（实验性）
 ++ import 'antd/dist/antd.variable.min.css';
 ```
 
+注：如果你使用了 `babel-plugin-import`，需要将其去除。
+
 ### 静态方法配置
 
 调用 ConfigProvider 配置方法设置主题色：
@@ -56,8 +58,8 @@ export default () => (
 
 ```ts
 ConfigProvider.config({
+  prefixCls: 'custom',
   theme: {
-    prefixCls: 'custom',
     primaryColor: '#25b864',
   },
 });
@@ -68,5 +70,5 @@ ConfigProvider.config({
 由于前缀变更，你需要重新生成一份对应的 css 文件。
 
 ```bash
-lessc  --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
+lessc --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
 ```
