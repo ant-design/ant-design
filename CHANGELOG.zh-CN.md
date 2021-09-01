@@ -37,7 +37,7 @@ timeline: true
   - 🆕 InputNumber `formatter` 支持额外参数用以检测当前变更是否为用户输入。[#31030](https://github.com/ant-design/ant-design/pull/31030)
 - 🐞 修复 Input 聚焦时点击清除图标无效的问题。[#31931](https://github.com/ant-design/ant-design/pull/31931) [@adaex](https://github.com/adaex)
 - 🐞 修复 Anchor 组件包含空格时 `targetOffset` 属性不生效的问题。[#31952](https://github.com/ant-design/ant-design/pull/31952) [@adaex](https://github.com/adaex)
-- 🆕 TreeSelect & Select 支持 `fieldNames` 自定义字段名称。[#31925](https://github.com/ant-design/ant-design/pull/31925)
+- 🆕 TreeSelect 和 Select 支持 `fieldNames` 自定义字段名称。[#31925](https://github.com/ant-design/ant-design/pull/31925)
 - Transfer
   - 🐞 修复 Transfer 列表在 RTL 模式下 `direction` 取值。[#31903](https://github.com/ant-design/ant-design/pull/31903)
   - 🆕 Transfer 新增自定义左右 `footer`。[#31108](https://github.com/ant-design/ant-design/pull/31108)

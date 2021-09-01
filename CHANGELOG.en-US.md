@@ -37,7 +37,7 @@ timeline: true
   - 🆕 InputNumber `formatter` support additional param to check if current input is user typing. [#31030](https://github.com/ant-design/ant-design/pull/31030)
 - 🐞 Fix Input cannot clear content when focus it. [#31931](https://github.com/ant-design/ant-design/pull/31931) [@adaex](https://github.com/adaex)
 - 🐞 Fix anchor `targetOffset` not work when contain spaces. [#31952](https://github.com/ant-design/ant-design/pull/31952) [@adaex](https://github.com/adaex)
-- 🆕 TreeSelect & Select support `fieldNames`. [#31925](https://github.com/ant-design/ant-design/pull/31925)
+- 🆕 TreeSelect and Select support `fieldNames`. [#31925](https://github.com/ant-design/ant-design/pull/31925)
 - Transfer
   - 🐞 Fix Transfer list `direction` value in RTL mode. [#31903](https://github.com/ant-design/ant-design/pull/31903)
   - 🆕 Transfer support custom left and right `footer`. [#31108](https://github.com/ant-design/ant-design/pull/31108)
