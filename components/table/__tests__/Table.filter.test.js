@@ -7,7 +7,10 @@ import Input from '../../input';
 import Tooltip from '../../tooltip';
 import Button from '../../button';
 import Select from '../../select';
+import Tree from '../../tree';
 import ConfigProvider from '../../config-provider';
+import Checkbox from '../../checkbox';
+import Menu from '../../menu';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
@@ -205,6 +208,7 @@ describe('Table.filter', () => {
     wrapper.find('#confirm').simulate('click');
     expect(getFilterMenu().props().filterState.filteredKeys).toEqual([42]);
     wrapper.find('#reset').simulate('click');
+    wrapper.find('#confirm').simulate('click');
     expect(getFilterMenu().props().filterState.filteredKeys).toBeFalsy();
 
     // try to use confirm btn
@@ -688,15 +692,21 @@ describe('Table.filter', () => {
     const wrapper = mount(<App />);
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
-
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(true);
     wrapper.find('MenuItem').first().simulate('click');
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     wrapper.update();
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(false);
     expect(renderedNames(wrapper)).toEqual(['Jack']);
 
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').simulate('click');
     wrapper.update();
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(true);
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(false);
   });
 
   it('works with grouping columns in controlled mode', () => {
@@ -1355,6 +1365,8 @@ describe('Table.filter', () => {
           {
             ...column,
             filterDropdownVisible: true,
+            filterSearch: true,
+            filterMode: 'tree',
           },
         ],
       }),
@@ -1365,6 +1377,12 @@ describe('Table.filter', () => {
     );
     expect(wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').last().text()).toEqual(
       'Reset',
+    );
+    expect(wrapper.find('.ant-table-filter-dropdown-checkall').first().text()).toEqual(
+      'Select all items',
+    );
+    expect(wrapper.find('.ant-input').getDOMNode().getAttribute('placeholder')).toEqual(
+      'Search in filters',
     );
   });
 
@@ -1456,7 +1474,7 @@ describe('Table.filter', () => {
     expect(checkbox.props().checked).toEqual(false);
   });
 
-  it('should not trigger onChange when filter is empty', () => {
+  it('should not trigger onChange when filters is empty', () => {
     const onChange = jest.fn();
     const Test = ({ filters }) => (
       <Table
@@ -1725,5 +1743,313 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
     wrapper.find('.ant-btn.ant-btn-primary.ant-btn-sm').simulate('click');
     expect(wrapper.find('.ant-table-tbody .ant-table-cell').first().text()).toEqual(`${66}`);
+  });
+
+  describe('filter tree mode', () => {
+    it('supports filter tree', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Tree).length).toBe(1);
+      expect(wrapper.find('.ant-tree-checkbox').length).toBe(5);
+    });
+
+    it('supports search input in filter tree', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Tree).length).toBe(1);
+      expect(wrapper.find(Input).length).toBe(1);
+      wrapper
+        .find(Input)
+        .find('input')
+        .simulate('change', { target: { value: '111' } });
+    });
+
+    it('supports search input in filter menu', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Menu).length).toBe(1);
+      expect(wrapper.find(Input).length).toBe(1);
+      wrapper
+        .find(Input)
+        .find('input')
+        .simulate('change', { target: { value: '111' } });
+    });
+
+    it('should skip search when filters[0].text is ReactNode', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filters: [
+                {
+                  text: '123',
+                  value: '456',
+                },
+                {
+                  text: 123456,
+                  value: '456',
+                },
+                {
+                  text: <span>123</span>,
+                  value: '456',
+                },
+              ],
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Menu).length).toBe(1);
+      expect(wrapper.find(Input).length).toBe(1);
+      expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(3);
+      wrapper
+        .find(Input)
+        .find('input')
+        .simulate('change', { target: { value: '123' } });
+      expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(2);
+    });
+
+    it('supports check all items', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Checkbox).length).toBe(1);
+      expect(wrapper.find(Checkbox).text()).toBe('Select all items');
+      expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+      wrapper
+        .find(Checkbox)
+        .find('input')
+        .simulate('change', { target: { checked: true } });
+      expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(5);
+      wrapper
+        .find(Checkbox)
+        .find('input')
+        .simulate('change', { target: { checked: false } });
+      expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+    });
+
+    it('supports check item by selecting it', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Checkbox).length).toBe(1);
+      expect(wrapper.find(Checkbox).text()).toBe('Select all items');
+      wrapper.find('.ant-tree-node-content-wrapper').at(0).simulate('click');
+      expect(wrapper.find('.ant-tree-checkbox').at(0).hasClass('ant-tree-checkbox-checked')).toBe(
+        true,
+      );
+    });
+  });
+
+  it('filterMultiple is false - check item', () => {
+    jest.useFakeTimers();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterMode: 'tree',
+            filterMultiple: false,
+          },
+        ],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-tree-checkbox').length).toBe(5);
+    expect(wrapper.find('.ant-table-filter-dropdown-checkall').exists()).toBe(false);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+    wrapper.find('.ant-tree-checkbox').at(2).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(2).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-tree-checkbox').at(1).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(1).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-tree-checkbox').at(1).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(1).hasClass('ant-tree-checkbox-checked')).toBe(
+      false,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+  });
+
+  it('filterMultiple is false - select item', () => {
+    jest.useFakeTimers();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterMode: 'tree',
+            filterMultiple: false,
+          },
+        ],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-tree-checkbox').length).toBe(5);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+    wrapper.find('.ant-tree-node-content-wrapper').at(2).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(2).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-tree-node-content-wrapper').at(1).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(1).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-tree-node-content-wrapper').at(1).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(1).hasClass('ant-tree-checkbox-checked')).toBe(
+      false,
+    );
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+  });
+
+  it('should select children when select parent', () => {
+    jest.useFakeTimers();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [
+              { text: 'Boy', value: 'boy' },
+              { text: 'Girl', value: 'girl' },
+              {
+                text: 'Title',
+                value: 'title',
+                children: [
+                  { text: 'Jack', value: 'Jack' },
+                  { text: 'Coder', value: 'coder' },
+                ],
+              },
+            ],
+            filterMode: 'tree',
+          },
+        ],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    // check parentnode
+    wrapper.find('.ant-tree-checkbox').at(2).simulate('click');
+    expect(wrapper.find('.ant-tree-checkbox').at(2).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox').at(3).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-tree-checkbox').at(4).hasClass('ant-tree-checkbox-checked')).toBe(
+      true,
+    );
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
+    wrapper.find('.ant-tree-checkbox').at(2).simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    wrapper.find('.ant-tree-node-content-wrapper').at(2).simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 });
