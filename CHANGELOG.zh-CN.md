@@ -15,6 +15,49 @@ timeline: true
 
 ---
 
+## 4.17.0
+
+`2021-09-01`
+
+- 🔥 ConfigProvider 支持动态配置主题色。[#31496](https://github.com/ant-design/ant-design/pull/31496)
+- Table
+  - 🔥 Table 新增 `column.filterMode` 以支持配置树形筛选菜单，可选值为 `'menu' | 'tree'`。[#31809](https://github.com/ant-design/ant-design/pull/31809)
+  - 🔥 Table 新增 `column.filterSearch` 以支持开启筛选列搜索功能。[#31809](https://github.com/ant-design/ant-design/pull/31809)
+  - 💄 Table 筛选菜单重置按钮现在不再关闭菜单和生效。[#31809](https://github.com/ant-design/ant-design/pull/31809)
+  - 💄 调整 Transfer 筛选搜索框图标位置，使其和表格筛选搜索框统一。[#31809](https://github.com/ant-design/ant-design/pull/31809)
+  - 🐞 回滚 Table sticky `z-index` 样式的 less 计算到 `calc`，以防止 `auto` 样式计算错误问题。[#31874](https://github.com/ant-design/ant-design/pull/31874) [@bconnorwhite](https://github.com/bconnorwhite)
+- 🔥 Cascader 支持 `multiple` 模式。[#31936](https://github.com/ant-design/ant-design/pull/31936)
+- 🐞 修复 Steps 默认响应式不生效的问题。[#31965](https://github.com/ant-design/ant-design/pull/31965) [@tangjinzhou](https://github.com/tangjinzhou)
+- InputNumber
+  - 🔥 InputNumber 增加 `addonBefore` 和 `addonAfter` 属性支持。[#31432](https://github.com/ant-design/ant-design/pull/31432) [@Austaras](https://github.com/Austaras)
+  - 💄 聚焦 InputNumber 时将始终显示加减操作区。[#31911](https://github.com/ant-design/ant-design/pull/31911)
+  - 🆕 InputNumber 新增 `controls` 属性用于控制是否显示加减按钮。[#31548](https://github.com/ant-design/ant-design/pull/31548)
+  - 🆕 InputNumber `formatter` 支持额外参数用以检测当前变更是否为用户输入。[#31030](https://github.com/ant-design/ant-design/pull/31030)
+- 🐞 修复 Input 聚焦时点击清除图标无效的问题。[#31931](https://github.com/ant-design/ant-design/pull/31931) [@adaex](https://github.com/adaex)
+- 🐞 修复 Anchor 组件包含空格时 `targetOffset` 属性不生效的问题。[#31952](https://github.com/ant-design/ant-design/pull/31952) [@adaex](https://github.com/adaex)
+- 🆕 TreeSelect & Select 支持 `fieldNames` 自定义字段名称。[#31925](https://github.com/ant-design/ant-design/pull/31925)
+- Transfer
+  - 🐞 修复 Transfer 列表在 RTL 模式下 `direction` 取值。[#31903](https://github.com/ant-design/ant-design/pull/31903)
+  - 🆕 Transfer 新增自定义左右 `footer`。[#31108](https://github.com/ant-design/ant-design/pull/31108)
+  - 🆕 Transfer 支持 `locale.notFoundContent` 传入数组。[#31088](https://github.com/ant-design/ant-design/pull/31088) [@wwyx778](https://github.com/wwyx778)
+- 🆕 `DatePicker` 和 `RangePicker` 现在支持 `nextIcon`、`prevIcon`、`superNextIcon` 和 `superPrevIcon`。[#31703](https://github.com/ant-design/ant-design/pull/31703) [@Oreoz](https://github.com/Oreoz)
+- 🆕 Notification 支持 `maxCount` 属性以限制最大显示数。[#31807](https://github.com/ant-design/ant-design/pull/31807) [@binyellow](https://github.com/binyellow)
+- 🆕 增加 Menu.Divider 的 `dashed` 属性。[#31379](https://github.com/ant-design/ant-design/pull/31379) [@Map1en](https://github.com/Map1en)
+- 🆕 Tree 添加 `fieldNames` 属性以支持自定义节点字段名称。[#31395](https://github.com/ant-design/ant-design/pull/31395)
+- 💄 新增 Less 变量 `@checkbox-border-radius`。[#31360](https://github.com/ant-design/ant-design/pull/31360) [@Gherciu](https://github.com/Gherciu)
+- 🐞 Avatar 增加 `crossOrigin` 参数以解决跨域问题。[#31273](https://github.com/ant-design/ant-design/pull/31273) [@Map1en](https://github.com/Map1en)
+- 🆕 调整 Drawer 关闭按钮位置和默认宽度，新增 `extra` 操作区域和 `size` 大小属性。[#30908](https://github.com/ant-design/ant-design/pull/30908)
+- 🆕 Skeleton.Button 添加 `block` 属性。[#30902](https://github.com/ant-design/ant-design/pull/30902) [@Jehu](https://github.com/Jehu)
+- 🆕 Popconfirm 组件的 `onComfirm` 允许返回一个 Promise。[#30871](https://github.com/ant-design/ant-design/pull/30871) [@wendellhu95](https://github.com/wendellhu95)
+- Form
+  - 🆕 Form.ErrorList 支持自定义 `className` 属性。[#30887](https://github.com/ant-design/ant-design/pull/30887)
+  - 🔥 Form `rule` 支持 `warningOnly` 实现非阻塞校验。[#30829](https://github.com/ant-design/ant-design/pull/30829)
+- 🌐 添加马拉雅拉姆语 (ml_IN) 语言环境。[#31521](https://github.com/ant-design/ant-design/pull/31521) [@khjabir](https://github.com/khjabir)
+- 🚫 添加了乌尔都语 (ur_PK) 语言环境。[#31346](https://github.com/ant-design/ant-design/pull/31346) [@MuhammadAnas190](https://github.com/MuhammadAnas190)
+- 🚫 --。[#31359](https://github.com/ant-design/ant-design/pull/31359)
+- 🌐 添加了 bn_BD（孟加拉语）语言环境。[#31257](https://github.com/ant-design/ant-design/pull/31257) [@AminulBD](https://github.com/AminulBD)
+- 🚫 在 `Cascader` 组件中，默认给选中值的文本添加 `title` 属性。[#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
+
 ## 4.16.13
 
 `2021-08-23`
