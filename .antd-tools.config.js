@@ -133,6 +133,5 @@ module.exports = {
     finalize: finalizeDist,
   },
   generateThemeFileContent,
-  // comment in feature branch temporarily
   bail: true,
 };
