@@ -62,7 +62,6 @@
     "presite": "npm run version",
     "color-less": "node ./scripts/generate-color-less",
     "compile": "npm run clean && antd-tools run compile",
-    "compile:less": "antd-tools run compile:less",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
@@ -94,7 +93,7 @@
     "test-node": "jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false --force-exit",
-    "test-image": "npm run compile:less && docker-compose run tests",
+    "test-image": "npm run dist && docker-compose run tests",
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save react@16 react-dom@16 react-test-renderer@16 enzyme-adapter-react-16",
     "argos": "argos upload imageSnapshots"
@@ -112,6 +111,7 @@
     "@ant-design/icons": "^4.6.3",
     "@ant-design/react-slick": "~0.28.1",
     "@babel/runtime": "^7.12.5",
+    "@ctrl/tinycolor": "^3.4.0",
     "array-tree-filter": "^2.1.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
@@ -153,7 +153,7 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/tools": "^13.6.2",
+    "@ant-design/tools": "^14.0.0-alpha.2",
     "@docsearch/css": "^3.0.0-alpha.39",
     "@docsearch/react": "^3.0.0-alpha.39",
     "@qixian.cs/github-contributors-list": "^1.0.3",
@@ -291,7 +291,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "270 kB"
+      "maxSize": "275 kB"
     },
     {
       "path": "./dist/antd.min.css",
@@ -303,6 +303,10 @@
     },
     {
       "path": "./dist/antd.compact.min.css",
+      "maxSize": "65 kB"
+    },
+    {
+      "path": "./dist/antd.variable.min.css",
       "maxSize": "65 kB"
     }
   ],

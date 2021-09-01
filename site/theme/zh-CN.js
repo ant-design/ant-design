@@ -86,6 +86,7 @@ module.exports = {
     'app.footer.community': '社区',
     'app.footer.help': '帮助',
     'app.footer.change-log': '更新日志',
+    'app.footer.theme': '切换主题色',
     'app.footer.faq': '常见问题',
     'app.footer.feedback': '反馈和建议',
     'app.footer.stackoverflow': 'StackOverflow',

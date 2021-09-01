@@ -1,5 +1,5 @@
 ---
-order: 7.1
+order: 7.5
 title: Replace Moment.js
 ---
 

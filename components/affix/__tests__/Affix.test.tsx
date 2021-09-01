@@ -206,11 +206,8 @@ describe('Affix Render', () => {
 
       // Mock trigger resize
       updateCalled.mockReset();
-      const resizeObserverInstance: ReactWrapper<
-        HTMLAttributes,
-        unknown,
-        ResizeObserverImpl
-      > = affixMounterWrapper.find('ResizeObserver') as any;
+      const resizeObserverInstance: ReactWrapper<HTMLAttributes, unknown, ResizeObserverImpl> =
+        affixMounterWrapper.find('ResizeObserver') as any;
       resizeObserverInstance
         .at(index)
         .instance()
@@ -225,7 +222,7 @@ describe('Affix Render', () => {
               contentBoxSize: [],
             },
           ],
-          ({} as unknown) as ResizeObserver,
+          {} as unknown as ResizeObserver,
         );
       await sleep(20);
 

@@ -12,11 +12,13 @@ import {
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
+  Theme,
 } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
+import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
 
 export {
@@ -89,18 +91,6 @@ export const defaultIconPrefixCls = 'anticon';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 
-const setGlobalConfig = ({
-  prefixCls,
-  iconPrefixCls,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'>) => {
-  if (prefixCls !== undefined) {
-    globalPrefixCls = prefixCls;
-  }
-  if (iconPrefixCls !== undefined) {
-    globalIconPrefixCls = iconPrefixCls;
-  }
-};
-
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
 }
@@ -108,6 +98,23 @@ function getGlobalPrefixCls() {
 function getGlobalIconPrefixCls() {
   return globalIconPrefixCls || defaultIconPrefixCls;
 }
+
+const setGlobalConfig = ({
+  prefixCls,
+  iconPrefixCls,
+  theme,
+}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
+  if (prefixCls !== undefined) {
+    globalPrefixCls = prefixCls;
+  }
+  if (iconPrefixCls !== undefined) {
+    globalIconPrefixCls = iconPrefixCls;
+  }
+
+  if (theme) {
+    registerTheme(getGlobalPrefixCls(), theme);
+  }
+};
 
 export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
