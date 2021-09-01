@@ -19,7 +19,7 @@ timeline: true
 
 `2021-09-01`
 
-- 🔥 ConfigProvider 支持动态配置主题色。[#31496](https://github.com/ant-design/ant-design/pull/31496)
+- 🔥 ConfigProvider 支持动态配置主题色，[详细文档](/docs/react/customize-theme-variable)。[#31496](https://github.com/ant-design/ant-design/pull/31496)
 - Table
   - 🔥 Table 新增 `column.filterMode` 以支持配置树形筛选菜单，可选值为 `'menu' | 'tree'`。[#31809](https://github.com/ant-design/ant-design/pull/31809)
   - 🔥 Table 新增 `column.filterSearch` 以支持开启筛选列搜索功能。[#31809](https://github.com/ant-design/ant-design/pull/31809)

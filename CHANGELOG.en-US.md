@@ -19,7 +19,7 @@ timeline: true
 
 `2021-09-01`
 
-- 🔥 ConfigProvider support dynamic modify theme color. [#31496](https://github.com/ant-design/ant-design/pull/31496)
+- 🔥 ConfigProvider support dynamic modify theme color. [view detail](/docs/react/customize-theme-variable). [#31496](https://github.com/ant-design/ant-design/pull/31496)
 - Table
   - 🔥 Table adds `column.filterMode` to support filter in a tree, which could set to `'menu' | 'tree'`. [#31809](https://github.com/ant-design/ant-design/pull/31809)
   - 🔥 Table adds `column.filterSearch` for enable search function in filter dropdown. [#31809](https://github.com/ant-design/ant-design/pull/31809)
