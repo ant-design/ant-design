@@ -26,7 +26,9 @@ timeline: true
   - 💄 Table filter reset button won't close dropdown now. [#31809](https://github.com/ant-design/ant-design/pull/31809)
   - 💄 Tweak Transfer filter search input icon position. [#31809](https://github.com/ant-design/ant-design/pull/31809)
   - 🐞 Revert Table sticky `z-index` style back to `calc` instead of less calculation to fix `auto` style failure. [#31874](https://github.com/ant-design/ant-design/pull/31874) [@bconnorwhite](https://github.com/bconnorwhite)
-- 🔥 Cascader support `multiple` mode. [#31936](https://github.com/ant-design/ant-design/pull/31936)
+- Cascader
+  - 🔥 Cascader support `multiple` mode. [#31936](https://github.com/ant-design/ant-design/pull/31936)
+  - 🆕 Cascader add `title` prop with content by default. [#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
 - 🐞 Fix Steps default responsive style not working. [#31965](https://github.com/ant-design/ant-design/pull/31965) [@tangjinzhou](https://github.com/tangjinzhou)
 - InputNumber
   - 🔥 InputNumber support `addonBefore` and `addonAfter`. [#31432](https://github.com/ant-design/ant-design/pull/31432) [@Austaras](https://github.com/Austaras)
@@ -52,11 +54,10 @@ timeline: true
 - Form
   - 🆕 Form.ErrorList support customize `className`. [#30887](https://github.com/ant-design/ant-design/pull/30887)
   - 🔥 Form `rule` support `warningOnly` to avoid form submit. [#30829](https://github.com/ant-design/ant-design/pull/30829)
-- 🌐 Added Malayalam (ml_IN) locale. [#31521](https://github.com/ant-design/ant-design/pull/31521) [@khjabir](https://github.com/khjabir)
-- 🚫 Added Urdu language (ur_PK) locale. [#31346](https://github.com/ant-design/ant-design/pull/31346) [@MuhammadAnas190](https://github.com/MuhammadAnas190)
-- 🚫 --. [#31359](https://github.com/ant-design/ant-design/pull/31359)
-- 🌐 Added bn_BD (Bangla) locale. [#31257](https://github.com/ant-design/ant-design/pull/31257) [@AminulBD](https://github.com/AminulBD)
-- 🚫 Title attributes are added to the selected content text by default. [#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
+- 🌐 Localization
+  - 🇮🇳 Added Malayalam (ml_IN) locale. [#31521](https://github.com/ant-design/ant-design/pull/31521) [@khjabir](https://github.com/khjabir)
+  - 🇵🇰 Added Urdu language (ur_PK) locale. [#31346](https://github.com/ant-design/ant-design/pull/31346) [@MuhammadAnas190](https://github.com/MuhammadAnas190)
+  - 🇧🇩 Added bn_BD (Bangla) locale. [#31257](https://github.com/ant-design/ant-design/pull/31257) [@AminulBD](https://github.com/AminulBD)
 
 ## 4.16.13
 

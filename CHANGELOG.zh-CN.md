@@ -26,7 +26,9 @@ timeline: true
   - 💄 Table 筛选菜单重置按钮现在不再关闭菜单和生效。[#31809](https://github.com/ant-design/ant-design/pull/31809)
   - 💄 调整 Transfer 筛选搜索框图标位置，使其和表格筛选搜索框统一。[#31809](https://github.com/ant-design/ant-design/pull/31809)
   - 🐞 回滚 Table sticky `z-index` 样式的 less 计算到 `calc`，以防止 `auto` 样式计算错误问题。[#31874](https://github.com/ant-design/ant-design/pull/31874) [@bconnorwhite](https://github.com/bconnorwhite)
-- 🔥 Cascader 支持 `multiple` 模式。[#31936](https://github.com/ant-design/ant-design/pull/31936)
+- Cascader
+  - 🔥 Cascader 支持 `multiple` 模式。[#31936](https://github.com/ant-design/ant-design/pull/31936)
+  - 🆕 在 `Cascader` 组件中，默认给选中值的文本添加 `title` 属性。[#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
 - 🐞 修复 Steps 默认响应式不生效的问题。[#31965](https://github.com/ant-design/ant-design/pull/31965) [@tangjinzhou](https://github.com/tangjinzhou)
 - InputNumber
   - 🔥 InputNumber 增加 `addonBefore` 和 `addonAfter` 属性支持。[#31432](https://github.com/ant-design/ant-design/pull/31432) [@Austaras](https://github.com/Austaras)
@@ -52,11 +54,10 @@ timeline: true
 - Form
   - 🆕 Form.ErrorList 支持自定义 `className` 属性。[#30887](https://github.com/ant-design/ant-design/pull/30887)
   - 🔥 Form `rule` 支持 `warningOnly` 实现非阻塞校验。[#30829](https://github.com/ant-design/ant-design/pull/30829)
-- 🌐 添加马拉雅拉姆语 (ml_IN) 语言环境。[#31521](https://github.com/ant-design/ant-design/pull/31521) [@khjabir](https://github.com/khjabir)
-- 🚫 添加了乌尔都语 (ur_PK) 语言环境。[#31346](https://github.com/ant-design/ant-design/pull/31346) [@MuhammadAnas190](https://github.com/MuhammadAnas190)
-- 🚫 --。[#31359](https://github.com/ant-design/ant-design/pull/31359)
-- 🌐 添加了 bn_BD（孟加拉语）语言环境。[#31257](https://github.com/ant-design/ant-design/pull/31257) [@AminulBD](https://github.com/AminulBD)
-- 🚫 在 `Cascader` 组件中，默认给选中值的文本添加 `title` 属性。[#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
+- 🌐 国际化
+  - 🇮🇳 添加马拉雅拉姆语 (ml_IN) 语言环境。[#31521](https://github.com/ant-design/ant-design/pull/31521) [@khjabir](https://github.com/khjabir)
+  - 🇵🇰 添加了乌尔都语 (ur_PK) 语言环境。[#31346](https://github.com/ant-design/ant-design/pull/31346) [@MuhammadAnas190](https://github.com/MuhammadAnas190)
+  - 🇧🇩 添加了 bn_BD（孟加拉语）语言环境。[#31257](https://github.com/ant-design/ant-design/pull/31257) [@AminulBD](https://github.com/AminulBD)
 
 ## 4.16.13
 
