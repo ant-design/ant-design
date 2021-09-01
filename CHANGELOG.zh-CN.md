@@ -38,6 +38,9 @@ timeline: true
 - 🐞 修复 Input 聚焦时点击清除图标无效的问题。[#31931](https://github.com/ant-design/ant-design/pull/31931) [@adaex](https://github.com/adaex)
 - 🐞 修复 Anchor 组件包含空格时 `targetOffset` 属性不生效的问题。[#31952](https://github.com/ant-design/ant-design/pull/31952) [@adaex](https://github.com/adaex)
 - 🆕 TreeSelect 和 Select 支持 `fieldNames` 自定义字段名称。[#31925](https://github.com/ant-design/ant-design/pull/31925)
+- Select
+  - 🆕 Select 支持 mac 的 `ctrl + n/p` 快捷键组合。[#650](https://github.com/react-component/select/pull/650)
+  - 🆕 Select 在 `multiple` 模式下，tag 添加 `title` 属性。[#637](https://github.com/react-component/select/pull/637)
 - Transfer
   - 🐞 修复 Transfer 列表在 RTL 模式下 `direction` 取值。[#31903](https://github.com/ant-design/ant-design/pull/31903)
   - 🆕 Transfer 新增自定义左右 `footer`。[#31108](https://github.com/ant-design/ant-design/pull/31108)
@@ -45,7 +48,10 @@ timeline: true
 - 🆕 `DatePicker` 和 `RangePicker` 现在支持 `nextIcon`、`prevIcon`、`superNextIcon` 和 `superPrevIcon`。[#31703](https://github.com/ant-design/ant-design/pull/31703) [@Oreoz](https://github.com/Oreoz)
 - 🆕 Notification 支持 `maxCount` 属性以限制最大显示数。[#31807](https://github.com/ant-design/ant-design/pull/31807) [@binyellow](https://github.com/binyellow)
 - 🆕 增加 Menu.Divider 的 `dashed` 属性。[#31379](https://github.com/ant-design/ant-design/pull/31379) [@Map1en](https://github.com/Map1en)
-- 🆕 Tree 添加 `fieldNames` 属性以支持自定义节点字段名称。[#31395](https://github.com/ant-design/ant-design/pull/31395)
+- Tree
+  - 🆕 Tree 添加 `fieldNames` 属性以支持自定义节点字段名称。[#31395](https://github.com/ant-design/ant-design/pull/31395)
+  - 🆕 Tree 虚拟滚动也支持 `onScroll` 事件。[#474](https://github.com/react-component/tree/pull/474)
+  - 🐞 修复 Tree 拖拽到外部时没有清空指示器的问题。[#478](https://github.com/react-component/tree/pull/478)
 - 💄 新增 Less 变量 `@checkbox-border-radius`。[#31360](https://github.com/ant-design/ant-design/pull/31360) [@Gherciu](https://github.com/Gherciu)
 - 🐞 Avatar 增加 `crossOrigin` 参数以解决跨域问题。[#31273](https://github.com/ant-design/ant-design/pull/31273) [@Map1en](https://github.com/Map1en)
 - 🆕 调整 Drawer 关闭按钮位置和默认宽度，新增 `extra` 操作区域和 `size` 大小属性。[#30908](https://github.com/ant-design/ant-design/pull/30908)

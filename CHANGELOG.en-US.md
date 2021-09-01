@@ -38,6 +38,9 @@ timeline: true
 - 🐞 Fix Input cannot clear content when focus it. [#31931](https://github.com/ant-design/ant-design/pull/31931) [@adaex](https://github.com/adaex)
 - 🐞 Fix anchor `targetOffset` not work when contain spaces. [#31952](https://github.com/ant-design/ant-design/pull/31952) [@adaex](https://github.com/adaex)
 - 🆕 TreeSelect and Select support `fieldNames`. [#31925](https://github.com/ant-design/ant-design/pull/31925)
+- Select
+  - 🆕 Select support `ctrl + n/p` on mac. [#650](https://github.com/react-component/select/pull/650)
+  - 🆕 Select add `title` for tag in `multiple` mode. [#637](https://github.com/react-component/select/pull/637)
 - Transfer
   - 🐞 Fix Transfer list `direction` value in RTL mode. [#31903](https://github.com/ant-design/ant-design/pull/31903)
   - 🆕 Transfer support custom left and right `footer`. [#31108](https://github.com/ant-design/ant-design/pull/31108)
@@ -45,7 +48,10 @@ timeline: true
 - 🆕 `DatePicker` and `RangePicker` now support `nextIcon`, `prevIcon`, `superNextIcon` and `superPrevIcon`. [#31703](https://github.com/ant-design/ant-design/pull/31703) [@Oreoz](https://github.com/Oreoz)
 - 🆕 Notification support `maxCount` to limit count. [#31807](https://github.com/ant-design/ant-design/pull/31807) [@binyellow](https://github.com/binyellow)
 - 🆕 Menu.Divider support `dashed` style. [#31379](https://github.com/ant-design/ant-design/pull/31379) [@Map1en](https://github.com/Map1en)
-- 🆕 Tree support `fieldNames` to customize node field name. [#31395](https://github.com/ant-design/ant-design/pull/31395)
+- Tree
+  - 🆕 Tree support `fieldNames` to customize node field name. [#31395](https://github.com/ant-design/ant-design/pull/31395)
+  - 🆕 Tree support `onScroll` in virtual scroll. [#474](https://github.com/react-component/tree/pull/474)
+  - 🐞 Fix Tree drop outside not clear indicator. [#478](https://github.com/react-component/tree/pull/478)
 - 💄 Add `@checkbox-border-radius` less variable. [#31360](https://github.com/ant-design/ant-design/pull/31360) [@Gherciu](https://github.com/Gherciu)
 - 🐞 Avatar add `crossOrigin` property to resolve cross origin issue. [#31273](https://github.com/ant-design/ant-design/pull/31273) [@Map1en](https://github.com/Map1en)
 - 🆕 Tweak Drawer close icon position and default width, add `extra` and `size` props. [#30908](https://github.com/ant-design/ant-design/pull/30908)
