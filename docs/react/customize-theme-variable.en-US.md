@@ -20,6 +20,8 @@ Replace your import style file with CSS Variable version:
 ++ import 'antd/dist/antd.variable.min.css';
 ```
 
+Note: You need remove `babel-plugin-import` for the dynamic theme.
+
 ### Static config
 
 Call ConfigProvider static function to modify theme color:
@@ -56,8 +58,8 @@ Also need call the static function to modify `prefixCls`:
 
 ```ts
 ConfigProvider.config({
+  prefixCls: 'custom',
   theme: {
-    prefixCls: 'custom',
     primaryColor: '#25b864',
   },
 });
@@ -68,5 +70,5 @@ ConfigProvider.config({
 Since prefix modified. Origin `antd.variable.css` should also be replaced:
 
 ```bash
-lessc  --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
+lessc --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
 ```
