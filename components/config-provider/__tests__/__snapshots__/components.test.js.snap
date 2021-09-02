@@ -12299,7 +12299,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
   class=""
 >
   <div
-    autofocus=""
     class="config-drawer config-drawer-right"
     tabindex="-1"
   >
@@ -12364,7 +12363,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
   class=""
 >
   <div
-    autofocus=""
     class="config-drawer config-drawer-right"
     tabindex="-1"
   >
@@ -12429,7 +12427,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
   class=""
 >
   <div
-    autofocus=""
     class="config-drawer config-drawer-right"
     tabindex="-1"
   >
@@ -12494,7 +12491,6 @@ exports[`ConfigProvider components Drawer configProvider virtual and dropdownMat
   class=""
 >
   <div
-    autofocus=""
     class="ant-drawer ant-drawer-right"
     tabindex="-1"
   >
@@ -12559,7 +12555,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
   class=""
 >
   <div
-    autofocus=""
     class="ant-drawer ant-drawer-right"
     tabindex="-1"
   >
@@ -12624,7 +12619,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
   class=""
 >
   <div
-    autofocus=""
     class="prefix-Drawer prefix-Drawer-right"
     tabindex="-1"
   >

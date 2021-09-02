@@ -29,6 +29,7 @@ export interface PushState {
   distance: string | number;
 }
 export interface DrawerProps {
+  autoFocus?: boolean;
   closable?: boolean;
   closeIcon?: React.ReactNode;
   destroyOnClose?: boolean;

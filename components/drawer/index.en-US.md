@@ -20,6 +20,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 | Props | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterVisibleChange | Callback after the animation ends when switching drawers | function(visible) | - |  |
 | bodyStyle | Style of the drawer content part | object | - |  |
 | className | The class name of the container of the Drawer dialog | string | - |  |
