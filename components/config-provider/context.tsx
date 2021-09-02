@@ -11,6 +11,10 @@ export interface Theme {
   processingColor?: string;
   errorColor?: string;
   warningColor?: string;
+
+  components?: {
+    button?: Record<string, string>;
+  };
 }
 
 export interface CSPConfig {

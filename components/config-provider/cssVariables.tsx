@@ -19,6 +19,9 @@ export function registerTheme(globalPrefixCls: string, theme: Theme) {
     return clone.toRgbString();
   };
 
+  // =================================================================
+  // ==                         Theme Color                         ==
+  // =================================================================
   const fillColor = (colorVal: string, type: string) => {
     const baseColor = new TinyColor(colorVal);
     const colorPalettes = generate(baseColor.toRgbString());
@@ -61,26 +64,21 @@ export function registerTheme(globalPrefixCls: string, theme: Theme) {
     );
   }
 
-  // ================ Success Color ================
-  if (theme.successColor) {
-    fillColor(theme.successColor, 'success');
-  }
+  // ================= Other Color =================
+  ['success', 'warning', 'error', 'info'].forEach(type => {
+    const typeName = `${type}Color` as keyof Theme;
+    if (theme[typeName]) {
+      fillColor(theme[typeName] as any, type);
+    }
+  });
 
-  // ================ Warning Color ================
-  if (theme.warningColor) {
-    fillColor(theme.warningColor, 'warning');
-  }
+  // =================================================================
+  // ==                          Algorithm                          ==
+  // =================================================================
 
-  // ================= Error Color =================
-  if (theme.errorColor) {
-    fillColor(theme.errorColor, 'error');
-  }
-
-  // ================= Info Color ==================
-  if (theme.infoColor) {
-    fillColor(theme.infoColor, 'info');
-  }
-
+  // =================================================================
+  // ==                          Generate                           ==
+  // =================================================================
   // Convert to css variables
   const cssList = Object.keys(variables).map(
     key => `--${globalPrefixCls}-${key}: ${variables[key]};`,

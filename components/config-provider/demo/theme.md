@@ -3,6 +3,7 @@ order: 5
 title:
   zh-CN: 全局样式
   en-US: Global Theme
+only: true
 ---
 
 ## zh-CN
@@ -137,21 +138,44 @@ const FormSizeDemo = () => {
     infoColor: '#1890ff',
   });
 
+  function syncTheme(themeColor) {
+    setColor(themeColor);
+    ConfigProvider.config({
+      theme: themeColor,
+    });
+  }
+
   function onColorChange(nextColor) {
     const mergedNextColor = {
       ...color,
       ...nextColor,
     };
-    setColor(mergedNextColor);
-    ConfigProvider.config({
-      theme: mergedNextColor,
+    syncTheme(mergedNextColor);
+  }
+
+  function onDefaultTheme() {
+    syncTheme({});
+  }
+
+  function onDarkTheme() {
+    syncTheme({
+      dark: true,
+      components: {
+        button: {},
+      },
     });
   }
 
   return (
-    <Row gutter={16} wrap={false}>
+    <Row gutter={16} wrap={false} style={{ background: '#141414' }}>
       <Col flex="none">
         <Space direction="vertical" align="center">
+          {/* Theme changer */}
+          <Space>
+            <Button onClick={onDefaultTheme}>Default Theme</Button>
+            <Button onClick={onDarkTheme}>Dark Theme</Button>
+          </Space>
+
           {/* Primary Color */}
           <SketchPicker
             presetColors={['#1890ff', '#25b864', '#ff6f00']}
@@ -162,9 +186,7 @@ const FormSizeDemo = () => {
               });
             }}
           />
-
           <span style={{ color: 'var(--ant-primary-color)' }}>var(`--ant-primary-color`)</span>
-
           {/* Error Color */}
           <SketchPicker
             presetColors={['#ff4d4f']}
@@ -175,9 +197,7 @@ const FormSizeDemo = () => {
               });
             }}
           />
-
           <span style={{ color: 'var(--ant-error-color)' }}>var(`--ant-error-color`)</span>
-
           {/* Warning Color */}
           <SketchPicker
             presetColors={['#faad14']}
@@ -188,9 +208,7 @@ const FormSizeDemo = () => {
               });
             }}
           />
-
           <span style={{ color: 'var(--ant-warning-color)' }}>var(`--ant-warning-color`)</span>
-
           {/* Success Color */}
           <SketchPicker
             presetColors={['#52c41a']}
@@ -201,9 +219,7 @@ const FormSizeDemo = () => {
               });
             }}
           />
-
           <span style={{ color: 'var(--ant-success-color)' }}>var(`--ant-success-color`)</span>
-
           {/* Info Color */}
           <SketchPicker
             presetColors={['#1890ff']}
@@ -214,7 +230,6 @@ const FormSizeDemo = () => {
               });
             }}
           />
-
           <span style={{ color: 'var(--ant-info-color)' }}>var(`--ant-info-color`)</span>
         </Space>
       </Col>
