@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Upload, Tooltip, Popover, Modal, Progress, message, Spin, Result } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { injectIntl } from 'react-intl';
-import * as AntdIcons from '@ant-design/icons';
+import * as AntdIcons from 'infra-design-icons';
 
 const allIcons: {
   [key: string]: any;
@@ -145,15 +145,8 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     const {
       intl: { messages },
     } = this.props;
-    const {
-      modalVisible,
-      popoverVisible,
-      icons,
-      fileList,
-      loading,
-      modelLoaded,
-      error,
-    } = this.state;
+    const { modalVisible, popoverVisible, icons, fileList, loading, modelLoaded, error } =
+      this.state;
     return (
       <div className="icon-pic-searcher">
         <Popover
