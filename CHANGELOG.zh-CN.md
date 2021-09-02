@@ -54,7 +54,9 @@ timeline: true
   - 🆕 Tree 虚拟滚动也支持 `onScroll` 事件。[#474](https://github.com/react-component/tree/pull/474)
   - 🐞 修复 Tree 拖拽到外部时没有清空指示器的问题。[#478](https://github.com/react-component/tree/pull/478)
 - 💄 新增 Less 变量 `@checkbox-border-radius`。[#31360](https://github.com/ant-design/ant-design/pull/31360) [@Gherciu](https://github.com/Gherciu)
-- 🐞 Avatar 增加 `crossOrigin` 参数以解决跨域问题。[#31273](https://github.com/ant-design/ant-design/pull/31273) [@Map1en](https://github.com/Map1en)
+- 🐞 Avatar
+  - 增加 `crossOrigin` 参数以解决跨域问题。[#31273](https://github.com/ant-design/ant-design/pull/31273) [@Map1en](https://github.com/Map1en)
+  - 添加 `maxPopoverTrigger` 允许“悬停”、“焦点”和“点击”弹出窗口的属性。[31924](https://github.com/ant-design/ant-design/issues/31924)
 - Drawer
   - 🆕 调整 Drawer 关闭按钮位置和默认宽度，新增 `extra` 操作区域和 `size` 大小属性。[#30908](https://github.com/ant-design/ant-design/pull/30908)
   - 🆕 Drawer 支持 `autoFocus` 属性。[#181](https://github.com/react-component/drawer/pull/181)
