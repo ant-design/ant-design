@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon, * as AntdIcons from '@ant-design/icons';
+import Icon, * as AntdIcons from 'infra-design-icons';
 import { Radio, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
@@ -8,16 +8,23 @@ import Category from './Category';
 import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
+import { categoriesShopee } from './filedsShopee';
+
+function isShopeeIcon(key: string) {
+  return key.startsWith('I') && /[A-Z]/.test(key[1]);
+}
 
 export enum ThemeType {
   Filled = 'Filled',
   Outlined = 'Outlined',
   TwoTone = 'TwoTone',
+  Shopee = 'Shopee',
 }
 
 const allIcons: {
   [key: string]: any;
 } = AntdIcons;
+console.log(222, allIcons);
 
 interface IconDisplayProps {
   intl: any;
@@ -34,7 +41,7 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
   static newIconNames: string[] = [];
 
   state: IconDisplayState = {
-    theme: ThemeType.Outlined,
+    theme: ThemeType.Shopee,
     searchKey: '',
   };
 
@@ -58,10 +65,10 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
 
   renderCategories() {
     const { searchKey = '', theme } = this.state;
-
-    return Object.keys(categories)
+    const categoryList = theme === ThemeType.Shopee ? categoriesShopee : categories;
+    return Object.keys(categoryList)
       .map((key: CategoriesKeys) => {
-        let iconList = categories[key];
+        let iconList = categoryList[key];
         if (searchKey) {
           iconList = iconList.filter(iconName =>
             iconName.toLowerCase().includes(searchKey.toLowerCase()),
@@ -70,7 +77,12 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
 
         // CopyrightCircle is same as Copyright, don't show it
         iconList = iconList.filter(icon => icon !== 'CopyrightCircle');
-
+        if (theme === ThemeType.Shopee) {
+          return {
+            category: key,
+            icons: iconList.filter(iconName => allIcons[iconName]),
+          };
+        }
         return {
           category: key,
           icons: iconList.map(iconName => iconName + theme).filter(iconName => allIcons[iconName]),
@@ -101,6 +113,9 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
             size="large"
             buttonStyle="solid"
           >
+            <Radio.Button value={ThemeType.Shopee}>
+              <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.shopee']}
+            </Radio.Button>
             <Radio.Button value={ThemeType.Outlined}>
               <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
             </Radio.Button>

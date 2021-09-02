@@ -1,4 +1,4 @@
-import * as AntdIcons from '@ant-design/icons/lib/icons';
+import * as AntdIcons from 'infra-design-icons/lib/icons';
 
 const all = Object.keys(AntdIcons)
   .map(n => n.replace(/(Outlined|Filled|TwoTone)$/, ''))
@@ -213,6 +213,9 @@ export const categories = {
   data,
   logo,
   other,
+  status: [],
+  explain: [],
+  operation: [],
 };
 
 export default categories;
