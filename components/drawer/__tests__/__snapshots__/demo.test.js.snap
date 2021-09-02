@@ -313,7 +313,6 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
     class=""
   >
     <div
-      autofocus=""
       class="ant-drawer ant-drawer-right"
       style="position:absolute"
       tabindex="-1"
