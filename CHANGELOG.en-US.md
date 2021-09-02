@@ -94,7 +94,9 @@ timeline: true
   - 🆕 Tree support `onScroll` in virtual scroll. [#474](https://github.com/react-component/tree/pull/474)
   - 🐞 Fix Tree drop outside not clear indicator. [#478](https://github.com/react-component/tree/pull/478)
 - 💄 Add `@checkbox-border-radius` less variable. [#31360](https://github.com/ant-design/ant-design/pull/31360) [@Gherciu](https://github.com/Gherciu)
-- 🐞 Avatar add `crossOrigin` property to resolve cross origin issue. [#31273](https://github.com/ant-design/ant-design/pull/31273) [@Map1en](https://github.com/Map1en)
+- 🐞 Avatar
+  - add `crossOrigin` property to resolve cross origin issue. [#31273](https://github.com/ant-design/ant-design/pull/31273) [@Map1en](https://github.com/Map1en)
+  - add `maxPopoverTrigger` property to allow popover for 'hover', 'focus' and 'click'. [31924](https://github.com/ant-design/ant-design/issues/31924)
 - Drawer
   - 🆕 Tweak Drawer close icon position and default width, add `extra` and `size` props. [#30908](https://github.com/ant-design/ant-design/pull/30908)
   - 🆕 Drawer support `autoFocus` prop. [#181](https://github.com/react-component/drawer/pull/181)
