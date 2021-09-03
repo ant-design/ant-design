@@ -52,7 +52,9 @@ const operation = [
   'IZoomOut',
 ];
 const explain = [
+  'IActivity',
   'IAdd',
+  'IAdmin',
   'IAlarm',
   'IAnalysis',
   'IArrangePickUp',
@@ -62,6 +64,7 @@ const explain = [
   'IBuyerPayment',
   'ICalendar',
   'ICancelOrder',
+  'ICommand',
   'IComment',
   'IDashboard',
   'IData',
@@ -90,6 +93,7 @@ const explain = [
   'IPrint',
   'IProduct',
   'IRelease',
+  'IServer',
   'IRespond',
   'IShipping',
   'IShop',
