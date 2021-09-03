@@ -11,7 +11,7 @@
 ## 修改已有组件后如何更新 test Case
 
 ```sh
-npm test -- -u
+npm run test:update
 ```
 
 ## 开发&发布
