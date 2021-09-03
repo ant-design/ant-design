@@ -94,9 +94,7 @@ export function convertLegacyProps(type?: LegacyButtonType): ButtonProps {
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
-  /**
-   * @default "default"
-   */
+  /** @default default */
   shape?: ButtonShape;
   size?: SizeType;
   loading?: boolean | { delay?: number };
@@ -244,7 +242,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     prefixCls,
     {
       [`${prefixCls}-${type}`]: type,
-      [`${prefixCls}-${shape}`]: shape && shape !== 'default',
+      ...(shape && shape !== 'default' && { [`${prefixCls}-${shape}`]: true }),
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),
