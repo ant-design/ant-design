@@ -8,11 +8,7 @@ import Category from './Category';
 import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
-import { categoriesShopee } from './filedsShopee';
-
-function isShopeeIcon(key: string) {
-  return key.startsWith('I') && /[A-Z]/.test(key[1]);
-}
+import { categoriesShopee } from './fieldShopee';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -24,7 +20,6 @@ export enum ThemeType {
 const allIcons: {
   [key: string]: any;
 } = AntdIcons;
-console.log(222, allIcons);
 
 interface IconDisplayProps {
   intl: any;

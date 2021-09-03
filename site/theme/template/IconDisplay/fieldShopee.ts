@@ -1,12 +1,3 @@
-import * as AllIcons from 'infra-design-icons/lib/icons';
-function isShopeeIcon(key: string) {
-  return key.startsWith('I') && /[A-Z]/.test(key[1]);
-}
-const allIcons: Record<string, any> = AllIcons;
-const allInfraIcons = Object.keys(AllIcons)
-  .filter(isShopeeIcon)
-  .map(iconName => allIcons[iconName]);
-
 const operation = [
   'IAnchor',
   'IArrowDown',
@@ -144,13 +135,18 @@ const other = [
   'IFacebook',
   'IInstagram',
 ];
+const suggestion: string[] = [];
+const data: string[] = [];
+const logo: string[] = [];
 
 export const categoriesShopee = {
   operation,
   explain,
   status,
   other,
-  suggestion: [],
-  data: [],
-  logo: [],
+  suggestion,
+  data,
+  logo,
+  direction: [] as string[],
+  editor: [] as string[],
 };

@@ -213,9 +213,9 @@ export const categories = {
   data,
   logo,
   other,
-  status: [],
-  explain: [],
-  operation: [],
+  status: [] as string[],
+  explain: [] as string[],
+  operation: [] as string[],
 };
 
 export default categories;
