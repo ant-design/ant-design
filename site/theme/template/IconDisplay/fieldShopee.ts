@@ -150,3 +150,5 @@ export const categoriesShopee = {
   direction: [] as string[],
   editor: [] as string[],
 };
+
+export default categoriesShopee;
