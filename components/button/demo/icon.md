@@ -19,32 +19,32 @@ If you want specific control over the positioning and placement of the `Icon`, t
 
 ```jsx
 import { Button, Tooltip } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { ISearch } from 'infra-design-icons';
 
 ReactDOM.render(
   <>
     <Tooltip title="search">
-      <Button type="primary" shape="circle" icon={<SearchOutlined />} />
+      <Button type="primary" shape="circle" icon={<ISearch />} />
     </Tooltip>
     <Button type="primary" shape="circle">
       A
     </Button>
-    <Button type="primary" icon={<SearchOutlined />}>
+    <Button type="primary" icon={<ISearch />}>
       Search
     </Button>
     <Tooltip title="search">
-      <Button shape="circle" icon={<SearchOutlined />} />
+      <Button shape="circle" icon={<ISearch />} />
     </Tooltip>
-    <Button icon={<SearchOutlined />}>Search</Button>
+    <Button icon={<ISearch />}>Search</Button>
     <br />
     <Tooltip title="search">
-      <Button shape="circle" icon={<SearchOutlined />} />
+      <Button shape="circle" icon={<ISearch />} />
     </Tooltip>
-    <Button icon={<SearchOutlined />}>Search</Button>
+    <Button icon={<ISearch />}>Search</Button>
     <Tooltip title="search">
-      <Button type="dashed" shape="circle" icon={<SearchOutlined />} />
+      <Button type="dashed" shape="circle" icon={<ISearch />} />
     </Tooltip>
-    <Button type="dashed" icon={<SearchOutlined />}>
+    <Button type="dashed" icon={<ISearch />}>
       Search
     </Button>
   </>,

@@ -19,7 +19,7 @@ If a large or small button is desired, set the `size` property to either `large`
 
 ```jsx
 import { Button, Radio } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
+import { IDownload } from 'infra-design-icons';
 
 class ButtonSize extends React.Component {
   state = {
@@ -53,13 +53,13 @@ class ButtonSize extends React.Component {
           Link
         </Button>
         <br />
-        <Button type="primary" icon={<DownloadOutlined />} size={size} />
-        <Button type="primary" shape="circle" icon={<DownloadOutlined />} size={size} />
-        <Button type="primary" shape="round" icon={<DownloadOutlined />} size={size} />
-        <Button type="primary" shape="round" icon={<DownloadOutlined />} size={size}>
+        <Button type="primary" icon={<IDownload />} size={size} />
+        <Button type="primary" shape="circle" icon={<IDownload />} size={size} />
+        <Button type="primary" shape="round" icon={<IDownload />} size={size} />
+        <Button type="primary" shape="round" icon={<IDownload />} size={size}>
           Download
         </Button>
-        <Button type="primary" icon={<DownloadOutlined />} size={size}>
+        <Button type="primary" icon={<IDownload />} size={size}>
           Download
         </Button>
       </>

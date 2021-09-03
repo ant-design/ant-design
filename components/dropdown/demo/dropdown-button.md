@@ -66,7 +66,8 @@ ReactDOM.render(
     </Dropdown.Button>
     <Dropdown overlay={menu}>
       <Button>
-        Button <IArrowDown />
+        Button
+        <IArrowDown />
       </Button>
     </Dropdown>
   </Space>,

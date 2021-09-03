@@ -39,7 +39,8 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Cascading menu <IArrowDown />
+      Cascading menu
+      <IArrowDown />
     </a>
   </Dropdown>,
   mountNode,
