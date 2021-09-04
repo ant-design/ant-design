@@ -3108,7 +3108,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
     >
       <label
         class=""
-        for="_test"
+        for="test"
         title="test"
       >
         test
@@ -3125,7 +3125,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
         >
           <input
             class="ant-input"
-            id="_test"
+            id="test"
             type="text"
             value=""
           />
@@ -3147,7 +3147,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
         >
           <input
             class="ant-input"
-            id="_list_0"
+            id="list_0"
             type="text"
             value="light"
           />
@@ -4115,7 +4115,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
     >
       <label
         class=""
-        for="_size"
+        for="size"
         title="Form Size"
       >
         Form Size
@@ -4132,7 +4132,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
-            id="_size"
+            id="size"
           >
             <label
               class="ant-radio-button-wrapper"
