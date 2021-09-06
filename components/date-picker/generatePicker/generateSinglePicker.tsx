@@ -20,6 +20,7 @@ import {
   getTimeProps,
   Components,
 } from '.';
+import { PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType>;
@@ -147,7 +148,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       Picker.displayName = displayName;
     }
 
-    return Picker as React.ComponentClass<InnerPickerProps>;
+    return Picker as PickerComponentClass<InnerPickerProps>;
   }
 
   const DatePicker = getPicker<DatePickerProps>();

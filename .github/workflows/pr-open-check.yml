@@ -2,7 +2,7 @@ name: PR Open Check
 
 on:
   pull_request_target:
-    types: [opened, edited, reopened]
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
   refuse:

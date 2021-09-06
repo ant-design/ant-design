@@ -79,7 +79,7 @@ class SortableTable extends React.Component {
   onSortEnd = ({ oldIndex, newIndex }) => {
     const { dataSource } = this.state;
     if (oldIndex !== newIndex) {
-      const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
+      const newData = arrayMoveImmutable([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
       console.log('Sorted items: ', newData);
       this.setState({ dataSource: newData });
     }
