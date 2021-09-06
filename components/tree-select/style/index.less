@@ -11,7 +11,7 @@
 .@{tree-select-prefix-cls} {
   // ======================= Dropdown =======================
   &-dropdown {
-    padding: @padding-xs (@padding-xs / 2) 0;
+    padding: @padding-xs (@padding-xs / 2);
 
     &-rtl {
       direction: rtl;
@@ -24,8 +24,6 @@
         align-items: stretch;
 
         .@{select-tree-prefix-cls}-treenode {
-          padding-bottom: @padding-xs;
-
           .@{select-tree-prefix-cls}-node-content-wrapper {
             flex: auto;
           }

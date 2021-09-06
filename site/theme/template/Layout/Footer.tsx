@@ -16,6 +16,7 @@ import {
   BugOutlined,
   IssuesCloseOutlined,
   QuestionCircleOutlined,
+  BgColorsOutlined,
 } from '@ant-design/icons';
 import ColorPicker from '../Color/ColorPicker';
 import { loadScript, getLocalizedPathname } from '../utils';
@@ -306,7 +307,13 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
           openExternal: true,
         },
         {
-          title: this.renderThemeChanger(),
+          icon: <BgColorsOutlined />,
+          title: <FormattedMessage id="app.footer.theme" />,
+          url: getLinkHash('/components/config-provider/', {
+            zhCN: 'components-config-provider-demo-theme',
+            enUS: 'components-config-provider-demo-theme',
+          }),
+          LinkComponent: Link,
           style: {
             marginTop: 20,
           },

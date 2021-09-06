@@ -26,6 +26,7 @@ Tree selection control.
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | To set the style of the dropdown menu | CSSProperties | - |  |
+| fieldNames | Customize node title, key, children field name | object | { label: `label`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default | boolean \| function(inputValue: string, treeNode: TreeNode) (should return boolean) | function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to {value: string, label: ReactNode, halfChecked: string\[]} | boolean | false |  |
@@ -50,6 +51,7 @@ Tree selection control.
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |  |
 | treeExpandedKeys | Set expanded keys | string\[] | - |  |
 | treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
+| treeLine | Show the line. Ref [Tree - showLine](/components/tree/#components-tree-demo-line) | boolean \| object | false | 4.17.0 |
 | treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | `value` |  |
 | treeNodeLabelProp | Will render as content of select | string | `title` |  |
 | value | To set the current selected treeNode(s) | string \| string\[] | - |  |
@@ -62,10 +64,10 @@ Tree selection control.
 
 ### Tree Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### TreeNode props
 

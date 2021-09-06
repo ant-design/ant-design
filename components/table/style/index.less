@@ -4,12 +4,14 @@
 @import './bordered';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
+@tree-prefix-cls: ~'@{ant-prefix}-tree';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-sticky-zindex: calc(@zindex-table-fixed + 1);
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
+@table-filter-dropdown-max-height: 264px;
 
 .@{table-prefix-cls}-wrapper {
   clear: both;
@@ -330,21 +332,64 @@
   &-filter-dropdown {
     .reset-component();
 
+    min-width: 120px;
+    background-color: @table-filter-dropdown-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
       // https://github.com/ant-design/ant-design/issues/4916
       // https://github.com/ant-design/ant-design/issues/19542
-      max-height: 264px;
+      max-height: @table-filter-dropdown-max-height;
       overflow-x: hidden;
       border: 0;
       box-shadow: none;
+
+      &:empty::after {
+        display: block;
+        padding: 8px 0;
+        color: @disabled-color;
+        font-size: @font-size-sm;
+        text-align: center;
+        content: 'Not Found';
+      }
     }
 
-    min-width: 120px;
-    background-color: @table-filter-dropdown-bg;
+    &-tree {
+      padding: 8px 8px 0 8px;
 
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
+      .@{tree-prefix-cls}-treenode .@{tree-prefix-cls}-node-content-wrapper:hover {
+        background-color: @tree-node-hover-bg;
+      }
+
+      .@{tree-prefix-cls}-treenode-checkbox-checked .@{tree-prefix-cls}-node-content-wrapper {
+        &,
+        &:hover {
+          background-color: @tree-node-selected-bg;
+        }
+      }
+    }
+
+    &-search {
+      padding: 8px;
+      border-bottom: @border-width-base @border-color-split @border-style-base;
+
+      &-input {
+        input {
+          min-width: 140px;
+        }
+        .@{iconfont-css-prefix} {
+          color: @disabled-color;
+        }
+      }
+    }
+
+    &-checkall {
+      width: 100%;
+      margin-bottom: 4px;
+      margin-left: 4px;
+    }
 
     &-submenu > ul {
       max-height: calc(100vh - 130px);
@@ -364,7 +409,7 @@
     &-btns {
       display: flex;
       justify-content: space-between;
-      padding: 7px 8px 7px 3px;
+      padding: 7px 8px;
       overflow: hidden;
       background-color: @table-filter-btns-bg;
       border-top: @border-width-base @border-style-base @table-border-color;

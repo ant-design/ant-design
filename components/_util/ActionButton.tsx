@@ -5,10 +5,16 @@ import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/but
 export interface ActionButtonProps {
   type?: LegacyButtonType;
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
-  closeModal: Function;
+  close: Function;
   autoFocus?: boolean;
   prefixCls: string;
   buttonProps?: ButtonProps;
+  emitEvent?: boolean;
+  quitOnNullishReturnValue?: boolean;
+}
+
+function isThenable(thing?: PromiseLike<any>): boolean {
+  return !!(thing && !!thing.then);
 }
 
 const ActionButton: React.FC<ActionButtonProps> = props => {
@@ -30,16 +36,16 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
   }, []);
 
   const handlePromiseOnOk = (returnValueOfOnOk?: PromiseLike<any>) => {
-    const { closeModal } = props;
-    if (!returnValueOfOnOk || !returnValueOfOnOk.then) {
+    const { close } = props;
+    if (!isThenable(returnValueOfOnOk)) {
       return;
     }
     setLoading(true);
-    returnValueOfOnOk.then(
+    returnValueOfOnOk!.then(
       (...args: any[]) => {
-        // It's unnecessary to set loading=false, for the Modal will be unmounted after close.
-        // setState({ loading: false });
-        closeModal(...args);
+        setLoading(false);
+        close(...args);
+        clickedRef.current = false;
       },
       (e: Error) => {
         // Emit error when catch promise reject
@@ -52,25 +58,32 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     );
   };
 
-  const onClick = () => {
-    const { actionFn, closeModal } = props;
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { actionFn, close } = props;
     if (clickedRef.current) {
       return;
     }
     clickedRef.current = true;
     if (!actionFn) {
-      closeModal();
+      close();
       return;
     }
     let returnValueOfOnOk;
-    if (actionFn.length) {
-      returnValueOfOnOk = actionFn(closeModal);
+    if (props.emitEvent) {
+      returnValueOfOnOk = actionFn(e);
+      if (props.quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
+        clickedRef.current = false;
+        close(e);
+        return;
+      }
+    } else if (actionFn.length) {
+      returnValueOfOnOk = actionFn(close);
       // https://github.com/ant-design/ant-design/issues/23358
       clickedRef.current = false;
     } else {
       returnValueOfOnOk = actionFn();
       if (!returnValueOfOnOk) {
-        closeModal();
+        close();
         return;
       }
     }
