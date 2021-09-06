@@ -137,6 +137,7 @@
 
   &-item-selected {
     color: @menu-highlight-color;
+    font-weight: 500;
     a,
     a:hover {
       color: @menu-highlight-color;
@@ -305,8 +306,8 @@
       &::after {
         position: absolute;
         width: 6px;
-        height: 1.5px;
-        background-color: currentColor;
+        height: 1.2px;
+        background-color: @infra-gray-7;
         border-radius: 2px;
         transition: background @animation-duration-slow @ease-in-out,
           transform @animation-duration-slow @ease-in-out, top @animation-duration-slow @ease-in-out,
