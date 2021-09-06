@@ -19,9 +19,9 @@ timeline: true
 
 `2021-09-06`
 
-- 🐞 Fix Table.SELECT_XXX ignore record disabled status by getCheckboxProps. [#32027](https://github.com/ant-design/ant-design/pull/32027)
-- 🐞 Fix DatePicker ref typing. [#31993](https://github.com/ant-design/ant-design/pull/31993) [@acfasj](https://github.com/acfasj)
+- 🐞 Fix Table.SELECT_XXX ignore record `disabled` status by `getCheckboxProps`. [#32027](https://github.com/ant-design/ant-design/pull/32027)
 - TypeScript
+  - 🐞 Fix DatePicker `ref` typing. [#31993](https://github.com/ant-design/ant-design/pull/31993) [@acfasj](https://github.com/acfasj)
   - 🤖 Update the `levelMove` type definition in Drawer. [#30714](https://github.com/ant-design/ant-design/pull/30714) [@g0shed](https://github.com/g0shed)
 - 🌐 Localization
   - 🇩🇪 Added Image translation in de_DE. [#32001](https://github.com/ant-design/ant-design/pull/32001) [@Chtau](https://github.com/Chtau)
