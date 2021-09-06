@@ -160,7 +160,7 @@ module.exports = {
           cloneFile.contents = Buffer.from(
             [
               // Inject variable
-              '@root-entry-name: default',
+              '@root-entry-name: default;',
               // Point to origin file
               "@import './index';",
             ].join('\n\n'),
