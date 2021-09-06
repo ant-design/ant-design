@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.1
+
+`2021-09-06`
+
+- 🐞 修复 Table.SELECT_XXX 会无视 `getCheckboxProps` 提供的 `disabled` 状态问题。[#32027](https://github.com/ant-design/ant-design/pull/32027)
+- TypeScript
+  - 🐞 修复 DatePicker `ref` 类型。[#31993](https://github.com/ant-design/ant-design/pull/31993) [@acfasj](https://github.com/acfasj)
+  - 🤖 更新 Drawer 中 `levelMove` 类型定义。[#30714](https://github.com/ant-design/ant-design/pull/30714) [@g0shed](https://github.com/g0shed)
+- 🌐 国际化
+  - 🇩🇪 补充 de_DE 中 Image 字段。[#32001](https://github.com/ant-design/ant-design/pull/32001) [@Chtau](https://github.com/Chtau)
+
 ## 4.17.0-alpha.0
 
 `2021-09-01`
