@@ -149,7 +149,7 @@ function isComponentStyle(file) {
 }
 
 function needTransformStyle(content) {
-  return content.includes('./index.less');
+  return content.includes('../../style/index.less') || content.includes('./index.less');
 }
 
 module.exports = {
