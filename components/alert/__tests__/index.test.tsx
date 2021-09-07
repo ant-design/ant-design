@@ -76,6 +76,8 @@ describe('Alert', () => {
   });
 
   it('ErrorBoundary', () => {
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    expect(console.error).toBeCalledTimes(0);
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
@@ -86,6 +88,8 @@ describe('Alert', () => {
     );
     // eslint-disable-next-line jest/no-standalone-expect
     expect(wrapper.text()).toContain('ReferenceError: NotExisted is not defined');
+    // eslint-disable-next-line no-console
+    (console.error as any).mockRestore();
   });
 
   it('could be used with Tooltip', async () => {
@@ -125,5 +129,10 @@ describe('Alert', () => {
   it('could accept none react element icon', () => {
     const wrapper = mount(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
     expect(wrapper).toMatchRenderedSnapshot();
+  });
+
+  it('should not render message div when no message', () => {
+    const wrapper = mount(<Alert description="description" />);
+    expect(wrapper.exists('.ant-alert-message')).toBe(false);
   });
 });
