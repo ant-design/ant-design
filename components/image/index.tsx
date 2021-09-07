@@ -31,7 +31,7 @@ const Image: CompositionImage<ImageProps> = ({
 
     return {
       mask: (
-        <div className={`${prefixCls}-mask-info`} title={imageLocale?.preview}>
+        <div className={`${prefixCls}-mask-info`}>
           <EyeOutlined />
           {imageLocale?.preview}
         </div>
