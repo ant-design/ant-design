@@ -31,9 +31,9 @@ const Image: CompositionImage<ImageProps> = ({
 
     return {
       mask: (
-        <div className={`${prefixCls}-mask-info`}>
+        <div className={`${prefixCls}-mask-info`} title={imageLocale?.preview}>
           <EyeOutlined />
-          {parseFloat((otherProps as { width: string })?.width) > 80 && imageLocale?.preview}
+          {imageLocale?.preview}
         </div>
       ),
       icons,
