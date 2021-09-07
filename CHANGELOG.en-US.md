@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.2
+
+`2021-09-07`
+
+- 🐞 Fix Alert extra dom node when `message` is `undefined`. [#32057](https://github.com/ant-design/ant-design/pull/32057)
+- 🐞 Fix Upload icon error background. [#32051](https://github.com/ant-design/ant-design/pull/32051)
+- 🐞 Fix less compile `antd.xxx.less` throw the `Maximum call stack size exceeded error`. [#32063](https://github.com/ant-design/ant-design/pull/32063)
+- TypeScript
+  - 🤖 Adjust List `rowKey` type to React.key. [#32033](https://github.com/ant-design/ant-design/pull/32033) [@lironhl](https://github.com/lironhl)
+
 ## 4.17.0-alpha.1
 
 `2021-09-06`
