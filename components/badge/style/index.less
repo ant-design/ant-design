@@ -54,6 +54,11 @@
     box-shadow: 0 0 0 1px @shadow-color-inverse;
   }
 
+  // Tricky way to resolve https://github.com/ant-design/ant-design/issues/30088
+  &-dot.@{number-prefix-cls} {
+    transition: background 1.5s;
+  }
+
   &-count,
   &-dot,
   .@{number-prefix-cls}-custom-component {
@@ -62,6 +67,10 @@
     right: 0;
     transform: translate(50%, -50%);
     transform-origin: 100% 0%;
+
+    &.@{iconfont-css-prefix}-spin {
+      animation: antBadgeLoadingCircle 1s infinite linear;
+    }
   }
 
   &-status {
@@ -153,7 +162,7 @@
     }
 
     .@{number-prefix-cls}-custom-component,
-    .@{ant-prefix}-scroll-number {
+    .@{number-prefix-cls} {
       position: relative;
       top: auto;
       display: block;
@@ -241,6 +250,17 @@
   100% {
     transform: scale(0);
     opacity: 0;
+  }
+}
+
+@keyframes antBadgeLoadingCircle {
+  0% {
+    transform-origin: 50%;
+  }
+
+  100% {
+    transform: translate(50%, -50%) rotate(360deg);
+    transform-origin: 50%;
   }
 }
 

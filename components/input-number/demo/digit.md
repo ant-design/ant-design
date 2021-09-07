@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-通过 `stringMode` 开启高精度小数支持，`onChange` 事件将返回 string 类型。对于旧版游览器，你需要 BigInt polyfill。
+通过 `stringMode` 开启高精度小数支持，`onChange` 事件将返回 string 类型。对于旧版浏览器，你需要 BigInt polyfill。
 
 ## en-US
 

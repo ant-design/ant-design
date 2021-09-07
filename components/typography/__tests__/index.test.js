@@ -2,11 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined, LikeOutlined, HighlightOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { resetWarned } from 'rc-util/lib/warning';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
+import Text from '../Text';
 import Base from '../Base';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -30,15 +32,28 @@ describe('Typography', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   // Mock offsetHeight
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
-    .get;
-  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-    get() {
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight',
+  ).get;
+
+  const mockGetBoundingClientRect = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+
+  beforeAll(() => {
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      get() {
+        let html = this.innerHTML;
+        html = html.replace(/<[^>]*>/g, '');
+        const lines = Math.ceil(html.length / LINE_STR_COUNT);
+        return lines * 16;
+      },
+    });
+    mockGetBoundingClientRect.mockImplementation(function fn() {
       let html = this.innerHTML;
       html = html.replace(/<[^>]*>/g, '');
       const lines = Math.ceil(html.length / LINE_STR_COUNT);
-      return lines * 16;
-    },
+      return { height: lines * 16 };
+    });
   });
 
   // Mock getComputedStyle
@@ -58,6 +73,7 @@ describe('Typography', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       get: originOffsetHeight,
     });
+    mockGetBoundingClientRect.mockRestore();
     window.getComputedStyle = originGetComputedStyle;
   });
 
@@ -234,6 +250,13 @@ describe('Typography', () => {
         expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
       });
 
+      it('should calculate padding', () => {
+        const wrapper = mount(
+          <Base ellipsis component="p" style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
+        );
+        expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+      });
+
       describe('should tooltip support', () => {
         function getWrapper(tooltip) {
           return mount(
@@ -333,6 +356,7 @@ describe('Typography', () => {
           }
 
           jest.useFakeTimers();
+          wrapper.find('.ant-typography-copy').first().simulate('click');
           jest.runAllTimers();
           wrapper.update();
 
@@ -518,11 +542,17 @@ describe('Typography', () => {
   });
 
   it('warning if use setContentRef', () => {
-    function refFunc() {}
+    const refFunc = () => {};
     mount(<Typography setContentRef={refFunc} />);
-
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
     );
+  });
+
+  it('no italic warning', () => {
+    resetWarned();
+    mount(<Text italic>Little</Text>);
+
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 });

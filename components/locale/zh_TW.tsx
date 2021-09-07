@@ -117,6 +117,9 @@ const localeValues: Locale = {
       },
     },
   },
+  Image: {
+    preview: '預覽',
+  },
 };
 
 export default localeValues;

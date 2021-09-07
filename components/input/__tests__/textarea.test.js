@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
@@ -83,6 +83,18 @@ describe('TextArea', () => {
     it('maxLength should not block control', () => {
       const wrapper = mount(<TextArea maxLength={1} value="light" />);
       expect(wrapper.find('textarea').props().value).toEqual('light');
+    });
+
+    it('should limit correctly when in control', () => {
+      const Demo = () => {
+        const [val, setVal] = React.useState('');
+        return <TextArea maxLength={1} value={val} onChange={e => setVal(e.target.value)} />;
+      };
+
+      const wrapper = mount(<Demo />);
+      wrapper.find('textarea').simulate('change', { target: { value: 'light' } });
+
+      expect(wrapper.find('textarea').props().value).toEqual('l');
     });
 
     it('should exceed maxLength when use IME', () => {
@@ -366,5 +378,64 @@ describe('TextArea allowClear', () => {
   it('should display defaultValue when value is undefined', () => {
     const wrapper = mount(<Input.TextArea defaultValue="Light" value={undefined} />);
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('Light');
+  });
+
+  it('onChange event should return HTMLTextAreaElement', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<Input.TextArea onChange={onChange} allowClear />);
+
+    function isNativeElement() {
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          target: expect.any(HTMLTextAreaElement),
+        }),
+      );
+
+      onChange.mockReset();
+    }
+
+    // Change
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'bamboo',
+      },
+    });
+    isNativeElement();
+
+    // Composition End
+    wrapper.find('textarea').instance().value = 'light'; // enzyme not support change `currentTarget`
+    wrapper.find('textarea').simulate('compositionEnd');
+    isNativeElement();
+
+    // Reset
+    wrapper.find('.ant-input-clear-icon').first().simulate('click');
+    isNativeElement();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/31927
+  it('should correctly when useState', () => {
+    const App = () => {
+      const [query, setQuery] = useState('');
+      return (
+        <TextArea
+          allowClear
+          value={query}
+          onChange={e => {
+            setQuery(() => e.target.value);
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<App />);
+
+    wrapper.find('textarea').getDOMNode().focus();
+    wrapper.find('textarea').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('textarea').getDOMNode().value).toEqual('111');
+
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
+
+    wrapper.unmount();
   });
 });

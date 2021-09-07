@@ -117,7 +117,7 @@
   &-arrow {
     .iconfont-mixin();
     position: absolute;
-    top: 53%;
+    top: 50%;
     right: @control-padding-horizontal - 1px;
     width: @font-size-sm;
     height: @font-size-sm;
@@ -199,21 +199,21 @@
     outline: none;
     box-shadow: @box-shadow-base;
 
-    &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
-    &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
+    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-bottomLeft,
+    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-bottomLeft {
       animation-name: antSlideUpIn;
     }
 
-    &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
-    &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
+    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topLeft,
+    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topLeft {
       animation-name: antSlideDownIn;
     }
 
-    &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
+    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-bottomLeft {
       animation-name: antSlideUpOut;
     }
 
-    &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
+    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topLeft {
       animation-name: antSlideDownOut;
     }
 
@@ -286,6 +286,9 @@
       }
 
       &-disabled {
+        &.@{select-prefix-cls}-item-option-selected {
+          background-color: @select-multiple-disabled-background;
+        }
         color: @disabled-color;
         cursor: not-allowed;
       }

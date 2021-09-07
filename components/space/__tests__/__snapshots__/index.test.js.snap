@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Space rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
 exports[`Space should render correct with children 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -72,6 +74,68 @@ Array [
     <div
       class="ant-space-item"
       style="margin-right:24px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Space should render width rtl 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-left:8px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-left:16px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-left:24px"
     >
       <span>
         1

@@ -58,16 +58,16 @@ const Badge: CompoundedComponent = ({
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
   // ================================ Misc ================================
-  const numberedDisplayCount = ((count as number) > (overflowCount as number)
-    ? `${overflowCount}+`
-    : count) as string | number | null;
+  const numberedDisplayCount = (
+    (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
+  ) as string | number | null;
 
   const hasStatus =
     (status !== null && status !== undefined) || (color !== null && color !== undefined);
 
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
 
-  const showAsDot = (dot && !isZero) || hasStatus;
+  const showAsDot = dot && !isZero;
 
   const mergedCount = showAsDot ? '' : numberedDisplayCount;
 
@@ -189,7 +189,7 @@ const Badge: CompoundedComponent = ({
             [`${prefixCls}-count`]: !isDot,
             [`${prefixCls}-count-sm`]: size === 'small',
             [`${prefixCls}-multiple-words`]:
-              !isDot && displayCount && displayCount?.toString().length > 1,
+              !isDot && displayCount && displayCount.toString().length > 1,
             [`${prefixCls}-status-${status}`]: !!status,
             [`${prefixCls}-status-${color}`]: isPresetColor(color),
           });

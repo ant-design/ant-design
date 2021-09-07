@@ -5,13 +5,14 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
-import { LegacyButtonType, NativeButtonProps, convertLegacyProps } from '../button/button';
+import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
 import { getTransitionName } from '../_util/motion';
+import ActionButton from '../_util/ActionButton';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -21,8 +22,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   okText?: React.ReactNode;
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
-  okButtonProps?: NativeButtonProps;
-  cancelButtonProps?: NativeButtonProps;
+  okButtonProps?: ButtonProps;
+  cancelButtonProps?: ButtonProps;
   icon?: React.ReactNode;
   onVisibleChange?: (
     visible: boolean,
@@ -40,6 +41,7 @@ export interface PopconfirmLocale {
 }
 
 const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigContext);
   const [visible, setVisible] = useMergedState(false, {
     value: props.visible,
     defaultValue: props.defaultVisible,
@@ -54,10 +56,11 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     props.onVisibleChange?.(value, e);
   };
 
-  const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const close = (e: React.MouseEvent<HTMLButtonElement>) => {
     settingVisible(false, e);
-    props.onConfirm?.call(this, e);
   };
+
+  const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => props.onConfirm?.call(this, e);
 
   const onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     settingVisible(false, e);
@@ -90,20 +93,20 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           <Button onClick={onCancel} size="small" {...cancelButtonProps}>
             {cancelText || popconfirmLocale.cancelText}
           </Button>
-          <Button
-            onClick={onConfirm}
-            {...convertLegacyProps(okType)}
-            size="small"
-            {...okButtonProps}
+          <ActionButton
+            buttonProps={{ size: 'small', ...convertLegacyProps(okType), ...okButtonProps }}
+            actionFn={onConfirm}
+            close={close}
+            prefixCls={getPrefixCls('btn')}
+            quitOnNullishReturnValue
+            emitEvent
           >
             {okText || popconfirmLocale.okText}
-          </Button>
+          </ActionButton>
         </div>
       </div>
     );
   };
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,

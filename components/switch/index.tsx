@@ -27,6 +27,7 @@ export interface SwitchProps {
   autoFocus?: boolean;
   style?: React.CSSProperties;
   title?: string;
+  tabIndex?: number;
 }
 
 interface CompoundedComponent

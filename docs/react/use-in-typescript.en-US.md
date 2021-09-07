@@ -17,16 +17,12 @@ Create a new [cra-template-typescript](https://github.com/facebook/create-react-
 
 ```bash
 $ yarn create react-app antd-demo-ts --template typescript
-
-# or
-
-npx create-react-app my-app --template typescript
 ```
 
 If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
 
 ```bash
-$ npx create-react-app antd-demo-ts --typescript
+$ npx create-react-app antd-demo-ts --template typescript
 ```
 
 Then we go inside `antd-demo-ts` and start it.

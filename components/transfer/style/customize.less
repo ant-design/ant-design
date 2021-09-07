@@ -1,4 +1,6 @@
-@import './index.less';
+@import '../../style/themes/index';
+
+@transfer-prefix-cls: ~'@{ant-prefix}-transfer';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @input-prefix-cls: ~'@{ant-prefix}-input';
@@ -16,6 +18,11 @@
     .@{table-prefix-cls}-small {
       border: 0;
       border-radius: 0;
+
+      .@{table-prefix-cls}-selection-column {
+        width: 40px;
+        min-width: 40px;
+      }
 
       > .@{table-prefix-cls}-content {
         // Header background color

@@ -105,6 +105,10 @@ Another approach to customize theme is creating a `less` file within variables t
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
+### Dynamic theme
+
+Runtime update theme color please [ref this doc](/docs/react/customize-theme-variable).
+
 ## How to avoid modifying global styles?
 
 Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc). If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
@@ -125,7 +129,7 @@ Where the src/myStylesReplacement.less file loads the same files as the index.le
 
 ### Use a postcss processor to scope all styles
 
-See an example of usage with gulp and [postcss-prefixwrap](https://github.com/dbtedman/postcss-prefixwrap) : https://gist.github.com/sbusch/a90eafaf5a5b61c6d6172da6ff76ddaa
+See an example of usage with [gulp and postcss-prefixwrap](https://gist.github.com/sbusch/a90eafaf5a5b61c6d6172da6ff76ddaa).
 
 ## Not working?
 

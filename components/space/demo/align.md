@@ -55,7 +55,7 @@ ReactDOM.render(
 .space-align-container {
   display: flex;
   flex-wrap: wrap;
-  align-item: flex-start;
+  align-items: flex-start;
 }
 .space-align-block {
   flex: none;

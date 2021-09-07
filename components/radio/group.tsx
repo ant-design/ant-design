@@ -6,6 +6,7 @@ import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './inte
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -91,6 +92,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     );
     return (
       <div
+        {...getDataOrAriaProps(props)}
         className={classString}
         style={style}
         onMouseEnter={onMouseEnter}

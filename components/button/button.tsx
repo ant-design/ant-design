@@ -6,7 +6,7 @@ import omit from 'rc-util/lib/omit';
 import Group from './button-group';
 import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
-import { Omit, tuple } from '../_util/type';
+import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
@@ -20,6 +20,10 @@ function isString(str: any) {
 
 function isUnborderedButtonType(type: ButtonType | undefined) {
   return type === 'text' || type === 'link';
+}
+
+function isReactFragment(node: React.ReactNode) {
+  return React.isValidElement(node) && node.type === React.Fragment;
 }
 
 // Insert one space between two chinese characters automatically.
@@ -41,9 +45,9 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
     });
   }
   if (typeof child === 'string') {
-    if (isTwoCNChar(child)) {
-      child = child.split('').join(SPACE);
-    }
+    return isTwoCNChar(child) ? <span>{child.split('').join(SPACE)}</span> : <span>{child}</span>;
+  }
+  if (isReactFragment(child)) {
     return <span>{child}</span>;
   }
   return child;
@@ -193,8 +197,10 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   React.useEffect(fixTwoCNChar, [buttonRef]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
-    const { onClick } = props;
-    if (innerLoading) {
+    const { onClick, disabled } = props;
+    // https://github.com/ant-design/ant-design/issues/30207
+    if (innerLoading || disabled) {
+      e.preventDefault();
       return;
     }
     (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
@@ -237,7 +243,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
+      [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,

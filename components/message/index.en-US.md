@@ -87,12 +87,12 @@ message.config({
 
 | Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time before auto-dismiss, in seconds | number | 1.5 |  |
+| duration | Time before auto-dismiss, in seconds | number | 3 |  |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |  |
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
-| top | Distance from top | number | 24 |  |
+| top | Distance from top | number | 8 |  |
 
 ## FAQ
 

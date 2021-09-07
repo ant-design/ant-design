@@ -115,7 +115,7 @@ class MainContent extends Component {
     if (this.scroller) {
       this.scroller.destroy();
     }
-    window.removeEventListener('load', this.handleInitialHashOnLoad);
+    window.removeEventListener('load', this.handleLoad);
     window.removeEventListener('hashchange', this.handleHashChange);
     clearTimeout(this.timeout);
   }
@@ -319,8 +319,14 @@ class MainContent extends Component {
     if (selectedTheme !== theme) {
       setTheme(theme);
       if (theme === 'default') {
+        document.documentElement.style.colorScheme = 'light';
+        setColor(false);
         delete query.theme;
       } else {
+        if (theme === 'dark') {
+          document.documentElement.style.colorScheme = 'dark';
+          setColor(true);
+        }
         query.theme = theme;
       }
       browserHistory.push({

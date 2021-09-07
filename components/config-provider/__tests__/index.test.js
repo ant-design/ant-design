@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined } from '@ant-design/icons';
 import ConfigProvider, { ConfigContext } from '..';
@@ -55,6 +55,30 @@ describe('ConfigProvider', () => {
     );
 
     expect(wrapper.find('button').props().className).toEqual('bamboo-btn');
+  });
+
+  it('dynamic prefixCls', () => {
+    const DynamicPrefixCls = () => {
+      const [prefixCls, setPrefixCls] = useState('bamboo');
+      return (
+        <div>
+          <Button onClick={() => setPrefixCls('light')} className="toggle-button">
+            toggle
+          </Button>
+          <ConfigProvider prefixCls={prefixCls}>
+            <ConfigProvider>
+              <Button />
+            </ConfigProvider>
+          </ConfigProvider>
+        </div>
+      );
+    };
+
+    const wrapper = mount(<DynamicPrefixCls />);
+
+    expect(wrapper.find('button').last().props().className).toEqual('bamboo-btn');
+    wrapper.find('.toggle-button').first().simulate('click');
+    expect(wrapper.find('button').last().props().className).toEqual('light-btn');
   });
 
   it('iconPrefixCls', () => {

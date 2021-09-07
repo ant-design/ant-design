@@ -1,6 +1,6 @@
-import { RcFile, UploadFile } from './interface';
+import { RcFile, UploadFile, InternalUploadFile } from './interface';
 
-export function file2Obj(file: RcFile): UploadFile {
+export function file2Obj(file: RcFile): InternalUploadFile {
   return {
     ...file,
     lastModified: file.lastModified,
@@ -54,7 +54,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
   if (file.type && !file.thumbUrl) {
     return isImageFileType(file.type);
   }
-  const url: string = (file.thumbUrl || file.url) as string;
+  const url: string = (file.thumbUrl || file.url || '') as string;
   const extension = extname(url);
   if (
     /^data:image\//.test(url) ||

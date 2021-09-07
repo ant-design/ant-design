@@ -22,7 +22,7 @@ export interface LabeledValue {
   label: React.ReactNode;
 }
 
-export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
+export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
 export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon?: React.ReactNode;
@@ -32,7 +32,10 @@ export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'>
 }
 
 export interface SelectProps<VT>
-  extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'> {
+  extends Omit<
+    InternalSelectProps<VT>,
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
+  > {
   mode?: 'multiple' | 'tags';
 }
 

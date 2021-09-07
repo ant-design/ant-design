@@ -66,7 +66,7 @@ notification.config({
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |
 | closeIcon | 自定义关闭图标 | ReactNode | - |
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |
@@ -74,6 +74,7 @@ notification.config({
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | rtl | 是否开启 RTL 模式 | boolean | false |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |
+| maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |  |
 
 ## FAQ
 
@@ -101,4 +102,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+) 进行设置。
+你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>) 进行设置。

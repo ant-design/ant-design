@@ -24,7 +24,6 @@ export interface NavigationProps extends SharedProps {
 
 export default ({
   isZhCN,
-  isRTL,
   isMobile,
   pathname,
   responsive,
@@ -58,7 +57,7 @@ export default ({
     <Menu.Item key="switch-direction" onClick={onDirectionChange}>
       {directionText}
     </Menu.Item>,
-    getEcosystemGroup({ isZhCN, isRTL }),
+    getEcosystemGroup(),
   ];
 
   if (isMobile) {
@@ -81,6 +80,7 @@ export default ({
       mode={menuMode}
       selectedKeys={[activeMenuItem]}
       id="nav"
+      disabledOverflow
     >
       <Menu.Item key="docs/spec">
         <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, location.query)}>

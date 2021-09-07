@@ -62,6 +62,10 @@ toc: false
   - https://cdn.modao.cc/logo_mockingbot.svg
   - 内置丰富的 Ant Design 组件资源
   - https://modao.cc/square/ant-design
+- 全套资源包（即时设计）
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
+  - 可在「即时设计」在线免费使用的全套组件和模板
+  - https://js.design/antd
 
 ## 文章
 

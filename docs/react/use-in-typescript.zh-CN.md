@@ -22,7 +22,7 @@ $ yarn create react-app antd-demo-ts --template typescript
 如果你使用的是 npm（接下来我们都会用 yarn 作为例子，如果你习惯用 npm 也没问题）。
 
 ```bash
-$ npx create-react-app antd-demo-ts --typescript
+$ npx create-react-app antd-demo-ts --template typescript
 ```
 
 然后我们进入项目并启动。

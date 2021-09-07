@@ -1,9 +1,8 @@
 /* eslint-disable react/no-array-index-key */
-
 import * as React from 'react';
 import moment from 'moment';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Tabs, Skeleton } from 'antd';
+import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';
 import { useSiteData } from '../../Home/util';
 import './index.less';
 
@@ -19,48 +18,44 @@ interface Article {
   href: string;
   date: string;
   type: 'design' | 'develop';
+  author: Author['name'];
 }
 
 interface Articles {
-  author: Author[];
   cn: Article[];
   en: Article[];
 }
 
+type Authors = Author[];
+
 interface ArticleListProps {
   name: React.ReactNode;
   data: Article[];
+  authors: Authors;
 }
 
-const ArticleList = ({ name, data }: ArticleListProps) => (
+const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = [] }) => (
   <td>
     <h4>{name}</h4>
     <ul className="article-list">
-      {data.map((article, index) => (
-        <li key={index}>
-          <a href={article.href} target="_blank" rel="noreferrer">
-            {article.title}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </td>
-);
-
-interface AuthorsProps {
-  data: Author[];
-}
-
-const Authors = ({ data }: AuthorsProps) => (
-  <td className="resource-avatars">
-    <ul>
-      {data.map(author => (
-        <li key={author.avatar}>
-          <a href={author.href} target="_blank" rel="noreferrer">
-            <img alt={author.name} src={author.avatar} />
-          </a>
-        </li>
-      ))}
+      {data.length === 0 ? (
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      ) : (
+        data.map((article, index) => {
+          const author = authors.find(auth => auth.name === article.author);
+          return (
+            <li key={index}>
+              <a href={author?.href} target="_blank" rel="noreferrer">
+                <Avatar size="small" src={author?.avatar} />
+              </a>
+              <Divider type="vertical" />
+              <a href={article.href} target="_blank" rel="noreferrer">
+                {article.title}
+              </a>
+            </li>
+          );
+        })
+      )}
     </ul>
   </td>
 );
@@ -68,79 +63,49 @@ const Authors = ({ data }: AuthorsProps) => (
 export default () => {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
-  const data = useSiteData<Articles>('articles');
+  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] =
+    useSiteData<{ articles: Articles; authors: Authors }>();
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {
-    if (!data) {
-      return data;
-    }
-
-    const articles = data[isZhCN ? 'cn' : 'en'];
     const yearData: Record<number | string, Record<string, Article[]>> = {};
-
-    articles.forEach(article => {
+    articles[isZhCN ? 'cn' : 'en']?.forEach(article => {
       const year = moment(article.date).year();
       yearData[year] = yearData[year] || {};
-
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
     });
-
     return yearData;
-  }, [data]);
-
-  const mergedAuthors = React.useMemo(() => {
-    if (!data) {
-      return data;
-    }
-
-    const authors: Record<string, Author[]> = {};
-
-    (data.author || []).forEach(author => {
-      authors[author.type] = [...(authors[author.type] || []), author];
-    });
-
-    return authors;
-  }, [data]);
+  }, [articles]);
 
   // ========================= Render =========================
   let content: React.ReactNode;
 
-  if (!data) {
+  if (loading) {
     content = <Skeleton active />;
   } else {
     const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
-
     content = yearList.length ? (
       <Tabs>
-        {yearList.map(year => {
-          const showAuthors = String(moment().year()) === year;
-
-          return (
-            <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
-              <table>
-                <tbody>
-                  <tr>
-                    <ArticleList
-                      name={<FormattedMessage id="app.docs.resource.design" />}
-                      data={mergedData[year].design}
-                    />
-                    <ArticleList
-                      name={<FormattedMessage id="app.docs.resource.develop" />}
-                      data={mergedData[year].develop}
-                    />
-                  </tr>
-                  {showAuthors && (
-                    <tr>
-                      <Authors data={mergedAuthors.design} />
-                      <Authors data={mergedAuthors.develop} />
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </Tabs.TabPane>
-          );
-        })}
+        {yearList.map(year => (
+          <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
+            <table>
+              <tbody>
+                <tr>
+                  <ArticleList
+                    name={<FormattedMessage id="app.docs.resource.design" />}
+                    data={mergedData[year].design}
+                    authors={authors}
+                  />
+                  <ArticleList
+                    name={<FormattedMessage id="app.docs.resource.develop" />}
+                    data={mergedData[year].develop}
+                    authors={authors}
+                  />
+                </tr>
+              </tbody>
+            </table>
+          </Tabs.TabPane>
+        ))}
       </Tabs>
     ) : null;
   }

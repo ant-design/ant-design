@@ -66,6 +66,10 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://cdn.modao.cc/logo_mockingbot.svg
   - Rich component resources
   - https://modao.cc/square/ant-design
+- JiShi Design
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
+  - Use fully components and templates on JiShi Design
+  - https://js.design/antd
 
 ## Articles
 
