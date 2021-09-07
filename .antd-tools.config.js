@@ -162,6 +162,7 @@ module.exports = {
           const cloneFile = file.clone();
 
           // Origin
+          content = content.replace('../../style/index.less', '../../style/index-default.less');
           content = content.replace('./index.less', './index-default.less');
           cloneFile.contents = Buffer.from(content);
 
