@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.2
+
+`2021-09-07`
+
+- 🐞 修复 Alert `message` 为空时 dom 节点还在的问题。[#32057](https://github.com/ant-design/ant-design/pull/32057)
+- 🐞 修复 Upload 错误背景颜色。[#32051](https://github.com/ant-design/ant-design/pull/32051)
+- 🐞 修复 less 编译 `antd.xxx.less` 会抛出 `Maximum call stack size exceeded error` 的问题。[#32063](https://github.com/ant-design/ant-design/pull/32063)
+- TypeScript
+  - 🤖 调整 List 组件 `rowKey` 类型为 React.key。[#32033](https://github.com/ant-design/ant-design/pull/32033) [@lironhl](https://github.com/lironhl)
+
 ## 4.17.0-alpha.1
 
 `2021-09-06`
