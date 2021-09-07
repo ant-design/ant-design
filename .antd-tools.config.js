@@ -96,7 +96,7 @@ function finalizeDist() {
     // Build less entry file: dist/antd.less
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', 'antd.less'),
-      '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
+      '@import "../lib/style/default.less";\n@import "../lib/style/components.less";',
     );
     // eslint-disable-next-line no-console
     fs.writeFileSync(
