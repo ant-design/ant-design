@@ -14,9 +14,6 @@ exports[`ConfigProvider components Alert configProvider 1`] = `
     >
       Bamboo is Little Light
     </div>
-    <div
-      class="config-alert-description"
-    />
   </div>
 </div>
 `;
@@ -35,9 +32,6 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
     >
       Bamboo is Little Light
     </div>
-    <div
-      class="config-alert-description"
-    />
   </div>
 </div>
 `;
@@ -56,9 +50,6 @@ exports[`ConfigProvider components Alert configProvider componentSize middle 1`]
     >
       Bamboo is Little Light
     </div>
-    <div
-      class="config-alert-description"
-    />
   </div>
 </div>
 `;
@@ -77,9 +68,6 @@ exports[`ConfigProvider components Alert configProvider virtual and dropdownMatc
     >
       Bamboo is Little Light
     </div>
-    <div
-      class="ant-alert-description"
-    />
   </div>
 </div>
 `;
@@ -98,9 +86,6 @@ exports[`ConfigProvider components Alert normal 1`] = `
     >
       Bamboo is Little Light
     </div>
-    <div
-      class="ant-alert-description"
-    />
   </div>
 </div>
 `;
@@ -119,9 +104,6 @@ exports[`ConfigProvider components Alert prefixCls 1`] = `
     >
       Bamboo is Little Light
     </div>
-    <div
-      class="prefix-Alert-description"
-    />
   </div>
 </div>
 `;
