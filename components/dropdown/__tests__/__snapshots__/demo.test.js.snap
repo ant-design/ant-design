@@ -58,7 +58,7 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 <a
   class="ant-dropdown-trigger ant-dropdown-link"
 >
-  Hover me 
+  Hover me
   <span
     aria-label="arrow-down"
     class="anticon anticon-arrow-down"
@@ -274,7 +274,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       type="button"
     >
       <span>
-        Button 
+        Button
       </span>
       <span
         aria-label="arrow-down"
@@ -304,7 +304,7 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
 <a
   class="ant-dropdown-trigger ant-dropdown-link"
 >
-  Hover me, Click menu item 
+  Hover me, Click menu item
   <span
     aria-label="arrow-down"
     class="anticon anticon-arrow-down"
@@ -331,7 +331,7 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 <a
   class="ant-dropdown-trigger ant-dropdown-link"
 >
-  Hover me 
+  Hover me
   <span
     aria-label="arrow-down"
     class="anticon anticon-arrow-down"
@@ -358,7 +358,7 @@ exports[`renders ./components/dropdown/demo/menu-full.md correctly 1`] = `
 <a
   class="ant-dropdown-trigger ant-dropdown-link"
 >
-  Hover to check menu style 
+  Hover to check menu style
   <span
     aria-label="arrow-down"
     class="anticon anticon-arrow-down"
@@ -385,7 +385,7 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 <a
   class="ant-dropdown-trigger ant-dropdown-link"
 >
-  Hover me 
+  Hover me
   <span
     aria-label="arrow-down"
     class="anticon anticon-arrow-down"
@@ -516,7 +516,7 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 <a
   class="ant-dropdown-trigger ant-dropdown-link"
 >
-  Cascading menu 
+  Cascading menu
   <span
     aria-label="arrow-down"
     class="anticon anticon-arrow-down"
@@ -543,7 +543,7 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
 <a
   class="ant-dropdown-trigger ant-dropdown-link"
 >
-  Click me 
+  Click me
   <span
     aria-label="arrow-down"
     class="anticon anticon-arrow-down"
