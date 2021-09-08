@@ -130,6 +130,8 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}
+          tabIndex={0}
+          role="button"
         />
       );
       const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
@@ -137,6 +139,8 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,
           })}
+          tabIndex={0}
+          role="button"
         />
       );
       const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
