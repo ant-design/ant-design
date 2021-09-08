@@ -18,12 +18,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 
 | 成员 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| addonAfter | 带标签的 input，设置后置标签 | ReactNode | - | 4.17.0 |
+| addonBefore | 带标签的 input，设置前置标签 | ReactNode | - | 4.17.0 |
 | autoFocus | 自动获取焦点 | boolean | false | - |
 | bordered | 是否有边框 | boolean | true | 4.12.0 |
+| controls | 是否显示增减按钮 | boolean | true | 4.17.0 |
 | decimalSeparator | 小数点 | string | - | - |
 | defaultValue | 初始值 | number | - | - |
 | disabled | 禁用 | boolean | false | - |
-| formatter | 指定输入框展示值的格式 | function(value: number \| string): string | - | - |
+| formatter | 指定输入框展示值的格式 | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |
 | keyboard | 是否启用键盘快捷行为 | boolean | true | 4.12.0 |
 | max | 最大值 | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | 最小值 | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |

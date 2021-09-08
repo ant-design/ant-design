@@ -19,6 +19,7 @@ import LocaleProvider from '..';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
+import bnBD from '../bn_BD';
 import byBY from '../by_BY';
 import caES from '../ca_ES';
 import csCZ from '../cs_CZ';
@@ -53,6 +54,7 @@ import kuIQ from '../ku_IQ';
 import lvLV from '../lv_LV';
 import ltLT from '../lt_LT';
 import mkMK from '../mk_MK';
+import mlIN from '../ml_IN';
 import mnMN from '../mn_MN';
 import msMY from '../ms_MY';
 import nbNO from '../nb_NO';
@@ -76,11 +78,13 @@ import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
 import zhHK from '../zh_HK';
 import zhTW from '../zh_TW';
+import urPK from '../ur_PK';
 
 const locales = [
   azAZ,
   arEG,
   bgBG,
+  bnBD,
   byBY,
   caES,
   csCZ,
@@ -113,6 +117,7 @@ const locales = [
   kuIQ,
   ltLT,
   mkMK,
+  mlIN,
   msMY,
   mnMN,
   nbNO,
@@ -138,6 +143,7 @@ const locales = [
   zhCN,
   zhHK,
   zhTW,
+  urPK,
 ];
 
 const { Option } = Select;
@@ -229,9 +235,10 @@ describe('Locale Provider', () => {
           <ModalDemo />
         </LocaleProvider>,
       );
-      const currentConfirmNode = document.querySelectorAll('.ant-modal-confirm')[
-        document.querySelectorAll('.ant-modal-confirm').length - 1
-      ];
+      const currentConfirmNode =
+        document.querySelectorAll('.ant-modal-confirm')[
+          document.querySelectorAll('.ant-modal-confirm').length - 1
+        ];
       let cancelButtonText = currentConfirmNode.querySelectorAll(
         '.ant-btn:not(.ant-btn-primary) span',
       )[0].innerHTML;

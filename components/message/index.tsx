@@ -11,7 +11,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
-import { globalConfig } from '../config-provider';
+import ConfigProvider, { globalConfig } from '../config-provider';
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
@@ -74,6 +74,7 @@ function getRCNotificationInstance(
   callback: (info: {
     prefixCls: string;
     rootPrefixCls: string;
+    iconPrefixCls: string;
     instance: RCNotificationInstance;
   }) => void,
 ) {
@@ -81,9 +82,10 @@ function getRCNotificationInstance(
   const { getPrefixCls, getRootPrefixCls } = globalConfig();
   const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
   const rootPrefixCls = getRootPrefixCls(args.rootPrefixCls, prefixCls);
+  const iconPrefixCls = getIconPrefixCls();
 
   if (messageInstance) {
-    callback({ prefixCls, rootPrefixCls, instance: messageInstance });
+    callback({ prefixCls, rootPrefixCls, iconPrefixCls, instance: messageInstance });
     return;
   }
 
@@ -97,7 +99,7 @@ function getRCNotificationInstance(
 
   RCNotification.newInstance(instanceConfig, (instance: any) => {
     if (messageInstance) {
-      callback({ prefixCls, rootPrefixCls, instance: messageInstance });
+      callback({ prefixCls, rootPrefixCls, iconPrefixCls, instance: messageInstance });
       return;
     }
     messageInstance = instance;
@@ -106,7 +108,7 @@ function getRCNotificationInstance(
       (messageInstance as any).config = instanceConfig;
     }
 
-    callback({ prefixCls, rootPrefixCls, instance });
+    callback({ prefixCls, rootPrefixCls, iconPrefixCls, instance });
   });
 }
 
@@ -140,7 +142,11 @@ export interface ArgsProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
+function getRCNoticeProps(
+  args: ArgsProps,
+  prefixCls: string,
+  iconPrefixCls?: string,
+): NoticeContent {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
   const IconComponent = typeToIcon[args.type];
   const messageClass = classNames(`${prefixCls}-custom-content`, {
@@ -153,10 +159,12 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
     style: args.style || {},
     className: args.className,
     content: (
-      <div className={messageClass}>
-        {args.icon || (IconComponent && <IconComponent />)}
-        <span>{args.content}</span>
-      </div>
+      <ConfigProvider iconPrefixCls={iconPrefixCls}>
+        <div className={messageClass}>
+          {args.icon || (IconComponent && <IconComponent />)}
+          <span>{args.content}</span>
+        </div>
+      </ConfigProvider>
     ),
     onClose: args.onClose,
     onClick: args.onClick,
@@ -173,8 +181,10 @@ function notice(args: ArgsProps): MessageType {
       return resolve(true);
     };
 
-    getRCNotificationInstance(args, ({ prefixCls, instance }) => {
-      instance.notice(getRCNoticeProps({ ...args, key: target, onClose: callback }, prefixCls));
+    getRCNotificationInstance(args, ({ prefixCls, iconPrefixCls, instance }) => {
+      instance.notice(
+        getRCNoticeProps({ ...args, key: target, onClose: callback }, prefixCls, iconPrefixCls),
+      );
     });
   });
   const result: any = () => {

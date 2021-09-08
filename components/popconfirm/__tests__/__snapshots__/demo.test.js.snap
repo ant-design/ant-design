@@ -179,3 +179,14 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/popconfirm/demo/promise.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Popconfirm with Promise
+  </span>
+</button>
+`;
