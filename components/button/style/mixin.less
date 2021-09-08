@@ -377,12 +377,10 @@
 .btn-link() {
   .button-variant-other(@link-color, transparent, transparent);
   box-shadow: none;
-  &:hover {
-    background: @btn-link-hover-bg;
-  }
   &:hover,
   &:focus,
   &:active {
+    background: @btn-link-hover-bg;
     border-color: transparent;
   }
   .button-disabled(@disabled-color; transparent; transparent);
