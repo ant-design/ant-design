@@ -64,7 +64,9 @@ export interface DrawerProps {
   footer?: React.ReactNode;
   footerStyle?: React.CSSProperties;
   level?: string | string[] | null | undefined;
-  levelMove?: ILevelMove | ((e: { target: HTMLElement; open: boolean }) => ILevelMove);
+  levelMove?:
+    | ILevelMove
+    | ((e: { target: HTMLElement; open: boolean }) => ILevelMove);
 }
 
 export interface IDrawerState {
