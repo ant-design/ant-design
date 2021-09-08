@@ -30,13 +30,13 @@ const text = `
 
 ReactDOM.render(
   <Collapse defaultActiveKey={['1']} onChange={callback}>
-    <Panel header="This is panel header 1" key="1">
+    <Panel header="交通" key="1">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 2" key="2">
+    <Panel header="商业" key="2">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 3" key="3">
+    <Panel header="医疗" key="3">
       <p>{text}</p>
     </Panel>
   </Collapse>,
