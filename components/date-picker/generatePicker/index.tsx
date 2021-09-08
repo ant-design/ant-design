@@ -67,7 +67,10 @@ export function getTimeProps<DateType>(
 
 type InjectDefaultProps<Props> = Omit<
   Props,
-  'locale' | 'generateConfig' | 'hideHeader' | 'components'
+  | 'locale'
+  | 'generateConfig'
+  | 'hideHeader'
+  | 'components'
 > & {
   locale?: PickerLocale;
   size?: SizeType;
