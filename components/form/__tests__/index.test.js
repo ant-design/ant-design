@@ -846,6 +846,18 @@ describe('Form', () => {
     expect(wrapper.find('#_test').exists()).toBeTruthy();
   });
 
+  it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item
+          name="parentNode">
+          <input className="form_item_parentNode" />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('#form_item_parentNode').exists()).toBeTruthy();
+  });
+
   describe('tooltip', () => {
     it('ReactNode', () => {
       const wrapper = mount(
