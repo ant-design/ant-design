@@ -54,7 +54,8 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -73,7 +74,8 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -1158,7 +1160,8 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                role="img"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1177,7 +1180,8 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="img"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -2732,7 +2736,8 @@ Array [
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              role="button"
+                              tabindex="0"
                             >
                               <svg
                                 aria-hidden="true"
@@ -2751,7 +2756,8 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
+                              role="button"
+                              tabindex="0"
                             >
                               <svg
                                 aria-hidden="true"
@@ -2829,7 +2835,8 @@ Array [
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              role="button"
+                              tabindex="0"
                             >
                               <svg
                                 aria-hidden="true"
@@ -2848,7 +2855,8 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
+                              role="button"
+                              tabindex="0"
                             >
                               <svg
                                 aria-hidden="true"
@@ -5678,7 +5686,8 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -5697,7 +5706,8 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -8870,7 +8880,8 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -8889,7 +8900,8 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -9838,7 +9850,8 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="img"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -9905,7 +9918,8 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -9924,7 +9938,8 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down active"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -10554,7 +10569,8 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -10573,7 +10589,8 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -10613,7 +10630,8 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -10632,7 +10650,8 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -10672,7 +10691,8 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -10691,7 +10711,8 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -12851,7 +12872,8 @@ Array [
                                 <span
                                   aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="img"
+                                  role="button"
+                                  tabindex="0"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -12870,7 +12892,8 @@ Array [
                                 <span
                                   aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="img"
+                                  role="button"
+                                  tabindex="0"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -12937,7 +12960,8 @@ Array [
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              role="button"
+                              tabindex="0"
                             >
                               <svg
                                 aria-hidden="true"
@@ -12956,7 +12980,8 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
+                              role="button"
+                              tabindex="0"
                             >
                               <svg
                                 aria-hidden="true"
@@ -13002,7 +13027,8 @@ Array [
                                 <span
                                   aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="img"
+                                  role="button"
+                                  tabindex="0"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -13021,7 +13047,8 @@ Array [
                                 <span
                                   aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="img"
+                                  role="button"
+                                  tabindex="0"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -13324,7 +13351,8 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
@@ -13343,7 +13371,8 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="button"
+                            tabindex="0"
                           >
                             <svg
                               aria-hidden="true"
