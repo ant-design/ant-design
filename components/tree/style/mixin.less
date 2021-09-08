@@ -144,19 +144,20 @@
       display: inline-block;
       width: 100%;
       height: 100%;
+      // https://github.com/ant-design/ant-design/issues/31884
       &::before {
         position: absolute;
         top: 0;
+        right: 12px;
         bottom: -@tree-node-padding;
         margin-left: -1px;
-        border-left: 1px solid @normal-color;
+        border-right: 1px solid @normal-color;
         content: ' ';
       }
       &::after {
         position: absolute;
         width: @tree-title-height - 14px;
         height: @tree-title-height - 10px;
-        margin-left: -1px;
         border-bottom: 1px solid @normal-color;
         content: ' ';
       }
