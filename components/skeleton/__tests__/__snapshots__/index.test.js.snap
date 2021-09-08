@@ -250,6 +250,16 @@ exports[`Skeleton button element active 1`] = `
 </div>
 `;
 
+exports[`Skeleton button element block 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-block"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
 exports[`Skeleton button element shape 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"

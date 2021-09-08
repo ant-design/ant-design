@@ -14,20 +14,27 @@
 }
 
 // input status
-// == when focus or actived
-.active(@color: @outline-color) {
+// == when focus or active
+.active(@borderColor: @primary-color; @hoverBorderColor: @primary-color-hover; @outlineColor: @primary-color-outline) {
   & when (@theme = dark) {
-    border-color: @color;
+    border-color: @borderColor;
   }
-  & when not (@theme = dark) {
-    border-color: ~`colorPalette('@{color}', 5) `;
+  & when (not (@theme = dark) and not (@theme = variable)) {
+    border-color: @hoverBorderColor;
+  }
+  & when not (@theme = variable) {
+    box-shadow: @input-outline-offset @outline-blur-size @outline-width
+      fade(@borderColor, @outline-fade);
+  }
+  & when (@theme = variable) {
+    border-color: @hoverBorderColor;
+    box-shadow: @input-outline-offset @outline-blur-size @outline-width @outlineColor;
   }
   border-right-width: @border-width-base !important;
   outline: 0;
-  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, @outline-fade);
 }
 
-// == when hoverd
+// == when hover
 .hover(@color: @input-hover-border-color) {
   border-color: @color;
   border-right-width: @border-width-base !important;

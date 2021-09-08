@@ -24,7 +24,7 @@ export interface AlertProps {
   /** Close text to show */
   closeText?: React.ReactNode;
   /** Content of Alert */
-  message: React.ReactNode;
+  message?: React.ReactNode;
   /** Additional content of Alert */
   description?: React.ReactNode;
   /** Callback when close Alert */
@@ -177,12 +177,10 @@ const Alert: AlertInterface = ({
         >
           {isShowIcon ? renderIconNode() : null}
           <div className={`${prefixCls}-content`}>
-            <div className={`${prefixCls}-message`}>{message}</div>
-            <div className={`${prefixCls}-description`}>{description}</div>
+            {message ? <div className={`${prefixCls}-message`}>{message}</div> : null}
+            {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
           </div>
-
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
-
           {renderCloseIcon()}
         </div>
       )}

@@ -15,7 +15,18 @@ Fill in this form to create a new account for you.
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, Input, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import {
+  Form,
+  Input,
+  InputNumber,
+  Cascader,
+  Select,
+  Row,
+  Col,
+  Checkbox,
+  Button,
+  AutoComplete,
+} from 'antd';
 
 const { Option } = Select;
 
@@ -89,6 +100,15 @@ const RegistrationForm = () => {
       <Select style={{ width: 70 }}>
         <Option value="86">+86</Option>
         <Option value="87">+87</Option>
+      </Select>
+    </Form.Item>
+  );
+
+  const suffixSelector = (
+    <Form.Item name="suffix" noStyle>
+      <Select style={{ width: 70 }}>
+        <Option value="USD">$</Option>
+        <Option value="CNY">¥</Option>
       </Select>
     </Form.Item>
   );
@@ -199,6 +219,14 @@ const RegistrationForm = () => {
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+      </Form.Item>
+
+      <Form.Item
+        name="donation"
+        label="Donation"
+        rules={[{ required: true, message: 'Please input donation amount!' }]}
+      >
+        <InputNumber addonAfter={suffixSelector} style={{ width: '100%' }} />
       </Form.Item>
 
       <Form.Item
