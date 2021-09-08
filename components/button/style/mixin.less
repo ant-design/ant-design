@@ -377,12 +377,11 @@
 .btn-link() {
   .button-variant-other(@link-color, transparent, transparent);
   box-shadow: none;
-  &:hover {
-    background: @btn-link-hover-bg;
-  }
+  // https://github.com/ant-design/ant-design/issues/31962
   &:hover,
   &:focus,
   &:active {
+    background: @btn-link-hover-bg;
     border-color: transparent;
   }
   .button-disabled(@disabled-color; transparent; transparent);
