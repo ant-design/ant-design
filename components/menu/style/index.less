@@ -137,6 +137,7 @@
 
   &-item-selected {
     color: @menu-highlight-color;
+    font-weight: 500;
     a,
     a:hover {
       color: @menu-highlight-color;
@@ -305,8 +306,8 @@
       &::after {
         position: absolute;
         width: 6px;
-        height: 1.5px;
-        background-color: currentColor;
+        height: 1.2px;
+        background-color: @infra-gray-7;
         border-radius: 2px;
         transition: background @animation-duration-slow @ease-in-out,
           transform @animation-duration-slow @ease-in-out, top @animation-duration-slow @ease-in-out,
@@ -379,7 +380,7 @@
           color: @menu-highlight-color;
 
           &::after {
-            border-bottom: 2px solid @menu-highlight-color;
+            border-bottom: 3px solid @menu-highlight-color;
           }
         }
       }
@@ -397,7 +398,7 @@
         right: @menu-item-padding-horizontal;
         bottom: 0;
         left: @menu-item-padding-horizontal;
-        border-bottom: 2px solid transparent;
+        border-bottom: 3px solid transparent;
         transition: border-color @animation-duration-slow @ease-in-out;
         content: '';
       }
@@ -439,9 +440,9 @@
       &::after {
         position: absolute;
         top: 0;
-        right: 0;
         bottom: 0;
-        border-right: @menu-item-active-border-width solid @menu-highlight-color;
+        left: 0;
+        border-left: @menu-item-active-border-width solid @menu-highlight-color;
         transform: scaleY(0.0001);
         opacity: 0;
         transition: transform @menu-animation-duration-normal @ease-out,
@@ -615,7 +616,6 @@
 
   &-sub&-inline {
     padding: 0;
-    background: @menu-inline-submenu-bg;
     border: 0;
     border-radius: 0;
     box-shadow: none;
@@ -628,6 +628,7 @@
     }
 
     & .@{menu-prefix-cls}-item-group-title {
+      height: 40px;
       padding-left: 32px;
     }
   }

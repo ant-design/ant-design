@@ -32,7 +32,8 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me, Click menu item <IArrowDown />
+      Hover me, Click menu item
+      <IArrowDown />
     </a>
   </Dropdown>,
   mountNode,

@@ -61,7 +61,8 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover to check menu style <IArrowDown />
+      Hover to check menu style
+      <IArrowDown />
     </a>
   </Dropdown>,
   mountNode,
