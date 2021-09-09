@@ -22945,6 +22945,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -22969,8 +22970,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up config-table-column-sorter-up"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -22989,8 +22989,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down config-table-column-sorter-down"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -23227,6 +23226,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23251,8 +23251,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up config-table-column-sorter-up"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -23271,8 +23270,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down config-table-column-sorter-down"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -23509,6 +23507,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23533,8 +23532,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up config-table-column-sorter-up"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -23553,8 +23551,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down config-table-column-sorter-down"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -23791,6 +23788,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -23815,8 +23813,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -23835,8 +23832,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -24073,6 +24069,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -24097,8 +24094,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -24117,8 +24113,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -24355,6 +24350,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                 <tr>
                   <th
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="prefix-Table-filter-column"
@@ -24379,8 +24375,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up prefix-Table-column-sorter-up"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -24399,8 +24394,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down prefix-Table-column-sorter-down"
-                                role="button"
-                                tabindex="0"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
