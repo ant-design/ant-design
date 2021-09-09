@@ -15,6 +15,11 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.3
+`2021-09-09`
+
+- 🐞 Fix Table sorting a11y. [#32093](https://github.com/ant-design/ant-design/pull/32093)
+
 ## 4.17.0-alpha.2
 
 `2021-09-07`

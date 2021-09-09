@@ -130,8 +130,6 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}
-          tabIndex={0}
-          role="button"
         />
       );
       const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
@@ -139,8 +137,6 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,
           })}
-          tabIndex={0}
-          role="button"
         />
       );
       const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
@@ -183,6 +179,7 @@ function injectSorter<RecordType>(
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
           const originOnClick = cell.onClick;
+          const keyboardOnClick = cell.onKeyPress;
           cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
             triggerSorter({
               column,
@@ -195,8 +192,24 @@ function injectSorter<RecordType>(
               originOnClick(event);
             }
           };
+          cell.onKeyPress = (event: React.KeyboardEvent<HTMLElement>) => {
+            const { code } = event;
+            if (code === 'Space') {
+              triggerSorter({
+                column,
+                key: columnKey,
+                sortOrder: nextSortOrder,
+                multiplePriority: getMultiplePriority(column),
+              });
+
+              if (keyboardOnClick) {
+                keyboardOnClick(event);
+              }
+            }
+          };
 
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
+          cell.tabIndex = 0;
 
           return cell;
         },
