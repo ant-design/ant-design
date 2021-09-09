@@ -63,9 +63,11 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
       .map((key: CategoriesKeys) => {
         let iconList = categories[key];
         if (searchKey) {
-          iconList = iconList.filter(iconName =>
-            iconName.toLowerCase().includes(searchKey.toLowerCase()),
-          );
+          const matchKey = searchKey
+            .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
+            .replace(/(Filled|Outlined|TwoTone)$/, '')
+            .toLowerCase();
+          iconList = iconList.filter(iconName => iconName.toLowerCase().includes(matchKey));
         }
 
         // CopyrightCircle is same as Copyright, don't show it
