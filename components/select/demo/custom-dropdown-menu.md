@@ -53,7 +53,12 @@ class App extends React.Component {
             {menu}
             <Divider style={{ margin: '4px 0' }} />
             <div style={{ display: 'flex', flexWrap: 'nowrap', padding: 8 }}>
-              <Input style={{ flex: 'auto' }} value={name} onChange={this.onNameChange} />
+              <Input
+                style={{ flex: 'auto' }}
+                value={name}
+                size="small"
+                onChange={this.onNameChange}
+              />
               <a
                 style={{ flex: 'none', padding: '8px', display: 'block', cursor: 'pointer' }}
                 onClick={this.addItem}

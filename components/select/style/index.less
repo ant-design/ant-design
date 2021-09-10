@@ -68,6 +68,8 @@
   .reset-component();
   position: relative;
   display: inline-block;
+  color: @infra-gray-6;
+  font-weight: 400;
   cursor: pointer;
 
   &:not(&-customize-input) &-selector {
@@ -129,6 +131,7 @@
     pointer-events: none;
 
     .@{iconfont-css-prefix} {
+      color: @infra-gray-7;
       vertical-align: top;
       transition: transform 0.3s;
 
@@ -187,7 +190,7 @@
     left: -9999px;
     z-index: @zindex-dropdown;
     box-sizing: border-box;
-    padding: @select-dropdown-edge-child-vertical-padding 0;
+    padding: @select-dropdown-edge-child-vertical-padding 0 0 0;
     overflow: hidden;
     font-size: @font-size-base;
     // Fix select render lag of long text in chrome
@@ -278,7 +281,7 @@
       &-selected:not(&-disabled) {
         color: @select-item-selected-color;
         font-weight: @select-item-selected-font-weight;
-        background-color: @select-item-selected-bg;
+        // background-color: @select-item-selected-bg;
 
         .@{select-prefix-cls}-item-option-state {
           color: @primary-color;
