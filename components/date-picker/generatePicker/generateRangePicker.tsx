@@ -12,10 +12,11 @@ import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
+import { PickerComponentClass } from './interface';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
-): React.ComponentClass<RangePickerProps<DateType>> {
+): PickerComponentClass<RangePickerProps<DateType>> {
   class RangePicker extends React.Component<RangePickerProps<DateType>> {
     static contextType = ConfigContext;
 
@@ -75,6 +76,10 @@ export default function generateRangePicker<DateType>(
                 placeholder={getRangePlaceholder(picker, locale, placeholder)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
                 clearIcon={<CloseCircleFilled />}
+                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                 allowClear
                 transitionName={`${rootPrefixCls}-slide-up`}
                 {...restProps}
@@ -90,10 +95,6 @@ export default function generateRangePicker<DateType>(
                 prefixCls={prefixCls}
                 getPopupContainer={customGetPopupContainer || getPopupContainer}
                 generateConfig={generateConfig}
-                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                 components={Components}
                 direction={direction}
               />

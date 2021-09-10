@@ -62,7 +62,8 @@ export default () => (
 
 ```jsx
 ConfigProvider.config({
-  prefixCls: 'ant',
+  prefixCls: 'ant', // 4.13.0+
+  iconPrefixCls: 'anticon', // 4.17.0+
 });
 ```
 

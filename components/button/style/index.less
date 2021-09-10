@@ -207,19 +207,19 @@
   }
 
   &-background-ghost&-primary {
-    .button-variant-ghost(@btn-primary-bg);
+    .button-variant-ghost(@btn-primary-bg, @btn-primary-bg, @primary-color-hover, @primary-color-active);
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-border);
+    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
   }
 
   &-background-ghost&-dangerous {
-    .button-variant-ghost(@btn-danger-border);
+    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
   }
 
   &-background-ghost&-dangerous&-link {
-    .button-variant-ghost(@btn-danger-border, transparent);
+    .button-variant-ghost(@btn-danger-border, transparent, @error-color-hover, @error-color-active);
   }
 
   &-two-chinese-chars::first-letter {

@@ -4,6 +4,15 @@ import { Locale } from '../locale-provider';
 import { SizeType } from './SizeContext';
 import { RequiredMark } from '../form/Form';
 
+export interface Theme {
+  primaryColor?: string;
+  infoColor?: string;
+  successColor?: string;
+  processingColor?: string;
+  errorColor?: string;
+  warningColor?: string;
+}
+
 export interface CSPConfig {
   nonce?: string;
 }

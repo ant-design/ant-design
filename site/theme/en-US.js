@@ -88,6 +88,7 @@ module.exports = {
     'app.footer.community': 'Community',
     'app.footer.help': 'Help',
     'app.footer.change-log': 'Change Log',
+    'app.footer.theme': 'Change theme color',
     'app.footer.faq': 'FAQ',
     'app.footer.feedback': 'Feedback',
     'app.footer.stackoverflow': 'StackOverflow',
