@@ -136,6 +136,7 @@ function needTransformStyle(content) {
 
 module.exports = {
   compile: {
+    includeLessFile: [/(\/|\\)components(\/|\\)style(\/|\\)default.less$/],
     transformTSFile(file) {
       if (isComponentStyleEntry(file)) {
         let content = file.contents.toString();
