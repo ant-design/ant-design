@@ -35,24 +35,6 @@ function finalizeCompile() {
       );
     });
   }
-
-  // Create entry for babel plugin import
-  function patchEntry(styleEntry) {
-    if (fs.existsSync(styleEntry)) {
-      fs.writeFileSync(
-        path.join(styleEntry, 'style', 'index-default.less'),
-        [
-          // Inject variable
-          '@root-entry-name: default;',
-          // Point to origin file
-          "@import './index';",
-        ].join('\n'),
-      );
-    }
-  }
-
-  patchEntry(path.join(process.cwd(), 'lib'));
-  patchEntry(path.join(process.cwd(), 'es'));
 }
 
 function buildThemeFile(theme, vars) {
@@ -162,8 +144,7 @@ module.exports = {
           const cloneFile = file.clone();
 
           // Origin
-          content = content.replace('../../style/index.less', '../../style/index-default.less');
-          // content = content.replace('./index.less', './index-default.less');
+          content = content.replace('../../style/index.less', '../../style/default.less');
           cloneFile.contents = Buffer.from(content);
 
           return cloneFile;
