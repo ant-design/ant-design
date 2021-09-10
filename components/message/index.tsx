@@ -79,7 +79,7 @@ function getRCNotificationInstance(
   }) => void,
 ) {
   const { prefixCls: customizePrefixCls, getPopupContainer: getContextPopupContainer } = args;
-  const { getPrefixCls, getRootPrefixCls } = globalConfig();
+  const { getPrefixCls, getRootPrefixCls, getIconPrefixCls } = globalConfig();
   const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
   const rootPrefixCls = getRootPrefixCls(args.rootPrefixCls, prefixCls);
   const iconPrefixCls = getIconPrefixCls();
