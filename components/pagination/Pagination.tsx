@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RcPagination from 'rc-pagination';
+import RcPagination, { PaginationLocale } from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -32,7 +32,7 @@ export interface PaginationProps {
   responsive?: boolean;
   simple?: boolean;
   style?: React.CSSProperties;
-  locale?: Object;
+  locale?: Partial<PaginationLocale>;
   className?: string;
   prefixCls?: string;
   selectPrefixCls?: string;
@@ -52,7 +52,7 @@ export interface PaginationConfig extends PaginationProps {
   position?: PaginationPosition;
 }
 
-export type PaginationLocale = any;
+export { PaginationLocale };
 
 const Pagination: React.FC<PaginationProps> = ({
   prefixCls: customizePrefixCls,
