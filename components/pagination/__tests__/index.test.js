@@ -61,6 +61,9 @@ describe('Pagination', () => {
     const CustomSelect = ({ className, ...props }) => (
       <Select className={`${className} custom-select`} {...props} />
     );
+
+    CustomSelect.Option = Select.Option;
+
     const wrapper = mount(
       <Pagination defaultCurrent={1} total={500} selectComponentClass={CustomSelect} />,
     );
