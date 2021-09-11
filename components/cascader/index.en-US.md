@@ -39,7 +39,7 @@ Cascade selection box.
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#Option)\[] | - |  |
 | placeholder | The input placeholder | string | `Please select` |  |
-| popupClassName | The additional className of popup overlay | string | - |  |
+| dropdownMenuColumnStyle | dropdown Menu Column Style | CSSProperties | - |  |
 | popupPlacement | Use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |  |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showSearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
@@ -72,7 +72,7 @@ interface Option {
 
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
