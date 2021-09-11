@@ -1,6 +1,6 @@
 ---
 order: 7.1
-title: Dynamic Theme (experience)
+title: Dynamic Theme (Experimental)
 ---
 
 Except [less customize theme](/docs/react/customize-theme), We also provide CSS Variable version to enable dynamic theme. You can check on [ConfigProvider](/components/config-provider/#components-config-provider-demo-theme) demo.
