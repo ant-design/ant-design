@@ -145,12 +145,14 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       }),
     );
 
-    config.plugins.push(
-      new DuplicatePackageCheckerPlugin({
-        verbose: true,
-        emitError: true,
-      }),
-    );
+    if (!process.env.NO_DUP_CHECK) {
+      config.plugins.push(
+        new DuplicatePackageCheckerPlugin({
+          verbose: true,
+          emitError: true,
+        }),
+      );
+    }
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
