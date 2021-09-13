@@ -147,7 +147,7 @@
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base: hsv(0, 0, 85%); // base border outline a component
+@border-color-base: @infra-gray-5; // base border outline a component
 @border-color-split: hsv(0, 0, 94%); // split border inside a component
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
@@ -276,13 +276,14 @@
 @radio-size: 16px;
 @radio-top: 0.2em;
 @radio-border-width: 1px;
-@radio-dot-size: @radio-size - 8px;
+@radio-dot-size: @radio-size - 10px;
+@radio-dot-bg: #fff;
 @radio-dot-color: @primary-color;
 @radio-dot-disabled-color: fade(@black, 20%);
 @radio-solid-checked-color: @component-background;
 
 // Radio buttons
-@radio-button-bg: @btn-default-bg;
+@radio-button-bg: @primary-color;
 @radio-button-checked-bg: @btn-default-bg;
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
@@ -290,6 +291,7 @@
 @radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
+@radio-button-border-color: @infra-gray-5;
 
 // Media queries breakpoints
 // @screen-xs and @screen-xs-min is not used in Grid
