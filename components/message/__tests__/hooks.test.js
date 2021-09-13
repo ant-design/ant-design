@@ -193,7 +193,7 @@ describe('message.hooks', () => {
     mount(<Demo />);
   });
 
-  it("should  use ConfigProvider's getPopupContainer as message container", () => {
+  it("should use ConfigProvider's getPopupContainer as message container", () => {
     const containerId = 'container';
     const getPopupContainer = () => {
       const div = document.createElement('div');
