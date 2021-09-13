@@ -82,6 +82,8 @@ export interface TableProps<RecordType>
   size?: SizeType;
   bordered?: boolean;
   locale?: TableLocale;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 
   onChange?: (
     pagination: TablePaginationConfig,
@@ -99,7 +101,10 @@ export interface TableProps<RecordType>
   showSorterTooltip?: boolean | TooltipProps;
 }
 
-function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
+function InternalTable<RecordType extends object = any>(
+  props: TableProps<RecordType>,
+  ref: React.MutableRefObject<HTMLDivElement>,
+) {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -127,6 +132,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections,
     locale,
     showSorterTooltip = true,
+    prefix,
+    suffix,
   } = props;
 
   devWarning(
@@ -483,7 +490,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     className,
   );
   return (
-    <div className={wrapperClassNames} style={style}>
+    <div ref={ref} className={wrapperClassNames} style={style}>
+      {prefix}
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>
@@ -509,9 +517,25 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         />
         {bottomPaginationNode}
       </Spin>
+      {suffix}
     </div>
   );
 }
+
+const TableRef = React.forwardRef(InternalTable);
+
+type InternalTableType = typeof TableRef;
+
+interface TableInterface extends InternalTableType {
+  SELECTION_ALL: 'SELECT_ALL';
+  SELECTION_INVERT: 'SELECT_INVERT';
+  SELECTION_NONE: 'SELECT_NONE';
+  Column: typeof Column;
+  ColumnGroup: typeof ColumnGroup;
+  Summary: typeof Summary;
+}
+
+const Table = TableRef as TableInterface;
 
 Table.defaultProps = {
   rowKey: 'key',

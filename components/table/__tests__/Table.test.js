@@ -261,4 +261,40 @@ describe('Table', () => {
     mount(<Table columns={columns} rowKey={record => record.key} />);
     expect(warnSpy).not.toBeCalled();
   });
+
+  it('should support ref', () => {
+    warnSpy.mockReset();
+    const columns = [
+      {
+        title: 'Name',
+        key: 'name',
+        dataIndex: 'name',
+      },
+    ];
+    const Wrapper = () => {
+      const ref = React.useRef();
+      return <Table ref={ref} columns={columns} />;
+    };
+    mount(<Wrapper />);
+    expect(warnSpy).not.toBeCalled();
+  });
+
+  it('should support prefix and suffix', () => {
+    const columns = [
+      {
+        title: 'Name',
+        key: 'name',
+        dataIndex: 'name',
+      },
+    ];
+    const wrapper = mount(
+      <Table
+        columns={columns}
+        prefix={<span className="table-prefix">prefix</span>}
+        suffix={<span className="table-suffix">suffix</span>}
+      ></Table>,
+    );
+    expect(wrapper.find('.table-prefix').length).toBe(1);
+    expect(wrapper.find('.table-suffix').length).toBe(1);
+  });
 });
