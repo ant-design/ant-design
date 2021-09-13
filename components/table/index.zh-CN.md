@@ -92,6 +92,8 @@ const columns = [
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
+| prefix | 自定义 Table 内部前缀元素 | ReactNode | - |  |
+| suffix | 自定义 Table 内部后缀元素 | ReactNode | - |  |
 
 #### onRow 用法
 

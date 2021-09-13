@@ -85,6 +85,8 @@ const columns = [
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
+| prefix | Custom table inner prefix node | ReactNode | - |  |
+| suffix | Custom table inner suffix node | ReactNode | - |  |
 
 #### onRow usage
 
