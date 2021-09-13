@@ -82,8 +82,6 @@ export interface TableProps<RecordType>
   size?: SizeType;
   bordered?: boolean;
   locale?: TableLocale;
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
 
   onChange?: (
     pagination: TablePaginationConfig,
@@ -132,8 +130,6 @@ function InternalTable<RecordType extends object = any>(
     sortDirections,
     locale,
     showSorterTooltip = true,
-    prefix,
-    suffix,
   } = props;
 
   devWarning(
@@ -491,7 +487,6 @@ function InternalTable<RecordType extends object = any>(
   );
   return (
     <div ref={ref} className={wrapperClassNames} style={style}>
-      {prefix}
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>
@@ -517,7 +512,6 @@ function InternalTable<RecordType extends object = any>(
         />
         {bottomPaginationNode}
       </Spin>
-      {suffix}
     </div>
   );
 }
