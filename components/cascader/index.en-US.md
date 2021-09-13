@@ -29,6 +29,7 @@ Cascade selection box.
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
+| dropdownClassName | The additional className of popup overlay | string | - | 4.17.0 |
 | dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |
 | expandTrigger | expand current item when click or hover, one of `click` `hover` | string | `click` |  |
@@ -39,8 +40,7 @@ Cascade selection box.
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#Option)\[] | - |  |
 | placeholder | The input placeholder | string | `Please select` |  |
-| popupClassName | The additional className of popup overlay | string | - |  |
-| popupPlacement | Use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |  |
+| placement | Use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` | 4.17.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showSearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | style | The additional style | CSSProperties | - |  |
@@ -72,7 +72,7 @@ interface Option {
 
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
