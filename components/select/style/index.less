@@ -11,6 +11,7 @@
 
 .select-selector() {
   position: relative;
+  font-weight: 400;
   background-color: @select-background;
   border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
@@ -278,7 +279,6 @@
       &-selected:not(&-disabled) {
         color: @select-item-selected-color;
         font-weight: @select-item-selected-font-weight;
-        background-color: @select-item-selected-bg;
 
         .@{select-prefix-cls}-item-option-state {
           color: @primary-color;

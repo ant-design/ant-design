@@ -2,7 +2,7 @@ import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import RcSteps from 'rc-steps';
 import type { ProgressDotRender } from 'rc-steps/lib/Steps';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
+import { ISelector } from 'infra-design-icons';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
@@ -63,7 +63,7 @@ const Steps: StepsType = props => {
     className,
   );
   const icons = {
-    finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
+    finish: <ISelector className={`${prefixCls}-finish-icon`} />,
     error: <CloseOutlined className={`${prefixCls}-error-icon`} />,
   };
   const stepIconRender = ({
