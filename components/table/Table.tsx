@@ -218,7 +218,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
       // Trigger pagination events
       if (pagination && pagination.onChange) {
-        pagination.onChange(1, changeInfo.pagination!.pageSize);
+        pagination.onChange(1, changeInfo.pagination!.pageSize!);
       }
     }
 
