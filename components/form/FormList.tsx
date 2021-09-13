@@ -25,7 +25,7 @@ export interface FormListProps {
   children: (
     fields: FormListFieldData[],
     operation: FormListOperation,
-    meta: { errors: React.ReactNode[] },
+    meta: { errors: React.ReactNode[]; warnings: React.ReactNode[] },
   ) => React.ReactNode;
 }
 
@@ -48,6 +48,7 @@ const FormList: React.FC<FormListProps> = ({
             operation,
             {
               errors: meta.errors,
+              warnings: meta.warnings,
             },
           )}
         </FormItemPrefixContext.Provider>

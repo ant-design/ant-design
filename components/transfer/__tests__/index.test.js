@@ -283,6 +283,19 @@ describe('Transfer', () => {
     expect(headerText(wrapper)).toEqual('1/2 People');
   });
 
+  it('should display the correct notFoundContent', () => {
+    const wrapper = mount(
+      <Transfer dataSource={[]} locale={{ notFoundContent: ['No Source', 'No Target'] }} />,
+    );
+
+    expect(
+      wrapper.find(TransferList).at(0).find('.ant-transfer-list-body-not-found').at(0).text(),
+    ).toEqual('No Source');
+    expect(
+      wrapper.find(TransferList).at(1).find('.ant-transfer-list-body-not-found').at(0).text(),
+    ).toEqual('No Target');
+  });
+
   it('should just check the filtered item when click on check all after search by input', () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;

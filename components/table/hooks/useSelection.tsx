@@ -281,7 +281,14 @@ export default function useSelection<RecordType>(
           key: 'all',
           text: tableLocale.selectionAll,
           onSelect() {
-            setSelectedKeys(data.map((record, index) => getRowKey(record, index)));
+            setSelectedKeys(
+              data
+                .map((record, index) => getRowKey(record, index))
+                .filter(key => {
+                  const checkProps = checkboxPropsMap.get(key);
+                  return !checkProps?.disabled || derivedSelectedKeySet.has(key);
+                }),
+            );
           },
         };
       }
@@ -293,11 +300,14 @@ export default function useSelection<RecordType>(
             const keySet = new Set(derivedSelectedKeySet);
             pageData.forEach((record, index) => {
               const key = getRowKey(record, index);
+              const checkProps = checkboxPropsMap.get(key);
 
-              if (keySet.has(key)) {
-                keySet.delete(key);
-              } else {
-                keySet.add(key);
+              if (!checkProps?.disabled) {
+                if (keySet.has(key)) {
+                  keySet.delete(key);
+                } else {
+                  keySet.add(key);
+                }
               }
             });
 
@@ -321,7 +331,12 @@ export default function useSelection<RecordType>(
           text: tableLocale.selectNone,
           onSelect() {
             onSelectNone?.();
-            setSelectedKeys([]);
+            setSelectedKeys(
+              Array.from(derivedSelectedKeySet).filter(key => {
+                const checkProps = checkboxPropsMap.get(key);
+                return checkProps?.disabled;
+              }),
+            );
           },
         };
       }

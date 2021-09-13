@@ -131,6 +131,24 @@ describe('Popconfirm', () => {
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 
+  it('should support onConfirm to return Promise', async () => {
+    const confirm = () => new Promise(res => setTimeout(res, 300));
+    const onVisibleChange = jest.fn();
+    const popconfirm = mount(
+      <Popconfirm title="code" onConfirm={confirm} onVisibleChange={onVisibleChange}>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    const triggerNode = popconfirm.find('span').at(0);
+    triggerNode.simulate('click');
+    expect(onVisibleChange).toHaveBeenCalledTimes(1);
+
+    popconfirm.find('.ant-btn').at(0).simulate('click');
+    await sleep(400);
+    expect(onVisibleChange).toHaveBeenCalledWith(false, eventObject);
+  });
+
   it('should support customize icon', () => {
     const wrapper = mount(
       <Popconfirm title="code" icon={<span className="customize-icon">custom-icon</span>}>

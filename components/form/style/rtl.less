@@ -97,7 +97,13 @@
     > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
     > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear {
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
+    :not(.@{ant-prefix}-input-number-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-number-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-clear {
       .@{form-prefix-cls}-rtl & {
         right: auto;
         left: 32px;
@@ -106,6 +112,9 @@
 
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-number-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection-selected-value {
       .@{form-prefix-cls}-rtl & {

@@ -9,6 +9,17 @@
   .reset-component();
   .input();
 
+  //== Style for input-group: input with label, with button or dropdown...
+  &-group {
+    .reset-component();
+    .input-group(~'@{input-number-prefix-cls}');
+    &-wrapper {
+      display: inline-block;
+      text-align: start;
+      vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
+    }
+  }
+
   display: inline-block;
   width: 90px;
   margin: 0;

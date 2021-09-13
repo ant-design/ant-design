@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import {
   PickerBaseProps as RCPickerBaseProps,
@@ -70,10 +69,6 @@ type InjectDefaultProps<Props> = Omit<
   Props,
   | 'locale'
   | 'generateConfig'
-  | 'prevIcon'
-  | 'nextIcon'
-  | 'superPrevIcon'
-  | 'superNextIcon'
   | 'hideHeader'
   | 'components'
 > & {
@@ -128,14 +123,8 @@ export type RangePickerProps<DateType> =
 
 function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   // =========================== Picker ===========================
-  const {
-    DatePicker,
-    WeekPicker,
-    MonthPicker,
-    YearPicker,
-    TimePicker,
-    QuarterPicker,
-  } = generateSinglePicker(generateConfig);
+  const { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker } =
+    generateSinglePicker(generateConfig);
 
   // ======================== Range Picker ========================
   const RangePicker = generateRangePicker(generateConfig);
@@ -145,7 +134,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     WeekPicker: typeof WeekPicker;
     MonthPicker: typeof MonthPicker;
     YearPicker: typeof YearPicker;
-    RangePicker: React.ComponentClass<RangePickerProps<DateType>>;
+    RangePicker: typeof RangePicker;
     TimePicker: typeof TimePicker;
     QuarterPicker: typeof QuarterPicker;
   };

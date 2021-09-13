@@ -3,11 +3,11 @@
 exports[`Directory Tree DirectoryTree should expend all when use treeData and defaultExpandAll is true 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -231,11 +231,11 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
 exports[`Directory Tree defaultExpandAll 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -596,11 +596,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
 exports[`Directory Tree defaultExpandParent 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -769,11 +769,11 @@ exports[`Directory Tree defaultExpandParent 1`] = `
 exports[`Directory Tree expand click 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -1043,11 +1043,11 @@ exports[`Directory Tree expand click 1`] = `
 exports[`Directory Tree expand click 2`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -1317,11 +1317,11 @@ exports[`Directory Tree expand click 2`] = `
 exports[`Directory Tree expand double click 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -1591,11 +1591,11 @@ exports[`Directory Tree expand double click 1`] = `
 exports[`Directory Tree expand double click 2`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -1865,11 +1865,11 @@ exports[`Directory Tree expand double click 2`] = `
 exports[`Directory Tree expand with state control click 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -2022,11 +2022,11 @@ exports[`Directory Tree expand with state control click 1`] = `
 exports[`Directory Tree expand with state control doubleClick 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -2179,11 +2179,11 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
 exports[`Directory Tree expandedKeys update 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -2453,11 +2453,11 @@ exports[`Directory Tree expandedKeys update 1`] = `
 exports[`Directory Tree group select 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -2818,11 +2818,11 @@ exports[`Directory Tree group select 1`] = `
 exports[`Directory Tree group select 2`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -3183,11 +3183,11 @@ exports[`Directory Tree group select 2`] = `
 exports[`Directory Tree rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-rtl"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -3227,11 +3227,11 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
 exports[`Directory Tree rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-rtl ant-tree-directory ant-tree-directory-rtl"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -3271,11 +3271,11 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
 exports[`Directory Tree selectedKeys update 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""

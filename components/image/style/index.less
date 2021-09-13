@@ -36,6 +36,10 @@
     transition: opacity @animation-duration-slow;
 
     &-info {
+      padding: 0 @padding-xss;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       .@{iconfont-css-prefix} {
         margin-inline-end: @margin-xss;
       }
