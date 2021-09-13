@@ -292,7 +292,7 @@ describe('Table', () => {
         columns={columns}
         prefix={<span className="table-prefix">prefix</span>}
         suffix={<span className="table-suffix">suffix</span>}
-      ></Table>,
+      />,
     );
     expect(wrapper.find('.table-prefix').length).toBe(1);
     expect(wrapper.find('.table-suffix').length).toBe(1);
