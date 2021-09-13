@@ -1184,7 +1184,7 @@ Array [
     class="ant-btn-group ant-dropdown-button"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn"
       type="button"
     >
       <span>
@@ -1192,7 +1192,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+      class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
       type="button"
     >
       <span
