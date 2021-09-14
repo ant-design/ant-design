@@ -68,10 +68,6 @@ export default ({
       </Menu.SubMenu>
     );
   }
-  let host = '';
-  if (typeof window !== 'undefined') {
-    host = window.document.location.host;
-  }
 
   return (
     <Menu
@@ -108,7 +104,7 @@ export default ({
           </a>
         </Menu.Item>
       )}
-      {isZhCN && host.indexOf('gitee') === -1 && (
+      {isZhCN && typeof window !== 'undefined' && window.location.host.indexOf('gitee') === -1 && (
         <Menu.Item key="mirror">
           <a href="https://ant-design.gitee.io">国内镜像</a>
         </Menu.Item>
