@@ -16,6 +16,7 @@ import {
 } from '../interface';
 import Tooltip, { TooltipProps } from '../../tooltip';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';
@@ -179,6 +180,8 @@ function injectSorter<RecordType>(
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
           const originOnClick = cell.onClick;
+          const keyboardOnClick = cell.onKeyPress;
+
           cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
             triggerSorter({
               column,
@@ -191,8 +194,24 @@ function injectSorter<RecordType>(
               originOnClick(event);
             }
           };
+          cell.onKeyPress = (event: React.KeyboardEvent<HTMLElement>) => {
+            const { charCode } = event;
+            if (charCode === KeyCode.ENTER) {
+              triggerSorter({
+                column,
+                key: columnKey,
+                sortOrder: nextSortOrder,
+                multiplePriority: getMultiplePriority(column),
+              });
+
+              if (keyboardOnClick) {
+                keyboardOnClick(event);
+              }
+            }
+          };
 
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
+          cell.tabIndex = 0;
 
           return cell;
         },
