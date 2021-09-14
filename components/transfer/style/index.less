@@ -36,28 +36,8 @@
     }
 
     &-search {
-      padding-right: 24px;
-      padding-left: @control-padding-horizontal-sm;
-      &-action {
-        position: absolute;
-        top: @transfer-list-search-icon-top;
-        right: 12px;
-        bottom: 12px;
-        width: 28px;
+      .anticon-search {
         color: @disabled-color;
-        line-height: @input-height-base;
-        text-align: center;
-
-        .@{iconfont-css-prefix} {
-          color: @disabled-color;
-          transition: all 0.3s;
-          &:hover {
-            color: @text-color-secondary;
-          }
-        }
-        span& {
-          pointer-events: none;
-        }
       }
     }
 
@@ -172,7 +152,7 @@
         }
 
         &.@{transfer-prefix-cls}-list-content-item-checked:hover {
-          background-color: darken(@item-active-bg, 2%);
+          background-color: @transfer-item-selected-hover-bg;
         }
       }
 

@@ -25,7 +25,7 @@ function finalizeCompile() {
           componentsLessContent += `@import "../${path.posix.join(
             file,
             'style',
-            'index.less',
+            'index-pure.less',
           )}";\n`;
         }
       });
@@ -78,7 +78,7 @@ function finalizeDist() {
     // Build less entry file: dist/antd.less
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', 'antd.less'),
-      '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
+      '@import "../lib/style/default.less";\n@import "../lib/style/components.less";',
     );
     // eslint-disable-next-line no-console
     fs.writeFileSync(
@@ -90,6 +90,7 @@ function finalizeDist() {
     buildThemeFile('default', defaultVars);
     buildThemeFile('dark', darkVars);
     buildThemeFile('compact', compactVars);
+    buildThemeFile('variable', {});
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', `theme.js`),
       `
@@ -125,8 +126,65 @@ module.exports = {
   }
 }
 
+function isComponentStyleEntry(file) {
+  return file.path.match(/style(\/|\\)index\.tsx/);
+}
+
+function needTransformStyle(content) {
+  return content.includes('../../style/index.less') || content.includes('./index.less');
+}
+
 module.exports = {
   compile: {
+    includeLessFile: [/(\/|\\)components(\/|\\)style(\/|\\)default.less$/],
+    transformTSFile(file) {
+      if (isComponentStyleEntry(file)) {
+        let content = file.contents.toString();
+
+        if (needTransformStyle(content)) {
+          const cloneFile = file.clone();
+
+          // Origin
+          content = content.replace('../../style/index.less', '../../style/default.less');
+          cloneFile.contents = Buffer.from(content);
+
+          return cloneFile;
+        }
+      }
+    },
+    transformFile(file) {
+      if (isComponentStyleEntry(file)) {
+        const indexLessFilePath = file.path.replace('index.tsx', 'index.less');
+
+        if (fs.existsSync(indexLessFilePath)) {
+          // We put origin `index.less` file to `index-pure.less`
+          const pureFile = file.clone();
+          pureFile.contents = Buffer.from(fs.readFileSync(indexLessFilePath, 'utf8'));
+          pureFile.path = pureFile.path.replace('index.tsx', 'index-pure.less');
+
+          // Rewrite `index.less` file with `root-entry-name`
+          const indexLessFile = file.clone();
+          indexLessFile.contents = Buffer.from(
+            [
+              // Inject variable
+              '@root-entry-name: default;',
+              // Point to origin file
+              "@import './index-pure.less';",
+            ].join('\n\n'),
+          );
+          indexLessFile.path = indexLessFile.path.replace('index.tsx', 'index.less');
+
+          return [indexLessFile, pureFile];
+        }
+      }
+
+      return [];
+    },
+    lessConfig: {
+      modifyVars: {
+        'root-entry-name': 'default',
+      },
+    },
     finalize: finalizeCompile,
   },
   dist: {

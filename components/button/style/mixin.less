@@ -11,134 +11,6 @@
   border-radius: @border-radius;
 }
 
-.button-disabled(@color: @btn-disable-color; @background: @btn-disable-bg; @border: @btn-disable-border) {
-  &[disabled] {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      .button-color(@color; @background; @border);
-
-      text-shadow: none;
-      box-shadow: none;
-    }
-  }
-}
-
-.button-variant-primary(@color; @background) {
-  .button-color(@color; @background; @background);
-
-  text-shadow: @btn-text-shadow;
-  box-shadow: @btn-primary-shadow;
-
-  &:hover,
-  &:focus {
-    & when (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-      );
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-      );
-    }
-  }
-
-  &:active {
-    & when (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-      );
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-      );
-    }
-  }
-
-  .button-disabled();
-}
-
-.button-variant-other(@color; @background; @border) {
-  .button-color(@color; @background; @border);
-
-  &:hover,
-  &:focus {
-    & when (@theme = dark) {
-      .button-color(@primary-5; @background; @primary-5);
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{btn-primary-bg}', 5) `; @background;
-          ~`colorPalette('@{btn-primary-bg}', 5) `
-      );
-    }
-  }
-  &:active {
-    & when (@theme = dark) {
-      .button-color(@primary-7; @background; @primary-7);
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
-          ~`colorPalette('@{btn-primary-bg}', 7) `
-      );
-    }
-  }
-  .button-disabled();
-}
-.button-variant-ghost(@color; @border: @color) {
-  .button-color(@color; null; @border);
-  text-shadow: none;
-  &:hover,
-  &:focus {
-    & when (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
-      }
-      & when not (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
-      }
-    }
-    & when not (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
-        );
-      }
-      & when not (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
-        );
-      }
-    }
-  }
-  &:active {
-    & when (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
-      }
-      & when not (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
-      }
-    }
-    & when not (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
-        );
-      }
-      & when not (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
-        );
-      }
-    }
-  }
-  .button-disabled();
-}
 .button-color(@color; @background; @border) {
   color: @color;
   border-color: @border; // a inside Button which only work in Chrome
@@ -159,6 +31,161 @@
     }
   }
 }
+
+.button-disabled(@color: @btn-disable-color; @background: @btn-disable-bg; @border: @btn-disable-border) {
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      .button-color(@color; @background; @border);
+
+      text-shadow: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.button-variant-primary(@color; @background; @backgroundHover: yellow; @backgroundActive: yellow) {
+  .button-color(@color; @background; @background);
+
+  text-shadow: @btn-text-shadow;
+  box-shadow: @btn-primary-shadow;
+
+  &:hover,
+  &:focus {
+    & when (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+      );
+    }
+    & when (not (@theme = dark) and not (@theme = variable)) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+      );
+    }
+    & when (@theme = variable) {
+      .button-color(@color; @backgroundHover; @backgroundHover);
+    }
+  }
+
+  &:active {
+    & when (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+      );
+    }
+    & when (not (@theme = dark) and not (@theme = variable)) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+      );
+    }
+    & when (@theme = variable) {
+      .button-color(@color; @backgroundActive; @backgroundActive);
+    }
+  }
+
+  .button-disabled();
+}
+
+.button-variant-other(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+
+  &:hover,
+  &:focus {
+    & when (@theme = dark) {
+      .button-color(@primary-5; @background; @primary-5);
+    }
+    & when (not (@theme = dark) and not (@theme = variable)) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 5) `; @background;
+          ~`colorPalette('@{btn-primary-bg}', 5) `
+      );
+    }
+    & when (@theme = variable) {
+      .button-color(@primary-color-hover; @background; @primary-color-hover);
+    }
+  }
+  &:active {
+    & when (@theme = dark) {
+      .button-color(@primary-7; @background; @primary-7);
+    }
+    & when (not (@theme = dark) and not (@theme = variable)) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
+          ~`colorPalette('@{btn-primary-bg}', 7) `
+      );
+    }
+    & when (@theme = variable) {
+      .button-color(@primary-color-active; @background; @primary-color-active);
+    }
+  }
+  .button-disabled();
+}
+
+.button-variant-ghost(@color; @border; @borderHover: yellow; @borderActive: yellow) {
+  .button-color(@color; null; @border);
+  text-shadow: none;
+  &:hover,
+  &:focus {
+    & when (@border = transparent) {
+      & when (@theme = dark) {
+        .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
+      }
+      & when (not (@theme = dark) and not (@theme = variable)) {
+        .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
+      }
+      & when (@theme = variable) {
+        .button-color(@borderActive; transparent; transparent);
+      }
+    }
+    & when not (@border = transparent) {
+      & when (@theme = dark) {
+        .button-color(
+          ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
+        );
+      }
+      & when (not (@theme = dark) and not (@theme = variable)) {
+        .button-color(
+          ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
+        );
+      }
+      & when (@theme = variable) {
+        .button-color(@borderHover; transparent; @borderHover);
+      }
+    }
+  }
+  &:active {
+    & when (@border = transparent) {
+      & when (@theme = dark) {
+        .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
+      }
+      & when (not (@theme = dark) and not (@theme = variable)) {
+        .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
+      }
+      & when (@theme = variable) {
+        .button-color(@borderActive; transparent; transparent);
+      }
+    }
+    & when not (@border = transparent) {
+      & when (@theme = dark) {
+        .button-color(
+          ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
+        );
+      }
+      & when (not (@theme = dark) and not (@theme = variable)) {
+        .button-color(
+          ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
+        );
+      }
+      & when (@theme = variable) {
+        .button-color(@borderActive; transparent; @borderActive);
+      }
+    }
+  }
+  .button-disabled();
+}
+
 .button-group-base(@btnClassName) {
   position: relative;
   display: inline-flex;
@@ -252,11 +279,11 @@
 }
 // primary button style
 .btn-primary() {
-  .button-variant-primary(@btn-primary-color; @btn-primary-bg);
+  .button-variant-primary(@btn-primary-color; @btn-primary-bg; @primary-color-hover; @primary-color-active);
 }
 // default button style
 .btn-default() {
-  .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border);
+  .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border; );
   &:hover,
   &:focus,
   &:active {
@@ -275,7 +302,7 @@
 }
 // danger button style
 .btn-danger() {
-  .button-variant-primary(@btn-danger-color, @btn-danger-bg);
+  .button-variant-primary(@btn-danger-color, @btn-danger-bg, @error-color-hover, @error-color-active);
 }
 // danger default button style
 .btn-danger-default() {
@@ -288,11 +315,14 @@
           `
       );
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(
         ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
           `
       );
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-hover, @btn-default-bg, @error-color-hover);
     }
   }
   &:active {
@@ -302,11 +332,14 @@
           `
       );
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(
         ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
           `
       );
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-active, @btn-default-bg, @error-color-active);
     }
   }
   .button-disabled();
@@ -320,16 +353,22 @@
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-hover; transparent; transparent);
     }
   }
   &:active {
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-active; transparent; transparent);
     }
   }
   .button-disabled(@disabled-color; transparent; transparent);
@@ -375,8 +414,11 @@
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg; transparent);
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg; transparent);
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-hover; @btn-text-hover-bg; transparent);
     }
   }
 
@@ -384,8 +426,11 @@
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 5) `; fadein(@btn-text-hover-bg, 1%); transparent);
     }
-    & when not (@theme = dark) {
+    & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(~`colorPalette('@{error-color}', 7) `; fadein(@btn-text-hover-bg, 1%); transparent);
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-active; fadein(@btn-text-hover-bg, 1%); transparent);
     }
   }
   .button-disabled(@disabled-color; transparent; transparent);
