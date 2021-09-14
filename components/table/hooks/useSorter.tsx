@@ -105,7 +105,7 @@ function collectSortStates<RecordType>(
 function injectSorter<RecordType>(
   prefixCls: string,
   columns: ColumnsType<RecordType>,
-  sorterSates: SortState<RecordType>[],
+  sorterStates: SortState<RecordType>[],
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
   defaultSortDirections: SortOrder[],
   tableLocale?: TableLocale,
@@ -123,7 +123,7 @@ function injectSorter<RecordType>(
           ? tableShowSorterTooltip
           : newColumn.showSorterTooltip;
       const columnKey = getColumnKey(newColumn, columnPos);
-      const sorterState = sorterSates.find(({ key }) => key === columnKey);
+      const sorterState = sorterStates.find(({ key }) => key === columnKey);
       const sorterOrder = sorterState ? sorterState.sortOrder : null;
       const nextSortOrder = nextSortDirection(sortDirections, sorterOrder);
       const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
@@ -224,7 +224,7 @@ function injectSorter<RecordType>(
         children: injectSorter(
           prefixCls,
           newColumn.children,
-          sorterSates,
+          sorterStates,
           triggerSorter,
           defaultSortDirections,
           tableLocale,
