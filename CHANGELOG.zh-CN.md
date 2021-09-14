@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.17.0-alpha.3
 
-`2021-09-13`
+`2021-09-14`
 
 - 🆕 Pagination 支持定制 `selectComponentClass`。 [#32132](https://github.com/ant-design/ant-design/pull/32132) [@JounQin](https://github.com/JounQin)
 - 🆕 Tree 与 TreeSelect 支持 `placement` 属性。[#32143](https://github.com/ant-design/ant-design/pull/32143)
