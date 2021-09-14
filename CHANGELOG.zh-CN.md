@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.3
+
+`2021-09-14`
+
+- 🆕 Pagination 支持定制 `selectComponentClass`。 [#32132](https://github.com/ant-design/ant-design/pull/32132) [@JounQin](https://github.com/JounQin)
+- 🆕 Tree 与 TreeSelect 支持 `placement` 属性。[#32143](https://github.com/ant-design/ant-design/pull/32143)
+- 🐞 修复 Cascader 中 `popupClassName` 与 `popupPlacement` 属性无效问题。[#32143](https://github.com/ant-design/ant-design/pull/32143)
+- 🐞 修复调用 `message.useMessage` 时未使用 ConfigProvider 中的 `getPopupContainer` 返回元素作为容器的问题。[#31939](https://github.com/ant-design/ant-design/pull/31939) [@DaoxingHuang](https://github.com/DaoxingHuang)
+- 🐞 修复 Table 中 `pagination.className` 不生效的问题。[#32131](https://github.com/ant-design/ant-design/pull/32131) [@JounQin](https://github.com/JounQin)
+- 🐞 修复 RangePicker 的 `defaultPickerValue` 不生效的问题。[#32107](https://github.com/ant-design/ant-design/pull/32107) [@thommesZip](https://github.com/thommesZip)
+- 🐞 修复 antd 编译产物缺失 `/style/default.css` 文件的问题。[#32116](https://github.com/ant-design/ant-design/pull/32116)
+- 💄 修复 Tree 连接线在浏览器放大时一像素位置偏差的问题。[#32075](https://github.com/ant-design/ant-design/pull/32075) [@btea](https://github.com/btea)
+- 💄 优化 Image 在小尺寸下省略预览文本。[#29900](https://github.com/ant-design/ant-design/pull/29900) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- 🇬🇪 添加格鲁吉亚语言环境。[#32106](https://github.com/ant-design/ant-design/pull/32106) [@PrimulaX](https://github.com/PrimulaX)
+- TypeScript
+  - 🤖 修复 Button 的 `type` 的 TS 类型定义。[#32004](https://github.com/ant-design/ant-design/pull/32004) [@jaredleechn](https://github.com/jaredleechn)
+  - 🤖 完备 Pagination 的 `locale` TS 类型定义。[[#32128](https://github.com/ant-design/ant-design/pull/32128) [@JounQin](https://github.com/JounQin)
+  - 🤖 完善并导出 DropdownButton 的 `DropdownButtonType` TS 类型定义。 [[#31957](https://github.com/ant-design/ant-design/pull/31957) [@Dreamerryao](https://github.com/Dreamerryao)
+
 ## 4.17.0-alpha.2
 
 `2021-09-07`
