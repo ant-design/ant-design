@@ -15,6 +15,35 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.3
+
+`2021-09-14`
+
+- 🆕 Pagination supports `selectComponentClass` prop. [#32132](https://github.com/ant-design/ant-design/pull/32132) [@JounQin](https://github.com/JounQin)
+- 🆕 Tree and TreeSelect support `placement`. [#32143](https://github.com/ant-design/ant-design/pull/32143)
+- 🐞 Fix Cascader missing `popupClassName` and `popupPlacement` props. [#32143](https://github.com/ant-design/ant-design/pull/32143)
+- 🐞 Fix return element of `getPopupContainer` in ConfigProvider is not used as a container when calling `message.useMessage`. [#31939](https://github.com/ant-design/ant-design/pull/31939) [@DaoxingHuang](https://github.com/DaoxingHuang)
+- 🐞 Fix `pagination.className` not working in Table. [#32131](https://github.com/ant-design/ant-design/pull/32131) [@JounQin](https://github.com/JounQin)
+- 🐞 Fix `defaultPickerValue` not working in RangePicker. [#32107](https://github.com/ant-design/ant-design/pull/32107) [@thommesZip](https://github.com/thommesZip)
+- 🐞 Fix antd compile file miss `/style/default.css`. [#32116](https://github.com/ant-design/ant-design/pull/32116)
+- 💄 Fix 1px position deviation of the Tree connection line when zooming in. [#32075](https://github.com/ant-design/ant-design/pull/32075) [@btea](https://github.com/btea)
+- 💄 Improve small size Image by ellipsising preview text. [#29900](https://github.com/ant-design/ant-design/pull/29900) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- 🇬🇪 Add Georgian locale. [#32106](https://github.com/ant-design/ant-design/pull/32106) [@PrimulaX](https://github.com/PrimulaX)
+- TypeScript
+  - 🤖 Fix `type` type for Button. [#32004](https://github.com/ant-design/ant-design/pull/32004) [@jaredleechn](https://github.com/jaredleechn)
+  - 🤖 Improve type `locale` for Pagination. [#32128](https://github.com/ant-design/ant-design/pull/32128) [@JounQin](https://github.com/JounQin)
+  - 🤖 Improve and export `DropdownButtonType` type for DropdownButton [[#31957](https://github.com/ant-design/ant-design/pull/31957) [@Dreamerryao](https://github.com/Dreamerryao)
+
+## 4.17.0-alpha.2
+
+`2021-09-07`
+
+- 🐞 Fix Alert extra dom node when `message` is `undefined`. [#32057](https://github.com/ant-design/ant-design/pull/32057)
+- 🐞 Fix Upload icon error background. [#32051](https://github.com/ant-design/ant-design/pull/32051)
+- 🐞 Fix less compile `antd.xxx.less` throw the `Maximum call stack size exceeded error`. [#32063](https://github.com/ant-design/ant-design/pull/32063)
+- TypeScript
+  - 🤖 Adjust List `rowKey` type to React.key. [#32033](https://github.com/ant-design/ant-design/pull/32033) [@lironhl](https://github.com/lironhl)
+
 ## 4.17.0-alpha.1
 
 `2021-09-06`

@@ -15,6 +15,35 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.3
+
+`2021-09-14`
+
+- 🆕 Pagination 支持定制 `selectComponentClass`。 [#32132](https://github.com/ant-design/ant-design/pull/32132) [@JounQin](https://github.com/JounQin)
+- 🆕 Tree 与 TreeSelect 支持 `placement` 属性。[#32143](https://github.com/ant-design/ant-design/pull/32143)
+- 🐞 修复 Cascader 中 `popupClassName` 与 `popupPlacement` 属性无效问题。[#32143](https://github.com/ant-design/ant-design/pull/32143)
+- 🐞 修复调用 `message.useMessage` 时未使用 ConfigProvider 中的 `getPopupContainer` 返回元素作为容器的问题。[#31939](https://github.com/ant-design/ant-design/pull/31939) [@DaoxingHuang](https://github.com/DaoxingHuang)
+- 🐞 修复 Table 中 `pagination.className` 不生效的问题。[#32131](https://github.com/ant-design/ant-design/pull/32131) [@JounQin](https://github.com/JounQin)
+- 🐞 修复 RangePicker 的 `defaultPickerValue` 不生效的问题。[#32107](https://github.com/ant-design/ant-design/pull/32107) [@thommesZip](https://github.com/thommesZip)
+- 🐞 修复 antd 编译产物缺失 `/style/default.css` 文件的问题。[#32116](https://github.com/ant-design/ant-design/pull/32116)
+- 💄 修复 Tree 连接线在浏览器放大时一像素位置偏差的问题。[#32075](https://github.com/ant-design/ant-design/pull/32075) [@btea](https://github.com/btea)
+- 💄 优化 Image 在小尺寸下省略预览文本。[#29900](https://github.com/ant-design/ant-design/pull/29900) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- 🇬🇪 添加格鲁吉亚语言环境。[#32106](https://github.com/ant-design/ant-design/pull/32106) [@PrimulaX](https://github.com/PrimulaX)
+- TypeScript
+  - 🤖 修复 Button 的 `type` 的 TS 类型定义。[#32004](https://github.com/ant-design/ant-design/pull/32004) [@jaredleechn](https://github.com/jaredleechn)
+  - 🤖 完备 Pagination 的 `locale` TS 类型定义。[[#32128](https://github.com/ant-design/ant-design/pull/32128) [@JounQin](https://github.com/JounQin)
+  - 🤖 完善并导出 DropdownButton 的 `DropdownButtonType` TS 类型定义。 [[#31957](https://github.com/ant-design/ant-design/pull/31957) [@Dreamerryao](https://github.com/Dreamerryao)
+
+## 4.17.0-alpha.2
+
+`2021-09-07`
+
+- 🐞 修复 Alert `message` 为空时 dom 节点还在的问题。[#32057](https://github.com/ant-design/ant-design/pull/32057)
+- 🐞 修复 Upload 错误背景颜色。[#32051](https://github.com/ant-design/ant-design/pull/32051)
+- 🐞 修复 less 编译 `antd.xxx.less` 会抛出 `Maximum call stack size exceeded error` 的问题。[#32063](https://github.com/ant-design/ant-design/pull/32063)
+- TypeScript
+  - 🤖 调整 List 组件 `rowKey` 类型为 React.key。[#32033](https://github.com/ant-design/ant-design/pull/32033) [@lironhl](https://github.com/lironhl)
+
 ## 4.17.0-alpha.1
 
 `2021-09-06`
@@ -70,7 +99,7 @@ timeline: true
   - 🆕 调整 Drawer 关闭按钮位置和默认宽度，新增 `extra` 操作区域和 `size` 大小属性。[#30908](https://github.com/ant-design/ant-design/pull/30908)
   - 🆕 Drawer 支持 `autoFocus` 属性。[#181](https://github.com/react-component/drawer/pull/181)
 - 🆕 Skeleton.Button 添加 `block` 属性。[#30902](https://github.com/ant-design/ant-design/pull/30902) [@Jehu](https://github.com/Jehu)
-- 🆕 Popconfirm 组件的 `onComfirm` 允许返回一个 Promise。[#30871](https://github.com/ant-design/ant-design/pull/30871) [@wendellhu95](https://github.com/wendellhu95)
+- 🆕 Popconfirm 组件的 `onConfirm` 允许返回一个 Promise。[#30871](https://github.com/ant-design/ant-design/pull/30871) [@wendellhu95](https://github.com/wendellhu95)
 - Form
   - 🆕 Form.ErrorList 支持自定义 `className` 属性。[#30887](https://github.com/ant-design/ant-design/pull/30887)
   - 🔥 Form `rule` 支持 `warningOnly` 实现非阻塞校验。[#30829](https://github.com/ant-design/ant-design/pull/30829)

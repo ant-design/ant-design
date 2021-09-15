@@ -473,4 +473,18 @@ describe('Cascader', () => {
     clickOption(wrapper, 0, 0);
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
+
+  it('legacy props', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const wrapper = mount(<Cascader open popupPlacement="topRight" popupClassName="mock-cls" />);
+
+    expect(wrapper.exists('.mock-cls')).toBeTruthy();
+    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+    );
+
+    errorSpy.mockRestore();
+  });
 });

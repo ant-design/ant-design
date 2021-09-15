@@ -30,6 +30,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
+| dropdownClassName | 自定义浮层类名 | string | - | 4.17.0 |
 | dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
@@ -40,8 +41,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#Option)\[] | - |  |
 | placeholder | 输入框占位文本 | string | `请选择` |  |
-| popupClassName | 自定义浮层类名 | string | - |  |
-| popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |  |
+| placement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` | 4.17.0 |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showSearch) | false |  |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - |  |
 | style | 自定义样式 | CSSProperties | - |  |
@@ -75,9 +75,9 @@ interface Option {
 
 ## 方法
 
-| 名称 | 描述 | 版本 |
-| --- | --- | --- |
-| blur() | 移除焦点 |  |
-| focus() | 获取焦点 |  |
+| 名称    | 描述     | 版本 |
+| ------- | -------- | ---- |
+| blur()  | 移除焦点 |      |
+| focus() | 获取焦点 |      |
 
 > 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。
