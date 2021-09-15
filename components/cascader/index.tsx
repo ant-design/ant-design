@@ -7,6 +7,7 @@ import omit from 'rc-util/lib/omit';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -91,19 +92,21 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
     bordered = true,
     transitionName,
     choiceTransitionName = '',
+    popupClassName,
     dropdownClassName,
     expandIcon,
     showSearch,
     allowClear = true,
     notFoundContent,
     direction,
+    getPopupContainer,
     ...rest
   } = props;
 
   const restProps = omit(rest, ['suffixIcon' as any]);
 
   const {
-    // getPopupContainer: getContextPopupContainer,
+    getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
     direction: rootDirection,
@@ -114,6 +117,15 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
   const mergedDirection = direction || rootDirection;
   const isRtl = mergedDirection === 'rtl';
 
+  // =================== Warning =====================
+  if (process.env.NODE_ENV !== 'production') {
+    devWarning(
+      popupClassName === undefined,
+      'Cascader',
+      '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+    );
+  }
+
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty('Cascader');
 
@@ -123,9 +135,13 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
   const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
 
   // =================== Dropdown ====================
-  const mergedDropdownClassName = classNames(dropdownClassName, `${cascaderPrefixCls}-dropdown`, {
-    [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
-  });
+  const mergedDropdownClassName = classNames(
+    dropdownClassName || popupClassName,
+    `${cascaderPrefixCls}-dropdown`,
+    {
+      [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
+    },
+  );
 
   // ==================== Search =====================
   const mergedShowSearch = React.useMemo(() => {
@@ -205,6 +221,7 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
     />
   );

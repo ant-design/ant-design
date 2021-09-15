@@ -535,4 +535,22 @@ describe('Table.pagination', () => {
     wrapper.find('.ant-pagination-item-2').simulate('click');
     expect(wrapper.find('.ant-pagination-total-text')).toHaveLength(0);
   });
+
+  it('should preserve table pagination className', () => {
+    const wrapper = mount(
+      <Table
+        data={[]}
+        columns={[]}
+        pagination={{
+          className: 'pagination',
+          total: 200,
+          current: 1,
+          pageSize: 10,
+        }}
+      />,
+    );
+    expect(wrapper.find('.ant-pagination').prop('className')).toEqual(
+      'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
+    );
+  });
 });
