@@ -873,4 +873,24 @@ describe('Form', () => {
       expect(tooltipProps.title).toEqual('Bamboo');
     });
   });
+
+  it('warningOnly validate', async () => {
+    jest.useFakeTimers();
+
+    const wrapper = mount(
+      <Form>
+        <Form.Item>
+          <Form.Item name="test" rules={[{ required: true, warningOnly: true }]}>
+            <Input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await change(wrapper, 0, '', true);
+    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
+    expect(wrapper.find('.ant-form-item-has-warning').length).toBeTruthy();
+
+    jest.useRealTimers();
+  });
 });
