@@ -243,7 +243,7 @@ Form.List 渲染表单相关操作函数。
 | resetFields | 重置一组字段到 `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
 | scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | 设置表单的值 | (values) => void |  |
+| setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
