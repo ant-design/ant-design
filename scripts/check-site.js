@@ -19,7 +19,7 @@ const components = uniq(
 
 describe('site test', () => {
   let server;
-  const port = 3000;
+  const port = 5111;
   const render = async path => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async res => {
       const html = await res.text();
