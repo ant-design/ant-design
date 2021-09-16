@@ -33,7 +33,7 @@ const Editable: React.FC<EditableProps> = ({
   onSave,
   onCancel,
   onEnd,
-  enterIcon,
+  enterIcon = <EnterOutlined />,
 }) => {
   const ref = React.useRef<any>();
 
@@ -131,13 +131,9 @@ const Editable: React.FC<EditableProps> = ({
         aria-label={ariaLabel}
         autoSize={autoSize}
       />
-      {enterIcon !== undefined ? (
-        <div className={`${prefixCls}-edit-content-confirm`} style={{ verticalAlign: 'middle' }}>
-          {enterIcon}
-        </div>
-      ) : (
-        <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
-      )}
+      {enterIcon !== null
+        ? React.cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
+        : null}
     </div>
   );
 };
