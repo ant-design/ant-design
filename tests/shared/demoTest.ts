@@ -2,6 +2,7 @@ import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { excludeWarning } from './excludeWarning';
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];
@@ -57,6 +58,8 @@ export default function demoTest(component: string, options: Options = {}) {
       testMethod = test.skip;
     }
     testMethod(`renders ${file} correctly`, () => {
+      const errSpy = excludeWarning();
+
       MockDate.set(moment('2016-11-22').valueOf());
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
@@ -66,6 +69,8 @@ export default function demoTest(component: string, options: Options = {}) {
 
       expect(wrapper).toMatchSnapshot();
       MockDate.reset();
+
+      errSpy();
     });
   });
 }

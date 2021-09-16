@@ -29,6 +29,7 @@ export interface AvatarProps {
   className?: string;
   children?: React.ReactNode;
   alt?: string;
+  crossOrigin?: '' | 'anonymous' | 'use-credentials';
   /* callback when img load error */
   /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self */
   onError?: () => boolean;
@@ -95,6 +96,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     alt,
     draggable,
     children,
+    crossOrigin,
     ...others
   } = props;
 
@@ -158,7 +160,14 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   let childrenToRender;
   if (typeof src === 'string' && isImgExist) {
     childrenToRender = (
-      <img src={src} draggable={draggable} srcSet={srcSet} onError={handleImgLoadError} alt={alt} />
+      <img
+        src={src}
+        draggable={draggable}
+        srcSet={srcSet}
+        onError={handleImgLoadError}
+        alt={alt}
+        crossOrigin={crossOrigin}
+      />
     );
   } else if (hasImageElement) {
     childrenToRender = src;

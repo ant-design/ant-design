@@ -41,6 +41,7 @@ export interface DropDownProps {
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
+  destroyPopupOnHide?: boolean;
   align?: Align;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
@@ -60,9 +61,11 @@ interface DropdownInterface extends React.FC<DropDownProps> {
 }
 
 const Dropdown: DropdownInterface = props => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const getTransitionName = () => {
     const rootPrefixCls = getPrefixCls();
@@ -101,8 +104,7 @@ const Dropdown: DropdownInterface = props => {
     );
 
     // menu cannot be selectable in dropdown defaultly
-    // menu should be focusable in dropdown defaultly
-    const { selectable = false, focusable = true, expandIcon } = overlayProps;
+    const { selectable = false, expandIcon } = overlayProps;
 
     const overlayNodeExpandIcon =
       typeof expandIcon !== 'undefined' && React.isValidElement(expandIcon) ? (
@@ -119,7 +121,6 @@ const Dropdown: DropdownInterface = props => {
         : cloneElement(overlayNode, {
             mode: 'vertical',
             selectable,
-            focusable,
             expandIcon: overlayNodeExpandIcon,
           });
 

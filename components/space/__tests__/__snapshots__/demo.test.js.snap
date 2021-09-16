@@ -408,6 +408,65 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/space/demo/gap-in-line.md correctly 1`] = `
+Array [
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    />
+  </button>,
+  <div
+    style="box-shadow:0 0 5px green"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap:wrap;margin-bottom:-8px;width:310px;background:blue"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <div
+          style="width:150px;height:100px;background:red"
+        />
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <div
+          style="width:150px;height:100px;background:red"
+        />
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px;padding-bottom:8px"
+      >
+        <div
+          style="width:150px;height:100px;background:red"
+        />
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom:8px"
+      >
+        <div
+          style="width:150px;height:100px;background:red"
+        />
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders ./components/space/demo/size.md correctly 1`] = `
 Array [
   <div

@@ -101,7 +101,12 @@
 
   &-icon-only {
     .btn-square(@btn-prefix-cls);
-    vertical-align: -1px;
+    vertical-align: -3px;
+
+    > .@{iconfont-css-prefix} {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &-round {
@@ -146,9 +151,7 @@
 
   &&-loading {
     position: relative;
-    &:not([disabled]) {
-      pointer-events: none;
-    }
+    cursor: default;
 
     &::before {
       display: block;
@@ -190,26 +193,31 @@
     margin-left: @margin-xs;
   }
 
-  &-background-ghost {
+  &&-background-ghost {
     color: @btn-default-ghost-color;
-    background: @btn-default-ghost-bg !important;
     border-color: @btn-default-ghost-border;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      background: @btn-default-ghost-bg;
+    }
   }
 
   &-background-ghost&-primary {
-    .button-variant-ghost(@btn-primary-bg);
+    .button-variant-ghost(@btn-primary-bg, @btn-primary-bg, @primary-color-hover, @primary-color-active);
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-border);
+    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
   }
 
   &-background-ghost&-dangerous {
-    .button-variant-ghost(@btn-danger-border);
+    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
   }
 
   &-background-ghost&-dangerous&-link {
-    .button-variant-ghost(@btn-danger-border, transparent);
+    .button-variant-ghost(@btn-danger-border, transparent, @error-color-hover, @error-color-active);
   }
 
   &-two-chinese-chars::first-letter {

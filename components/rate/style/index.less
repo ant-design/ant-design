@@ -33,15 +33,19 @@
     }
 
     > div {
-      transition: all 0.3s;
+      transition: all 0.3s, outline 0s;
 
       &:hover,
       &:focus-visible {
         transform: @rate-star-hover-scale;
       }
 
-      &:focus:not(:focus-visible) {
+      &:focus {
         outline: 0;
+      }
+
+      &:focus-visible {
+        outline: 1px dashed @rate-star-color;
       }
     }
 

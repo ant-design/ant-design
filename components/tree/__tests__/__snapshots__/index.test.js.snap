@@ -3,11 +3,11 @@
 exports[`Tree icon and switcherIcon of Tree with showLine should render correctly 1`] = `
 <div
   class="ant-tree ant-tree-show-line"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -149,11 +149,11 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
 exports[`Tree showLine is object type should render correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -478,11 +478,11 @@ exports[`Tree showLine is object type should render correctly 1`] = `
 exports[`Tree switcherIcon in Tree could be string 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
@@ -596,11 +596,11 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
 exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
+  role="tree"
 >
-  <div
-    role="tree"
-  >
+  <div>
     <input
+      aria-label="for screen reader"
       style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""

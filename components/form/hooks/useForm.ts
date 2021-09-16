@@ -28,7 +28,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
 
   const wrapForm: FormInstance<Values> = React.useMemo(
     () =>
-      form || {
+      form ?? {
         ...rcForm,
         __INTERNAL__: {
           itemRef: (name: InternalNamePath) => (node: React.ReactElement) => {
@@ -47,7 +47,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
             ...options,
           });
         },
-        scrollToField: (name: string, options: ScrollOptions = {}) => {
+        scrollToField: (name: NamePath, options: ScrollOptions = {}) => {
           const namePath = toArray(name);
           const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
           const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
@@ -60,7 +60,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
             });
           }
         },
-        getFieldInstance: (name: string) => {
+        getFieldInstance: (name: NamePath) => {
           const namePathStr = toNamePathStr(name);
           return itemsRef.current[namePathStr];
         },

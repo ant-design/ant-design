@@ -192,11 +192,11 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 Form.List 渲染表单相关操作函数。
 
-| 参数   | 说明       | 类型                                               | 默认值             |
-| ------ | ---------- | -------------------------------------------------- | ------------------ |
-| add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
-| move   | 移动表单项 | (from: number, to: number) => void                 | -                  |
-| remove | 删除表单项 | (index: number \| number\[]) => void               | number\[]: 4.5.0   |
+| 参数   | 说明       | 类型                                               | 默认值      | 版本  |
+| ------ | ---------- | -------------------------------------------------- | ----------- | ----- |
+| add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex | 4.6.0 |
+| move   | 移动表单项 | (from: number, to: number) => void                 | -           |       |
+| remove | 删除表单项 | (index: number \| number\[]) => void               | number\[]   | 4.5.0 |
 
 ## Form.ErrorList
 
@@ -239,11 +239,11 @@ Form.List 渲染表单相关操作函数。
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |  |
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |  |
-| isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |  |
-| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
+| isFieldValidating | 检查对应字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |  |
+| resetFields | 重置一组字段到 `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
 | scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | 设置表单的值 | (values) => void |  |
+| setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
@@ -301,22 +301,23 @@ Rule 支持接收 object 进行配置，也支持 function 来动态获取 form 
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 ```
 
-| 名称 | 说明 | 类型 |
-| --- | --- | --- |
-| defaultField | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则 | [rule](#Rule) |
-| enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any\[] |
-| fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#Rule)> |
-| len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
-| max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
-| message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |
-| min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |
-| pattern | 正则表达式匹配 | RegExp |
-| required | 是否为必选字段 | boolean |
-| transform | 将字段值转换成目标值后进行校验 | (value) => any |
-| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string |
-| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |
-| validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |
-| whitespace | 如果字段仅包含空格则校验不通过 | boolean |
+| 名称 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| defaultField | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则 | [rule](#Rule) |  |
+| enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any\[] |  |
+| fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#Rule)> |  |
+| len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |  |
+| max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |  |
+| message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |  |
+| min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |  |
+| pattern | 正则表达式匹配 | RegExp |  |
+| required | 是否为必选字段 | boolean |  |
+| transform | 将字段值转换成目标值后进行校验 | (value) => any |  |
+| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string |  |
+| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |  |
+| validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |  |
+| warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
+| whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
 ## 从 v3 升级到 v4
 
@@ -438,3 +439,7 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 ### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？
 
 是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。
+
+### 有更多参考文档吗？
+
+- 你可以阅读[《antd v4 Form 使用心得》](https://zhuanlan.zhihu.com/p/375753910)获得一些使用帮助以及建议。

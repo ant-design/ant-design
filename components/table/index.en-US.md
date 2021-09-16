@@ -68,7 +68,7 @@ const columns = [
 | footer | Table footer renderer | function(currentPageData) | - |  |
 | getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
 | loading | Loading status of table | boolean \| [Spin Props](/components/spin/#API) | false |  |
-| locale | The i18n text including filter, sort, empty text, etc | object | filterConfirm: `Ok` <br> filterReset: `Reset` <br> emptyText: `No Data` <br> [Default](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |  |
+| locale | The i18n text including filter, sort, empty text, etc | object | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/default.tsx#L19-L37) |  |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |  |
 | rowClassName | Row's className | function(record, index): string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  |
@@ -129,6 +129,8 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
 | filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |
 | filterMultiple | Whether multiple filters can be selected | boolean | true |  |
+| filterMode | To specify the filter interface | 'menu' \| 'tree' | 'menu' | 4.17.0 |
+| filterSearch | Whether to be searchable for filter menu | Boolean | false | 4.17.0 |
 | filters | Filter menu config | object\[] | - |  |
 | fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean \| string | false |  |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
@@ -148,9 +150,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 ### ColumnGroup
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| title | Title of the column group | ReactNode | - |
+| Property | Description               | Type      | Default |
+| -------- | ------------------------- | --------- | ------- |
+| title    | Title of the column group | ReactNode | -       |
 
 ### pagination
 
@@ -166,22 +168,27 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 Properties for expandable.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| childrenColumnName | The column contains children to display | string | children |
-| columnWidth | Set the width of the expand column | string \| number | - |
-| defaultExpandAllRows | Expand all rows initially | boolean | false |
-| defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
-| expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |
-| expandedRowKeys | Current expanded row keys | string\[] | - |
-| expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |
-| expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |
-| expandIconColumnIndex | Customize expand icon column index. Not render when `-1` | number | - |
-| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |
-| indentSize | Indent size in pixels of tree data | number | 15 |
-| rowExpandable | Enable row can be expandable | (record) => boolean | - |
-| onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |
-| onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| childrenColumnName | The column contains children to display | string | children |  |
+| columnWidth | Set the width of the expand column | string \| number | - |  |
+| defaultExpandAllRows | Expand all rows initially | boolean | false |  |
+| defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |  |
+| expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |  |
+| expandedRowKeys | Current expanded row keys | string\[] | - |  |
+| expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |  |
+| expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
+| expandIconColumnIndex | Customize expand icon column index. Not render when `-1` | number | - |  |
+| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |  |
+| fixed | Whether the expansion icon is fixed. Optional true `left` `right` | boolean \| string | false | 4.16.0 |
+| indentSize | Indent size in pixels of tree data | number | 15 |  |
+| rowExpandable | Enable row can be expandable | (record) => boolean | - |  |
+| onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
+| onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
+
+- `fixed`
+  - When set to true or `left` and `expandIconColumnIndex` is not set or is 0, enable fixed
+  - When set to true or `right` and `expandIconColumnIndex` is set to the number of table columns, enable fixed
 
 ### rowSelection
 

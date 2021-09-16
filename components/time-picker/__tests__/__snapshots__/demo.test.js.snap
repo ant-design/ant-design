@@ -487,6 +487,7 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"
@@ -688,6 +689,7 @@ Array [
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
@@ -753,6 +755,7 @@ Array [
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
@@ -818,6 +821,7 @@ Array [
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"

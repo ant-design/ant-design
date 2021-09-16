@@ -559,7 +559,7 @@ Array [
   >
     <div
       class="ant-col"
-      style="flex:none"
+      style="flex:none;min-width:0"
     >
       <div
         style="padding:0 16px"

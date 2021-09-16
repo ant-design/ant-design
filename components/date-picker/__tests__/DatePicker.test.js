@@ -65,12 +65,8 @@ describe('DatePicker', () => {
   });
 
   it('disabled date', () => {
-    function disabledDate(current) {
-      return current && current < moment().endOf('day');
-    }
-
+    const disabledDate = current => current && current < moment().endOf('day');
     const wrapper = mount(<DatePicker disabledDate={disabledDate} open />);
-
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -186,5 +182,21 @@ describe('DatePicker', () => {
       wrapper.find('.ant-picker-time-panel-column').at(2).find('.ant-picker-time-panel-cell')
         .length,
     ).toBe(60);
+  });
+
+  it('DatePicker.RangePicker with defaultPickerValue and showTime', () => {
+    const startDate = moment('1982-02-12');
+    const endDate = moment('1982-02-22');
+
+    const wrapper = mount(
+      <DatePicker.RangePicker defaultPickerValue={[startDate, endDate]} showTime open />,
+    );
+
+    const month = wrapper.find('.ant-picker-header-view .ant-picker-month-btn').text();
+    const year = wrapper.find('.ant-picker-header-view .ant-picker-year-btn').text();
+
+    expect(month).toBe(startDate.format('MMM'));
+    expect(year).toBe(startDate.format('YYYY'));
+    expect(wrapper.find('.ant-picker-time-panel').length).toBe(1);
   });
 });

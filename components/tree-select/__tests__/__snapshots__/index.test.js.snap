@@ -41,11 +41,11 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
         <div>
           <div
             class="ant-select-tree"
+            role="tree"
           >
-            <div
-              role="tree"
-            >
+            <div>
               <input
+                aria-label="for screen reader"
                 disabled=""
                 style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
                 value=""
@@ -159,6 +159,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
       >
         <span
           class="ant-select-selection-item"
+          title="my leaf"
         >
           <span
             class="ant-select-selection-item-content"
@@ -183,6 +184,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
       >
         <span
           class="ant-select-selection-item"
+          title="your leaf"
         >
           <span
             class="ant-select-selection-item-content"

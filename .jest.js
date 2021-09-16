@@ -14,6 +14,7 @@ function getTestRegex(libDir) {
 
 module.exports = {
   verbose: true,
+  testEnvironment: 'jsdom',
   setupFiles: ['./tests/setup.js'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],

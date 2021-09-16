@@ -1,7 +1,6 @@
 const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');
@@ -57,12 +56,16 @@ module.exports = {
   },
   lessConfig: {
     javascriptEnabled: true,
+    modifyVars: {
+      'root-entry-name': 'variable',
+    },
   },
   webpackConfig(config) {
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
-      antd: path.join(process.cwd(), 'index'),
+      // Change antd from `index.js` to `site/antd.js` to remove deps of root style
+      antd: path.join(process.cwd(), 'site', 'antd'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
@@ -86,8 +89,8 @@ module.exports = {
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
           target: 'es2015',
+          css: true,
         }),
-        new CssMinimizerPlugin(),
       ];
     }
 

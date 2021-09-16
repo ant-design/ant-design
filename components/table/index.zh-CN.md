@@ -75,7 +75,7 @@ const columns = [
 | footer | 表格尾部 | function(currentPageData) | - |  |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
 | loading | 页面是否加载中 | boolean \| [Spin Props](/components/spin/#API) | false |  |
-| locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: `确定` <br> filterReset: `重置` <br> emptyText: `暂无数据` <br> [默认值](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |  |
+| locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) |  |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |  |
 | rowClassName | 表格行的类名 | function(record, index): string | - |  |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |  |
@@ -136,6 +136,8 @@ const columns = [
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
 | filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | false |  |
 | filterMultiple | 是否多选 | boolean | true |  |
+| filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | 4.17.0 |
+| filterSearch | 筛选菜单项是否可搜索 | Boolean | false | 4.17.0 |
 | filters | 表头的筛选菜单项 | object\[] | - |  |
 | fixed | （IE 下无效）列是否固定，可选 true (等效于 left) `left` `right` | boolean \| string | false |  |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |  |
@@ -173,22 +175,27 @@ const columns = [
 
 展开功能的配置。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| childrenColumnName | 指定树形结构的列名 | string | children |
-| columnWidth | 自定义展开列宽度 | string \| number | - |
-| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
-| defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
-| expandedRowClassName | 展开行的 className | function(record, index, indent): string | - |
-| expandedRowKeys | 展开的行，控制属性 | string\[] | - |
-| expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |
-| expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |
-| expandIconColumnIndex | 自定义展开按钮的列顺序，`-1` 时不展示 | number | - |
-| expandRowByClick | 通过点击行来展开子行 | boolean | false |
-| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
-| rowExpandable | 设置是否允许行展开 | (record) => boolean | - |
-| onExpand | 点击展开图标时触发 | function(expanded, record) | - |
-| onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| childrenColumnName | 指定树形结构的列名 | string | children |  |
+| columnWidth | 自定义展开列宽度 | string \| number | - |  |
+| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
+| defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |
+| expandedRowClassName | 展开行的 className | function(record, index, indent): string | - |  |
+| expandedRowKeys | 展开的行，控制属性 | string\[] | - |  |
+| expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |  |
+| expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
+| expandIconColumnIndex | 自定义展开按钮的列顺序，`-1` 时不展示 | number | - |  |
+| expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
+| fixed | 控制展开图标是否固定，可选 true `left` `right` | boolean \| string | false | 4.16.0 |
+| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
+| rowExpandable | 设置是否允许行展开 | (record) => boolean | - |  |
+| onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
+| onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
+
+- `fixed`
+  - 当设置为 true 或 `left` 且 `expandIconColumnIndex` 未设置或为 0 时，开启固定
+  - 当设置为 true 或 `right` 且 `expandIconColumnIndex` 设置为表格列数时，开启固定
 
 ### rowSelection
 

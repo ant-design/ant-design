@@ -21,7 +21,6 @@ const dimensionMaxMap = {
 
 export interface SiderContextProps {
   siderCollapsed?: boolean;
-  collapsedWidth?: number | string;
 }
 
 export const SiderContext: React.Context<SiderContextProps> = React.createContext({});
@@ -219,7 +218,6 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>(
       <SiderContext.Provider
         value={{
           siderCollapsed: collapsed,
-          collapsedWidth,
         }}
       >
         {renderSider()}

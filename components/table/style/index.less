@@ -4,13 +4,14 @@
 @import './bordered';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
+@tree-prefix-cls: ~'@{ant-prefix}-tree';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
-@table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
 @table-sticky-zindex: calc(@zindex-table-fixed + 1);
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
+@table-filter-dropdown-max-height: 264px;
 
 .@{table-prefix-cls}-wrapper {
   clear: both;
@@ -61,6 +62,12 @@
         text-overflow: ellipsis;
       }
     }
+
+    .@{table-prefix-cls}-column-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: keep-all;
+    }
   }
 
   // ============================ Title =============================
@@ -79,6 +86,7 @@
   &-thead {
     > tr {
       > th {
+        position: relative;
         color: @table-header-color;
         font-weight: 500;
         text-align: left;
@@ -88,6 +96,18 @@
 
         &[colspan]:not([colspan='1']) {
           text-align: center;
+        }
+
+        &:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(.@{table-prefix-cls}-row-expand-icon-cell):not([colspan])::before {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 1px;
+          height: 1.6em;
+          background-color: @table-header-cell-split-color;
+          transform: translateY(-50%);
+          transition: background-color 0.3s;
+          content: '';
         }
       }
     }
@@ -107,7 +127,8 @@
         transition: background 0.3s;
 
         // ========================= Nest Table ===========================
-        > .@{table-prefix-cls}-wrapper:only-child {
+        > .@{table-prefix-cls}-wrapper:only-child,
+        > .@{table-prefix-cls}-expanded-row-fixed > .@{table-prefix-cls}-wrapper:only-child {
           .@{table-prefix-cls} {
             margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
                   ceil(@font-size-sm * 1.4));
@@ -146,7 +167,15 @@
   }
 
   // =========================== Summary ============================
-  tfoot {
+  &-summary {
+    position: relative;
+    z-index: @zindex-table-fixed;
+    background: @table-bg;
+
+    div& {
+      box-shadow: 0 -@border-width-base 0 @table-border-color;
+    }
+
     > tr {
       > th,
       > td {
@@ -188,47 +217,65 @@
 
   // ============================ Sorter ============================
   &-thead th.@{table-prefix-cls}-column-has-sorters {
-    padding: 0;
     cursor: pointer;
     transition: all 0.3s;
 
     &:hover {
       background: @table-header-sort-active-bg;
 
-      .@{table-prefix-cls}-filter-trigger-container {
-        background: @table-header-sort-active-filter-bg;
+      &::before {
+        background-color: transparent !important;
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/30969
+    &.@{table-prefix-cls}-cell-fix-left:hover,
+    &.@{table-prefix-cls}-cell-fix-right:hover {
+      background: @table-fixed-header-sort-active-bg;
     }
   }
 
   &-thead th.@{table-prefix-cls}-column-sort {
     background: @table-header-sort-bg;
+
+    &::before {
+      background-color: transparent !important;
+    }
   }
+
   td&-column-sort {
     background: @table-body-sort-bg;
   }
 
-  &-column-sorters-with-tooltip {
-    display: inline-block;
-    width: 100%;
+  &-column-title {
+    position: relative;
+    z-index: 1;
+    flex: 1;
   }
 
   &-column-sorters {
-    display: inline-flex;
+    display: flex;
+    flex: auto;
     align-items: center;
-    padding: @table-padding-vertical @table-padding-horizontal;
+    justify-content: space-between;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
+    }
   }
 
   &-column-sorter {
-    margin-top: 0.15em;
-    margin-bottom: -0.15em;
-    margin-left: @padding-xs;
+    margin-left: 4px;
     color: @table-header-icon-color;
-
-    &-full {
-      margin-top: -0.2em;
-      margin-bottom: 0;
-    }
+    font-size: 0;
+    transition: color 0.3s;
 
     &-inner {
       display: inline-flex;
@@ -250,65 +297,31 @@
     }
   }
 
+  &-column-sorters:hover &-column-sorter {
+    color: darken(@table-header-icon-color, 10%);
+  }
+
   // ============================ Filter ============================
   &-filter-column {
     display: flex;
-    align-items: center;
-    margin: -@table-padding-vertical -@table-padding-horizontal;
-  }
-
-  &-filter-column-title {
-    flex: auto;
-    padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
-  }
-
-  // Remove padding when sorter also provided
-  &-thead tr th.@{table-prefix-cls}-column-has-sorters {
-    .@{table-prefix-cls}-filter-column {
-      margin: 0;
-    }
-
-    .@{table-prefix-cls}-filter-column-title {
-      padding: 0 2.3em 0 0;
-    }
-  }
-
-  &-filter-trigger-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex: none;
-    align-items: stretch;
-    align-self: stretch;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &-open,
-    &:hover,
-    .@{table-prefix-cls}-thead th.@{table-prefix-cls}-column-has-sorters:hover &:hover {
-      background: @table-header-filter-active-bg;
-    }
+    justify-content: space-between;
   }
 
   &-filter-trigger {
-    display: block;
-    width: 2.3em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: -4px (-@table-padding-horizontal / 2) -4px 4px;
+    padding: 0 4px;
     color: @table-header-icon-color;
     font-size: @font-size-sm;
-    transition: color 0.3s;
+    border-radius: @border-radius-base;
+    cursor: pointer;
+    transition: all 0.3s;
 
-    .@{iconfont-css-prefix} {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .@{table-prefix-cls}-filter-trigger-container-open &,
     &:hover {
       color: @text-color-secondary;
+      background: @table-header-filter-active-bg;
     }
 
     &.active {
@@ -320,21 +333,64 @@
   &-filter-dropdown {
     .reset-component();
 
+    min-width: 120px;
+    background-color: @table-filter-dropdown-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
       // https://github.com/ant-design/ant-design/issues/4916
       // https://github.com/ant-design/ant-design/issues/19542
-      max-height: 264px;
+      max-height: @table-filter-dropdown-max-height;
       overflow-x: hidden;
       border: 0;
       box-shadow: none;
+
+      &:empty::after {
+        display: block;
+        padding: 8px 0;
+        color: @disabled-color;
+        font-size: @font-size-sm;
+        text-align: center;
+        content: 'Not Found';
+      }
     }
 
-    min-width: 120px;
-    background-color: @table-filter-dropdown-bg;
+    &-tree {
+      padding: 8px 8px 0 8px;
 
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
+      .@{tree-prefix-cls}-treenode .@{tree-prefix-cls}-node-content-wrapper:hover {
+        background-color: @tree-node-hover-bg;
+      }
+
+      .@{tree-prefix-cls}-treenode-checkbox-checked .@{tree-prefix-cls}-node-content-wrapper {
+        &,
+        &:hover {
+          background-color: @tree-node-selected-bg;
+        }
+      }
+    }
+
+    &-search {
+      padding: 8px;
+      border-bottom: @border-width-base @border-color-split @border-style-base;
+
+      &-input {
+        input {
+          min-width: 140px;
+        }
+        .@{iconfont-css-prefix} {
+          color: @disabled-color;
+        }
+      }
+    }
+
+    &-checkall {
+      width: 100%;
+      margin-bottom: 4px;
+      margin-left: 4px;
+    }
 
     &-submenu > ul {
       max-height: calc(100vh - 130px);
@@ -354,7 +410,7 @@
     &-btns {
       display: flex;
       justify-content: space-between;
-      padding: 7px 8px 7px 3px;
+      padding: 7px 8px;
       overflow: hidden;
       background-color: @table-filter-btns-bg;
       border-top: @border-width-base @border-style-base @table-border-color;
@@ -379,6 +435,10 @@
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
+  }
+
+  table tr th&-selection-column::after {
+    background-color: transparent !important;
   }
 
   &-selection {
@@ -557,6 +617,7 @@
     content: '';
     pointer-events: none;
   }
+
   &-cell-fix-right-first::after,
   &-cell-fix-right-last::after {
     position: absolute;
@@ -604,6 +665,10 @@
     .@{table-prefix-cls}-cell-fix-left-last::after {
       box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
     }
+
+    .@{table-prefix-cls}-cell-fix-left-last::before {
+      background-color: transparent !important;
+    }
   }
 
   &-ping-right {
@@ -621,10 +686,12 @@
     }
   }
   &-sticky {
-    &-header {
+    &-holder {
       position: sticky;
       z-index: @table-sticky-zindex;
+      background: @component-background;
     }
+
     &-scroll {
       position: sticky;
       bottom: 0;

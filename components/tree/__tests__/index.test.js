@@ -56,13 +56,12 @@ describe('Tree', () => {
   });
 
   it('switcherIcon should be loading icon when loadData', () => {
-    function onLoadData() {
-      return new Promise(resolve => {
+    const onLoadData = () =>
+      new Promise(resolve => {
         setTimeout(() => {
           resolve();
         }, 1000);
       });
-    }
     const wrapper = mount(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
         <TreeNode icon="icon">

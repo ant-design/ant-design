@@ -35,6 +35,18 @@ Array [
           stroke-width="6"
           style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
       </svg>
       <span
         class="ant-progress-text"
@@ -76,6 +88,18 @@ Array [
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -135,6 +159,18 @@ Array [
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -199,6 +235,18 @@ Array [
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -303,6 +351,18 @@ Array [
           stroke-width="6"
           style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
       </svg>
       <span
         class="ant-progress-text"
@@ -344,6 +404,18 @@ Array [
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -403,6 +475,18 @@ Array [
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -468,6 +552,18 @@ Array [
           stroke-width="6"
           style="stroke-dasharray:165.23228207808043px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
       </svg>
       <span
         class="ant-progress-text"
@@ -509,6 +605,18 @@ Array [
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:198.98228207808043px 295.3097094374406px;stroke-dashoffset:-15px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-15px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -640,6 +748,18 @@ Array [
           stroke-width="6"
           style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
       </svg>
       <span
         class="ant-progress-text"
@@ -681,6 +801,18 @@ Array [
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -789,7 +921,19 @@ Array [
           stroke="url(#ant-progress-gradient-12)"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke:[object Object];stroke-dasharray:265.77873849369655px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+          style="stroke-dasharray:265.77873849369655px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -849,7 +993,19 @@ Array [
           stroke="url(#ant-progress-gradient-13)"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke:[object Object];stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span
@@ -1209,6 +1365,18 @@ Array [
           stroke-width="6"
           style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="square"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
       </svg>
       <span
         class="ant-progress-text"
@@ -1250,6 +1418,18 @@ Array [
           stroke-linecap="square"
           stroke-width="6"
           style="stroke-dasharray:165.23228207808043px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="square"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
       </svg>
       <span

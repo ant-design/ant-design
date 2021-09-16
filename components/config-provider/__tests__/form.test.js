@@ -6,6 +6,14 @@ import zhCN from '../../locale/zh_CN';
 import Form from '../../form';
 
 describe('ConfigProvider.Form', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   describe('form validateMessages', () => {
     const wrapperComponent = ({ validateMessages }) => {
       const formRef = React.createRef();
@@ -25,14 +33,6 @@ describe('ConfigProvider.Form', () => {
 
       return [wrapper, formRef];
     };
-
-    beforeEach(() => {
-      jest.useFakeTimers();
-    });
-
-    afterEach(() => {
-      jest.useRealTimers();
-    });
 
     it('set locale zhCN', async () => {
       const [wrapper, formRef] = wrapperComponent({});

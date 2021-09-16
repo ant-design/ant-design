@@ -81,14 +81,14 @@ describe('Mentions', () => {
   it('loading', () => {
     const wrapper = mount(<Mentions loading />);
     simulateInput(wrapper, '@');
-    expect(wrapper.find('.ant-mentions-dropdown-menu-item').length).toBe(1);
+    expect(wrapper.find('li.ant-mentions-dropdown-menu-item').length).toBe(1);
     expect(wrapper.find('.ant-spin').length).toBeTruthy();
   });
 
   it('notFoundContent', () => {
     const wrapper = mount(<Mentions notFoundContent={<span className="bamboo-light" />} />);
     simulateInput(wrapper, '@');
-    expect(wrapper.find('.ant-mentions-dropdown-menu-item').length).toBe(1);
+    expect(wrapper.find('li.ant-mentions-dropdown-menu-item').length).toBe(1);
     expect(wrapper.find('.bamboo-light').length).toBeTruthy();
   });
 });

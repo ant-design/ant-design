@@ -20,19 +20,23 @@ export default function Item({
   split,
   wrap,
 }: ItemProps) {
-  const { horizontalSize, verticalSize, latestIndex } = React.useContext(SpaceContext);
+  const { horizontalSize, verticalSize, latestIndex, supportFlexGap } = React.useContext(
+    SpaceContext,
+  );
 
   let style: React.CSSProperties = {};
 
-  if (direction === 'vertical') {
-    if (index < latestIndex) {
-      style = { marginBottom: horizontalSize / (split ? 2 : 1) };
+  if (!supportFlexGap) {
+    if (direction === 'vertical') {
+      if (index < latestIndex) {
+        style = { marginBottom: horizontalSize / (split ? 2 : 1) };
+      }
+    } else {
+      style = {
+        ...(index < latestIndex && { [marginDirection]: horizontalSize / (split ? 2 : 1) }),
+        ...(wrap && { paddingBottom: verticalSize }),
+      };
     }
-  } else {
-    style = {
-      ...(index < latestIndex && { [marginDirection]: horizontalSize / (split ? 2 : 1) }),
-      ...(wrap && { paddingBottom: verticalSize }),
-    };
   }
 
   if (children === null || children === undefined) {

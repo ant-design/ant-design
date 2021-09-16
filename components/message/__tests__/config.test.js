@@ -96,19 +96,20 @@ describe('message.config', () => {
   });
 
   it('should be able to global config rootPrefixCls', () => {
-    ConfigProvider.config({ prefixCls: 'prefix-test' });
+    ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
     message.info('last');
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-message-notice').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant' });
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
   });
   it('should be able to config prefixCls', () => {
     message.config({
       prefixCls: 'prefix-test',
     });
     message.info('last');
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
     message.config({
       prefixCls: '', // can be set to empty, ant default value is set in ConfigProvider
     });
@@ -119,7 +120,7 @@ describe('message.config', () => {
       transitionName: '',
     });
     message.info('last');
-    expect(document.querySelectorAll('.move-up-enter').length).toBe(0);
+    expect(document.querySelectorAll('.ant-move-up-enter')).toHaveLength(0);
     message.config({
       transitionName: 'ant-move-up',
     });
