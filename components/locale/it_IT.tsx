@@ -5,7 +5,7 @@ import Calendar from '../calendar/locale/it_IT';
 import { Locale } from '../locale-provider';
 
 /* eslint-disable no-template-curly-in-string */
-var typeTemplate = "Il valore del campo ${label} non è valido per il tipo: ${type}";
+const typeTemplate = "Il valore del campo ${label} non è valido per il tipo: ${type}";
 
 const localeValues: Locale = {
   locale: 'it',
@@ -45,7 +45,7 @@ const localeValues: Locale = {
     removeCurrent: 'Deseleziona la pagina corrente',
     selectAll: 'Seleziona tutto',
     removeAll: 'Deseleziona tutto',
-    selectInvert: 'Inverti selezione'
+    selectInvert: 'Inverti selezione',
   },
   Upload: {
     uploading: 'Caricamento...',
@@ -67,7 +67,7 @@ const localeValues: Locale = {
     expand: 'espandi',
   },
   PageHeader: {
-    back: 'Indietro'
+    back: 'Indietro',
   },
   Form: {
   optional: '(opzionale)',
@@ -79,7 +79,7 @@ const localeValues: Locale = {
     date: {
       format: "Il valore del campo ${label} non è nel formato corretto",
       parse: 'Il valore del campo ${label} non può essere convertito in data',
-      invalid: "Il valore del campo ${label} non è una data valida"
+      invalid: "Il valore del campo ${label} non è una data valida",
     },
     types: {
       string: typeTemplate,
@@ -94,34 +94,34 @@ const localeValues: Locale = {
       regexp: typeTemplate,
       email: typeTemplate,
       url: typeTemplate,
-      hex: typeTemplate
+      hex: typeTemplate,
     },
     string: {
       len: 'La lunghezza del campo ${label} deve essere di ${len} caratteri',
       min: 'La lunghezza del campo ${label} deve essere minimo ${min} caratteri',
       max: 'La lunghezza del campo ${label} deve essere massimo ${max} caratteri',
-      range: 'La lunghezza del campo ${label} deve essere fra ${min} e ${max} caratteri'
+      range: 'La lunghezza del campo ${label} deve essere fra ${min} e ${max} caratteri',
     },
     number: {
       len: 'Il valore del campo ${label} deve essere ${len}',
       min: 'Il valore del campo ${label} deve essere maggiore di ${min}',
       max: 'Il valore del campo ${label} deve essere minore di ${max}',
-      range: 'Il valore del campo ${label} deve essere compreso fra ${min} e ${max}'
+      range: 'Il valore del campo ${label} deve essere compreso fra ${min} e ${max}',
     },
     array: {
       len: 'La lunghezza della lista ${label} deve essere ${len}',
       min: 'La lunghezza della lista ${label} deve essere almeno ${min}',
       max: 'La lunghezza della lista ${label} deve essere al massimo ${max}',
-      range: 'La lunghezza della lista ${label} deve essere ${min}-${max}'
+      range: 'La lunghezza della lista ${label} deve essere ${min}-${max}',
     },
     pattern: {
-      mismatch: 'Il valore del campo ${label} non corrisponde al formato: ${pattern}'
-    }
-  }
+      mismatch: 'Il valore del campo ${label} non corrisponde al formato: ${pattern}',
+    },
+  },
 },
 Image: {
-  preview: 'Anteprima'
-}
+  preview: 'Anteprima',
+},
 };
 
 export default localeValues;
