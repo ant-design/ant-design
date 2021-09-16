@@ -112,7 +112,7 @@
     "array-tree-filter": "^2.1.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
-    "infra-design-icons": "^4.7.13",
+    "infra-design-icons": "^4.7.14",
     "lodash": "^4.17.21",
     "moment": "^2.25.3",
     "rc-cascader": "~1.4.0",
