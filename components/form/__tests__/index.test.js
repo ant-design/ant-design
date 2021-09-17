@@ -279,7 +279,7 @@ describe('Form', () => {
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
-        <Button onClick={() => { updateMessage(true) }}></Button>
+        <Button onClick={() => { updateMessage(true) }} />
       </Form>)
     }
 
