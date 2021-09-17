@@ -147,7 +147,7 @@
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base: hsv(0, 0, 85%); // base border outline a component
+@border-color-base: @infra-gray-5; // base border outline a component
 @border-color-split: hsv(0, 0, 94%); // split border inside a component
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
@@ -276,13 +276,14 @@
 @radio-size: 16px;
 @radio-top: 0.2em;
 @radio-border-width: 1px;
-@radio-dot-size: @radio-size - 8px;
+@radio-dot-size: @radio-size - 10px;
+@radio-dot-bg: #fff;
 @radio-dot-color: @primary-color;
 @radio-dot-disabled-color: fade(@black, 20%);
 @radio-solid-checked-color: @component-background;
 
 // Radio buttons
-@radio-button-bg: @btn-default-bg;
+@radio-button-bg: @primary-color;
 @radio-button-checked-bg: @btn-default-bg;
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
@@ -290,6 +291,7 @@
 @radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
+@radio-button-border-color: @infra-gray-5;
 
 // Media queries breakpoints
 // @screen-xs and @screen-xs-min is not used in Grid
@@ -442,7 +444,7 @@
 // Select
 // ---
 @select-border-color: @infra-gray-5;
-@select-item-selected-color: @text-color;
+@select-item-selected-color: @blue-base;
 @select-item-selected-font-weight: 500;
 @select-dropdown-bg: @component-background;
 @select-item-selected-bg: @primary-1;
@@ -453,10 +455,10 @@
 @select-dropdown-height: 32px;
 @select-background: @component-background;
 @select-clear-background: @select-background;
-@select-selection-item-bg: @background-color-base;
-@select-selection-item-border-color: @border-color-split;
+@select-selection-item-bg: @infra-gray-2;
+@select-selection-item-border-color: @infra-gray-5;
 @select-single-item-height-lg: 40px;
-@select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
+@select-multiple-item-height: 24px; // Normal 24px
 @select-multiple-item-height-lg: 32px;
 @select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
 @select-multiple-disabled-background: @input-disabled-bg;
@@ -793,7 +795,7 @@
 
 // Switch
 // ---
-@switch-height: 22px;
+@switch-height: 24px;
 @switch-sm-height: 16px;
 @switch-min-width: 44px;
 @switch-sm-min-width: 28px;

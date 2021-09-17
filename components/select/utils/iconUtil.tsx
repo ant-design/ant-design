@@ -1,10 +1,16 @@
 import * as React from 'react';
-import DownOutlined from '@ant-design/icons/DownOutlined';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import {
+  DownOutlined,
+  LoadingOutlined,
+  CheckOutlined,
+  CloseOutlined,
+  CloseCircleFilled,
+  SearchOutlined,
+  IArrowDown,
+  ISelector,
+  IClose,
+  ICloseFullfiled,
+} from 'infra-design-icons';
 
 export default function getIcons({
   suffixIcon,
@@ -26,7 +32,7 @@ export default function getIcons({
   // Clear Icon
   let mergedClearIcon = clearIcon;
   if (!clearIcon) {
-    mergedClearIcon = <CloseCircleFilled />;
+    mergedClearIcon = <ICloseFullfiled />;
   }
 
   // Arrow item icon
@@ -41,7 +47,7 @@ export default function getIcons({
       if (open && showSearch) {
         return <SearchOutlined className={iconCls} />;
       }
-      return <DownOutlined className={iconCls} />;
+      return <IArrowDown className={iconCls} />;
     };
   }
 
@@ -50,7 +56,7 @@ export default function getIcons({
   if (menuItemSelectedIcon !== undefined) {
     mergedItemIcon = menuItemSelectedIcon;
   } else if (multiple) {
-    mergedItemIcon = <CheckOutlined />;
+    mergedItemIcon = <ISelector />;
   } else {
     mergedItemIcon = null;
   }
@@ -59,7 +65,7 @@ export default function getIcons({
   if (removeIcon !== undefined) {
     mergedRemoveIcon = removeIcon;
   } else {
-    mergedRemoveIcon = <CloseOutlined />;
+    mergedRemoveIcon = <IClose />;
   }
 
   return {

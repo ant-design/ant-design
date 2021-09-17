@@ -86,7 +86,7 @@
       display: block;
       width: @radio-dot-size;
       height: @radio-dot-size;
-      background-color: @radio-dot-color;
+      background-color: @radio-dot-bg;
       border-top: 0;
       border-left: 0;
       border-radius: @radio-dot-size;
@@ -102,7 +102,6 @@
     display: block;
     width: @radio-size;
     height: @radio-size;
-    background-color: @radio-button-bg;
     border-color: @border-color-base;
     border-style: solid;
     border-width: @radio-border-width;
@@ -131,6 +130,9 @@
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
+  }
+  .@{radio-prefix-cls}-inner {
+    background-color: @radio-button-bg;
   }
 }
 
@@ -170,8 +172,8 @@ span.@{radio-prefix-cls} + * {
   color: @radio-button-color;
   font-size: @font-size-base;
   line-height: @btn-height-base - 2px;
-  background: @radio-button-bg;
-  border: @border-width-base @border-style-base @border-color-base;
+  // background: @radio-button-bg;
+  border: @border-width-base @border-style-base @radio-button-border-color;
   // strange align fix for chrome but works
   // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
   border-top-width: @border-width-base + 0.02px;
