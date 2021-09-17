@@ -15,6 +15,8 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   prefixCls?: string;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
+  customUpIcon?: React.ReactNode;
+  customDownIcon?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
 }
@@ -29,14 +31,24 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     prefixCls: customizePrefixCls,
     addonBefore,
     addonAfter,
+    customUpIcon,
+    customDownIcon,
     bordered = true,
     readOnly,
     ...others
   } = props;
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-  const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-  const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+  const upIcon = customUpIcon ? (
+    <span className={`${prefixCls}-handler-up-inner`}>{customUpIcon}</span>
+  ) : (
+    <UpOutlined className={`${prefixCls}-handler-up-inner`} />
+  );
+  const downIcon = customDownIcon ? (
+    <span className={`${prefixCls}-handler-up-inner`}>{customDownIcon}</span>
+  ) : (
+    <DownOutlined className={`${prefixCls}-handler-down-inner`} />
+  );
 
   const mergeSize = customizeSize || size;
   const inputNumberClass = classNames(
