@@ -126,7 +126,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       }
       if (errorElements.length) {
         topNode = errorElements.reduce((prev, current) =>
-          prev.compareDocumentPosition(current) === 2 ? current : prev;
+          prev.compareDocumentPosition(current) === 2 ? current : prev
         )
         wrapForm.scrollToNode(topNode, defaultScrollToFirstError);
       }
