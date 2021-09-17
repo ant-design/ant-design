@@ -15,7 +15,7 @@ Provide additional interactive capacity of editable and copyable.
 
 ```jsx
 import React, { useState } from 'react';
-import { Typography } from 'antd';
+import { Checkbox, Radio, Typography } from 'antd';
 import { HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
@@ -23,10 +23,33 @@ const { Paragraph } = Typography;
 const Demo = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
   const [customIconStr, setCustomIconStr] = useState('Custom Edit icon and replace tooltip text.');
+  const [clickTriggerStr, setClickTriggerStr] = useState(
+    'Text or icon as trigger - click to start editing.',
+  );
+  const [chooseTrigger, setChooseTrigger] = useState('icon');
   const [hideTooltipStr, setHideTooltipStr] = useState('Hide Edit tooltip.');
   const [lengthLimitedStr, setLengthLimitedStr] = useState(
     'This is an editable text with limited length.',
   );
+
+  const radioToState = input => {
+    switch (input) {
+      case 'text':
+        return ['text'];
+      case 'both':
+        return ['icon', 'text'];
+      case 'icon':
+      default:
+        return ['icon'];
+    }
+  };
+
+  const stateToRadio = () => {
+    if (chooseTrigger.indexOf('text') !== -1) {
+      return chooseTrigger.indexOf('icon') !== -1 ? 'both' : 'text';
+    }
+    return 'icon';
+  };
 
   return (
     <>
@@ -39,6 +62,24 @@ const Demo = () => {
         }}
       >
         {customIconStr}
+      </Paragraph>
+      Trigger edit with:{' '}
+      <Radio.Group
+        onChange={e => setChooseTrigger(radioToState(e.target.value))}
+        value={stateToRadio()}
+      >
+        <Radio value="icon">icon</Radio>
+        <Radio value="text">text</Radio>
+        <Radio value="both">both</Radio>
+      </Radio.Group>
+      <Paragraph
+        editable={{
+          tooltip: 'click to edit text',
+          onChange: setClickTriggerStr,
+          triggerType: chooseTrigger,
+        }}
+      >
+        {clickTriggerStr}
       </Paragraph>
       <Paragraph editable={{ tooltip: false, onChange: setHideTooltipStr }}>
         {hideTooltipStr}

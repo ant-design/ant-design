@@ -96,6 +96,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       onChange: function(string),
       onCancel: function,
       onEnd: function,
+      triggerType: ('icon' | 'text')[],
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -105,11 +106,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | icon | 自定义编辑图标 | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | 编辑中文本域最大长度 | number | - | 4.4.0 |
 | tooltip | 自定义提示文本，为 false 时关闭 | boolean \| ReactNode | `编辑` | 4.6.0 |
-| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
-| onChange | 文本域编辑时触发 | function(event) | - |  |
-| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | onStart | 进入编辑中状态时触发 | function | - |  |
-| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  | 
+| onChange | 文本域编辑时触发 | function(event) | - |  |
+| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
+| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
+| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 
 ### ellipsis
 
