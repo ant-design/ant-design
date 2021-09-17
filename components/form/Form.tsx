@@ -107,8 +107,9 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
     onFinishFailed?.(errorInfo);
 
-    let defaultScrollToFirstError: Options = { block: 'nearest' }, topNode: HTMLElement | null = null, errorElements: Array<HTMLElement> = [];
-    let namePath: Array<any> = [], fieldId: string | undefined = undefined, node: HTMLElement | null;
+    let defaultScrollToFirstError: Options = { block: 'nearest' }, topNode: HTMLElement | null = null,
+      namePath: Array<any> = [], fieldId: string | undefined, node: HTMLElement | null;
+    const errorElements: Array<HTMLElement> = [];
 
     if (scrollToFirstError && errorInfo.errorFields.length) {
       if (typeof scrollToFirstError === 'object') {
@@ -125,7 +126,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       }
       if (errorElements.length) {
         topNode = errorElements.reduce((prev, current) =>
-          prev.compareDocumentPosition(current) === 2 ? current : prev
+          prev.compareDocumentPosition(current) === 2 ? current : prev;
         )
         wrapForm.scrollToNode(topNode, defaultScrollToFirstError);
       }
