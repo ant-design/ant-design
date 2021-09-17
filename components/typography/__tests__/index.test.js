@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { SmileOutlined, LikeOutlined, HighlightOutlined } from '@ant-design/icons';
+import { SmileOutlined, LikeOutlined, HighlightOutlined, CheckOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
@@ -395,7 +395,7 @@ describe('Typography', () => {
     });
 
     describe('editable', () => {
-      function testStep({ name = '', icon, tooltip } = {}, submitFunc, expectFunc) {
+      function testStep({ name = '', icon, tooltip, enterIcon } = {}, submitFunc, expectFunc) {
         it(name, () => {
           jest.useFakeTimers();
           const onStart = jest.fn();
@@ -406,7 +406,7 @@ describe('Typography', () => {
 
           const wrapper = mount(
             <Paragraph
-              editable={{ onChange, onStart, icon, tooltip }}
+              editable={{ onChange, onStart, icon, tooltip, enterIcon }}
               className={className}
               style={style}
             >
@@ -444,6 +444,18 @@ describe('Typography', () => {
           wrapper.find('textarea').simulate('change', {
             target: { value: 'Bamboo' },
           });
+
+          if (enterIcon === undefined) {
+            expect(
+              wrapper.find('span.ant-typography-edit-content-confirm').first().props().className,
+            ).toContain('anticon-enter');
+          } else if (enterIcon === null) {
+            expect(wrapper.find('span.ant-typography-edit-content-confirm').length).toBe(0);
+          } else {
+            expect(
+              wrapper.find('span.ant-typography-edit-content-confirm').first().props().className,
+            ).not.toContain('anticon-enter');
+          }
 
           if (submitFunc) {
             submitFunc(wrapper);
@@ -492,6 +504,9 @@ describe('Typography', () => {
       testStep({ name: 'customize edit show tooltip', tooltip: true });
       testStep({ name: 'customize edit hide tooltip', tooltip: false });
       testStep({ name: 'customize edit tooltip text', tooltip: 'click to edit text' });
+      testStep({ name: 'enter icon - default', enterIcon: undefined });
+      testStep({ name: 'enter icon - null', enterIcon: null });
+      testStep({ name: 'enter icon - custom', enterIcon: <CheckOutlined /> });
 
       it('should trigger onEnd when type Enter', () => {
         const onEnd = jest.fn();
