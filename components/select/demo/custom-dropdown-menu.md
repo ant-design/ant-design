@@ -52,10 +52,15 @@ class App extends React.Component {
           <div>
             {menu}
             <Divider style={{ margin: '4px 0' }} />
-            <div style={{ display: 'flex', flexWrap: 'nowrap', padding: 8 }}>
-              <Input style={{ flex: 'auto' }} value={name} onChange={this.onNameChange} />
+            <div style={{ padding: 8 }}>
+              <Input
+                style={{ flex: 'auto', width: 120, display: 'inline-block' }}
+                size="small"
+                value={name}
+                onChange={this.onNameChange}
+              />
               <a
-                style={{ flex: 'none', padding: '8px', display: 'block', cursor: 'pointer' }}
+                style={{ padding: '8px', display: 'inline-block', cursor: 'pointer' }}
                 onClick={this.addItem}
               >
                 <PlusOutlined /> Add item

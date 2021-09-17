@@ -16,6 +16,7 @@ Nest dynamic field need extends `field`. Pass `field.name` and `field.fieldKey` 
 ```jsx
 import { Form, Input, Button, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { ITrash } from 'infra-design-icons';
 
 const Demo = () => {
   const onFinish = values => {
@@ -28,7 +29,7 @@ const Demo = () => {
         {(fields, { add, remove }) => (
           <>
             {fields.map(({ key, name, fieldKey, ...restField }) => (
-              <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
+              <Space key={key} style={{ display: 'flex' }} align="baseline">
                 <Form.Item
                   {...restField}
                   name={[name, 'first']}
@@ -45,7 +46,7 @@ const Demo = () => {
                 >
                   <Input placeholder="Last Name" />
                 </Form.Item>
-                <MinusCircleOutlined onClick={() => remove(name)} />
+                <Button shape="circle" icon={<ITrash />} onClick={() => remove(name)} />
               </Space>
             ))}
             <Form.Item>
