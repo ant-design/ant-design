@@ -15,7 +15,7 @@ jobs:
           filter-creator-authority: 'write'
           filter-head-ref: 'master, feature, master-merge-feature, feature-merge-master'
           filter-support-fork: false
-          skip-run-names: 'deploy preview, pr-check-ci, build preview failed'
+          skip-run-names: 'deploy preview, pr-check-ci, build preview failed, suggest-related-links'
           conflict-review-body: '😅 This branch has conflicts that must be resolved!'
           success-review: true
           success-merge: true
