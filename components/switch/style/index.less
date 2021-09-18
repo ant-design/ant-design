@@ -110,11 +110,11 @@
     position: relative;
     top: ((@switch-pin-size - @font-size-base) / 2);
     color: rgba(0, 0, 0, 0.65);
-    vertical-align: top;
   }
 
   &-checked &-loading-icon {
     color: @switch-color;
+    vertical-align: top;
   }
 
   // ========================== Size ==========================
@@ -136,6 +136,7 @@
     .@{switch-prefix-cls}-loading-icon {
       top: ((@switch-sm-pin-size - 9px) / 2);
       font-size: 9px;
+      vertical-align: top;
     }
 
     &.@{switch-prefix-cls}-checked {
