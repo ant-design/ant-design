@@ -23,6 +23,7 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
           aria-label="search"
           class="anticon anticon-search"
           role="img"
+          style="color:#999999"
         >
           <svg
             aria-hidden="true"
@@ -78,6 +79,7 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
           aria-label="search"
           class="anticon anticon-search"
           role="img"
+          style="color: rgb(153, 153, 153);"
         >
           <svg
             aria-hidden="true"
@@ -122,6 +124,7 @@ exports[`Input.Search should support addonAfter 1`] = `
           aria-label="search"
           class="anticon anticon-search"
           role="img"
+          style="color: rgb(153, 153, 153);"
         >
           <svg
             aria-hidden="true"
@@ -436,6 +439,7 @@ exports[`Input.Search should support invalid suffix 1`] = `
           aria-label="search"
           class="anticon anticon-search"
           role="img"
+          style="color: rgb(153, 153, 153);"
         >
           <svg
             aria-hidden="true"

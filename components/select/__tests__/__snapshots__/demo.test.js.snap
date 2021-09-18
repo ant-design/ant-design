@@ -89,21 +89,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -151,21 +151,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -271,21 +271,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -297,21 +297,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
+        aria-label="close-fullfiled"
+        class="anticon anticon-close-fullfiled"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="close-circle"
+          data-icon="close-fullfiled"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 6.3L5.88 5.16a.5.5 0 00-.77.64l.06.07L7.3 8l-2.12 2.12a.5.5 0 00.64.77l.07-.06L8 8.7l2.12 2.12a.5.5 0 00.77-.64l-.06-.07L8.7 8l2.12-2.12a.5.5 0 00-.64-.77l-.07.06L8 7.3 5.88 5.17 8 7.3z"
           />
         </svg>
       </span>
@@ -385,11 +385,11 @@ Array [
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                   />
                 </svg>
               </span>
@@ -489,21 +489,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -551,21 +551,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -616,21 +616,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -676,21 +676,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -701,7 +701,7 @@ Array [
 
 exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
   style="width:240px"
 >
   <div
@@ -714,6 +714,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
         aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
+        aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -732,6 +733,133 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
       custom dropdown render
     </span>
   </div>
+  <div>
+    <div
+      class="ant-select-dropdown"
+      style="opacity:0;pointer-events:none"
+    >
+      <div>
+        <div>
+          <div
+            id="undefined_list"
+            role="listbox"
+            style="height:0;width:0;overflow:hidden"
+          >
+            <div
+              aria-label="jack"
+              aria-selected="false"
+              id="undefined_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="lucy"
+              aria-selected="false"
+              id="undefined_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position:relative"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display:flex;flex-direction:column"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      jack
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select:none;-webkit-user-select:none"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select:none;-webkit-user-select:none"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-divider ant-divider-horizontal"
+            role="separator"
+            style="margin:4px 0"
+          />
+          <div
+            style="padding:8px"
+          >
+            <input
+              class="ant-input ant-input-sm"
+              style="flex:auto;width:120px;display:inline-block"
+              type="text"
+              value=""
+            />
+            <a
+              style="padding:8px;display:inline-block;cursor:pointer"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs />
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+               Add item
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <span
     aria-hidden="true"
     class="ant-select-arrow"
@@ -739,21 +867,21 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -878,21 +1006,21 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -946,21 +1074,21 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -1005,11 +1133,11 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                   />
                 </svg>
               </span>
@@ -1159,21 +1287,21 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -1222,11 +1350,11 @@ Array [
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                   />
                 </svg>
               </span>
@@ -1262,11 +1390,11 @@ Array [
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                   />
                 </svg>
               </span>
@@ -1313,21 +1441,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
+        aria-label="close-fullfiled"
+        class="anticon anticon-close-fullfiled"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="close-circle"
+          data-icon="close-fullfiled"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 6.3L5.88 5.16a.5.5 0 00-.77.64l.06.07L7.3 8l-2.12 2.12a.5.5 0 00.64.77l.07-.06L8 8.7l2.12 2.12a.5.5 0 00.77-.64l-.06-.07L8.7 8l2.12-2.12a.5.5 0 00-.64-.77l-.07.06L8 7.3 5.88 5.17 8 7.3z"
           />
         </svg>
       </span>
@@ -1452,21 +1580,21 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -1514,11 +1642,11 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                 />
               </svg>
             </span>
@@ -1735,21 +1863,21 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -1827,21 +1955,21 @@ exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -2007,21 +2135,21 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        aria-label="arrow-down"
+        class="anticon anticon-arrow-down ant-select-suffix"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="down"
+          data-icon="arrow-down"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
           />
         </svg>
       </span>
@@ -2067,11 +2195,11 @@ Array [
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                   />
                 </svg>
               </span>
@@ -2107,11 +2235,11 @@ Array [
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                   />
                 </svg>
               </span>
@@ -2192,11 +2320,11 @@ Array [
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                   />
                 </svg>
               </span>
@@ -2232,11 +2360,11 @@ Array [
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
                   />
                 </svg>
               </span>

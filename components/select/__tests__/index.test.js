@@ -88,10 +88,10 @@ describe('Select', () => {
         <Option value="1">1</Option>
       </Select>,
     );
-    expect(wrapper.find('.anticon-down').length).toBe(1);
+    expect(wrapper.find('.anticon-arrow-down').length).toBe(1);
     expect(wrapper.find('.anticon-search').length).toBe(0);
     wrapper.setProps({ open: true });
-    expect(wrapper.find('.anticon-down').length).toBe(0);
+    expect(wrapper.find('.anticon-arrow-down').length).toBe(0);
     expect(wrapper.find('.anticon-search').length).toBe(1);
   });
 
