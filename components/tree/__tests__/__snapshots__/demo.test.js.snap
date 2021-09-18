@@ -3144,6 +3144,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
             aria-label="search"
             class="anticon anticon-search"
             role="img"
+            style="color:#999999"
           >
             <svg
               aria-hidden="true"

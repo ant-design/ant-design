@@ -1433,21 +1433,21 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -1492,21 +1492,21 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -2372,21 +2372,21 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -2718,21 +2718,21 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -2777,21 +2777,21 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -3657,21 +3657,21 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -4003,21 +4003,21 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -4062,21 +4062,21 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -4942,21 +4942,21 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -5288,21 +5288,21 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -5347,21 +5347,21 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -6227,21 +6227,21 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -6573,21 +6573,21 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -6632,21 +6632,21 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -7512,21 +7512,21 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -7858,21 +7858,21 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -7917,21 +7917,21 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -8797,21 +8797,21 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -10866,11 +10866,11 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -10910,11 +10910,11 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -10954,11 +10954,11 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -10998,11 +10998,11 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider virtual 
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11042,11 +11042,11 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11086,11 +11086,11 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11130,11 +11130,11 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11174,11 +11174,11 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11218,11 +11218,11 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11262,11 +11262,11 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider virtual
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11306,11 +11306,11 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11350,11 +11350,11 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11437,11 +11437,11 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
           />
         </svg>
       </span>
@@ -11523,11 +11523,11 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
           />
         </svg>
       </span>
@@ -11609,11 +11609,11 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
           />
         </svg>
       </span>
@@ -11695,11 +11695,11 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider virtual
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
           />
         </svg>
       </span>
@@ -11781,11 +11781,11 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
           />
         </svg>
       </span>
@@ -11867,11 +11867,11 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
           />
         </svg>
       </span>
@@ -11910,11 +11910,11 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11954,11 +11954,11 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -11998,11 +11998,11 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -12042,11 +12042,11 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider virtual 
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -12086,11 +12086,11 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -12130,11 +12130,11 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M11.52 1c.27 0 .5.22.5.5V2H14a1 1 0 011 1v11a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2v-.5a.5.5 0 011 0V2h6.02v-.5c0-.28.22-.5.5-.5zM14 6H2v8h12V6zm-2.5 5a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm6-3a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zm-3 0a.5.5 0 010 1h-1a.5.5 0 010-1h1zM4 3H2v2h12V3h-1.98v.5a.5.5 0 01-1 0V3H4.99v.5a.5.5 0 01-1 0V3z"
             />
           </svg>
         </span>
@@ -13550,6 +13550,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
               aria-label="search"
               class="anticon anticon-search"
               role="img"
+              style="color:#999999"
             >
               <svg
                 aria-hidden="true"
@@ -13645,6 +13646,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
               aria-label="search"
               class="anticon anticon-search"
               role="img"
+              style="color:#999999"
             >
               <svg
                 aria-hidden="true"
@@ -13740,6 +13742,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
               aria-label="search"
               class="anticon anticon-search"
               role="img"
+              style="color:#999999"
             >
               <svg
                 aria-hidden="true"
@@ -13835,6 +13838,7 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
               aria-label="search"
               class="anticon anticon-search"
               role="img"
+              style="color:#999999"
             >
               <svg
                 aria-hidden="true"
@@ -13930,6 +13934,7 @@ exports[`ConfigProvider components Input normal 1`] = `
               aria-label="search"
               class="anticon anticon-search"
               role="img"
+              style="color:#999999"
             >
               <svg
                 aria-hidden="true"
@@ -14025,6 +14030,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
               aria-label="search"
               class="anticon anticon-search"
               role="img"
+              style="color:#999999"
             >
               <svg
                 aria-hidden="true"
@@ -16253,21 +16259,21 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -16405,21 +16411,21 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -16562,21 +16568,21 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -16714,21 +16720,21 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -16871,21 +16877,21 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -17023,21 +17029,21 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down config-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -17180,21 +17186,21 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -17332,21 +17338,21 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -17489,21 +17495,21 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -17641,21 +17647,21 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -17798,21 +17804,21 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -17950,21 +17956,21 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            aria-label="arrow-down"
+            class="anticon anticon-arrow-down ant-select-suffix"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="arrow-down"
               fill="currentColor"
               focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
+              viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
               />
             </svg>
           </span>
@@ -21053,21 +21059,21 @@ exports[`ConfigProvider components Select configProvider 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -21180,21 +21186,21 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -21307,21 +21313,21 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -21434,21 +21440,21 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -21561,21 +21567,21 @@ exports[`ConfigProvider components Select normal 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -21688,21 +21694,21 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down prefix-Select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down prefix-Select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -36535,21 +36541,21 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -36670,21 +36676,21 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -36805,21 +36811,21 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -36940,21 +36946,21 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -37075,21 +37081,21 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
@@ -37210,21 +37216,21 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="down"
-      class="anticon anticon-down prefix-TreeSelect-suffix"
+      aria-label="arrow-down"
+      class="anticon anticon-arrow-down prefix-TreeSelect-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="down"
+        data-icon="arrow-down"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
         />
       </svg>
     </span>
