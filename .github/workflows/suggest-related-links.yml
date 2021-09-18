@@ -10,7 +10,7 @@ on:
     - cron: '13 13 * * */7'
 
 jobs:
-  action:
+  suggest-related-links:
     runs-on: ubuntu-18.04
     steps:
       - name: Cache dependencies
