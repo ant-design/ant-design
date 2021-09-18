@@ -13,7 +13,7 @@
   width: 90px;
   margin: 0;
   padding: 0;
-  border: @border-width-base @border-style-base @border-color-base;
+  border: @border-width-base @border-style-base @infra-gray-5;
   border-radius: @border-radius-base;
 
   &-handler {
@@ -66,6 +66,8 @@
   &-disabled {
     .disabled();
     .@{input-number-prefix-cls}-input {
+      font-weight: 400;
+      background-color: @infra-gray-3;
       cursor: not-allowed;
     }
     .@{input-number-prefix-cls}-handler-wrap {

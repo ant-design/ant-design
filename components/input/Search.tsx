@@ -70,7 +70,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
 
   const searchIcon =
     typeof enterButton === 'boolean' ? (
-      <SearchOutlined />
+      <SearchOutlined style={{ color: enterButton ? '' : '#999999' }} />
     ) : null;
   const btnClassName = `${prefixCls}-button`;
 

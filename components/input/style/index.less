@@ -25,6 +25,7 @@
 
   &-password-icon {
     color: @text-color-secondary;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -54,6 +55,10 @@
       content: attr(data-count);
       pointer-events: none;
     }
+  }
+
+  &::placeholder {
+    font-weight: 400;
   }
 }
 

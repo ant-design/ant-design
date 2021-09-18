@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
+import { ICalendar } from 'infra-design-icons';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import RCPicker from 'rc-picker';
@@ -101,9 +101,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                 <RCPicker<DateType>
                   ref={this.pickerRef}
                   placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
-                  suffixIcon={
-                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
-                  }
+                  suffixIcon={mergedPicker === 'time' ? <ClockCircleOutlined /> : <ICalendar />}
                   clearIcon={<CloseCircleFilled />}
                   allowClear
                   transitionName={`${rootPrefixCls}-slide-up`}

@@ -31,5 +31,13 @@
     .@{form-item-prefix-cls}-has-feedback {
       display: inline-block;
     }
+
+    .@{form-item-prefix-cls}-label {
+      > label {
+        &::after {
+          margin: 0 4px 0 4px;
+        }
+      }
+    }
   }
 }

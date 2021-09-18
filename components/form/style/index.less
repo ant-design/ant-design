@@ -62,10 +62,6 @@
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
 
-  &-with-help {
-    margin-bottom: 0;
-  }
-
   &-hidden,
   &-hidden.@{ant-prefix}-row {
     // https://github.com/ant-design/ant-design/issues/26141
@@ -93,7 +89,7 @@
       display: inline-flex;
       align-items: center;
       height: @form-item-label-height;
-      color: @label-color;
+      color: @infra-gray-10;
       font-size: @form-item-label-font-size;
 
       > .@{iconfont-css-prefix} {
@@ -137,7 +133,7 @@
 
       &::after {
         & when (@form-item-trailing-colon=true) {
-          content: ':';
+          content: ' ';
         }
         & when not (@form-item-trailing-colon=true) {
           content: ' ';
@@ -145,7 +141,7 @@
 
         position: relative;
         top: -0.5px;
-        margin: 0 @form-item-label-colon-margin-right 0 @form-item-label-colon-margin-left;
+        margin: 0 @form-item-label-colon-margin-right 0 @form-item-label-colon-margin-right;
       }
 
       &.@{form-item-prefix-cls}-no-colon::after {
@@ -183,9 +179,10 @@
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
+    margin-top: 4px;
     color: @text-color-secondary;
-    font-size: @font-size-base;
-    line-height: @line-height-base;
+    font-size: @font-size-sm;
+    line-height: 14px;
     transition: color 0.3s @ease-out; // sync input color transition
     .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
   }

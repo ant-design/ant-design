@@ -6,6 +6,7 @@ import omit from 'rc-util/lib/omit';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import { UpOutlined } from 'infra-design-icons';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -615,7 +616,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             }),
           );
         } else {
-          inputIcon = <DownOutlined className={arrowCls} />;
+          inputIcon = inputFocused ? (
+            <UpOutlined className={arrowCls} />
+          ) : (
+            <DownOutlined className={arrowCls} />
+          );
         }
 
         const input: React.ReactElement = children || (

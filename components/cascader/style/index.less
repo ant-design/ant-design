@@ -195,7 +195,7 @@
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
-      background: @item-hover-bg;
+      background: @infra-gray-2;
     }
     &-disabled {
       color: @disabled-color;
@@ -210,10 +210,10 @@
       pointer-events: none;
     }
     &-active:not(&-disabled) {
+      color: @primary-color;
       &,
       &:hover {
         font-weight: @select-item-selected-font-weight;
-        background-color: @cascader-item-selected-bg;
       }
     }
     &-expand {

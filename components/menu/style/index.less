@@ -195,6 +195,12 @@
   &-horizontal &-item,
   &-horizontal &-submenu-title {
     transition: border-color @animation-duration-slow, background @animation-duration-slow;
+    .@{menu-prefix-cls}-item-icon,
+    .@{iconfont-css-prefix} {
+      + span {
+        margin-left: 4px;
+      }
+    }
   }
 
   &-item,
@@ -215,7 +221,7 @@
       transition: font-size @menu-animation-duration-normal @ease-out,
         margin @animation-duration-slow @ease-in-out, color @animation-duration-slow;
       + span {
-        margin-left: @menu-icon-margin-right;
+        margin-left: 9px;
         opacity: 1;
         transition: opacity @animation-duration-slow @ease-in-out, margin @animation-duration-slow,
           color @animation-duration-slow;
@@ -395,9 +401,9 @@
 
       &::after {
         position: absolute;
-        right: @menu-item-padding-horizontal;
+        right: 0;
         bottom: 0;
-        left: @menu-item-padding-horizontal;
+        left: 0;
         border-bottom: 3px solid transparent;
         transition: border-color @animation-duration-slow @ease-in-out;
         content: '';

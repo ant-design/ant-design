@@ -3,19 +3,23 @@
 
 @steps-prefix-cls: ~'@{ant-prefix}-steps';
 @process-icon-color: @primary-color;
-@process-title-color: @heading-color;
+@process-title-color: @infra-gray-10;
+@process-title-weight: 500;
 @process-description-color: @text-color;
 @process-icon-text-color: @text-color-inverse;
 @wait-icon-color: @disabled-color;
-@wait-title-color: @text-color-secondary;
+@wait-title-color: @infra-gray-6;
+@wait-title-weight: 400;
 @wait-description-color: @wait-title-color;
 @wait-tail-color: @process-tail-color;
 @finish-icon-color: @process-icon-color;
 @finish-title-color: @text-color;
-@finish-description-color: @text-color-secondary;
+@finish-title-weight: 400;
+@finish-description-color: @infra-gray-10;
 @finish-tail-color: @primary-color;
 @error-icon-color: @error-color;
 @error-title-color: @error-color;
+@error-title-weight: 400;
 @error-description-color: @error-color;
 @error-tail-color: @wait-tail-color;
 @steps-nav-active-color: @primary-color;
@@ -212,6 +216,7 @@
   @title-color: '@{status}-title-color';
   @description-color: '@{status}-description-color';
   @tail-color: '@{status}-tail-color';
+  @title-weight: '@{status}-title-weight';
   &-@{status} &-icon {
     background-color: @steps-background;
     border-color: @@icon-color;
@@ -224,6 +229,7 @@
   }
   &-@{status} > &-container > &-content > &-title {
     color: @@title-color;
+    font-weight: @@title-weight;
     &::after {
       background-color: @@tail-color;
     }
