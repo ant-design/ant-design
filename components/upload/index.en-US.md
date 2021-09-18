@@ -113,4 +113,4 @@ See <https://github.com/react-component/upload#customrequest>.
 
 ### Why sometime `onChange` return File object and sometime return { originFileObj: File }?
 
-For compatible case, we return File object when `beforeUpload` return `false`. It will merge to `{ originFileObj: File }` in next major version. Current version is compatible to get origin file by `info.file.originFileObj`. You can change this before major release.
+For compatible case, we return File objt when `beforeUpload` return `false`. It will merge to `{ originFileObj: File }` in next major version. Current version is compatible to get origin file by `info.file.originFileObj`. You can change this before major release.
