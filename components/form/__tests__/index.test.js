@@ -873,4 +873,61 @@ describe('Form', () => {
       expect(tooltipProps.title).toEqual('Bamboo');
     });
   });
+
+  it('warningOnly validate', async () => {
+    jest.useFakeTimers();
+
+    const wrapper = mount(
+      <Form>
+        <Form.Item>
+          <Form.Item name="test" rules={[{ required: true, warningOnly: true }]}>
+            <Input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await change(wrapper, 0, '', true);
+    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
+    expect(wrapper.find('.ant-form-item-has-warning').length).toBeTruthy();
+
+    jest.useRealTimers();
+  });
+
+  it('not warning when remove on validate', async () => {
+    jest.useFakeTimers();
+    let rejectFn = null;
+
+    const wrapper = mount(
+      <Form>
+        <Form.Item>
+          <Form.Item
+            noStyle
+            name="test"
+            rules={[
+              {
+                validator: () =>
+                  new Promise((_, reject) => {
+                    rejectFn = reject;
+                  }),
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await change(wrapper, 0, '', true);
+
+    wrapper.unmount();
+
+    // Delay validate failed
+    rejectFn(new Error('delay failed'));
+
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    jest.useRealTimers();
+  });
 });
