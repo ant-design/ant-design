@@ -52,10 +52,10 @@ class InternalMenu extends React.Component<InternalMenuProps> {
 
   getInlineCollapsed() {
     const { inlineCollapsed, siderCollapsed } = this.props;
-    if (siderCollapsed !== undefined) {
-      return siderCollapsed;
+    if (inlineCollapsed !== undefined) {
+      return inlineCollapsed;
     }
-    return inlineCollapsed;
+    return siderCollapsed;
   }
 
   renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
