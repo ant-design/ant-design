@@ -7,7 +7,7 @@ on:
     types: [labeled]
 
 jobs:
-  issue-laneled:
+  issue-labeled:
     runs-on: ubuntu-latest
     steps:
       - name: help wanted
