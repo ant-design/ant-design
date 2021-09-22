@@ -27,6 +27,12 @@ const Demo = () => {
     'Text or icon as trigger - click to start editing.',
   );
   const [chooseTrigger, setChooseTrigger] = useState('icon');
+  const [customEnterIconStr, setCustomEnterIconStr] = useState(
+    'Editable text with a custom enter icon in edit field.',
+  );
+  const [noEnterIconStr, setNoEnterIconStr] = useState(
+    'Editable text with no enter icon in edit field.',
+  );
   const [hideTooltipStr, setHideTooltipStr] = useState('Hide Edit tooltip.');
   const [lengthLimitedStr, setLengthLimitedStr] = useState(
     'This is an editable text with limited length.',
@@ -80,6 +86,25 @@ const Demo = () => {
         }}
       >
         {clickTriggerStr}
+      <Paragraph
+        editable={{
+          icon: <HighlightOutlined />,
+          tooltip: 'click to edit text',
+          onChange: setCustomEnterIconStr,
+          enterIcon: <CheckOutlined />,
+        }}
+      >
+        {customEnterIconStr}
+      </Paragraph>
+      <Paragraph
+        editable={{
+          icon: <HighlightOutlined />,
+          tooltip: 'click to edit text',
+          onChange: setNoEnterIconStr,
+          enterIcon: null,
+        }}
+      >
+        {noEnterIconStr}
       </Paragraph>
       <Paragraph editable={{ tooltip: false, onChange: setHideTooltipStr }}>
         {hideTooltipStr}

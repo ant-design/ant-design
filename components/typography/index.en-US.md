@@ -96,6 +96,7 @@ Basic text writing, including headings, body text, lists, and more.
       onCancel: function,
       onEnd: function,
       triggerType: ('icon' | 'text')[],
+      enterIcon: ReactNode,
     }
 
 | Property | Description | Type | Default | Version |
@@ -110,6 +111,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onCancel | Called when type ESC to exit editable state | function | - |  |
 | onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
 | triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
 ### ellipsis
 

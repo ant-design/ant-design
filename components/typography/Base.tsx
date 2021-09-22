@@ -42,6 +42,7 @@ interface EditConfig {
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
   triggerType?: ('icon' | 'text')[];
+  enterIcon?: React.ReactNode;
 }
 
 export interface EllipsisConfig {
@@ -428,7 +429,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
-    const { maxLength, autoSize, onEnd } = this.getEditable();
+    const { maxLength, autoSize, onEnd, enterIcon } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
@@ -441,6 +442,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         direction={direction}
         maxLength={maxLength}
         autoSize={autoSize}
+        enterIcon={enterIcon}
       />
     );
   }
