@@ -51,7 +51,7 @@ class App extends React.Component {
         dropdownRender={menu => (
           <div>
             {menu}
-            <Divider style={{ margin: '4px 0' }} />
+            <Divider style={{ margin: '0 0 4px 0' }} />
             <div style={{ padding: 8 }}>
               <Input
                 style={{ flex: 'auto', width: 120, display: 'inline-block' }}
