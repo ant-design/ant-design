@@ -1,7 +1,9 @@
+name: Automatic Rebase
+
 on: 
   issue_comment:
     types: [created]
-name: Automatic Rebase
+
 jobs:
   rebase:
     name: Rebase
