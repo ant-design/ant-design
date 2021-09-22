@@ -194,8 +194,10 @@
   }
 
   &&-background-ghost {
-    color: @btn-default-ghost-color;
-    border-color: @btn-default-ghost-border;
+    &:not([disabled]) {
+      color: @btn-default-ghost-color;
+      border-color: @btn-default-ghost-border;
+    }
     &,
     &:hover,
     &:active,
