@@ -16,7 +16,7 @@ Provide additional interactive capacity of editable and copyable.
 ```jsx
 import React, { useState } from 'react';
 import { Checkbox, Radio, Typography } from 'antd';
-import { HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
+import { CheckOutlined, HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
@@ -86,6 +86,7 @@ const Demo = () => {
         }}
       >
         {clickTriggerStr}
+      </Paragraph>
       <Paragraph
         editable={{
           icon: <HighlightOutlined />,
