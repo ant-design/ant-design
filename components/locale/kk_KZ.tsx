@@ -19,7 +19,7 @@ const localeValues: Locale = {
   },
   Table: {
     filterTitle: 'Фильтр',
-    filterConfirm: 'Ok',
+    filterConfirm: 'OK',
     filterReset: 'Тазарту',
     filterEmptyText: 'Фильтр жоқ',
     emptyText: 'Деректер жоқ',

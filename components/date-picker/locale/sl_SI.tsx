@@ -10,7 +10,7 @@ const locale: PickerLocale = {
     today: 'Danes',
     now: 'Trenutno',
     backToToday: 'Nazaj na trenutni datum',
-    ok: 'Ok',
+    ok: 'OK',
     clear: 'Počisti',
     month: 'Mesec',
     year: 'Leto',
