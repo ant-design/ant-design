@@ -24,8 +24,6 @@
   width: 90px;
   margin: 0;
   padding: 0;
-  border: @border-width-base @border-style-base @border-color-base;
-  border-radius: @border-radius-base;
 
   &-handler {
     position: relative;
@@ -97,7 +95,7 @@
     text-align: left;
     background-color: transparent;
     border: 0;
-    border-radius: @border-radius-base;
+    border-radius: 0;
     outline: 0;
     transition: all 0.3s linear;
     -moz-appearance: textfield !important;
@@ -135,7 +133,7 @@
     width: 22px;
     height: 100%;
     background: @input-number-handler-bg;
-    border-radius: 0 @border-radius-base @border-radius-base 0;
+    border-radius: 0 @input-border-radius-base @input-border-radius-base 0;
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
 
@@ -166,7 +164,7 @@
   }
 
   &-handler-up {
-    border-top-right-radius: @border-radius-base;
+    border-top-right-radius: @input-border-radius-base;
     cursor: pointer;
     &-inner {
       top: 50%;
@@ -181,7 +179,7 @@
   &-handler-down {
     top: 0;
     border-top: @border-width-base @border-style-base @border-color-base;
-    border-bottom-right-radius: @border-radius-base;
+    border-bottom-right-radius: @input-border-radius-base;
     cursor: pointer;
     &-inner {
       top: 50%;

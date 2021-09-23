@@ -22,7 +22,7 @@
   align-items: center;
   background: @picker-bg;
   border: @border-width-base @border-style-base @select-border-color;
-  border-radius: @border-radius-base;
+  border-radius: @select-border-radius-base;
   transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
 
   &:hover,
@@ -69,6 +69,7 @@
       background: transparent;
 
       border: 0;
+      border-radius: 0;
 
       &:focus {
         box-shadow: none;

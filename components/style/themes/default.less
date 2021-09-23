@@ -440,6 +440,7 @@
 @input-color: @text-color;
 @input-icon-color: @input-color;
 @input-border-color: @border-color-base;
+@input-border-radius-base: @border-radius-base;
 @input-bg: @component-background;
 @input-number-hover-border-color: @input-hover-border-color;
 @input-number-handler-active-bg: #f4f4f4;
@@ -460,7 +461,8 @@
 
 // Select
 // ---
-@select-border-color: @border-color-base;
+@select-border-color: @input-border-color;
+@select-border-radius-base: @input-border-radius-base;
 @select-item-selected-color: @text-color;
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
