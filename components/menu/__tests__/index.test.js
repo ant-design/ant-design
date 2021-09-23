@@ -6,10 +6,13 @@ import {
   AppstoreOutlined,
   PieChartOutlined,
   UserOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
 } from '@ant-design/icons';
 import { act } from 'react-dom/test-utils';
 import Menu from '..';
 import Layout from '../../layout';
+import Button from '../../button';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -613,6 +616,60 @@ describe('Menu', () => {
     wrapper.find(Menu).simulate('mouseenter');
     expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-inline')).toBe(false);
     expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-vertical')).toBe(true);
+  });
+
+  it('should controlled collapse work when using with Layout.Sider', () => {
+    class Demo extends React.Component {
+      state = {
+        collapsed: false,
+      };
+
+      toggleCollapsed = () => {
+        this.setState(prev => ({ ...prev, collapsed: !prev.collapsed }));
+      };
+
+      render() {
+        const { collapsed } = this.state;
+        return (
+          <Layout style={{ minHeight: '100vh' }}>
+            <Layout.Sider collapsed={false}>
+              <Button type="primary" onClick={this.toggleCollapsed}>
+                {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              </Button>
+              <Menu
+                theme="dark"
+                inlineCollapsed={collapsed}
+                defaultSelectedKeys={['1']}
+                mode="inline"
+              >
+                <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+                  <Menu.Item key="3">Tom</Menu.Item>
+                  <Menu.Item key="4">Bill</Menu.Item>
+                  <Menu.Item key="5">Alex</Menu.Item>
+                </SubMenu>
+              </Menu>
+            </Layout.Sider>
+          </Layout>
+        );
+      }
+    }
+
+    const wrapper = mount(<Demo />);
+    expect(wrapper.find(Menu).at(0).getDOMNode().classList.contains('ant-menu-inline')).toBe(true);
+
+    wrapper.find(Button).simulate('click');
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
+    expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-inline-collapsed')).toBe(
+      true,
+    );
+
+    wrapper.find(Button).simulate('click');
+    expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-inline-collapsed')).toBe(
+      false,
+    );
   });
 
   it('onMouseEnter should work', () => {
