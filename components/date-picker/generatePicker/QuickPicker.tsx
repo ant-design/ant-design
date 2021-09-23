@@ -145,7 +145,9 @@ export function QuickPicker(props: IQuickPickerProps) {
                   onSelect={handleOnSelect}
                 />
               ))}
-              <div className={`${prefixCls}-quick-left-panel-divider`} />
+              {quickList.length > 0 ? (
+                <div className={`${prefixCls}-quick-left-panel-divider`} />
+              ) : null}
               {quickList.map(v => (
                 <SelectItem
                   key={v.id}
@@ -157,10 +159,7 @@ export function QuickPicker(props: IQuickPickerProps) {
                 />
               ))}
             </div>
-            <div
-              className={`${prefixCls}-quick-right-panel`}
-              style={{ flex: 1, borderLeft: '1px solid #e8e8e8' }}
-            >
+            <div className={`${prefixCls}-quick-right-panel`}>
               {curSelect?.type === SelectItemType.choose ? (
                 defaultPanel
               ) : (
