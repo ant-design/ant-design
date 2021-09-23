@@ -167,6 +167,15 @@ Added in `4.1.0`.
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
 
+### QuickPicker
+
+Added in `4.16.15`。
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| hookRelativeList | Hook of relative date list | function(list: QuickListItem[]): QuickListItem[] | undefined | v4.16.15 |
+| hookRelativeList | Hook of specific date list | function(list: QuickListItem[]): QuickListItem[] | undefined | v4.16.15 |
+
 ## FAQ
 
 ### When set mode to DatePicker/RangePicker, cannot select year or month anymore?
