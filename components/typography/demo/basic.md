@@ -31,7 +31,7 @@ ReactDOM.render(
     </Paragraph>
     <Paragraph>
       After massive project practice and summaries, Ant Design, a design language for background
-      applications, is refined by Ant UED Team, which aims to
+      applications, is refined by Ant UED Team, which aims to&nbsp;
       <Text strong>
         uniform the user interface specs for internal background projects, lower the unnecessary
         cost of design differences and implementation and liberate the resources of design and
