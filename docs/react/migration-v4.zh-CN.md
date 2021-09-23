@@ -35,6 +35,7 @@ title: 从 v3 到 v4
 - IE 最低支持版本为 IE 11。
 - React 最低支持版本为 React 16.9，部分组件开始使用 hooks 进行重构。
   - 重构通过 `useMemo` 进行性能优化，请勿使用 mutable data 作为参数。
+- 最低支持的 less 版本为 3.1.0，建议升级到 less 4.x 最新版本。
 
 #### 移除废弃的 API
 
@@ -140,7 +141,9 @@ const Demo = () => (
 - Table 重写
   - 在没有 `columns` 时仍然会保留一列。
   - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
-- Pagination 自 `4.1.0` 起大于 50 条数据默认会展示 `pageSize` 切换器，这条规则同样会运用于 Table 上。
+- Pagination 重写
+  - 自 `4.1.0` 起大于 50 条数据默认会展示 `pageSize` 切换器，这条规则同样会运用于 Table 上。
+  - `onChange` 方法在 `pageSize` 值改变时也会触发。
 - Tabs 重写（[4.3.0](https://github.com/ant-design/ant-design/pull/24552)）
   - Dom 结构变化，如有覆盖样式需要仔细检查。
   - 横向滚动交互变化，`onPrevClick` 和 `onNextClick` 不再工作。
@@ -311,8 +314,6 @@ antd4-codemod src
    },
  });
 ```
-
-
 
 ## 遇到问题
 

@@ -22,7 +22,7 @@ export interface BadgeProps {
   showZero?: boolean;
   /** Max count to show */
   overflowCount?: number;
-  /** whether to show red dot without number */
+  /** Whether to show red dot without number */
   dot?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -58,16 +58,16 @@ const Badge: CompoundedComponent = ({
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
   // ================================ Misc ================================
-  const numberedDisplayCount = ((count as number) > (overflowCount as number)
-    ? `${overflowCount}+`
-    : count) as string | number | null;
+  const numberedDisplayCount = (
+    (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
+  ) as string | number | null;
 
   const hasStatus =
     (status !== null && status !== undefined) || (color !== null && color !== undefined);
 
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
 
-  const showAsDot = (dot && !isZero) || hasStatus;
+  const showAsDot = dot && !isZero;
 
   const mergedCount = showAsDot ? '' : numberedDisplayCount;
 
@@ -75,6 +75,13 @@ const Badge: CompoundedComponent = ({
     const isEmpty = mergedCount === null || mergedCount === undefined || mergedCount === '';
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
   }, [mergedCount, isZero, showZero, showAsDot]);
+
+  // Count should be cache in case hidden change it
+  const countRef = useRef(count);
+  if (!isHidden) {
+    countRef.current = count;
+  }
+  const livingCount = countRef.current;
 
   // We need cache count since remove motion should not change count display
   const displayCountRef = useRef(mergedCount);
@@ -111,7 +118,8 @@ const Badge: CompoundedComponent = ({
   // =============================== Render ===============================
   // >>> Title
   const titleNode =
-    title ?? (typeof count === 'string' || typeof count === 'number' ? count : undefined);
+    title ??
+    (typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined);
 
   // >>> Status Text
   const statusTextNode =
@@ -119,9 +127,9 @@ const Badge: CompoundedComponent = ({
 
   // >>> Display Component
   const displayNode =
-    !count || typeof count !== 'object'
+    !livingCount || typeof livingCount !== 'object'
       ? undefined
-      : cloneElement(count, oriProps => ({
+      : cloneElement(livingCount, oriProps => ({
           style: {
             ...mergedStyle,
             ...oriProps.style,
@@ -181,7 +189,7 @@ const Badge: CompoundedComponent = ({
             [`${prefixCls}-count`]: !isDot,
             [`${prefixCls}-count-sm`]: size === 'small',
             [`${prefixCls}-multiple-words`]:
-              !isDot && displayCount && displayCount?.toString().length > 1,
+              !isDot && displayCount && displayCount.toString().length > 1,
             [`${prefixCls}-status-${status}`]: !!status,
             [`${prefixCls}-status-${color}`]: isPresetColor(color),
           });
@@ -196,7 +204,8 @@ const Badge: CompoundedComponent = ({
             <ScrollNumber
               prefixCls={scrollNumberPrefixCls}
               show={!isHidden}
-              className={classNames(motionClassName, scrollNumberCls)}
+              motionClassName={motionClassName}
+              className={scrollNumberCls}
               count={displayCount}
               title={titleNode}
               style={scrollNumberStyle}

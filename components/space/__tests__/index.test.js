@@ -4,9 +4,11 @@ import { act } from 'react-test-renderer';
 import Space from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Space', () => {
   mountTest(Space);
+  rtlTest(Space);
 
   it('should render width empty children', () => {
     const wrapper = mount(<Space />);
@@ -35,6 +37,27 @@ describe('Space', () => {
     expect(render(wrapper)).toMatchSnapshot();
   });
 
+  it('should render width rtl', () => {
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Space>
+          <span>1</span>
+          <span>2</span>
+        </Space>
+        <Space size="middle">
+          <span>1</span>
+          <span>2</span>
+        </Space>
+        <Space size="large">
+          <span>1</span>
+          <span>2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+
+    expect(render(wrapper)).toMatchSnapshot();
+  });
+
   it('should render width customize size', () => {
     const wrapper = mount(
       <Space size={10}>
@@ -45,6 +68,17 @@ describe('Space', () => {
 
     expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginRight).toBe(10);
     expect(wrapper.find('div.ant-space-item').at(1).prop('style').marginRight).toBeUndefined();
+  });
+
+  it('should render width size 0', () => {
+    const wrapper = mount(
+      <Space size={NaN}>
+        <span>1</span>
+        <span>2</span>
+      </Space>,
+    );
+
+    expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginRight).toBe(0);
   });
 
   it('should render vertical space width customize size', () => {

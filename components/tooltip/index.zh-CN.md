@@ -16,9 +16,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 提示文字 | ReactNode \| () => ReactNode | - |
+| 参数  | 说明     | 类型                         | 默认值 |
+| ----- | -------- | ---------------------------- | ------ |
+| title | 提示文字 | ReactNode \| () => ReactNode | -      |
 
 ### 共同的 API
 
@@ -37,9 +37,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 | mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  |
 | overlayClassName | 卡片类名 | string | - |  |
 | overlayStyle | 卡片样式 | object | - |  |
+| overlayInnerStyle | 卡片内容区域的样式对象 | object | - |  |
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string\[] | `hover` |  |
 | visible | 用于手动控制浮层显隐 | boolean | false |  |
+| zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
 | onVisibleChange | 显示隐藏的回调 | (visible) => void | - |  |
 
 ## 注意

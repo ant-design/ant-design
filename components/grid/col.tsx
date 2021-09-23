@@ -47,7 +47,7 @@ function parseFlex(flex: FlexType): string {
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { gutter, wrap } = React.useContext(RowContext);
+  const { gutter, wrap, supportFlexGap } = React.useContext(RowContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -102,36 +102,33 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     sizeClassObj,
   );
 
-  let mergedStyle: React.CSSProperties = { ...style };
-  if (gutter) {
-    mergedStyle = {
-      ...(gutter[0]! > 0
-        ? {
-            paddingLeft: gutter[0]! / 2,
-            paddingRight: gutter[0]! / 2,
-          }
-        : {}),
-      ...(gutter[1]! > 0
-        ? {
-            paddingTop: gutter[1]! / 2,
-            paddingBottom: gutter[1]! / 2,
-          }
-        : {}),
-      ...mergedStyle,
-    };
+  const mergedStyle: React.CSSProperties = {};
+  // Horizontal gutter use padding
+  if (gutter && gutter[0] > 0) {
+    const horizontalGutter = gutter[0] / 2;
+    mergedStyle.paddingLeft = horizontalGutter;
+    mergedStyle.paddingRight = horizontalGutter;
   }
+
+  // Vertical gutter use padding when gap not support
+  if (gutter && gutter[1] > 0 && !supportFlexGap) {
+    const verticalGutter = gutter[1] / 2;
+    mergedStyle.paddingTop = verticalGutter;
+    mergedStyle.paddingBottom = verticalGutter;
+  }
+
   if (flex) {
     mergedStyle.flex = parseFlex(flex);
 
     // Hack for Firefox to avoid size issue
     // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
-    if (flex === 'auto' && wrap === false && !mergedStyle.minWidth) {
+    if (wrap === false && !mergedStyle.minWidth) {
       mergedStyle.minWidth = 0;
     }
   }
 
   return (
-    <div {...others} style={mergedStyle} className={classes} ref={ref}>
+    <div {...others} style={{ ...mergedStyle, ...style }} className={classes} ref={ref}>
       {children}
     </div>
   );

@@ -47,11 +47,11 @@ const treeData = [
 ];
 
 const Demo = () => {
-  const onSelect = (selectedKeys, info) => {
+  const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('selected', selectedKeys, info);
   };
 
-  const onCheck = (checkedKeys, info) => {
+  const onCheck = (checkedKeys: React.Key[], info: any) => {
     console.log('onCheck', checkedKeys, info);
   };
 

@@ -1,11 +1,10 @@
-// TODO: remove this lint
-// SFC has specified a displayName, but not worked.
-/* eslint-disable react/display-name */
 import * as React from 'react';
+import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
+import useMemo from 'rc-util/lib/hooks/useMemo';
 import { RenderEmptyHandler } from './renderEmpty';
-import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
+import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import {
   ConfigConsumer,
@@ -13,11 +12,14 @@ import {
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
+  Theme,
 } from './context';
-import { SizeType, SizeContextProvider } from './SizeContext';
+import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
+import { registerTheme } from './cssVariables';
+import defaultLocale from '../locale/default';
 
 export {
   RenderEmptyHandler,
@@ -40,10 +42,21 @@ export const configConsumerProps = [
   'pageHeader',
 ];
 
+// These props is used by `useContext` directly in sub component
+const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPrefixCls'>[] = [
+  'getTargetContainer',
+  'getPopupContainer',
+  'renderEmpty',
+  'pageHeader',
+  'input',
+  'form',
+];
+
 export interface ConfigProviderProps {
   getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
+  iconPrefixCls?: string;
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
@@ -68,8 +81,179 @@ export interface ConfigProviderProps {
   dropdownMatchSelectWidth?: boolean;
 }
 
+interface ProviderChildrenProps extends ConfigProviderProps {
+  parentContext: ConfigConsumerProps;
+  legacyLocale: Locale;
+}
+
+export const defaultPrefixCls = 'ant';
+export const defaultIconPrefixCls = 'anticon';
+let globalPrefixCls: string;
+let globalIconPrefixCls: string;
+
+function getGlobalPrefixCls() {
+  return globalPrefixCls || defaultPrefixCls;
+}
+
+function getGlobalIconPrefixCls() {
+  return globalIconPrefixCls || defaultIconPrefixCls;
+}
+
+const setGlobalConfig = ({
+  prefixCls,
+  iconPrefixCls,
+  theme,
+}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
+  if (prefixCls !== undefined) {
+    globalPrefixCls = prefixCls;
+  }
+  if (iconPrefixCls !== undefined) {
+    globalIconPrefixCls = iconPrefixCls;
+  }
+
+  if (theme) {
+    registerTheme(getGlobalPrefixCls(), theme);
+  }
+};
+
+export const globalConfig = () => ({
+  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
+    if (customizePrefixCls) return customizePrefixCls;
+    return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
+  },
+  getIconPrefixCls: getGlobalIconPrefixCls,
+  getRootPrefixCls: (rootPrefixCls?: string, customizePrefixCls?: string) => {
+    // Customize rootPrefixCls is first priority
+    if (rootPrefixCls) {
+      return rootPrefixCls;
+    }
+
+    // If Global prefixCls provided, use this
+    if (globalPrefixCls) {
+      return globalPrefixCls;
+    }
+
+    // [Legacy] If customize prefixCls provided, we cut it to get the prefixCls
+    if (customizePrefixCls && customizePrefixCls.includes('-')) {
+      return customizePrefixCls.replace(/^(.*)-[^-]*$/, '$1');
+    }
+
+    // Fallback to default prefixCls
+    return getGlobalPrefixCls();
+  },
+});
+
+const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
+  const {
+    children,
+    csp,
+    autoInsertSpaceInButton,
+    form,
+    locale,
+    componentSize,
+    direction,
+    space,
+    virtual,
+    dropdownMatchSelectWidth,
+    legacyLocale,
+    parentContext,
+    iconPrefixCls,
+  } = props;
+
+  const getPrefixCls = React.useCallback(
+    (suffixCls: string, customizePrefixCls?: string) => {
+      const { prefixCls } = props;
+
+      if (customizePrefixCls) return customizePrefixCls;
+
+      const mergedPrefixCls = prefixCls || parentContext.getPrefixCls('');
+
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
+    },
+    [parentContext.getPrefixCls, props.prefixCls],
+  );
+
+  const config = {
+    ...parentContext,
+    csp,
+    autoInsertSpaceInButton,
+    locale: locale || legacyLocale,
+    direction,
+    space,
+    virtual,
+    dropdownMatchSelectWidth,
+    getPrefixCls,
+  };
+
+  // Pass the props used by `useContext` directly with child component.
+  // These props should merged into `config`.
+  PASSED_PROPS.forEach(propName => {
+    const propValue: any = props[propName];
+    if (propValue) {
+      (config as any)[propName] = propValue;
+    }
+  });
+
+  // https://github.com/ant-design/ant-design/issues/27617
+  const memoedConfig = useMemo(
+    () => config,
+    config,
+    (prevConfig: Record<string, any>, currentConfig) => {
+      const prevKeys = Object.keys(prevConfig);
+      const currentKeys = Object.keys(currentConfig);
+      return (
+        prevKeys.length !== currentKeys.length ||
+        prevKeys.some(key => prevConfig[key] !== currentConfig[key])
+      );
+    },
+  );
+
+  const memoIconContextValue = React.useMemo(
+    () => ({ prefixCls: iconPrefixCls, csp }),
+    [iconPrefixCls],
+  );
+
+  let childNode = children;
+  // Additional Form provider
+  let validateMessages: ValidateMessages = {};
+
+  if (locale) {
+    validateMessages =
+      locale.Form?.defaultValidateMessages || defaultLocale.Form?.defaultValidateMessages || {};
+  }
+  if (form && form.validateMessages) {
+    validateMessages = { ...validateMessages, ...form.validateMessages };
+  }
+
+  if (Object.keys(validateMessages).length > 0) {
+    childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
+  }
+
+  if (locale) {
+    childNode = (
+      <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
+        {childNode}
+      </LocaleProvider>
+    );
+  }
+
+  if (iconPrefixCls) {
+    childNode = (
+      <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
+    );
+  }
+
+  if (componentSize) {
+    childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
+  }
+
+  return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
+};
+
 const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
+  SizeContext: typeof SizeContext;
+  config: typeof setGlobalConfig;
 } = props => {
   React.useEffect(() => {
     if (props.direction) {
@@ -82,116 +266,26 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
     }
   }, [props.direction]);
 
-  const getPrefixClsWrapper = (context: ConfigConsumerProps) => (
-    suffixCls: string,
-    customizePrefixCls?: string,
-  ) => {
-    const { prefixCls } = props;
-
-    if (customizePrefixCls) return customizePrefixCls;
-
-    const mergedPrefixCls = prefixCls || context.getPrefixCls('');
-
-    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
-  };
-
-  const renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
-    const {
-      children,
-      getTargetContainer,
-      getPopupContainer,
-      renderEmpty,
-      csp,
-      autoInsertSpaceInButton,
-      form,
-      input,
-      locale,
-      pageHeader,
-      componentSize,
-      direction,
-      space,
-      virtual,
-      dropdownMatchSelectWidth,
-    } = props;
-
-    const config: ConfigConsumerProps = {
-      ...context,
-      getPrefixCls: getPrefixClsWrapper(context),
-      csp,
-      autoInsertSpaceInButton,
-      locale: locale || legacyLocale,
-      direction,
-      space,
-      virtual,
-      dropdownMatchSelectWidth,
-    };
-
-    if (getTargetContainer) {
-      config.getTargetContainer = getTargetContainer;
-    }
-
-    if (getPopupContainer) {
-      config.getPopupContainer = getPopupContainer;
-    }
-
-    if (renderEmpty) {
-      config.renderEmpty = renderEmpty;
-    }
-
-    if (pageHeader) {
-      config.pageHeader = pageHeader;
-    }
-
-    if (input) {
-      config.input = input;
-    }
-
-    if (form) {
-      config.form = form;
-    }
-
-    let childNode = children;
-    // Additional Form provider
-    let validateMessages: ValidateMessages = {};
-
-    if (locale && locale.Form && locale.Form.defaultValidateMessages) {
-      validateMessages = locale.Form.defaultValidateMessages;
-    }
-    if (form && form.validateMessages) {
-      validateMessages = { ...validateMessages, ...form.validateMessages };
-    }
-
-    if (Object.keys(validateMessages).length > 0) {
-      childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
-    }
-
-    const childrenWithLocale =
-      locale === undefined ? (
-        childNode
-      ) : (
-        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-          {childNode}
-        </LocaleProvider>
-      );
-
-    return (
-      <SizeContextProvider size={componentSize}>
-        <ConfigContext.Provider value={config}>{childrenWithLocale}</ConfigContext.Provider>
-      </SizeContextProvider>
-    );
-  };
-
   return (
     <LocaleReceiver>
       {(_, __, legacyLocale) => (
         <ConfigConsumer>
-          {context => renderProvider(context, legacyLocale as Locale)}
+          {context => (
+            <ProviderChildren
+              parentContext={context}
+              legacyLocale={legacyLocale as Locale}
+              {...props}
+            />
+          )}
         </ConfigConsumer>
       )}
     </LocaleReceiver>
   );
 };
 
-/** @private internal usage. do not use in your production */
+/** @private internal Usage. do not use in your production */
 ConfigProvider.ConfigContext = ConfigContext;
+ConfigProvider.SizeContext = SizeContext;
+ConfigProvider.config = setGlobalConfig;
+
 export default ConfigProvider;

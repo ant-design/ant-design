@@ -93,6 +93,7 @@
   a&-ellipsis,
   span&-ellipsis {
     display: inline-block;
+    max-width: 100%;
   }
 
   a&,
@@ -259,9 +260,12 @@
   }
 
   // ============ Ellipsis ============
+  &-single-line {
+    white-space: nowrap;
+  }
+
   &-ellipsis-single-line {
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
 
     // https://blog.csdn.net/iefreer/article/details/50421025
@@ -273,10 +277,10 @@
 
   &-ellipsis-multiple-line {
     display: -webkit-box;
+    overflow: hidden;
     -webkit-line-clamp: 3;
     /*! autoprefixer: ignore next */
     -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 }
 

@@ -56,7 +56,7 @@ const LinksList = () => (
       </a>
     </li>
     <li>
-      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue</a>
+      <a href="http://antdv.com" target="_blank">Ant Design of Vue</a>
     </li>
     <li>
       <a href="https://ant-design-blazor.github.io/" target="_blank">
@@ -97,7 +97,9 @@ ReactDOM.render(<LinksList />, mountNode);
 
 - Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
 - Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
-- Hackernoon: [Interesting JavaScript Libraries born in China](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
+- [Introduction to Ant Design](https://blog.logrocket.com/introduction-to-ant-design/)
+- [Build a React App with Ant Design Principles](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
+- [Meet Antd, an enterprise React UI library](https://medium.com/javascript-in-plain-english/antd-library-what-why-useful-or-not-5fec225b639d)
 
 ## How to Contribute
 

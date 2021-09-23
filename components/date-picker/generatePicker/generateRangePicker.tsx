@@ -12,10 +12,11 @@ import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
+import { PickerComponentClass } from './interface';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
-): React.ComponentClass<RangePickerProps<DateType>> {
+): PickerComponentClass<RangePickerProps<DateType>> {
   class RangePicker extends React.Component<RangePickerProps<DateType>> {
     static contextType = ConfigContext;
 
@@ -35,20 +36,8 @@ export default function generateRangePicker<DateType>(
       }
     };
 
-    getDefaultLocale = () => {
-      const { locale } = this.props;
-      const result = {
-        ...enUS,
-        ...locale,
-      };
-      result.lang = {
-        ...result.lang,
-        ...((locale || {}) as PickerLocale).lang,
-      };
-      return result;
-    };
-
-    renderPicker = (locale: PickerLocale) => {
+    renderPicker = (contextLocale: PickerLocale) => {
+      const locale = { ...contextLocale, ...this.props.locale };
       const { getPrefixCls, direction, getPopupContainer } = this.context;
       const {
         prefixCls: customizePrefixCls,
@@ -69,6 +58,7 @@ export default function generateRangePicker<DateType>(
         ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
         ...(picker === 'time' ? getTimeProps({ format, ...this.props, picker }) : {}),
       };
+      const rootPrefixCls = getPrefixCls();
 
       return (
         <SizeContext.Consumer>
@@ -86,8 +76,12 @@ export default function generateRangePicker<DateType>(
                 placeholder={getRangePlaceholder(picker, locale, placeholder)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
                 clearIcon={<CloseCircleFilled />}
+                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                 allowClear
-                transitionName="slide-up"
+                transitionName={`${rootPrefixCls}-slide-up`}
                 {...restProps}
                 {...additionalOverrideProps}
                 className={classNames(
@@ -101,10 +95,6 @@ export default function generateRangePicker<DateType>(
                 prefixCls={prefixCls}
                 getPopupContainer={customGetPopupContainer || getPopupContainer}
                 generateConfig={generateConfig}
-                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                 components={Components}
                 direction={direction}
               />
@@ -116,7 +106,7 @@ export default function generateRangePicker<DateType>(
 
     render() {
       return (
-        <LocaleReceiver componentName="DatePicker" defaultLocale={this.getDefaultLocale}>
+        <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
           {this.renderPicker}
         </LocaleReceiver>
       );

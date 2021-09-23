@@ -1,0 +1,16 @@
+name: Issue Check Inactive
+
+on:
+  schedule:
+    - cron: "0 0 */15 * *"
+
+jobs:
+  issue-check-inactive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check-inactive
+        uses: actions-cool/issues-helper@v2
+        with:
+          actions: 'check-inactive'
+          inactive-label: 'Inactive'
+          inactive-day: 30

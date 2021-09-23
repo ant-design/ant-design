@@ -16,12 +16,10 @@ By using `itemRender`, we can integrate upload with react-dnd to implement drag 
 ```jsx
 import React, { useState, useCallback, useRef } from 'react';
 import { Upload, Button, Tooltip } from 'antd';
-import { DndProvider, useDrag, useDrop, createDndContext } from 'react-dnd';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 import { UploadOutlined } from '@ant-design/icons';
-
-const RNDContext = createDndContext(HTML5Backend);
 
 const type = 'DragableUploadList';
 
@@ -45,17 +43,14 @@ const DragableUploadListItem = ({ originNode, moveRow, file, fileList }) => {
     },
   });
   const [, drag] = useDrag({
-    item: { type, index },
+    type,
+    item: { index },
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
   });
   drop(drag(ref));
-  const errorNode = (
-    <Tooltip title="Upload Error" getPopupContainer={() => document.body}>
-      {originNode.props.children}
-    </Tooltip>
-  );
+  const errorNode = <Tooltip title="Upload Error">{originNode.props.children}</Tooltip>;
   return (
     <div
       ref={ref}
@@ -67,7 +62,7 @@ const DragableUploadListItem = ({ originNode, moveRow, file, fileList }) => {
   );
 };
 
-const DragSortingUpload: React.FC = () => {
+const DragSortingUpload = () => {
   const [fileList, setFileList] = useState([
     {
       uid: '-1',
@@ -115,14 +110,12 @@ const DragSortingUpload: React.FC = () => {
     [fileList],
   );
 
-  const manager = useRef(RNDContext);
-
   const onChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   };
 
   return (
-    <DndProvider manager={manager.current.dragDropManager}>
+    <DndProvider backend={HTML5Backend}>
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         fileList={fileList}
@@ -136,9 +129,7 @@ const DragSortingUpload: React.FC = () => {
           />
         )}
       >
-        <Button>
-          <UploadOutlined /> Click to Upload
-        </Button>
+        <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>
     </DndProvider>
   );
@@ -155,7 +146,6 @@ ReactDOM.render(<DragSortingUpload />, mountNode);
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-downward {
   border-bottom-color: #1890ff;
 }
-
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-upward {
   border-top-color: #1890ff;
 }

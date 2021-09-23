@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import toArray from 'rc-util/lib/Children/toArray';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import CollapsePanel, { CollapsibleType } from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
@@ -62,11 +62,13 @@ const Collapse: CollapseInterface = props => {
 
   const renderExpandIcon = (panelProps: PanelProps = {}) => {
     const { expandIcon } = props;
-    const icon = (expandIcon ? (
-      expandIcon(panelProps)
-    ) : (
-      <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
-    )) as React.ReactNode;
+    const icon = (
+      expandIcon ? (
+        expandIcon(panelProps)
+      ) : (
+        <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+      )
+    ) as React.ReactNode;
 
     return cloneElement(icon, () => ({
       className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
@@ -95,8 +97,8 @@ const Collapse: CollapseInterface = props => {
       if (child.props?.disabled) {
         const key = child.key || String(index);
         const { disabled, collapsible } = child.props;
-        const childProps: CollapseProps = {
-          ...omit(child.props, 'disabled'),
+        const childProps: CollapseProps & { key: React.Key } = {
+          ...omit(child.props, ['disabled']),
           key,
           collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
         };
@@ -110,7 +112,6 @@ const Collapse: CollapseInterface = props => {
     <RcCollapse
       openMotion={openMotion}
       {...props}
-      bordered={bordered}
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}

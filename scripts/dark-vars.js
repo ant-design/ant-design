@@ -1,7 +1,8 @@
 /**
- * convert dark.less into js vars
+ * Convert dark.less into js vars
  *
- * const darkVars = require('./dark-vars');
+ * @example
+ *   const darkVars = require('./dark-vars');
  */
 const fs = require('fs');
 const path = require('path');

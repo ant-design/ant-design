@@ -51,7 +51,7 @@ Through research, we discovered blue and white accounts for a large proportion a
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U5L-RKWlmJcAAAAAAAAAAABkARQnAQ" />
 
-Sea Hare's palette combined with Adobe's ternary color picker and mosaic ball, you can easily obtain the Dedult version of the basic color palette.
+Sea Hare's palette combined with Adobe's ternary color picker and mosaic ball, you can easily obtain the default version of the basic color palette.
 
 <br />
 

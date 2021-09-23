@@ -26,10 +26,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  /**
-   * if overlay is have
-   * Wrap a DropDown
-   */
+  /** If overlay is have Wrap a DropDown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (overlay) {
       return (
@@ -65,7 +62,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
     return (
       <span>
         {link}
-        {separator && separator !== '' && (
+        {separator && (
           <span className={`${prefixCls}-separator`}>{separator}</span>
         )}
       </span>

@@ -23,6 +23,7 @@ const localeValues: Locale = {
     filterEmptyText: '無篩選項',
     selectAll: '全部選取',
     selectInvert: '反向選取',
+    selectNone: '清空所有',
     selectionAll: '全選所有',
     sortTitle: '排序',
     expand: '展開行',
@@ -115,6 +116,9 @@ const localeValues: Locale = {
         mismatch: '${label}與模式不匹配${pattern}',
       },
     },
+  },
+  Image: {
+    preview: '預覽',
   },
 };
 

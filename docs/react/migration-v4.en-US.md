@@ -35,6 +35,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - The minimum supported version of IE is IE 11.
 - The minimum supported version of React is React 16.9, and some components have started to refactor using hooks.
   - Internal using `useMemo` for performance, do not use mutable data as props.
+- The minimum supported version of less.js is `3.1.0`, we recommend using less `4.x`.
 
 #### Remove deprecated API
 
@@ -140,7 +141,9 @@ const Demo = () => (
 - Table rewrite.
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
-- Pagination will default set `showSizeChanger` to `true` since `4.1.0`. This change also applied on Table component.
+- Pagination
+  - will default set `showSizeChanger` to `true` since `4.1.0`. This change also applied on Table component.
+  - `onChange` will also trigger when `pageSize` value changed.
 - Tabs rewrite. ([4.3.0](https://github.com/ant-design/ant-design/pull/24552))
   - Dom structrue is changed, please check style if you override tabs css.
   - `onPrevClick` 和 `onNextClick` would be not working anymore since we improve tabs scroll behavior.

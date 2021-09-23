@@ -23,4 +23,9 @@ describe('message.typescript', () => {
       },
     );
   });
+
+  it('hide', () => {
+    const hide = message.loading('doing...');
+    hide();
+  });
 });

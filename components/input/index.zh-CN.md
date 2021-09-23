@@ -37,7 +37,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
-Input 的其他属性和 React 自带的 [input](https://facebook.github.io/react/docs/events.html#supported-events) 一致。
+Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes) 一致。
 
 ### Input.TextArea
 
@@ -48,7 +48,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | maxLength | 内容最大长度 | number | - | 4.7.0 |
-| showCount | 是否展示字数 | boolean | false | 4.7.0 |
+| showCount | 是否展示字数 | boolean \| { formatter: ({ count: number, maxLength?: number }) => string } | false | 4.7.0 (formatter: 4.10.0) |
 | value | 输入框内容 | string | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 | onResize | resize 回调 | function({ width, height }) | - |  |
@@ -86,6 +86,13 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | 是否显示切换按钮 | boolean | true |  |
 
+#### Input Methods
+
+| 名称 | 说明 | 参数 | 版本 |
+| --- | --- | --- | --- |
+| blur | 取消焦点 | - |  |
+| focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
 ## FAQ
 
 ### 为什么我动态改变 `prefix/suffix` 时，Input 会失去焦点？
@@ -97,3 +104,7 @@ const suffix = condition ? <Icon type="smile" /> : <span />;
 
 <Input suffix={suffix} />;
 ```
+
+### 为何 TextArea 受控时，`value` 可以超过 `maxLength`？
+
+受控时，组件应该按照受控内容展示。以防止在表单组件内使用时显示值和提交值不同的问题。

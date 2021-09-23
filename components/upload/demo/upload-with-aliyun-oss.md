@@ -67,16 +67,6 @@ class AliyunOSSUpload extends React.Component {
     }
   };
 
-  transformFile = file => {
-    const { OSSData } = this.state;
-
-    const suffix = file.name.slice(file.name.lastIndexOf('.'));
-    const filename = Date.now() + suffix;
-    file.url = OSSData.dir + filename;
-
-    return file;
-  };
-
   getExtraData = file => {
     const { OSSData } = this.state;
 
@@ -88,14 +78,19 @@ class AliyunOSSUpload extends React.Component {
     };
   };
 
-  beforeUpload = async () => {
+  beforeUpload = async file => {
     const { OSSData } = this.state;
     const expire = OSSData.expire * 1000;
 
     if (expire < Date.now()) {
       await this.init();
     }
-    return true;
+
+    const suffix = file.name.slice(file.name.lastIndexOf('.'));
+    const filename = Date.now() + suffix;
+    file.url = OSSData.dir + filename;
+
+    return file;
   };
 
   render() {
@@ -106,7 +101,6 @@ class AliyunOSSUpload extends React.Component {
       action: this.state.OSSData.host,
       onChange: this.onChange,
       onRemove: this.onRemove,
-      transformFile: this.transformFile,
       data: this.getExtraData,
       beforeUpload: this.beforeUpload,
     };

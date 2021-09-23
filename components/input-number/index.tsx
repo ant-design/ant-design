@@ -1,43 +1,25 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import RcInputNumber from 'rc-input-number';
+import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 
 import { ConfigContext } from '../config-provider';
-import { Omit } from '../_util/type';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { cloneElement } from '../_util/reactNode';
 
-// omitting this attrs because they conflicts with the ones defined in InputNumberProps
-export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
+type ValueType = string | number;
 
-export interface InputNumberProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
+export interface InputNumberProps<T extends ValueType = ValueType>
+  extends Omit<RcInputNumberProps<T>, 'size'> {
   prefixCls?: string;
-  min?: number;
-  max?: number;
-  value?: number;
-  step?: number | string;
-  defaultValue?: number;
-  tabIndex?: number;
-  onChange?: (value: number | string | undefined) => void;
-  disabled?: boolean;
-  readOnly?: boolean;
+  addonBefore?: React.ReactNode;
+  addonAfter?: React.ReactNode;
   size?: SizeType;
-  formatter?: (value: number | string | undefined) => string;
-  parser?: (displayValue: string | undefined) => number | string;
-  decimalSeparator?: string;
-  placeholder?: string;
-  style?: React.CSSProperties;
-  className?: string;
-  name?: string;
-  id?: string;
-  precision?: number;
-  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
-  onStep?: (value: number, info: { offset: number; type: 'up' | 'down' }) => void;
+  bordered?: boolean;
 }
 
-const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => {
+const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -45,6 +27,9 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
     className,
     size: customizeSize,
     prefixCls: customizePrefixCls,
+    addonBefore,
+    addonAfter,
+    bordered = true,
     readOnly,
     ...others
   } = props;
@@ -60,11 +45,12 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
       [`${prefixCls}-sm`]: mergeSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-readonly`]: readOnly,
+      [`${prefixCls}-borderless`]: !bordered,
     },
     className,
   );
 
-  return (
+  const element = (
     <RcInputNumber
       ref={ref}
       className={inputNumberClass}
@@ -75,10 +61,44 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
       {...others}
     />
   );
+
+  if (addonBefore != null || addonAfter != null) {
+    const wrapperClassName = `${prefixCls}-group`;
+    const addonClassName = `${wrapperClassName}-addon`;
+    const addonBeforeNode = addonBefore ? (
+      <div className={addonClassName}>{addonBefore}</div>
+    ) : null;
+    const addonAfterNode = addonAfter ? <div className={addonClassName}>{addonAfter}</div> : null;
+
+    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, {
+      [`${wrapperClassName}-rtl`]: direction === 'rtl',
+    });
+
+    const mergedGroupClassName = classNames(
+      `${prefixCls}-group-wrapper`,
+      {
+        [`${prefixCls}-group-wrapper-sm`]: size === 'small',
+        [`${prefixCls}-group-wrapper-lg`]: size === 'large',
+        [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
+    return (
+      <div className={mergedGroupClassName} style={props.style}>
+        <div className={mergedWrapperClassName}>
+          {addonBeforeNode}
+          {cloneElement(element, { style: null })}
+          {addonAfterNode}
+        </div>
+      </div>
+    );
+  }
+
+  return element;
 });
 
-InputNumber.defaultProps = {
-  step: 1,
-};
-
-export default InputNumber;
+export default InputNumber as (<T extends ValueType = ValueType>(
+  props: React.PropsWithChildren<InputNumberProps<T>> & {
+    ref?: React.Ref<HTMLInputElement>;
+  },
+) => React.ReactElement) & { displayName?: string };

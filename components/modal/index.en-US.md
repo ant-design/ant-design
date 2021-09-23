@@ -65,6 +65,7 @@ The items listed above are all functions, expecting a settings object as paramet
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| afterClose | Specify a function that will be called when modal is closed completely | function | - | 4.9.0 |
 | autoFocusButton | Specify which button to autofocus | null \| `ok` \| `cancel` | `ok` |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  | 4.8.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
@@ -87,8 +88,8 @@ The items listed above are all functions, expecting a settings object as paramet
 | title | Title | ReactNode | - |  |
 | width | Width of the modal dialog | string \| number | 416 |  |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
-| onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. If the function does not take any parameter (`!onCancel.lenght`) then modal dialog will be closed unless returned value is `true` (`!!onCancel()`). You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
-| onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. If the function does not take any parameter (`!onOk.lenght`) then modal dialog will be closed unless returned value is `true` (`!!onOk()`). You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
+| onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. If the function does not take any parameter (`!onCancel.length`) then modal dialog will be closed unless returned value is `true` (`!!onCancel()`). You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
+| onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. If the function does not take any parameter (`!onOk.length`) then modal dialog will be closed unless returned value is `true` (`!!onOk()`). You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
 
 All the `Modal.method`s will return a reference, and then we can update and close the modal dialog by the reference.
 
@@ -138,16 +139,6 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
-### Modal.config() `4.5.0+`
-
-Like `message.config()`, `Modal.config()` could set `Modal.confirm` props globally (such as `prefixCls`), and it will affect `Modal.confirm|success|info|error|warning` **static methods only**.
-
-```jsx
-Modal.config({
-  rootPrefixCls: 'ant',
-});
-```
-
 ## FAQ
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?
@@ -177,3 +168,7 @@ return (
 ### How to disable motion?
 
 You can config `transitionName=""` and `maskTransitionName=""` to remove motion class. But you should note that these prop is internal usage which we don't promise exist in next major version.
+
+### How to set static methods prefixCls ？
+
+You can config with [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+)

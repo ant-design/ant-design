@@ -25,6 +25,7 @@ export interface AbstractCheckboxProps<T> {
   id?: string;
   autoFocus?: boolean;
   type?: string;
+  skipGroup?: boolean;
 }
 
 export interface CheckboxChangeEventTarget extends CheckboxProps {
@@ -51,6 +52,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     style,
     onMouseEnter,
     onMouseLeave,
+    skipGroup = false,
     ...restProps
   },
   ref,
@@ -70,6 +72,9 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   }, []);
 
   React.useEffect(() => {
+    if (skipGroup) {
+      return;
+    }
     if (restProps.value !== prevValue.current) {
       checkboxGroup?.cancelValue(prevValue.current);
       checkboxGroup?.registerValue(restProps.value);
@@ -79,7 +84,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
   const checkboxProps: CheckboxProps = { ...restProps };
-  if (checkboxGroup) {
+  if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {
       if (restProps.onChange) {
         restProps.onChange(...args);

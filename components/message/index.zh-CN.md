@@ -58,6 +58,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 | icon | 自定义图标 | ReactNode | - |
 | key | 当前提示的唯一标志 | string \| number | - |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| onClick | 点击 message 时触发的回调函数 | function | - |
 | onClose | 关闭时触发的回调函数 | function | - |
 
 ### 全局方法
@@ -92,7 +93,7 @@ message.config({
 | maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |  |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
-| top | 消息距离顶部的位置 | number | 24 |  |
+| top | 消息距离顶部的位置 | number | 8 |  |
 
 ## FAQ
 
@@ -117,3 +118,7 @@ return (
 ```
 
 **异同：**通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
+
+### 静态方法如何设置 prefixCls ？
+
+你可以通过 [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+) 进行设置。

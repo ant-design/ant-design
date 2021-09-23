@@ -20,7 +20,7 @@ const Steps: React.FC<StepsProps> = props => {
     prefixCls,
     children,
   } = props;
-  const current = Math.floor(steps * (percent / 100));
+  const current = Math.round(steps * (percent / 100));
   const stepWidth = size === 'small' ? 2 : 14;
   const styledSteps = [];
   for (let i = 0; i < steps; i += 1) {

@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Import icons from `@ant-design/icons`, component name of icons with different theme is the icon name suffixed by the theme name. Specific the `spin` property to show spinning animation.
+Import icons from `@ant-design/icons`, component name of icons with different theme is the icon name suffixed by the theme name. Specify the `spin` property to show spinning animation.
 
 ```jsx
 import {

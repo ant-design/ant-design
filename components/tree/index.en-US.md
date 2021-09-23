@@ -17,7 +17,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowDrop | Whether to allow dropping on the node | ({ dropNode, dropPosition }) => boolean | - |     |
+| allowDrop | Whether to allow dropping on the node | ({ dropNode, dropPosition }) => boolean | - |  |
 | autoExpandParent | Whether to automatically expand a parent treeNode | boolean | false |  |
 | blockNode | Whether treeNode fill remaining horizontal space | boolean | false |  |
 | checkable | Add a Checkbox before the treeNodes | boolean | false |  |
@@ -31,6 +31,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | disabled | Whether disabled the tree | boolean | false |  |
 | draggable | Specifies whether this Tree or the node is draggable (IE > 8) | boolean \| ((node: DataNode) => boolean) | false |  |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  |
+| fieldNames | Customize node title, key, children field name | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  |
 | height | Config virtual scroll height. Will not support horizontal scroll when enable this | number | - |  |
 | icon | Customize treeNode icon | ReactNode \| (props) => ReactNode | - |  |
@@ -44,6 +45,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode | - |  |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
+| treeLoadedKeys | (Controlled) Set loaded tree nodes, work with `loadData` only | string[] | [] |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
@@ -98,7 +100,7 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 | Name | Description |
 | --- | --- |
-| scrollTo({ key }) | Scroll to key item in virtual scroll |
+| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | Scroll to key item in virtual scroll |
 
 ## FAQ
 

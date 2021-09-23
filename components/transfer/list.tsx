@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import Checkbox from '../checkbox';
@@ -52,14 +52,17 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
-  /** render item */
+  /** Render item */
   render?: (item: RecordType) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
   renderList?: RenderListFunction<RecordType>;
-  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
+  footer?: (
+    props: TransferListProps<RecordType>,
+    info?: { direction: TransferDirection },
+  ) => React.ReactNode;
   onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
   direction: TransferDirection;
@@ -75,7 +78,7 @@ interface TransferListState {
 }
 
 export default class TransferList<
-  RecordType extends KeyWiseTransferItem
+  RecordType extends KeyWiseTransferItem,
 > extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
   static defaultProps = {
     dataSource: [],
@@ -183,7 +186,7 @@ export default class TransferList<
     searchPlaceholder: string,
     filterValue: string,
     filteredItems: RecordType[],
-    notFoundContent: React.ReactNode,
+    notFoundContent: React.ReactNode | React.ReactNode,
     filteredRenderItems: RenderedItem<RecordType>[],
     checkedKeys: string[],
     renderList?: RenderListFunction<RecordType>,
@@ -210,6 +213,11 @@ export default class TransferList<
       selectedKeys: checkedKeys,
     });
 
+    const getNotFoundContent = () => {
+      const contentIndex = this.props.direction === 'left' ? 0 : 1;
+      return Array.isArray(notFoundContent) ? notFoundContent[contentIndex] : notFoundContent;
+    };
+
     let bodyNode: React.ReactNode;
     // We should wrap customize list body in a classNamed div to use flex layout.
     if (customize) {
@@ -218,7 +226,7 @@ export default class TransferList<
       bodyNode = filteredItems.length ? (
         bodyContent
       ) : (
-        <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
+        <div className={`${prefixCls}-body-not-found`}>{getNotFoundContent()}</div>
       );
     }
 
@@ -234,19 +242,25 @@ export default class TransferList<
     );
   }
 
-  getCheckBox(
-    filteredItems: RecordType[],
-    onItemSelectAll: (dataSource: string[], checkAll: boolean) => void,
-    showSelectAll?: boolean,
-    disabled?: boolean,
-  ): false | JSX.Element {
+  getCheckBox({
+    filteredItems,
+    onItemSelectAll,
+    disabled,
+    prefixCls,
+  }: {
+    filteredItems: RecordType[];
+    onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
+    disabled?: boolean;
+    prefixCls?: string;
+  }): false | JSX.Element {
     const checkStatus = this.getCheckStatus(filteredItems);
     const checkedAll = checkStatus === 'all';
-    const checkAllCheckbox = showSelectAll !== false && (
+    const checkAllCheckbox = (
       <Checkbox
         disabled={disabled}
         checked={checkedAll}
         indeterminate={checkStatus === 'part'}
+        className={`${prefixCls}-checkbox`}
         onChange={() => {
           // Only select enabled items
           onItemSelectAll(
@@ -309,17 +323,19 @@ export default class TransferList<
       renderList,
       onItemSelectAll,
       onItemRemove,
-      showSelectAll,
+      showSelectAll = true,
       showRemove,
       pagination,
+      direction,
     } = this.props;
 
     // Custom Layout
-    const footerDom = footer && footer(this.props);
+    const footerDom =
+      footer && (footer.length < 2 ? footer(this.props) : footer(this.props, { direction }));
 
     const listCls = classNames(prefixCls, {
-      [`${prefixCls}-with-pagination`]: pagination,
-      [`${prefixCls}-with-footer`]: footerDom,
+      [`${prefixCls}-with-pagination`]: !!pagination,
+      [`${prefixCls}-with-footer`]: !!footerDom,
     });
 
     // ====================== Get filtered, checked item list ======================
@@ -347,7 +363,7 @@ export default class TransferList<
     const checkAllCheckbox =
       !showRemove &&
       !pagination &&
-      this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled);
+      this.getCheckBox({ filteredItems, onItemSelectAll, disabled, prefixCls });
 
     let menu: React.ReactElement | null = null;
     if (showRemove) {
@@ -442,8 +458,12 @@ export default class TransferList<
       <div className={listCls} style={style}>
         {/* Header */}
         <div className={`${prefixCls}-header`}>
-          {checkAllCheckbox}
-          {dropdown}
+          {showSelectAll ? (
+            <>
+              {checkAllCheckbox}
+              {dropdown}
+            </>
+          ) : null}
           <span className={`${prefixCls}-header-selected`}>
             {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
           </span>

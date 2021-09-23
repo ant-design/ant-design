@@ -57,6 +57,7 @@ The properties of config are as follows:
 | icon | Customized Icon | ReactNode | - |
 | key | The unique identifier of the Message | string \| number | - |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| onClick | Specify a function that will be called when the message is clicked | function | - |
 | onClose | Specify a function that will be called when the message is closed | function | - |
 
 ### Global static methods
@@ -86,12 +87,12 @@ message.config({
 
 | Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time before auto-dismiss, in seconds | number | 1.5 |  |
+| duration | Time before auto-dismiss, in seconds | number | 3 |  |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |  |
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
-| top | Distance from top | number | 24 |  |
+| top | Distance from top | number | 8 |  |
 
 ## FAQ
 
@@ -116,3 +117,7 @@ return (
 ```
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
+
+### How to set static methods prefixCls ？
+
+You can config with [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+)

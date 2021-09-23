@@ -46,6 +46,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional` } | - | requiredMark: 4.8.0 |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
+| iconPrefixCls | Set icon prefix className (cooperated with [@iconfont-css-prefix](https://github.com/ant-design/ant-design/blob/d943b85a523bdf181dabc12c928226f3b4b893de/components/style/themes/default.less#L106)) | string | `anticon` | 4.11.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | locale | Language package setting, you can find the packages in [antd/lib/locale](http://unpkg.com/antd/lib/locale/) | object | - |  |
 | pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
@@ -53,6 +54,17 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | space | Set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
+
+### ConfigProvider.config() `4.13.0+`
+
+Setting `Modal`、`Message`、`Notification` rootPrefixCls.
+
+```jsx
+ConfigProvider.config({
+  prefixCls: 'ant', // 4.13.0+
+  iconPrefixCls: 'anticon', // 4.17.0+
+});
+```
 
 ## FAQ
 

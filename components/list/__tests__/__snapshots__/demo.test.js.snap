@@ -1076,11 +1076,11 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   </g>
                 </svg>
               </div>
-              <p
+              <div
                 class="ant-empty-description"
               >
                 No Data
-              </p>
+              </div>
             </div>
           </div>
         </div>

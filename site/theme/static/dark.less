@@ -1,3 +1,5 @@
+@import '../template/Layout/Header/DocSearch.less';
+
 [data-theme='dark'] {
   /* Change autocomplete styles in WebKit */
   input:-webkit-autofill,
@@ -10,9 +12,9 @@
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
     border: 1px solid @border-color-base;
-    -webkit-text-fill-color: @text-color;
     box-shadow: none;
     transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: @text-color;
   }
 
   #header {
@@ -364,6 +366,24 @@
     }
     &-search input {
       color: rgba(255, 255, 255, 0.65);
+    }
+  }
+
+  // customization DocSearch Modal component in dark mode
+  #antd_algolia_search_modal {
+    .customDocSearch();
+
+    // additional style reset in dark mode
+    --docsearch-key-gradient: @background-color-light;
+    --docsearch-logo-color: @white;
+
+    .DocSearch-Modal,
+    .DocSearch-Commands-Key {
+      box-shadow: none;
+    }
+
+    .DocSearch-Hit a {
+      box-shadow: none;
     }
   }
 }

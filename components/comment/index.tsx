@@ -9,7 +9,7 @@ export interface CommentProps {
   author?: React.ReactNode;
   /** The element to display as the comment avatar - generally an antd Avatar */
   avatar?: React.ReactNode;
-  /** className of comment */
+  /** ClassName of comment */
   className?: string;
   /** The main content of the comment */
   content: React.ReactNode;

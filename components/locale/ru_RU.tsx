@@ -25,6 +25,7 @@ const localeValues: Locale = {
     emptyText: 'Нет данных',
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
+    selectNone: 'Очистить все данные',
     selectionAll: 'Выбрать все данные',
     sortTitle: 'Сортировка',
     expand: 'Развернуть строку',
@@ -123,6 +124,9 @@ const localeValues: Locale = {
         mismatch: '${label} не соответствует шаблону ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'Предпросмотр',
   },
 };
 

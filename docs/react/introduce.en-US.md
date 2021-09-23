@@ -46,8 +46,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 Polyfills are needed for IE browsers. We recommend [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](http://umijs.org/).
 
-> We drop support of IE8 after `antd@2.0`,
-> We drop support of React 15 and IE9/10 after `antd@4.0`,
+> We drop support of IE8 after `antd@2.0`, We drop support of React 15 and IE9/10 after `antd@4.0`,
 
 ## Version
 

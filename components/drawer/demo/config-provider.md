@@ -19,7 +19,7 @@ import React, { useState, useRef } from 'react';
 import { Drawer, ConfigProvider, Button } from 'antd';
 
 const App: React.FC = () => {
-  const domRef = useRef();
+  const domRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const showDrawer = () => {
     setVisible(true);
@@ -28,11 +28,7 @@ const App: React.FC = () => {
     setVisible(false);
   };
   return (
-    <ConfigProvider
-      getPopupContainer={() => {
-        return domRef.current;
-      }}
-    >
+    <ConfigProvider getPopupContainer={() => domRef.current!}>
       <div ref={domRef} className="site-drawer-render-in-current-wrapper">
         <Button type="primary" onClick={showDrawer}>
           Open

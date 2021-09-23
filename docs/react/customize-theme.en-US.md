@@ -75,7 +75,7 @@ Note:
 
 ### Customize in Umi
 
-You can easily use [theme](https://umijs.org/config/#theme) field in [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45) (Umi) file of your project root directory if you are using [Umi](http://umijs.org/), which could be an object or a javascript file path.
+You can easily use [theme](https://umijs.org/config/#theme) field in `.umirc.ts` or [config/config.ts](https://github.com/ant-design/ant-design-pro/blob/v5/config/config.ts) file of your project root directory if you are using [Umi](http://umijs.org/), which could be an object or a javascript file path.
 
 ```js
 "theme": {
@@ -105,6 +105,10 @@ Another approach to customize theme is creating a `less` file within variables t
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
+### Dynamic theme
+
+Runtime update theme color please [ref this doc](/docs/react/customize-theme-variable).
+
 ## How to avoid modifying global styles?
 
 Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc). If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
@@ -125,7 +129,7 @@ Where the src/myStylesReplacement.less file loads the same files as the index.le
 
 ### Use a postcss processor to scope all styles
 
-See an example of usage with gulp and [postcss-prefixwrap](https://github.com/dbtedman/postcss-prefixwrap) : https://gist.github.com/sbusch/a90eafaf5a5b61c6d6172da6ff76ddaa
+See an example of usage with [gulp and postcss-prefixwrap](https://gist.github.com/sbusch/a90eafaf5a5b61c6d6172da6ff76ddaa).
 
 ## Not working?
 
@@ -148,25 +152,17 @@ We have some official themes, try them out and give us some feedback!
 
 Method 1: using Umi 3
 
-If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
+If you're using [Umi 3](http://umijs.org):
 
-1. Install `@umijs/plugin-antd` plugin;
-
-   ```bash
-   $ npm i @umijs/plugin-antd -D
-   ```
-
-2. set `dark` or `compact` to `true`.
-
-   ```js
-   // .umirc.ts or config/config.ts
-   export default {
-     antd: {
-       dark: true, // active dark theme
-       compact: true, // active compact theme
-     },
-   },
-   ```
+```js
+// .umirc.ts or config/config.ts
+export default {
+  antd: {
+    dark: true, // active dark theme
+    compact: true, // active compact theme
+  },
+},
+```
 
 Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) or [antd/dist/antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less) in the style file:
 
@@ -202,8 +198,8 @@ module.exports = {
 +     options: {
 +       lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
 +         modifyVars: getThemeVariables({
-+           dark: true, // 开启暗黑模式
-+           compact: true, // 开启紧凑模式
++           dark: true, // Enable dark mode
++           compact: true, // Enable compact mode
 +         }),
 +         javascriptEnabled: true,
 +       },

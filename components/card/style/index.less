@@ -9,7 +9,7 @@
 @gradient-max: fade(@card-skeleton-bg, 40%);
 
 .@{card-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: relative;
   background: @card-background;
@@ -43,7 +43,7 @@
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: @card-radius @card-radius 0 0;
-    .clearfix;
+    .clearfix();
 
     &-wrapper {
       display: flex;
@@ -96,7 +96,7 @@
 
   &-body {
     padding: @card-padding-base;
-    .clearfix;
+    .clearfix();
   }
 
   &-contain-grid:not(&-loading) &-body {
@@ -138,9 +138,9 @@
   }
 
   &-bordered &-cover {
+    margin-top: -1px;
     margin-right: -1px;
     margin-left: -1px;
-    transform: translateY(-1px);
   }
 
   &-cover {
@@ -160,7 +160,7 @@
     list-style: none;
     background: @card-actions-background;
     border-top: @border-width-base @border-style-base @border-color-split;
-    .clearfix;
+    .clearfix();
 
     & > li {
       float: left;
@@ -186,7 +186,7 @@
         }
 
         a:not(.@{ant-prefix}-btn),
-        > .anticon {
+        > .@{iconfont-css-prefix} {
           display: inline-block;
           width: 100%;
           color: @text-color-secondary;
@@ -198,7 +198,7 @@
           }
         }
 
-        > .anticon {
+        > .@{iconfont-css-prefix} {
           font-size: @card-action-icon-size;
           line-height: 22px;
         }
@@ -206,6 +206,11 @@
 
       &:not(:last-child) {
         border-right: @border-width-base @border-style-base @border-color-split;
+
+        .@{card-prefix-cls}-rtl & {
+          border-right: none;
+          border-left: @border-width-base @border-style-base @border-color-split;
+        }
       }
     }
   }
@@ -230,7 +235,7 @@
 
   &-meta {
     margin: -4px 0;
-    .clearfix;
+    .clearfix();
 
     &-avatar {
       float: left;

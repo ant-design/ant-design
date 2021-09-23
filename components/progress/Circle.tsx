@@ -12,24 +12,13 @@ interface CircleProps extends ProgressProps {
 }
 
 function getPercentage({ percent, success, successPercent }: CircleProps) {
-  const ptg = validProgress(percent);
-  const realSuccessPercent = getSuccessPercent({ success, successPercent });
-  if (!realSuccessPercent) {
-    return ptg;
-  }
-  return [
-    validProgress(realSuccessPercent),
-    validProgress(ptg - validProgress(realSuccessPercent)),
-  ];
+  const realSuccessPercent = validProgress(getSuccessPercent({ success, successPercent }));
+  return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
 }
 
-function getStrokeColor({ success, strokeColor, successPercent }: CircleProps) {
-  const color = strokeColor || null;
-  const realSuccessPercent = getSuccessPercent({ success, successPercent });
-  if (!realSuccessPercent) {
-    return color;
-  }
-  return [presetPrimaryColors.green, color];
+function getStrokeColor({ success = {}, strokeColor }: Partial<CircleProps>) {
+  const { strokeColor: successColor } = success;
+  return [successColor || presetPrimaryColors.green, strokeColor || null];
 }
 
 const Circle: React.FC<CircleProps> = props => {
@@ -43,6 +32,7 @@ const Circle: React.FC<CircleProps> = props => {
     gapDegree,
     type,
     children,
+    success,
   } = props;
   const circleSize = width || 120;
   const circleStyle = {
@@ -65,8 +55,8 @@ const Circle: React.FC<CircleProps> = props => {
   };
 
   // using className to style stroke color
-  const strokeColor = getStrokeColor(props) as string | string[] | object;
-  const isGradient = Object.prototype.toString.call(strokeColor) === '[object Object]';
+  const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
+  const strokeColor = getStrokeColor({ success, strokeColor: props.strokeColor });
 
   const wrapperClassName = classNames(`${prefixCls}-inner`, {
     [`${prefixCls}-circle-gradient`]: isGradient,

@@ -1,12 +1,12 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 
 import Group from './button-group';
 import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
-import { Omit, tuple } from '../_util/type';
+import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
@@ -20,6 +20,10 @@ function isString(str: any) {
 
 function isUnborderedButtonType(type: ButtonType | undefined) {
   return type === 'text' || type === 'link';
+}
+
+function isReactFragment(node: React.ReactNode) {
+  return React.isValidElement(node) && node.type === React.Fragment;
 }
 
 // Insert one space between two chinese characters automatically.
@@ -41,9 +45,9 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
     });
   }
   if (typeof child === 'string') {
-    if (isTwoCNChar(child)) {
-      child = child.split('').join(SPACE);
-    }
+    return isTwoCNChar(child) ? <span>{child.split('').join(SPACE)}</span> : <span>{child}</span>;
+  }
+  if (isReactFragment(child)) {
     return <span>{child}</span>;
   }
   return child;
@@ -74,7 +78,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
 
 const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link', 'text');
 export type ButtonType = typeof ButtonTypes[number];
-const ButtonShapes = tuple('circle', 'round');
+const ButtonShapes = tuple('default', 'circle', 'round');
 export type ButtonShape = typeof ButtonShapes[number];
 const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
 export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
@@ -90,6 +94,7 @@ export function convertLegacyProps(type?: LegacyButtonType): ButtonProps {
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
+  /** @default default */
   shape?: ButtonShape;
   size?: SizeType;
   loading?: boolean | { delay?: number };
@@ -133,14 +138,14 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     prefixCls: customizePrefixCls,
     type,
     danger,
-    shape,
+    shape = 'default',
     size: customizeSize,
     className,
     children,
     icon,
     ghost = false,
     block = false,
-    /** if we extract items here, we dont need use omit.js */
+    /** If we extract items here, we don't need use omit.js */
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button' as ButtonProps['htmlType'],
     ...rest
@@ -193,13 +198,13 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   React.useEffect(fixTwoCNChar, [buttonRef]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
-    const { onClick } = props;
-    if (innerLoading) {
+    const { onClick, disabled } = props;
+    // https://github.com/ant-design/ant-design/issues/30207
+    if (innerLoading || disabled) {
+      e.preventDefault();
       return;
     }
-    if (onClick) {
-      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
-    }
+    (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
   };
 
   devWarning(
@@ -237,9 +242,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     prefixCls,
     {
       [`${prefixCls}-${type}`]: type,
-      [`${prefixCls}-${shape}`]: shape,
+      [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
+      [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
@@ -262,7 +267,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       ? spaceChildren(children, isNeedInserted() && autoInsertSpace)
       : null;
 
-  const linkButtonRestProps = omit(rest as AnchorButtonProps, ['navigate']);
+  const linkButtonRestProps = omit(rest as AnchorButtonProps & { navigate: any }, ['navigate']);
   if (linkButtonRestProps.href !== undefined) {
     return (
       <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
@@ -289,7 +294,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     return buttonNode;
   }
 
-  return <Wave>{buttonNode}</Wave>;
+  return <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
 };
 
 const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;

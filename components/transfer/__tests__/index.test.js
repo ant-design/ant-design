@@ -283,6 +283,19 @@ describe('Transfer', () => {
     expect(headerText(wrapper)).toEqual('1/2 People');
   });
 
+  it('should display the correct notFoundContent', () => {
+    const wrapper = mount(
+      <Transfer dataSource={[]} locale={{ notFoundContent: ['No Source', 'No Target'] }} />,
+    );
+
+    expect(
+      wrapper.find(TransferList).at(0).find('.ant-transfer-list-body-not-found').at(0).text(),
+    ).toEqual('No Source');
+    expect(
+      wrapper.find(TransferList).at(1).find('.ant-transfer-list-body-not-found').at(0).text(),
+    ).toEqual('No Target');
+  });
+
   it('should just check the filtered item when click on check all after search by input', () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
@@ -541,5 +554,20 @@ describe('Transfer', () => {
     const wrapper = mount(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
     wrapper.find('.ant-transfer-list-content-item-remove').first().simulate('click');
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
+  });
+});
+
+describe('immutable data', () => {
+  // https://github.com/ant-design/ant-design/issues/28662
+  it('dataSource is frozen', () => {
+    const mockData = [
+      Object.freeze({
+        id: 0,
+        title: `title`,
+        description: `description`,
+      }),
+    ];
+    const wrapper = mount(<Transfer rowKey={item => item.id} dataSource={mockData} />);
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 });

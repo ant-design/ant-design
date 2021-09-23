@@ -18,7 +18,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowDrop | 是否允许拖拽时放置在该节点 | ({ dropNode, dropPosition }) => boolean | - |     |
+| allowDrop | 是否允许拖拽时放置在该节点 | ({ dropNode, dropPosition }) => boolean | - |  |
 | autoExpandParent | 是否自动展开父节点 | boolean | false |  |
 | blockNode | 是否节点占据一行 | boolean | false |  |
 | checkable | 节点前添加 Checkbox 复选框 | boolean | false |  |
@@ -32,6 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | disabled | 将树禁用 | boolean | false |  |
 | draggable | 设置节点可拖拽（IE>8） | boolean \| ((node: DataNode) => boolean) | false |  |
 | expandedKeys | （受控）展开指定的树节点 | string\[] | \[] |  |
+| fieldNames | 自定义节点 title、key、children 的字段 | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - |  |
 | height | 设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动 | number | - |  |
 | icon | 自定义树节点图标。 | ReactNode \| (props) => ReactNode | - |  |
@@ -45,6 +46,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |  |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
+| treeLoadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string[] | [] |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |  |
@@ -66,7 +68,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | disableCheckbox | 禁掉 checkbox | boolean | false |  |
 | disabled | 禁掉响应 | boolean | false |  |
 | icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode \| (props) => ReactNode | - |  |
-| isLeaf | 设置为叶子节点(设置了`loadData`时有效)。为 `false` 时会强制将其作为父节点 | boolean | - |  |
+| isLeaf | 设置为叶子节点 (设置了 `loadData` 时有效)。为 `false` 时会强制将其作为父节点 | boolean | - |  |
 | key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | (内部计算出的节点位置) |  |
 | selectable | 设置节点是否可被选中 | boolean | true |  |
 | title | 标题 | ReactNode | `---` |  |
@@ -99,7 +101,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 | 名称 | 说明 |
 | --- | --- |
-| scrollTo({ key }) | 虚拟滚动下，滚动到指定 key 条目 |
+| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
 
 ## FAQ
 

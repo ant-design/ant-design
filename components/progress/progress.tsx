@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
@@ -83,8 +83,9 @@ export default class Progress extends React.Component<ProgressProps> {
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
     const { showInfo, format, type, percent } = this.props;
     const successPercent = getSuccessPercent(this.props);
-    if (!showInfo) return null;
-
+    if (!showInfo) {
+      return null;
+    }
     let text;
     const textFormatter = format || (percentNumber => `${percentNumber}%`);
     const isLineType = type === 'line';
@@ -171,10 +172,8 @@ export default class Progress extends React.Component<ProgressProps> {
           'width',
           'gapDegree',
           'gapPosition',
-          'strokeColor',
           'strokeLinecap',
           'percent',
-          'steps',
           'success',
           'successPercent',
         ])}

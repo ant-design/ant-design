@@ -1,16 +1,17 @@
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import Element, { SkeletonElementProps } from './Element';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
   size?: 'large' | 'small' | 'default';
+  block?: boolean;
 }
 
 const SkeletonButton = (props: SkeletonButtonProps) => {
   const renderSkeletonButton = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className, active } = props;
+    const { prefixCls: customizePrefixCls, className, active, block = false } = props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
     const otherProps = omit(props, ['prefixCls']);
     const cls = classNames(
@@ -18,6 +19,7 @@ const SkeletonButton = (props: SkeletonButtonProps) => {
       `${prefixCls}-element`,
       {
         [`${prefixCls}-active`]: active,
+        [`${prefixCls}-block`]: block,
       },
       className,
     );

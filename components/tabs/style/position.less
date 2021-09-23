@@ -1,4 +1,5 @@
-@import './index';
+@import '../../style/themes/index';
+@tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
 .@{tab-prefix-cls} {
   // ========================== Top & Bottom ==========================
@@ -99,18 +100,12 @@
 
       // >>>>>>>>>>> Tab
       .@{tab-prefix-cls}-tab {
-        margin: @tabs-vertical-margin;
         padding: @tabs-vertical-padding;
         text-align: center;
+      }
 
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-
-        &-active .@{tab-prefix-cls}-tab-btn {
-          font-weight: normal;
-          text-shadow: 0 0 0.25px @tabs-active-color;
-        }
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+        margin: @tabs-vertical-margin;
       }
 
       // >>>>>>>>>>> Nav
@@ -152,6 +147,7 @@
 
       .@{tab-prefix-cls}-nav-list,
       .@{tab-prefix-cls}-nav-operations {
+        flex: 1 0 auto; // fix safari scroll problem
         flex-direction: column;
       }
     }

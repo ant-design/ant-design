@@ -2,21 +2,19 @@
 order: 13
 title:
   zh-CN: 范围选择器
-  en-US: Range Picker
+  en-US: Time Range Picker
 ---
 
 ## zh-CN
 
-通过 `RangePicker` 使用时间范围选择器。
+通过 `TimePicker.RangePicker` 使用时间范围选择器。
 
 ## en-US
 
-Use time range picker with `RangePicker`.
+Use time range picker with `TimePicker.RangePicker`.
 
 ```jsx
 import { TimePicker } from 'antd';
 
-const { RangePicker } = TimePicker;
-
-ReactDOM.render(<RangePicker />, mountNode);
+ReactDOM.render(<TimePicker.RangePicker />, mountNode);
 ```

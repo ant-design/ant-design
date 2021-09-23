@@ -13,6 +13,7 @@ const excludes = [
   'alibaba-inc.com',
   'alipay.com',
   'taobao.com',
+  'ant-design-bot',
 ];
 
 async function execute() {

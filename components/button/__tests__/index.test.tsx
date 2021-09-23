@@ -38,7 +38,7 @@ describe('Button', () => {
   it('warns if size is wrong', () => {
     const mockWarn = jest.fn();
     jest.spyOn(console, 'warn').mockImplementation(mockWarn);
-    const size = ('who am I' as any) as SizeType;
+    const size = 'who am I' as any as SizeType;
     render(<Button.Group size={size} />);
     expect(mockWarn).toHaveBeenCalledTimes(1);
     expect(mockWarn.mock.calls[0][0]).toMatchObject({
@@ -299,5 +299,26 @@ describe('Button', () => {
         throw new Error('Should not called!!!');
       },
     });
+  });
+
+  it('should not redirect when button is disabled', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Button href="https://ant.design" onClick={onClick} disabled>
+        click me
+      </Button>,
+    );
+    wrapper.simulate('click');
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/30953
+  it('should handle fragment as children', () => {
+    const wrapper = mount(
+      <Button>
+        <>text</>
+      </Button>,
+    );
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 });

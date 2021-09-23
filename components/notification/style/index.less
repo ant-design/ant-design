@@ -1,6 +1,7 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
-@import './customize.less';
+
+.popover-customize-bg(@notification-prefix-cls, @popover-background);
 
 @notification-prefix-cls: ~'@{ant-prefix}-notification';
 @notification-width: 384px;
@@ -9,7 +10,7 @@
 @notification-margin-edge: 24px;
 
 .@{notification-prefix-cls} {
-  .reset-component;
+  .reset-component();
 
   position: fixed;
   z-index: @zindex-notification;
@@ -31,14 +32,19 @@
     cursor: pointer;
   }
 
-  &-hook-holder,
+  &-hook-holder {
+    position: relative;
+  }
+
   &-notice {
     position: relative;
     width: @notification-width;
     max-width: ~'calc(100vw - @{notification-margin-edge} * 2)';
     margin-bottom: @notification-margin-bottom;
     margin-left: auto;
+    padding: @notification-padding;
     overflow: hidden;
+    line-height: @line-height-base;
     word-wrap: break-word;
     background: @notification-bg;
     border-radius: @border-radius-base;
@@ -49,16 +55,6 @@
       margin-right: auto;
       margin-left: 0;
     }
-  }
-
-  &-hook-holder > &-notice {
-    margin-bottom: 0;
-    box-shadow: none;
-  }
-
-  &-notice {
-    padding: @notification-padding;
-    line-height: @line-height-base;
 
     &-message {
       margin-bottom: 8px;
@@ -155,9 +151,9 @@
 
   &-fade-enter,
   &-fade-appear {
-    opacity: 0;
     .notification-fade-effect();
 
+    opacity: 0;
     animation-play-state: paused;
   }
 
@@ -206,8 +202,6 @@
   0% {
     max-height: 150px;
     margin-bottom: @notification-margin-bottom;
-    padding-top: @notification-padding-vertical;
-    padding-bottom: @notification-padding-vertical;
     opacity: 1;
   }
   100% {

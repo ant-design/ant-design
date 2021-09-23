@@ -25,7 +25,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   color = 'blue',
   dot,
   pending = false,
-  position /** dead, but do not pass in <li {...omit()} */,
+  position /** Dead, but do not pass in <li {...omit()} */,
   label,
   children,
   ...restProps
@@ -43,7 +43,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 
   const dotClassName = classNames({
     [`${prefixCls}-item-head`]: true,
-    [`${prefixCls}-item-head-custom`]: dot,
+    [`${prefixCls}-item-head-custom`]: !!dot,
     [`${prefixCls}-item-head-${color}`]: true,
   });
 

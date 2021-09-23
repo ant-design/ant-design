@@ -99,7 +99,7 @@ export interface TreeProps extends Omit<RcTreeProps, 'prefixCls' | 'showLine' | 
   multiple?: boolean;
   /** 是否自动展开父节点 */
   autoExpandParent?: boolean;
-  /** checkable状态下节点选择完全受控（父子节点选中状态不再关联） */
+  /** Checkable状态下节点选择完全受控（父子节点选中状态不再关联） */
   checkStrictly?: boolean;
   /** 是否支持选中 */
   checkable?: boolean;

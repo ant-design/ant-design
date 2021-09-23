@@ -38,13 +38,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
+| fieldNames | 自定义节点 label、key、options 的字段 | object | { label: `label`, key: `key`, options: `options` } | 4.17.0 |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | boolean \| function(inputValue, option) | true |  |
-| filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的compareFunction | (optionA: Option, optionB: Option) => number | - | 4.9.0 |
+| filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的 compareFunction | (optionA: Option, optionB: Option) => number | - | 4.9.0 |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 { value: string, label: ReactNode } 的格式 | boolean | false |  |
 | listHeight | 设置弹窗滚动高度 | number | 256 |  |
 | loading | 加载中状态 | boolean | false |  |
-| maxTagCount | 最多显示多少个 tag | number | - |  |
+| maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  |
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | - |  |
@@ -61,9 +62,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | showSearch | 使单选模式可搜索 | boolean | false |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| tagRender | 自定义 tag 内容 render | (props) => ReactNode | - |  |
+| tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | tokenSeparators | 在 `tags` 和 `multiple` 模式下自动分词的分隔符 | string\[] | - |  |
-| value | 指定当前选中的条目 | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
@@ -82,28 +83,32 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 ### Select Methods
 
-| 名称 | 说明 | 版本 |
-| --- | --- | --- |
-| blur() | 取消焦点 |  |
-| focus() | 获取焦点 |  |
+| 名称    | 说明     | 版本 |
+| ------- | -------- | ---- |
+| blur()  | 取消焦点 |      |
+| focus() | 获取焦点 |      |
 
 ### Option props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | Option 器类名 | string | - |  |
-| disabled | 是否禁用 | boolean | false |  |
-| title | 选中该 Option 后，Select 的 title | string | - |  |
-| value | 默认根据此属性值进行筛选 | string \| number | - |  |
+| 参数      | 说明                              | 类型             | 默认值 | 版本 |
+| --------- | --------------------------------- | ---------------- | ------ | ---- |
+| className | Option 器类名                     | string           | -      |      |
+| disabled  | 是否禁用                          | boolean          | false  |      |
+| title     | 选中该 Option 后，Select 的 title | string           | -      |      |
+| value     | 默认根据此属性值进行筛选          | string \| number | -      |      |
 
 ### OptGroup props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| key | Key | string | - |  |
-| label | 组名 | string \| React.Element | - |  |
+| 参数  | 说明 | 类型                    | 默认值 | 版本 |
+| ----- | ---- | ----------------------- | ------ | ---- |
+| key   | Key  | string                  | -      |      |
+| label | 组名 | string \| React.Element | -      |      |
 
 ## FAQ
+
+### `tag` 模式下为何搜索有时会出现两个相同选项？
+
+这一般是 `options` 中的 `label` 和 `value` 不同导致的，你可以通过 `optionFilterProp="label"` 将过滤设置为展示值以避免这种情况。
 
 ### 点击 `dropdownRender` 里的内容浮层关闭怎么办？
 

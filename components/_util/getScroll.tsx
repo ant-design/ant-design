@@ -19,7 +19,7 @@ export default function getScroll(
     result = (target as HTMLElement)[method];
   }
   if (target && !isWindow(target) && typeof result !== 'number') {
-    result = ((target as HTMLElement).ownerDocument || (target as Document)).documentElement[
+    result = ((target as HTMLElement).ownerDocument || (target as Document)).documentElement?.[
       method
     ];
   }

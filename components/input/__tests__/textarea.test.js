@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
@@ -58,12 +58,12 @@ describe('TextArea', () => {
     const wrapper = mount(
       <TextArea onKeyDown={fakeHandleKeyDown} onPressEnter={fakeHandlePressEnter} />,
     );
-    /** keyCode 65 is A */
+    /** KeyCode 65 is A */
     wrapper.find('textarea').simulate('keydown', { keyCode: 65 });
     expect(fakeHandleKeyDown).toHaveBeenCalledTimes(1);
     expect(fakeHandlePressEnter).toHaveBeenCalledTimes(0);
 
-    /** keyCode 13 is Enter */
+    /** KeyCode 13 is Enter */
     wrapper.find('textarea').simulate('keydown', { keyCode: 13 });
     expect(fakeHandleKeyDown).toHaveBeenCalledTimes(2);
     expect(fakeHandlePressEnter).toHaveBeenCalledTimes(1);
@@ -74,9 +74,42 @@ describe('TextArea', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('should support maxLength', () => {
-    const wrapper = mount(<TextArea maxLength={10} />);
-    expect(wrapper.render()).toMatchSnapshot();
+  describe('maxLength', () => {
+    it('should support maxLength', () => {
+      const wrapper = mount(<TextArea maxLength={10} />);
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+
+    it('maxLength should not block control', () => {
+      const wrapper = mount(<TextArea maxLength={1} value="light" />);
+      expect(wrapper.find('textarea').props().value).toEqual('light');
+    });
+
+    it('should limit correctly when in control', () => {
+      const Demo = () => {
+        const [val, setVal] = React.useState('');
+        return <TextArea maxLength={1} value={val} onChange={e => setVal(e.target.value)} />;
+      };
+
+      const wrapper = mount(<Demo />);
+      wrapper.find('textarea').simulate('change', { target: { value: 'light' } });
+
+      expect(wrapper.find('textarea').props().value).toEqual('l');
+    });
+
+    it('should exceed maxLength when use IME', () => {
+      const onChange = jest.fn();
+
+      const wrapper = mount(<TextArea maxLength={1} onChange={onChange} />);
+      wrapper.find('textarea').simulate('compositionStart');
+      wrapper.find('textarea').simulate('change', { target: { value: 'zhu' } });
+      wrapper.find('textarea').simulate('compositionEnd', { currentTarget: { value: '竹' } });
+      wrapper.find('textarea').simulate('change', { target: { value: '竹' } });
+
+      expect(onChange).toHaveBeenLastCalledWith(
+        expect.objectContaining({ target: expect.objectContaining({ value: '竹' }) }),
+      );
+    });
   });
 
   it('when prop value not in this.props, resizeTextarea should be called', async () => {
@@ -138,18 +171,45 @@ describe('TextArea', () => {
 
   describe('should support showCount', () => {
     it('maxLength', () => {
-      const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
+      const wrapper = mount(<TextArea maxLength={5} showCount value="12345" />);
       const textarea = wrapper.find('.ant-input-textarea');
       expect(wrapper.find('textarea').prop('value')).toBe('12345');
       expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
-    // 修改TextArea value截取规则后新增单测
-    it('slice emoji', () => {
-      const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
+    it('control exceed maxLength', () => {
+      const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
       const textarea = wrapper.find('.ant-input-textarea');
-      expect(wrapper.find('textarea').prop('value')).toBe('1234😂');
-      expect(textarea.prop('data-count')).toBe('5 / 5');
+      expect(wrapper.find('textarea').prop('value')).toBe('12345678');
+      expect(textarea.prop('data-count')).toBe('8 / 5');
+    });
+
+    describe('emoji', () => {
+      it('should minimize value between emoji length and maxLength', () => {
+        const wrapper = mount(<TextArea maxLength={1} showCount value="👀" />);
+        const textarea = wrapper.find('.ant-input-textarea');
+        expect(wrapper.find('textarea').prop('value')).toBe('👀');
+        expect(textarea.prop('data-count')).toBe('1 / 1');
+
+        // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
+        // zombieJ: 逻辑统一了，emoji 现在也可以正确计数了
+        const wrapper1 = mount(<TextArea maxLength={2} showCount value="👀" />);
+        const textarea1 = wrapper1.find('.ant-input-textarea');
+        expect(textarea1.prop('data-count')).toBe('1 / 2');
+      });
+
+      it('defaultValue should slice', () => {
+        const wrapper = mount(<TextArea maxLength={1} defaultValue="🧐cut" />);
+        expect(wrapper.find('textarea').prop('value')).toBe('🧐');
+      });
+
+      // 修改TextArea value截取规则后新增单测
+      it('slice emoji', () => {
+        const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
+        const textarea = wrapper.find('.ant-input-textarea');
+        expect(wrapper.find('textarea').prop('value')).toBe('1234😂');
+        expect(textarea.prop('data-count')).toBe('5 / 5');
+      });
     });
 
     it('className & style patch to outer', () => {
@@ -164,6 +224,19 @@ describe('TextArea', () => {
       // Inner
       expect(wrapper.find('.ant-input').hasClass('bamboo')).toBeFalsy();
       expect(wrapper.find('.ant-input').props().style.background).toBeFalsy();
+    });
+
+    it('count formatter', () => {
+      const wrapper = mount(
+        <TextArea
+          maxLength={5}
+          showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+          value="12345"
+        />,
+      );
+      const textarea = wrapper.find('.ant-input-textarea');
+      expect(wrapper.find('textarea').prop('value')).toBe('12345');
+      expect(textarea.prop('data-count')).toBe('5, 5');
     });
   });
 
@@ -305,5 +378,64 @@ describe('TextArea allowClear', () => {
   it('should display defaultValue when value is undefined', () => {
     const wrapper = mount(<Input.TextArea defaultValue="Light" value={undefined} />);
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('Light');
+  });
+
+  it('onChange event should return HTMLTextAreaElement', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<Input.TextArea onChange={onChange} allowClear />);
+
+    function isNativeElement() {
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          target: expect.any(HTMLTextAreaElement),
+        }),
+      );
+
+      onChange.mockReset();
+    }
+
+    // Change
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'bamboo',
+      },
+    });
+    isNativeElement();
+
+    // Composition End
+    wrapper.find('textarea').instance().value = 'light'; // enzyme not support change `currentTarget`
+    wrapper.find('textarea').simulate('compositionEnd');
+    isNativeElement();
+
+    // Reset
+    wrapper.find('.ant-input-clear-icon').first().simulate('click');
+    isNativeElement();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/31927
+  it('should correctly when useState', () => {
+    const App = () => {
+      const [query, setQuery] = useState('');
+      return (
+        <TextArea
+          allowClear
+          value={query}
+          onChange={e => {
+            setQuery(() => e.target.value);
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<App />);
+
+    wrapper.find('textarea').getDOMNode().focus();
+    wrapper.find('textarea').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('textarea').getDOMNode().value).toEqual('111');
+
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
+
+    wrapper.unmount();
   });
 });

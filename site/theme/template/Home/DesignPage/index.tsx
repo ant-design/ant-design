@@ -108,6 +108,8 @@ const DesignPage = (props: { location: any }) => {
     IconComponent = <LeftOutlined className="home-link-arrow home-link-arrow-rtl" />;
   }
 
+  const smallStyle = { fontSize: 12, color: '#888', marginLeft: '0.3em' };
+
   return (
     <div style={{ marginBottom: -28 }}>
       {/* ***************************** Group 1 ***************************** */}
@@ -237,7 +239,7 @@ const DesignPage = (props: { location: any }) => {
             }}
           >
             <Row>
-              <Col xs={24} sm={9} className="card-info">
+              <Col xs={24} sm={12} className="card-info">
                 <Title level={3}>
                   <FormattedMessage id="app.home.components" />
                 </Title>
@@ -248,24 +250,30 @@ const DesignPage = (props: { location: any }) => {
                       to={getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}
                     >
                       Ant Design of React
-                      {IconComponent}
                     </Link>
+                    <span style={smallStyle}>
+                      (<FormattedMessage id="app.implementation.official" />)
+                    </span>
                   </li>
                   <li>
                     <a href="https://ng.ant.design/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Angular
-                      {IconComponent}
                     </a>
+                    <span style={smallStyle}>
+                      (<FormattedMessage id="app.implementation.community" />)
+                    </span>
                   </li>
                   <li>
-                    <a href="https://vue.ant.design/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://antdv.com/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Vue
-                      {IconComponent}
                     </a>
+                    <span style={smallStyle}>
+                      (<FormattedMessage id="app.implementation.community" />)
+                    </span>
                   </li>
                 </ul>
               </Col>
-              <Col xs={24} sm={15} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
+              <Col xs={24} sm={12} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
                 <img
                   alt="components"
                   className="design-card-img-col"

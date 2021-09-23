@@ -1,7 +1,8 @@
 import { TimePickerLocale } from '../index';
 
 const locale: TimePickerLocale = {
-  placeholder: 'Izaberite vreme',
+  placeholder: 'Izaberi vreme',
+  rangePlaceholder: ['Vreme početka', 'Vreme završetka'],
 };
 
 export default locale;

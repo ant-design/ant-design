@@ -1,13 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import Grid from './Grid';
 import Meta from './Meta';
 import Tabs, { TabsProps } from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigContext } from '../config-provider';
-import { Omit } from '../_util/type';
 import SizeContext from '../config-provider/SizeContext';
 
 function getAction(actions: React.ReactNode[]) {
@@ -67,9 +66,7 @@ const Card: CardInterface = props => {
   const size = React.useContext(SizeContext);
 
   const onTabChange = (key: string) => {
-    if (props.onTabChange) {
-      props.onTabChange(key);
-    }
+    props.onTabChange?.(key);
   };
 
   const isContainGrid = () => {

@@ -20,6 +20,7 @@ import {
   getTimeProps,
   Components,
 } from '.';
+import { PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType>;
@@ -58,20 +59,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         }
       };
 
-      getDefaultLocale = () => {
-        const { locale } = this.props;
-        const result = {
-          ...enUS,
-          ...locale,
-        };
-        result.lang = {
-          ...result.lang,
-          ...((locale || {}) as PickerLocale).lang,
-        };
-        return result;
-      };
-
-      renderPicker = (locale: PickerLocale) => {
+      renderPicker = (contextLocale: PickerLocale) => {
+        const locale = { ...contextLocale, ...this.props.locale };
         const { getPrefixCls, direction, getPopupContainer } = this.context;
         const {
           prefixCls: customizePrefixCls,
@@ -102,6 +91,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             ? getTimeProps({ format, ...this.props, picker: mergedPicker })
             : {}),
         };
+        const rootPrefixCls = getPrefixCls();
 
         return (
           <SizeContext.Consumer>
@@ -116,8 +106,12 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                     mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
                   }
                   clearIcon={<CloseCircleFilled />}
+                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                   allowClear
-                  transitionName="slide-up"
+                  transitionName={`${rootPrefixCls}-slide-up`}
                   {...additionalProps}
                   {...restProps}
                   {...additionalOverrideProps}
@@ -132,10 +126,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   prefixCls={prefixCls}
                   getPopupContainer={customizeGetPopupContainer || getPopupContainer}
                   generateConfig={generateConfig}
-                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                   components={Components}
                   direction={direction}
                 />
@@ -147,7 +137,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
       render() {
         return (
-          <LocaleReceiver componentName="DatePicker" defaultLocale={this.getDefaultLocale}>
+          <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
             {this.renderPicker}
           </LocaleReceiver>
         );
@@ -158,7 +148,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       Picker.displayName = displayName;
     }
 
-    return Picker as React.ComponentClass<InnerPickerProps>;
+    return Picker as PickerComponentClass<InnerPickerProps>;
   }
 
   const DatePicker = getPicker<DatePickerProps>();

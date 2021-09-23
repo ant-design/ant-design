@@ -5,7 +5,7 @@ title: Use in TypeScript
 
 Let's create a TypeScript project by using `create-react-app`, then import `antd` step by step.
 
-> We build `antd` based on latest stable version of TypeScript (`>=3.8.4`), please make sure your project dependency matches it.
+> We build `antd` based on latest stable version of TypeScript (`>=4.0.0`), please make sure your project dependency matches it.
 
 ---
 
@@ -17,16 +17,12 @@ Create a new [cra-template-typescript](https://github.com/facebook/create-react-
 
 ```bash
 $ yarn create react-app antd-demo-ts --template typescript
-
-# or
-
-npx create-react-app my-app --template typescript
 ```
 
 If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
 
 ```bash
-$ npx create-react-app antd-demo-ts --typescript
+$ npx create-react-app antd-demo-ts --template typescript
 ```
 
 Then we go inside `antd-demo-ts` and start it.

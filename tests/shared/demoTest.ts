@@ -2,6 +2,7 @@ import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { excludeWarning } from './excludeWarning';
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];
@@ -10,10 +11,9 @@ const USE_REPLACEMENT = false;
 const testDist = process.env.LIB_DIR === 'dist';
 
 /**
- * rc component will generate id for aria usage.
- * It's created as `test-uuid` when env === 'test'.
- * Or `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env.
- * So we need hack of this to modify the `aria-controls`.
+ * Rc component will generate id for aria usage. It's created as `test-uuid` when env === 'test'. Or
+ * `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env. So we need hack of this to
+ * modify the `aria-controls`.
  */
 function ariaConvert(wrapper: CheerIO) {
   if (!testDist || !USE_REPLACEMENT) return wrapper;
@@ -21,7 +21,7 @@ function ariaConvert(wrapper: CheerIO) {
   const matches = new Map();
 
   function process(entry: CheerIOElement) {
-    if (entry.type === 'text') {
+    if (entry.type === 'text' || entry.type === 'comment') {
       return;
     }
     const { attribs, children } = entry;
@@ -58,6 +58,8 @@ export default function demoTest(component: string, options: Options = {}) {
       testMethod = test.skip;
     }
     testMethod(`renders ${file} correctly`, () => {
+      const errSpy = excludeWarning();
+
       MockDate.set(moment('2016-11-22').valueOf());
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
@@ -67,6 +69,8 @@ export default function demoTest(component: string, options: Options = {}) {
 
       expect(wrapper).toMatchSnapshot();
       MockDate.reset();
+
+      errSpy();
     });
   });
 }

@@ -2,24 +2,19 @@ import * as React from 'react';
 import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { tuple } from '../_util/type';
-import { InputProps, getInputClassName } from './Input';
+import type { InputProps } from './Input';
 import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
+import { getInputClassName, hasPrefixSuffix } from './utils';
 
 const ClearableInputType = tuple('text', 'input');
-
-export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
-  return !!(props.prefix || props.suffix || props.allowClear);
-}
 
 function hasAddon(props: InputProps | ClearableInputProps) {
   return !!(props.addonBefore || props.addonAfter);
 }
 
-/**
- * This basic props required for input and textarea.
- */
+/** This basic props required for input and textarea. */
 interface BasicProps {
   prefixCls: string;
   inputType: typeof ClearableInputType[number];
@@ -28,7 +23,7 @@ interface BasicProps {
   element: React.ReactElement;
   handleReset: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   className?: string;
-  style?: object;
+  style?: React.CSSProperties;
   disabled?: boolean;
   direction?: DirectionType;
   focused?: boolean;
@@ -36,10 +31,8 @@ interface BasicProps {
   bordered: boolean;
 }
 
-/**
- * This props only for input.
- */
-interface ClearableInputProps extends BasicProps {
+/** This props only for input. */
+export interface ClearableInputProps extends BasicProps {
   size?: SizeType;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
@@ -49,7 +42,7 @@ interface ClearableInputProps extends BasicProps {
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
-  /** @private Do not use out of this class. We do not promise this is always keep. */
+  /** @private Do Not use out of this class. We do not promise this is always keep. */
   private containerRef = React.createRef<HTMLSpanElement>();
 
   onInputMouseUp: React.MouseEventHandler = e => {
@@ -60,7 +53,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   };
 
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, readOnly, handleReset } = this.props;
+    const { allowClear, value, disabled, readOnly, handleReset, suffix } = this.props;
     if (!allowClear) {
       return null;
     }
@@ -69,9 +62,13 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     return (
       <CloseCircleFilled
         onClick={handleReset}
+        // Do not trigger onBlur when clear input
+        // https://github.com/ant-design/ant-design/issues/31200
+        onMouseDown={e => e.preventDefault()}
         className={classNames(
           {
             [`${className}-hidden`]: !needClear,
+            [`${className}-has-suffix`]: !!suffix,
           },
           className,
         )}

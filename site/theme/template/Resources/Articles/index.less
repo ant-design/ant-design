@@ -1,0 +1,47 @@
+@import (reference) '../index.less';
+
+#articles {
+  h4 {
+    margin: 40px 0 24px 0;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .ant-skeleton {
+    h3 {
+      margin: 0;
+    }
+
+    ul li {
+      display: block;
+      margin-left: 0;
+    }
+  }
+
+  .ant-tabs-nav::before {
+    display: none;
+  }
+
+  .article-list {
+    li {
+      margin: 1em 0;
+      padding: 0;
+      font-size: 14px;
+      list-style: none;
+    }
+
+    .ant-avatar > img {
+      max-width: unset;
+    }
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+
+    td {
+      width: 50%;
+      vertical-align: top;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { UserOutlined } from '@ant-design/icons';
 import notification, { getInstance } from '..';
+import ConfigProvider from '../../config-provider';
 
 describe('notification', () => {
   beforeEach(() => {
@@ -100,6 +101,15 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-rtl').length).toBe(1);
   });
 
+  it('should be able to global config rootPrefixCls', () => {
+    ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
+    notification.success({ message: 'Notification Title', duration: 0 });
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+  });
+
   it('should be able to config prefixCls', () => {
     notification.config({
       prefixCls: 'prefix-test',
@@ -108,10 +118,10 @@ describe('notification', () => {
       message: 'Notification Title',
       duration: 0,
     });
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
     notification.config({
-      prefixCls: 'ant-notification',
+      prefixCls: '',
     });
   });
 
@@ -125,6 +135,24 @@ describe('notification', () => {
       });
       await Promise.resolve();
       expect(document.querySelectorAll(`${iconPrefix}-${type}`).length).toBe(1);
+    };
+
+    const promises = ['success', 'info', 'warning', 'error'].map(type =>
+      openNotificationWithIcon(type),
+    );
+
+    await Promise.all(promises);
+  });
+
+  it('should be able to add parent class for different notification types', async () => {
+    const openNotificationWithIcon = async type => {
+      notification[type]({
+        message: 'Notification Title',
+        duration: 0,
+        description: 'This is the content of the notification.',
+      });
+      await Promise.resolve();
+      expect(document.querySelectorAll(`.ant-notification-notice-${type}`).length).toBe(1);
     };
 
     const promises = ['success', 'info', 'warning', 'error'].map(type =>

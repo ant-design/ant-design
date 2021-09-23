@@ -206,7 +206,7 @@ exports[`renders ./components/breadcrumb/demo/separator.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/breadcrumb/demo/separator-indepent.md correctly 1`] = `
+exports[`renders ./components/breadcrumb/demo/separator-component.md correctly 1`] = `
 <div
   class="ant-breadcrumb"
 >

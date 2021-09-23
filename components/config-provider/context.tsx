@@ -4,6 +4,15 @@ import { Locale } from '../locale-provider';
 import { SizeType } from './SizeContext';
 import { RequiredMark } from '../form/Form';
 
+export interface Theme {
+  primaryColor?: string;
+  infoColor?: string;
+  successColor?: string;
+  processingColor?: string;
+  errorColor?: string;
+  warningColor?: string;
+}
+
 export interface CSPConfig {
   nonce?: string;
 }
@@ -14,6 +23,7 @@ export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
+  iconPrefixCls?: string;
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
   renderEmpty: RenderEmptyHandler;
   csp?: CSPConfig;
@@ -36,13 +46,15 @@ export interface ConfigConsumerProps {
   };
 }
 
+const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
+  if (customizePrefixCls) return customizePrefixCls;
+
+  return suffixCls ? `ant-${suffixCls}` : 'ant';
+};
+
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
-  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
-
-    return suffixCls ? `ant-${suffixCls}` : 'ant';
-  },
+  getPrefixCls: defaultGetPrefixCls,
 
   renderEmpty: defaultRenderEmpty,
 });

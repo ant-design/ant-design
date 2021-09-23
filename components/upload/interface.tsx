@@ -1,5 +1,13 @@
 import * as React from 'react';
+import {
+  RcFile as OriRcFile,
+  UploadRequestOption as RcCustomRequestOptions,
+} from 'rc-upload/lib/interface';
 import { ProgressProps } from '../progress';
+
+export interface RcFile extends OriRcFile {
+  readonly lastModifiedDate: Date;
+}
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
@@ -7,27 +15,9 @@ export interface HttpRequestHeader {
   [key: string]: string;
 }
 
-export interface RcFile extends File {
-  uid: string;
-  readonly lastModifiedDate: Date;
-  readonly webkitRelativePath: string;
-}
-
-export interface RcCustomRequestOptions {
-  onProgress: (event: { percent: number }, file: RcFile) => void;
-  onError: (error: Error, response?: any, file?: RcFile) => void;
-  onSuccess: (response: object, file: RcFile) => void;
-  data: object;
-  filename: string;
-  file: RcFile;
-  withCredentials: boolean;
-  action: string;
-  headers: object;
-}
-
 export interface UploadFile<T = any> {
   uid: string;
-  size: number;
+  size?: number;
   name: string;
   fileName?: string;
   lastModified?: number;
@@ -36,19 +26,23 @@ export interface UploadFile<T = any> {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  originFileObj?: File | Blob;
+  originFileObj?: RcFile;
   response?: T;
   error?: any;
   linkProps?: any;
-  type: string;
+  type?: string;
   xhr?: T;
   preview?: string;
+}
+
+export interface InternalUploadFile<T = any> extends UploadFile<T> {
+  originFileObj: RcFile;
 }
 
 export interface UploadChangeParam<T extends object = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
-  fileList: Array<UploadFile>;
+  fileList: UploadFile[];
   event?: { percent: number };
 }
 
@@ -75,13 +69,19 @@ export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 export type ItemRender<T = any> = (
   originNode: React.ReactElement,
   file: UploadFile,
-  fileList?: Array<UploadFile<T>>,
+  fileList: Array<UploadFile<T>>,
+  actions: {
+    download: () => void;
+    preview: () => void;
+    remove: () => void;
+  },
 ) => React.ReactNode;
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type TransformFileHandler = (
   file: RcFile,
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
+type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export interface UploadProps<T = any> {
   type?: UploadType;
@@ -96,8 +96,12 @@ export interface UploadProps<T = any> {
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<void | Blob | File>;
+  beforeUpload?: (
+    file: RcFile,
+    FileList: RcFile[],
+  ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
   onChange?: (info: UploadChangeParam) => void;
+  onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
   onPreview?: (file: UploadFile<T>) => void;
@@ -113,11 +117,14 @@ export interface UploadProps<T = any> {
   locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
+  /** @deprecated Please use `beforeUpload` directly */
   transformFile?: TransformFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   progress?: UploadListProgressProps;
   itemRender?: ItemRender<T>;
+  /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
+  maxCount?: number;
 }
 
 export interface UploadState<T = any> {

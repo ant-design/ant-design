@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import PageHeader from '..';
+import Breadcrumb from '../../breadcrumb';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -47,6 +48,28 @@ describe('PageHeader', () => {
     ];
     const wrapper = mount(<PageHeader title="Page Title" breadcrumb={{ routes }} />);
     expect(wrapper.find('.ant-breadcrumb')).toHaveLength(1);
+    expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
+  });
+
+  it('pageHeader should have breadcrumb (component)', () => {
+    const routes = [
+      {
+        path: 'index',
+        breadcrumbName: 'First-level Menu',
+      },
+    ];
+    const wrapper = mount(
+      <PageHeader title="Page Title" breadcrumb={<Breadcrumb routes={routes} />} />,
+    );
+    expect(wrapper.find('.ant-breadcrumb')).toHaveLength(1);
+    expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
+  });
+
+  it('pageHeader support breadcrumbRender', () => {
+    const wrapper = mount(
+      <PageHeader title="Page Title" breadcrumbRender={() => <div id="test">test</div>} />,
+    );
+    expect(wrapper.find('#test')).toHaveLength(1);
     expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
   });
 

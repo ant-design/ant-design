@@ -343,12 +343,74 @@ describe('Anchor Render', () => {
     dateNowMock.mockRestore();
   });
 
+  // https://github.com/ant-design/ant-design/issues/31941
+  it('Anchor targetOffset prop when contain spaces', async () => {
+    const hash = `${getHashUrl()} s p a c e s`;
+    let dateNowMock;
+
+    function dataNowMockFn() {
+      let start = 0;
+
+      const handler = () => {
+        start += 1000;
+        return start;
+      };
+
+      return jest.spyOn(Date, 'now').mockImplementation(handler);
+    }
+
+    dateNowMock = dataNowMockFn();
+
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    const root = createDiv();
+    mount(<h1 id={hash}>Hello</h1>, { attachTo: root });
+    const wrapper = mount<Anchor>(
+      <Anchor>
+        <Link href={`#${hash}`} title={hash} />
+      </Anchor>,
+    );
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
+    dateNowMock = dataNowMockFn();
+
+    wrapper.setProps({ offsetTop: 100 });
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
+    dateNowMock = dataNowMockFn();
+
+    wrapper.setProps({ targetOffset: 200 });
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    dateNowMock.mockRestore();
+  });
+
   it('Anchor onChange prop', async () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
     const onChange = jest.fn();
     const wrapper = mount<Anchor>(
       <Anchor onChange={onChange}>
+        <Link href={`#${hash1}`} title={hash1} />
+        <Link href={`#${hash2}`} title={hash2} />
+      </Anchor>,
+    );
+    expect(onChange).toHaveBeenCalledTimes(1);
+    wrapper.instance().handleScrollTo(hash2);
+    expect(onChange).toHaveBeenCalledTimes(2);
+    expect(onChange).toHaveBeenCalledWith(hash2);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/30584
+  it('should trigger onChange when have getCurrentAnchor', async () => {
+    const hash1 = getHashUrl();
+    const hash2 = getHashUrl();
+    const onChange = jest.fn();
+    const wrapper = mount<Anchor>(
+      <Anchor onChange={onChange} getCurrentAnchor={() => hash1}>
         <Link href={`#${hash1}`} title={hash1} />
         <Link href={`#${hash2}`} title={hash2} />
       </Anchor>,

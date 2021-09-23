@@ -6,7 +6,7 @@ import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import { UploadListProps, UploadFile, UploadListType } from '../interface';
+import { UploadListProps, UploadFile, UploadListType, InternalUploadFile } from '../interface';
 import { previewImage, isImageUrl } from '../utils';
 import collapseMotion from '../../_util/motion';
 import { ConfigContext } from '../../config-provider';
@@ -53,13 +53,13 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     if (listType !== 'picture' && listType !== 'picture-card') {
       return;
     }
-    (items || []).forEach(file => {
+    (items || []).forEach((file: InternalUploadFile) => {
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File || file.originFileObj instanceof Blob) ||
+        !(file.originFileObj instanceof File || (file.originFileObj as Blob) instanceof Blob) ||
         file.thumbUrl !== undefined
       ) {
         return;
@@ -80,11 +80,11 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   }, []);
 
   // ============================= Events =============================
-  const onInternalPreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
+  const onInternalPreview = (file: UploadFile, e?: React.SyntheticEvent<HTMLElement>) => {
     if (!onPreview) {
       return;
     }
-    e.preventDefault();
+    e?.preventDefault();
     return onPreview(file);
   };
 
@@ -97,9 +97,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   };
 
   const onInternalClose = (file: UploadFile) => {
-    if (onRemove) {
-      onRemove(file);
-    }
+    onRemove?.(file);
   };
 
   const internalIconRender = (file: UploadFile) => {
@@ -180,6 +178,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   // const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
 
   let motionConfig: Omit<CSSMotionListProps, 'onVisibleChanged'> = {
+    motionDeadline: 2000,
     motionName: `${prefixCls}-${animationDirection}`,
     keys: motionKeyList,
     motionAppear,

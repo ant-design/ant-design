@@ -5,6 +5,7 @@ import {
   RenderedCell as RcRenderedCell,
   ExpandableConfig,
 } from 'rc-table/lib/interface';
+import { TooltipProps } from '../tooltip';
 import { CheckboxProps } from '../checkbox';
 import { PaginationProps } from '../pagination';
 import { Breakpoint } from '../_util/responsiveObserve';
@@ -27,8 +28,11 @@ export interface TableLocale {
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
   filterEmptyText?: React.ReactNode;
+  filterCheckall?: React.ReactNode;
+  filterSearchPlaceholder?: string;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
+  selectNone?: React.ReactNode;
   selectInvert?: React.ReactNode;
   selectionAll?: React.ReactNode;
   sortTitle?: string;
@@ -66,11 +70,17 @@ export type ColumnTitle<RecordType> =
   | React.ReactNode
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
+export type FilterValue = (Key | boolean)[];
+export type FilterKey = Key[] | null;
+export interface FilterConfirmProps {
+  closeDropdown: boolean;
+}
+
 export interface FilterDropdownProps {
   prefixCls: string;
   setSelectedKeys: (selectedKeys: React.Key[]) => void;
   selectedKeys: React.Key[];
-  confirm: () => void;
+  confirm: (param?: FilterConfirmProps) => void;
   clearFilters?: () => void;
   filters?: ColumnFilterItem[];
   visible: boolean;
@@ -90,16 +100,18 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
-  showSorterTooltip?: boolean;
+  showSorterTooltip?: boolean | TooltipProps;
 
   // Filter
   filtered?: boolean;
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterMultiple?: boolean;
-  filteredValue?: Key[] | null;
-  defaultFilteredValue?: Key[] | null;
+  filteredValue?: FilterValue | null;
+  defaultFilteredValue?: FilterValue | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
+  filterMode?: 'menu' | 'tree';
+  filterSearch?: boolean;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
@@ -135,6 +147,7 @@ export interface TableRowSelection<T> {
   preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
+  defaultSelectedRowKeys?: Key[];
   onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
@@ -143,6 +156,7 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
+  onSelectNone?: () => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;
   fixed?: boolean;
@@ -169,7 +183,7 @@ export interface TableCurrentDataSource<RecordType> {
 export interface SorterResult<RecordType> {
   column?: ColumnType<RecordType>;
   order?: SortOrder;
-  field?: Key | Key[];
+  field?: Key | readonly Key[];
   columnKey?: Key;
 }
 

@@ -89,6 +89,20 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('render successColor progress type="circle"', () => {
+    const wrapper = mount(
+      <Progress percent={60} type="circle" success={{ percent: 30, strokeColor: '#ffffff' }} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render successColor progress type="dashboard"', () => {
+    const wrapper = mount(
+      <Progress percent={60} type="dashboard" success={{ percent: 30, strokeColor: '#ffffff' }} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('render dashboard zero gapDegree', () => {
     const wrapper = mount(<Progress type="dashboard" gapDegree={0} />);
     expect(wrapper.render()).toMatchSnapshot();
@@ -175,6 +189,15 @@ describe('Progress', () => {
     );
   });
 
+  it('should display correct step', () => {
+    const wrapper = mount(<Progress steps={9} percent={22.22} />);
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(2);
+    wrapper.setProps({ percent: 33.33 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(3);
+    wrapper.setProps({ percent: 44.44 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(4);
+  });
+
   it('steps should have default percent 0', () => {
     const wrapper = mount(<ProgressSteps />);
     expect(wrapper.render()).toMatchSnapshot();
@@ -194,5 +217,15 @@ describe('Progress', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/30685
+  describe('github issues', () => {
+    it('"Rendered more hooks than during the previous render"', () => {
+      expect(() => {
+        const wrapper = mount(<Progress percent={60} success={{ percent: 0 }} type="circle" />);
+        wrapper.setProps({ success: { percent: 10 } });
+      }).not.toThrow();
+    });
   });
 });

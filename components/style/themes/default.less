@@ -9,14 +9,48 @@
 // An override for the html selector for theme prefixes
 @html-selector: html;
 
+// [CSS-VARIABLE-REPLACE-BEGIN: html-variables]
+// [CSS-VARIABLE-REPLACE-END: html-variables]
+
 // -------- Colors -----------
+// >>> Primary
 @primary-color: @blue-6;
-@info-color: @primary-color;
-@success-color: @green-6;
+@primary-color-hover: color(~`colorPalette('@{primary-color}', 5) `);
+@primary-color-active: color(~`colorPalette('@{primary-color}', 7) `);
+@primary-color-outline: fade(@primary-color, @outline-fade);
+
 @processing-color: @blue-6;
-@error-color: @red-5;
-@highlight-color: @red-5;
+
+// >>> Info
+@info-color: @primary-color;
+@info-color-deprecated-bg: color(~`colorPalette('@{info-color}', 1) `);
+@info-color-deprecated-border: color(~`colorPalette('@{info-color}', 3) `);
+
+// >>> Success
+@success-color: @green-6;
+@success-color-hover: color(~`colorPalette('@{success-color}', 5) `);
+@success-color-active: color(~`colorPalette('@{success-color}', 7) `);
+@success-color-outline: fade(@success-color, @outline-fade);
+@success-color-deprecated-bg: color(~`colorPalette('@{success-color}', 1) `);
+@success-color-deprecated-border: color(~`colorPalette('@{success-color}', 3) `);
+
+// >>> Warning
 @warning-color: @gold-6;
+@warning-color-hover: color(~`colorPalette('@{warning-color}', 5) `);
+@warning-color-active: color(~`colorPalette('@{warning-color}', 7) `);
+@warning-color-outline: fade(@warning-color, @outline-fade);
+@warning-color-deprecated-bg: color(~`colorPalette('@{warning-color}', 1) `);
+@warning-color-deprecated-border: color(~`colorPalette('@{warning-color}', 3) `);
+
+// >>> Error
+@error-color: @red-5;
+@error-color-hover: color(~`colorPalette('@{error-color}', 5) `);
+@error-color-active: color(~`colorPalette('@{error-color}', 7) `);
+@error-color-outline: fade(@error-color, @outline-fade);
+@error-color-deprecated-bg: color(~`colorPalette('@{error-color}', 1) `);
+@error-color-deprecated-border: color(~`colorPalette('@{error-color}', 3) `);
+
+@highlight-color: @red-5;
 @normal-color: #d9d9d9;
 @white: #fff;
 @black: #000;
@@ -140,7 +174,7 @@
 // Outline
 @outline-blur-size: 0;
 @outline-width: 2px;
-@outline-color: @primary-color;
+@outline-color: @primary-color; // No use anymore
 @outline-fade: 20%;
 
 @background-color-light: hsv(0, 0, 98%); // background of header and selected item
@@ -149,6 +183,7 @@
 // Disabled states
 @disabled-color: fade(#000, 25%);
 @disabled-bg: @background-color-base;
+@disabled-active-bg: tint(@black, 90%);
 @disabled-color-dark: fade(#fff, 35%);
 
 // Shadow
@@ -229,6 +264,7 @@
 @checkbox-check-color: #fff;
 @checkbox-check-bg: @checkbox-check-color;
 @checkbox-border-width: @border-width-base;
+@checkbox-border-radius: @border-radius-base;
 @checkbox-group-item-margin-right: 8px;
 
 // Descriptions
@@ -257,7 +293,7 @@
 
 // Radio
 @radio-size: 16px;
-@radio-top: 0px;
+@radio-top: 0.2em;
 @radio-border-width: 1px;
 @radio-dot-size: @radio-size - 8px;
 @radio-dot-color: @primary-color;
@@ -270,7 +306,7 @@
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
-@radio-disabled-button-checked-bg: tint(@black, 90%);
+@radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
 
@@ -388,16 +424,18 @@
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
 @input-padding-vertical-base: max(
-  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+  (round(((@input-height-base - @font-size-base * @line-height-base) / 2) * 10) / 10) -
     @border-width-base,
   3px
 );
 @input-padding-vertical-sm: max(
-  round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+  (round(((@input-height-sm - @font-size-base * @line-height-base) / 2) * 10) / 10) -
+    @border-width-base,
   0
 );
-@input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
-  10 - @border-width-base;
+@input-padding-vertical-lg: (
+    ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10
+  ) - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
 @input-icon-color: @input-color;
@@ -439,7 +477,7 @@
 @select-single-item-height-lg: 40px;
 @select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
 @select-multiple-item-height-lg: 32px;
-@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
+@select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
 @select-multiple-disabled-background: @input-disabled-bg;
 @select-multiple-item-disabled-color: #bfbfbf;
 @select-multiple-item-disabled-border-color: @select-border-color;
@@ -460,7 +498,7 @@
 
 // Anchor
 // ---
-@anchor-bg: @component-background;
+@anchor-bg: transparent;
 @anchor-border-color: @border-color-split;
 @anchor-link-top: 7px;
 @anchor-link-left: 16px;
@@ -530,10 +568,11 @@
 // --
 @progress-default-color: @processing-color;
 @progress-remaining-color: @background-color-base;
-@progress-text-color: @text-color;
+@progress-info-text-color: @progress-text-color;
 @progress-radius: 100px;
 @progress-steps-item-bg: #f3f3f3;
 @progress-text-font-size: 1em;
+@progress-text-color: @text-color; // This is for circle text color, should be renamed better
 @progress-circle-text-font-size: 1em;
 // Menu
 // ---
@@ -544,6 +583,7 @@
 @menu-bg: @component-background;
 @menu-popup-bg: @component-background;
 @menu-item-color: @text-color;
+@menu-inline-submenu-bg: @background-color-light;
 @menu-highlight-color: @primary-color;
 @menu-highlight-danger-color: @error-color;
 @menu-item-active-bg: @primary-1;
@@ -553,7 +593,8 @@
 @menu-item-vertical-margin: 4px;
 @menu-item-font-size: @font-size-base;
 @menu-item-boundary-margin: 8px;
-@menu-item-padding: 0 20px;
+@menu-item-padding-horizontal: 20px;
+@menu-item-padding: 0 @menu-item-padding-horizontal;
 @menu-horizontal-line-height: 46px;
 @menu-icon-margin-right: 10px;
 @menu-icon-size: @menu-item-font-size;
@@ -565,7 +606,7 @@
 @menu-dark-danger-color: @error-color;
 @menu-dark-bg: @layout-header-background;
 @menu-dark-arrow-color: #fff;
-@menu-dark-submenu-bg: #000c17;
+@menu-dark-inline-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
 @menu-dark-item-active-danger-bg: @error-color;
@@ -593,10 +634,11 @@
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
-@table-padding-vertical-md: @table-padding-vertical * 3 / 4;
-@table-padding-horizontal-md: @table-padding-horizontal / 2;
-@table-padding-vertical-sm: @table-padding-vertical / 2;
-@table-padding-horizontal-sm: @table-padding-horizontal / 2;
+@table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
+@table-padding-horizontal-md: (@table-padding-horizontal / 2);
+@table-padding-vertical-sm: (@table-padding-vertical / 2);
+@table-padding-horizontal-sm: (@table-padding-horizontal / 2);
+@table-border-color: @border-color-split;
 @table-border-radius-base: @border-radius-base;
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
@@ -604,11 +646,14 @@
 @table-font-size: @font-size-base;
 @table-font-size-md: @table-font-size;
 @table-font-size-sm: @table-font-size;
+@table-header-cell-split-color: rgba(0, 0, 0, 0.06);
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
-@table-header-sort-active-bg: darken(@table-header-bg, 3%);
+@table-header-sort-active-bg: rgba(0, 0, 0, 0.04);
+@table-fixed-header-sort-active-bg: hsv(0, 0, 96%);
+
 // Filter
-@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
+@table-header-filter-active-bg: rgba(0, 0, 0, 0.04);
 @table-filter-btns-bg: inherit;
 @table-filter-dropdown-bg: @component-background;
 @table-expand-icon-bg: @component-background;
@@ -630,7 +675,7 @@
 @picker-basic-cell-hover-color: @item-hover-bg;
 @picker-basic-cell-active-with-range-color: @primary-1;
 @picker-basic-cell-hover-with-range-color: lighten(@primary-color, 35%);
-@picker-basic-cell-disabled-bg: @disabled-bg;
+@picker-basic-cell-disabled-bg: rgba(0, 0, 0, 0.04);
 @picker-border-color: @border-color-split;
 @picker-date-hover-range-border-color: lighten(@primary-color, 20%);
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
@@ -648,6 +693,7 @@
 @calendar-input-bg: @input-bg;
 @calendar-border-color: @border-color-inverse;
 @calendar-item-active-bg: @item-active-bg;
+@calendar-column-active-bg: fade(@calendar-item-active-bg, 20%);
 @calendar-full-bg: @calendar-bg;
 @calendar-full-panel-bg: @calendar-full-bg;
 
@@ -683,12 +729,12 @@
 @card-head-font-size: @font-size-lg;
 @card-head-font-size-sm: @font-size-base;
 @card-head-padding: 16px;
-@card-head-padding-sm: @card-head-padding / 2;
+@card-head-padding-sm: (@card-head-padding / 2);
 @card-head-height: 48px;
 @card-head-height-sm: 36px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
-@card-padding-base-sm: @card-padding-base / 2;
+@card-padding-base-sm: (@card-padding-base / 2);
 @card-actions-background: @component-background;
 @card-actions-li-margin: 12px 0;
 @card-skeleton-bg: #cfd8dc;
@@ -719,8 +765,9 @@
 @tabs-card-head-background: @background-color-light;
 @tabs-card-height: 40px;
 @tabs-card-active-color: @primary-color;
-@tabs-card-horizontal-padding: (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2 -
-  @border-width-base @padding-md;
+@tabs-card-horizontal-padding: (
+    (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2
+  ) - @border-width-base @padding-md;
 @tabs-card-horizontal-padding-sm: 6px @padding-md;
 @tabs-card-horizontal-padding-lg: 7px @padding-md 6px;
 @tabs-title-font-size: @font-size-base;
@@ -728,13 +775,14 @@
 @tabs-title-font-size-sm: @font-size-base;
 @tabs-ink-bar-color: @primary-color;
 @tabs-bar-margin: 0 0 @margin-md 0;
-@tabs-horizontal-margin: 0 32px 0 0;
+@tabs-horizontal-gutter: 32px;
+@tabs-horizontal-margin: 0 0 0 @tabs-horizontal-gutter;
 @tabs-horizontal-margin-rtl: 0 0 0 32px;
 @tabs-horizontal-padding: @padding-sm 0;
 @tabs-horizontal-padding-lg: @padding-md 0;
 @tabs-horizontal-padding-sm: @padding-xs 0;
 @tabs-vertical-padding: @padding-xs @padding-lg;
-@tabs-vertical-margin: 0 0 @margin-md 0;
+@tabs-vertical-margin: @margin-md 0 0 0;
 @tabs-scrolling-size: 32px;
 @tabs-highlight-color: @primary-color;
 @tabs-hover-color: @primary-5;
@@ -788,8 +836,8 @@
 @pagination-font-weight-active: 500;
 @pagination-item-bg-active: @component-background;
 @pagination-item-link-bg: @component-background;
-@pagination-item-disabled-color-active: @white;
-@pagination-item-disabled-bg-active: darken(@disabled-bg, 10%);
+@pagination-item-disabled-color-active: @disabled-color;
+@pagination-item-disabled-bg-active: @disabled-active-bg;
 @pagination-item-input-bg: @component-background;
 @pagination-mini-options-size-changer-top: 0px;
 
@@ -874,6 +922,7 @@
 @transfer-disabled-bg: @disabled-bg;
 @transfer-list-height: 200px;
 @transfer-item-hover-bg: @item-hover-bg;
+@transfer-item-selected-hover-bg: darken(@item-active-bg, 2%);
 @transfer-item-padding-vertical: 6px;
 @transfer-list-search-icon-top: 12px;
 
@@ -908,7 +957,7 @@
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
   @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size;
-@alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
+@alert-icon-top: 8px + @font-size-base * (@line-height-base / 2) - (@font-size-base / 2);
 @alert-with-description-icon-size: 24px;
 
 // List
@@ -969,7 +1018,7 @@
 @steps-icon-custom-size: @steps-icon-size;
 @steps-icon-custom-top: 0px;
 @steps-icon-custom-font-size: 24px;
-@steps-icon-top: -1px;
+@steps-icon-top: -0.5px;
 @steps-icon-font-size: @font-size-lg;
 @steps-icon-margin: 0 8px 0 0;
 @steps-title-line-height: @height-base;
@@ -978,7 +1027,7 @@
 @steps-dot-size: 8px;
 @steps-dot-top: 2px;
 @steps-current-dot-size: 10px;
-@steps-desciption-max-width: 140px;
+@steps-description-max-width: 140px;
 @steps-nav-content-max-width: auto;
 @steps-vertical-icon-width: 16px;
 @steps-vertical-tail-width: 16px;
@@ -1003,6 +1052,7 @@
 @image-font-size-base: 24px;
 @image-bg: #f5f5f5;
 @image-color: #fff;
+@image-mask-font-size: 16px;
 @image-preview-operation-size: 18px;
 @image-preview-operation-color: @text-color-dark;
 @image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);

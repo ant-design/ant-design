@@ -40,9 +40,16 @@ const localeValues: Locale = {
     cancelText: 'Abbrechen',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Suchen',
     itemUnit: 'Eintrag',
     itemsUnit: 'Einträge',
+    remove: 'Entfernen',
+    selectCurrent: 'Alle auf aktueller Seite auswählen',
+    removeCurrent: 'Auswahl auf aktueller Seite aufheben',
+    selectAll: 'Alle auswählen',
+    removeAll: 'Auswahl aufheben',
+    selectInvert: 'Auswahl umkehren',
   },
   Upload: {
     uploading: 'Hochladen...',
@@ -111,6 +118,9 @@ const localeValues: Locale = {
         mismatch: '${label} enspricht nicht dem ${pattern} Muster',
       },
     },
+  },
+  Image: {
+    preview: 'Vorschau',
   },
 };
 

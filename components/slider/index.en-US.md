@@ -21,7 +21,7 @@ To input a value in a range.
 | dots | Whether the thumb can drag over tick only | boolean | false |  |
 | getTooltipPopupContainer | The DOM container of the Tooltip, the default behavior is to create a div element in body | (triggerNode) => HTMLElement | () => document.body |  |
 | included | Make effect when `marks` not null, true means containment and false means coordinative | boolean | true |  |
-| marks | Tick mark of Slider, type of key must be `number`, and must in closed interval \[min, max], each mark can declare its own style | object | { number: ReactNode } \| { number: { style: object, label: ReactNode } } |  |
+| marks | Tick mark of Slider, type of key must be `number`, and must in closed interval \[min, max], each mark can declare its own style | object | { number: ReactNode } \| { number: { style: CSSProperties, label: ReactNode } } |  |
 | max | The maximum value the slider can slide to | number | 100 |  |
 | min | The minimum value the slider can slide to | number | 0 |  |
 | range | Dual thumb mode | boolean | false |  |
@@ -34,6 +34,14 @@ To input a value in a range.
 | vertical | If true, the slider will be vertical | boolean | false |  |
 | onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
+| trackStyle | The style of slider track | CSSProperties | - |  |
+| handleStyle | The style of slider handle | CSSProperties | - |  |
+
+### range
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| draggableTrack | Whether range track can be drag | boolean | false | 4.10.0 |
 
 ## Methods
 

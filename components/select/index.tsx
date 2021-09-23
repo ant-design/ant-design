@@ -1,13 +1,14 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 
 import * as React from 'react';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
 import { OptionProps } from 'rc-select/lib/Option';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { getTransitionName } from '../_util/motion';
 
 type RawValue = string | number;
 
@@ -21,7 +22,7 @@ export interface LabeledValue {
   label: React.ReactNode;
 }
 
-export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
+export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
 export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon?: React.ReactNode;
@@ -31,7 +32,10 @@ export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'>
 }
 
 export interface SelectProps<VT>
-  extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'> {
+  extends Omit<
+    InternalSelectProps<VT>,
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
+  > {
   mode?: 'multiple' | 'tags';
 }
 
@@ -53,7 +57,6 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
-    transitionName = 'slide-up',
     ...props
   }: SelectProps<VT>,
   ref: React.Ref<RefSelectProps>,
@@ -69,6 +72,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
   const size = React.useContext(SizeContext);
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<VT>;
@@ -103,7 +107,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     prefixCls,
   });
 
-  const selectProps = omit(props, ['suffixIcon', 'itemIcon']);
+  const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
   const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
@@ -122,11 +126,11 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
 
   return (
     <RcSelect<VT>
-      ref={ref}
+      ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}
-      transitionName={transitionName}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}

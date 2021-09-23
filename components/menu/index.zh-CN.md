@@ -15,6 +15,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 更多布局和导航的使用可以参考：[通用布局](/components/layout)。
 
+## 开发者注意事项
+
+- Menu 元素为 `ul`，因而仅支持 [`li` 以及 `script-supporting` 子元素](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)。因而你的子节点元素应该都在 `Menu.Item` 内使用。
+- Menu 需要计算节点结构，因而其子元素仅支持 `Menu.*` 以及对此进行封装的 HOC 组件。
+
 ## API
 
 ```jsx
@@ -56,13 +61,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 ### Menu.Item
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| danger | 展示错误状态样式 | boolean | false | 4.3.0 |
-| disabled | 是否禁用 | boolean | false |  |
-| icon | 菜单图标 | ReactNode | - | 4.2.0 |
-| key | item 的唯一标志 | string | - |  |
-| title | 设置收缩时展示的悬浮标题 | string | - |  |
+| 参数     | 说明                     | 类型      | 默认值 | 版本  |
+| -------- | ------------------------ | --------- | ------ | ----- |
+| danger   | 展示错误状态样式         | boolean   | false  | 4.3.0 |
+| disabled | 是否禁用                 | boolean   | false  |       |
+| icon     | 菜单图标                 | ReactNode | -      | 4.2.0 |
+| key      | item 的唯一标志          | string    | -      |       |
+| title    | 设置收缩时展示的悬浮标题 | string    | -      |       |
 
 > 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
 >
@@ -98,11 +103,21 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 ### Menu.ItemGroup
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| children | 分组的菜单项 | MenuItem\[] | - |  |
-| title | 分组标题 | ReactNode | - |  |
+| 参数     | 说明         | 类型        | 默认值 | 版本 |
+| -------- | ------------ | ----------- | ------ | ---- |
+| children | 分组的菜单项 | MenuItem\[] | -      |      |
+| title    | 分组标题     | ReactNode   | -      |      |
 
 ### Menu.Divider
 
 菜单项分割线，只用在弹出菜单内。
+
+| 参数   | 说明     | 类型    | 默认值 | 版本   |
+| ------ | -------- | ------- | ------ | ------ |
+| dashed | 是否虚线 | boolean | false  | 4.17.0 |
+
+## FAQ
+
+### 为何 Menu 的子元素会渲染两次？
+
+Menu 通过[二次渲染](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543)收集嵌套结构信息以支持 HOC 的结构。合并成一个推导结构会使得逻辑变得十分复杂，欢迎 PR 以协助改进该设计。

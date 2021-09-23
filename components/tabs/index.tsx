@@ -8,7 +8,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
-import { SizeType } from '../config-provider/SizeContext';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -24,8 +24,17 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
 }
 
-function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...props }: TabsProps) {
-  const { prefixCls: customizePrefixCls } = props;
+function Tabs({
+  type,
+  className,
+  size: propSize,
+  onEdit,
+  hideAdd,
+  centered,
+  addIcon,
+  ...props
+}: TabsProps) {
+  const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
 
@@ -40,6 +49,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
       showAdd: hideAdd !== true,
     };
   }
+  const rootPrefixCls = getPrefixCls();
 
   devWarning(
     !('onPrevClick' in props) && !('onNextClick' in props),
@@ -48,23 +58,30 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
   );
 
   return (
-    <RcTabs
-      direction={direction}
-      {...props}
-      moreTransitionName="slide-up"
-      className={classNames(
-        {
-          [`${prefixCls}-${size}`]: size,
-          [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
-          [`${prefixCls}-editable-card`]: type === 'editable-card',
-          [`${prefixCls}-centered`]: centered,
-        },
-        className,
-      )}
-      editable={editable}
-      moreIcon={<EllipsisOutlined />}
-      prefixCls={prefixCls}
-    />
+    <SizeContext.Consumer>
+      {contextSize => {
+        const size = propSize !== undefined ? propSize : contextSize;
+        return (
+          <RcTabs
+            direction={direction}
+            moreTransitionName={`${rootPrefixCls}-slide-up`}
+            {...props}
+            className={classNames(
+              {
+                [`${prefixCls}-${size}`]: size,
+                [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
+                [`${prefixCls}-editable-card`]: type === 'editable-card',
+                [`${prefixCls}-centered`]: centered,
+              },
+              className,
+            )}
+            editable={editable}
+            moreIcon={moreIcon}
+            prefixCls={prefixCls}
+          />
+        );
+      }}
+    </SizeContext.Consumer>
   );
 }
 

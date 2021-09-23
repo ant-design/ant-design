@@ -13,7 +13,7 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
-  // locales for all comoponents
+  // locales for all components
   global: {
     placeholder: '请选择',
   },
@@ -22,8 +22,11 @@ const localeValues: Locale = {
     filterConfirm: '确定',
     filterReset: '重置',
     filterEmptyText: '无筛选项',
+    filterCheckall: '全选',
+    filterSearchPlaceholder: '在筛选项中搜索',
     selectAll: '全选当页',
     selectInvert: '反选当页',
+    selectNone: '清空所有',
     selectionAll: '全选所有',
     sortTitle: '排序',
     expand: '展开行',
@@ -123,6 +126,9 @@ const localeValues: Locale = {
         mismatch: '${label}与模式不匹配${pattern}',
       },
     },
+  },
+  Image: {
+    preview: '预览',
   },
 };
 
