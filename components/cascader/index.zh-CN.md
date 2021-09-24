@@ -49,6 +49,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 4.17.0 |
+| multiple | 支持多选节点 | boolean | - |  |
+| searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - |  |
+| onSearch | 监听搜索，返回输入的值 | (search: string) => void | - |  |
+| dropdownMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
+| loadingIcon | 动态加载时的加载动画 (目前这个属性设置后不生效) | ReactNode | - |  |
 
 ### showSearch
 
