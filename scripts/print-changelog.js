@@ -111,7 +111,6 @@ async function printLog() {
 
       // Use jquery to get full html page since it don't need auth token
       const res = await fetch(`https://github.com/ant-design/ant-design/pull/${pr}`);
-      console.log('res.url.includes issues', res.url.includes('/issues/'));
       if (res.url.includes('/issues/')) {
         continue;
       }
@@ -226,7 +225,6 @@ async function printLog() {
   html = html.replace('// [Replacement]', `window.changelog = ${JSON.stringify(prList)};`);
   fs.writeFileSync(path.join(__dirname, 'previewEditor', 'index.html'), html, 'utf8');
 
-  console.log('xxx');
   // Start preview
   const ls = spawn(
     'npx',
