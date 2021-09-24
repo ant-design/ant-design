@@ -60,6 +60,26 @@
   &::placeholder {
     font-weight: 400;
   }
+
+  &-error:not(&-disabled) {
+    border-color: @volcano-base;
+
+    &:hover {
+      .hover(@volcano-base);
+    }
+
+    &:focus {
+      .active(@volcano-base);
+    }
+  }
+}
+
+.@{input-prefix-cls}-tip {
+  color: @infra-gray-7;
+}
+
+.@{input-prefix-cls}-tip-error {
+  color: @volcano-base;
 }
 
 @import './search-input';

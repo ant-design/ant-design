@@ -10,6 +10,7 @@ import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput'
 import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
+import { cloneElement } from '../_util/reactNode';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -52,6 +53,8 @@ export interface InputProps
   suffix?: React.ReactNode;
   allowClear?: boolean;
   bordered?: boolean;
+  tip?: string | React.ReactNode;
+  isError?: boolean;
 }
 
 export function fixControlledValue<T>(value: T) {
@@ -67,9 +70,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     | React.ChangeEvent<E>
     | React.MouseEvent<HTMLElement, MouseEvent>
     | React.CompositionEvent<HTMLElement>,
-  onChange:
-    | undefined
-    | ((event: React.ChangeEvent<E>) => void),
+  onChange: undefined | ((event: React.ChangeEvent<E>) => void),
   targetValue?: string,
 ) {
   if (!onChange) {
@@ -277,7 +278,14 @@ class Input extends React.Component<InputProps, InputState> {
     bordered: boolean,
     input: ConfigConsumerProps['input'] = {},
   ) => {
-    const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
+    const {
+      className,
+      addonBefore,
+      addonAfter,
+      size: customizeSize,
+      disabled,
+      isError,
+    } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props as InputProps & { inputType: any }, [
       'prefixCls',
@@ -306,6 +314,7 @@ class Input extends React.Component<InputProps, InputState> {
           getInputClassName(prefixCls, bordered, customizeSize || size, disabled, this.direction),
           {
             [className!]: className && !addonBefore && !addonAfter,
+            [`${prefixCls}-error`]: isError,
           },
         )}
         ref={this.saveInput}
@@ -341,28 +350,52 @@ class Input extends React.Component<InputProps, InputState> {
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
+    const { prefixCls: customizePrefixCls, bordered = true, tip, isError } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
+    const tipClassNames = `${prefixCls}-tip ${isError ? `${prefixCls}-tip-error` : ''}`;
+    console.log(this.props);
 
     return (
       <SizeContext.Consumer>
-        {size => (
-          <ClearableLabeledInput
-            size={size}
-            {...this.props}
-            prefixCls={prefixCls}
-            inputType="input"
-            value={fixControlledValue(value)}
-            element={this.renderInput(prefixCls, size, bordered, input)}
-            handleReset={this.handleReset}
-            ref={this.saveClearableInput}
-            direction={direction}
-            focused={focused}
-            triggerFocus={this.focus}
-            bordered={bordered}
-          />
-        )}
+        {size => {
+          return tip ? (
+            <span>
+              <ClearableLabeledInput
+                size={size}
+                {...this.props}
+                prefixCls={prefixCls}
+                inputType="input"
+                value={fixControlledValue(value)}
+                element={this.renderInput(prefixCls, size, bordered, input)}
+                handleReset={this.handleReset}
+                ref={this.saveClearableInput}
+                direction={direction}
+                focused={focused}
+                triggerFocus={this.focus}
+                bordered={bordered}
+              />
+              <div className={tipClassNames}>
+                {typeof tip === 'string' ? tip : cloneElement(tip)}
+              </div>
+            </span>
+          ) : (
+            <ClearableLabeledInput
+              size={size}
+              {...this.props}
+              prefixCls={prefixCls}
+              inputType="input"
+              value={fixControlledValue(value)}
+              element={this.renderInput(prefixCls, size, bordered, input)}
+              handleReset={this.handleReset}
+              ref={this.saveClearableInput}
+              direction={direction}
+              focused={focused}
+              triggerFocus={this.focus}
+              bordered={bordered}
+            />
+          );
+        }}
       </SizeContext.Consumer>
     );
   };

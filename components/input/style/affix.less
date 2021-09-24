@@ -42,6 +42,22 @@
       visibility: hidden;
       content: '\a0';
     }
+
+    &-error:not(&-disabled) {
+      border-color: @volcano-base;
+
+      &:hover {
+        .hover(@volcano-base);
+      }
+
+      &:focus {
+        .active(@volcano-base);
+      }
+    }
+
+    &-error&-focused {
+      .active(@volcano-base);
+    }
   }
 
   &-prefix,

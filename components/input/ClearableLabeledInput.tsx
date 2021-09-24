@@ -32,6 +32,7 @@ interface BasicProps {
   focused?: boolean;
   readOnly?: boolean;
   bordered: boolean;
+  isError?: boolean;
 }
 
 /** This props only for input. */
@@ -106,6 +107,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       style,
       readOnly,
       bordered,
+      isError,
     } = this.props;
     const suffixNode = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(this.props)) {
@@ -127,6 +129,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
       // className will go to addon wrapper
       [`${className}`]: !hasAddon(this.props) && className,
+      [`${prefixCls}-affix-wrapper-error`]: isError,
     });
     return (
       <span
