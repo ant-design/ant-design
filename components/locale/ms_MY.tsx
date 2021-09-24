@@ -27,7 +27,7 @@ const localeValues: Locale = {
   },
   Table: {
     filterTitle: 'Cari dengan tajuk',
-    filterConfirm: 'Ok',
+    filterConfirm: 'OK',
     filterReset: 'Menetapkan semula',
     emptyText: 'Tiada data',
     selectAll: 'Pilih semua',
