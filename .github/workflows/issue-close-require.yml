@@ -5,18 +5,18 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  close-issues:
+  issue-close-require:
     runs-on: ubuntu-latest
     steps:
       - name: need reproduce
-        uses: actions-cool/issues-helper@v1.7
+        uses: actions-cool/issues-helper@v2
         with:
           actions: 'close-issues'
           labels: '🤔 Need Reproduce'
           inactive-day: 3
-      
+
       - name: needs more info
-        uses: actions-cool/issues-helper@v1.7
+        uses: actions-cool/issues-helper@v2
         with:
           actions: 'close-issues'
           labels: 'needs-more-info'

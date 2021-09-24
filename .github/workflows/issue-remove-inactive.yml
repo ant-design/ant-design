@@ -7,7 +7,7 @@ on:
     types: [created, edited]
 
 jobs:
-  remove-inactive:
+  issue-remove-inactive:
     runs-on: ubuntu-latest
     steps:
       - name: remove inactive
