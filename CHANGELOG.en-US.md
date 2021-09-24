@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.17.0-alpha.4
 
-`2021-09-24`
+`2021-09-25`
 
 - 🐞 Fix `Ok` abbreviation to be `OK`. [#32259](https://github.com/ant-design/ant-design/pull/32259) [@chj-damon](https://github.com/chj-damon)
 - 🐞 Fix `antd.variable.less` compile mix with default theme variable. [#32279](https://github.com/ant-design/ant-design/pull/32279)

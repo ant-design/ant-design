@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.17.0-alpha.4
 
-`2021-09-24`
+`2021-09-25`
 
 - 🐞 修复英文国际化文案 `Ok` 为 `OK`。[#32259](https://github.com/ant-design/ant-design/pull/32259) [@chj-damon](https://github.com/chj-damon)
 - 🐞 修复 `antd.variable.less` 编译时会混入默认主题配置的问题。[#32279](https://github.com/ant-design/ant-design/pull/32279)
