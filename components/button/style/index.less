@@ -194,14 +194,30 @@
   }
 
   &&-background-ghost {
-    &:not([disabled]) {
-      color: @btn-default-ghost-color;
-      border-color: @btn-default-ghost-border;
-    }
+    color: @btn-default-ghost-color;
+    border-color: @btn-default-ghost-border;
+
     &,
     &:hover,
     &:active,
     &:focus {
+      background: @btn-default-ghost-bg;
+    }
+
+    &:hover,
+    &:focus {
+      color: @primary-color-hover;
+      border-color: @primary-color-hover;
+    }
+
+    &:active {
+      color: @primary-color-active;
+      border-color: @primary-color-active;
+    }
+
+    &[disabled] {
+      color: @disabled-color;
+      border-color: @btn-default-border;
       background: @btn-default-ghost-bg;
     }
   }
