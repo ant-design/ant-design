@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.4
+
+`2021-09-25`
+
+- 🐞 Fix `Ok` abbreviation to be `OK`. [#32259](https://github.com/ant-design/ant-design/pull/32259) [@chj-damon](https://github.com/chj-damon)
+- 🐞 Fix `antd.variable.less` compile mix with default theme variable. [#32279](https://github.com/ant-design/ant-design/pull/32279)
+- Button
+  - 🐞 Fix Button with `ghost` hover style. [#32289](https://github.com/ant-design/ant-design/pull/32289)
+  - 🐞 Fix Button with `loading` can not trigger Tooltip. [#32158](https://github.com/ant-design/ant-design/pull/32158)
+- Table
+  - 🐞 Fix Table don't support `ref`. [#32136](https://github.com/ant-design/ant-design/pull/32136) [@JounQin](https://github.com/JounQin)
+  - 🐞 Table remove `sticky` style with fixed column in IE11 to avoid layout issue. [#32177](https://github.com/ant-design/ant-design/pull/32177)
+  - 💄 Optimize Table sorter icon margin problem. [#32172](https://github.com/ant-design/ant-design/pull/32172)
+- 🐞 Fix Grid Col `flex` some time exceed its width when content too long. [#32160](https://github.com/ant-design/ant-design/pull/32160)
+- 🐞 Fix Switch Loading icon in an incorrect position. [#32216](https://github.com/ant-design/ant-design/pull/32216)
+- RTL
+  - 💄 Optimized Alert close icon display in RTL mode. [#32286](https://github.com/ant-design/ant-design/pull/32286)
+  - 💄 Optimized Table header action display in RTL mode. [#32283](https://github.com/ant-design/ant-design/pull/32283)
+  - 💄 Optimized Collapse arrow icon display in RTL mode. [#32282](https://github.com/ant-design/ant-design/pull/32282)
+  - 💄 Optimized Badge count display and animation in RTL mode. [#32281](https://github.com/ant-design/ant-design/pull/32281)
+  - 💄 Optimized InputNumber handler border style in RTL mode. [#32272](https://github.com/ant-design/ant-design/pull/32272)
+  - 💄 Optimized Dropdown icon display in RTL mode. [#32271](https://github.com/ant-design/ant-design/pull/32271)
+- TypeScript
+  - 🐞 Fix Switch missing `id` property. [#32237](https://github.com/ant-design/ant-design/pull/32237) [@M-ZubairAhmed](https://github.com/M-ZubairAhmed)
+
 ## 4.17.0-alpha.3
 
 `2021-09-14`
