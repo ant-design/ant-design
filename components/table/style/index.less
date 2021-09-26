@@ -428,7 +428,6 @@
 
   table tr th&-selection-column,
   table tr td&-selection-column {
-    z-index: 4;
     padding-right: @padding-xs;
     padding-left: @padding-xs;
     text-align: center;
@@ -436,6 +435,10 @@
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
+  }
+
+  table tr th&-selection-column&-cell-fix-left {
+    z-index: 3;
   }
 
   table tr th&-selection-column::after {
