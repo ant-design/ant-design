@@ -109,6 +109,13 @@
     }
   }
 
+  // >>> Drag Handler
+  &-draggable-icon {
+    width: @tree-title-height;
+    line-height: @tree-title-height;
+    text-align: center;
+  }
+
   // >>> Switcher
   &-switcher {
     .antTreeSwitcherIcon();
@@ -212,7 +219,7 @@
   }
 
   // ==================== Draggable =====================
-  &-node-content-wrapper[draggable='true'] {
+  &-node-content-wrapper {
     line-height: @tree-title-height;
     user-select: none;
 

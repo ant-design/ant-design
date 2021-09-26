@@ -1,4 +1,5 @@
 import * as React from 'react';
+import HolderOutlined from '@ant-design/icons/HolderOutlined';
 import RcTree, { TreeNode, TreeProps as RcTreeProps } from 'rc-tree';
 import classNames from 'classnames';
 import { DataNode, Key } from 'rc-tree/lib/interface';
@@ -183,6 +184,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
         renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
       }
+      draggableIcon={<HolderOutlined />}
     >
       {children}
     </RcTree>
