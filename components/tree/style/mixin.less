@@ -114,6 +114,12 @@
     width: @tree-title-height;
     line-height: @tree-title-height;
     text-align: center;
+    opacity: 0.2;
+    transition: opacity @animation-duration-slow;
+
+    .@{custom-tree-node-prefix-cls}:hover & {
+      opacity: 0.45;
+    }
   }
 
   // >>> Switcher
