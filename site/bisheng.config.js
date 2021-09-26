@@ -102,6 +102,12 @@ module.exports = {
       type: 'javascript/auto',
     });
 
+    config.module.rules.push({
+      test: /array-move/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    });
+
     config.plugins.push(
       new webpack.DefinePlugin({
         antdReproduceVersion: JSON.stringify(version),
