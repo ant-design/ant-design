@@ -15,7 +15,7 @@ Use Aliyun OSS upload example.
 
 ```jsx
 import { Form, Upload, message, Button } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { IUpload } from 'infra-design-icons';
 
 class AliyunOSSUpload extends React.Component {
   state = {
@@ -106,7 +106,7 @@ class AliyunOSSUpload extends React.Component {
     };
     return (
       <Upload {...props}>
-        <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        <Button icon={<IUpload />}>Click to Upload</Button>
       </Upload>
     );
   }

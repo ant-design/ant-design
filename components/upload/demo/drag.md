@@ -20,6 +20,7 @@ We can upload serveral files at once in modern browsers by giving the input the 
 ```jsx
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
+import { IUploadCloud } from 'infra-design-icons';
 
 const { Dragger } = Upload;
 
@@ -46,7 +47,7 @@ const props = {
 ReactDOM.render(
   <Dragger {...props}>
     <p className="ant-upload-drag-icon">
-      <InboxOutlined />
+      <IUploadCloud />
     </p>
     <p className="ant-upload-text">Click or drag file to this area to upload</p>
     <p className="ant-upload-hint">

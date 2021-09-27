@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 9
 title:
   zh-CN: 全局化配置
   en-US: ConfigProvider

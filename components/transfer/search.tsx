@@ -1,6 +1,6 @@
 import * as React from 'react';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import { ISearch } from 'infra-design-icons';
 
 import Input from '../input';
 
@@ -45,7 +45,7 @@ export default function Search(props: TransferSearchProps) {
         </a>
       ) : (
         <span className={`${prefixCls}-action`}>
-          <SearchOutlined />
+          <ISearch />
         </span>
       )}
     </>

@@ -16,7 +16,7 @@ title:
 ```jsx
 import React, { useState } from 'react';
 import { Upload, Button, message } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { IUpload } from 'infra-design-icons';
 
 const Uploader = () => {
   const props = {
@@ -32,7 +32,7 @@ const Uploader = () => {
   };
   return (
     <Upload {...props}>
-      <Button icon={<UploadOutlined />}>Upload png only</Button>
+      <Button icon={<IUpload />}>Upload png only</Button>
     </Upload>
   );
 };
