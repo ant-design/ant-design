@@ -65,6 +65,26 @@
       .@{custom-tree-prefix-cls}-node-content-wrapper {
         flex: auto;
       }
+
+      // >>> Drag
+      .@{custom-tree-node-prefix-cls}.dragging {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: @tree-node-padding;
+          left: 0;
+          border: 1px solid @primary-color;
+          opacity: 0;
+          animation: ant-tree-node-fx-do-not-use 0.3s;
+          animation-play-state: running;
+          animation-fill-mode: forwards;
+          content: '';
+          pointer-events: none;
+        }
+      }
     }
   }
 
@@ -283,5 +303,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes ant-tree-node-fx-do-not-use {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
