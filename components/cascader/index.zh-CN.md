@@ -37,6 +37,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | fieldNames | 自定义 options 中 label name children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | (selectedOptions) => void | - |  |
+| maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | 4.17.0 |
+| maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - | 4.17.0 |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | `Not Found` |  |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#Option)\[] | - |  |
@@ -46,6 +48,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | size | 输入框大小 | `large` \| `middle` \| `small` | - |  |
 | style | 自定义样式 | CSSProperties | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
+| tagRender | 自定义 tag 内容，多选时生效 | (props) => ReactNode | - | 4.17.0 |
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 4.17.0 |

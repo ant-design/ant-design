@@ -43,6 +43,7 @@ Tree selection control.
 | size | To set the size of the select input | `large` \| `middle` \| `small` | - |  |
 | suffixIcon | The custom suffix icon,you must set `showArrow` to `true` manually in multiple selection mode | ReactNode | - |  |
 | switcherIcon | customize collapse \| expand icon of tree node | ReactNode | - |  |
+| tagRender | Customize tag render when `multiple` | (props) => ReactNode | - |  |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |
 | treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array&lt;{ value, title, children, \[disabled, disableCheckbox, selectable, checkable] }> | \[] |  |
