@@ -29,7 +29,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | defaultExpandParent | If auto expand parent treeNodes when init | boolean | true |  |
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |  |
 | disabled | Whether disabled the tree | boolean | false |  |
-| draggable | Specifies whether this Tree or the node is draggable (IE > 8) | boolean \| ((node: DataNode) => boolean) | false |  |
+| draggable | Specifies whether this Tree or the node is draggable. Use `icon: false` to disable drag handler icon | boolean \| ((node: DataNode) => boolean) \| { icon?: React.ReactNode \| false, nodeDraggable?: (node: DataNode) => boolean } | false | `config`: 4.17.0 |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  |
 | fieldNames | Customize node title, key, children field name | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  |

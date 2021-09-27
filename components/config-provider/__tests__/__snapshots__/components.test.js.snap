@@ -35652,7 +35652,9 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -35715,7 +35717,9 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -35806,7 +35810,9 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -35869,7 +35875,9 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -35960,7 +35968,9 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -36023,7 +36033,9 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -36114,7 +36126,9 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -36177,7 +36191,9 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -36268,7 +36284,9 @@ exports[`ConfigProvider components Tree normal 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -36331,7 +36349,9 @@ exports[`ConfigProvider components Tree normal 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -36422,7 +36442,9 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -36485,7 +36507,9 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
+              aria-grabbed="false"
               class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
+              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -36613,7 +36637,9 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -36748,7 +36774,9 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -36883,7 +36911,9 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -37018,7 +37048,9 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -37153,7 +37185,9 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -37288,7 +37322,9 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"

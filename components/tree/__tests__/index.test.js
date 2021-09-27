@@ -95,4 +95,37 @@ describe('Tree', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  describe('draggable', () => {
+    const dragTreeData = [
+      {
+        title: 'bamboo',
+        key: 'bamboo',
+      },
+    ];
+
+    it('hide icon', () => {
+      const wrapper = mount(<Tree treeData={dragTreeData} draggable={{ icon: false }} />);
+      expect(wrapper.exists('.anticon-holder')).toBeFalsy();
+    });
+
+    it('customize icon', () => {
+      const wrapper = mount(
+        <Tree treeData={dragTreeData} draggable={{ icon: <span className="little" /> }} />,
+      );
+      expect(wrapper.exists('.little')).toBeTruthy();
+    });
+
+    it('nodeDraggable', () => {
+      const nodeDraggable = jest.fn(() => false);
+      mount(<Tree treeData={dragTreeData} draggable={{ nodeDraggable }} />);
+      expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
+
+    it('nodeDraggable func', () => {
+      const nodeDraggable = jest.fn(() => false);
+      mount(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
+      expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
+  });
 });
