@@ -36637,7 +36637,9 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -36772,7 +36774,9 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -36907,7 +36911,9 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -37042,7 +37048,9 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -37177,7 +37185,9 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
@@ -37312,7 +37322,9 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                     style="display:flex;flex-direction:column"
                   >
                     <div
+                      aria-grabbed="false"
                       class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-leaf-last"
+                      draggable="false"
                     >
                       <span
                         aria-hidden="true"
