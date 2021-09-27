@@ -121,5 +121,11 @@ describe('Tree', () => {
       mount(<Tree treeData={dragTreeData} draggable={{ nodeDraggable }} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
     });
+
+    it('nodeDraggable func', () => {
+      const nodeDraggable = jest.fn(() => false);
+      mount(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
+      expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
   });
 });
