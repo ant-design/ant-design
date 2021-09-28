@@ -4,6 +4,7 @@ import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
+import { ImageType, typeConfig } from './config';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -21,6 +22,7 @@ export interface EmptyProps {
   image?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
+  type?: ImageType;
 }
 
 interface EmptyType extends React.FC<EmptyProps> {
@@ -35,6 +37,7 @@ const Empty: EmptyType = ({
   description,
   children,
   imageStyle,
+  type,
   ...restProps
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -42,16 +45,22 @@ const Empty: EmptyType = ({
   return (
     <LocaleReceiver componentName="Empty">
       {(locale: TransferLocale) => {
-        const prefixCls = getPrefixCls('empty', customizePrefixCls);
-        const des = typeof description !== 'undefined' ? description : locale.description;
-        const alt = typeof des === 'string' ? des : 'empty';
-
         let imageNode: React.ReactNode = null;
+        let des = null;
+
+        const prefixCls = getPrefixCls('empty', customizePrefixCls);
+        des = typeof description !== 'undefined' ? description : locale.description;
+        const alt = typeof des === 'string' ? des : 'empty';
 
         if (typeof image === 'string') {
           imageNode = <img alt={alt} src={image} />;
         } else {
-          imageNode = image;
+          if (!!type && image === defaultEmptyImg) {
+            imageNode = typeConfig.get(type)?.icon;
+            des = typeof description !== 'undefined' ? des : typeConfig.get(type)?.description;
+          } else {
+            imageNode = image;
+          }
         }
 
         return (
@@ -59,7 +68,7 @@ const Empty: EmptyType = ({
             className={classNames(
               prefixCls,
               {
-                [`${prefixCls}-normal`]: image === simpleEmptyImg,
+                [`${prefixCls}-normal`]: image === simpleEmptyImg || typeConfig.has(type as string),
                 [`${prefixCls}-rtl`]: direction === 'rtl',
               },
               className,

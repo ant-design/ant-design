@@ -15,7 +15,8 @@ Use `showUploadList` for custom action icons of files.
 
 ```jsx
 import { Upload, Button } from 'antd';
-import { UploadOutlined, StarOutlined } from '@ant-design/icons';
+import { StarOutlined } from '@ant-design/icons';
+import { IUpload } from 'infra-design-icons';
 
 const props = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -56,7 +57,7 @@ const props = {
 
 ReactDOM.render(
   <Upload {...props}>
-    <Button icon={<UploadOutlined />}>Upload</Button>
+    <Button icon={<IUpload />}>Upload</Button>
   </Upload>,
   mountNode,
 );

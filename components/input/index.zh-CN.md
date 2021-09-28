@@ -34,6 +34,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 | value | 输入框内容 | string | - |  |
 | onChange | 输入框内容变化时的回调 | function(e) | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
+| tip | 输入框下方的提示语 | string \| ReactNode | - |  |
+| isError | 输入框或提示语是否是错误状态 | boolean | - |  |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 

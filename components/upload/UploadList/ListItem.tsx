@@ -1,9 +1,7 @@
 import * as React from 'react';
 import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
+import { IEdit, ITrash, DownloadOutlined } from 'infra-design-icons';
 import Tooltip from '../../tooltip';
 import Progress from '../../progress';
 import { ConfigContext } from '../../config-provider';
@@ -129,13 +127,16 @@ const ListItem = React.forwardRef(
       [`${prefixCls}-list-item-${file.status}`]: true,
       [`${prefixCls}-list-item-list-type-${listType}`]: true,
     });
+    const trashClass = classNames({
+      [`${prefixCls}-trash`]: true,
+    });
     const linkProps =
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
     const removeIcon = showRemoveIcon
       ? actionIconRender(
           (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || (
-            <DeleteOutlined />
+            <ITrash className={trashClass} />
           ),
           () => onClose(file),
           prefixCls,
@@ -197,6 +198,9 @@ const ListItem = React.forwardRef(
       pointerEvents: 'none',
       opacity: 0.5,
     };
+    const editClass = classNames({
+      [`${prefixCls}-edit`]: true,
+    });
     const previewIcon = showPreviewIcon ? (
       <a
         href={file.url || file.thumbUrl}
@@ -206,7 +210,7 @@ const ListItem = React.forwardRef(
         onClick={e => onPreview(file, e)}
         title={locale.previewFile}
       >
-        <EyeOutlined />
+        <IEdit className={editClass} />
       </a>
     ) : null;
 

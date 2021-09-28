@@ -15,7 +15,7 @@ Use `defaultFileList` for uploaded files when page init.
 
 ```jsx
 import { Upload, Button } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { IUpload } from 'infra-design-icons';
 
 const props = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -50,7 +50,7 @@ const props = {
 
 ReactDOM.render(
   <Upload {...props}>
-    <Button icon={<UploadOutlined />}>Upload</Button>
+    <Button icon={<IUpload />}>Upload</Button>
   </Upload>,
   mountNode,
 );

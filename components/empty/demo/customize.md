@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 10
 title:
   zh-CN: 自定义
   en-US: Customize

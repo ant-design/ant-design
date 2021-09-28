@@ -74,7 +74,7 @@
     transition: border-color 0.3s;
 
     .@{upload-prefix-cls} {
-      padding: @padding-md 0;
+      padding: @padding-md * 2;
     }
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
@@ -109,7 +109,8 @@
     }
     p.@{upload-prefix-cls}-text {
       margin: 0 0 4px;
-      color: @heading-color;
+      color: @infra-gray-10;
+      font-weight: 500;
       font-size: @font-size-lg;
     }
     p.@{upload-prefix-cls}-hint {
@@ -136,6 +137,11 @@
     display: inline-block;
     width: 100%;
   }
+
+  &-edit,
+  &-trash {
+    color: rgba(255, 255, 255, 0.85);
+  }
 }
 
 .@{upload-prefix-cls}-list {
@@ -154,6 +160,7 @@
       width: 100%;
       padding-left: @font-size-base + 8px;
       overflow: hidden;
+      color: @infra-gray-7;
       line-height: @line-height-base;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -276,6 +283,7 @@
       }
 
       &-error {
+        padding: @padding-xs !important;
         border-color: @error-color;
       }
     }
@@ -393,6 +401,7 @@
     .@{upload-item} {
       height: 100%;
       margin: 0;
+      padding: 0px;
     }
 
     .@{upload-item}-info {
@@ -418,11 +427,11 @@
 
     .@{upload-item}-actions {
       position: absolute;
-      top: 50%;
+      bottom: 0;
       left: 50%;
       z-index: 10;
       white-space: nowrap;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, 0);
       opacity: 0;
       transition: all 0.3s;
 
@@ -473,6 +482,7 @@
 
     .@{upload-item}-uploading {
       &.@{upload-item} {
+        padding: @padding-xs;
         background-color: @background-color-light;
       }
 

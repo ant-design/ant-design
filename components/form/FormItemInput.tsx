@@ -1,9 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import { ISuccessFilled, ICloseFullfiled, INoticeCircleFilled } from 'infra-design-icons';
 
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
@@ -39,9 +37,9 @@ export interface FormItemInputProps {
 }
 
 const iconMap: { [key: string]: any } = {
-  success: CheckCircleFilled,
-  warning: ExclamationCircleFilled,
-  error: CloseCircleFilled,
+  success: ISuccessFilled,
+  warning: INoticeCircleFilled,
+  error: ICloseFullfiled,
   validating: LoadingOutlined,
 };
 

@@ -15,7 +15,7 @@ Classic mode. File selection dialog pops up when upload button is clicked.
 
 ```jsx
 import { Upload, message, Button } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { IUpload } from 'infra-design-icons';
 
 const props = {
   name: 'file',
@@ -37,7 +37,7 @@ const props = {
 
 ReactDOM.render(
   <Upload {...props}>
-    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+    <Button icon={<IUpload />}>Click to Upload</Button>
   </Upload>,
   mountNode,
 );

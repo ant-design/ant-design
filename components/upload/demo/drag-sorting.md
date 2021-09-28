@@ -19,7 +19,7 @@ import { Upload, Button, Tooltip } from 'antd';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
-import { UploadOutlined } from '@ant-design/icons';
+import { IUpload } from 'infra-design-icons';
 
 const type = 'DragableUploadList';
 
@@ -129,7 +129,7 @@ const DragSortingUpload: React.FC = () => {
           />
         )}
       >
-        <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        <Button icon={<IUpload />}>Click to Upload</Button>
       </Upload>
     </DndProvider>
   );

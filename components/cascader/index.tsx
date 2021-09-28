@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import DownOutlined from '@ant-design/icons/DownOutlined';
-import { UpOutlined } from 'infra-design-icons';
+import { IArrowDown, IArrowUp } from 'infra-design-icons';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -617,9 +616,9 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           );
         } else {
           inputIcon = inputFocused ? (
-            <UpOutlined className={arrowCls} />
+            <IArrowUp className={arrowCls} />
           ) : (
-            <DownOutlined className={arrowCls} />
+            <IArrowDown className={arrowCls} />
           );
         }
 

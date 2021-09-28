@@ -30,14 +30,14 @@
   }
 
   &-bordered {
-    border: @border-width-base @border-style-base @border-color-split;
+    border: @border-width-base @border-style-base @infra-gray-4;
   }
 
   &-head {
     min-height: @card-head-height;
     margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
-    padding: 0 @card-padding-base;
-    color: @card-head-color;
+    padding: 0 16px;
+    color: @infra-gray-10;
     font-weight: 500;
     font-size: @card-head-font-size;
     background: @card-head-background;
@@ -95,7 +95,7 @@
   }
 
   &-body {
-    padding: @card-padding-base;
+    padding: 16px;
     .clearfix();
   }
 

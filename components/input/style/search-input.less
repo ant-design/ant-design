@@ -17,6 +17,18 @@
     }
   }
 
+  .@{ant-prefix}-input-error:not(&-disabled) {
+    border-color: @volcano-base;
+
+    &:hover {
+      .hover(@volcano-base);
+    }
+
+    &:focus {
+      .active(@volcano-base);
+    }
+  }
+
   .@{ant-prefix}-input-affix-wrapper {
     border-radius: 0;
   }
