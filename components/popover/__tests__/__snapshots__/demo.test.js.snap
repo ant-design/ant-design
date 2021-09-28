@@ -54,6 +54,28 @@ exports[`renders ./components/popover/demo/hover-with-click.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/popover/demo/link.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    click me
+  </span>
+</button>
+`;
+
+exports[`renders ./components/popover/demo/picture.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    click me
+  </span>
+</button>
+`;
+
 exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
 <div
   class="demo"

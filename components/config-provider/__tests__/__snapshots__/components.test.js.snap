@@ -10001,21 +10001,21 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     value=""
   />
   <span
-    aria-label="down"
-    class="anticon anticon-down config-cascader-picker-arrow"
+    aria-label="arrow-down"
+    class="anticon anticon-arrow-down config-cascader-picker-arrow"
     role="img"
   >
     <svg
       aria-hidden="true"
-      data-icon="down"
+      data-icon="arrow-down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
+      viewBox="0 0 16 16"
       width="1em"
     >
       <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
       />
     </svg>
   </span>
@@ -10039,21 +10039,21 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
     value=""
   />
   <span
-    aria-label="down"
-    class="anticon anticon-down config-cascader-picker-arrow"
+    aria-label="arrow-down"
+    class="anticon anticon-arrow-down config-cascader-picker-arrow"
     role="img"
   >
     <svg
       aria-hidden="true"
-      data-icon="down"
+      data-icon="arrow-down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
+      viewBox="0 0 16 16"
       width="1em"
     >
       <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
       />
     </svg>
   </span>
@@ -10077,21 +10077,21 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
     value=""
   />
   <span
-    aria-label="down"
-    class="anticon anticon-down config-cascader-picker-arrow"
+    aria-label="arrow-down"
+    class="anticon anticon-arrow-down config-cascader-picker-arrow"
     role="img"
   >
     <svg
       aria-hidden="true"
-      data-icon="down"
+      data-icon="arrow-down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
+      viewBox="0 0 16 16"
       width="1em"
     >
       <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
       />
     </svg>
   </span>
@@ -10115,21 +10115,21 @@ exports[`ConfigProvider components Cascader configProvider virtual and dropdownM
     value=""
   />
   <span
-    aria-label="down"
-    class="anticon anticon-down ant-cascader-picker-arrow"
+    aria-label="arrow-down"
+    class="anticon anticon-arrow-down ant-cascader-picker-arrow"
     role="img"
   >
     <svg
       aria-hidden="true"
-      data-icon="down"
+      data-icon="arrow-down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
+      viewBox="0 0 16 16"
       width="1em"
     >
       <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
       />
     </svg>
   </span>
@@ -10153,21 +10153,21 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     value=""
   />
   <span
-    aria-label="down"
-    class="anticon anticon-down ant-cascader-picker-arrow"
+    aria-label="arrow-down"
+    class="anticon anticon-arrow-down ant-cascader-picker-arrow"
     role="img"
   >
     <svg
       aria-hidden="true"
-      data-icon="down"
+      data-icon="arrow-down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
+      viewBox="0 0 16 16"
       width="1em"
     >
       <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
       />
     </svg>
   </span>
@@ -10191,21 +10191,21 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     value=""
   />
   <span
-    aria-label="down"
-    class="anticon anticon-down prefix-Cascader-picker-arrow"
+    aria-label="arrow-down"
+    class="anticon anticon-arrow-down prefix-Cascader-picker-arrow"
     role="img"
   >
     <svg
       aria-hidden="true"
-      data-icon="down"
+      data-icon="arrow-down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
+      viewBox="0 0 16 16"
       width="1em"
     >
       <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
       />
     </svg>
   </span>
@@ -37311,22 +37311,22 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash config-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -37413,22 +37413,22 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash config-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -37515,22 +37515,22 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash config-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -37617,22 +37617,22 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash ant-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -37719,22 +37719,22 @@ exports[`ConfigProvider components Upload normal 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash ant-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -37821,22 +37821,22 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash ant-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>

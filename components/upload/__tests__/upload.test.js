@@ -431,7 +431,7 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
+    wrapper.find('div.ant-upload-list-item .anticon-trash').simulate('click');
 
     setTimeout(() => {
       wrapper.update();
@@ -475,7 +475,7 @@ describe('Upload', () => {
 
     wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
+    wrapper.find('div.ant-upload-list-item .anticon-trash').simulate('click');
   });
 
   it('should not stop download when return use onDownload', done => {
