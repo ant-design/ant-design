@@ -354,46 +354,38 @@ class Input extends React.Component<InputProps, InputState> {
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
     const tipClassNames = `${prefixCls}-tip ${isError ? `${prefixCls}-tip-error` : ''}`;
-    console.log(this.props);
+
+    const renderClearableLabeledInput = (size: SizeType) => {
+      return (
+        <ClearableLabeledInput
+          size={size}
+          {...this.props}
+          prefixCls={prefixCls}
+          inputType="input"
+          value={fixControlledValue(value)}
+          element={this.renderInput(prefixCls, size, bordered, input)}
+          handleReset={this.handleReset}
+          ref={this.saveClearableInput}
+          direction={direction}
+          focused={focused}
+          triggerFocus={this.focus}
+          bordered={bordered}
+        />
+      );
+    };
 
     return (
       <SizeContext.Consumer>
         {size => {
           return tip ? (
             <span>
-              <ClearableLabeledInput
-                size={size}
-                {...this.props}
-                prefixCls={prefixCls}
-                inputType="input"
-                value={fixControlledValue(value)}
-                element={this.renderInput(prefixCls, size, bordered, input)}
-                handleReset={this.handleReset}
-                ref={this.saveClearableInput}
-                direction={direction}
-                focused={focused}
-                triggerFocus={this.focus}
-                bordered={bordered}
-              />
+              {renderClearableLabeledInput(size)}
               <div className={tipClassNames}>
                 {typeof tip === 'string' ? tip : cloneElement(tip)}
               </div>
             </span>
           ) : (
-            <ClearableLabeledInput
-              size={size}
-              {...this.props}
-              prefixCls={prefixCls}
-              inputType="input"
-              value={fixControlledValue(value)}
-              element={this.renderInput(prefixCls, size, bordered, input)}
-              handleReset={this.handleReset}
-              ref={this.saveClearableInput}
-              direction={direction}
-              focused={focused}
-              triggerFocus={this.focus}
-              bordered={bordered}
-            />
+            renderClearableLabeledInput(size)
           );
         }}
       </SizeContext.Consumer>
