@@ -1,14 +1,16 @@
 import React from 'react';
-import NoAppImg from './noApp';
-import NoData from './noData';
-import NoLog from './noLog';
-import NoRecords from './noRecords';
-import NoResults from './noResults';
-import NoRatings from './noRatings';
-import NoImage from './noImage';
-import NoPremission from './noPermission';
+import {
+  NoApp,
+  NoData,
+  NoLog,
+  NoRecords,
+  NoResults,
+  NoRatings,
+  NoImage,
+  NoPremission,
+} from './otherImageType';
 
-const noAppImg = <NoAppImg />;
+const noAppImg = <NoApp />;
 const noData = <NoData />;
 const noLog = <NoLog />;
 const noRecords = <NoRecords />;
