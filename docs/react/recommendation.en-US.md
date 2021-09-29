@@ -7,7 +7,7 @@ title: Third-Party Libraries
 
 | Category | Recommended Components |
 | --- | --- |
-| Visualization and charts | [AntV Data Visualization](https://antv.vision/en) [🔥 AntV Charting Library](https://g2plot.antv.vision/en) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
+| Visualization and charts | [Ant Design Charts](https://charts.ant.design) [AntV Data Visualization](https://antv.vision/en) |
 | React Hooks Library | [ahooks](https://github.com/alibaba/hooks) |
 | React Form Library | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
@@ -23,7 +23,7 @@ title: Third-Party Libraries
 | Icons | [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) [react-icons](https://github.com/gorangajic/react-icons) |
 | QR Code | [qrcode.react](https://github.com/zpao/qrcode.react) |
 | Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress) |
-| i18n | [react-intl](https://github.com/yahoo/react-intl) |
+| i18n | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown renderer | [react-markdown](https://remarkjs.github.io/react-markdown/) |
 | Infinite Scroll | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-virtualized](https://github.com/bvaughn/react-virtualized) [antd-table-infinity](https://github.com/Leonard-Li777/antd-table-infinity) |

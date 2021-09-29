@@ -99,7 +99,10 @@ export interface TableProps<RecordType>
   showSorterTooltip?: boolean | TooltipProps;
 }
 
-function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
+function InternalTable<RecordType extends object = any>(
+  props: TableProps<RecordType>,
+  ref: React.MutableRefObject<HTMLDivElement>,
+) {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -148,9 +151,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
 
   const size = React.useContext(SizeContext);
-  const { locale: contextLocale = defaultLocale, renderEmpty, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    locale: contextLocale = defaultLocale,
+    renderEmpty,
+    direction,
+  } = React.useContext(ConfigContext);
   const mergedSize = customizeSize || size;
   const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
@@ -216,7 +221,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
       // Trigger pagination events
       if (pagination && pagination.onChange) {
-        pagination.onChange(1, changeInfo.pagination!.pageSize);
+        pagination.onChange(1, changeInfo.pagination!.pageSize!);
       }
     }
 
@@ -263,10 +268,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     tableLocale,
     showSorterTooltip,
   });
-  const sortedData = React.useMemo(() => getSortData(rawData, sortStates, childrenColumnName), [
-    rawData,
-    sortStates,
-  ]);
+  const sortedData = React.useMemo(
+    () => getSortData(rawData, sortStates, childrenColumnName),
+    [rawData, sortStates],
+  );
 
   changeEventInfo.sorter = getSorters();
   changeEventInfo.sorterStates = sortStates;
@@ -432,8 +437,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
     const renderPagination = (position: string) => (
       <Pagination
-        className={`${prefixCls}-pagination ${prefixCls}-pagination-${position}`}
         {...mergedPagination}
+        className={classNames(
+          `${prefixCls}-pagination ${prefixCls}-pagination-${position}`,
+          mergedPagination.className,
+        )}
         size={paginationSize}
       />
     );
@@ -478,7 +486,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     className,
   );
   return (
-    <div className={wrapperClassNames} style={style}>
+    <div ref={ref} className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>
@@ -507,6 +515,21 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     </div>
   );
 }
+
+const TableRef = React.forwardRef(InternalTable);
+
+type InternalTableType = typeof TableRef;
+
+interface TableInterface extends InternalTableType {
+  SELECTION_ALL: 'SELECT_ALL';
+  SELECTION_INVERT: 'SELECT_INVERT';
+  SELECTION_NONE: 'SELECT_NONE';
+  Column: typeof Column;
+  ColumnGroup: typeof ColumnGroup;
+  Summary: typeof Summary;
+}
+
+const Table = TableRef as TableInterface;
 
 Table.defaultProps = {
   rowKey: 'key',

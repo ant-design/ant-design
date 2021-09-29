@@ -2,7 +2,9 @@
 
 name: Preview Build
 
-on: pull_request
+on: 
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   # Prepare node modules. Reuse cache if available

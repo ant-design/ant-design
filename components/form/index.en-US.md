@@ -244,7 +244,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | resetFields | Reset fields to `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
 | scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | Set fields status | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | Set fields value | (values) => void |  |
+| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
 | validateFields | Validate fields | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
@@ -302,22 +302,23 @@ Rule supports a config object, or a function returning config object:
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 ```
 
-| Name | Description | Type |
-| --- | --- | --- |
-| defaultField | Validate rule for all array elements, valid when `type` is `array` | [rule](#Rule) |
-| enum | Match enum value. You need to set `type` to `enum` to enable this | any\[] |
-| fields | Validate rule for child elements, valid when `type` is `array` or `object` | Record&lt;string, [rule](#Rule)> |
-| len | Length of string, number, array | number |
-| max | `type` required: max length of `string`, `number`, `array` | number |
-| message | Error message. Will auto generate by [template](#validateMessages) if not provided | string |
-| min | `type` required: min length of `string`, `number`, `array` | number |
-| pattern | Regex pattern | RegExp |
-| required | Required field | boolean |
-| transform | Transform value to the rule before validation | (value) => any |
-| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string |
-| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |
-| validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |
-| whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |
+| Name | Description | Type | Version |
+| --- | --- | --- | --- |
+| defaultField | Validate rule for all array elements, valid when `type` is `array` | [rule](#Rule) |  |
+| enum | Match enum value. You need to set `type` to `enum` to enable this | any\[] |  |
+| fields | Validate rule for child elements, valid when `type` is `array` or `object` | Record&lt;string, [rule](#Rule)> |  |
+| len | Length of string, number, array | number |  |
+| max | `type` required: max length of `string`, `number`, `array` | number |  |
+| message | Error message. Will auto generate by [template](#validateMessages) if not provided | string |  |
+| min | `type` required: min length of `string`, `number`, `array` | number |  |
+| pattern | Regex pattern | RegExp |  |
+| required | Required field | boolean |  |
+| transform | Transform value to the rule before validation | (value) => any |  |
+| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string |  |
+| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |  |
+| validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |  |
+| warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
+| whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
 
 ## Migrate to v4
 

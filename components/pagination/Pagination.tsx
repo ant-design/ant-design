@@ -1,5 +1,8 @@
 import * as React from 'react';
-import RcPagination from 'rc-pagination';
+import RcPagination, {
+  PaginationLocale,
+  PaginationProps as RcPaginationProps,
+} from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -13,36 +16,16 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
-export interface PaginationProps {
-  total?: number;
-  defaultCurrent?: number;
-  disabled?: boolean;
-  current?: number;
-  defaultPageSize?: number;
-  pageSize?: number;
-  onChange?: (page: number, pageSize?: number) => void;
-  hideOnSinglePage?: boolean;
-  showSizeChanger?: boolean;
-  pageSizeOptions?: string[];
-  onShowSizeChange?: (current: number, size: number) => void;
+export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
-  showTitle?: boolean;
-  showTotal?: (total: number, range: [number, number]) => React.ReactNode;
   size?: 'default' | 'small';
   responsive?: boolean;
-  simple?: boolean;
-  style?: React.CSSProperties;
-  locale?: Object;
-  className?: string;
-  prefixCls?: string;
-  selectPrefixCls?: string;
   itemRender?: (
     page: number,
     type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
     originalElement: React.ReactElement<HTMLElement>,
   ) => React.ReactNode;
   role?: string;
-  showLessItems?: boolean;
   totalBoundaryShowSizeChanger?: number;
 }
 
@@ -52,7 +35,7 @@ export interface PaginationConfig extends PaginationProps {
   position?: PaginationPosition;
 }
 
-export type PaginationLocale = any;
+export { PaginationLocale };
 
 const Pagination: React.FC<PaginationProps> = ({
   prefixCls: customizePrefixCls,
@@ -60,6 +43,7 @@ const Pagination: React.FC<PaginationProps> = ({
   className,
   size,
   locale: customLocale,
+  selectComponentClass,
   ...restProps
 }) => {
   const { xs } = useBreakpoint();
@@ -124,12 +108,12 @@ const Pagination: React.FC<PaginationProps> = ({
 
     return (
       <RcPagination
+        {...getIconsProps()}
         {...restProps}
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
-        {...getIconsProps()}
         className={extendedClassName}
-        selectComponentClass={isSmall ? MiniSelect : Select}
+        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : Select)}
         locale={locale}
       />
     );

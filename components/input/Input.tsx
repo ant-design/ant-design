@@ -1,15 +1,16 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import Group from './Group';
-import Search from './Search';
-import TextArea from './TextArea';
-import Password from './Password';
+import type Group from './Group';
+import type Search from './Search';
+import type TextArea from './TextArea';
+import type Password from './Password';
 import { LiteralUnion } from '../_util/type';
-import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
+import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
+import { getInputClassName, hasPrefixSuffix } from './utils';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -52,6 +53,7 @@ export interface InputProps
   suffix?: React.ReactNode;
   allowClear?: boolean;
   bordered?: boolean;
+  htmlSize?: number;
 }
 
 export function fixControlledValue<T>(value: T) {
@@ -74,18 +76,30 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     return;
   }
   let event = e;
-  const originalInputValue = target.value;
 
   if (e.type === 'click') {
     // click clear icon
     event = Object.create(e);
-    event.target = target;
-    event.currentTarget = target;
-    // change target ref value cause e.target.value should be '' when clear input
-    target.value = '';
+
+    // Clone a new target for event.
+    // Avoid the following usage, the setQuery method gets the original value.
+    //
+    // const [query, setQuery] = React.useState('');
+    // <Input
+    //   allowClear
+    //   value={query}
+    //   onChange={(e)=> {
+    //     setQuery((prevStatus) => e.target.value);
+    //   }}
+    // />
+
+    const currentTarget = target.cloneNode(true) as E;
+
+    event.target = currentTarget;
+    event.currentTarget = currentTarget;
+
+    currentTarget.value = '';
     onChange(event as React.ChangeEvent<E>);
-    // reset target ref value
-    target.value = originalInputValue;
     return;
   }
 
@@ -100,22 +114,6 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     return;
   }
   onChange(event as React.ChangeEvent<E>);
-}
-
-export function getInputClassName(
-  prefixCls: string,
-  bordered: boolean,
-  size?: SizeType,
-  disabled?: boolean,
-  direction?: DirectionType,
-) {
-  return classNames(prefixCls, {
-    [`${prefixCls}-sm`]: size === 'small',
-    [`${prefixCls}-lg`]: size === 'large',
-    [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-borderless`]: !bordered,
-  });
 }
 
 export function triggerFocus(
@@ -275,7 +273,14 @@ class Input extends React.Component<InputProps, InputState> {
     bordered: boolean,
     input: ConfigConsumerProps['input'] = {},
   ) => {
-    const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
+    const {
+      className,
+      addonBefore,
+      addonAfter,
+      size: customizeSize,
+      disabled,
+      htmlSize,
+    } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props as InputProps & { inputType: any }, [
       'prefixCls',
@@ -291,6 +296,7 @@ class Input extends React.Component<InputProps, InputState> {
       'size',
       'inputType',
       'bordered',
+      'htmlSize',
     ]);
     return (
       <input
@@ -307,6 +313,7 @@ class Input extends React.Component<InputProps, InputState> {
           },
         )}
         ref={this.saveInput}
+        size={htmlSize}
       />
     );
   };

@@ -1,6 +1,12 @@
 @import '../../input/style/mixin';
 
-.form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
+.form-control-validation(
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
   .@{ant-prefix}-form-item-split {
     color: @text-color;
   }
@@ -15,19 +21,20 @@
 
     &:focus,
     &-focused {
-      .active(@border-color);
+      .active(@border-color, @hoverBorderColor, @outlineColor);
     }
   }
 
   .@{ant-prefix}-calendar-picker-open .@{ant-prefix}-calendar-picker-input {
-    .active(@border-color);
+    .active(@border-color, @hoverBorderColor, @outlineColor);
   }
 
   .@{ant-prefix}-input-prefix {
     color: @text-color;
   }
 
-  .@{ant-prefix}-input-group-addon {
+  .@{ant-prefix}-input-group-addon,
+  .@{ant-prefix}-input-number-group-addon {
     color: @text-color;
     border-color: @border-color;
   }

@@ -441,6 +441,76 @@ describe('Table.rowSelection', () => {
     expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
+  describe('preset selection options', () => {
+    const presetData = [
+      { key: 0, name: 'Jack' },
+      { key: 1, name: 'Lucy', disabled: true },
+      { key: 2, name: 'Tom' },
+    ];
+
+    const getCheckboxProps = record => record;
+
+    it('SELECTION_ALL', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        createTable({
+          dataSource: presetData,
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: [2],
+            getCheckboxProps,
+            selections: [Table.SELECTION_ALL],
+          },
+        }),
+      );
+
+      wrapper.find('Trigger').setState({ popupVisible: true });
+      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+
+      expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything());
+    });
+
+    it('SELECTION_INVERT', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        createTable({
+          dataSource: presetData,
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: [2],
+            getCheckboxProps,
+            selections: [Table.SELECTION_INVERT],
+          },
+        }),
+      );
+
+      wrapper.find('Trigger').setState({ popupVisible: true });
+      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+
+      expect(onChange).toHaveBeenCalledWith([0], expect.anything());
+    });
+
+    it('SELECTION_NONE', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        createTable({
+          dataSource: presetData,
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: [1, 2],
+            getCheckboxProps,
+            selections: [Table.SELECTION_NONE],
+          },
+        }),
+      );
+
+      wrapper.find('Trigger').setState({ popupVisible: true });
+      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+
+      expect(onChange).toHaveBeenCalledWith([1], expect.anything());
+    });
+  });
+
   it('could hide selectAll checkbox and custom selection', () => {
     const rowSelection = {
       hideSelectAll: true,

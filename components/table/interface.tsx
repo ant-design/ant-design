@@ -28,6 +28,8 @@ export interface TableLocale {
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
   filterEmptyText?: React.ReactNode;
+  filterCheckall?: React.ReactNode;
+  filterSearchPlaceholder?: string;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectNone?: React.ReactNode;
@@ -108,6 +110,8 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   filteredValue?: FilterValue | null;
   defaultFilteredValue?: FilterValue | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
+  filterMode?: 'menu' | 'tree';
+  filterSearch?: boolean;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;

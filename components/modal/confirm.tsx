@@ -5,10 +5,11 @@ import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import { getConfirmLocale } from './locale';
-import { ModalFuncProps, destroyFns } from './Modal';
+import type { ModalFuncProps } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 import { globalConfig } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import destroyFns from './destroyFns';
 
 let defaultRootPrefixCls = '';
 
@@ -18,9 +19,7 @@ function getRootPrefixCls() {
 
 type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
-export type ModalFunc = (
-  props: ModalFuncProps,
-) => {
+export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void;
   update: (configUpdate: ConfigUpdate) => void;
 };
@@ -60,16 +59,18 @@ export default function confirm(config: ModalFuncProps) {
      */
     setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
-      const { getPrefixCls } = globalConfig();
+      const { getPrefixCls, getIconPrefixCls } = globalConfig();
       // because Modal.config  set rootPrefixCls, which is different from other components
       const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+      const iconPrefixCls = getIconPrefixCls();
 
       ReactDOM.render(
         <ConfirmDialog
           {...props}
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
+          iconPrefixCls={iconPrefixCls}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
