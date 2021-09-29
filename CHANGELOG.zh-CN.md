@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.4
+
+`2021-09-25`
+
+- 🐞 修复英文国际化文案 `Ok` 为 `OK`。[#32259](https://github.com/ant-design/ant-design/pull/32259) [@chj-damon](https://github.com/chj-damon)
+- 🐞 修复 `antd.variable.less` 编译时会混入默认主题配置的问题。[#32279](https://github.com/ant-design/ant-design/pull/32279)
+- Button
+  - 🐞 修复 Button `ghost` 鼠标悬停样式。[#32289](https://github.com/ant-design/ant-design/pull/32289)
+  - 🐞 修复 Button 配置 `loading` 时，无法触发 Tooltip 的问题。[#32158](https://github.com/ant-design/ant-design/pull/32158)
+- Table
+  - 🐞 修复 Table 不支持 `ref` 的问题。[#32136](https://github.com/ant-design/ant-design/pull/32136) [@JounQin](https://github.com/JounQin)
+  - 🐞 Table 移除 IE11 下 `sticky` 的相关样式以解决布局问题。[#32177](https://github.com/ant-design/ant-design/pull/32177)
+  - 🐞 优化 Table 排序图标边距问题。[#32172](https://github.com/ant-design/ant-design/pull/32172)
+- 🐞 修复 Switch `loading` 按钮位置不正确的问题。[#32216](https://github.com/ant-design/ant-design/pull/32216)
+- 🐞 修复 Grid Col `flex` 在内容过长的时候缩放失效的问题。[#32160](https://github.com/ant-design/ant-design/pull/32160)
+- RTL
+  - 💄 优化 Alert 关闭按钮在 RTL 模式下的显示。[#32286](https://github.com/ant-design/ant-design/pull/32286)
+  - 💄 优化 Table 表头操作按钮在 RTL 模式下显示。[#32283](https://github.com/ant-design/ant-design/pull/32283)
+  - 💄 优化 Collapse 按钮在 RTL 模式下位置显示。[#32282](https://github.com/ant-design/ant-design/pull/32282)
+  - 💄 优化 Badge 数字在 RTL 模式下显示和动画。[#32281](https://github.com/ant-design/ant-design/pull/32281)
+  - 💄 优化 InputNumber 操作栏 RTL 模式下边框样式。[#32272](https://github.com/ant-design/ant-design/pull/32272)
+  - 💄 优化 Dropdown RTL 模式下 icon 显示。[#32271](https://github.com/ant-design/ant-design/pull/32271)
+- TypeScript
+  - 🤖 修复 Switch `id` 属性定义。[#32237](https://github.com/ant-design/ant-design/pull/32237) [@M-ZubairAhmed](https://github.com/M-ZubairAhmed)
+
 ## 4.17.0-alpha.3
 
 `2021-09-14`

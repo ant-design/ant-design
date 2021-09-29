@@ -4395,7 +4395,9 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
+                    aria-grabbed="false"
                     class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                    draggable="false"
                   >
                     <span
                       aria-hidden="true"
@@ -4423,7 +4425,9 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                     </span>
                   </div>
                   <div
+                    aria-grabbed="false"
                     class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                    draggable="false"
                   >
                     <span
                       aria-hidden="true"
@@ -4471,7 +4475,9 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                     </span>
                   </div>
                   <div
+                    aria-grabbed="false"
                     class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                    draggable="false"
                   >
                     <span
                       aria-hidden="true"
@@ -4503,7 +4509,9 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                     </span>
                   </div>
                   <div
+                    aria-grabbed="false"
                     class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                    draggable="false"
                   >
                     <span
                       aria-hidden="true"
@@ -4535,7 +4543,9 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                     </span>
                   </div>
                   <div
+                    aria-grabbed="false"
                     class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                    draggable="false"
                   >
                     <span
                       aria-hidden="true"

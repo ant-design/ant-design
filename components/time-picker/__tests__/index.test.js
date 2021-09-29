@@ -26,7 +26,7 @@ describe('TimePicker', () => {
     resetWarned();
     const addon = () => (
       <button className="my-btn" type="button">
-        Ok
+        OK
       </button>
     );
     const wrapper = mount(<TimePicker addon={addon} open />);

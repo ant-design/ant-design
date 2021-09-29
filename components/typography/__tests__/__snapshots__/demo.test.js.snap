@@ -17,7 +17,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
     <span
       class="ant-typography"
     >

@@ -157,7 +157,8 @@
       vertical-align: middle;
     }
 
-    .@{number-prefix-cls}-custom-component {
+    .@{number-prefix-cls}-custom-component,
+    .@{badge-prefix-cls}-count {
       transform: none;
     }
 
@@ -167,10 +168,6 @@
       top: auto;
       display: block;
       transform-origin: 50% 50%;
-    }
-
-    .@{badge-prefix-cls}-count {
-      transform: none;
     }
   }
 }
@@ -194,6 +191,7 @@
 
 .@{number-prefix-cls} {
   overflow: hidden;
+  direction: ltr;
   &-only {
     position: relative;
     display: inline-block;

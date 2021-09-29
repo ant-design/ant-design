@@ -18,7 +18,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 - 默认按钮：用于没有主次之分的一组行动点。
 - 虚线按钮：常用于添加操作。
 - 文本按钮：用于最次级的行动点。
-- 链接按钮：用于作为外链的行动点。
+- 链接按钮：一般用于链接，即导航至某位置。
 
 以及四种状态属性与上面配合使用。
 
@@ -26,6 +26,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 - 幽灵：用于背景色比较复杂的地方，常用在首页/产品页等展示场景。
 - 禁用：行动点不可用的时候，一般需要文案解释。
 - 加载中：用于异步操作等待反馈的时候，也可以避免多次提交。
+
+[完整设计指南](https://ant.design/docs/spec/buttons-cn)
 
 ## API
 
