@@ -2,6 +2,7 @@
 
 @drawer-prefix-cls: ~'@{ant-prefix}-drawer';
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
+@drawer-animation-ease: @ease-out-quint;
 
 .@{drawer-prefix-cls} {
   @drawer-header-close-padding: ceil(((@drawer-header-close-size - @font-size-lg) / 2));
@@ -10,17 +11,14 @@
   z-index: @zindex-modal;
   width: 0%;
   height: 100%;
-  transition: transform @animation-duration-slow @ease-base-out,
-    height 0s ease @animation-duration-slow, width 0s ease @animation-duration-slow;
-  > * {
-    transition: transform @animation-duration-slow @ease-base-out,
-      box-shadow @animation-duration-slow @ease-base-out;
-  }
+  transition: width 0s ease @animation-duration-slow, height 0s ease @animation-duration-slow;
 
   &-content-wrapper {
     position: absolute;
     width: 100%;
     height: 100%;
+    transition: transform @animation-duration-slow @drawer-animation-ease,
+      box-shadow @animation-duration-slow @drawer-animation-ease;
   }
 
   .@{drawer-prefix-cls}-content {
@@ -38,7 +36,7 @@
     }
     &.@{drawer-prefix-cls}-open {
       width: 100%;
-      transition: transform @animation-duration-slow @ease-base-out;
+      transition: transform @animation-duration-slow @drawer-animation-ease;
     }
   }
 
@@ -89,7 +87,6 @@
     }
     &.@{drawer-prefix-cls}-open {
       height: 100%;
-      transition: transform @animation-duration-slow @ease-base-out;
     }
   }
 
@@ -126,7 +123,7 @@
     height: 100%;
     opacity: 1;
     transition: none;
-    animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
+    animation: antdDrawerFadeIn @animation-duration-slow @drawer-animation-ease;
     pointer-events: auto;
   }
 
@@ -226,7 +223,6 @@
     height: 0;
     background-color: @modal-mask-bg;
     opacity: 0;
-    filter: ~'alpha(opacity=45)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
     pointer-events: none;
   }
