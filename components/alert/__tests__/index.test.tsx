@@ -54,6 +54,18 @@ describe('Alert', () => {
     });
   });
 
+  it('support closeIcon', () => {
+    const wrapper = render(
+      <Alert
+        closable
+        closeIcon={<span>close</span>}
+        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        type="warning"
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('data and aria props', () => {
     it('sets data attributes on input', () => {
       const wrapper = mount(<Alert data-test="test-id" data-id="12345" message={null} />);
