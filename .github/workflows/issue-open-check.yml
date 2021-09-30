@@ -67,3 +67,12 @@ jobs:
           actions: 'add-labels'
           issue-number: ${{ github.event.issue.number }}
           labels: 'IE | Firefox | Safari,Internet Explorer'
+
+      - name: check ie
+        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && contains(github.event.issue.title, 'IE9') == true || contains(github.event.issue.title, 'IE 9') == true || contains(github.event.issue.title, 'IE10') == true || contains(github.event.issue.title, 'IE 10') == true || contains(github.event.issue.title, 'IE11') == true || contains(github.event.issue.title, 'IE 11') == true || contains(github.event.issue.title, 'Internet Explorer') == true || contains(github.event.issue.body, 'IE9') == true || contains(github.event.issue.body, 'IE 9') == true || contains(github.event.issue.body, 'IE10') == true || contains(github.event.issue.body, 'IE 10') == true
+        uses: actions-cool/issues-helper@v2
+        with:
+          actions: 'create-comment, close-issue'
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}, v4 only support IE11 and above.
