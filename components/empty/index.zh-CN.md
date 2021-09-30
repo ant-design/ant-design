@@ -27,6 +27,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
 | description | 自定义描述内容 | ReactNode | - |  |
 | image | 设置显示图片，为 string 时表示自定义图片地址。 | ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |  |
 | imageStyle | 图片样式 | CSSProperties | - |  |
+| type | 多种类型的空状态,优先级比 image 低 | String | 'NO_APP' \| 'NO_DATA' \| 'NO_LOG' \| 'NO_RECORDS' \| 'NO_RESULTS' \| 'NO_RATINGS' \| 'NO_IMAGE' \| 'NO_PREMISSION' |  |
 
 ## 内置图片
 

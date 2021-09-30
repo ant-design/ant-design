@@ -7,6 +7,7 @@ import {
   CloseCircleFilled,
   SearchOutlined,
   IArrowDown,
+  IArrowUp,
   ISelector,
   IClose,
   ICloseFullfiled,
@@ -46,6 +47,8 @@ export default function getIcons({
     mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
       if (open && showSearch) {
         return <SearchOutlined className={iconCls} />;
+      } else if (open) {
+        return <IArrowUp className={iconCls} />;
       }
       return <IArrowDown className={iconCls} />;
     };
