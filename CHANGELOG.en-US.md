@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.5
+
+`2021-09-30`
+
+- 🆕 Tree `draggable` add handler for tips. [#32306](https://github.com/ant-design/ant-design/pull/32306)
+- 🐞 Fix Table selection column arrow get covered by fixed column. [#32276](https://github.com/ant-design/ant-design/pull/32276) [@g7i](https://github.com/g7i)
+- TypeScript
+  - 🐞 Fix Table missing generic type definition. [#32358](https://github.com/ant-design/ant-design/pull/32358)
+
 ## 4.17.0-alpha.4
 
 `2021-09-25`
