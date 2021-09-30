@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.5
+
+`2021-09-30`
+
+- 🆕 Tree `draggable` 添加拖拽图标以提示。[#32306](https://github.com/ant-design/ant-design/pull/32306)
+- 🐞 修复 Table 选择框下拉箭头被固定列遮挡的问题。[#32276](https://github.com/ant-design/ant-design/pull/32276) [@g7i](https://github.com/g7i)
+- TypeScript
+  - 🐞 修复 Table 丢失泛型定义。[#32358](https://github.com/ant-design/ant-design/pull/32358)
+
 ## 4.17.0-alpha.4
 
 `2021-09-25`
