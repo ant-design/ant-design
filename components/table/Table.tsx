@@ -523,6 +523,7 @@ const ForwardTable = React.forwardRef(InternalTable) as <RecordType extends obje
 type InternalTableType = typeof ForwardTable;
 
 interface TableInterface extends InternalTableType {
+  defaultProps?: Partial<TableProps<any>>;
   SELECTION_ALL: 'SELECT_ALL';
   SELECTION_INVERT: 'SELECT_INVERT';
   SELECTION_NONE: 'SELECT_NONE';
@@ -532,6 +533,10 @@ interface TableInterface extends InternalTableType {
 }
 
 const Table = ForwardTable as TableInterface;
+
+Table.defaultProps = {
+  rowKey: 'key',
+};
 
 Table.SELECTION_ALL = SELECTION_ALL;
 Table.SELECTION_INVERT = SELECTION_INVERT;
