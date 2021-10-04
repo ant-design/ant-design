@@ -3,11 +3,11 @@ order: 7.1
 title: Dynamic Theme (Experimental)
 ---
 
-Except [less customize theme](/docs/react/customize-theme), We also provide CSS Variable version to enable dynamic theme. You can check on [ConfigProvider](/components/config-provider/#components-config-provider-demo-theme) demo.
+Besides [less customize theme](/docs/react/customize-theme), We also provide CSS Variable version to enable dynamic theme. You can check on [ConfigProvider](/components/config-provider/#components-config-provider-demo-theme) demo.
 
 ## Notice
 
-This function need CSS Variable support which mean it can not support IE. Please make sure your browser requirement.
+This function need CSS Variable support which means it can not support IE. Please make sure your browser requirement.
 
 ## How to use
 
@@ -38,7 +38,7 @@ ConfigProvider.config({
 
 ## Conflict resolve
 
-CSS Variable use `--ant` prefix by default. When exist multiple antd style file in your project, you can modify prefix to fix it.
+CSS Variable use `--ant` prefix by default. When multiple antd style file exist in your project, you can modify the prefix to fix it.
 
 ### Adjust
 
@@ -54,7 +54,7 @@ export default () => (
 );
 ```
 
-Also need call the static function to modify `prefixCls`:
+You also need call the static function to modify `prefixCls`:
 
 ```ts
 ConfigProvider.config({
@@ -67,7 +67,7 @@ ConfigProvider.config({
 
 ### Compile less
 
-Since prefix modified. Origin `antd.variable.css` should also be replaced:
+Since prefix is modified. Origin `antd.variable.css` should also be replaced:
 
 ```bash
 lessc --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
