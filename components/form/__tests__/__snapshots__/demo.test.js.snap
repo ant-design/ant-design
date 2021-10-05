@@ -6792,7 +6792,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6802,7 +6802,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6835,7 +6835,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6845,7 +6845,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6895,7 +6895,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6905,7 +6905,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6961,7 +6961,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6971,7 +6971,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7017,7 +7017,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7027,7 +7027,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7073,7 +7073,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7083,7 +7083,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7139,7 +7139,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7149,7 +7149,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7228,7 +7228,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7238,7 +7238,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7320,7 +7320,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7330,7 +7330,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7425,7 +7425,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7435,7 +7435,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7541,7 +7541,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     style="margin-bottom:0"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7551,7 +7551,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7620,7 +7620,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   class="ant-form-item-explain-error"
                   role="alert"
                 >
-                  Please select the correct date
+                  Please select right date
                 </div>
               </div>
             </div>
@@ -7694,7 +7694,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7704,7 +7704,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7817,7 +7817,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7827,7 +7827,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7900,7 +7900,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7910,7 +7910,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7987,7 +7987,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7997,7 +7997,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -8087,6 +8087,40 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </svg>
           </span>
         </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class=""
+        title="Fail"
+      >
+        Fail
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-mentions"
+          >
+            <textarea
+              class="rc-textarea"
+              rows="1"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
