@@ -16,7 +16,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
-export interface PaginationProps extends RcPaginationProps {
+export interface PaginationProps extends Omit<RcPaginationProps, 'itemRender'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
   responsive?: boolean;
