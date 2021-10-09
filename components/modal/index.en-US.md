@@ -154,10 +154,10 @@ const [modal, contextHolder] = Modal.useModal();
 
 return (
   <Context1.Provider value="Ant">
-    {/* contextHolder is in Context1 which mean modal will not get context of Context1 */}
+    {/* contextHolder is in Context1, which means modal will get context of Context1 */}
     {contextHolder}
     <Context2.Provider value="Design">
-      {/* contextHolder is out of Context2 which mean modal will not get context of Context2 */}
+      {/* contextHolder is out of Context2, which means modal will not get context of Context2 */}
     </Context2.Provider>
   </Context1.Provider>
 );
