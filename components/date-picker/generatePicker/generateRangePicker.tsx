@@ -1,9 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ICalendar } from 'infra-design-icons';
-import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
+import {
+  ICalendar,
+  ClockCircleOutlined,
+  CloseCircleFilled,
+  SwapRightOutlined,
+} from 'infra-design-icons';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';

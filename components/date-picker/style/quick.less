@@ -1,0 +1,33 @@
+@import '../../style/themes/index';
+.@{picker-prefix-cls} {
+  &-quick-item {
+    padding: 4px 16px;
+    cursor: pointer;
+    &:hover {
+      background-color: @infra-gray-3;
+    }
+    &-active {
+      color: @primary-color;
+      font-weight: @picker-quick-active-font-weight;
+      background-color: @infra-gray-3;
+    }
+  }
+  &-quick-left-panel {
+    width: @picker-quick-left-panel-width;
+    padding: 8px 0;
+
+    &-divider {
+      height: 1px;
+      margin: 12px 16px;
+      background-color: @infra-gray-4;
+    }
+  }
+  &-quick-right-panel {
+    flex: 1;
+    border-left: 1px solid @infra-gray-4;
+  }
+  &-quick-right-relative {
+    width: @picker-quick-right-relative-width;
+    padding: 8px 0;
+  }
+}
