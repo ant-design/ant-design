@@ -131,7 +131,7 @@ describe('Upload List', () => {
       </Upload>,
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
-    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-delete').simulate('click');
+    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-trash').simulate('click');
 
     await act(async () => {
       await sleep(1000);
@@ -315,9 +315,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.find('.anticon-eye').at(0).simulate('click');
+    wrapper.find('.anticon-edit').at(0).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
-    wrapper.find('.anticon-eye').at(1).simulate('click');
+    wrapper.find('.anticon-edit').at(1).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[1]);
 
     wrapper.unmount();
@@ -336,9 +336,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.find('.anticon-delete').at(0).simulate('click');
+    wrapper.find('.anticon-trash').at(0).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
-    wrapper.find('.anticon-delete').at(1).simulate('click');
+    wrapper.find('.anticon-trash').at(1).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
@@ -508,8 +508,7 @@ describe('Upload List', () => {
         name: 'image',
         status: 'done',
         uid: '-12',
-        url:
-          'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
+        url: 'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
         type: 'image/png',
       },
     ];

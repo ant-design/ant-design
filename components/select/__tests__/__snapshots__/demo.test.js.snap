@@ -701,7 +701,7 @@ Array [
 
 exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+  class="ant-select ant-select-single ant-select-show-arrow"
   style="width:240px"
 >
   <div
@@ -714,7 +714,6 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
         aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -732,133 +731,6 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
     >
       custom dropdown render
     </span>
-  </div>
-  <div>
-    <div
-      class="ant-select-dropdown"
-      style="opacity:0;pointer-events:none"
-    >
-      <div>
-        <div>
-          <div
-            id="undefined_list"
-            role="listbox"
-            style="height:0;width:0;overflow:hidden"
-          >
-            <div
-              aria-label="jack"
-              aria-selected="false"
-              id="undefined_list_0"
-              role="option"
-            >
-              jack
-            </div>
-            <div
-              aria-label="lucy"
-              aria-selected="false"
-              id="undefined_list_1"
-              role="option"
-            >
-              lucy
-            </div>
-          </div>
-          <div
-            class="rc-virtual-list"
-            style="position:relative"
-          >
-            <div
-              class="rc-virtual-list-holder"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-            >
-              <div>
-                <div
-                  class="rc-virtual-list-holder-inner"
-                  style="display:flex;flex-direction:column"
-                >
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                    title="jack"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      jack
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    title="lucy"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      lucy
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-divider ant-divider-horizontal"
-            role="separator"
-            style="margin:4px 0"
-          />
-          <div
-            style="padding:8px"
-          >
-            <input
-              class="ant-input ant-input-sm"
-              style="flex:auto;width:120px;display:inline-block"
-              type="text"
-              value=""
-            />
-            <a
-              style="padding:8px;display:inline-block;cursor:pointer"
-            >
-              <span
-                aria-label="plus"
-                class="anticon anticon-plus"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="plus"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <defs />
-                  <path
-                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                  />
-                  <path
-                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                  />
-                </svg>
-              </span>
-               Add item
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <span
     aria-hidden="true"

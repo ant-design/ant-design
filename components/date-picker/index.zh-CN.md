@@ -22,6 +22,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 - DatePicker\[picker="year"]
 - DatePicker\[picker="quarter"] (4.1.0 新增)
 - RangePicker
+- QuickPicker (4.6.15 新增)
 
 ### 国际化配置
 
@@ -78,10 +79,10 @@ import locale from 'antd/lib/locale/zh_CN';
 
 ### 共同的方法
 
-| 名称 | 描述 | 版本 |
-| --- | --- | --- |
-| blur() | 移除焦点 |  |
-| focus() | 获取焦点 |  |
+| 名称    | 描述     | 版本 |
+| ------- | -------- | ---- |
+| blur()  | 移除焦点 |      |
+| focus() | 获取焦点 |      |
 
 ### DatePicker
 
@@ -167,6 +168,15 @@ import locale from 'antd/lib/locale/zh_CN';
 | value | 日期 | [moment](http://momentjs.com/)\[] | - |  |
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
+
+### QuickPicker
+
+`4.16.15` 新增。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| hookRelativeList | 相对日期列表钩子 | function(list: QuickListItem[]): QuickListItem[] | undefined | v4.16.15 |
+| hookRelativeList | 具体日期列表钩子 | function(list: QuickListItem[]): QuickListItem[] | undefined | v4.16.15 |
 
 ## FAQ
 
