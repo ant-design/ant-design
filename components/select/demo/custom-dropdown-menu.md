@@ -14,7 +14,7 @@ title:
 Customize the dropdown menu via `dropdownRender`.
 
 ```jsx
-import { Select, Divider, Input } from 'antd';
+import { Select, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -51,7 +51,6 @@ class App extends React.Component {
         dropdownRender={menu => (
           <div>
             {menu}
-            <Divider style={{ margin: '0 0 4px 0' }} />
             <div style={{ padding: 8 }}>
               <Input
                 style={{ flex: 'auto', width: 120, display: 'inline-block' }}
