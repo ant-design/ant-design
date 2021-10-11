@@ -109,6 +109,15 @@
     }
   }
 
+  // https://github.com/ant-design/ant-design/issues/32365
+  a&-icon-only {
+    vertical-align: -1px;
+
+    > .@{iconfont-css-prefix} {
+      display: inline;
+    }
+  }
+
   &-round {
     .btn-round(@btn-prefix-cls);
     &.@{btn-prefix-cls}-icon-only {

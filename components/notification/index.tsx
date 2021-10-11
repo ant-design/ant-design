@@ -124,7 +124,6 @@ function getNotificationInstance(
     top,
     bottom,
     getContainer = defaultGetContainer,
-    closeIcon = defaultCloseIcon,
     prefixCls: customizePrefixCls,
   } = args;
   const { getPrefixCls, getIconPrefixCls } = globalConfig();
@@ -141,12 +140,6 @@ function getNotificationInstance(
     return;
   }
 
-  const closeIconToRender = (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
-
   const notificationClass = classNames(`${prefixCls}-${placement}`, {
     [`${prefixCls}-rtl`]: rtl === true,
   });
@@ -158,7 +151,6 @@ function getNotificationInstance(
         className: notificationClass,
         style: getPlacementStyle(placement, top, bottom),
         getContainer,
-        closeIcon: closeIconToRender,
         maxCount,
       },
       notification => {
@@ -213,6 +205,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
     key,
     style,
     className,
+    closeIcon = defaultCloseIcon,
   } = args;
 
   const duration = durationArg === undefined ? defaultDuration : durationArg;
@@ -225,6 +218,12 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
       className: `${prefixCls}-icon ${prefixCls}-icon-${type}`,
     });
   }
+
+  const closeIconToRender = (
+    <span className={`${prefixCls}-close-x`}>
+      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+    </span>
+  );
 
   const autoMarginTag =
     !description && iconNode ? (
@@ -247,6 +246,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
     ),
     duration,
     closable: true,
+    closeIcon: closeIconToRender,
     onClose,
     onClick,
     key,

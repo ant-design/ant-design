@@ -238,7 +238,7 @@
       }
     }
 
-    // cascader
+    // Cascader
     .@{ant-prefix}-cascader-picker {
       &:hover
         .@{ant-prefix}-cascader-picker-label:hover
@@ -252,7 +252,7 @@
       }
     }
 
-    // transfer
+    // Transfer
     .@{ant-prefix}-transfer {
       &-list {
         border-color: @error-color;
@@ -271,7 +271,7 @@
       }
     }
 
-    // RadioGroup
+    // Radio.Group
     .@{ant-prefix}-radio-button-wrapper {
       border-color: @error-color !important;
 
@@ -279,6 +279,15 @@
         &::before {
           background-color: @error-color;
         }
+      }
+    }
+
+    // Mentions
+    .@{ant-prefix}-mentions {
+      border-color: @error-color !important;
+      &-focused,
+      &:focus {
+        .active(@error-color, @error-color-hover, @error-color-outline);
       }
     }
   }
