@@ -17,7 +17,7 @@ Messages of success, error and warning types.
 import { message, Button, Space } from 'antd';
 
 const success = () => {
-  message.success('This is a success message');
+  message.success('Accepted company Công Ty Cố Phần Công Nghệ ATALINK as your customer');
 };
 
 const error = () => {
