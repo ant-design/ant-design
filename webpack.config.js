@@ -92,6 +92,7 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
       if (originPath.length === 1 && originPath[0] === './index') {
         replacedPath = ['./index-style-only'];
       } else {
+        // eslint-disable-next-line no-console
         console.log(chalk.red('🆘 Seems entry has changed! It should be `./index`'));
       }
 

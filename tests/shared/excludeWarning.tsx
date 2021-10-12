@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-console
 const originError = console.error;
 
 /** This function will remove `useLayoutEffect` server side warning. Since it's useless. */
