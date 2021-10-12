@@ -106,8 +106,9 @@ export default (
   // Get origin style
   const originStyle = window.getComputedStyle(originElement);
   const lineHeight = getRealLineHeight(originElement);
-  const maxHeight =
-    Math.floor(lineHeight) * (rows + 1) +
+  const overflowRows = rows + 1;
+  const oneRowMaxHeight =
+    Math.floor(lineHeight) +
     pxToNumber(originStyle.paddingTop) +
     pxToNumber(originStyle.paddingBottom);
 
@@ -128,7 +129,9 @@ export default (
 
   // Check if ellipsis in measure div is height enough for content
   function inRange() {
-    return Math.ceil(ellipsisContainer.getBoundingClientRect().height) < maxHeight;
+    return (
+      Math.ceil(ellipsisContainer.getBoundingClientRect().height / overflowRows) < oneRowMaxHeight
+    );
   }
 
   // Skip ellipsis if already match
@@ -223,6 +226,7 @@ export default (
         reactNode: null,
       };
     }
+
     if (type === TEXT_NODE) {
       const fullText = childNode.textContent || '';
       const textNode = document.createTextNode(fullText);
