@@ -60,7 +60,6 @@ jest.mock('rc-util/lib/Portal');
 describe('ConfigProvider', () => {
   describe('components', () => {
     function testPair(name, renderComponent) {
-      // eslint-disable-next-line jest/valid-describe
       describe(`${name}`, () => {
         // normal
         it('normal', () => {
