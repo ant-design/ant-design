@@ -3,7 +3,6 @@ order: 0
 title:
   en-US: Basic Usage
   zh-CN: 基本用法
-only: true
 ---
 
 ## zh-CN
@@ -15,18 +14,14 @@ only: true
 Simple table with actions.
 
 ```jsx
-import { Table, Tag, Space, Typography } from 'antd';
+import { Table, Tag, Space } from 'antd';
 
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => (
-      <Typography.Text ellipsis copyable>
-        {text}
-      </Typography.Text>
-    ),
+    render: text => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -73,26 +68,26 @@ const columns = [
 const data = [
   {
     key: '1',
-    name: 'John Brown John Brown John Brown John Brown',
+    name: 'John Brown',
     age: 32,
     address: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer'],
   },
   {
     key: '2',
-    name: 'John Brown John Brown John Brown John Brown',
+    name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
     tags: ['loser'],
   },
   {
     key: '3',
-    name: 'John Brown John Brown John Brown John Brown',
+    name: 'Joe Black',
     age: 32,
     address: 'Sidney No. 1 Lake Park',
     tags: ['cool', 'teacher'],
   },
 ];
 
-ReactDOM.render(<Table tableLayout="fixed" columns={columns} dataSource={data} />, mountNode);
+ReactDOM.render(<Table columns={columns} dataSource={data} />, mountNode);
 ```
