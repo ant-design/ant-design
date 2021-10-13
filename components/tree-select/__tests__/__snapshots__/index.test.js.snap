@@ -121,13 +121,13 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down ant-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -135,7 +135,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
