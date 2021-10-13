@@ -21,6 +21,7 @@ Alert component for feedback.
 | banner | Whether to show as banner | boolean | false |  |
 | closable | Whether Alert can be closed | boolean | - |  |
 | closeText | Close text to show | ReactNode | - |  |
+| closeIcon | Custom close icon | ReactNode | <CloseOutlined /> | 4.17.0 |
 | description | Additional content of Alert | ReactNode | - |  |
 | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  |
 | message | Content of Alert | ReactNode | - |  |
@@ -30,7 +31,7 @@ Alert component for feedback.
 
 ### Alert.ErrorBoundary
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| description | Custom error description to show | ReactNode | {{ error stack }} |  |
-| message | Custom error message to show | ReactNode | {{ error }} |  |
+| Property    | Description                      | Type      | Default           | Version |
+| ----------- | -------------------------------- | --------- | ----------------- | ------- |
+| description | Custom error description to show | ReactNode | {{ error stack }} |         |
+| message     | Custom error message to show     | ReactNode | {{ error }}       |         |

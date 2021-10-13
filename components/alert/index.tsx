@@ -40,6 +40,8 @@ export interface AlertProps {
   className?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  /** Custome closeIcon */
+  closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
@@ -78,6 +80,7 @@ const Alert: AlertInterface = ({
   showIcon,
   closable,
   closeText,
+  closeIcon = <CloseOutlined />,
   action,
   ...props
 }) => {
@@ -127,11 +130,7 @@ const Alert: AlertInterface = ({
         className={`${prefixCls}-close-icon`}
         tabIndex={0}
       >
-        {closeText ? (
-          <span className={`${prefixCls}-close-text`}>{closeText}</span>
-        ) : (
-          <CloseOutlined />
-        )}
+        {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : closeIcon}
       </button>
     ) : null;
 
