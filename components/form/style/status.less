@@ -75,6 +75,7 @@
       &-arrow {
         margin-right: 19px;
       }
+
       &-clear {
         right: 32px;
       }
@@ -154,10 +155,12 @@
     .@{ant-prefix}-picker {
       background-color: @form-warning-input-bg;
       border-color: @warning-color;
+
       &-focused,
       &:focus {
         .active(@warning-color, @warning-color-hover, @warning-color-outline);
       }
+
       &:not([disabled]):hover {
         background-color: @form-warning-input-bg;
         border-color: @warning-color;
@@ -214,10 +217,12 @@
     .@{ant-prefix}-picker {
       background-color: @form-error-input-bg;
       border-color: @error-color;
+
       &-focused,
       &:focus {
         .active(@error-color, @error-color-hover, @error-color-outline);
       }
+
       &:not([disabled]):hover {
         background-color: @form-error-input-bg;
         border-color: @error-color;
@@ -285,6 +290,7 @@
     // Mentions
     .@{ant-prefix}-mentions {
       border-color: @error-color !important;
+
       &-focused,
       &:focus {
         .active(@error-color, @error-color-hover, @error-color-outline);
