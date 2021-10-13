@@ -14,7 +14,7 @@ checkbox 不可用。
 Disabled checkbox.
 
 ```jsx
-import { Checkbox } from 'antd';
+import { Checkbox } from 'infrad';
 
 ReactDOM.render(
   <>

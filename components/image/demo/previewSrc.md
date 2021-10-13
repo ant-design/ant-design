@@ -15,7 +15,7 @@ You can set different preview image.
 
 ```jsx
 import React from 'react';
-import { Image } from 'antd';
+import { Image } from 'infrad';
 
 function ImageDemo() {
   return (

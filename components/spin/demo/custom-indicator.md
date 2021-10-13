@@ -14,8 +14,8 @@ title:
 Use custom loading indicator.
 
 ```jsx
-import { Spin } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'infrad';
+import { LoadingOutlined } from 'infra-design-icons';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 

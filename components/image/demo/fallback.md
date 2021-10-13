@@ -14,7 +14,7 @@ title:
 Load failed to display image placeholder.
 
 ```jsx
-import { Image } from 'antd';
+import { Image } from 'infrad';
 
 function ImageDemo() {
   return (

@@ -14,7 +14,7 @@ title:
 Bordered-less style component.
 
 ```jsx
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space } from 'infrad';
 
 const { RangePicker } = DatePicker;
 

@@ -14,7 +14,7 @@ title:
 Steps with progress dot style.
 
 ```jsx
-import { Steps, Divider } from 'antd';
+import { Steps, Divider } from 'infrad';
 
 const { Step } = Steps;
 

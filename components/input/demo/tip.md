@@ -14,7 +14,7 @@ title:
 You can set the prompt language and the color of the prompt language through the `tip` property and the `isError` property
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from 'infrad';
 import { IUser } from 'infra-design-icons';
 
 ReactDOM.render(

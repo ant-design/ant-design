@@ -14,7 +14,7 @@ title:
 Bordered-less style component.
 
 ```jsx
-import { TimePicker } from 'antd';
+import { TimePicker } from 'infrad';
 
 const { RangePicker } = TimePicker;
 

@@ -14,7 +14,7 @@ title:
 There are 4 position options available.
 
 ```jsx
-import { Carousel, Radio } from 'antd';
+import { Carousel, Radio } from 'infrad';
 
 const contentStyle = {
   height: '160px',

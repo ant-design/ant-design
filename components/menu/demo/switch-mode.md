@@ -14,14 +14,14 @@ title:
 Show the dynamic switching mode (between `inline` and `vertical`).
 
 ```jsx
-import { Menu, Switch, Divider } from 'antd';
+import { Menu, Switch, Divider } from 'infrad';
 import {
   MailOutlined,
   CalendarOutlined,
   AppstoreOutlined,
   SettingOutlined,
   LinkOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const { SubMenu } = Menu;
 

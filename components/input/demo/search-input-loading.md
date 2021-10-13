@@ -14,7 +14,7 @@ title:
 Search loading when onSearch.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from 'infrad';
 
 const { Search } = Input;
 

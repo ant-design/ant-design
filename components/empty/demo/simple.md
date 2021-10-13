@@ -14,7 +14,7 @@ title:
 You can choose another style of `image` by setting image to `Empty.PRESENTED_IMAGE_SIMPLE`.
 
 ```jsx
-import { Empty } from 'antd';
+import { Empty } from 'infrad';
 
 ReactDOM.render(<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />, mountNode);
 ```

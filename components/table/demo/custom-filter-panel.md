@@ -16,9 +16,9 @@ title:
 Implement a customized column search example via `filterDropdown`.
 
 ```jsx
-import { Table, Input, Button, Space } from 'antd';
+import { Table, Input, Button, Space } from 'infrad';
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from 'infra-design-icons';
 
 const data = [
   {

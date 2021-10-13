@@ -14,13 +14,13 @@ title:
 Use `notification.useNotification` to get `contextHolder` with context accessible issue.
 
 ```jsx
-import { Button, notification, Divider, Space } from 'antd';
+import { Button, notification, Divider, Space } from 'infrad';
 import {
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const Context = React.createContext({ name: 'Default' });
 

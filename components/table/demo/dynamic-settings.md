@@ -14,8 +14,8 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Switch, Radio, Form, Space } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Table, Switch, Radio, Form, Space } from 'infrad';
+import { DownOutlined } from 'infra-design-icons';
 
 const columns = [
   {

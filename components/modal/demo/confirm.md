@@ -14,8 +14,8 @@ title:
 Use `confirm()` to show a confirmation modal dialog. Let onCancel/onOk function return a promise object to delay closing the dialog.
 
 ```jsx
-import { Modal, Button, Space } from 'antd';
-import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Modal, Button, Space } from 'infrad';
+import { ExclamationCircleOutlined } from 'infra-design-icons';
 
 const { confirm } = Modal;
 

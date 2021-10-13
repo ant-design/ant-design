@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Badge, Card, Space } from 'antd';
+import { Badge, Card, Space } from 'infrad';
 
 ReactDOM.render(
   <Space direction="vertical" style={{ width: '100%' }}>

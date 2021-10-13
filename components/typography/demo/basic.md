@@ -14,7 +14,7 @@ title:
 Display the document sample.
 
 ```jsx
-import { Typography, Divider } from 'antd';
+import { Typography, Divider } from 'infrad';
 
 const { Title, Paragraph, Text, Link } = Typography;
 

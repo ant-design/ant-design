@@ -19,8 +19,8 @@ This demo was created for debugging Menu styles inside Dropdown.
 [#19150](https://github.com/ant-design/ant-design/pull/19150)
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { Menu, Dropdown } from 'infrad';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from 'infra-design-icons';
 import { IArrowDown } from 'infra-design-icons';
 
 const { SubMenu } = Menu;

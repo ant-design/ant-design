@@ -15,7 +15,7 @@ Disabled part of dates and time by `disabledDate` and `disabledTime` respectivel
 
 ```jsx
 import moment from 'moment';
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space } from 'infrad';
 
 const { RangePicker } = DatePicker;
 

@@ -15,7 +15,7 @@ debug: true
 Determing which panel to show with `mode` and `onPanelChange`.
 
 ```jsx
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space } from 'infrad';
 
 const { RangePicker } = DatePicker;
 

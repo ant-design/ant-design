@@ -15,8 +15,8 @@ title:
 A relevant icon makes information clearer and more friendly.
 
 ```tsx
-import { Alert } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { Alert } from 'infrad';
+import { SmileOutlined } from 'infra-design-icons';
 
 const icon = <SmileOutlined />;
 

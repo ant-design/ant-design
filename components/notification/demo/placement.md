@@ -14,13 +14,13 @@ title:
 A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport.
 
 ```jsx
-import { Button, notification, Divider, Space } from 'antd';
+import { Button, notification, Divider, Space } from 'infrad';
 import {
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const openNotification = placement => {
   notification.info({

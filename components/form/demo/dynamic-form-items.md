@@ -14,8 +14,8 @@ title:
 Nest dynamic field need extends `field`. Pass `field.name` and `field.fieldKey` to nest item.
 
 ```jsx
-import { Form, Input, Button, Space } from 'antd';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Space } from 'infrad';
+import { MinusCircleOutlined, PlusOutlined } from 'infra-design-icons';
 import { ITrash } from 'infra-design-icons';
 
 const Demo = () => {

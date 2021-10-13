@@ -14,7 +14,7 @@ title:
 Use time range picker with `TimePicker.RangePicker`.
 
 ```jsx
-import { TimePicker } from 'antd';
+import { TimePicker } from 'infrad';
 
 ReactDOM.render(<TimePicker.RangePicker />, mountNode);
 ```

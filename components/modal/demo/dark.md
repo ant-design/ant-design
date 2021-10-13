@@ -33,10 +33,10 @@ import {
   Switch,
   Typography,
   Dropdown,
-} from 'antd';
+} from 'infrad';
 import moment from 'moment';
 import difference from 'lodash/difference';
-import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
+import { DownOutlined, ClockCircleOutlined } from 'infra-design-icons';
 
 const { Panel } = Collapse;
 const { TreeNode } = Tree;

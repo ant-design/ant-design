@@ -14,7 +14,7 @@ title:
 large count of items with pagination.
 
 ```jsx
-import { Transfer, Switch } from 'antd';
+import { Transfer, Switch } from 'infrad';
 
 const App = () => {
   const [oneWay, setOneWay] = React.useState(false);

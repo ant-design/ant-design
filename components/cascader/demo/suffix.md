@@ -15,8 +15,8 @@ title:
 Use `suffixIcon` to customize the selection box suffix icon, and use `expandIcon` to customize the current item expand icon.
 
 ```jsx
-import { Cascader } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { Cascader } from 'infrad';
+import { SmileOutlined } from 'infra-design-icons';
 
 const options = [
   {

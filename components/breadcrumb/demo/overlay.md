@@ -14,7 +14,7 @@ title:
 Breadcrumbs support drop down menu.
 
 ```jsx
-import { Breadcrumb, Menu } from 'antd';
+import { Breadcrumb, Menu } from 'infrad';
 
 const menu = (
   <Menu>

@@ -15,7 +15,7 @@ title:
 When dealing with long content, a fixed sider can provide a better user experience.
 
 ```jsx
-import { Layout, Menu } from 'antd';
+import { Layout, Menu } from 'infrad';
 import {
   AppstoreOutlined,
   BarChartOutlined,
@@ -25,7 +25,7 @@ import {
   UserOutlined,
   UploadOutlined,
   VideoCameraOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 

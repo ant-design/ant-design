@@ -14,7 +14,7 @@ title:
 Responsive columns.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from 'infrad';
 
 const columns = [
   {

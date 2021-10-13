@@ -14,8 +14,8 @@ title:
 Horizontal top navigation(dark theme) menu.
 
 ```jsx
-import { Menu } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { Menu } from 'infrad';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from 'infra-design-icons';
 
 const { SubMenu } = Menu;
 

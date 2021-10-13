@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from 'infrad';
 
 const { TextArea } = Input;
 

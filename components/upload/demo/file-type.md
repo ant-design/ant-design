@@ -15,7 +15,7 @@ title:
 Displays the corresponding by default by type icon
 
 ```jsx
-import { Upload, Modal } from 'antd';
+import { Upload, Modal } from 'infrad';
 import {
   LoadingOutlined,
   PaperClipOutlined,
@@ -24,7 +24,7 @@ import {
   FileWordTwoTone,
   FileExcelTwoTone,
   PlusOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {

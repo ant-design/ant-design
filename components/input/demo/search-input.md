@@ -14,8 +14,8 @@ title:
 Example of creating a search box by grouping a standard input with a search button.
 
 ```jsx
-import { Input, Space } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
+import { Input, Space } from 'infrad';
+import { AudioOutlined } from 'infra-design-icons';
 
 const { Search } = Input;
 

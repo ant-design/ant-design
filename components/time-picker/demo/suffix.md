@@ -15,9 +15,9 @@ title:
 Click `TimePicker`, and then we could select or input a time in panel.
 
 ```jsx
-import { TimePicker } from 'antd';
+import { TimePicker } from 'infrad';
 import moment from 'moment';
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined } from 'infra-design-icons';
 
 function onChange(time, timeString) {
   console.log(time, timeString);

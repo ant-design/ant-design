@@ -14,7 +14,7 @@ title:
 Allows for custom rendering of tags.
 
 ```jsx
-import { Select, Tag } from 'antd';
+import { Select, Tag } from 'infrad';
 
 const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
 

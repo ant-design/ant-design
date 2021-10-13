@@ -14,8 +14,8 @@ title:
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
 
 ```jsx
-import { Badge, Avatar } from 'antd';
-import { ClockCircleOutlined } from '@ant-design/icons';
+import { Badge, Avatar } from 'infrad';
+import { ClockCircleOutlined } from 'infra-design-icons';
 
 ReactDOM.render(
   <>

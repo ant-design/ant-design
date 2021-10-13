@@ -15,7 +15,7 @@ title:
 Default activate first tab.
 
 ```jsx
-import { Tabs, Select } from 'antd';
+import { Tabs, Select } from 'infrad';
 
 const { TabPane } = Tabs;
 const { Option } = Select;

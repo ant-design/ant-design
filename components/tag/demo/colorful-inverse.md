@@ -15,7 +15,7 @@ debug: true
 Internal inverse color tag
 
 ```jsx
-import { Tag, Divider } from 'antd';
+import { Tag, Divider } from 'infrad';
 
 ReactDOM.render(
   <>

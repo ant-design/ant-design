@@ -14,7 +14,7 @@ title:
 Ellipsis cell content via setting `column.ellipsis.showTitle`, use `Tooltip` instead of the html title attribute.
 
 ```jsx
-import { Table, Tooltip } from 'antd';
+import { Table, Tooltip } from 'infrad';
 
 const columns = [
   {

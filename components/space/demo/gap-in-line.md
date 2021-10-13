@@ -15,7 +15,7 @@ Debug usage
 Debug usage
 
 ```tsx
-import { Space, Switch } from 'antd';
+import { Space, Switch } from 'infrad';
 
 const style: React.CSSProperties = {
   width: 150,

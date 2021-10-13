@@ -14,7 +14,7 @@ title:
 You can customize the content to make it jump with frequently used links
 
 ```jsx
-import { Popover, Button } from 'antd';
+import { Popover, Button } from 'infrad';
 
 const Content = (
   <div>

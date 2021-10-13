@@ -14,7 +14,7 @@ title:
 Click the image to zoom in.
 
 ```jsx
-import { Image } from 'antd';
+import { Image } from 'infrad';
 
 function ImageDemo() {
   return (

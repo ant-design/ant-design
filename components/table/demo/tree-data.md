@@ -18,7 +18,7 @@ Display tree structure data in Table when there is field key `children` in dataS
 You can control the indent width by setting `indentSize`.
 
 ```jsx
-import { Table, Switch, Space } from 'antd';
+import { Table, Switch, Space } from 'infrad';
 
 const columns = [
   {

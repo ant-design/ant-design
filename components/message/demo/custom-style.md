@@ -14,7 +14,7 @@ title:
 The `style` and `className` are available to customize Message.
 
 ```jsx
-import { message, Button } from 'antd';
+import { message, Button } from 'infrad';
 
 const success = () => {
   message.success({

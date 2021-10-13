@@ -14,7 +14,7 @@ title:
 A simple card only containing a content area.
 
 ```jsx
-import { Card } from 'antd';
+import { Card } from 'infrad';
 
 ReactDOM.render(
   <Card style={{ width: 300 }}>

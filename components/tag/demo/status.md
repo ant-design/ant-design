@@ -14,7 +14,7 @@ title:
 We preset five different colors, you can set color property such as `success`,`processing`,`error`,`default` and `warning` to indicate specific status.
 
 ```jsx
-import { Tag, Divider } from 'antd';
+import { Tag, Divider } from 'infrad';
 import {
   CheckCircleOutlined,
   SyncOutlined,
@@ -22,7 +22,7 @@ import {
   ExclamationCircleOutlined,
   ClockCircleOutlined,
   MinusCircleOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 ReactDOM.render(
   <>

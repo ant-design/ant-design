@@ -15,7 +15,7 @@ Anchor target scroll to screen center.
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { Anchor } from 'antd';
+import { Anchor } from 'infrad';
 
 const { Link } = Anchor;
 

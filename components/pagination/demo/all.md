@@ -14,7 +14,7 @@ title:
 Show all configured prop.
 
 ```jsx
-import { Pagination } from 'antd';
+import { Pagination } from 'infrad';
 
 ReactDOM.render(
   <>

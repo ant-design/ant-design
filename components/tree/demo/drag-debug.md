@@ -7,8 +7,8 @@ debug: true
 ---
 
 ```jsx
-import { Tree, Switch } from 'antd';
-import { CarryOutOutlined } from '@ant-design/icons';
+import { Tree, Switch } from 'infrad';
+import { CarryOutOutlined } from 'infra-design-icons';
 
 const x = 3;
 const y = 2;

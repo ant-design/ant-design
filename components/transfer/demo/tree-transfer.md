@@ -15,7 +15,7 @@ Customize render list with Tree component.
 
 ```jsx
 import React, { useState } from 'react';
-import { Transfer, Tree } from 'antd';
+import { Transfer, Tree } from 'infrad';
 
 // Customize Table Transfer
 const isChecked = (selectedKeys, eventKey) => selectedKeys.indexOf(eventKey) !== -1;
