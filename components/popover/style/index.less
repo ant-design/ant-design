@@ -99,6 +99,7 @@
       color: @warning-color;
       font-size: @font-size-base;
     }
+
     &-title {
       padding-left: @font-size-base + 8px;
     }
@@ -149,6 +150,7 @@
       transform: translateY((-@popover-arrow-rotate-width / 2)) rotate(45deg);
     }
   }
+
   &-placement-top &-arrow {
     left: 50%;
     transform: translateX(-50%);
@@ -172,13 +174,16 @@
       transform: translateX((@popover-arrow-rotate-width / 2)) rotate(45deg);
     }
   }
+
   &-placement-right &-arrow {
     top: 50%;
     transform: translateY(-50%);
   }
+
   &-placement-rightTop &-arrow {
     top: @popover-arrow-offset-vertical;
   }
+
   &-placement-rightBottom &-arrow {
     bottom: @popover-arrow-offset-vertical;
   }

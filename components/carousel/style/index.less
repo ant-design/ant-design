@@ -116,6 +116,7 @@
     display: block;
     height: auto;
   }
+
   .slick-arrow.slick-hidden {
     display: none;
   }
@@ -137,15 +138,18 @@
     border: 0;
     outline: none;
     cursor: pointer;
+
     &:hover,
     &:focus {
       color: transparent;
       background: transparent;
       outline: none;
+
       &::before {
         opacity: 1;
       }
     }
+
     &.slick-disabled::before {
       opacity: 0.25;
     }
@@ -161,6 +165,7 @@
 
   .slick-next {
     right: -25px;
+
     &::before {
       content: '→';
     }
@@ -183,10 +188,12 @@
     &-bottom {
       bottom: 12px;
     }
+
     &-top {
       top: 12px;
       bottom: auto;
     }
+
     li {
       position: relative;
       display: inline-block;
@@ -202,6 +209,7 @@
       text-indent: -999px;
       vertical-align: top;
       transition: all 0.5s;
+
       button {
         display: block;
         width: 100%;
@@ -216,17 +224,21 @@
         cursor: pointer;
         opacity: 0.3;
         transition: all 0.5s;
+
         &:hover,
         &:focus {
           opacity: 0.75;
         }
       }
+
       &.slick-active {
         width: @carousel-dot-active-width;
+
         & button {
           background: @component-background;
           opacity: 1;
         }
+
         &:hover,
         &:focus {
           opacity: 1;
@@ -250,19 +262,23 @@
       right: auto;
       left: 12px;
     }
+
     &-right {
       right: 12px;
       left: auto;
     }
+
     li {
       width: @carousel-dot-height;
       height: @carousel-dot-width;
       margin: 4px 2px;
       vertical-align: baseline;
+
       button {
         width: @carousel-dot-height;
         height: @carousel-dot-width;
       }
+
       &.slick-active {
         width: @carousel-dot-height;
         height: @carousel-dot-active-width;
