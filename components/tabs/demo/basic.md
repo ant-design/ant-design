@@ -14,7 +14,7 @@ title:
 Default activate first tab.
 
 ```jsx
-import { Tabs } from 'antd';
+import { Tabs } from 'infrad';
 
 const { TabPane } = Tabs;
 

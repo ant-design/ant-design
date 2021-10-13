@@ -14,8 +14,8 @@ title:
 Vertical menu with inline submenus.
 
 ```jsx
-import { Menu } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { Menu } from 'infrad';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from 'infra-design-icons';
 
 const { SubMenu } = Menu;
 

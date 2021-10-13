@@ -14,7 +14,7 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Descriptions } from 'antd';
+import { Descriptions } from 'infrad';
 
 ReactDOM.render(
   <Descriptions title="User Info" layout="vertical">

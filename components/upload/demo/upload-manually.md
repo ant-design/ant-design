@@ -14,7 +14,7 @@ title:
 Upload files manually after `beforeUpload` returns `false`.
 
 ```jsx
-import { Upload, Button, message } from 'antd';
+import { Upload, Button, message } from 'infrad';
 import { IUpload } from 'infra-design-icons';
 import reqwest from 'reqwest';
 

@@ -14,14 +14,14 @@ title:
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
 ```jsx
-import { Layout, Menu } from 'antd';
+import { Layout, Menu } from 'infrad';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const { Header, Sider, Content } = Layout;
 

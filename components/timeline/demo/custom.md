@@ -14,8 +14,8 @@ title:
 Set a node as an icon or other custom element.
 
 ```jsx
-import { Timeline } from 'antd';
-import { ClockCircleOutlined } from '@ant-design/icons';
+import { Timeline } from 'infrad';
+import { ClockCircleOutlined } from 'infra-design-icons';
 
 ReactDOM.render(
   <Timeline>

@@ -14,7 +14,7 @@ title:
 The menu has multiple levels.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown } from 'infrad';
 import { IArrowDown } from 'infra-design-icons';
 
 const { SubMenu } = Menu;

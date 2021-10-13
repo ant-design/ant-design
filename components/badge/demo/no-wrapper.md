@@ -16,8 +16,8 @@ title:
 Used in standalone when children is empty.
 
 ```jsx
-import { Badge, Space, Switch } from 'antd';
-import { ClockCircleOutlined } from '@ant-design/icons';
+import { Badge, Space, Switch } from 'infrad';
+import { ClockCircleOutlined } from 'infra-design-icons';
 
 const Demo = () => {
   const [show, setShow] = React.useState(true);

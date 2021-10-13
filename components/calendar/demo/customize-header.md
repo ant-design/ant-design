@@ -14,7 +14,7 @@ title:
 Customize Calendar header content.
 
 ```jsx
-import { Calendar, Select, Radio, Col, Row, Typography } from 'antd';
+import { Calendar, Select, Radio, Col, Row, Typography } from 'infrad';
 
 function onPanelChange(value, mode) {
   console.log(value, mode);

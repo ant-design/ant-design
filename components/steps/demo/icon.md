@@ -14,8 +14,8 @@ title:
 You can use your own custom icons by setting the property `icon` for `Steps.Step`.
 
 ```jsx
-import { Steps } from 'antd';
-import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
+import { Steps } from 'infrad';
+import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from 'infra-design-icons';
 
 const { Step } = Steps;
 

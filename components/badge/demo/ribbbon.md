@@ -14,7 +14,7 @@ title:
 Use ribbon badge.
 
 ```jsx
-import { Badge, Card } from 'antd';
+import { Badge, Card } from 'infrad';
 
 ReactDOM.render(
   <>

@@ -14,7 +14,7 @@ title:
 The most basic step bar.
 
 ```jsx
-import { Steps } from 'antd';
+import { Steps } from 'infrad';
 
 const { Step } = Steps;
 

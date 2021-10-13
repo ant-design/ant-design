@@ -14,7 +14,7 @@ title:
 The result of the warning.
 
 ```jsx
-import { Result, Button } from 'antd';
+import { Result, Button } from 'infrad';
 
 ReactDOM.render(
   <Result

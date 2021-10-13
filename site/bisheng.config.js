@@ -62,6 +62,9 @@ module.exports = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
       antd: path.join(process.cwd(), 'index'),
+      'infrad/lib': path.join(process.cwd(), 'components'),
+      'infrad/es': path.join(process.cwd(), 'components'),
+      infrad: path.join(process.cwd(), 'index'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };

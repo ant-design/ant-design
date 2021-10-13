@@ -14,7 +14,7 @@ title:
 Classic mode. File selection dialog pops up when upload button is clicked.
 
 ```jsx
-import { Upload, message, Button } from 'antd';
+import { Upload, message, Button } from 'infrad';
 import { IUpload } from 'infra-design-icons';
 
 const props = {

@@ -14,7 +14,7 @@ title:
 Focus with additional option.
 
 ```tsx
-import { Input, Space, Button, Switch } from 'antd';
+import { Input, Space, Button, Switch } from 'infrad';
 
 const Demo = () => {
   const inputRef = React.useRef<any>(null);

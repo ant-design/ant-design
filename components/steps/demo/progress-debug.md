@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Steps, Button } from 'antd';
+import { Steps, Button } from 'infrad';
 
 const { Step } = Steps;
 

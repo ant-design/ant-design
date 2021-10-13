@@ -14,7 +14,7 @@ title:
 Asynchronous loading tree node.
 
 ```jsx
-import { TreeSelect } from 'antd';
+import { TreeSelect } from 'infrad';
 
 class Demo extends React.Component {
   state = {

@@ -15,8 +15,8 @@ buggy!
 buggy!
 
 ```jsx
-import { Menu, Switch } from 'antd';
-import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
+import { Menu, Switch } from 'infrad';
+import { MailOutlined, AppstoreOutlined } from 'infra-design-icons';
 
 const { SubMenu } = Menu;
 

@@ -27,8 +27,8 @@ import {
   Checkbox,
   Row,
   Col,
-} from 'antd';
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+} from 'infrad';
+import { UploadOutlined, InboxOutlined } from 'infra-design-icons';
 
 const { Option } = Select;
 

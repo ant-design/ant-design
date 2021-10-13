@@ -14,7 +14,7 @@ title:
 Centered tabs.
 
 ```jsx
-import { Tabs } from 'antd';
+import { Tabs } from 'infrad';
 
 const { TabPane } = Tabs;
 

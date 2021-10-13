@@ -14,7 +14,7 @@ title:
 You can customize the content to display the commonly used picture
 
 ```jsx
-import { Popover, Button, Image } from 'antd';
+import { Popover, Button, Image } from 'infrad';
 
 const flexStyle = {
   display: 'flex',

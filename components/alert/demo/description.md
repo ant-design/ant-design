@@ -14,7 +14,7 @@ title:
 Additional description for alert message.
 
 ```tsx
-import { Alert } from 'antd';
+import { Alert } from 'infrad';
 
 ReactDOM.render(
   <>

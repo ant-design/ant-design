@@ -15,7 +15,7 @@ debug: true
 Using `count/dot` with custom `stauts/color`.
 
 ```jsx
-import { Badge, Avatar } from 'antd';
+import { Badge, Avatar } from 'infrad';
 
 ReactDOM.render(
   <>

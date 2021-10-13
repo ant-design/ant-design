@@ -3,7 +3,9 @@
     "baseUrl": "./",
     "paths": {
       "antd": ["components/index.tsx"],
-      "antd/es/*": ["components/*"]
+      "infrad": ["components/index.tsx"],
+      "antd/es/*": ["components/*"],
+      "infrad/es/*": ["components/*"]
     },
     "strictNullChecks": true,
     "module": "esnext",

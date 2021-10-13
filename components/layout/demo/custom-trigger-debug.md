@@ -11,7 +11,7 @@ debug: true
 修改内容前，请尝试此 Demo 查看样式是否抖动。
 
 ```jsx
-import { Layout, Menu } from 'antd';
+import { Layout, Menu } from 'infrad';
 import {
   TeamOutlined,
   UserOutlined,
@@ -20,7 +20,7 @@ import {
   PieChartOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;

@@ -14,7 +14,7 @@ title:
 You can select and upload a whole directory.
 
 ```jsx
-import { Upload, Button } from 'antd';
+import { Upload, Button } from 'infrad';
 import { IUpload } from 'infra-design-icons';
 
 ReactDOM.render(

@@ -14,9 +14,9 @@ title:
 Animating the Tag by using [rc-tween-one](https://github.com/react-component/tween-one).
 
 ```jsx
-import { Tag, Input } from 'antd';
+import { Tag, Input } from 'infrad';
 import { TweenOneGroup } from 'rc-tween-one';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from 'infra-design-icons';
 
 class EditableTagGroup extends React.Component {
   state = {

@@ -16,7 +16,7 @@ config by ConfigProvider.
 
 ```tsx
 import React, { useState, useRef } from 'react';
-import { Drawer, ConfigProvider, Button } from 'antd';
+import { Drawer, ConfigProvider, Button } from 'infrad';
 
 const App: React.FC = () => {
   const domRef = useRef<HTMLDivElement>(null);

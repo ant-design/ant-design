@@ -14,8 +14,8 @@ title:
 Set the `itemLayout` property to `vertical` to create a vertical list.
 
 ```jsx
-import { List, Avatar, Space } from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { List, Avatar, Space } from 'infrad';
+import { MessageOutlined, LikeOutlined, StarOutlined } from 'infra-design-icons';
 
 const listData = [];
 for (let i = 0; i < 23; i++) {

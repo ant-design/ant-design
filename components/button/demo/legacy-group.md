@@ -15,8 +15,8 @@ Debug usage
 Debug usage
 
 ```jsx
-import { Button, Tooltip } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
+import { Button, Tooltip } from 'infrad';
+import { DownloadOutlined } from 'infra-design-icons';
 
 function getGroup(props) {
   return (

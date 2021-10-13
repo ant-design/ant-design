@@ -14,7 +14,7 @@ title:
 For long table，need to scroll to view the header and scroll bar，then you can now set the fixed header and scroll bar to follow the page.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from 'infrad';
 
 const columns = [
   {

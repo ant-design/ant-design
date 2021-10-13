@@ -14,7 +14,7 @@ title:
 Use `beforeUpload` for transform file before request such as add a watermark.
 
 ```jsx
-import { Upload, Button } from 'antd';
+import { Upload, Button } from 'infrad';
 import { IUpload } from 'infra-design-icons';
 
 const props = {

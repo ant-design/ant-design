@@ -14,8 +14,8 @@ title:
 More than one panel can be expanded at a time, the first panel is initialized to be active in this case.
 
 ```jsx
-import { Collapse, Select } from 'antd';
-import { SettingOutlined } from '@ant-design/icons';
+import { Collapse, Select } from 'infrad';
+import { SettingOutlined } from 'infra-design-icons';
 
 const { Panel } = Collapse;
 const { Option } = Select;

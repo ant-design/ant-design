@@ -33,7 +33,7 @@ import {
   Rate,
   Badge,
   Divider,
-} from 'antd';
+} from 'infrad';
 
 import {
   SearchOutlined as SearchIcon,
@@ -43,7 +43,7 @@ import {
   RightOutlined,
   MinusOutlined,
   PlusOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const InputGroup = Input.Group;
 const ButtonGroup = Button.Group;

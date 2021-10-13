@@ -14,7 +14,7 @@ title:
 To change the element sort by `order`.
 
 ```jsx
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Divider } from 'infrad';
 
 ReactDOM.render(
   <>

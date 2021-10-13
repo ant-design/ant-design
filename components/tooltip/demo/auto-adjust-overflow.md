@@ -15,7 +15,7 @@ debug: true
 Adjust placement automatically when tooltip is invisible.
 
 ```jsx
-import { Tooltip, Button } from 'antd';
+import { Tooltip, Button } from 'infrad';
 
 const wrapStyles = {
   overflow: 'hidden',

@@ -24,8 +24,8 @@ import {
   Transfer,
   Table,
   List,
-} from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+} from 'infrad';
+import { SmileOutlined } from 'infra-design-icons';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center' }}>

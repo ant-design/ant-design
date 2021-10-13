@@ -14,8 +14,8 @@ title:
 Display statistic data in Card.
 
 ```jsx
-import { Statistic, Card, Row, Col } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import { Statistic, Card, Row, Col } from 'infrad';
+import { ArrowUpOutlined, ArrowDownOutlined } from 'infra-design-icons';
 
 ReactDOM.render(
   <div className="site-statistic-demo-card">

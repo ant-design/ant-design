@@ -14,7 +14,7 @@ title:
 Referring to the Bootstrap [responsive design](http://getbootstrap.com/css/#grid-media-queries), here preset six dimensions: `xs` `sm` `md` `lg` `xl` `xxl`.
 
 ```jsx
-import { Row, Col } from 'antd';
+import { Row, Col } from 'infrad';
 
 ReactDOM.render(
   <Row>

@@ -20,7 +20,7 @@ import {
   Radio,
   AutoComplete,
   Mentions,
-} from 'antd';
+} from 'infrad';
 
 const { Text } = Typography;
 const { Option } = Select;

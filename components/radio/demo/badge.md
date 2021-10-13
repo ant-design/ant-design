@@ -15,7 +15,7 @@ title:
 Test Badge style.
 
 ```jsx
-import { Radio, Badge } from 'antd';
+import { Radio, Badge } from 'infrad';
 
 ReactDOM.render(
   <Radio.Group buttonStyle="solid">

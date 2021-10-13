@@ -15,7 +15,7 @@ title:
 
 ```jsx
 import React, { useState } from 'react';
-import { Upload, Button, message } from 'antd';
+import { Upload, Button, message } from 'infrad';
 import { IUpload } from 'infra-design-icons';
 
 const Uploader = () => {

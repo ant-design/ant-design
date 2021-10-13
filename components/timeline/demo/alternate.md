@@ -14,8 +14,8 @@ title:
 Alternate timeline.
 
 ```jsx
-import { Timeline } from 'antd';
-import { ClockCircleOutlined } from '@ant-design/icons';
+import { Timeline } from 'infrad';
+import { ClockCircleOutlined } from 'infra-design-icons';
 
 ReactDOM.render(
   <Timeline mode="alternate">

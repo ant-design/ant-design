@@ -14,7 +14,7 @@ title:
 Crowded components split.
 
 ```jsx
-import { Space, Typography, Divider } from 'antd';
+import { Space, Typography, Divider } from 'infrad';
 
 function SpaceSplit() {
   return (

@@ -14,14 +14,14 @@ title:
 You can customize icons for different nodes.
 
 ```jsx
-import { Tree } from 'antd';
+import { Tree } from 'infrad';
 import {
   DownOutlined,
   FrownOutlined,
   SmileOutlined,
   MehOutlined,
   FrownFilled,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const treeData = [
   {

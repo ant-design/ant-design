@@ -14,8 +14,8 @@ title:
 The count will be animated as it changes.
 
 ```jsx
-import { Badge, Button, Switch, Divider, Avatar } from 'antd';
-import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
+import { Badge, Button, Switch, Divider, Avatar } from 'infrad';
+import { MinusOutlined, PlusOutlined, QuestionOutlined } from 'infra-design-icons';
 
 const ButtonGroup = Button.Group;
 

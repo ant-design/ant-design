@@ -14,7 +14,7 @@ title:
 Listening for anchor link change.
 
 ```tsx
-import { Anchor } from 'antd';
+import { Anchor } from 'infrad';
 
 const { Link } = Anchor;
 

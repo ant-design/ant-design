@@ -15,8 +15,8 @@ title:
 The most basic usage.
 
 ```jsx
-import { TreeSelect } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { TreeSelect } from 'infrad';
+import { SmileOutlined } from 'infra-design-icons';
 
 const { TreeNode } = TreeSelect;
 const icon = <SmileOutlined />;

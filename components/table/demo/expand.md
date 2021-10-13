@@ -14,7 +14,7 @@ title:
 When there's too much information to show and the table can't display all at once.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from 'infrad';
 
 const columns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },

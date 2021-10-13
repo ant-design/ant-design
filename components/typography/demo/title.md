@@ -14,7 +14,7 @@ title:
 Display title in different level.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography } from 'infrad';
 
 const { Title } = Typography;
 

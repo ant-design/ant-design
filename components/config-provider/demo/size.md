@@ -26,7 +26,7 @@ import {
   Table,
   Card,
   Tabs,
-} from 'antd';
+} from 'infrad';
 
 const { TabPane } = Tabs;
 
