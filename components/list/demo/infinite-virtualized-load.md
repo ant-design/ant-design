@@ -19,9 +19,7 @@ An example of infinite list & virtualized loading using [react-virtualized](http
 
 ```jsx
 import { List, message, Avatar, Spin } from 'antd';
-
 import reqwest from 'reqwest';
-
 import WindowScroller from 'react-virtualized/dist/commonjs/WindowScroller';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import VList from 'react-virtualized/dist/commonjs/List';
