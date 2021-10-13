@@ -25,6 +25,7 @@
     background: @badge-color;
     border-radius: (@badge-height / 2);
     box-shadow: 0 0 0 1px @shadow-color-inverse;
+
     a,
     a:hover {
       color: @badge-text-color;
@@ -86,12 +87,15 @@
       vertical-align: middle;
       border-radius: 50%;
     }
+
     &-success {
       background-color: @success-color;
     }
+
     &-processing {
       position: relative;
       background-color: @processing-color;
+
       &::after {
         position: absolute;
         top: 0;
@@ -104,12 +108,15 @@
         content: '';
       }
     }
+
     &-default {
       background-color: @normal-color;
     }
+
     &-error {
       background-color: @error-color;
     }
+
     &-warning {
       background-color: @warning-color;
     }
@@ -177,6 +184,7 @@
     transform: scale(0.8);
     opacity: 0.5;
   }
+
   100% {
     transform: scale(2.4);
     opacity: 0;
@@ -192,6 +200,7 @@
 .@{number-prefix-cls} {
   overflow: hidden;
   direction: ltr;
+
   &-only {
     position: relative;
     display: inline-block;
@@ -216,6 +225,7 @@
     transform: scale(0) translate(50%, -50%);
     opacity: 0;
   }
+
   100% {
     transform: scale(1) translate(50%, -50%);
   }
@@ -225,6 +235,7 @@
   0% {
     transform: scale(1) translate(50%, -50%);
   }
+
   100% {
     transform: scale(0) translate(50%, -50%);
     opacity: 0;
@@ -236,6 +247,7 @@
     transform: scale(0);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
   }
@@ -245,6 +257,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0);
     opacity: 0;

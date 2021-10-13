@@ -15,7 +15,6 @@ Load more list with `loadMore` property.
 
 ```jsx
 import { List, Avatar, Button, Skeleton } from 'antd';
-
 import reqwest from 'reqwest';
 
 const count = 3;

@@ -86,13 +86,16 @@
     border-left-color: transparent;
     box-shadow: 3px 3px 7px fade(@black, 7%);
   }
+
   &-placement-topCenter > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
+
   &-placement-topLeft > &-arrow {
     left: 16px;
   }
+
   &-placement-topRight > &-arrow {
     right: 16px;
   }
@@ -107,13 +110,16 @@
     border-left-color: @popover-bg;
     box-shadow: -2px -2px 5px fade(@black, 6%);
   }
+
   &-placement-bottomCenter > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
+
   &-placement-bottomLeft > &-arrow {
     left: 16px;
   }
+
   &-placement-bottomRight > &-arrow {
     right: 16px;
   }
@@ -362,6 +368,7 @@
     .@{dropdown-prefix-cls}-menu-submenu-arrow::after {
       color: @text-color-secondary-dark;
     }
+
     &:hover {
       color: @text-color-inverse;
       background: transparent;

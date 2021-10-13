@@ -63,6 +63,7 @@
     &:hover {
       border-color: @primary-color;
       transition: all 0.3s;
+
       a {
         color: @primary-color;
       }
@@ -101,6 +102,7 @@
         letter-spacing: -1px;
         opacity: 0;
         transition: all 0.2s;
+
         &-svg {
           top: 0;
           right: 0;
@@ -144,6 +146,7 @@
   &-jump-next {
     margin-right: 8px;
   }
+
   &-prev,
   &-next,
   &-jump-prev,
@@ -259,6 +262,7 @@
       height: @pagination-item-size-sm;
       background-color: transparent;
       border: 0;
+
       &::after {
         height: @pagination-item-size-sm;
         line-height: @pagination-item-size-sm;
@@ -326,6 +330,7 @@
   &.mini &-next &-item-link {
     background: transparent;
     border-color: transparent;
+
     &::after {
       height: @pagination-item-size-sm;
       line-height: @pagination-item-size-sm;
@@ -377,6 +382,7 @@
 
       &-active {
         background: @pagination-item-disabled-bg-active;
+
         a {
           color: @pagination-item-disabled-color-active;
         }

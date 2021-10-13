@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.6
+
+`2021-10-11`
+
+- 🐞 修复 InputNumber 操作杆箭头未居中对齐的问题。[#32409](https://github.com/ant-design/ant-design/pull/32409)
+- 🐞 修复多次调用 Notification 时 `closeIcon` 配置会被覆盖的问题。[#32359](https://github.com/ant-design/ant-design/pull/32359) [@KAROTT7](https://github.com/KAROTT7)
+- 🐞 修复 Button 有 `icon` 和 `href` 时的对齐问题。[#32373](https://github.com/ant-design/ant-design/pull/32373)
+- 💄 优化 Drawer 弹出动画。[#32342](https://github.com/ant-design/ant-design/pull/32342)
+- 💄 修复 Mentions 在 Form 下错误样式丢失的问题。[#32385](https://github.com/ant-design/ant-design/pull/32385)
+- TypeScript
+  - 🤖 修复 ConfigProvider 中 `getPopupContainer` 的参数类型。[#32406](https://github.com/ant-design/ant-design/pull/32406) [@mtadams007](https://github.com/mtadams007)
+
 ## 4.17.0-alpha.5
 
 `2021-09-30`

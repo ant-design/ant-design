@@ -12,6 +12,7 @@
     display: inline-block;
     font-size: 10px;
     vertical-align: baseline;
+
     svg {
       transition: transform 0.3s;
     }
@@ -27,6 +28,7 @@
     background-color: @primary-color;
     border-radius: 1px;
     pointer-events: none;
+
     &::after {
       position: absolute;
       top: -3px;
@@ -187,6 +189,7 @@
         border-right: 1px solid @normal-color;
         content: ' ';
       }
+
       &::after {
         position: absolute;
         width: @tree-title-height - 14px;
@@ -233,6 +236,7 @@
       line-height: @tree-title-height;
       text-align: center;
       vertical-align: top;
+
       &:empty {
         display: none;
       }
@@ -310,6 +314,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

@@ -327,14 +327,15 @@ describe('Cascader', () => {
   });
 
   // FIXME: Move to `rc-tree-select` instead
-  // it('should warning if not find `value` in `options`', () => {
-  //   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-  //   mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     'Warning: [antd: Cascader] Not found `value` in `options`.',
-  //   );
-  //   errorSpy.mockRestore();
-  // });
+  // eslint-disable-next-line jest/no-disabled-tests
+  it.skip('should warning if not find `value` in `options`', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] Not found `value` in `options`.',
+    );
+    errorSpy.mockRestore();
+  });
 
   // https://github.com/ant-design/ant-design/issues/17690
   it('should not breaks when children is null', () => {

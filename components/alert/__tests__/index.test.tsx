@@ -89,6 +89,7 @@ describe('Alert', () => {
 
   it('ErrorBoundary', () => {
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    // eslint-disable-next-line no-console
     expect(console.error).toBeCalledTimes(0);
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
