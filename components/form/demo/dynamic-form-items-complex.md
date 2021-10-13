@@ -14,8 +14,8 @@ title:
 This example demonstrates the case that a form contains multiple form controls.
 
 ```jsx
-import { Form, Input, Button, Space, Select } from 'antd';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Space, Select } from 'infrad';
+import { MinusCircleOutlined, PlusOutlined } from 'infra-design-icons';
 
 const { Option } = Select;
 

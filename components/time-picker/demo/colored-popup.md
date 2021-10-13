@@ -15,7 +15,7 @@ debug: true
 Passing custom class to `TimePicker` popup
 
 ```jsx
-import { TimePicker } from 'antd';
+import { TimePicker } from 'infrad';
 import moment from 'moment';
 
 const onChange = (time, timeString) => {

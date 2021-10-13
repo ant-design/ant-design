@@ -14,7 +14,7 @@ title:
 Height autoSize.
 
 ```jsx
-import { Mentions } from 'antd';
+import { Mentions } from 'infrad';
 
 const { Option } = Mentions;
 

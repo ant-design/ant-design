@@ -14,7 +14,7 @@ title:
 Table pagination settings.
 
 ```jsx
-import { Table, Tag, Radio, Space } from 'antd';
+import { Table, Tag, Radio, Space } from 'infrad';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },

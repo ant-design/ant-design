@@ -14,7 +14,7 @@ title:
 Specify the trigger area of collapsible by `collapsible`.
 
 ```jsx
-import { Collapse, Space } from 'antd';
+import { Collapse, Space } from 'infrad';
 
 const { Panel } = Collapse;
 

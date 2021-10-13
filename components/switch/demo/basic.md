@@ -14,7 +14,7 @@ title:
 The most basic usage.
 
 ```jsx
-import { Switch } from 'antd';
+import { Switch } from 'infrad';
 
 function onChange(checked) {
   console.log(`switch to ${checked}`);

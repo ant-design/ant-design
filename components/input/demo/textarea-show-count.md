@@ -14,7 +14,7 @@ title:
 Show character counting.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from 'infrad';
 
 const { TextArea } = Input;
 

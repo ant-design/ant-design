@@ -14,7 +14,7 @@ title:
 You can choose another style of `type` by setting image to `NO_APP`.
 
 ```jsx
-import { Empty } from 'antd';
+import { Empty } from 'infrad';
 
 ReactDOM.render(<Empty type="NO_APP" />, mountNode);
 ```

@@ -14,7 +14,7 @@ title:
 Multiple selection usage.
 
 ```jsx
-import { TreeSelect } from 'antd';
+import { TreeSelect } from 'infrad';
 
 const { TreeNode } = TreeSelect;
 

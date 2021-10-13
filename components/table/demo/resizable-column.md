@@ -15,7 +15,7 @@ debug: true
 Implement resizable column by integrate with [react-resizable](https://github.com/STRML/react-resizable). When sort needed, you can use [additional mark](https://codesandbox.io/s/zrj8xvyzxx) to prevent resize trigger sort.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from 'infrad';
 import { Resizable } from 'react-resizable';
 
 const ResizableTitle = props => {
@@ -107,16 +107,18 @@ class Demo extends React.Component {
     },
   ];
 
-  handleResize = index => (e, { size }) => {
-    this.setState(({ columns }) => {
-      const nextColumns = [...columns];
-      nextColumns[index] = {
-        ...nextColumns[index],
-        width: size.width,
-      };
-      return { columns: nextColumns };
-    });
-  };
+  handleResize =
+    index =>
+    (e, { size }) => {
+      this.setState(({ columns }) => {
+        const nextColumns = [...columns];
+        nextColumns[index] = {
+          ...nextColumns[index],
+          width: size.width,
+        };
+        return { columns: nextColumns };
+      });
+    };
 
   render() {
     const columns = this.state.columns.map((col, index) => ({

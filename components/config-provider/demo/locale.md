@@ -27,7 +27,7 @@ import {
   Select,
   Transfer,
   Radio,
-} from 'antd';
+} from 'infrad';
 import enUS from 'antd/lib/locale/en_US';
 import zhCN from 'antd/lib/locale/zh_CN';
 import moment from 'moment';

@@ -14,7 +14,7 @@ title:
 Simple mode.
 
 ```jsx
-import { Pagination } from 'antd';
+import { Pagination } from 'infrad';
 
 ReactDOM.render(
   <>

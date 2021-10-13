@@ -14,7 +14,7 @@ title:
 Support 6 placements.
 
 ```jsx
-import { Menu, Dropdown, Button, Space } from 'antd';
+import { Menu, Dropdown, Button, Space } from 'infrad';
 
 const menu = (
   <Menu>

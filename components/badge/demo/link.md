@@ -14,7 +14,7 @@ title:
 The badge can be wrapped with `a` tag to make it linkable.
 
 ```jsx
-import { Badge, Avatar } from 'antd';
+import { Badge, Avatar } from 'infrad';
 
 ReactDOM.render(
   <a href="#">

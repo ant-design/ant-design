@@ -15,7 +15,7 @@ Custom action.
 
 ```tsx
 import React from 'react';
-import { Alert, Button, Space } from 'antd';
+import { Alert, Button, Space } from 'infrad';
 
 ReactDOM.render(
   <>

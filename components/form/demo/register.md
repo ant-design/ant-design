@@ -15,7 +15,7 @@ Fill in this form to create a new account for you.
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, Input, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import { Form, Input, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'infrad';
 
 const { Option } = Select;
 

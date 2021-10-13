@@ -14,7 +14,7 @@ title:
 Load more list with `loadMore` property.
 
 ```jsx
-import { List, Avatar, Button, Skeleton } from 'antd';
+import { List, Avatar, Button, Skeleton } from 'infrad';
 
 import reqwest from 'reqwest';
 

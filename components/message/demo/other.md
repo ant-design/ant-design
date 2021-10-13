@@ -14,7 +14,7 @@ title:
 Messages of success, error and warning types.
 
 ```jsx
-import { message, Button, Space } from 'antd';
+import { message, Button, Space } from 'infrad';
 
 const success = () => {
   message.success('This is a success message');

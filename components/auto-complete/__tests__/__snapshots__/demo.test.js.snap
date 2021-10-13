@@ -108,7 +108,6 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
                 aria-label="search"
                 class="anticon anticon-search"
                 role="img"
-                style="color:#999999"
               >
                 <svg
                   aria-hidden="true"
@@ -284,21 +283,21 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               unselectable="on"
             >
               <span
-                aria-label="arrow-down"
-                class="anticon anticon-arrow-down ant-select-suffix"
+                aria-label="down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="arrow-down"
+                  data-icon="down"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="0 0 16 16"
+                  viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
               </span>
@@ -370,21 +369,21 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 unselectable="on"
               >
                 <span
-                  aria-label="arrow-down"
-                  class="anticon anticon-arrow-down ant-select-suffix"
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="arrow-down"
+                    data-icon="down"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="0 0 16 16"
+                    viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                     />
                   </svg>
                 </span>
@@ -564,21 +563,21 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 unselectable="on"
               >
                 <span
-                  aria-label="arrow-down"
-                  class="anticon anticon-arrow-down ant-select-suffix"
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="arrow-down"
+                    data-icon="down"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="0 0 16 16"
+                    viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                     />
                   </svg>
                 </span>
@@ -705,21 +704,21 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 unselectable="on"
               >
                 <span
-                  aria-label="arrow-down"
-                  class="anticon anticon-arrow-down ant-select-suffix"
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="arrow-down"
+                    data-icon="down"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="0 0 16 16"
+                    viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                     />
                   </svg>
                 </span>
@@ -763,7 +762,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                             aria-label="search"
                             class="anticon anticon-search"
                             role="img"
-                            style="color:#999999"
                           >
                             <svg
                               aria-hidden="true"
@@ -856,21 +854,21 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 unselectable="on"
               >
                 <span
-                  aria-label="arrow-down"
-                  class="anticon anticon-arrow-down ant-select-suffix"
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="arrow-down"
+                    data-icon="down"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="0 0 16 16"
+                    viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                     />
                   </svg>
                 </span>
@@ -914,7 +912,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                             aria-label="search"
                             class="anticon anticon-search"
                             role="img"
-                            style="color:#999999"
                           >
                             <svg
                               aria-hidden="true"
@@ -1082,7 +1079,6 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                 aria-label="search"
                 class="anticon anticon-search"
                 role="img"
-                style="color:"
               >
                 <svg
                   aria-hidden="true"

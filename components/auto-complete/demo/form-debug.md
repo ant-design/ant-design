@@ -7,8 +7,8 @@ debug: true
 ---
 
 ```tsx
-import { Input, AutoComplete, Form, TreeSelect, Button } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { Input, AutoComplete, Form, TreeSelect, Button } from 'infrad';
+import { SearchOutlined } from 'infra-design-icons';
 
 const formItemLayout = {
   labelCol: {

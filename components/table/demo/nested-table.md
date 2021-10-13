@@ -14,8 +14,8 @@ title:
 Showing more detailed info of every row.
 
 ```jsx
-import { Table, Badge, Menu, Dropdown, Space } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Table, Badge, Menu, Dropdown, Space } from 'infrad';
+import { DownOutlined } from 'infra-design-icons';
 
 const menu = (
   <Menu>

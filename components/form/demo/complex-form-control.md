@@ -54,7 +54,7 @@ This demo shows three typical usages:
 See the `Customized Form Controls` demo below for more advanced usage.
 
 ```jsx
-import { Form, Input, Select, Tooltip, Button, Space, Typography } from 'antd';
+import { Form, Input, Select, Tooltip, Button, Space, Typography } from 'infrad';
 
 const { Option } = Select;
 

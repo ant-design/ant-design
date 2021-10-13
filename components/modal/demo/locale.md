@@ -14,8 +14,8 @@ title:
 To customize the text of the buttons, you need to set `okText` and `cancelText` props.
 
 ```jsx
-import { Modal, Button, Space } from 'antd';
-import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Modal, Button, Space } from 'infrad';
+import { ExclamationCircleOutlined } from 'infra-design-icons';
 
 class LocalizedModal extends React.Component {
   state = { visible: false };

@@ -14,7 +14,7 @@ title:
 Should be used at the top of container, needs to override styles.
 
 ```jsx
-import { Tabs } from 'antd';
+import { Tabs } from 'infrad';
 
 const { TabPane } = Tabs;
 

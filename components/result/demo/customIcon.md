@@ -14,8 +14,8 @@ title:
 Custom icon.
 
 ```jsx
-import { Result, Button } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { Result, Button } from 'infrad';
+import { SmileOutlined } from 'infra-design-icons';
 
 ReactDOM.render(
   <Result

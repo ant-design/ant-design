@@ -14,7 +14,7 @@ title:
 You can ellipsis content from middle by customize `ellipsis={{ suffix: ... }}`.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography } from 'infrad';
 
 const { Text } = Typography;
 

@@ -14,7 +14,7 @@ title:
 Use Aliyun OSS upload example.
 
 ```jsx
-import { Form, Upload, message, Button } from 'antd';
+import { Form, Upload, message, Button } from 'infrad';
 import { IUpload } from 'infra-design-icons';
 
 class AliyunOSSUpload extends React.Component {

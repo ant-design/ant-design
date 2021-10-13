@@ -14,8 +14,8 @@ title:
 Generating a set of Tags by array, you can add and remove dynamically.
 
 ```jsx
-import { Tag, Input, Tooltip } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { Tag, Input, Tooltip } from 'infrad';
+import { PlusOutlined } from 'infra-design-icons';
 
 class EditableTagGroup extends React.Component {
   state = {

@@ -15,7 +15,7 @@ debug: true
 The badge will display `title` when hovered over, instead of `count`.
 
 ```jsx
-import { Badge, Avatar } from 'antd';
+import { Badge, Avatar } from 'infrad';
 
 ReactDOM.render(
   <>

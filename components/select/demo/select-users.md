@@ -14,7 +14,7 @@ title:
 A complete multiple select sample with remote search, debounce fetch, ajax callback order flow, and loading state.
 
 ```tsx
-import { Select, Spin } from 'antd';
+import { Select, Spin } from 'infrad';
 import { SelectProps } from 'antd/es/select';
 import debounce from 'lodash/debounce';
 
@@ -25,7 +25,7 @@ export interface DebounceSelectProps<ValueType = any>
 }
 
 function DebounceSelect<
-  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any
+  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any,
 >({ fetchOptions, debounceTimeout = 800, ...props }: DebounceSelectProps) {
   const [fetching, setFetching] = React.useState(false);
   const [options, setOptions] = React.useState<ValueType[]>([]);

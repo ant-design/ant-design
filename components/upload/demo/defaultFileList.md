@@ -14,7 +14,7 @@ title:
 Use `defaultFileList` for uploaded files when page init.
 
 ```jsx
-import { Upload, Button } from 'antd';
+import { Upload, Button } from 'infrad';
 import { IUpload } from 'infra-design-icons';
 
 const props = {

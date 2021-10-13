@@ -14,7 +14,7 @@ title:
 Divider and disabled menu item.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown } from 'infrad';
 import { IArrowDown } from 'infra-design-icons';
 
 const menu = (

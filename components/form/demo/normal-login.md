@@ -16,8 +16,8 @@ title:
 Normal login form which can contain more elements.
 
 ```tsx
-import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Checkbox } from 'infrad';
+import { UserOutlined, LockOutlined } from 'infra-design-icons';
 
 const NormalLoginForm = () => {
   const onFinish = (values: any) => {

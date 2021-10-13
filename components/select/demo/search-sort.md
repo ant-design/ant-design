@@ -14,7 +14,7 @@ title:
 Search the options with sorting.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from 'infrad';
 
 const { Option } = Select;
 

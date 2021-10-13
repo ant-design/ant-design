@@ -14,7 +14,7 @@ title:
 Customized description content.
 
 ```jsx
-import { Spin, Alert } from 'antd';
+import { Spin, Alert } from 'infrad';
 
 ReactDOM.render(
   <Spin tip="Loading...">

@@ -14,7 +14,7 @@ title:
 The default is to close the menu when you click on menu items, this feature can be turned off.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown } from 'infrad';
 import { IArrowDown } from 'infra-design-icons';
 
 class OverlayVisible extends React.Component {

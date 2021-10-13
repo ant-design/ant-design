@@ -16,7 +16,7 @@ Test style of Steps inside Steps.
 
 ```jsx
 import React, { useState } from 'react';
-import { Steps, Radio, Card } from 'antd';
+import { Steps, Radio, Card } from 'infrad';
 
 const { Step } = Steps;
 

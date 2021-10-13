@@ -14,8 +14,8 @@ title:
 Using pre & post tabs example.
 
 ```jsx
-import { Input, Select, Space, Cascader } from 'antd';
-import { SettingOutlined } from '@ant-design/icons';
+import { Input, Select, Space, Cascader } from 'infrad';
+import { SettingOutlined } from 'infra-design-icons';
 
 const { Option } = Select;
 

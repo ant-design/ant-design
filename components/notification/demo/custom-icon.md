@@ -14,8 +14,8 @@ title:
 The icon can be customized to any react node.
 
 ```jsx
-import { Button, notification } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { Button, notification } from 'infrad';
+import { SmileOutlined } from 'infra-design-icons';
 
 const openNotification = () => {
   notification.open({

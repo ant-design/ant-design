@@ -14,7 +14,7 @@ title:
 Setting `onChange` makes Steps clickable.
 
 ```jsx
-import { Steps, Divider } from 'antd';
+import { Steps, Divider } from 'infrad';
 
 const { Step } = Steps;
 

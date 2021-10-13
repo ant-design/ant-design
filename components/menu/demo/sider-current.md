@@ -14,8 +14,8 @@ title:
 Click the menu and you will see that all the other menus gets collapsed to keep the entire menu compact.
 
 ```jsx
-import { Menu } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { Menu } from 'infrad';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from 'infra-design-icons';
 
 const { SubMenu } = Menu;
 

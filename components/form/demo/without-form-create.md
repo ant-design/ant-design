@@ -15,13 +15,14 @@ title:
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, InputNumber } from 'antd';
+import { Form, InputNumber } from 'infrad';
 
 type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];
 
-function validatePrimeNumber(
-  number: number,
-): { validateStatus: ValidateStatus; errorMsg: string | null } {
+function validatePrimeNumber(number: number): {
+  validateStatus: ValidateStatus;
+  errorMsg: string | null;
+} {
   if (number === 11) {
     return {
       validateStatus: 'success',

@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```tsx
-import { Form, Input } from 'antd';
+import { Form, Input } from 'infrad';
 
 let acc = 0;
 

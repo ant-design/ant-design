@@ -14,7 +14,7 @@ title:
 Set size of numeral Badge.
 
 ```jsx
-import { Badge, Avatar } from 'antd';
+import { Badge, Avatar } from 'infrad';
 
 ReactDOM.render(
   <>

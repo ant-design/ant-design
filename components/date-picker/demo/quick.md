@@ -14,7 +14,7 @@ title:
 Select Date Quickly.
 
 ```jsx
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space } from 'infrad';
 
 const { QuickPicker } = DatePicker;
 function onChange(t) {

@@ -14,7 +14,7 @@ title:
 Set offset of the badge dot, the format is `[left, top]`, which represents the offset of the status dot from the left and top of the default position.
 
 ```jsx
-import { Badge, Avatar } from 'antd';
+import { Badge, Avatar } from 'infrad';
 
 ReactDOM.render(
   <Badge count={5} offset={[10, 10]}>

@@ -18,7 +18,7 @@ Ellipsis cell content via setting `column.ellipsis`.
 > Cannot ellipsis table header with sorters and filters for now.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from 'infrad';
 
 const columns = [
   {

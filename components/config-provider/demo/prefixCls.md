@@ -15,8 +15,8 @@ debug: true
 Config component and icon prefixCls.
 
 ```jsx
-import { ConfigProvider, Select, Button } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { ConfigProvider, Select, Button } from 'infrad';
+import { SmileOutlined } from 'infra-design-icons';
 import React, { useState } from 'react';
 
 // Infra Design site use `es` module for view

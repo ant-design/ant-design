@@ -14,7 +14,7 @@ title:
 Simple table with actions.
 
 ```jsx
-import { Table, Tag, Space } from 'antd';
+import { Table, Tag, Space } from 'infrad';
 
 const columns = [
   {

@@ -21059,13 +21059,13 @@ exports[`ConfigProvider components Select configProvider 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down config-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -21073,7 +21073,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -21186,13 +21186,13 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down config-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -21200,7 +21200,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -21313,13 +21313,13 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down config-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -21327,7 +21327,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -21440,13 +21440,13 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down ant-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -21454,7 +21454,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -21567,13 +21567,13 @@ exports[`ConfigProvider components Select normal 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down ant-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -21581,7 +21581,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -21694,13 +21694,13 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down prefix-Select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up prefix-Select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -21708,7 +21708,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -36541,13 +36541,13 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down config-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -36555,7 +36555,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -36676,13 +36676,13 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down config-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -36690,7 +36690,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -36811,13 +36811,13 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down config-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up config-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -36825,7 +36825,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -36946,13 +36946,13 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down ant-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -36960,7 +36960,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -37081,13 +37081,13 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down ant-select-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up ant-select-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -37095,7 +37095,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>
@@ -37216,13 +37216,13 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
     unselectable="on"
   >
     <span
-      aria-label="arrow-down"
-      class="anticon anticon-arrow-down prefix-TreeSelect-suffix"
+      aria-label="arrow-up"
+      class="anticon anticon-arrow-up prefix-TreeSelect-suffix"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="arrow-down"
+        data-icon="arrow-up"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -37230,7 +37230,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         width="1em"
       >
         <path
-          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          d="M8 6.81l3.97 3.97a.75.75 0 101.06-1.06l-4.5-4.5a.75.75 0 00-1.06 0l-4.5 4.5a.75.75 0 101.06 1.06L8 6.81z"
         />
       </svg>
     </span>

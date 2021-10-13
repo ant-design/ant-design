@@ -14,8 +14,8 @@ title:
 Add unit through `prefix` and `suffix`.
 
 ```jsx
-import { Statistic, Row, Col } from 'antd';
-import { LikeOutlined } from '@ant-design/icons';
+import { Statistic, Row, Col } from 'infrad';
+import { LikeOutlined } from 'infra-design-icons';
 
 ReactDOM.render(
   <Row gutter={16}>

@@ -14,9 +14,9 @@ title:
 Alternatively you can implement drag sorting with handler using [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc).
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from 'infrad';
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined } from 'infra-design-icons';
 import arrayMove from 'array-move';
 
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
