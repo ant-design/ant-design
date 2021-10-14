@@ -18,7 +18,7 @@ import { List, Avatar, Button, Skeleton } from 'antd';
 import reqwest from 'reqwest';
 
 const count = 3;
-const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat&noinfo`;
+const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
 
 class LoadMoreList extends React.Component {
   state = {
@@ -102,9 +102,7 @@ class LoadMoreList extends React.Component {
           >
             <Skeleton avatar title={false} loading={item.loading} active>
               <List.Item.Meta
-                avatar={
-                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                }
+                avatar={<Avatar src={item.picture.large} />}
                 title={<a href="https://ant.design">{item.name.last}</a>}
                 description="Ant Design, a design language for background applications, is refined by Ant UED Team"
               />

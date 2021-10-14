@@ -27,7 +27,7 @@ const InfiniteListExample = () => {
       return;
     }
     setLoading(true);
-    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat&noinfo')
+    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
       .then(res => res.json())
       .then(body => {
         setData([...data, ...body.results]);
@@ -65,9 +65,7 @@ const InfiniteListExample = () => {
           renderItem={item => (
             <List.Item key={item.id}>
               <List.Item.Meta
-                avatar={
-                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                }
+                avatar={<Avatar src={item.picture.large} />}
                 title={<a href="https://ant.design">{item.name.last}</a>}
                 description={item.email}
               />
