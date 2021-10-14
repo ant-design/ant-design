@@ -65,9 +65,7 @@ const InfiniteListExample = () => {
           renderItem={item => (
             <List.Item key={item.id}>
               <List.Item.Meta
-                avatar={
-                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                }
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
                 title={<a href="https://ant.design">{item.name.last}</a>}
                 description={item.email}
               />

@@ -682,7 +682,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
           class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
           <img
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            src="https://joeschmoe.io/api/v1/random"
           />
         </span>
       </div>

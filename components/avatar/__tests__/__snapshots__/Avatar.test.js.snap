@@ -156,7 +156,7 @@ exports[`Avatar Render should handle onError correctly 1`] = `
     onError={[Function]}
     shape="circle"
     size="default"
-    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    src="https://joeschmoe.io/api/v1/random"
   >
     <span
       className="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -164,7 +164,7 @@ exports[`Avatar Render should handle onError correctly 1`] = `
     >
       <img
         onError={[Function]}
-        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        src="https://joeschmoe.io/api/v1/random"
       />
     </span>
   </Avatar>
@@ -205,7 +205,7 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
 <Avatar
   shape="circle"
   size="default"
-  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+  src="https://joeschmoe.io/api/v1/random"
 >
   <span
     className="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -213,7 +213,7 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
   >
     <img
       onError={[Function]}
-      src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      src="https://joeschmoe.io/api/v1/random"
     />
   </span>
 </Avatar>
