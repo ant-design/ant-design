@@ -1,5 +1,12 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "groupName": "dependencies (none-patch)"
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor", "major"]
+    }
   ]
 }
