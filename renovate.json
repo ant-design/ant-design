@@ -13,5 +13,10 @@
   "prHourlyLimit": 0,
   "rangeStrategy": "bump",
   "schedule": "on sunday before 6:00am",
-  "timezone": "UTC"
+  "timezone": "UTC",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "major"]
+    }
+  ]
 }
