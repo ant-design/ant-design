@@ -1,13 +1,11 @@
 import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import {
+  ISuccessFilled,
+  INoticeCircleFilled,
+  ICloseFullfiled,
+  IInformationFilled,
+  IClose,
+} from 'infra-design-icons';
 import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
 
@@ -47,17 +45,17 @@ export interface AlertProps {
 }
 
 const iconMapFilled = {
-  success: CheckCircleFilled,
-  info: InfoCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
+  success: ISuccessFilled,
+  info: INoticeCircleFilled,
+  error: ICloseFullfiled,
+  warning: IInformationFilled,
 };
 
 const iconMapOutlined = {
-  success: CheckCircleOutlined,
-  info: InfoCircleOutlined,
-  error: CloseCircleOutlined,
-  warning: ExclamationCircleOutlined,
+  success: ISuccessFilled,
+  info: INoticeCircleFilled,
+  error: ICloseFullfiled,
+  warning: IInformationFilled,
 };
 
 interface AlertInterface extends React.FC<AlertProps> {
@@ -127,11 +125,7 @@ const Alert: AlertInterface = ({
         className={`${prefixCls}-close-icon`}
         tabIndex={0}
       >
-        {closeText ? (
-          <span className={`${prefixCls}-close-text`}>{closeText}</span>
-        ) : (
-          <CloseOutlined />
-        )}
+        {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : <IClose />}
       </button>
     ) : null;
 

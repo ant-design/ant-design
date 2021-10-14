@@ -1,9 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import { ISuccessFilled, ICloseFullfiled, INoticeCircleFilled } from 'infra-design-icons';
 import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
@@ -18,9 +16,7 @@ function getRootPrefixCls() {
 
 type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
-export type ModalFunc = (
-  props: ModalFuncProps,
-) => {
+export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void;
   update: (configUpdate: ConfigUpdate) => void;
 };
@@ -116,7 +112,7 @@ export default function confirm(config: ModalFuncProps) {
 
 export function withWarn(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <ExclamationCircleOutlined />,
+    icon: <INoticeCircleFilled />,
     okCancel: false,
     ...props,
     type: 'warning',
@@ -134,7 +130,7 @@ export function withInfo(props: ModalFuncProps): ModalFuncProps {
 
 export function withSuccess(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <CheckCircleOutlined />,
+    icon: <ISuccessFilled />,
     okCancel: false,
     ...props,
     type: 'success',
@@ -143,7 +139,7 @@ export function withSuccess(props: ModalFuncProps): ModalFuncProps {
 
 export function withError(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <CloseCircleOutlined />,
+    icon: <ICloseFullfiled />,
     okCancel: false,
     ...props,
     type: 'error',
@@ -152,7 +148,7 @@ export function withError(props: ModalFuncProps): ModalFuncProps {
 
 export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <ExclamationCircleOutlined />,
+    icon: <INoticeCircleFilled />,
     okCancel: true,
     ...props,
     type: 'confirm',

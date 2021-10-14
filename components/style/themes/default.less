@@ -527,9 +527,9 @@
 // --
 @modal-header-padding-vertical: @padding-md;
 @modal-header-padding-horizontal: @padding-lg;
-@modal-body-padding: @padding-lg;
+@modal-body-padding:0 @padding-lg;
 @modal-header-bg: @component-background;
-@modal-header-padding: @modal-header-padding-vertical @modal-header-padding-horizontal;
+@modal-header-padding: @modal-header-padding-horizontal;
 @modal-header-border-width: @border-width-base;
 @modal-header-border-style: @border-style-base;
 @modal-header-title-line-height: 22px;
@@ -916,7 +916,7 @@
 
 // Message
 // ---
-@message-notice-content-padding: 10px 16px;
+@message-notice-content-padding: 16px 24px;
 @message-notice-content-bg: @component-background;
 // Motion
 // ---
@@ -947,6 +947,14 @@
   @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size;
 @alert-icon-top: 8px + @font-size-base * (@line-height-base / 2) - (@font-size-base / 2);
 @alert-with-description-icon-size: 24px;
+@alert-infra-success-bg-color: #f2fbf4;
+@alert-infra-info-bg-color: #ebf2fb;
+@alert-infra-warning-bg-color: #fff6e1;
+@alert-infra-error-bg-color: #fff1f0;
+@alert-infra-success-border-color: #7ed898;
+@alert-infra-info-border-color: #4eabf5;
+@alert-infra-warning-border-color: #ffce3d;
+@alert-infra-error-border-color: #ff736f;
 
 // List
 // ---
@@ -971,7 +979,7 @@
 
 // Drawer
 // ---
-@drawer-header-padding: @padding-md @padding-lg;
+@drawer-header-padding: @padding-lg;
 @drawer-body-padding: @padding-lg;
 @drawer-bg: @component-background;
 @drawer-footer-padding-vertical: @modal-footer-padding-vertical;

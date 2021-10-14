@@ -5,11 +5,12 @@
 
 .@{alert-prefix-cls} {
   .reset-component();
-
   position: relative;
   display: flex;
   align-items: center;
-  padding: 8px 15px;
+  padding: 12px 16px;
+
+  line-height: 1.5;
   word-wrap: break-word;
   border-radius: @border-radius-base;
 
@@ -29,35 +30,35 @@
   }
 
   &-success {
-    background-color: @alert-success-bg-color;
-    border: @border-width-base @border-style-base @alert-success-border-color;
+    background-color: @alert-infra-success-bg-color;
+    border: @border-width-base @border-style-base @alert-infra-success-border-color;
     .@{alert-prefix-cls}-icon {
-      color: @alert-success-icon-color;
+      color: @green-6;
     }
   }
 
   &-info {
-    background-color: @alert-info-bg-color;
-    border: @border-width-base @border-style-base @alert-info-border-color;
+    background-color: @alert-infra-info-bg-color;
+    border: @border-width-base @border-style-base @alert-infra-info-border-color;
     .@{alert-prefix-cls}-icon {
-      color: @alert-info-icon-color;
+      color: @blue-6;
     }
   }
 
   &-warning {
-    background-color: @alert-warning-bg-color;
-    border: @border-width-base @border-style-base @alert-warning-border-color;
+    background-color: @alert-infra-warning-bg-color;
+    border: @border-width-base @border-style-base @alert-infra-warning-border-color;
     .@{alert-prefix-cls}-icon {
-      color: @alert-warning-icon-color;
+      color: @yellow-6;
     }
   }
 
   &-error {
-    background-color: @alert-error-bg-color;
-    border: @border-width-base @border-style-base @alert-error-border-color;
+    background-color: @alert-infra-error-bg-color;
+    border: @border-width-base @border-style-base @alert-infra-error-border-color;
 
     .@{alert-prefix-cls}-icon {
-      color: @alert-error-icon-color;
+      color: @red-6;
     }
 
     .@{alert-prefix-cls}-description > pre {
@@ -71,6 +72,7 @@
   }
 
   &-close-icon {
+    margin-right: -4px;
     margin-left: @margin-xs;
     padding: 0;
     overflow: hidden;
@@ -101,6 +103,10 @@
   &-with-description {
     align-items: flex-start;
     padding: @alert-with-description-padding;
+
+    .ant-alert-close-icon {
+      margin-right: -3px;
+    }
   }
 
   &-with-description&-no-icon {
@@ -108,7 +114,7 @@
   }
 
   &-with-description &-icon {
-    margin-right: @alert-with-description-padding-vertical;
+    margin-right: @margin-xs;
     font-size: @alert-with-description-icon-size;
   }
   &-with-description &-message {
