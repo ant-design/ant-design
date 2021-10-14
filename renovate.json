@@ -12,5 +12,17 @@
   "prConcurrentLimit": 30,
   "prHourlyLimit": 0,
   "schedule": "on sunday before 6:00am",
-  "timezone": "UTC"
+  "timezone": "UTC",
+  "packageRules": [
+    {
+      "groupName": "react-component",
+      "matchPackagePatterns": "rc-*",
+      "minor": {
+        "enabled": false
+      },
+      "major": {
+        "enabled": false
+      }
+    }
+  ]
 }
