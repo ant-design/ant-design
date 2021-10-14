@@ -30,35 +30,35 @@
   }
 
   &-success {
-    background-color: #f2fbf4;
-    border: @border-width-base @border-style-base #7ed898;
+    background-color: @alert-infra-success-bg-color;
+    border: @border-width-base @border-style-base @alert-infra-success-border-color;
     .@{alert-prefix-cls}-icon {
-      color: #55cc77;
+      color: @green-6;
     }
   }
 
   &-info {
-    background-color: #ebf2fb;
-    border: @border-width-base @border-style-base #4eabf5;
+    background-color: @alert-infra-info-bg-color;
+    border: @border-width-base @border-style-base @alert-infra-info-border-color;
     .@{alert-prefix-cls}-icon {
-      color: #2673dd;
+      color: @blue-6;
     }
   }
 
   &-warning {
-    background-color: #fff6e1;
-    border: @border-width-base @border-style-base #ffce3d;
+    background-color: @alert-infra-warning-bg-color;
+    border: @border-width-base @border-style-base @alert-infra-warning-border-color;
     .@{alert-prefix-cls}-icon {
-      color: #ffbf00;
+      color: @yellow-6;
     }
   }
 
   &-error {
-    background-color: #fff1f0;
-    border: @border-width-base @border-style-base #ff736f;
+    background-color: @alert-infra-error-bg-color;
+    border: @border-width-base @border-style-base @alert-infra-error-border-color;
 
     .@{alert-prefix-cls}-icon {
-      color: #ff4742;
+      color: @red-6;
     }
 
     .@{alert-prefix-cls}-description > pre {
