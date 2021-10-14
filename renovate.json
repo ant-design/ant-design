@@ -11,12 +11,6 @@
   "postUpdateOptions": ["yarnDedupeHighest"],
   "prConcurrentLimit": 30,
   "prHourlyLimit": 0,
-  "rangeStrategy": "bump",
   "schedule": "on sunday before 6:00am",
-  "timezone": "UTC",
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "major"]
-    }
-  ]
+  "timezone": "UTC"
 }
