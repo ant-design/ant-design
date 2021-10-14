@@ -647,6 +647,7 @@ Array [
       <img
         class="ant-image-img"
         src="https://joeschmoe.io/api/v1/random"
+        style="width:32px"
       />
       <div
         class="ant-image-mask"
