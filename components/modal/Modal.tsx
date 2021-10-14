@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-
+import { ISelectorClose } from 'infra-design-icons';
 import useModal from './useModal';
 import { getConfirmLocale } from './locale';
 import Button from '../button';
@@ -194,7 +193,7 @@ const Modal: ModalInterface = props => {
 
   const closeIconToRender = (
     <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+      {closeIcon || <ISelectorClose className={`${prefixCls}-close-icon`} />}
     </span>
   );
 

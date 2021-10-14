@@ -6,10 +6,12 @@ import {
   NoticeContent,
 } from 'rc-notification/lib/Notification';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import {
+  ISuccessFilled,
+  IInformationFilled,
+  ICloseFullfiled,
+  INoticeCircleFilled,
+} from 'infra-design-icons';
 import createUseMessage from './hooks/useMessage';
 import { globalConfig } from '../config-provider';
 
@@ -119,10 +121,10 @@ export interface MessageType extends PromiseLike<any> {
 }
 
 const typeToIcon = {
-  info: InfoCircleFilled,
-  success: CheckCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
+  info: IInformationFilled,
+  success: ISuccessFilled,
+  error: ICloseFullfiled,
+  warning: INoticeCircleFilled,
   loading: LoadingOutlined,
 };
 export interface ArgsProps {

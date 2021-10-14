@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { IClose } from 'infra-design-icons';
 import classNames from 'classnames';
 import { ConfigContext, DirectionType } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -81,7 +81,7 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       level = null,
       keyboard = true,
       push = defaultPushState,
-      closeIcon = <CloseOutlined />,
+      closeIcon = <IClose />,
       bodyStyle,
       drawerStyle,
       prefixCls,
