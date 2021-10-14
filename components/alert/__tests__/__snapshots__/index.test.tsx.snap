@@ -7,21 +7,21 @@ exports[`Alert action of Alert custom action 1`] = `
   role="alert"
 >
   <span
-    aria-label="check-circle"
-    class="anticon anticon-check-circle ant-alert-icon"
+    aria-label="success-filled"
+    class="anticon anticon-success-filled ant-alert-icon"
     role="img"
   >
     <svg
       aria-hidden="true"
-      data-icon="check-circle"
+      data-icon="success-filled"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
+      viewBox="0 0 16 16"
       width="1em"
     >
       <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+        d="M8 1a7 7 0 110 14A7 7 0 018 1zm3.15 4.93L7.1 9.98 4.85 7.73a.5.5 0 10-.7.71l2.6 2.6c.19.2.5.2.7 0l4.4-4.4a.5.5 0 00-.7-.71z"
       />
     </svg>
   </span>
@@ -65,11 +65,11 @@ exports[`Alert action of Alert custom action 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+          d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
         />
       </svg>
     </span>

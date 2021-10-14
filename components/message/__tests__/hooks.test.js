@@ -82,7 +82,7 @@ describe('message.hooks', () => {
     const wrapper = mount(<Demo />);
     wrapper.find('button').simulate('click');
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
+    expect(document.querySelectorAll('.anticon-success-filled').length).toBe(1);
     expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
   });
 
