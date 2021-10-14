@@ -4,7 +4,7 @@
   ],
   "packageRules": [
     {
-      "groupName": "dependencies (none-patch)"
+      "groupName": "dependencies (none-patch)",
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["minor", "major"]
     }
