@@ -157,7 +157,7 @@
   .skeleton-element-avatar-size(@avatar-size-base);
 
   &-lg {
-    .skeleton-element-avatar-size(@avatar-size-lg);
+    .skeleton-element-avatar-size(56px);
   }
 
   &-sm {
@@ -183,23 +183,24 @@
 }
 
 // Image
-.skeleton-element-image() {
+.skeleton-element-image(@image-size: 80px) {
   display: flex;
   align-items: center;
   justify-content: center;
   vertical-align: top;
   background: @skeleton-color;
+  border-radius: 2px;
 
-  .skeleton-element-image-size(@image-size-base*2);
+  .skeleton-element-image-size(@image-size*2);
 
   &-path {
     fill: #bfbfbf;
   }
 
   &-svg {
-    .skeleton-element-image-size(@image-size-base);
-    max-width: @image-size-base * 4;
-    max-height: @image-size-base * 4;
+    .skeleton-element-image-size(@image-size);
+    max-width: @image-size * 4;
+    max-height: @image-size * 4;
   }
 }
 
