@@ -173,6 +173,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   };
 
+  // eslint-disable-next-line class-methods-use-this
   handleVersionChange = (url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
