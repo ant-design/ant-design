@@ -174,7 +174,7 @@
     "@types/react-window": "^1.8.2",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^4.1.1",
+    "@typescript-eslint/parser": "^5.0.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
     "antd-img-crop": "^3.1.1",
     "antd-pro-merge-less": "^3.0.11",
