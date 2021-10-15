@@ -22,10 +22,6 @@ An enterprise-class UI design language and React UI library.
 [github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3A%22%E2%9C%85+test%22
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
-[david-image]: https://img.shields.io/david/ant-design/ant-design?style=flat-square
-[david-dev-url]: https://david-dm.org/ant-design/ant-design?type=dev
-[david-dev-image]: https://img.shields.io/david/dev/ant-design/ant-design?style=flat-square
-[david-url]: https://david-dm.org/ant-design/ant-design
 [download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
 [download-url]: https://npmjs.org/package/antd
 [lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
