@@ -256,7 +256,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 
   // =================== Render ===================
-  render = () => {
+  render() {
     const { getPrefixCls } = this.context;
     const { affixStyle, placeholderStyle } = this.state;
     const { prefixCls, children } = this.props;
@@ -290,7 +290,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
         </div>
       </ResizeObserver>
     );
-  };
+  }
 }
 
 export default Affix;

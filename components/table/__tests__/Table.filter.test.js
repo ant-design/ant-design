@@ -1278,10 +1278,10 @@ describe('Table.filter', () => {
         });
       };
 
-      render = () => {
+      render() {
         const { cols } = this.state;
         return <Table columns={cols} dataSource={[]} scroll={{ x: 1000 }} />;
-      };
+      }
     }
 
     mount(<TestTable />);
