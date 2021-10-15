@@ -291,6 +291,11 @@
         border-color: @primary-color;
       }
 
+      &:focus {
+        border-color: @primary-color-hover;
+        box-shadow: @input-outline-offset @outline-blur-size @outline-width @primary-color-outline;
+      }
+
       &[disabled] {
         color: @disabled-color;
         background: @disabled-bg;
