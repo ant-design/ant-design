@@ -1,10 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import { ICloseFullfiled, IClose, ISelector, ISuccessFilled } from 'infra-design-icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
@@ -92,9 +89,9 @@ export default class Progress extends React.Component<ProgressProps> {
     if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
     } else if (progressStatus === 'exception') {
-      text = isLineType ? <CloseCircleFilled /> : <CloseOutlined />;
+      text = isLineType ? <ICloseFullfiled /> : <IClose />;
     } else if (progressStatus === 'success') {
-      text = isLineType ? <CheckCircleFilled /> : <CheckOutlined />;
+      text = isLineType ? <ISuccessFilled /> : <ISelector />;
     }
     return (
       <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
