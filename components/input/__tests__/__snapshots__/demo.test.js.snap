@@ -3147,6 +3147,41 @@ Array [
 ]
 `;
 
+exports[`renders ./components/input/demo/show-count.md correctly 1`] = `
+Array [
+  <span
+    class="ant-input-affix-wrapper"
+  >
+    <input
+      class="ant-input"
+      maxlength="20"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <span
+        class="ant-input-show-count-suffix"
+      >
+        0 / 20
+      </span>
+    </span>
+  </span>,
+  <br />,
+  <br />,
+  <div
+    class="ant-input-textarea ant-input-textarea-show-count"
+    data-count="0 / 100"
+  >
+    <textarea
+      class="ant-input"
+      maxlength="100"
+    />
+  </div>,
+]
+`;
+
 exports[`renders ./components/input/demo/size.md correctly 1`] = `
 Array [
   <span
@@ -3308,18 +3343,6 @@ Array [
     </span>
   </span>,
 ]
-`;
-
-exports[`renders ./components/input/demo/textarea-show-count.md correctly 1`] = `
-<div
-  class="ant-input-textarea ant-input-textarea-show-count"
-  data-count="0 / 100"
->
-  <textarea
-    class="ant-input"
-    maxlength="100"
-  />
-</div>
 `;
 
 exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `

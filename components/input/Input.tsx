@@ -16,6 +16,10 @@ export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
 }
 
+export interface ShowCountProps {
+  formatter: (args: { count: number; maxLength?: number }) => React.ReactNode;
+}
+
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
   prefixCls?: string;
@@ -52,6 +56,7 @@ export interface InputProps
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   allowClear?: boolean;
+  showCount?: boolean | ShowCountProps;
   bordered?: boolean;
   htmlSize?: number;
 }
@@ -344,11 +349,45 @@ class Input extends React.Component<InputProps, InputState> {
     onKeyDown?.(e);
   };
 
+  renderShowCountSuffix = (prefixCls: string) => {
+    const { value } = this.state;
+    const { maxLength, suffix, showCount } = this.props;
+    // Max length value
+    const hasMaxLength = Number(maxLength) > 0;
+
+    if (suffix || showCount) {
+      const valueLength = [...fixControlledValue(value)].length;
+      let dataCount = null;
+      if (typeof showCount === 'object') {
+        dataCount = showCount.formatter({ count: valueLength, maxLength });
+      } else {
+        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      }
+      return (
+        <>
+          {!!showCount && (
+            <span
+              className={classNames(`${prefixCls}-show-count-suffix`, {
+                [`${prefixCls}-show-count-has-suffix`]: !!suffix,
+              })}
+            >
+              {dataCount}
+            </span>
+          )}
+          {suffix}
+        </>
+      );
+    }
+    return null;
+  };
+
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
     const { prefixCls: customizePrefixCls, bordered = true } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
+
+    const showCountSuffix = this.renderShowCountSuffix(prefixCls);
 
     return (
       <SizeContext.Consumer>
@@ -366,6 +405,7 @@ class Input extends React.Component<InputProps, InputState> {
             focused={focused}
             triggerFocus={this.focus}
             bordered={bordered}
+            suffix={showCountSuffix}
           />
         )}
       </SizeContext.Consumer>

@@ -133,6 +133,49 @@ describe('As Form Control', () => {
   });
 });
 
+describe('should support showCount', () => {
+  it('maxLength', () => {
+    const wrapper = mount(<Input maxLength={5} showCount value="12345" />);
+    expect(wrapper.find('input').prop('value')).toBe('12345');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+  });
+
+  it('control exceed maxLength', () => {
+    const wrapper = mount(<Input maxLength={5} showCount value="12345678" />);
+    expect(wrapper.find('input').prop('value')).toBe('12345678');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('8 / 5');
+  });
+
+  describe('emoji', () => {
+    it('should minimize value between emoji length and maxLength', () => {
+      const wrapper = mount(<Input maxLength={1} showCount value="👀" />);
+      expect(wrapper.find('input').prop('value')).toBe('👀');
+      expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('1 / 1');
+
+      const wrapper1 = mount(<Input maxLength={2} showCount value="👀" />);
+      expect(wrapper1.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('1 / 2');
+    });
+
+    it('slice emoji', () => {
+      const wrapper = mount(<Input maxLength={5} showCount value="1234😂" />);
+      expect(wrapper.find('input').prop('value')).toBe('1234😂');
+      expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+    });
+  });
+
+  it('count formatter', () => {
+    const wrapper = mount(
+      <Input
+        maxLength={5}
+        showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+        value="12345"
+      />,
+    );
+    expect(wrapper.find('input').prop('value')).toBe('12345');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5, 5');
+  });
+});
+
 describe('Input allowClear', () => {
   it('should change type when click', () => {
     const wrapper = mount(<Input allowClear />);
