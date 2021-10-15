@@ -17,7 +17,7 @@ export interface InputFocusOptions extends FocusOptions {
 }
 
 export interface ShowCountProps {
-  formatter: (args: { count: number; maxLength?: number }) => string;
+  formatter: (args: { count: number; maxLength?: number }) => React.ReactNode;
 }
 
 export interface InputProps
