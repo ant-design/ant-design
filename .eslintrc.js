@@ -70,6 +70,7 @@ module.exports = {
         'no-script-url': 0,
         'prefer-rest-params': 0,
         'compat/compat': 0,
+        'class-methods-use-this': 0,
         'react/no-access-state-in-setstate': 0,
         'react/destructuring-assignment': 0,
         'react/no-multi-comp': 0,

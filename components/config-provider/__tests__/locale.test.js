@@ -37,6 +37,7 @@ describe('ConfigProvider.Locale', () => {
         });
       }
 
+      // eslint-disable-next-line class-methods-use-this
       openConfirm = () => {
         jest.useFakeTimers();
         Modal.confirm({

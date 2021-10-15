@@ -163,8 +163,6 @@ export default class TransferList<
     return text.indexOf(filterValue) >= 0;
   };
 
-  getCurrentPageItems = () => {};
-
   // =============================== Render ===============================
   renderListBody = (
     renderList: RenderListFunction<RecordType> | undefined,
