@@ -1,9 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import WarningFilled from '@ant-design/icons/WarningFilled';
+import {
+  ICloseFullfiled,
+  INoticeCircleFilled,
+  INoticeTriangleFilled,
+  ISuccessFilled,
+} from 'infra-design-icons';
 
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
@@ -13,10 +15,10 @@ import serverError from './serverError';
 import unauthorized from './unauthorized';
 
 export const IconMap = {
-  success: CheckCircleFilled,
-  error: CloseCircleFilled,
-  info: ExclamationCircleFilled,
-  warning: WarningFilled,
+  success: ISuccessFilled,
+  error: ICloseFullfiled,
+  info: INoticeCircleFilled,
+  warning: INoticeTriangleFilled,
 };
 
 export const ExceptionMap = {
