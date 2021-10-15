@@ -5,6 +5,7 @@ import debounce from 'lodash/debounce';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 import { isValidElement, cloneElement } from '../_util/reactNode';
+import { ILoading } from 'infra-design-icons';
 
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = typeof SpinSizes[number];
@@ -51,14 +52,9 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
     });
   }
 
-  return (
-    <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-    </span>
-  );
+  return cloneElement(<ILoading />, {
+    className: classNames(dotClassName),
+  });
 }
 
 function shouldDelay(spinning?: boolean, delay?: number): boolean {
