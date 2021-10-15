@@ -357,7 +357,7 @@ class Input extends React.Component<InputProps, InputState> {
 
     if (suffix || showCount) {
       const valueLength = [...fixControlledValue(value)].length;
-      let dataCount = '';
+      let dataCount = null;
       if (typeof showCount === 'object') {
         dataCount = showCount.formatter({ count: valueLength, maxLength });
       } else {
