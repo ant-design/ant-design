@@ -13,7 +13,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
 import ConfigProvider, { globalConfig } from '../config-provider';
 
-type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
+export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
@@ -129,7 +129,7 @@ const typeToIcon = {
 };
 export interface ArgsProps {
   content: React.ReactNode;
-  duration: number | null;
+  duration?: number;
   type: NoticeType;
   prefixCls?: string;
   rootPrefixCls?: string;
@@ -227,7 +227,7 @@ const api: any = {
   },
 };
 
-export function attachTypeApi(originalApi: any, type: string) {
+export function attachTypeApi(originalApi: MessageApi, type: NoticeType) {
   originalApi[type] = (
     content: JointContent,
     duration?: ConfigDuration,
@@ -246,7 +246,9 @@ export function attachTypeApi(originalApi: any, type: string) {
   };
 }
 
-['success', 'info', 'warning', 'error', 'loading'].forEach(type => attachTypeApi(api, type));
+(['success', 'info', 'warning', 'error', 'loading'] as NoticeType[]).forEach(type =>
+  attachTypeApi(api, type),
+);
 
 api.warn = api.warning;
 api.useMessage = createUseMessage(getRCNotificationInstance, getRCNoticeProps);
