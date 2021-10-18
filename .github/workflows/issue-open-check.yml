@@ -8,10 +8,11 @@ jobs:
   issue-open-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/check-user-permission@v1.0.0
+      - uses: actions-cool/check-user-permission@v1
         id: checkUser
         with:
           require: 'write'
+          check-bot: true
 
       - name: check invalid
         if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.result == 'false') 
