@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.7
+
+`2021-10-18`
+
+- 🐞 修复 Radio `type` 属性被覆盖导致无法点击的问题。[#32463](https://github.com/ant-design/ant-design/pull/32463)
+- 🐞 Input.TextArea `maxLength` 属性现在会传给原生 textarea 标签。[#32448](https://github.com/ant-design/ant-design/pull/32448) [@MOHAMMADArsalan](https://github.com/MOHAMMADArsalan)
+- 🐞 修复 Typography `ellipsis` 在 Chrome 下屏幕缩小时溢出的问题。[#32447](https://github.com/ant-design/ant-design/pull/32447)
+- 💄 调整 Collapse 标题栏样式使标题折行时不侵占箭头空间。[#32492](https://github.com/ant-design/ant-design/pull/32492)
+- 💄 优化 Select 中选项文字粗细。[#32486](https://github.com/ant-design/ant-design/pull/32486) [@liuxulian](https://github.com/liuxulian)
+- TypeScript
+  - 🤖 修复 Message duration 类型定义。[#32524](https://github.com/ant-design/ant-design/pull/32524) [@chen-jingjie](https://github.com/chen-jingjie)
+
 ## 4.17.0-alpha.6
 
 `2021-10-11`
