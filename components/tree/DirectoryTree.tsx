@@ -161,8 +161,8 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     };
 
     // Windows / Mac single pick
-    const ctrlPick: boolean = nativeEvent.ctrlKey || nativeEvent.metaKey;
-    const shiftPick: boolean = nativeEvent.shiftKey;
+    const ctrlPick: boolean = nativeEvent?.ctrlKey || nativeEvent?.metaKey;
+    const shiftPick: boolean = nativeEvent?.shiftKey;
 
     // Generate new selected keys
     let newSelectedKeys: Key[];
