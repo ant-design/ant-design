@@ -35,7 +35,7 @@ title: 社区精选组件
 | 图片裁切 | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines) |
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
-| 文字轮播 | [react-text-loop](https://github.com/braposo/react-text-loop) |
+| 文字轮播 | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
 | 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | 页脚 | [rc-footer](https://github.com/react-component/footer) |
 | 水印 | [WaterMark](https://procomponents.ant.design/components/water-mark) |

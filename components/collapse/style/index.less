@@ -22,17 +22,18 @@
     }
 
     > .@{collapse-prefix-cls}-header {
-      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
       padding: @collapse-header-padding;
       color: @heading-color;
       line-height: @line-height-base;
       cursor: pointer;
       transition: all 0.3s, visibility 0s;
-      .clearfix();
 
       .@{collapse-prefix-cls}-arrow {
         display: inline-block;
-        margin-right: 12px;
+        margin-right: @margin-sm;
         font-size: @font-size-sm;
         vertical-align: -1px;
 
@@ -42,7 +43,7 @@
       }
 
       .@{collapse-prefix-cls}-extra {
-        float: right;
+        margin-left: auto;
       }
 
       &:focus {
@@ -59,7 +60,7 @@
 
     &.@{collapse-prefix-cls}-no-arrow {
       > .@{collapse-prefix-cls}-header {
-        padding-left: 12px;
+        padding-left: @padding-sm;
       }
     }
   }

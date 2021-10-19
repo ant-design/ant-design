@@ -35,7 +35,7 @@ title: Third-Party Libraries
 | Image Crop | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | Trend Lines | [react-sparklines](https://github.com/borisyankov/react-sparklines) |
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
-| Text Loop | [react-text-loop](https://github.com/braposo/react-text-loop) |
+| Text Loop | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
 | Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | Page Footer | [rc-footer](https://github.com/react-component/footer) |
 | Water Mark | [WaterMark](https://procomponents.ant.design/components/water-mark) |

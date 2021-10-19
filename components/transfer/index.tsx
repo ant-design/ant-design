@@ -300,6 +300,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     }
   }
 
+  // eslint-disable-next-line class-methods-use-this
   handleListStyle = (
     listStyle: TransferProps<RecordType>['listStyle'],
     direction: TransferDirection,

@@ -256,7 +256,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     }
   };
 
-  render = () => {
+  render() {
     const { getPrefixCls, direction } = this.context;
 
     const {
@@ -328,5 +328,5 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
         )}
       </AnchorContext.Provider>
     );
-  };
+  }
 }

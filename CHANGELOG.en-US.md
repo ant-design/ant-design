@@ -15,12 +15,24 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.7
+
+`2021-10-18`
+
+- 🐞 Fix Radio cannot click due to custom `type` property. [#32463](https://github.com/ant-design/ant-design/pull/32463)
+- 🐞 Input.TextArea `maxLength` is now passing to html textarea element. [#32448](https://github.com/ant-design/ant-design/pull/32448) [@MOHAMMADArsalan](https://github.com/MOHAMMADArsalan)
+- 🐞 Fix Typography `ellipsis` calculation bug when browser zoomed in. [#32447](https://github.com/ant-design/ant-design/pull/32447)
+- 💄 Adjust Collapse header style to make title overflow wrap not take arrow position. [#32492](https://github.com/ant-design/ant-design/pull/32492)
+- 💄 Optimize the text weight in Select. [#32486](https://github.com/ant-design/ant-design/pull/32486) [@liuxulian](https://github.com/liuxulian)
+- TypeScript
+  - 🤖 Fix Message duration type definition. [#32524](https://github.com/ant-design/ant-design/pull/32524) [@chen-jingjie](https://github.com/chen-jingjie)
+
 ## 4.17.0-alpha.6
 
 `2021-10-11`
 
 - 🐞 Fix InputNumber handler arrow not align center. [#32409](https://github.com/ant-design/ant-design/pull/32409)
-- 🐞 Fix `closeIcon` overwriting bug when Notification is called multiple times. [#32359](https://github.com/ant-design/ant-design/pull/32359) [@KAROTT7](https://github.com/KAROTT7)
+- 🐞 Fix `closeIcon` not working bug when Notification is called multiple times. [#32359](https://github.com/ant-design/ant-design/pull/32359) [@KAROTT7](https://github.com/KAROTT7)
 - 🐞 Fix Button align issue with `icon` and `href`. [#32373](https://github.com/ant-design/ant-design/pull/32373)
 - 💄 Optimize Drawer open animation. [#32342](https://github.com/ant-design/ant-design/pull/32342)
 - 💄 Fix Mentions error style in Form. [#32385](https://github.com/ant-design/ant-design/pull/32385)
