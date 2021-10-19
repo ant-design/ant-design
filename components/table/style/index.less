@@ -145,10 +145,9 @@
         }
       }
 
-      &.@{table-prefix-cls}-row:hover {
-        > td {
-          background: @table-row-hover-bg;
-        }
+      &.@{table-prefix-cls}-row:hover > td,
+      > td.@{table-prefix-cls}-cell-row-hover {
+        background: @table-row-hover-bg;
       }
 
       &.@{table-prefix-cls}-row-selected {
