@@ -26,6 +26,17 @@ const responsiveObserve = {
       listener: ((this: MediaQueryList, ev: MediaQueryListEvent) => any) | null;
     };
   },
+  evaluateResponsiveMap(callback: (mqlRes: { mql: MediaQueryList; screen: Breakpoint }) => void) {
+    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+      const matchMediaQuery = responsiveMap[screen];
+      const mql = window.matchMedia(matchMediaQuery);
+
+      callback({
+        mql,
+        screen,
+      });
+    });
+  },
   dispatch(pointMap: ScreenMap) {
     screens = pointMap;
     subscribers.forEach(func => func(screens));
@@ -51,7 +62,7 @@ const responsiveObserve = {
     subscribers.clear();
   },
   register() {
-    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+    this.evaluateResponsiveMap(({ mql, screen }: { mql: MediaQueryList; screen: Breakpoint }) => {
       const matchMediaQuery = responsiveMap[screen];
       const listener = ({ matches }: { matches: boolean }) => {
         this.dispatch({
@@ -59,7 +70,6 @@ const responsiveObserve = {
           [screen]: matches,
         });
       };
-      const mql = window.matchMedia(matchMediaQuery);
       mql.addListener(listener);
       this.matchHandlers[matchMediaQuery] = {
         mql,
@@ -69,6 +79,14 @@ const responsiveObserve = {
       listener(mql);
     });
   },
+};
+
+export const getScreenMap = (): ScreenMap => {
+  const screenMap: ScreenMap = {};
+  responsiveObserve.evaluateResponsiveMap(({ mql, screen }) => {
+    screenMap[screen] = mql.matches;
+  });
+  return screenMap;
 };
 
 export default responsiveObserve;
