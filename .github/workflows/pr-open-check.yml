@@ -8,7 +8,7 @@ jobs:
   refuse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/pr-welcome@v1.1.3
+      - uses: actions-cool/pr-welcome@v1.4.0
         with:
           refuse-issue-label: '🎱 Collaborate PR only'
           need-creator-authority: 'write'
