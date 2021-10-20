@@ -370,6 +370,7 @@ export default class TransferList<
           {/* Remove Current Page */}
           {pagination && (
             <Menu.Item
+              key="removeCurrent"
               onClick={() => {
                 const pageKeys = getEnabledItemKeys(
                   (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
@@ -383,6 +384,7 @@ export default class TransferList<
 
           {/* Remove All */}
           <Menu.Item
+            key="removeAll"
             onClick={() => {
               onItemRemove?.(getEnabledItemKeys(filteredItems));
             }}
@@ -395,6 +397,7 @@ export default class TransferList<
       menu = (
         <Menu>
           <Menu.Item
+            key="selectAll"
             onClick={() => {
               const keys = getEnabledItemKeys(filteredItems);
               onItemSelectAll(keys, keys.length !== checkedKeys.length);
@@ -413,6 +416,7 @@ export default class TransferList<
             </Menu.Item>
           )}
           <Menu.Item
+            key="selectInvert"
             onClick={() => {
               let availableKeys: string[];
               if (pagination) {
