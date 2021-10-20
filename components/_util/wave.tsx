@@ -97,7 +97,8 @@ export default class Wave extends React.Component<WaveProps> {
 
       const nodeRoot = node.getRootNode?.() || node.ownerDocument;
       const nodeBody: Element =
-        nodeRoot instanceof Document ? nodeRoot.body : (nodeRoot.firstChild as Element) ?? nodeRoot;
+        nodeRoot instanceof Document || nodeRoot instanceof HTMLDocument ?
+        nodeRoot.body : (nodeRoot.firstChild as Element) ?? nodeRoot;
 
       styleForPseudo = updateCSS(
         `
