@@ -283,7 +283,7 @@
       }
 
       &-error {
-        padding: @padding-xs !important;
+        // padding: @padding-xs !important;
         border-color: @error-color;
       }
     }
@@ -384,6 +384,12 @@
     }
   }
 
+  &-picture-card {
+    .@{upload-item}-thumbnail {
+      line-height: 72px;
+    }
+  }
+
   // ======================== Picture Card ========================
   &-picture-card {
     &-container {
@@ -476,14 +482,33 @@
 
     .@{upload-item}-file + .@{upload-item}-name {
       position: absolute;
-      bottom: 10px;
+      bottom: 24px;
       display: block;
     }
 
     .@{upload-item}-uploading {
       &.@{upload-item} {
-        padding: @padding-xs;
-        background-color: @background-color-light;
+        // padding: @padding-xs;
+        background-color: @upload-infra-uploading-picture-card-bg;
+      }
+
+      .@{upload-item}-thumbnail {
+        color: @upload-infra-text-color;
+      }
+
+      .@{upload-item}-progress {
+        .@{ant-prefix}-progress-text {
+          color: @upload-infra-text-color;
+        }
+
+        .@{ant-prefix}-progress-inner {
+          background-color: @infra-gray-2;
+
+          .@{ant-prefix}-progress-bg {
+            height: 4px !important;
+            background-color: @green-6;
+          }
+        }
       }
 
       .@{upload-item}-info {
@@ -500,7 +525,9 @@
     .@{upload-item}-progress {
       bottom: 32px;
       width: calc(100% - 14px);
+      margin-left: 50%;
       padding-left: 0;
+      transform: translateX(-50%);
     }
   }
 
