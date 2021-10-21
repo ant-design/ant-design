@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import Button from '../button';
+import Button, { ButtonProps } from '../button';
 import { ButtonHTMLType } from '../button/button';
 import { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
@@ -15,6 +15,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   type?: DropdownButtonType;
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
+  loading?: ButtonProps['loading'];
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   icon?: React.ReactNode;
   href?: string;
@@ -38,6 +39,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     prefixCls: customizePrefixCls,
     type = 'default',
     disabled,
+    loading,
     onClick,
     htmlType,
     children,
@@ -88,6 +90,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     <Button
       type={type}
       disabled={disabled}
+      loading={loading}
       onClick={onClick}
       htmlType={htmlType}
       href={href}
