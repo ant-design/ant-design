@@ -43,6 +43,7 @@ export {
   RuleObject,
   RuleRender,
   FormListProps,
+  FormInterface,
 };
 
 export default Form;
