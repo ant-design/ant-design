@@ -17,7 +17,9 @@
     "custom-property-pattern": null,
     "number-max-precision": 8,
     "alpha-value-notation": "number",
-    "color-function-notation": "legacy"
+    "color-function-notation": "legacy",
+    "selector-class-pattern": null,
+    "selector-id-pattern": null
   },
   "ignoreFiles": ["components/style/color/{bezierEasing,colorPalette,tinyColor}.less"]
 }
