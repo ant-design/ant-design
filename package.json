@@ -270,7 +270,7 @@
     "scrollama": "^2.0.0",
     "simple-git": "^2.23.0",
     "string-replace-loader": "^3.0.3",
-    "stylelint": "^13.0.0",
+    "stylelint": "^14.0.0",
     "stylelint-config-prettier": "^9.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^22.0.0",
