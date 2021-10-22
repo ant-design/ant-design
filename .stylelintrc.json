@@ -13,6 +13,9 @@
     "no-descending-specificity": null,
     "no-invalid-position-at-import-rule": null,
     "declaration-empty-line-before": null,
+    "keyframes-name-pattern": null,
+    "custom-property-pattern": null,
+    "number-max-precision": 8,
     "alpha-value-notation": "number",
     "color-function-notation": "legacy"
   },
