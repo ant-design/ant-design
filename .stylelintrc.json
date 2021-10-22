@@ -7,7 +7,6 @@
   "customSyntax": "postcss-less",
   "plugins": ["stylelint-declaration-block-no-ignored-properties"],
   "rules": {
-    "comment-empty-line-before": null,
     "function-name-case": ["lower", { "ignoreFunctions": ["/colorPalette/"] }],
     "no-descending-specificity": null,
     "no-invalid-position-at-import-rule": null,
