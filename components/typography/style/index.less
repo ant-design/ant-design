@@ -280,7 +280,8 @@
   }
 
   &-ellipsis-multiple-line {
-    display: box;
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 3;
     /*! autoprefixer: ignore next */
