@@ -28,12 +28,12 @@ pre[class*='language-'] {
   word-wrap: normal;
   word-break: normal;
   word-spacing: normal;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
   tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
+  tab-size: 4;
+  tab-size: 4;
+  hyphens: none;
+  hyphens: none;
+  hyphens: none;
   hyphens: none;
   background: none;
 }
@@ -42,10 +42,10 @@ code[class*='css'] {
   direction: ltr;
 }
 
-pre[class*='language-']::-moz-selection,
-pre[class*='language-'] ::-moz-selection,
-code[class*='language-']::-moz-selection,
-code[class*='language-'] ::-moz-selection {
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
   text-shadow: none;
   background: #b3d4fc;
 }

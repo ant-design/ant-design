@@ -204,14 +204,14 @@
 
     // Fix Editable Textarea flash in Firefox
     textarea {
-      -moz-transition: none;
+      transition: none;
     }
   }
 
   // list
   ul,
   ol {
-    margin: 0 0 1em 0;
+    margin: 0 0 1em;
     padding: 0;
 
     li {
@@ -281,7 +281,7 @@
   }
 
   &-ellipsis-multiple-line {
-    display: -webkit-box;
+    display: box;
     overflow: hidden;
     -webkit-line-clamp: 3;
     /*! autoprefixer: ignore next */
