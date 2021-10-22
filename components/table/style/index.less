@@ -357,7 +357,7 @@
     }
 
     &-tree {
-      padding: 8px 8px 0 8px;
+      padding: 8px 8px 0;
 
       .@{tree-prefix-cls}-treenode .@{tree-prefix-cls}-node-content-wrapper:hover {
         background-color: @tree-node-hover-bg;
@@ -604,7 +604,6 @@
   // ============================ Fixed =============================
   &-cell-fix-left,
   &-cell-fix-right {
-    position: -webkit-sticky !important;
     position: sticky !important;
     z-index: @zindex-table-fixed;
     background: @table-bg;

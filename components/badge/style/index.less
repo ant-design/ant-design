@@ -193,8 +193,10 @@
 
 // Safari will blink with transform when inner element has absolute style.
 .safari-fix-motion() {
+  /* stylelint-disable property-no-vendor-prefix */
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
+  /* stylelint-enable property-no-vendor-prefix */
 }
 
 .@{number-prefix-cls} {

@@ -103,13 +103,15 @@
     border-radius: @border-radius-base;
     outline: 0;
     transition: all 0.3s linear;
-    -moz-appearance: textfield !important;
+    appearance: textfield !important;
     .placeholder();
 
     &[type='number']::-webkit-inner-spin-button,
     &[type='number']::-webkit-outer-spin-button {
       margin: 0;
+      /* stylelint-disable-next-line property-no-vendor-prefix */
       -webkit-appearance: none;
+      appearance: none;
     }
   }
 
