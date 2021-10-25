@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.8
+
+`2021-10-25`
+
+- 🐞 Fix the text overflow when page zoomed in Typography with prop `ellipsis`. [#32496](https://github.com/ant-design/ant-design/pull/32496) [@hydraZty](https://github.com/hydraZty)
+- 🐞 Fix Transfer throws `MenuItem should not leave undefined key` warning when opening selection dropdown menu. [#32578](https://github.com/ant-design/ant-design/pull/32578)
+- 🐞 Fix Tree.DirectoryTree throws `TypeError:nativeEvent is undefined`. [#32551](https://github.com/ant-design/ant-design/pull/32551) [@D-to-the-K](https://github.com/D-to-the-K)
+- 💄 Add box-shadow for jumper input in Pagination with `simple` props. [#32528](https://github.com/ant-design/ant-design/pull/32528) [@chen-jingjie](https://github.com/chen-jingjie)
+- 💄 Table hover `rowSpan` row will highlight all the rows now. [#32557](https://github.com/ant-design/ant-design/pull/32557)
+
 ## 4.17.0-alpha.7
 
 `2021-10-18`
