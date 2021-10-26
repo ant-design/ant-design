@@ -1,10 +1,6 @@
 import * as React from 'react';
 import {
-  DownOutlined,
   LoadingOutlined,
-  CheckOutlined,
-  CloseOutlined,
-  CloseCircleFilled,
   SearchOutlined,
   IArrowDown,
   IArrowUp,

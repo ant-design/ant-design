@@ -19,7 +19,7 @@ import PickerTag from '../PickerTag';
 import { TimePickerLocale } from '../../time-picker';
 import generateSinglePicker from './generateSinglePicker';
 import generateRangePicker from './generateRangePicker';
-import { QuickPicker } from './QuickPicker';
+import { QuickPicker, IQuickDatePicker } from './QuickPicker';
 
 export const Components = { button: PickerButton, rangeItem: PickerTag };
 
