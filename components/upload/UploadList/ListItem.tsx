@@ -251,7 +251,7 @@ const ListItem = React.forwardRef(
               // show loading icon if upload progress listener is disabled
               const loadingProgress =
                 'percent' in file ? (
-                  <Progress {...progressProps} showInfo={true} type="line" percent={file.percent} />
+                  <Progress {...progressProps} showInfo type="line" percent={file.percent} />
                 ) : null;
 
               return (

@@ -111,15 +111,15 @@ export function QuickPicker(props: IQuickPickerProps) {
     props.onChange?.(curRange.value, curRange.inputText || '');
     item.type === SelectItemType.quick && setOpen(false);
   }
-  function format(value: Moment) {
-    const curRange = curSelect?.getRange(value);
+  function format(val: Moment) {
+    const curRange = curSelect?.getRange(val);
     return curRange ? `${curSelect?.label || curSelect?.text}: ${curRange?.inputText}` : '';
   }
-  function handleOnChange(value: Moment | null) {
-    const curRange = curSelect?.getRange(value);
+  function handleOnChange(val: Moment | null) {
+    const curRange = curSelect?.getRange(val);
     props.onChange?.(curRange?.value as Moment, curRange?.inputText || '');
     setOpen(false);
-    setValue(value);
+    setValue(val);
   }
   return (
     <DatePicker
@@ -132,47 +132,41 @@ export function QuickPicker(props: IQuickPickerProps) {
       allowClear={false}
       {...props}
       onOpenChange={() => {}}
-      panelRender={defaultPanel => {
-        return (
-          <div ref={panelEl} style={{ display: 'flex' }}>
-            <div className={`${prefixCls}-quick-left-panel`}>
-              {relativeList.map(v => (
-                <SelectItem
-                  key={v.id}
-                  prefixCls={prefixCls}
-                  itemData={v}
-                  active={v.id === curSelect?.id}
-                  onSelect={handleOnSelect}
-                />
-              ))}
-              {quickList.length > 0 ? (
-                <div className={`${prefixCls}-quick-left-panel-divider`} />
-              ) : null}
-              {quickList.map(v => (
-                <SelectItem
-                  key={v.id}
-                  prefixCls={prefixCls}
-                  showArrow
-                  itemData={v}
-                  active={v.id === curSelect?.id}
-                  onSelect={handleOnSelect}
-                />
-              ))}
-            </div>
-            <div className={`${prefixCls}-quick-right-panel`}>
-              {curSelect?.type === SelectItemType.choose ? (
-                defaultPanel
-              ) : (
-                <RelativeRightPanel
-                  prefixCls={prefixCls}
-                  list={relativeList}
-                  curSelect={curSelect}
-                />
-              )}
-            </div>
+      panelRender={defaultPanel => (
+        <div ref={panelEl} style={{ display: 'flex' }}>
+          <div className={`${prefixCls}-quick-left-panel`}>
+            {relativeList.map(v => (
+              <SelectItem
+                key={v.id}
+                prefixCls={prefixCls}
+                itemData={v}
+                active={v.id === curSelect?.id}
+                onSelect={handleOnSelect}
+              />
+            ))}
+            {quickList.length > 0 ? (
+              <div className={`${prefixCls}-quick-left-panel-divider`} />
+            ) : null}
+            {quickList.map(v => (
+              <SelectItem
+                key={v.id}
+                prefixCls={prefixCls}
+                showArrow
+                itemData={v}
+                active={v.id === curSelect?.id}
+                onSelect={handleOnSelect}
+              />
+            ))}
           </div>
-        );
-      }}
+          <div className={`${prefixCls}-quick-right-panel`}>
+            {curSelect?.type === SelectItemType.choose ? (
+              defaultPanel
+            ) : (
+              <RelativeRightPanel prefixCls={prefixCls} list={relativeList} curSelect={curSelect} />
+            )}
+          </div>
+        </div>
+      )}
       onChange={handleOnChange}
     />
   );
