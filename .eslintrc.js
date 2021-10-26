@@ -22,7 +22,6 @@ module.exports = {
     polyfills: ['Promise', 'URL'],
     'import/resolver': {
       webpack: {
-        //此处config对应webpack.config.js的路径，我这个路径是vue-cli3默认的路径
         infrad: 'antd',
       },
     },
