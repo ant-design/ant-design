@@ -525,20 +525,27 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
         class="ant-spin ant-spin-spinning"
       >
         <span
-          class="ant-spin-dot ant-spin-dot-spin"
+          aria-label="loading"
+          class="anticon anticon-loading anticon-spin ant-spin-dot"
+          role="img"
         >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
+          <svg
+            aria-hidden="true"
+            data-icon="loading"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M0 0h16v16H0z"
+              opacity=".01"
+            />
+            <path
+              d="M8.5 3a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm3.85 1.35a.5.5 0 00-.7 0l-1.42 1.42a.5.5 0 00.7.7l1.42-1.4a.5.5 0 000-.72zM13.5 8a.5.5 0 010 1h-2a.5.5 0 010-1h2zm-1.85 4.35a.5.5 0 000-.7l-1.42-1.42a.5.5 0 00-.7.7l1.4 1.42c.2.2.52.2.72 0zM9 13.5a.5.5 0 01-1 0v-2a.5.5 0 011 0v2zm-5.35-1.85c.2.2.5.2.7 0l1.42-1.42a.5.5 0 10-.7-.7l-1.42 1.4a.5.5 0 000 .72zM3.5 9a.5.5 0 010-1h2a.5.5 0 010 1h-2zm.85-5.35a.5.5 0 000 .7l1.42 1.42a.5.5 0 10.7-.7l-1.4-1.42a.5.5 0 00-.72 0z"
+            />
+          </svg>
         </span>
       </div>
     </div>

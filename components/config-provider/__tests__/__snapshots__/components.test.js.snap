@@ -18023,21 +18023,21 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
               class="config-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
+                aria-label="notice-circle-filled"
+                class="anticon anticon-notice-circle-filled"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="exclamation-circle"
+                  data-icon="notice-circle-filled"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    d="M14.58 5.28A6.98 6.98 0 008.13 1a6.96 6.96 0 00-6.45 4.28 6.96 6.96 0 001.5 7.67 6.99 6.99 0 0011.4-7.67zm-6.45 6.66a.88.88 0 110-1.75.88.88 0 010 1.75zm.88-7c0 .06 0 .11-.02.16l-.42 3.82a.44.44 0 01-.87 0L7.27 5.1a.8.8 0 01-.01-.15V4.9a.88.88 0 011.75 0v.03z"
                   />
                 </svg>
               </span>
@@ -18106,21 +18106,21 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
               class="config-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
+                aria-label="notice-circle-filled"
+                class="anticon anticon-notice-circle-filled"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="exclamation-circle"
+                  data-icon="notice-circle-filled"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    d="M14.58 5.28A6.98 6.98 0 008.13 1a6.96 6.96 0 00-6.45 4.28 6.96 6.96 0 001.5 7.67 6.99 6.99 0 0011.4-7.67zm-6.45 6.66a.88.88 0 110-1.75.88.88 0 010 1.75zm.88-7c0 .06 0 .11-.02.16l-.42 3.82a.44.44 0 01-.87 0L7.27 5.1a.8.8 0 01-.01-.15V4.9a.88.88 0 011.75 0v.03z"
                   />
                 </svg>
               </span>
@@ -18189,21 +18189,21 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
               class="config-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
+                aria-label="notice-circle-filled"
+                class="anticon anticon-notice-circle-filled"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="exclamation-circle"
+                  data-icon="notice-circle-filled"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    d="M14.58 5.28A6.98 6.98 0 008.13 1a6.96 6.96 0 00-6.45 4.28 6.96 6.96 0 001.5 7.67 6.99 6.99 0 0011.4-7.67zm-6.45 6.66a.88.88 0 110-1.75.88.88 0 010 1.75zm.88-7c0 .06 0 .11-.02.16l-.42 3.82a.44.44 0 01-.87 0L7.27 5.1a.8.8 0 01-.01-.15V4.9a.88.88 0 011.75 0v.03z"
                   />
                 </svg>
               </span>
@@ -18272,21 +18272,21 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
               class="ant-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
+                aria-label="notice-circle-filled"
+                class="anticon anticon-notice-circle-filled"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="exclamation-circle"
+                  data-icon="notice-circle-filled"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    d="M14.58 5.28A6.98 6.98 0 008.13 1a6.96 6.96 0 00-6.45 4.28 6.96 6.96 0 001.5 7.67 6.99 6.99 0 0011.4-7.67zm-6.45 6.66a.88.88 0 110-1.75.88.88 0 010 1.75zm.88-7c0 .06 0 .11-.02.16l-.42 3.82a.44.44 0 01-.87 0L7.27 5.1a.8.8 0 01-.01-.15V4.9a.88.88 0 011.75 0v.03z"
                   />
                 </svg>
               </span>
@@ -18355,21 +18355,21 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
               class="ant-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
+                aria-label="notice-circle-filled"
+                class="anticon anticon-notice-circle-filled"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="exclamation-circle"
+                  data-icon="notice-circle-filled"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    d="M14.58 5.28A6.98 6.98 0 008.13 1a6.96 6.96 0 00-6.45 4.28 6.96 6.96 0 001.5 7.67 6.99 6.99 0 0011.4-7.67zm-6.45 6.66a.88.88 0 110-1.75.88.88 0 010 1.75zm.88-7c0 .06 0 .11-.02.16l-.42 3.82a.44.44 0 01-.87 0L7.27 5.1a.8.8 0 01-.01-.15V4.9a.88.88 0 011.75 0v.03z"
                   />
                 </svg>
               </span>
@@ -18438,21 +18438,21 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
               class="prefix-Popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
+                aria-label="notice-circle-filled"
+                class="anticon anticon-notice-circle-filled"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="exclamation-circle"
+                  data-icon="notice-circle-filled"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="64 64 896 896"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    d="M14.58 5.28A6.98 6.98 0 008.13 1a6.96 6.96 0 00-6.45 4.28 6.96 6.96 0 001.5 7.67 6.99 6.99 0 0011.4-7.67zm-6.45 6.66a.88.88 0 110-1.75.88.88 0 010 1.75zm.88-7c0 .06 0 .11-.02.16l-.42 3.82a.44.44 0 01-.87 0L7.27 5.1a.8.8 0 01-.01-.15V4.9a.88.88 0 011.75 0v.03z"
                   />
                 </svg>
               </span>
@@ -22213,20 +22213,27 @@ exports[`ConfigProvider components Spin configProvider 1`] = `
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    aria-label="loading"
+    class="anticon anticon-loading anticon-spin config-spin-dot"
+    role="img"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <svg
+      aria-hidden="true"
+      data-icon="loading"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M0 0h16v16H0z"
+        opacity=".01"
+      />
+      <path
+        d="M8.5 3a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm3.85 1.35a.5.5 0 00-.7 0l-1.42 1.42a.5.5 0 00.7.7l1.42-1.4a.5.5 0 000-.72zM13.5 8a.5.5 0 010 1h-2a.5.5 0 010-1h2zm-1.85 4.35a.5.5 0 000-.7l-1.42-1.42a.5.5 0 00-.7.7l1.4 1.42c.2.2.52.2.72 0zM9 13.5a.5.5 0 01-1 0v-2a.5.5 0 011 0v2zm-5.35-1.85c.2.2.5.2.7 0l1.42-1.42a.5.5 0 10-.7-.7l-1.42 1.4a.5.5 0 000 .72zM3.5 9a.5.5 0 010-1h2a.5.5 0 010 1h-2zm.85-5.35a.5.5 0 000 .7l1.42 1.42a.5.5 0 10.7-.7l-1.4-1.42a.5.5 0 00-.72 0z"
+      />
+    </svg>
   </span>
 </div>
 `;
@@ -22236,20 +22243,27 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    aria-label="loading"
+    class="anticon anticon-loading anticon-spin config-spin-dot"
+    role="img"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <svg
+      aria-hidden="true"
+      data-icon="loading"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M0 0h16v16H0z"
+        opacity=".01"
+      />
+      <path
+        d="M8.5 3a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm3.85 1.35a.5.5 0 00-.7 0l-1.42 1.42a.5.5 0 00.7.7l1.42-1.4a.5.5 0 000-.72zM13.5 8a.5.5 0 010 1h-2a.5.5 0 010-1h2zm-1.85 4.35a.5.5 0 000-.7l-1.42-1.42a.5.5 0 00-.7.7l1.4 1.42c.2.2.52.2.72 0zM9 13.5a.5.5 0 01-1 0v-2a.5.5 0 011 0v2zm-5.35-1.85c.2.2.5.2.7 0l1.42-1.42a.5.5 0 10-.7-.7l-1.42 1.4a.5.5 0 000 .72zM3.5 9a.5.5 0 010-1h2a.5.5 0 010 1h-2zm.85-5.35a.5.5 0 000 .7l1.42 1.42a.5.5 0 10.7-.7l-1.4-1.42a.5.5 0 00-.72 0z"
+      />
+    </svg>
   </span>
 </div>
 `;
@@ -22259,20 +22273,27 @@ exports[`ConfigProvider components Spin configProvider componentSize middle 1`] 
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    aria-label="loading"
+    class="anticon anticon-loading anticon-spin config-spin-dot"
+    role="img"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <svg
+      aria-hidden="true"
+      data-icon="loading"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M0 0h16v16H0z"
+        opacity=".01"
+      />
+      <path
+        d="M8.5 3a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm3.85 1.35a.5.5 0 00-.7 0l-1.42 1.42a.5.5 0 00.7.7l1.42-1.4a.5.5 0 000-.72zM13.5 8a.5.5 0 010 1h-2a.5.5 0 010-1h2zm-1.85 4.35a.5.5 0 000-.7l-1.42-1.42a.5.5 0 00-.7.7l1.4 1.42c.2.2.52.2.72 0zM9 13.5a.5.5 0 01-1 0v-2a.5.5 0 011 0v2zm-5.35-1.85c.2.2.5.2.7 0l1.42-1.42a.5.5 0 10-.7-.7l-1.42 1.4a.5.5 0 000 .72zM3.5 9a.5.5 0 010-1h2a.5.5 0 010 1h-2zm.85-5.35a.5.5 0 000 .7l1.42 1.42a.5.5 0 10.7-.7l-1.4-1.42a.5.5 0 00-.72 0z"
+      />
+    </svg>
   </span>
 </div>
 `;
@@ -22282,20 +22303,27 @@ exports[`ConfigProvider components Spin configProvider virtual and dropdownMatch
   class="ant-spin ant-spin-spinning"
 >
   <span
-    class="ant-spin-dot ant-spin-dot-spin"
+    aria-label="loading"
+    class="anticon anticon-loading anticon-spin ant-spin-dot"
+    role="img"
   >
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
+    <svg
+      aria-hidden="true"
+      data-icon="loading"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M0 0h16v16H0z"
+        opacity=".01"
+      />
+      <path
+        d="M8.5 3a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm3.85 1.35a.5.5 0 00-.7 0l-1.42 1.42a.5.5 0 00.7.7l1.42-1.4a.5.5 0 000-.72zM13.5 8a.5.5 0 010 1h-2a.5.5 0 010-1h2zm-1.85 4.35a.5.5 0 000-.7l-1.42-1.42a.5.5 0 00-.7.7l1.4 1.42c.2.2.52.2.72 0zM9 13.5a.5.5 0 01-1 0v-2a.5.5 0 011 0v2zm-5.35-1.85c.2.2.5.2.7 0l1.42-1.42a.5.5 0 10-.7-.7l-1.42 1.4a.5.5 0 000 .72zM3.5 9a.5.5 0 010-1h2a.5.5 0 010 1h-2zm.85-5.35a.5.5 0 000 .7l1.42 1.42a.5.5 0 10.7-.7l-1.4-1.42a.5.5 0 00-.72 0z"
+      />
+    </svg>
   </span>
 </div>
 `;
@@ -22305,20 +22333,27 @@ exports[`ConfigProvider components Spin normal 1`] = `
   class="ant-spin ant-spin-spinning"
 >
   <span
-    class="ant-spin-dot ant-spin-dot-spin"
+    aria-label="loading"
+    class="anticon anticon-loading anticon-spin ant-spin-dot"
+    role="img"
   >
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
+    <svg
+      aria-hidden="true"
+      data-icon="loading"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M0 0h16v16H0z"
+        opacity=".01"
+      />
+      <path
+        d="M8.5 3a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm3.85 1.35a.5.5 0 00-.7 0l-1.42 1.42a.5.5 0 00.7.7l1.42-1.4a.5.5 0 000-.72zM13.5 8a.5.5 0 010 1h-2a.5.5 0 010-1h2zm-1.85 4.35a.5.5 0 000-.7l-1.42-1.42a.5.5 0 00-.7.7l1.4 1.42c.2.2.52.2.72 0zM9 13.5a.5.5 0 01-1 0v-2a.5.5 0 011 0v2zm-5.35-1.85c.2.2.5.2.7 0l1.42-1.42a.5.5 0 10-.7-.7l-1.42 1.4a.5.5 0 000 .72zM3.5 9a.5.5 0 010-1h2a.5.5 0 010 1h-2zm.85-5.35a.5.5 0 000 .7l1.42 1.42a.5.5 0 10.7-.7l-1.4-1.42a.5.5 0 00-.72 0z"
+      />
+    </svg>
   </span>
 </div>
 `;
@@ -22328,20 +22363,27 @@ exports[`ConfigProvider components Spin prefixCls 1`] = `
   class="prefix-Spin prefix-Spin-spinning"
 >
   <span
-    class="prefix-Spin-dot prefix-Spin-dot-spin"
+    aria-label="loading"
+    class="anticon anticon-loading anticon-spin prefix-Spin-dot"
+    role="img"
   >
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
+    <svg
+      aria-hidden="true"
+      data-icon="loading"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M0 0h16v16H0z"
+        opacity=".01"
+      />
+      <path
+        d="M8.5 3a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm3.85 1.35a.5.5 0 00-.7 0l-1.42 1.42a.5.5 0 00.7.7l1.42-1.4a.5.5 0 000-.72zM13.5 8a.5.5 0 010 1h-2a.5.5 0 010-1h2zm-1.85 4.35a.5.5 0 000-.7l-1.42-1.42a.5.5 0 00-.7.7l1.4 1.42c.2.2.52.2.72 0zM9 13.5a.5.5 0 01-1 0v-2a.5.5 0 011 0v2zm-5.35-1.85c.2.2.5.2.7 0l1.42-1.42a.5.5 0 10-.7-.7l-1.42 1.4a.5.5 0 000 .72zM3.5 9a.5.5 0 010-1h2a.5.5 0 010 1h-2zm.85-5.35a.5.5 0 000 .7l1.42 1.42a.5.5 0 10.7-.7l-1.4-1.42a.5.5 0 00-.72 0z"
+      />
+    </svg>
   </span>
 </div>
 `;
@@ -33956,37 +33998,55 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="config-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="config-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="config-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -34114,37 +34174,55 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="config-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="config-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="config-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -34225,37 +34303,55 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="config-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="config-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="config-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -34383,37 +34479,55 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="config-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="config-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="config-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -34494,37 +34608,55 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="config-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="config-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="config-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -34652,37 +34784,55 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="config-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="config-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="config-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -34763,37 +34913,55 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -34921,37 +35089,55 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -35032,37 +35218,55 @@ exports[`ConfigProvider components Transfer normal 1`] = `
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -35190,37 +35394,55 @@ exports[`ConfigProvider components Transfer normal 1`] = `
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -35301,37 +35523,55 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div
@@ -35459,37 +35699,55 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
+              fill="none"
+              height="96"
+              viewBox="0 0 96 96"
+              width="96"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                fill="none"
+              <ellipse
+                cx="48"
+                cy="85"
+                fill="#F2F2F2"
+                rx="45"
+                ry="6"
+              />
+              <path
+                d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                fill="white"
+                stroke="#D8D8D8"
+              />
+              <path
+                d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                fill="#DBDBDB"
+              />
+              <circle
+                cx="91"
+                cy="14"
+                fill="#D8D8D8"
+                opacity="0.5"
+                r="3"
+              />
+              <circle
+                cx="85"
+                cy="7"
+                fill="#D8D8D8"
+                opacity="0.3"
+                r="2"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                fill="#D8D8D8"
                 fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
+                opacity="0.3"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                fill="#FAFAFA"
+                fill-rule="evenodd"
+              />
             </svg>
           </div>
           <div

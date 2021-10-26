@@ -23,7 +23,7 @@ describe('Result', () => {
         ]}
       />,
     );
-    expect(wrapper.find('.anticon-check-circle')).toHaveLength(1);
+    expect(wrapper.find('.anticon-success-filled')).toHaveLength(1);
   });
 
   it('🙂  different status, different class', () => {
