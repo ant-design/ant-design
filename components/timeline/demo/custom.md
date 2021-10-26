@@ -15,13 +15,13 @@ Set a node as an icon or other custom element.
 
 ```jsx
 import { Timeline } from 'infrad';
-import { ClockCircleOutlined } from 'infra-design-icons';
+import { ITimeOutlined } from 'infra-design-icons';
 
 ReactDOM.render(
   <Timeline>
     <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
     <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-    <Timeline.Item dot={<ClockCircleOutlined className="timeline-clock-icon" />} color="red">
+    <Timeline.Item dot={<ITimeOutlined className="timeline-clock-icon" />} color="red">
       Technical testing 2015-09-01
     </Timeline.Item>
     <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
