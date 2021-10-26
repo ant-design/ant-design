@@ -172,7 +172,7 @@ function getRCNoticeProps(
 }
 
 function notice(args: ArgsProps): MessageType {
-  const target = args.key || key++;
+  const target = args.key || getKeyThenIncreaseKey();
   const closePromise = new Promise(resolve => {
     const callback = () => {
       if (typeof args.onClose === 'function') {
