@@ -20,8 +20,7 @@ This demo was created for debugging Menu styles inside Dropdown.
 
 ```jsx
 import { Menu, Dropdown } from 'infrad';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from 'infra-design-icons';
-import { IArrowDown } from 'infra-design-icons';
+import { MailOutlined, AppstoreOutlined, SettingOutlined, IArrowDown } from 'infra-design-icons';
 
 const { SubMenu } = Menu;
 

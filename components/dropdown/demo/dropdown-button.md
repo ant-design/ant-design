@@ -15,8 +15,7 @@ A button is on the left, and a related functional menu is on the right. You can 
 
 ```jsx
 import { Menu, Dropdown, Button, message, Space, Tooltip } from 'infrad';
-import { UserOutlined } from 'infra-design-icons';
-import { IArrowDown } from 'infra-design-icons';
+import { UserOutlined, IArrowDown } from 'infra-design-icons';
 
 function handleButtonClick(e) {
   message.info('Click on left button.');

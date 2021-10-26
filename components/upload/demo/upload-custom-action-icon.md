@@ -15,8 +15,7 @@ Use `showUploadList` for custom action icons of files.
 
 ```jsx
 import { Upload, Button } from 'infrad';
-import { StarOutlined } from 'infra-design-icons';
-import { IUpload } from 'infra-design-icons';
+import { StarOutlined, IUpload } from 'infra-design-icons';
 
 const props = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',

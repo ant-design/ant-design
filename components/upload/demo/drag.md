@@ -19,8 +19,7 @@ We can upload serveral files at once in modern browsers by giving the input the 
 
 ```jsx
 import { Upload, message } from 'infrad';
-import { InboxOutlined } from 'infra-design-icons';
-import { IUploadCloud } from 'infra-design-icons';
+import { InboxOutlined, IUploadCloud } from 'infra-design-icons';
 
 const { Dragger } = Upload;
 

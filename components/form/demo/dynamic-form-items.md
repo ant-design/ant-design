@@ -15,8 +15,7 @@ Nest dynamic field need extends `field`. Pass `field.name` and `field.fieldKey` 
 
 ```jsx
 import { Form, Input, Button, Space } from 'infrad';
-import { MinusCircleOutlined, PlusOutlined } from 'infra-design-icons';
-import { ITrash } from 'infra-design-icons';
+import { MinusCircleOutlined, PlusOutlined, ITrash } from 'infra-design-icons';
 
 const Demo = () => {
   const onFinish = values => {

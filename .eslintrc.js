@@ -20,6 +20,12 @@ module.exports = {
       version: '16.9',
     },
     polyfills: ['Promise', 'URL'],
+    'import/resolver': {
+      webpack: {
+        //此处config对应webpack.config.js的路径，我这个路径是vue-cli3默认的路径
+        infrad: 'antd',
+      },
+    },
   },
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],

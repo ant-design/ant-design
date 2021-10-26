@@ -22,7 +22,7 @@ ReactDOM.render(
     <Input placeholder="large size" prefix={<IUser />} tip="提示语" />
     <br />
     <br />
-    <Input placeholder="default size" prefix={<IUser />} tip="提示语" isError={true} />
+    <Input placeholder="default size" prefix={<IUser />} tip="提示语" isError />
   </>,
   mountNode,
 );
