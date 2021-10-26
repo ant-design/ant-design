@@ -41,10 +41,12 @@ export default function getIcons({
   } else {
     const iconCls = `${prefixCls}-suffix`;
     mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
-      if (open && showSearch) {
-        return <SearchOutlined className={iconCls} />;
-      } else if (open) {
-        return <IArrowUp className={iconCls} />;
+      if (open) {
+        return showSearch ? (
+          <SearchOutlined className={iconCls} />
+        ) : (
+          <IArrowUp className={iconCls} />
+        );
       }
       return <IArrowDown className={iconCls} />;
     };

@@ -109,7 +109,9 @@ export function QuickPicker(props: IQuickPickerProps) {
     setCurSelect(item);
     setValue(value);
     props.onChange?.(curRange.value, curRange.inputText || '');
-    item.type === SelectItemType.quick && setOpen(false);
+    if (item.type === SelectItemType.quick) {
+      setOpen(false);
+    }
   }
   function format(val: Moment) {
     const curRange = curSelect?.getRange(val);

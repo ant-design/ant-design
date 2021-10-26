@@ -54,13 +54,11 @@ const Empty: EmptyType = ({
 
         if (typeof image === 'string') {
           imageNode = <img alt={alt} src={image} />;
+        } else if (!!type && image === defaultEmptyImg) {
+          imageNode = typeConfig.get(type)?.icon;
+          des = typeof description !== 'undefined' ? des : typeConfig.get(type)?.description;
         } else {
-          if (!!type && image === defaultEmptyImg) {
-            imageNode = typeConfig.get(type)?.icon;
-            des = typeof description !== 'undefined' ? des : typeConfig.get(type)?.description;
-          } else {
-            imageNode = image;
-          }
+          imageNode = image;
         }
 
         return (
