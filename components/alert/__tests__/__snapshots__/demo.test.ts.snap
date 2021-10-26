@@ -8,21 +8,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      aria-label="success-filled"
+      class="anticon anticon-success-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="check-circle"
+        data-icon="success-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm3.15 4.93L7.1 9.98 4.85 7.73a.5.5 0 10-.7.71l2.6 2.6c.19.2.5.2.7 0l4.4-4.4a.5.5 0 00-.7-.71z"
         />
       </svg>
     </span>
@@ -66,11 +66,11 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>
@@ -82,24 +82,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      aria-label="close-fullfiled"
+      class="anticon anticon-close-fullfiled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="close-circle"
+        data-icon="close-fullfiled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
-        />
-        <path
-          d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 6.3L5.88 5.16a.5.5 0 00-.77.64l.06.07L7.3 8l-2.12 2.12a.5.5 0 00.64.77l.07-.06L8 8.7l2.12 2.12a.5.5 0 00.77-.64l-.06-.07L8.7 8l2.12-2.12a.5.5 0 00-.64-.77l-.07.06L8 7.3 5.88 5.17 8 7.3z"
         />
       </svg>
     </span>
@@ -183,11 +180,11 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>
@@ -261,11 +258,11 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>
@@ -282,21 +279,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      aria-label="information-filled"
+      class="anticon anticon-information-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        data-icon="information-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm.3 9.56c-.16.18-.3.27-.39.27-.04 0-.07 0-.11-.02-.05-.02-.05-.07-.05-.14 0-.06.02-.25.1-.5l.13-.53.83-3-.46.09-.8.11-.88.1v.27c.23 0 .4.02.48.07.1.05.14.11.14.25v.07l-.02.1-.64 2.38-.12.41c-.04.18-.07.32-.07.41 0 .26.07.44.23.55.16.12.32.19.53.19.34 0 .67-.14.96-.44.19-.18.44-.53.78-1.03l-.23-.16c-.11.18-.27.37-.4.55zm-.1-6.2a.71.71 0 00-.54.22.71.71 0 00-.22.53c0 .22.08.39.22.53.15.15.32.22.53.22.22 0 .4-.07.54-.22a.71.71 0 00.21-.53.71.71 0 00-.21-.53.71.71 0 00-.54-.22z"
         />
       </svg>
     </span>
@@ -320,21 +317,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      aria-label="information-filled"
+      class="anticon anticon-information-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        data-icon="information-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm.3 9.56c-.16.18-.3.27-.39.27-.04 0-.07 0-.11-.02-.05-.02-.05-.07-.05-.14 0-.06.02-.25.1-.5l.13-.53.83-3-.46.09-.8.11-.88.1v.27c.23 0 .4.02.48.07.1.05.14.11.14.25v.07l-.02.1-.64 2.38-.12.41c-.04.18-.07.32-.07.41 0 .26.07.44.23.55.16.12.32.19.53.19.34 0 .67-.14.96-.44.19-.18.44-.53.78-1.03l-.23-.16c-.11.18-.27.37-.4.55zm-.1-6.2a.71.71 0 00-.54.22.71.71 0 00-.22.53c0 .22.08.39.22.53.15.15.32.22.53.22.22 0 .4-.07.54-.22a.71.71 0 00.21-.53.71.71 0 00-.21-.53.71.71 0 00-.54-.22z"
         />
       </svg>
     </span>
@@ -366,11 +363,11 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>
@@ -402,21 +399,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      aria-label="close-fullfiled"
+      class="anticon anticon-close-fullfiled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="close-circle"
+        data-icon="close-fullfiled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 6.3L5.88 5.16a.5.5 0 00-.77.64l.06.07L7.3 8l-2.12 2.12a.5.5 0 00.64.77l.07-.06L8 8.7l2.12 2.12a.5.5 0 00.77-.64l-.06-.07L8.7 8l2.12-2.12a.5.5 0 00-.64-.77l-.07.06L8 7.3 5.88 5.17 8 7.3z"
         />
       </svg>
     </span>
@@ -492,11 +489,11 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>
@@ -537,11 +534,11 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>
@@ -1013,21 +1010,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      aria-label="success-filled"
+      class="anticon anticon-success-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="check-circle"
+        data-icon="success-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm3.15 4.93L7.1 9.98 4.85 7.73a.5.5 0 10-.7.71l2.6 2.6c.19.2.5.2.7 0l4.4-4.4a.5.5 0 00-.7-.71z"
         />
       </svg>
     </span>
@@ -1050,21 +1047,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="info-circle"
-      class="anticon anticon-info-circle ant-alert-icon"
+      aria-label="notice-circle-filled"
+      class="anticon anticon-notice-circle-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="info-circle"
+        data-icon="notice-circle-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+          d="M14.58 5.28A6.98 6.98 0 008.13 1a6.96 6.96 0 00-6.45 4.28 6.96 6.96 0 001.5 7.67 6.99 6.99 0 0011.4-7.67zm-6.45 6.66a.88.88 0 110-1.75.88.88 0 010 1.75zm.88-7c0 .06 0 .11-.02.16l-.42 3.82a.44.44 0 01-.87 0L7.27 5.1a.8.8 0 01-.01-.15V4.9a.88.88 0 011.75 0v.03z"
         />
       </svg>
     </span>
@@ -1087,21 +1084,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      aria-label="information-filled"
+      class="anticon anticon-information-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        data-icon="information-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm.3 9.56c-.16.18-.3.27-.39.27-.04 0-.07 0-.11-.02-.05-.02-.05-.07-.05-.14 0-.06.02-.25.1-.5l.13-.53.83-3-.46.09-.8.11-.88.1v.27c.23 0 .4.02.48.07.1.05.14.11.14.25v.07l-.02.1-.64 2.38-.12.41c-.04.18-.07.32-.07.41 0 .26.07.44.23.55.16.12.32.19.53.19.34 0 .67-.14.96-.44.19-.18.44-.53.78-1.03l-.23-.16c-.11.18-.27.37-.4.55zm-.1-6.2a.71.71 0 00-.54.22.71.71 0 00-.22.53c0 .22.08.39.22.53.15.15.32.22.53.22.22 0 .4-.07.54-.22a.71.71 0 00.21-.53.71.71 0 00-.21-.53.71.71 0 00-.54-.22z"
         />
       </svg>
     </span>
@@ -1133,11 +1130,11 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>
@@ -1149,21 +1146,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      aria-label="close-fullfiled"
+      class="anticon anticon-close-fullfiled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="close-circle"
+        data-icon="close-fullfiled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 6.3L5.88 5.16a.5.5 0 00-.77.64l.06.07L7.3 8l-2.12 2.12a.5.5 0 00.64.77l.07-.06L8 8.7l2.12 2.12a.5.5 0 00.77-.64l-.06-.07L8.7 8l2.12-2.12a.5.5 0 00-.64-.77l-.07.06L8 7.3 5.88 5.17 8 7.3z"
         />
       </svg>
     </span>
@@ -1186,24 +1183,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      aria-label="success-filled"
+      class="anticon anticon-success-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="check-circle"
+        data-icon="success-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm3.15 4.93L7.1 9.98 4.85 7.73a.5.5 0 10-.7.71l2.6 2.6c.19.2.5.2.7 0l4.4-4.4a.5.5 0 00-.7-.71z"
         />
       </svg>
     </span>
@@ -1228,24 +1222,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="info-circle"
-      class="anticon anticon-info-circle ant-alert-icon"
+      aria-label="notice-circle-filled"
+      class="anticon anticon-notice-circle-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="info-circle"
+        data-icon="notice-circle-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+          d="M14.58 5.28A6.98 6.98 0 008.13 1a6.96 6.96 0 00-6.45 4.28 6.96 6.96 0 001.5 7.67 6.99 6.99 0 0011.4-7.67zm-6.45 6.66a.88.88 0 110-1.75.88.88 0 010 1.75zm.88-7c0 .06 0 .11-.02.16l-.42 3.82a.44.44 0 01-.87 0L7.27 5.1a.8.8 0 01-.01-.15V4.9a.88.88 0 011.75 0v.03z"
         />
       </svg>
     </span>
@@ -1270,24 +1261,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      aria-label="information-filled"
+      class="anticon anticon-information-filled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        data-icon="information-filled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm.3 9.56c-.16.18-.3.27-.39.27-.04 0-.07 0-.11-.02-.05-.02-.05-.07-.05-.14 0-.06.02-.25.1-.5l.13-.53.83-3-.46.09-.8.11-.88.1v.27c.23 0 .4.02.48.07.1.05.14.11.14.25v.07l-.02.1-.64 2.38-.12.41c-.04.18-.07.32-.07.41 0 .26.07.44.23.55.16.12.32.19.53.19.34 0 .67-.14.96-.44.19-.18.44-.53.78-1.03l-.23-.16c-.11.18-.27.37-.4.55zm-.1-6.2a.71.71 0 00-.54.22.71.71 0 00-.22.53c0 .22.08.39.22.53.15.15.32.22.53.22.22 0 .4-.07.54-.22a.71.71 0 00.21-.53.71.71 0 00-.21-.53.71.71 0 00-.54-.22z"
         />
       </svg>
     </span>
@@ -1321,11 +1309,11 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>
@@ -1337,24 +1325,21 @@ Array [
     role="alert"
   >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      aria-label="close-fullfiled"
+      class="anticon anticon-close-fullfiled ant-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="close-circle"
+        data-icon="close-fullfiled"
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
+        viewBox="0 0 16 16"
         width="1em"
       >
         <path
-          d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
-        />
-        <path
-          d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 6.3L5.88 5.16a.5.5 0 00-.77.64l.06.07L7.3 8l-2.12 2.12a.5.5 0 00.64.77l.07-.06L8 8.7l2.12 2.12a.5.5 0 00.77-.64l-.06-.07L8.7 8l2.12-2.12a.5.5 0 00-.64-.77l-.07.06L8 7.3 5.88 5.17 8 7.3z"
         />
       </svg>
     </span>
@@ -1383,21 +1368,21 @@ exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
   role="alert"
 >
   <span
-    aria-label="exclamation-circle"
-    class="anticon anticon-exclamation-circle ant-alert-icon"
+    aria-label="information-filled"
+    class="anticon anticon-information-filled ant-alert-icon"
     role="img"
   >
     <svg
       aria-hidden="true"
-      data-icon="exclamation-circle"
+      data-icon="information-filled"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
+      viewBox="0 0 16 16"
       width="1em"
     >
       <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        d="M8 1a7 7 0 110 14A7 7 0 018 1zm.3 9.56c-.16.18-.3.27-.39.27-.04 0-.07 0-.11-.02-.05-.02-.05-.07-.05-.14 0-.06.02-.25.1-.5l.13-.53.83-3-.46.09-.8.11-.88.1v.27c.23 0 .4.02.48.07.1.05.14.11.14.25v.07l-.02.1-.64 2.38-.12.41c-.04.18-.07.32-.07.41 0 .26.07.44.23.55.16.12.32.19.53.19.34 0 .67-.14.96-.44.19-.18.44-.53.78-1.03l-.23-.16c-.11.18-.27.37-.4.55zm-.1-6.2a.71.71 0 00-.54.22.71.71 0 00-.22.53c0 .22.08.39.22.53.15.15.32.22.53.22.22 0 .4-.07.54-.22a.71.71 0 00.21-.53.71.71 0 00-.21-.53.71.71 0 00-.54-.22z"
       />
     </svg>
   </span>
@@ -1466,11 +1451,11 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
+          viewBox="0 0 16 16"
           width="1em"
         >
           <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
           />
         </svg>
       </span>

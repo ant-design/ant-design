@@ -156,21 +156,21 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -181,22 +181,22 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -378,22 +378,22 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash ant-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -456,22 +456,22 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash ant-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -534,22 +534,22 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash ant-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -784,22 +784,22 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
@@ -867,22 +867,22 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
@@ -950,22 +950,22 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
@@ -1033,22 +1033,22 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
@@ -1113,22 +1113,22 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
@@ -1226,21 +1226,21 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -1251,22 +1251,22 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -1342,21 +1342,21 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -1367,22 +1367,22 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -1460,21 +1460,21 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -1485,22 +1485,22 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -1578,21 +1578,21 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -1603,22 +1603,22 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -1688,21 +1688,21 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -1713,22 +1713,22 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -1888,22 +1888,22 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
+                  aria-label="trash"
+                  class="anticon anticon-trash ant-upload-trash"
                   role="img"
                   tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="delete"
+                    data-icon="trash"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 16 16"
                     width="1em"
                   >
                     <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                      d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                     />
                   </svg>
                 </span>
@@ -2085,21 +2085,21 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -2110,22 +2110,22 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -2178,21 +2178,21 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -2203,22 +2203,22 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -2271,21 +2271,21 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -2296,22 +2296,22 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -2364,21 +2364,21 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -2389,22 +2389,22 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -2512,21 +2512,21 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           >
             <span
-              aria-label="eye"
-              class="anticon anticon-eye"
+              aria-label="edit"
+              class="anticon anticon-edit ant-upload-edit"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="eye"
+                data-icon="edit"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  d="M13.77 4.54L11.65 2.4 9.53 4.54l2.12 2.12 2.12-2.12zm-2.83 2.82L8.82 5.24l-6.1 6.11-.22 2.33 2.33-.2 6.11-6.12zm1.42-5.65l2.12 2.12a1 1 0 010 1.41l-8.94 8.94a1 1 0 01-.62.29l-2.33.21a1 1 0 01-1.09-1.09l.22-2.33a1 1 0 01.29-.62l8.93-8.93a1 1 0 011.42 0z"
                 />
               </svg>
             </span>
@@ -2537,22 +2537,22 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="delete"
-              class="anticon anticon-delete"
+              aria-label="trash"
+              class="anticon anticon-trash ant-upload-trash"
               role="img"
               tabindex="-1"
             >
               <svg
                 aria-hidden="true"
-                data-icon="delete"
+                data-icon="trash"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                 />
               </svg>
             </span>
@@ -2701,22 +2701,22 @@ Array [
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
@@ -2793,22 +2793,22 @@ Array [
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
@@ -2912,22 +2912,22 @@ Array [
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
@@ -3004,22 +3004,22 @@ Array [
                   type="button"
                 >
                   <span
-                    aria-label="delete"
-                    class="anticon anticon-delete"
+                    aria-label="trash"
+                    class="anticon anticon-trash ant-upload-trash"
                     role="img"
                     tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="delete"
+                      data-icon="trash"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                        d="M2 4a.5.5 0 010-1h4V2a1 1 0 011-1h3a1 1 0 011 1v1h4a.5.5 0 010 1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2zm11 0H4v10h9V4zm-2.5 3c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm-4 0c.28 0 .5.22.5.5v4a.5.5 0 01-1 0v-4c0-.28.22-.5.5-.5zm2-1c.28 0 .5.22.5.5v5a.5.5 0 01-1 0v-5c0-.28.22-.5.5-.5zM10 2H7v1h3V2z"
                       />
                     </svg>
                   </span>
