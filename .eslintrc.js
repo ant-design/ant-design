@@ -22,7 +22,7 @@ module.exports = {
     polyfills: ['Promise', 'URL'],
     'import/resolver': {
       webpack: {
-        infrad: 'antd',
+        infrad: 'components',
       },
     },
   },

@@ -2,7 +2,7 @@ const transformIgnorePatterns = [
   '/dist/',
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  'node_modules/(?!.*@(babel|ant-design))[^/]+?/(?!(es|node_modules)/)',
+  'node_modules/(?!.*@(babel|ant-design|infra-design))[^/]+?/(?!(es|node_modules)/)',
 ];
 
 function getTestRegex(libDir) {
@@ -27,6 +27,7 @@ module.exports = {
     '^react-dnd-test-backend$': 'react-dnd-test-backend/dist/cjs',
     '^react-dnd-test-utils$': 'react-dnd-test-utils/dist/cjs',
     '\\.(css|less)$': 'identity-obj-proxy',
+    infrad: '<rootDir>/components',
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {
