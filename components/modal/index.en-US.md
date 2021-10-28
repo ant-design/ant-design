@@ -76,7 +76,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
-| icon | Custom icon | ReactNode | &lt;QuestionCircle /> | 3.12.0 |
+| icon | Custom icon | ReactNode | &lt;QuestionCircle /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not. | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
@@ -87,7 +87,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
 | title | Title | ReactNode | - |  |
 | width | Width of the modal dialog | string \| number | 416 |  |
-| wrapClassName | The class name of the container of the modal dialog | string | - |  |
+| wrapClassName | The class name of the container of the modal dialog | string | - | 4.17.0 |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
 | onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. If the function does not take any parameter (`!onCancel.length`) then modal dialog will be closed unless returned value is `true` (`!!onCancel()`). You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
 | onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. If the function does not take any parameter (`!onOk.length`) then modal dialog will be closed unless returned value is `true` (`!!onOk()`). You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
