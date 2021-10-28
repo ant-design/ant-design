@@ -8,12 +8,11 @@
 name: Release Helper
 
 on:
-  push:
-    tags:        
-      - '*'
+  create
 
 jobs:
   release-helper:
+    if: github.event.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
       - name: make release
