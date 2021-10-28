@@ -240,6 +240,14 @@ const RegistrationForm = () => {
       </Form.Item>
 
       <Form.Item
+        name="intro"
+        label="Intro"
+        rules={[{ required: true, message: 'Please input Intro' }]}
+      >
+        <Input.TextArea showCount maxLength={100} />
+      </Form.Item>
+
+      <Form.Item
         name="gender"
         label="Gender"
         rules={[{ required: true, message: 'Please select gender!' }]}
