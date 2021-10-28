@@ -33,6 +33,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     cancelButtonProps,
     direction,
     prefixCls,
+    wrapClassName,
     rootPrefixCls,
     iconPrefixCls,
     bodyStyle,
@@ -84,7 +85,10 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       <Dialog
         prefixCls={prefixCls}
         className={classString}
-        wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
+        wrapClassName={classNames(
+          { [`${contentPrefixCls}-centered`]: !!props.centered },
+          wrapClassName,
+        )}
         onCancel={() => close({ triggerCancel: true })}
         visible={visible}
         title=""

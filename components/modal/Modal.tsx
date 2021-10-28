@@ -109,6 +109,7 @@ export interface ModalFuncProps {
   zIndex?: number;
   okCancel?: boolean;
   style?: React.CSSProperties;
+  wrapClassName?: string;
   maskStyle?: React.CSSProperties;
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
