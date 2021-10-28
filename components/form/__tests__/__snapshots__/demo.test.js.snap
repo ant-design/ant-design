@@ -3864,6 +3864,43 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_intro"
+        title="Intro"
+      >
+        Intro
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-input-textarea ant-input-textarea-show-count"
+            data-count="0 / 100"
+          >
+            <textarea
+              class="ant-input"
+              id="register_intro"
+              maxlength="100"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
         for="register_gender"
         title="Gender"
       >
