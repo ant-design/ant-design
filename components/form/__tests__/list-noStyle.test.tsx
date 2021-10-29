@@ -23,7 +23,6 @@ describe('Form.List.NoStyle', () => {
                 <Form.Item
                   {...field}
                   name={[field.name, 'first']}
-                  fieldKey={[field.fieldKey, 'first']}
                   rules={[{ required: true }]}
                   noStyle
                 >

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useContext } from 'react';
 import classNames from 'classnames';
-import { Field, FormInstance } from 'rc-field-form';
+import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
-import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
 import omit from 'rc-util/lib/omit';
@@ -62,7 +61,7 @@ export interface FormItemProps<Values = any>
   initialValue?: any;
   messageVariables?: Record<string, string>;
   tooltip?: LabelTooltipType;
-  /** Auto passed by List render props. User should not use this. */
+  /** @deprecated No need anymore */
   fieldKey?: React.Key | React.Key[];
 }
 
@@ -86,7 +85,6 @@ function genEmptyMeta(): Meta {
 function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
-    fieldKey,
     noStyle,
     dependencies,
     prefixCls: customizePrefixCls,
@@ -119,6 +117,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
+  // ========================= MISC =========================
+  // Get `noStyle` required info
+  const listContext = React.useContext(ListContext);
+  const fieldKeyPathRef = React.useRef<React.Key[]>();
+
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
   const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
@@ -127,14 +130,27 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const [meta, setMeta] = React.useState<Meta>(() => genEmptyMeta());
 
   const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
+    // This keyInfo is not correct when field is removed
+    // Since origin keyManager no longer keep the origin key anymore
+    // Which means we need cache origin one and reuse when removed
+    const keyInfo = listContext?.getKey(nextMeta.name);
+
     // Destroy will reset all the meta
     setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta);
 
     // Bump to parent since noStyle
     if (noStyle && notifyParentMetaChange) {
       let namePath = nextMeta.name;
-      if (fieldKey !== undefined) {
-        namePath = Array.isArray(fieldKey) ? fieldKey : [fieldKey!];
+
+      if (!nextMeta.destroy) {
+        if (keyInfo !== undefined) {
+          const [fieldKey, restPath] = keyInfo;
+          namePath = [fieldKey, ...restPath];
+          fieldKeyPathRef.current = namePath;
+        }
+      } else {
+        // Use origin cache data
+        namePath = fieldKeyPathRef.current || namePath;
       }
       notifyParentMetaChange(nextMeta, namePath);
     }
