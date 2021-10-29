@@ -53,7 +53,9 @@ class LoadMoreList extends React.Component {
   onLoadMore = () => {
     this.setState({
       loading: true,
-      list: this.state.data.concat([...new Array(count)].map(() => ({ loading: true, name: {} }))),
+      list: this.state.data.concat(
+        [...new Array(count)].map(() => ({ loading: true, name: {}, picture: {} })),
+      ),
     });
     this.getData(res => {
       const data = this.state.data.concat(res.results);
@@ -96,20 +98,22 @@ class LoadMoreList extends React.Component {
         itemLayout="horizontal"
         loadMore={loadMore}
         dataSource={list}
-        renderItem={item => (
-          <List.Item
-            actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
-          >
-            <Skeleton avatar title={false} loading={item.loading} active>
-              <List.Item.Meta
-                avatar={<Avatar src={item.picture.large} />}
-                title={<a href="https://ant.design">{item.name.last}</a>}
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-              />
-              <div>content</div>
-            </Skeleton>
-          </List.Item>
-        )}
+        renderItem={item =>
+          console.log(item) || (
+            <List.Item
+              actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
+            >
+              <Skeleton avatar title={false} loading={item.loading} active>
+                <List.Item.Meta
+                  avatar={<Avatar src={item.picture.large} />}
+                  title={<a href="https://ant.design">{item.name.last}</a>}
+                  description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                />
+                <div>content</div>
+              </Skeleton>
+            </List.Item>
+          )
+        }
       />
     );
   }
