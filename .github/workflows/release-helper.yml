@@ -12,10 +12,10 @@ on:
 
 jobs:
   release-helper:
+    if: github.event.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
       - name: make release
-        if: github.event.ref_type == 'tag'
         uses: actions-cool/release-helper@v1
         with:
           triger: 'tag'

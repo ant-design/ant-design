@@ -190,7 +190,6 @@
     div& {
       left: -@input-padding-horizontal - 1px;
       margin-top: -@input-padding-vertical-base - 1px;
-      // stylelint-disable-next-line function-calc-no-invalid
       margin-bottom: calc(1em - @input-padding-vertical-base - 1px);
     }
 
@@ -204,6 +203,7 @@
 
     // Fix Editable Textarea flash in Firefox
     textarea {
+      /* stylelint-disable-next-line property-no-vendor-prefix */
       -moz-transition: none;
     }
   }
@@ -211,7 +211,7 @@
   // list
   ul,
   ol {
-    margin: 0 0 1em 0;
+    margin: 0 0 1em;
     padding: 0;
 
     li {
@@ -281,9 +281,11 @@
   }
 
   &-ellipsis-multiple-line {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 3;
+
     /*! autoprefixer: ignore next */
     -webkit-box-orient: vertical;
   }

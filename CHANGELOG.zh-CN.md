@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.8
+
+`2021-10-25`
+
+- 🐞 修复 Typography 设置 `ellipsis` 后在缩放下的文本溢出。[#32496](https://github.com/ant-design/ant-design/pull/32496) [@hydraZty](https://github.com/hydraZty)
+- 🐞 修复 Transfer 打开选择菜单时抛出 `MenuItem should not leave undefined key` 警告。[#32578](https://github.com/ant-design/ant-design/pull/32578)
+- 🐞 修复 Tree.DirectoryTree 键盘操作时抛出 `TypeError:nativeEvent is undefined`。[#32551](https://github.com/ant-design/ant-design/pull/32551) [@D-to-the-K](https://github.com/D-to-the-K)
+- 💄 Pagination `simple` 属性下中翻页 input 增加 box-shadow。[#32528](https://github.com/ant-design/ant-design/pull/32528) [@chen-jingjie](https://github.com/chen-jingjie)
+- 💄 Table 鼠标悬浮 `rowSpan` 行时会高亮所有相关行。[#32557](https://github.com/ant-design/ant-design/pull/32557)
+
 ## 4.17.0-alpha.7
 
 `2021-10-18`
