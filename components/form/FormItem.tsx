@@ -120,6 +120,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // ========================= MISC =========================
   // Get `noStyle` required info
   const listContext = React.useContext(ListContext);
+  const fieldKeyPathRef = React.useRef<React.Key[]>();
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
@@ -137,9 +138,16 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     // Bump to parent since noStyle
     if (noStyle && notifyParentMetaChange) {
       let namePath = nextMeta.name;
-      if (keyInfo !== undefined) {
-        const [fieldKey, restPath] = keyInfo;
-        namePath = [fieldKey, ...restPath];
+
+      if (!nextMeta.destroy) {
+        if (keyInfo !== undefined) {
+          const [fieldKey, restPath] = keyInfo;
+          namePath = [fieldKey, ...restPath];
+          fieldKeyPathRef.current = namePath;
+        }
+      } else {
+        // Not use destroy data since index is useless
+        namePath = fieldKeyPathRef.current || namePath;
       }
       notifyParentMetaChange(nextMeta, namePath);
     }
