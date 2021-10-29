@@ -130,6 +130,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const [meta, setMeta] = React.useState<Meta>(() => genEmptyMeta());
 
   const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
+    // This keyInfo is not correct when field is removed
+    // Since origin keyManager no longer keep the origin key anymore
+    // Which means we need cache origin one and reuse when removed
     const keyInfo = listContext?.getKey(nextMeta.name);
 
     // Destroy will reset all the meta
@@ -146,7 +149,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           fieldKeyPathRef.current = namePath;
         }
       } else {
-        // Not use destroy data since index is useless
+        // Use origin cache data
         namePath = fieldKeyPathRef.current || namePath;
       }
       notifyParentMetaChange(nextMeta, namePath);
