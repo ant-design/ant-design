@@ -79,7 +79,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
-| icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> | 3.12.0 |
+| icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
@@ -90,7 +90,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
 | width | 宽度 | string \| number | 416 |  |
-| wrapClassName | 对话框外层容器的类名 | string | - |  |
+| wrapClassName | 对话框外层容器的类名 | string | - | 4.17.0 |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
 | onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 | onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
