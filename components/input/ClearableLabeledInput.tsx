@@ -105,13 +105,13 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       readOnly,
       bordered,
     } = this.props;
-    const suffixNode = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(this.props)) {
       return cloneElement(element, {
         value,
       });
     }
 
+    const suffixNode = this.renderSuffix(prefixCls);
     const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
     const affixWrapperCls = classNames(`${prefixCls}-affix-wrapper`, {
