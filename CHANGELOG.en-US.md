@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.9
+
+`2021-10-31`
+
+- 🐞 Fix Collapse style issue when `expandIconPosition="right"`. [#32648](https://github.com/ant-design/ant-design/pull/32648)
+- 🐞 Fix Upload broken loading style when `listStyle="picture"`. [#32664](https://github.com/ant-design/ant-design/pull/32664)
+- 🐞 Fix Card `tabs` style when set `tabPosition: 'left'`. [#32695](https://github.com/ant-design/ant-design/pull/32695)
+- 🐞 Avoid Input `placeholder` can be selected on Chrome. [#32639](https://github.com/ant-design/ant-design/pull/32639) [@cw1997](https://github.com/cw1997)
+
 ## 4.17.0-alpha.8
 
 `2021-10-25`
