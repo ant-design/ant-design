@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.9
+
+`2021-10-31`
+
+- 🐞 修复 Collapse 设置 `expandIconPosition` 为 `right` 后的样式问题。[#32648](https://github.com/ant-design/ant-design/pull/32648)
+- 🐞 修复 Upload `listStyle="picture"` 下加载中样式错位的问题。[#32664](https://github.com/ant-design/ant-design/pull/32664)
+- 🐞 修复 Card 设置 `tabs` 后当 `tabPosition: 'left'` 时的样式问题。[#32695](https://github.com/ant-design/ant-design/pull/32695)
+- 🐞 修复 Input `placeholder` 在 Chrome 上能被选择的问题。[#32639](https://github.com/ant-design/ant-design/pull/32639) [@cw1997](https://github.com/cw1997)
+
 ## 4.17.0-alpha.8
 
 `2021-10-25`
