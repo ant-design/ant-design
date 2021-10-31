@@ -4,6 +4,7 @@
     &-title {
       line-height: @line-height-base;
     }
+
     &-tail {
       top: @steps-dot-top;
       width: 100%;
@@ -19,6 +20,7 @@
     &:first-child .@{steps-prefix-cls}-icon-dot {
       left: 2px;
     }
+
     &-icon {
       width: @steps-dot-size;
       height: @steps-dot-size;
@@ -35,6 +37,7 @@
         height: 100%;
         border-radius: 100px;
         transition: all 0.3s;
+
         /* expand hover area */
         &::after {
           position: absolute;
@@ -47,6 +50,7 @@
         }
       }
     }
+
     &-content {
       width: @steps-description-max-width;
     }

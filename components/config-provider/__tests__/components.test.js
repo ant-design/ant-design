@@ -60,7 +60,6 @@ jest.mock('rc-util/lib/Portal');
 describe('ConfigProvider', () => {
   describe('components', () => {
     function testPair(name, renderComponent) {
-      // eslint-disable-next-line jest/valid-describe
       describe(`${name}`, () => {
         // normal
         it('normal', () => {
@@ -363,9 +362,7 @@ describe('ConfigProvider', () => {
           <List.Item {...props}>
             <List.Item.Meta
               {...props}
-              avatar={
-                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-              }
+              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
               title="Ant Design"
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />

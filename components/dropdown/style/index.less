@@ -80,19 +80,19 @@
   &-placement-topLeft > &-arrow,
   &-placement-topRight > &-arrow {
     bottom: @popover-distance - @popover-arrow-width + 2.2px;
-    border-top-color: transparent;
-    border-right-color: @popover-bg;
-    border-bottom-color: @popover-bg;
-    border-left-color: transparent;
+    border-color: transparent @popover-bg @popover-bg transparent;
     box-shadow: 3px 3px 7px fade(@black, 7%);
   }
+
   &-placement-topCenter > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
+
   &-placement-topLeft > &-arrow {
     left: 16px;
   }
+
   &-placement-topRight > &-arrow {
     right: 16px;
   }
@@ -101,19 +101,19 @@
   &-placement-bottomLeft > &-arrow,
   &-placement-bottomRight > &-arrow {
     top: @popover-distance - @popover-arrow-width + 2px;
-    border-top-color: @popover-bg;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: @popover-bg;
+    border-color: @popover-bg transparent transparent @popover-bg;
     box-shadow: -2px -2px 5px fade(@black, 6%);
   }
+
   &-placement-bottomCenter > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
+
   &-placement-bottomLeft > &-arrow {
     left: 16px;
   }
+
   &-placement-bottomRight > &-arrow {
     right: 16px;
   }
@@ -362,6 +362,7 @@
     .@{dropdown-prefix-cls}-menu-submenu-arrow::after {
       color: @text-color-secondary-dark;
     }
+
     &:hover {
       color: @text-color-inverse;
       background: transparent;

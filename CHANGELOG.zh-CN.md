@@ -15,6 +15,74 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.8
+
+`2021-10-25`
+
+- 🐞 修复 Typography 设置 `ellipsis` 后在缩放下的文本溢出。[#32496](https://github.com/ant-design/ant-design/pull/32496) [@hydraZty](https://github.com/hydraZty)
+- 🐞 修复 Transfer 打开选择菜单时抛出 `MenuItem should not leave undefined key` 警告。[#32578](https://github.com/ant-design/ant-design/pull/32578)
+- 🐞 修复 Tree.DirectoryTree 键盘操作时抛出 `TypeError:nativeEvent is undefined`。[#32551](https://github.com/ant-design/ant-design/pull/32551) [@D-to-the-K](https://github.com/D-to-the-K)
+- 💄 Pagination `simple` 属性下中翻页 input 增加 box-shadow。[#32528](https://github.com/ant-design/ant-design/pull/32528) [@chen-jingjie](https://github.com/chen-jingjie)
+- 💄 Table 鼠标悬浮 `rowSpan` 行时会高亮所有相关行。[#32557](https://github.com/ant-design/ant-design/pull/32557)
+
+## 4.17.0-alpha.7
+
+`2021-10-18`
+
+- 🐞 修复 Radio `type` 属性被覆盖导致无法点击的问题。[#32463](https://github.com/ant-design/ant-design/pull/32463)
+- 🐞 Input.TextArea `maxLength` 属性现在会传给原生 textarea 标签。[#32448](https://github.com/ant-design/ant-design/pull/32448) [@MOHAMMADArsalan](https://github.com/MOHAMMADArsalan)
+- 🐞 修复 Typography `ellipsis` 在 Chrome 下屏幕缩小时溢出的问题。[#32447](https://github.com/ant-design/ant-design/pull/32447)
+- 💄 调整 Collapse 标题栏样式使标题折行时不侵占箭头空间。[#32492](https://github.com/ant-design/ant-design/pull/32492)
+- 💄 优化 Select 中选项文字粗细。[#32486](https://github.com/ant-design/ant-design/pull/32486) [@liuxulian](https://github.com/liuxulian)
+- TypeScript
+  - 🤖 修复 Message duration 类型定义。[#32524](https://github.com/ant-design/ant-design/pull/32524) [@chen-jingjie](https://github.com/chen-jingjie)
+
+## 4.17.0-alpha.6
+
+`2021-10-11`
+
+- 🐞 修复 InputNumber 操作杆箭头未居中对齐的问题。[#32409](https://github.com/ant-design/ant-design/pull/32409)
+- 🐞 修复多次调用 Notification 时 `closeIcon` 配置无法覆盖的问题。[#32359](https://github.com/ant-design/ant-design/pull/32359) [@KAROTT7](https://github.com/KAROTT7)
+- 🐞 修复 Button 有 `icon` 和 `href` 时的对齐问题。[#32373](https://github.com/ant-design/ant-design/pull/32373)
+- 💄 优化 Drawer 弹出动画。[#32342](https://github.com/ant-design/ant-design/pull/32342)
+- 💄 修复 Mentions 在 Form 下错误样式丢失的问题。[#32385](https://github.com/ant-design/ant-design/pull/32385)
+- TypeScript
+  - 🤖 修复 ConfigProvider 中 `getPopupContainer` 的参数类型。[#32406](https://github.com/ant-design/ant-design/pull/32406) [@mtadams007](https://github.com/mtadams007)
+
+## 4.17.0-alpha.5
+
+`2021-09-30`
+
+- 🆕 Tree `draggable` 添加拖拽图标以提示。[#32306](https://github.com/ant-design/ant-design/pull/32306)
+- 🐞 修复 Table 选择框下拉箭头被固定列遮挡的问题。[#32276](https://github.com/ant-design/ant-design/pull/32276) [@g7i](https://github.com/g7i)
+- TypeScript
+  - 🐞 修复 Table 丢失泛型定义。[#32358](https://github.com/ant-design/ant-design/pull/32358)
+
+## 4.17.0-alpha.4
+
+`2021-09-25`
+
+- 🐞 修复英文国际化文案 `Ok` 为 `OK`。[#32259](https://github.com/ant-design/ant-design/pull/32259) [@chj-damon](https://github.com/chj-damon)
+- 🐞 修复 `antd.variable.less` 编译时会混入默认主题配置的问题。[#32279](https://github.com/ant-design/ant-design/pull/32279)
+- Button
+  - 🐞 修复 Button `ghost` 鼠标悬停样式。[#32289](https://github.com/ant-design/ant-design/pull/32289)
+  - 🐞 修复 Button 配置 `loading` 时，无法触发 Tooltip 的问题。[#32158](https://github.com/ant-design/ant-design/pull/32158)
+- Table
+  - 🐞 修复 Table 不支持 `ref` 的问题。[#32136](https://github.com/ant-design/ant-design/pull/32136) [@JounQin](https://github.com/JounQin)
+  - 🐞 Table 移除 IE11 下 `sticky` 的相关样式以解决布局问题。[#32177](https://github.com/ant-design/ant-design/pull/32177)
+  - 🐞 优化 Table 排序图标边距问题。[#32172](https://github.com/ant-design/ant-design/pull/32172)
+- 🐞 修复 Switch `loading` 按钮位置不正确的问题。[#32216](https://github.com/ant-design/ant-design/pull/32216)
+- 🐞 修复 Grid Col `flex` 在内容过长的时候缩放失效的问题。[#32160](https://github.com/ant-design/ant-design/pull/32160)
+- RTL
+  - 💄 优化 Alert 关闭按钮在 RTL 模式下的显示。[#32286](https://github.com/ant-design/ant-design/pull/32286)
+  - 💄 优化 Table 表头操作按钮在 RTL 模式下显示。[#32283](https://github.com/ant-design/ant-design/pull/32283)
+  - 💄 优化 Collapse 按钮在 RTL 模式下位置显示。[#32282](https://github.com/ant-design/ant-design/pull/32282)
+  - 💄 优化 Badge 数字在 RTL 模式下显示和动画。[#32281](https://github.com/ant-design/ant-design/pull/32281)
+  - 💄 优化 InputNumber 操作栏 RTL 模式下边框样式。[#32272](https://github.com/ant-design/ant-design/pull/32272)
+  - 💄 优化 Dropdown RTL 模式下 icon 显示。[#32271](https://github.com/ant-design/ant-design/pull/32271)
+- TypeScript
+  - 🤖 修复 Switch `id` 属性定义。[#32237](https://github.com/ant-design/ant-design/pull/32237) [@M-ZubairAhmed](https://github.com/M-ZubairAhmed)
+
 ## 4.17.0-alpha.3
 
 `2021-09-14`

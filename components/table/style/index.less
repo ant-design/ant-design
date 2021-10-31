@@ -145,10 +145,9 @@
         }
       }
 
-      &.@{table-prefix-cls}-row:hover {
-        > td {
-          background: @table-row-hover-bg;
-        }
+      &.@{table-prefix-cls}-row:hover > td,
+      > td.@{table-prefix-cls}-cell-row-hover {
+        background: @table-row-hover-bg;
       }
 
       &.@{table-prefix-cls}-row-selected {
@@ -358,7 +357,7 @@
     }
 
     &-tree {
-      padding: 8px 8px 0 8px;
+      padding: 8px 8px 0;
 
       .@{tree-prefix-cls}-treenode .@{tree-prefix-cls}-node-content-wrapper:hover {
         background-color: @tree-node-hover-bg;
@@ -435,6 +434,10 @@
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
+  }
+
+  table tr th&-selection-column&-cell-fix-left {
+    z-index: 3;
   }
 
   table tr th&-selection-column::after {
@@ -535,6 +538,7 @@
     &-collapsed::before {
       transform: rotate(-180deg);
     }
+
     &-collapsed::after {
       transform: rotate(0deg);
     }
@@ -589,6 +593,7 @@
     .@{table-prefix-cls}-empty & {
       color: @disabled-color;
     }
+
     &:hover {
       > td {
         background: @component-background;
@@ -599,7 +604,6 @@
   // ============================ Fixed =============================
   &-cell-fix-left,
   &-cell-fix-right {
-    position: -webkit-sticky !important;
     position: sticky !important;
     z-index: @zindex-table-fixed;
     background: @table-bg;
@@ -647,6 +651,7 @@
     &::before {
       left: 0;
     }
+
     &::after {
       right: 0;
     }
@@ -685,6 +690,7 @@
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
+
   &-sticky {
     &-holder {
       position: sticky;
@@ -701,16 +707,20 @@
       background: lighten(@table-border-color, 80%);
       border-top: 1px solid @table-border-color;
       opacity: 0.6;
+
       &:hover {
         transform-origin: center bottom;
       }
+
       &-bar {
         height: 8px;
         background-color: @table-sticky-scroll-bar-bg;
         border-radius: @table-sticky-scroll-bar-radius;
+
         &:hover {
           background-color: @table-sticky-scroll-bar-active-bg;
         }
+
         &-active {
           background-color: @table-sticky-scroll-bar-active-bg;
         }
@@ -726,6 +736,7 @@
         box-shadow: none !important;
       }
     }
+
     &-ping-right {
       .@{table-prefix-cls}-cell-fix-right-first::after {
         box-shadow: none !important;

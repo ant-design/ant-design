@@ -24,7 +24,7 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | Display ellipsis when text overflows | boolean | false |  |
+| ellipsis | Display ellipsis when text overflows，can't configure expandable、rows and onExpand by using object | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
@@ -108,7 +108,6 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Called when input at textarea | function(event) | - |  |
 | onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
 | onStart | Called when enter editable state | function | - |  |
-
 
 ### ellipsis
 

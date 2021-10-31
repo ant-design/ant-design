@@ -21,6 +21,7 @@
     top: 0;
     left: 0;
     height: 100%;
+
     &::before {
       position: relative;
       display: block;
@@ -30,6 +31,7 @@
       background-color: @anchor-border-color;
       content: ' ';
     }
+
     &-ball {
       position: absolute;
       left: 50%;
@@ -41,6 +43,7 @@
       border-radius: 8px;
       transform: translateX(-50%);
       transition: top 0.3s ease-in-out;
+
       &.visible {
         display: inline-block;
       }

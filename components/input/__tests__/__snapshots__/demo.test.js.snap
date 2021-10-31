@@ -3317,6 +3317,7 @@ exports[`renders ./components/input/demo/textarea-show-count.md correctly 1`] = 
 >
   <textarea
     class="ant-input"
+    maxlength="100"
   />
 </div>
 `;

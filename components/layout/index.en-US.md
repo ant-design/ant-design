@@ -80,8 +80,6 @@ The wrapper.
 | hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
 | style | To customize the styles | CSSProperties | - |
 
-> APIs of `Layout.Header` `Layout.Footer` `Layout.Content` are the same as that of `Layout`.
-
 ### Layout.Sider
 
 The sidebar.

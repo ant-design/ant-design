@@ -15,6 +15,7 @@
   border: 1px solid @site-border-color-split;
   border-radius: @border-radius-base;
   transition: all 0.2s;
+
   .code-box-title {
     &,
     a {
@@ -22,20 +23,24 @@
       background: @component-background;
     }
   }
+
   &,
   .code-box-demo {
     background-color: @component-background;
   }
+
   .markdown {
     pre {
       margin: 0.5em 0;
       padding: 6px 12px;
     }
+
     pre code {
       margin: 0;
       background: #f5f5f5;
     }
   }
+
   &:target {
     border: 1px solid @primary-color;
   }
@@ -100,6 +105,7 @@
     .anticon {
       color: @site-text-color-secondary;
       transition: all 0.3s;
+
       &:hover {
         color: @site-text-color;
       }
@@ -187,6 +193,7 @@
   .code-expand-icon-show {
     opacity: 0.55;
     pointer-events: auto;
+
     &:hover {
       opacity: 1;
     }
@@ -223,6 +230,7 @@
       padding: 0;
       background: @component-background;
     }
+
     &:not(:first-child) {
       border-top: 1px dashed @site-border-color-split;
     }
@@ -282,6 +290,7 @@
     &:hover {
       transform: scale(1.2);
     }
+
     &.anticon-check {
       color: @green-6 !important;
       font-weight: bold;
@@ -310,6 +319,7 @@
     overflow: hidden;
     border: 0;
     cursor: pointer;
+
     &:hover {
       opacity: 1;
     }
@@ -325,6 +335,7 @@
   pre {
     width: auto;
     margin: 0;
+
     code {
       background: @component-background;
       border: none;

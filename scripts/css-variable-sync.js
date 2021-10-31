@@ -218,4 +218,5 @@ replaceVariable('alert-error-bg-color', '@error-color-deprecated-bg');
 
 fse.writeFileSync(targetPath, variableContent, 'utf8');
 
+// eslint-disable-next-line no-console
 console.log(chalk.green('Success! Replaced path:'), targetPath);

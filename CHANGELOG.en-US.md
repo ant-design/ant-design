@@ -15,6 +15,74 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.8
+
+`2021-10-25`
+
+- 🐞 Fix the text overflow when page zoomed in Typography with prop `ellipsis`. [#32496](https://github.com/ant-design/ant-design/pull/32496) [@hydraZty](https://github.com/hydraZty)
+- 🐞 Fix Transfer throws `MenuItem should not leave undefined key` warning when opening selection dropdown menu. [#32578](https://github.com/ant-design/ant-design/pull/32578)
+- 🐞 Fix Tree.DirectoryTree throws `TypeError:nativeEvent is undefined`. [#32551](https://github.com/ant-design/ant-design/pull/32551) [@D-to-the-K](https://github.com/D-to-the-K)
+- 💄 Add box-shadow for jumper input in Pagination with `simple` props. [#32528](https://github.com/ant-design/ant-design/pull/32528) [@chen-jingjie](https://github.com/chen-jingjie)
+- 💄 Table hover `rowSpan` row will highlight all the rows now. [#32557](https://github.com/ant-design/ant-design/pull/32557)
+
+## 4.17.0-alpha.7
+
+`2021-10-18`
+
+- 🐞 Fix Radio cannot click due to custom `type` property. [#32463](https://github.com/ant-design/ant-design/pull/32463)
+- 🐞 Input.TextArea `maxLength` is now passing to html textarea element. [#32448](https://github.com/ant-design/ant-design/pull/32448) [@MOHAMMADArsalan](https://github.com/MOHAMMADArsalan)
+- 🐞 Fix Typography `ellipsis` calculation bug when browser zoomed in. [#32447](https://github.com/ant-design/ant-design/pull/32447)
+- 💄 Adjust Collapse header style to make title overflow wrap not take arrow position. [#32492](https://github.com/ant-design/ant-design/pull/32492)
+- 💄 Optimize the text weight in Select. [#32486](https://github.com/ant-design/ant-design/pull/32486) [@liuxulian](https://github.com/liuxulian)
+- TypeScript
+  - 🤖 Fix Message duration type definition. [#32524](https://github.com/ant-design/ant-design/pull/32524) [@chen-jingjie](https://github.com/chen-jingjie)
+
+## 4.17.0-alpha.6
+
+`2021-10-11`
+
+- 🐞 Fix InputNumber handler arrow not align center. [#32409](https://github.com/ant-design/ant-design/pull/32409)
+- 🐞 Fix `closeIcon` not working bug when Notification is called multiple times. [#32359](https://github.com/ant-design/ant-design/pull/32359) [@KAROTT7](https://github.com/KAROTT7)
+- 🐞 Fix Button align issue with `icon` and `href`. [#32373](https://github.com/ant-design/ant-design/pull/32373)
+- 💄 Optimize Drawer open animation. [#32342](https://github.com/ant-design/ant-design/pull/32342)
+- 💄 Fix Mentions error style in Form. [#32385](https://github.com/ant-design/ant-design/pull/32385)
+- TypeScript
+  - 🤖 Fix args type for `getPopupContainer` in ConfigProvider. [#32406](https://github.com/ant-design/ant-design/pull/32406) [@mtadams007](https://github.com/mtadams007)
+
+## 4.17.0-alpha.5
+
+`2021-09-30`
+
+- 🆕 Tree `draggable` add handler for tips. [#32306](https://github.com/ant-design/ant-design/pull/32306)
+- 🐞 Fix Table selection column arrow get covered by fixed column. [#32276](https://github.com/ant-design/ant-design/pull/32276) [@g7i](https://github.com/g7i)
+- TypeScript
+  - 🐞 Fix Table missing generic type definition. [#32358](https://github.com/ant-design/ant-design/pull/32358)
+
+## 4.17.0-alpha.4
+
+`2021-09-25`
+
+- 🐞 Fix `Ok` abbreviation to be `OK`. [#32259](https://github.com/ant-design/ant-design/pull/32259) [@chj-damon](https://github.com/chj-damon)
+- 🐞 Fix `antd.variable.less` compile mix with default theme variable. [#32279](https://github.com/ant-design/ant-design/pull/32279)
+- Button
+  - 🐞 Fix Button with `ghost` hover style. [#32289](https://github.com/ant-design/ant-design/pull/32289)
+  - 🐞 Fix Button with `loading` can not trigger Tooltip. [#32158](https://github.com/ant-design/ant-design/pull/32158)
+- Table
+  - 🐞 Fix Table don't support `ref`. [#32136](https://github.com/ant-design/ant-design/pull/32136) [@JounQin](https://github.com/JounQin)
+  - 🐞 Table remove `sticky` style with fixed column in IE11 to avoid layout issue. [#32177](https://github.com/ant-design/ant-design/pull/32177)
+  - 💄 Optimize Table sorter icon margin problem. [#32172](https://github.com/ant-design/ant-design/pull/32172)
+- 🐞 Fix Grid Col `flex` some time exceed its width when content too long. [#32160](https://github.com/ant-design/ant-design/pull/32160)
+- 🐞 Fix Switch Loading icon in an incorrect position. [#32216](https://github.com/ant-design/ant-design/pull/32216)
+- RTL
+  - 💄 Optimized Alert close icon display in RTL mode. [#32286](https://github.com/ant-design/ant-design/pull/32286)
+  - 💄 Optimized Table header action display in RTL mode. [#32283](https://github.com/ant-design/ant-design/pull/32283)
+  - 💄 Optimized Collapse arrow icon display in RTL mode. [#32282](https://github.com/ant-design/ant-design/pull/32282)
+  - 💄 Optimized Badge count display and animation in RTL mode. [#32281](https://github.com/ant-design/ant-design/pull/32281)
+  - 💄 Optimized InputNumber handler border style in RTL mode. [#32272](https://github.com/ant-design/ant-design/pull/32272)
+  - 💄 Optimized Dropdown icon display in RTL mode. [#32271](https://github.com/ant-design/ant-design/pull/32271)
+- TypeScript
+  - 🐞 Fix Switch missing `id` property. [#32237](https://github.com/ant-design/ant-design/pull/32237) [@M-ZubairAhmed](https://github.com/M-ZubairAhmed)
+
 ## 4.17.0-alpha.3
 
 `2021-09-14`

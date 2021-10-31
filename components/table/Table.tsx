@@ -516,11 +516,14 @@ function InternalTable<RecordType extends object = any>(
   );
 }
 
-const TableRef = React.forwardRef(InternalTable);
+const ForwardTable = React.forwardRef(InternalTable) as <RecordType extends object = any>(
+  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
+) => React.ReactElement;
 
-type InternalTableType = typeof TableRef;
+type InternalTableType = typeof ForwardTable;
 
 interface TableInterface extends InternalTableType {
+  defaultProps?: Partial<TableProps<any>>;
   SELECTION_ALL: 'SELECT_ALL';
   SELECTION_INVERT: 'SELECT_INVERT';
   SELECTION_NONE: 'SELECT_NONE';
@@ -529,7 +532,7 @@ interface TableInterface extends InternalTableType {
   Summary: typeof Summary;
 }
 
-const Table = TableRef as TableInterface;
+const Table = ForwardTable as TableInterface;
 
 Table.defaultProps = {
   rowKey: 'key',
