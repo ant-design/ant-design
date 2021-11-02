@@ -1,5 +1,5 @@
 name: 🇨🇳 功能需求（beta）
-description: 使用中文 Bug 报告模板提交一个功能需求，当然你也可以用 [Ant Design Issue Helper](https://new-issue.ant.design/)。
+description: 使用中文 Bug 报告模板提交一个功能需求，当然你也可以用 https://new-issue.ant.design
 title: "[Feature Request] "
 labels: ["💡+Feature+Request"]
 body:
