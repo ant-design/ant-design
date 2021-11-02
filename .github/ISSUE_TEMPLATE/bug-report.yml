@@ -1,0 +1,46 @@
+name: 🇨🇳 报告缺陷（beta）
+description: 使用中文模板报告一个 BUG
+title: "[Bug]: "
+labels: ["bug"]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        非常感谢抽出时间报告 antd 的问题。
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 问题描述
+      description: 
+      placeholder: 描述具体的问题
+      value: "我遇到了一个问题..."
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: 你使用的 antd 版本是多少？
+      placeholder: 比如 4.16.3
+    validations:
+      required: true
+  - type: dropdown
+    id: 浏览器
+    attributes:
+      label: 浏览器
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Internet Explorer
+  - type: input
+    id: reproduce
+    attributes:
+      label: 重现链接
+      description: 提供最小化的 codesandbox 重现链接或者 GitHub 仓库地址
+    validations:
+      required: true
