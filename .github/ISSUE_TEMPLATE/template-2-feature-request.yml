@@ -43,6 +43,7 @@ body:
     validations:
       required: true
   - type: input
+    id: hidden-tag
     attributes:
       label: 其他
       description: 不要删除预填内容，否则 issue 会被自动关闭。
