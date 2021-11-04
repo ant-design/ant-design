@@ -55,4 +55,13 @@ describe('Input.Focus', () => {
     expect(focus).toHaveBeenCalled();
     expect(setSelectionRange).toHaveBeenCalledWith(expect.anything(), 0, 5);
   });
+
+  it('disabled should reset focus', () => {
+    const wrapper = mount(<Input allowClear />);
+    wrapper.find('input').simulate('focus');
+    expect(wrapper.exists('.ant-input-affix-wrapper-focused')).toBeTruthy();
+
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.exists('.ant-input-affix-wrapper-focused')).toBeFalsy();
+  });
 });
