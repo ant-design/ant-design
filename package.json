@@ -254,7 +254,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-intl": "^5.20.4",
     "react-resizable": "^3.0.1",
-    "react-router-dom": "^5.0.1",
+    "react-router-dom": "^6.0.0",
     "react-sortable-hoc": "^2.0.0",
     "react-sticky": "^6.0.3",
     "react-test-renderer": "^17.0.1",
