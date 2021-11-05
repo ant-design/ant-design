@@ -905,6 +905,61 @@ describe('Form', () => {
     wrapper.unmount();
   });
 
+  it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
+    const mockFn = jest.spyOn(Util, 'getFieldId');
+    const itemName = 'parentNode';
+    // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
+    mockFn.mockImplementation(() => itemName);
+    const { Option } = Select;
+    const Demo = () => {
+      const [open, setOpen] = useState(false);
+      return (
+        <>
+          <Form>
+            <Form.Item name={itemName}>
+              <Select
+                className="form_item_parentNode"
+                defaultValue="lucy"
+                open={open}
+                style={{ width: 120 }}
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="Yiminghe">yiminghe</Option>
+              </Select>
+            </Form.Item>
+          </Form>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            {open ? 'show' : 'hidden'}
+          </button>
+        </>
+      );
+    };
+
+    const wrapper = mount(<Demo />, { attachTo: document.body });
+    expect(mockFn).toHaveBeenCalled();
+    expect(Util.getFieldId()).toBe(itemName);
+
+    // make sure input id is parentNode
+    expect(wrapper.find(`#${itemName}`).exists()).toBeTruthy();
+    act(() => {
+      wrapper.find('button').simulate('click');
+    });
+    expect(wrapper.find('button').text()).toBe('show');
+
+    mockFn.mockRestore();
+    // https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/update.html
+    // setProps instead of update
+    wrapper.setProps({});
+    expect(wrapper.find(`#form_item_${itemName}`).exists()).toBeTruthy();
+    wrapper.unmount();
+  });
+
   describe('tooltip', () => {
     it('ReactNode', () => {
       const wrapper = mount(
