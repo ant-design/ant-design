@@ -8170,39 +8170,35 @@ exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
   class="ant-form ant-form-vertical"
 >
   <div
-    style="overflow:hidden"
+    class="ant-row ant-form-item"
   >
     <div
-      class="ant-row ant-form-item"
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="url"
+        title="URL"
+      >
+        URL
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
     >
       <div
-        class="ant-col ant-form-item-label"
-      >
-        <label
-          class="ant-form-item-required"
-          for="url"
-          title="URL"
-        >
-          URL
-        </label>
-      </div>
-      <div
-        class="ant-col ant-form-item-control"
+        class="ant-form-item-control-input"
       >
         <div
-          class="ant-form-item-control-input"
+          class="ant-form-item-control-input-content"
         >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <input
-              class="ant-input"
-              id="url"
-              placeholder="input placeholder"
-              type="text"
-              value=""
-            />
-          </div>
+          <input
+            class="ant-input"
+            id="url"
+            placeholder="input placeholder"
+            type="text"
+            value=""
+          />
         </div>
       </div>
     </div>

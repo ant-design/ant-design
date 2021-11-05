@@ -42,19 +42,13 @@ const Demo = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-      <div style={{ overflow: 'hidden' }}>
-        <Form.Item
-          name="url"
-          label="URL"
-          rules={[
-            { required: true },
-            { type: 'url', warningOnly: true },
-            { type: 'string', min: 6 },
-          ]}
-        >
-          <Input placeholder="input placeholder" />
-        </Form.Item>
-      </div>
+      <Form.Item
+        name="url"
+        label="URL"
+        rules={[{ required: true }, { type: 'url', warningOnly: true }, { type: 'string', min: 6 }]}
+      >
+        <Input placeholder="input placeholder" />
+      </Form.Item>
       <Form.Item>
         <Space>
           <Button type="primary" htmlType="submit">
