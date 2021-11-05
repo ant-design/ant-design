@@ -254,7 +254,7 @@ describe('Form', () => {
     expect(scrollIntoView).not.toHaveBeenCalled();
     wrapper.find('form').simulate('submit');
     await sleep(50);
-    const inputNode = document.getElementById('test');
+    const inputNode = document.getElementById('_test');
     expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
       block: 'center',
       scrollMode: 'if-needed',
@@ -831,7 +831,7 @@ describe('Form', () => {
           _internalItemRender={{
             mark: 'pro_table_render',
             render: (_, doms) => (
-              <div id="test">
+              <div id="_test">
                 {doms.input}
                 {doms.errorList}
                 {doms.extra}
@@ -843,7 +843,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(wrapper.find('#test').exists()).toBeTruthy();
+    expect(wrapper.find('#_test').exists()).toBeTruthy();
   });
 
   describe('tooltip', () => {
