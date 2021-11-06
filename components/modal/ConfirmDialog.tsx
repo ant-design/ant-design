@@ -7,6 +7,7 @@ import ConfigProvider from '../config-provider';
 import { getTransitionName } from '../_util/motion';
 
 interface ConfirmDialogProps extends ModalFuncProps {
+  onOpen?: () => void;
   afterClose?: () => void;
   close: (...args: any[]) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
@@ -19,6 +20,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     icon,
     onCancel,
     onOk,
+    onOpen,
     close,
     zIndex,
     afterClose,
@@ -86,6 +88,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         className={classString}
         wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
         onCancel={() => close({ triggerCancel: true })}
+        onOpen={onOpen}
         visible={visible}
         title=""
         footer=""
