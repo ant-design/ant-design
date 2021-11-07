@@ -73,6 +73,11 @@ describe('PageHeader', () => {
     expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
   });
 
+  it('pageHeader support breadcrumbRender return false', () => {
+    const wrapper = mount(<PageHeader title="Page Title" breadcrumbRender={() => false} />);
+    expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
+  });
+
   it('pageHeader do not has title', () => {
     const routes = [
       {
