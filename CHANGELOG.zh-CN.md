@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.10
+
+`2021-11-7`
+
+- 🚧 移动部分 `mixins` less 文件到 `themes` 文件下，因为它们依赖于主题相关变量。我们不推荐直接引用底层 less 文件，但是如果你使用了请注意这部分变更。[#32763](https://github.com/ant-design/ant-design/pull/32763)
+- 🐞 修复底部 Drawer 组件没有动画的问题。[#32761](https://github.com/ant-design/ant-design/pull/32761) [@solitia7125](https://github.com/solitia7125)
+- 💄 修复 Steps 垂直 `progressDot` 的对齐样式问题。[#32742](https://github.com/ant-design/ant-design/pull/32742)
+- 💄 修复 Input 设置 `disabled` 时仍然保留聚焦样式的问题。[#32739](https://github.com/ant-design/ant-design/pull/32739)
+- 🐞 修复 Typography 在单行折叠时展开后不换行。[#32735](https://github.com/ant-design/ant-design/pull/32735) [@hydraZty](https://github.com/hydraZty)
+- 💄 修复 Table 设置 `sticky` 的时候 `loading` 样式跳动的问题。[#32703](https://github.com/ant-design/ant-design/pull/32703) [@miloudbelaabed](https://github.com/miloudbelaabed)
+- TypeScript
+  - 🤖 修改 Spin `tip` 的类型为 ReactNode。[#32733](https://github.com/ant-design/ant-design/pull/32733) [@tychenjiajun](https://github.com/tychenjiajun)
+
 ## 4.17.0-alpha.9
 
 `2021-10-31`

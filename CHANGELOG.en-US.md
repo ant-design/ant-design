@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 4.17.0-alpha.10
+
+`2021-11-7`
+
+- 🚧 Move part `mixins` related less file to `themes` instead since it requires theme variable. We do not recommend use internal file but please note this if you already use it. [#32763](https://github.com/ant-design/ant-design/pull/32763)
+- 🐞 Fix the problem that the bottom Drawer component has no animation. [#32761](https://github.com/ant-design/ant-design/pull/32761) [@solitia7125](https://github.com/solitia7125)
+- 💄 Fix Steps `progressDot` style when it is `vertical`. [#32742](https://github.com/ant-design/ant-design/pull/32742)
+- 💄 Fix Input set to `disabled` still keep focused style. [#32739](https://github.com/ant-design/ant-design/pull/32739)
+- 🐞 Fix Typography ellipsis with `rows: 1` doesn't wrap after expanding. [#32735](https://github.com/ant-design/ant-design/pull/32735) [@hydraZty](https://github.com/hydraZty)
+- 💄 Fix Table `loading` jumpy style when set `sticky`. [#32703](https://github.com/ant-design/ant-design/pull/32703) [@miloudbelaabed](https://github.com/miloudbelaabed)
+- TypeScript
+  - 🤖 Modify the type of Spin `tip` to ReactNode.. [#32733](https://github.com/ant-design/ant-design/pull/32733) [@tychenjiajun](https://github.com/tychenjiajun)
+
 ## 4.17.0-alpha.9
 
 `2021-10-31`
