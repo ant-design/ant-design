@@ -238,7 +238,7 @@
     "pretty-quick": "^3.0.0",
     "querystring": "^0.2.0",
     "rc-footer": "^0.6.6",
-    "rc-tween-one": "^2.4.1",
+    "rc-tween-one": "^3.0.3",
     "rc-virtual-list": "^3.2.4",
     "react": "^17.0.1",
     "react-color": "^2.17.3",
