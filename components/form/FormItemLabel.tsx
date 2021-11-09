@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import Col, { ColProps } from '../grid/col';
+import { ConfigContext } from '../config-provider';
 import { FormLabelAlign } from './interface';
 import { FormContext, FormContextProps } from './context';
 import { RequiredMark } from './Form';
@@ -51,6 +52,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   tooltip,
 }) => {
   const [formLocale] = useLocaleReceiver('Form');
+  const { form: contextForm } = React.useContext(ConfigContext);
 
   if (!label) return null;
 
@@ -75,7 +77,14 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
         let labelChildren = label;
         // Keep label is original where there should have no colon
-        const computedColon = colon === true || (contextColon !== false && colon !== false);
+        const computedColon =
+          colon !== undefined
+            ? colon
+            : contextColon !== undefined
+            ? contextColon
+            : contextForm && contextForm.colon !== undefined
+            ? contextForm.colon
+            : true;
         const haveColon = computedColon && !vertical;
         // Remove duplicated user input colon
         if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
