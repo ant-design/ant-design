@@ -7,6 +7,7 @@ Array [
   >
     <div>
       <span
+        class=""
         style="display:inline-block"
       >
         <span
@@ -36,6 +37,7 @@ Array [
         </span>
       </span>
       <span
+        class=""
         style="display:inline-block"
       >
         <span
@@ -65,6 +67,7 @@ Array [
         </span>
       </span>
       <span
+        class=""
         style="display:inline-block"
       >
         <span
