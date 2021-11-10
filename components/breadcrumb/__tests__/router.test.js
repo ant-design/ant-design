@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Link, withRouter, MemoryRouter } from 'react-router-dom';
+import { Route, Routes, Link, useLocation, useHistory, MemoryRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 import Breadcrumb from '../index';
 
@@ -36,8 +36,9 @@ describe('react router', () => {
     if (process.env.REACT === '15') {
       return;
     }
-    const Home = withRouter(props => {
-      const { location, history } = props;
+    const Home = () => {
+      const history = useHistory();
+      const location = useLocation();
       const pathSnippets = location.pathname.split('/').filter(i => i);
       const extraBreadcrumbItems = pathSnippets.map((_, index) => {
         const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
@@ -58,14 +59,14 @@ describe('react router', () => {
             <a onClick={() => history.push('/')}>Home</a>
             <a onClick={() => history.push('/apps')}>Application List</a>
           </div>
-          <Switch>
+          <Routes>
             <Route path="/apps" component={Apps} />
             <Route render={() => <span>Home Page</span>} />
-          </Switch>
+          </Routes>
           <Breadcrumb>{breadcrumbItems}</Breadcrumb>
         </div>
       );
-    });
+    };
     const wrapper = mount(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <Home />
