@@ -69,6 +69,18 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     return true;
   }, [hideRequiredMark, requiredMark, contextForm]);
 
+  const mergedColon = useMemo(() => {
+    if (colon !== undefined) {
+      return colon;
+    }
+
+    if (contextForm && contextForm.colon !== undefined) {
+      return contextForm.colon;
+    }
+
+    return undefined;
+  }, [colon, contextForm]);
+
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   const formClassName = classNames(
@@ -93,11 +105,11 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       labelCol,
       wrapperCol,
       vertical: layout === 'vertical',
-      colon,
+      colon: mergedColon,
       requiredMark: mergedRequiredMark,
       itemRef: __INTERNAL__.itemRef,
     }),
-    [name, labelAlign, labelCol, wrapperCol, layout, colon, mergedRequiredMark],
+    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark],
   );
 
   React.useImperativeHandle(ref, () => wrapForm);
