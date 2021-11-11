@@ -69,17 +69,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     return true;
   }, [hideRequiredMark, requiredMark, contextForm]);
 
-  const mergedColon = useMemo(() => {
-    if (colon !== undefined) {
-      return colon;
-    }
-
-    if (contextForm && contextForm.colon !== undefined) {
-      return contextForm.colon;
-    }
-
-    return undefined;
-  }, [colon, contextForm]);
+  const mergedColon = colon ?? contextForm?.colon;
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
