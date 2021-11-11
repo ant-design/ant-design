@@ -152,7 +152,7 @@
     "scroll-into-view-if-needed": "^2.2.25"
   },
   "devDependencies": {
-    "@ant-design/bisheng-plugin": "^2.3.0",
+    "@ant-design/bisheng-plugin": "^3.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^14.0.0-alpha.3",
     "@docsearch/css": "^3.0.0-alpha.39",
