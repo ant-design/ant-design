@@ -91,4 +91,34 @@ describe('ConfigProvider.Form', () => {
       expect(wrapper).toMatchRenderedSnapshot();
     });
   });
+
+  describe('form colon', () => {
+    it('set colon false', async () => {
+      const wrapper = mount(
+        <ConfigProvider form={{ colon: false }}>
+          <Form>
+            <Form.Item label="没有冒号">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-no-colon')).toBeTruthy();
+    });
+
+    it('set colon default', async () => {
+      const wrapper = mount(
+        <ConfigProvider>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-no-colon')).toBeFalsy();
+    });
+  });
 });

@@ -930,4 +930,42 @@ describe('Form', () => {
 
     jest.useRealTimers();
   });
+
+  describe('form colon', () => {
+    it('default colon', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item label="姓名">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-no-colon')).toBeFalsy();
+    });
+
+    it('set Form.Item colon false', () => {
+      const wrapper = mount(
+        <Form colon>
+          <Form.Item colon={false} label="姓名">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.find('.ant-form-item-no-colon')).toBeTruthy();
+    });
+
+    it('set Form colon false', () => {
+      const wrapper = mount(
+        <Form colon={false}>
+          <Form.Item label="姓名">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.find('.ant-form-item-no-colon')).toBeTruthy();
+    });
+  });
 });
