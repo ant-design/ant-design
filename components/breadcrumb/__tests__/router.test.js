@@ -32,7 +32,7 @@ describe('react router', () => {
   });
 
   // https://github.com/airbnb/enzyme/issues/875
-  fit('react router 6', () => {
+  it('react router 6', () => {
     const Home = () => {
       const location = useLocation();
       const navigate = useNavigate();
