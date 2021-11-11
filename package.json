@@ -152,7 +152,7 @@
     "scroll-into-view-if-needed": "^2.2.25"
   },
   "devDependencies": {
-    "@ant-design/bisheng-plugin": "^2.3.0",
+    "@ant-design/bisheng-plugin": "^3.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^14.0.0-alpha.3",
     "@docsearch/css": "^3.0.0-alpha.39",
@@ -254,7 +254,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-intl": "^5.20.4",
     "react-resizable": "^3.0.1",
-    "react-router-dom": "^5.0.1",
+    "react-router-dom": "^6.0.2",
     "react-sortable-hoc": "^2.0.0",
     "react-sticky": "^6.0.3",
     "react-test-renderer": "^17.0.1",
