@@ -199,7 +199,7 @@
     "enzyme-to-json": "^3.6.0",
     "esbuild-loader": "^2.13.1",
     "eslint": "^8.0.0",
-    "eslint-config-airbnb": "^18.0.0",
+    "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-compat": "^4.0.0",
