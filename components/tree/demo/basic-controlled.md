@@ -75,12 +75,18 @@ const Demo = () => {
     setAutoExpandParent(false);
   };
 
-  const onCheck = (checkedKeysValue: React.Key[]) => {
+  const onCheck = (checkedKeysValue:  React.Key[] | { checked: React.Key[]; halfChecked: React.Key[]) => {
     console.log('onCheck', checkedKeysValue);
     setCheckedKeys(checkedKeysValue);
   };
 
-  const onSelect = (selectedKeysValue: React.Key[], info: any) => {
+  const onSelect = (selectedKeysValue: React.Key[], info: {
+        event: 'select';
+        selected: boolean;
+        node: EventDataNode;
+        selectedNodes: DataNode[];
+        nativeEvent: MouseEvent;
+    }) => {
     console.log('onSelect', info);
     setSelectedKeys(selectedKeysValue);
   };
