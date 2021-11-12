@@ -47,7 +47,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
 | treeLoadedKeys | (Controlled) Set loaded tree nodes, work with `loadData` only | string[] | [] |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
-| onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
+| onCheck | Callback function for when the onCheck event occurs | function(checkedKeys: React.Key[] | { checked: React.Key[]; halfChecked: React.Key[], info: CheckInfo) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
 | onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node, expandedKeys}) | - |  |
 | onDragLeave | Callback function for when the onDragLeave event occurs | function({event, node}) | - |  |
@@ -57,7 +57,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: bool, node}) | - |  |
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
-| onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys: React.Key[], info: { event: 'select'; selected: boolean; node: EventDataNode;selectedNodes: DataNode[]; nativeEvent: MouseEvent; }) | - |  |
 
 ### TreeNode props
 
