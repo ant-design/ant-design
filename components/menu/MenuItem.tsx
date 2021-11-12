@@ -55,33 +55,42 @@ export default class MenuItem extends React.Component<MenuItemProps> {
       tooltipProps.visible = false;
     }
     const childrenLength = toArray(children).length;
-    return (
-      <Tooltip
-        {...tooltipProps}
-        placement={direction === 'rtl' ? 'left' : 'right'}
-        overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
+
+    let itemNode = (
+      <Item
+        {...rest}
+        className={classNames(
+          {
+            [`${prefixCls}-item-danger`]: danger,
+            [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
+          },
+          className,
+        )}
+        title={typeof title === 'string' ? title : undefined}
       >
-        <Item
-          {...rest}
-          className={classNames(
-            {
-              [`${prefixCls}-item-danger`]: danger,
-              [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
-            },
-            className,
-          )}
-          title={typeof title === 'string' ? title : undefined}
-        >
-          {cloneElement(icon, {
-            className: classNames(
-              isValidElement(icon) ? icon.props?.className : '',
-              `${prefixCls}-item-icon`,
-            ),
-          })}
-          {this.renderItemChildren(inlineCollapsed)}
-        </Item>
-      </Tooltip>
+        {cloneElement(icon, {
+          className: classNames(
+            isValidElement(icon) ? icon.props?.className : '',
+            `${prefixCls}-item-icon`,
+          ),
+        })}
+        {this.renderItemChildren(inlineCollapsed)}
+      </Item>
     );
+
+    if (tooltipProps.title) {
+      itemNode = (
+        <Tooltip
+          {...tooltipProps}
+          placement={direction === 'rtl' ? 'left' : 'right'}
+          overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
+        >
+          {itemNode}
+        </Tooltip>
+      );
+    }
+
+    return itemNode;
   };
 
   render() {
