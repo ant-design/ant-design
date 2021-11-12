@@ -65,18 +65,18 @@ import locale from 'antd/lib/locale/zh_CN';
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
-| nextIcon | 自定义下一个图标 | ReactNode | - |  |
+| nextIcon | 自定义下一个图标 | ReactNode | - | 4.17.0 |
 | open | 控制弹层是否展开 | boolean | - |  |
 | panelRender | 自定义渲染面板 | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | 设置选择器类型 | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
-| prevIcon | 自定义上一个图标 | ReactNode | - |  |
+| prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| superNextIcon | 自定义 `<<` 切换图标 | ReactNode | - |  |
-| superPrevIcon | 自定义 `>>` 切换图标 | ReactNode | - |  |
+| superNextIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
+| superPrevIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 

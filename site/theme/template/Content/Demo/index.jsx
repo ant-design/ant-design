@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Tooltip, Alert } from 'antd';
+import { Tooltip, Alert, Badge } from 'antd';
 import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
@@ -316,7 +316,8 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
         'index.html': html,
       },
     };
-    return (
+
+    let codeBox = (
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
           <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
@@ -458,6 +459,12 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
         </section>
       </section>
     );
+
+    if (meta.version) {
+      codeBox = <Badge.Ribbon text={meta.version}>{codeBox}</Badge.Ribbon>;
+    }
+
+    return codeBox;
   }
 }
 

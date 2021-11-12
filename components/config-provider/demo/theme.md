@@ -1,5 +1,6 @@
 ---
 order: 5
+version: 4.17.0
 title:
   zh-CN: 全局样式
   en-US: Global Theme

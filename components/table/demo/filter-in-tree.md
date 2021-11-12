@@ -1,5 +1,6 @@
 ---
 order: 6.1
+version: 4.17.0
 title:
   en-US: Filter in Tree
   zh-CN: 树型筛选菜单
