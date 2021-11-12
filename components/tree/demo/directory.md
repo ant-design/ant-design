@@ -38,7 +38,13 @@ const treeData = [
 ];
 
 const Demo: React.FC<{}> = () => {
-  const onSelect = (keys: React.Key[], info: any) => {
+  const onSelect = (keys: React.Key[], info:  {
+        event: 'select';
+        selected: boolean;
+        node: EventDataNode;
+        selectedNodes: DataNode[];
+        nativeEvent: MouseEvent;
+    }) => {
     console.log('Trigger Select', keys, info);
   };
 
