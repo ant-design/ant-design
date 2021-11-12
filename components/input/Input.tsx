@@ -193,6 +193,9 @@ class Input extends React.Component<InputProps, InputState> {
     if (nextProps.value !== undefined || prevValue !== nextProps.value) {
       newState.value = nextProps.value;
     }
+    if (nextProps.disabled) {
+      newState.focused = false;
+    }
     return newState;
   }
 

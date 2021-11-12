@@ -544,7 +544,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                     [`${prefixCls}-${type}`]: type,
                     [`${prefixCls}-disabled`]: disabled,
                     [`${prefixCls}-ellipsis`]: rows,
-                    [`${prefixCls}-single-line`]: rows === 1,
+                    [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
                     [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                     [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
                   },

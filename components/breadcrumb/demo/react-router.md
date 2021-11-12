@@ -3,20 +3,20 @@ order: 3
 iframe: 200
 reactRouter: react-router-dom
 title:
-  zh-CN: 其它路由
-  en-US: Other Router Integration
+  zh-CN: react-router V6
+  en-US: react-router V6
 ---
 
 ## zh-CN
 
-和 `react-router@4+`，或其他路由进行结合使用。
+与 `react-router@6+` 结合使用，生成和路由绑定的面包屑。
 
 ## en-US
 
-Used together with `react-router@4+` or other router.
+Used together with `react-router@6+`.
 
 ```jsx
-import { HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
+import { HashRouter, Route, Routes, Link, useLocation } from 'react-router-dom';
 import { Breadcrumb, Alert } from 'antd';
 
 const Apps = () => (
@@ -37,8 +37,8 @@ const breadcrumbNameMap = {
   '/apps/1/detail': 'Detail',
   '/apps/2/detail': 'Detail',
 };
-const Home = withRouter(props => {
-  const { location } = props;
+const Home = props => {
+  const location = useLocation();
   const pathSnippets = location.pathname.split('/').filter(i => i);
   const extraBreadcrumbItems = pathSnippets.map((_, index) => {
     const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
@@ -59,20 +59,20 @@ const Home = withRouter(props => {
         <Link to="/">Home</Link>
         <Link to="/apps">Application List</Link>
       </div>
-      <Switch>
+      <Routes>
         <Route path="/apps" component={Apps} />
         <Route render={() => <span>Home Page</span>} />
-      </Switch>
+      </Routes>
       <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
       <Breadcrumb>{breadcrumbItems}</Breadcrumb>
     </div>
   );
-});
+};
 
 ReactDOM.render(
-  <Router>
+  <HashRouter>
     <Home />
-  </Router>,
+  </HashRouter>,
   mountNode,
 );
 ```
