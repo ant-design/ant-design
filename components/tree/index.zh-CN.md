@@ -48,7 +48,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
 | treeLoadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string[] | [] |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
-| onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
+| onCheck | 点击复选框触发 | function(checkedKeys:React.Key[] | { checked: React.Key[]; halfChecked: React.Key[], info: CheckInfo) | - |  |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |  |
 | onDragEnter | dragenter 触发时调用 | function({event, node, expandedKeys}) | - |  |
 | onDragLeave | dragleave 触发时调用 | function({event, node}) | - |  |
@@ -58,7 +58,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | onExpand | 展开/收起节点时触发 | function(expandedKeys, {expanded: bool, node}) | - |  |
 | onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | 响应右键点击 | function({event, node}) | - |  |
-| onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| onSelect | 点击树节点触发 | function(selectedKeys:React.Key[], info: {event: 'select';selected: boolean;node: EventDataNode;selectedNodes: DataNode[]; nativeEvent: MouseEvent;}) | - |  |
 
 ### TreeNode props
 
