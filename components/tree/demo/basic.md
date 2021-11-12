@@ -47,11 +47,17 @@ const treeData = [
 ];
 
 const Demo = () => {
-  const onSelect = (selectedKeys: React.Key[], info: any) => {
+  const onSelect = (selectedKeys: React.Key[], info: {
+        event: 'select';
+        selected: boolean;
+        node: EventDataNode;
+        selectedNodes: DataNode[];
+        nativeEvent: MouseEvent;
+    }) => {
     console.log('selected', selectedKeys, info);
   };
 
-  const onCheck = (checkedKeys: React.Key[], info: any) => {
+  const onCheck = (checkedKeys:React.Key[] | { checked: React.Key[]; halfChecked: React.Key[] }, info: CheckInfo) => {
     console.log('onCheck', checkedKeys, info);
   };
 
