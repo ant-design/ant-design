@@ -88,7 +88,13 @@ const Demo: React.FC<{}> = () => {
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [showLeafIcon, setShowLeafIcon] = useState<boolean>(true);
 
-  const onSelect = (selectedKeys: React.Key[], info: any) => {
+  const onSelect = (selectedKeys: React.Key[], info: {
+        event: 'select';
+        selected: boolean;
+        node: EventDataNode;
+        selectedNodes: DataNode[];
+        nativeEvent: MouseEvent;
+    }) => {
     console.log('selected', selectedKeys, info);
   };
 
