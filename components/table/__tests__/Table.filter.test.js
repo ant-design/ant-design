@@ -1266,7 +1266,7 @@ describe('Table.filter', () => {
         cols: [],
       };
 
-      componentDidMount = () => {
+      componentDidMount() {
         this.setState({
           cols: [
             {
@@ -1700,8 +1700,7 @@ describe('Table.filter', () => {
           },
         ];
         return (
-          <>
-            <Table
+          <Table
               columns={columns}
               dataSource={[
                 {
@@ -1731,7 +1730,6 @@ describe('Table.filter', () => {
               ]}
               onChange={this.handleChange}
             />
-          </>
         );
       }
     }
