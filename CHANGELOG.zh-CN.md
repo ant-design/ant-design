@@ -19,6 +19,7 @@ timeline: true
 
 `2021-11-15`
 
+- 🔥 该版本包含先前 `4.17.0-alpha` 所有内容。
 - 🐞 修复 `Input.Search` 组件在有 `allowClear` 和 `addonBefore` 属性时，输入框 `border-left-radius` 值错误的问题。[#32812](https://github.com/ant-design/ant-design/pull/32812) [@KAROTT7](https://github.com/KAROTT7)
 - 🐞 修复 Tree 一个图标文字对齐问题。[#32822](https://github.com/ant-design/ant-design/pull/32822)
 - 🐞 修复 PageHeader `breadcrumbRender` 返回`false`，仍然展示 dom 的问题。[#32738](https://github.com/ant-design/ant-design/pull/32738)

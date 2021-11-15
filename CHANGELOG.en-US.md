@@ -19,6 +19,7 @@ timeline: true
 
 `2021-11-15`
 
+- 🔥 This version includes all update on `4.17.0-alpha`.
 - 🐞 Fix Input.Search `border-left-radius` is not 0 when configured with `allowClear` and `addonBefore`. [#32812](https://github.com/ant-design/ant-design/pull/32812) [@KAROTT7](https://github.com/KAROTT7)
 - 🐞 Fix Tree icon align bug when `showLine` is enable. [#32822](https://github.com/ant-design/ant-design/pull/32822)
 - 🐞 Fix PageHeader with false 'breadcrumbrender' still shows dom. [#32738](https://github.com/ant-design/ant-design/pull/32738)
