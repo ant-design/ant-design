@@ -253,6 +253,12 @@ export default function useSelection<RecordType>(
     [setMergedSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
 
+  React.useEffect(() => {
+    if (preserveSelectedRowKeys === false) {
+      setSelectedKeys(derivedSelectedKeys);
+    }
+  }, [preserveSelectedRowKeys]);
+
   // ====================== Selections ======================
   // Trigger single `onSelect` event
   const triggerSingleSelection = useCallback(

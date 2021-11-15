@@ -1415,6 +1415,26 @@ describe('Table.rowSelection', () => {
       );
     });
 
+    it('set preserveSelectedRowKeys as false works when data changed', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: false }}
+          rowKey="name"
+        />,
+      );
+
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
+
+      wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
+      expect(onChange).toHaveBeenCalledWith([], []);
+    });
+
     it('works with receive selectedRowKeys fron [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];
