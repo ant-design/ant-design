@@ -131,7 +131,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     ));
   }
 
-  const context = {
+  const context = React.useMemo(() => ({
     toggleOption,
     value,
     disabled: restProps.disabled,
@@ -140,7 +140,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     // https://github.com/ant-design/ant-design/issues/16376
     registerValue,
     cancelValue,
-  };
+  }) as CheckboxGroupContext, [value, restProps.disabled, restProps.name]);
 
   const classString = classNames(
     groupPrefixCls,

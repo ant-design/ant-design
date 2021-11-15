@@ -316,6 +316,7 @@ describe('Button', () => {
   it('should handle fragment as children', () => {
     const wrapper = mount(
       <Button>
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text</>
       </Button>,
     );

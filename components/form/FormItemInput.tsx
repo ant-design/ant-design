@@ -77,7 +77,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     ) : null;
 
   // Pass to sub FormItem should not with col info
-  const subFormContext = { ...formContext };
+  const subFormContext = React.useMemo(() => ({ ...formContext }), [formContext]);
   delete subFormContext.labelCol;
   delete subFormContext.wrapperCol;
 
@@ -88,7 +88,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     </div>
   );
   const errorListDom = (
-    <FormItemPrefixContext.Provider value={{ prefixCls, status }}>
+    <FormItemPrefixContext.Provider value={React.useMemo(() => ({ prefixCls, status }), [prefixCls, status])}>
       <ErrorList
         errors={errors}
         warnings={warnings}
