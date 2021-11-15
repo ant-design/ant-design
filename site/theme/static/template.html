@@ -27,7 +27,7 @@
       /* 设置 meta theme-color 的值，默认会设置一个 #1890ff   */
       function setColor(isDarken) {
         try {
-          let theme = document.getElementsByTagName('meta')['theme-color'];
+          var theme = document.getElementsByTagName('meta')['theme-color'];
           theme.setAttribute('content', isDarken ? 'rgba(0,0,0,0.65)' : '#1890ff');
         } catch (error) {}
       }
@@ -43,7 +43,9 @@
 
           var pattern = /(\w+)=(\w+)/gi; // 定义正则
           var matches = search.match(pattern);
-          if (!matches) return;
+          if (!matches) {
+            return;
+          }
 
           function fromEntries(iterable) {
             return iterable.reduce(function (obj, keyvalue) {
