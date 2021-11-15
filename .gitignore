@@ -34,6 +34,8 @@ config/base.yaml
 /coverage
 yarn.lock
 package-lock.json
+pnpm-lock.yaml
+.pnpm-debug.log
 components/**/*.js
 components/**/*.jsx
 !components/**/__tests__/**/*.js
