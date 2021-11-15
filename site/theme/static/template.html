@@ -43,7 +43,14 @@
           var matches = search.match(pattern);
           if (!matches) return;
 
-          var searchParam = Object.fromEntries(matches.map(item => item.split('=')));
+          function fromEntries(iterable) {
+            return [...iterable].reduce((obj, [key, val]) => {
+              obj[key] = val;
+              return obj;
+            }, {});
+          }
+
+          var searchParam = fromEntries(matches.map(item => item.split('=')));
           return searchParam;
         }
 
