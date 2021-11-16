@@ -1,5 +1,5 @@
 ports:
-- port: 8001
+- port: 8002
   onOpen: open-preview
 tasks:
 - before: >
