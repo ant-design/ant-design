@@ -27,7 +27,7 @@
       /* 设置 meta theme-color 的值，默认会设置一个 #1890ff   */
       function setColor(isDarken) {
         try {
-          const theme = document.getElementsByTagName('meta')['theme-color'];
+          var theme = document.getElementsByTagName('meta')['theme-color'];
           theme.setAttribute('content', isDarken ? 'rgba(0,0,0,0.65)' : '#1890ff');
         } catch (error) {}
       }
@@ -37,20 +37,37 @@
         function getSearchParam(search) {
           // 处理入参错误
           var search = search || location.search;
-          if (search === undefined) return;
+          if (search === undefined) {
+            return;
+          }
 
           var pattern = /(\w+)=(\w+)/gi; // 定义正则
           var matches = search.match(pattern);
-          if (!matches) return;
+          if (!matches) {
+            return;
+          }
 
-          var searchParam = Object.fromEntries(matches.map(item => item.split('=')));
+          function fromEntries(iterable) {
+            return iterable.reduce(function (obj, keyvalue) {
+              var key = keyvalue[0];
+              var val = keyvalue[1];
+              obj[key] = val;
+              return obj;
+            }, {});
+          }
+
+          var searchParam = fromEntries(
+            matches.map(function (item) {
+              return item.split('=');
+            }),
+          );
           return searchParam;
         }
 
         var searchParam = getSearchParam(location.search) || {}; // 查询参数对象
 
         var isDarkMode = searchParam.theme === 'dark'; // 判断当前主题
-        var isComponentsPage = location.pathname.startsWith('/components'); // 判断是否组件页面
+        var isComponentsPage = location.pathname.indexOf('/components') === 0; // 判断是否组件页面
 
         // 1. 暗色主题刷新时无白屏
         // 如果是暗色主题，且在components路由下
@@ -59,13 +76,19 @@
           // 将预先定义的暗色主题link移动到body内
           document.addEventListener(
             'readystatechange',
-            () => {
-              document.body.prepend(darkThemeLinkEl);
+            function () {
+              document.head.appendChild(styleElement);
             },
             { once: true },
           );
           // load后卸载
-          window.addEventListener('load', () => darkThemeLinkEl.remove(), { once: true });
+          window.addEventListener(
+            'load',
+            function () {
+              darkThemeLinkEl.parentNode.removeChild(darkThemeLinkEl);
+            },
+            { once: true },
+          );
           setColor(true);
           // 清除dark.css中的全部transition 待解析完后恢复
           var styleElement = document.createElement('style');
@@ -74,14 +97,20 @@
             '* {transition: none !important;} html {background: rgb(20, 20, 20)}';
           document.head.appendChild(styleElement);
           document.documentElement.style.backgroundColor = 'black';
-          window.addEventListener('load', () => styleElement.remove(), { once: true });
+          window.addEventListener(
+            'load',
+            function () {
+              styleElement.parentNode.removeChild(styleElement);
+            },
+            { once: true },
+          );
 
           // 设置系统主题
           document.documentElement.style.colorScheme = 'dark';
         } else {
           setColor(false);
           document.documentElement.style.colorScheme = 'light';
-          darkThemeLinkEl.remove();
+          darkThemeLinkEl.parentNode.removeChild(darkThemeLinkEl);
         }
       })();
     </script>
@@ -105,13 +134,13 @@
           return /-cn\/?$/.test(pathname);
         }
         function getLocalizedPathname(path, zhCN) {
-          var pathname = path.startsWith('/') ? path : '/' + path;
+          var pathname = path.indexOf('/') === 0 ? path : '/' + path;
           if (!zhCN) {
             // to enUS
             return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
           } else if (pathname === '/') {
             return '/index-cn';
-          } else if (pathname.endsWith('/')) {
+          } else if (pathname.indexOf('/') === pathname.length - 1) {
             return pathname.replace(/\/$/, '-cn/');
           }
           return pathname + '-cn';
