@@ -10,15 +10,10 @@
 
   &::placeholder {
     color: @color;
+    user-select: none; // https://github.com/ant-design/ant-design/pull/32639
   }
 
   &:placeholder-shown {
     text-overflow: ellipsis;
-  }
-
-  // Chrome
-  /* stylelint-disable-next-line selector-no-vendor-prefix */
-  &::-webkit-input-placeholder {
-    user-select: none;
   }
 }
