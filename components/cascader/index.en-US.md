@@ -24,7 +24,7 @@ Cascade selection box.
 | allowClear | Whether allow clear | boolean | true |  |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
-| changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  |
+| changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
