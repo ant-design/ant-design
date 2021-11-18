@@ -90,10 +90,12 @@ describe('Menu', () => {
         <Menu.SubMenu />
         {null}
       </>
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
         <Menu.Item />
       </>
       {undefined}
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
         <Menu.Item />
       </>

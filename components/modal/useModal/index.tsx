@@ -27,7 +27,7 @@ const ElementsHolder = React.memo(
       }),
       [],
     );
-    return <>{elements}</>;
+    return elements;
   }),
 );
 
