@@ -1467,7 +1467,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       type="button"
     >
       <span>
-        Sumbit
+        Submit
       </span>
     </button>
   </span>
