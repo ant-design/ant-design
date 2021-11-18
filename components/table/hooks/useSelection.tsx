@@ -75,7 +75,7 @@ function flattenData<RecordType>(
 export default function useSelection<RecordType>(
   rowSelection: TableRowSelection<RecordType> | undefined,
   config: UseSelectionConfig<RecordType>,
-): [TransformColumns<RecordType>, Set<Key>] {
+): [(keys: Key[]) => void, TransformColumns<RecordType>, Set<Key>] {
   const {
     preserveSelectedRowKeys,
     selectedRowKeys,
@@ -252,12 +252,6 @@ export default function useSelection<RecordType>(
     },
     [setMergedSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
-
-  React.useEffect(() => {
-    if (preserveSelectedRowKeys === false) {
-      setSelectedKeys(derivedSelectedKeys);
-    }
-  }, [preserveSelectedRowKeys]);
 
   // ====================== Selections ======================
   // Trigger single `onSelect` event
@@ -664,5 +658,5 @@ export default function useSelection<RecordType>(
     ],
   );
 
-  return [transformColumns, derivedSelectedKeySet];
+  return [setSelectedKeys, transformColumns, derivedSelectedKeySet];
 }

@@ -314,6 +314,10 @@ function InternalTable<RecordType extends object = any>(
   const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
   // ========================== Pagination ==========================
+
+  const setSelectedKeysRef = React.useRef<(keys: React.Key[]) => void>();
+  const selectedKeysRef = React.useRef<React.Key[]>([]);
+
   const onPaginationChange = (current: number, pageSize: number) => {
     triggerOnChange(
       {
@@ -321,6 +325,8 @@ function InternalTable<RecordType extends object = any>(
       },
       'paginate',
     );
+    const func = setSelectedKeysRef.current;
+    if (func) func(selectedKeysRef.current);
   };
 
   const [mergedPagination, resetPagination] = usePagination(
@@ -366,18 +372,24 @@ function InternalTable<RecordType extends object = any>(
   ]);
 
   // ========================== Selections ==========================
-  const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(rowSelection, {
-    prefixCls,
-    data: mergedData,
-    pageData,
-    getRowKey,
-    getRecordByKey,
-    expandType,
-    childrenColumnName,
-    locale: tableLocale,
-    expandIconColumnIndex: mergedExpandable.expandIconColumnIndex,
-    getPopupContainer,
-  });
+  const [setSelectedKeys, transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(
+    rowSelection,
+    {
+      prefixCls,
+      data: mergedData,
+      pageData,
+      getRowKey,
+      getRecordByKey,
+      expandType,
+      childrenColumnName,
+      locale: tableLocale,
+      expandIconColumnIndex: mergedExpandable.expandIconColumnIndex,
+      getPopupContainer,
+    },
+  );
+
+  setSelectedKeysRef.current = setSelectedKeys;
+  selectedKeysRef.current = Array.from(selectedKeySet);
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
     let mergedRowClassName;

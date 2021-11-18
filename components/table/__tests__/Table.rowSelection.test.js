@@ -1416,22 +1416,30 @@ describe('Table.rowSelection', () => {
     });
 
     it('set preserveSelectedRowKeys as false works when data changed', () => {
+      const newData = [];
+      for (let i = 0; i < 20; i += 1) {
+        newData.push({
+          name: i.toString(),
+        });
+      }
       const onChange = jest.fn();
       const wrapper = mount(
-        <Table
-          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
-          rowSelection={{ onChange, preserveSelectedRowKeys: false }}
-          rowKey="name"
-        />,
+        createTable({
+          rowSelection: { preserveSelectedRowKeys: false, onChange },
+          dataSource: newData.slice(0, 10),
+          rowKey: 'name',
+          pagination: { total: 20 },
+        }),
       );
-
       wrapper
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
-
-      wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
+      expect(onChange).toHaveBeenCalledWith(['0'], [{ name: '0' }]);
+      wrapper.setProps({ dataSource: newData.slice(10) });
+      wrapper.find('Pager').at(1).simulate('click');
+      wrapper.setProps({ dataSource: newData.slice(0, 10) });
+      wrapper.find('Pager').at(0).simulate('click');
       expect(onChange).toHaveBeenCalledWith([], []);
     });
 
