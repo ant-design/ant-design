@@ -198,7 +198,7 @@ function notice(args: ArgsProps): MessageType {
   return result;
 }
 
-type ConfigContent = React.ReactNode | string;
+type ConfigContent = React.ReactNode;
 type ConfigDuration = number | (() => void);
 type JointContent = ConfigContent | ArgsProps;
 export type ConfigOnClose = () => void;
