@@ -81,15 +81,17 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
+    const contextValue = React.useMemo(() => ({
+      prefixCls,
+      inlineCollapsed: inlineCollapsed || false,
+      antdMenuTheme: theme,
+      direction,
+      firstLevel: true,
+    }), [prefixCls, inlineCollapsed, theme, direction]);
+
     return (
       <MenuContext.Provider
-        value={{
-          prefixCls,
-          inlineCollapsed: inlineCollapsed || false,
-          antdMenuTheme: theme,
-          direction,
-          firstLevel: true,
-        }}
+        value={contextValue}
       >
         <RcMenu
           getPopupContainer={getPopupContainer}
