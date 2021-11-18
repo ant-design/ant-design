@@ -95,9 +95,7 @@ describe('Menu', () => {
       </>
       {undefined}
       <>
-        <>
-          <Menu.Item />
-        </>
+        <Menu.Item />
       </>
     </Menu>
   ));
