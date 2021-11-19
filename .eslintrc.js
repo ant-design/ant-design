@@ -78,6 +78,8 @@ module.exports = {
         'jsx-a11y/href-no-hash': 0,
         'jsx-a11y/control-has-associated-label': 0,
         'import/no-extraneous-dependencies': 0,
+        'react/jsx-no-constructed-context-values': 0,
+        'react/no-unstable-nested-components': 0,
       },
     },
   ],
