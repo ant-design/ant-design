@@ -256,7 +256,10 @@ function List<T>({
   }
 
   const paginationPosition = paginationProps.position || 'bottom';
-  const contextValue = React.useMemo(() => ({ grid, itemLayout }), [grid, itemLayout]);
+  const contextValue = React.useMemo(
+    () => ({ grid, itemLayout }),
+    [JSON.stringify(grid), itemLayout],
+  );
 
   return (
     <ListContext.Provider value={contextValue}>
