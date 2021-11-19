@@ -3,6 +3,7 @@ import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import memoize from 'memoize-one';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -81,16 +82,13 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
-    const contextValue = React.useMemo(
-      () => ({
-        prefixCls,
-        inlineCollapsed: inlineCollapsed || false,
-        antdMenuTheme: theme,
-        direction,
-        firstLevel: true,
-      }),
-      [prefixCls, inlineCollapsed, theme, direction],
-    );
+    const contextValue = memoize(args => ({
+      prefixCls: args.prefixCls,
+      inlineCollapsed: args.inlineCollapsed || false,
+      antdMenuTheme: args.theme,
+      direction: args.direction,
+      firstLevel: true,
+    }))({ prefixCls, inlineCollapsed, theme, direction });
 
     return (
       <MenuContext.Provider value={contextValue}>
