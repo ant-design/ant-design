@@ -82,6 +82,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
+    // TODO: refactor menu with function component
     const contextValue = memoize(args => ({
       prefixCls: args.prefixCls,
       inlineCollapsed: args.inlineCollapsed || false,
