@@ -11,6 +11,7 @@ import { UploadLocale } from '../upload/interface';
 import { TransferLocale } from '../transfer';
 import { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import LocaleContext from './context';
+import memoizeOne from 'memoize-one';
 
 export const ANT_MARK = 'internalMark';
 
@@ -79,9 +80,10 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
 
   render() {
     const { locale, children } = this.props;
-
-    return (
-      <LocaleContext.Provider value={{ ...locale, exist: true }}>{children}</LocaleContext.Provider>
-    );
+    const contextValue = memoizeOne(localeValue => ({
+      ...localeValue,
+      exist: true,
+    }))(locale);
+    return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
   }
 }

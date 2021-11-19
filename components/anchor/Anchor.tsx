@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import memoizeOne from 'memoize-one';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
@@ -7,7 +8,6 @@ import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
 import AnchorContext from './context';
-import memoizeOne from 'memoize-one';
 
 export type AnchorContainer = HTMLElement | Window;
 
