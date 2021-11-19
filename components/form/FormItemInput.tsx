@@ -87,8 +87,9 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
       {icon}
     </div>
   );
+  const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
   const errorListDom = (
-    <FormItemPrefixContext.Provider value={React.useMemo(() => ({ prefixCls, status }), [prefixCls, status])}>
+    <FormItemPrefixContext.Provider value={formItemContext}>
       <ErrorList
         errors={errors}
         warnings={warnings}
