@@ -8,7 +8,7 @@ Except [less customize theme](/docs/react/customize-theme), We also provide CSS 
 ## Caveats
 
 - This function depends on CSS Variables. Please check the [browser compatibility](https://caniuse.com/css-variables).
-- This function requires at least `antd@4.17.1-alpha.0`.
+- This function requires at least `antd@4.17.0-alpha.0`.
 
 ## How to use
 
