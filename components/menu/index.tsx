@@ -83,13 +83,13 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
     // TODO: refactor menu with function component
-    const contextValue = memoize(args => ({
-      prefixCls: args.prefixCls,
-      inlineCollapsed: args.inlineCollapsed || false,
-      antdMenuTheme: args.theme,
-      direction: args.direction,
+    const contextValue = memoize((cls, collapsed, the, dir) => ({
+      prefixCls: cls,
+      inlineCollapsed: collapsed || false,
+      antdMenuTheme: the,
+      direction: dir,
       firstLevel: true,
-    }))({ prefixCls, inlineCollapsed, theme, direction });
+    }))(prefixCls, inlineCollapsed, theme, direction);
 
     return (
       <MenuContext.Provider value={contextValue}>
