@@ -131,17 +131,16 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     ));
   }
 
-  const context = React.useMemo(() => ({
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
+  const context = {
     toggleOption,
     value,
     disabled: restProps.disabled,
     name: restProps.name,
-
     // https://github.com/ant-design/ant-design/issues/16376
     registerValue,
     cancelValue,
-  }) as CheckboxGroupContext, [value, restProps.disabled, restProps.name]);
-
+  };
   const classString = classNames(
     groupPrefixCls,
     {
