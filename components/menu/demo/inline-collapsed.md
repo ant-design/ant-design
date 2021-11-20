@@ -56,7 +56,7 @@ class App extends React.Component {
           inlineCollapsed={this.state.collapsed}
         >
           <Menu.Item key="1" icon={<PieChartOutlined />}>
-            <a href="">Option 1</a>
+            Option 1
           </Menu.Item>
           <Menu.Item key="2" icon={<DesktopOutlined />}>
             Option 2
