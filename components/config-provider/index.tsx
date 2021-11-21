@@ -12,14 +12,20 @@ import {
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
-  Theme,
 } from './context';
-import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
+import SizeContext, { SizeContextProvider } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
-import { RequiredMark } from '../form/Form';
-import { registerTheme } from './cssVariables';
+
+import { ConfigProviderProps } from './type';
+
 import defaultLocale from '../locale/default';
+import {
+  setGlobalConfig,
+  globalConfig,
+  defaultPrefixCls,
+  defaultIconPrefixCls,
+} from './global-config';
 
 export {
   RenderEmptyHandler,
@@ -28,6 +34,10 @@ export {
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
+  ConfigProviderProps,
+  globalConfig,
+  defaultPrefixCls,
+  defaultIconPrefixCls,
 };
 
 export const configConsumerProps = [
@@ -52,96 +62,10 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'form',
 ];
 
-export interface ConfigProviderProps {
-  getTargetContainer?: () => HTMLElement;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
-  prefixCls?: string;
-  iconPrefixCls?: string;
-  children?: React.ReactNode;
-  renderEmpty?: RenderEmptyHandler;
-  csp?: CSPConfig;
-  autoInsertSpaceInButton?: boolean;
-  form?: {
-    validateMessages?: ValidateMessages;
-    requiredMark?: RequiredMark;
-  };
-  input?: {
-    autoComplete?: string;
-  };
-  locale?: Locale;
-  pageHeader?: {
-    ghost: boolean;
-  };
-  componentSize?: SizeType;
-  direction?: DirectionType;
-  space?: {
-    size?: SizeType | number;
-  };
-  virtual?: boolean;
-  dropdownMatchSelectWidth?: boolean;
-}
-
 interface ProviderChildrenProps extends ConfigProviderProps {
   parentContext: ConfigConsumerProps;
   legacyLocale: Locale;
 }
-
-export const defaultPrefixCls = 'ant';
-export const defaultIconPrefixCls = 'anticon';
-let globalPrefixCls: string;
-let globalIconPrefixCls: string;
-
-function getGlobalPrefixCls() {
-  return globalPrefixCls || defaultPrefixCls;
-}
-
-function getGlobalIconPrefixCls() {
-  return globalIconPrefixCls || defaultIconPrefixCls;
-}
-
-const setGlobalConfig = ({
-  prefixCls,
-  iconPrefixCls,
-  theme,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
-  if (prefixCls !== undefined) {
-    globalPrefixCls = prefixCls;
-  }
-  if (iconPrefixCls !== undefined) {
-    globalIconPrefixCls = iconPrefixCls;
-  }
-
-  if (theme) {
-    registerTheme(getGlobalPrefixCls(), theme);
-  }
-};
-
-export const globalConfig = () => ({
-  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
-    return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
-  },
-  getIconPrefixCls: getGlobalIconPrefixCls,
-  getRootPrefixCls: (rootPrefixCls?: string, customizePrefixCls?: string) => {
-    // Customize rootPrefixCls is first priority
-    if (rootPrefixCls) {
-      return rootPrefixCls;
-    }
-
-    // If Global prefixCls provided, use this
-    if (globalPrefixCls) {
-      return globalPrefixCls;
-    }
-
-    // [Legacy] If customize prefixCls provided, we cut it to get the prefixCls
-    if (customizePrefixCls && customizePrefixCls.includes('-')) {
-      return customizePrefixCls.replace(/^(.*)-[^-]*$/, '$1');
-    }
-
-    // Fallback to default prefixCls
-    return getGlobalPrefixCls();
-  },
-});
 
 const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const {

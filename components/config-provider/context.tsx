@@ -3,6 +3,7 @@ import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 import { Locale } from '../locale-provider';
 import { SizeType } from './SizeContext';
 import { RequiredMark } from '../form/Form';
+import { globalConfig } from './global-config';
 
 export interface Theme {
   primaryColor?: string;
@@ -46,15 +47,9 @@ export interface ConfigConsumerProps {
   };
 }
 
-const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-  if (customizePrefixCls) return customizePrefixCls;
-
-  return suffixCls ? `ant-${suffixCls}` : 'ant';
-};
-
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
-  getPrefixCls: defaultGetPrefixCls,
+  getPrefixCls: globalConfig().getPrefixCls,
 
   renderEmpty: defaultRenderEmpty,
 });
