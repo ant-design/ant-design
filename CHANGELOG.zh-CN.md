@@ -29,7 +29,6 @@ timeline: true
 - 🛠 从 theme 中挪出 mixins。[#32920](https://github.com/ant-design/ant-design/pull/32920)
 - 🛠 PageHeader 标题高度使用 `@height-base` 变量。[#32883](https://github.com/ant-design/ant-design/pull/32883)
 - 🇵🇱 添加缺失的 pl_PL 翻译内容。[#32896](https://github.com/ant-design/ant-design/pull/32896) [@MichalPodeszwa](https://github.com/MichalPodeszwa)
-- ✅ 添加 mixins 的用例。[#32889](https://github.com/ant-design/ant-design/pull/32889)
 - TypeScript
   - 🤖 移除不必要的 ReactNode 并联类型。[#32935](https://github.com/ant-design/ant-design/pull/32935) [@huangkairan](https://github.com/huangkairan)
   - 🤖 从 `rc-pagination` 继承 `itemRender` 类型。[#32931](https://github.com/ant-design/ant-design/pull/32931) [@JounQin](https://github.com/JounQin)
