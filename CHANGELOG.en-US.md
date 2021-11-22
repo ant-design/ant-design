@@ -28,7 +28,7 @@ timeline: true
 - 🛠 Remove unused css code for Drawer. [4ca6976](https://github.com/ant-design/ant-design/commit/4ca6976)
 - 🛠 Move mixins back from theme. [#32920](https://github.com/ant-design/ant-design/pull/32920)
 - 🛠 Use `@height-base` in PageHeader. [#32883](https://github.com/ant-design/ant-design/pull/32883)
-- 🌐 Added missing pl_PL translations. [#32896](https://github.com/ant-design/ant-design/pull/32896) [@MichalPodeszwa](https://github.com/MichalPodeszwa)
+- 🇵🇱 Added missing pl_PL translations. [#32896](https://github.com/ant-design/ant-design/pull/32896) [@MichalPodeszwa](https://github.com/MichalPodeszwa)
 - ✅ Patch test case of mixins. [#32889](https://github.com/ant-design/ant-design/pull/32889)
 - TypeScript
   - 🤖 Remove unnecessary union types for ReactNode. [#32935](https://github.com/ant-design/ant-design/pull/32935) [@huangkairan](https://github.com/huangkairan)
