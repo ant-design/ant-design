@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.17.1
+
+`2021-11-22`
+
+- 🐞 修复直接引入 `es/style/mixins/index.less` 文件会抛出 `Variable @root-entry-name is undefined` 异常的问题。[#32887](https://github.com/ant-design/ant-design/pull/32887)
+- 🐞 修复 Menu 折叠后 Tooltip 文字颜色错误的问题。[#32956](https://github.com/ant-design/ant-design/pull/32956)
+- 🐞 修复 Modal.method `bodyStyle` 无效的问题。[#32934](https://github.com/ant-design/ant-design/pull/32934) [@jin-benben](https://github.com/jin-benben)
+- 🐞 修复组件 placeholder 色彩异常的问题。[#32915](https://github.com/ant-design/ant-design/pull/32915)
+- 💄 修复可编辑 Tabs 下拉框移除按钮样式问题。[#32919](https://github.com/ant-design/ant-design/pull/32919)
+- 🛠 Modal.confirm() 移除不必要的 `div` 容器。[#31492](https://github.com/ant-design/ant-design/pull/31492) [@ppbl](https://github.com/ppbl)
+- 🛠 移除无用的 Drawer 样式。[4ca6976](https://github.com/ant-design/ant-design/commit/4ca6976)
+- 🛠 PageHeader 标题高度使用 `@height-base` 变量。[#32883](https://github.com/ant-design/ant-design/pull/32883)
+- 🇵🇱 添加缺失的 pl_PL 翻译内容。[#32896](https://github.com/ant-design/ant-design/pull/32896) [@MichalPodeszwa](https://github.com/MichalPodeszwa)
+- TypeScript
+  - 🤖 移除不必要的 ReactNode 并联类型。[#32935](https://github.com/ant-design/ant-design/pull/32935) [@huangkairan](https://github.com/huangkairan)
+  - 🤖 从 `rc-pagination` 继承 `itemRender` 类型。[#32931](https://github.com/ant-design/ant-design/pull/32931) [@JounQin](https://github.com/JounQin)
+
 ## 4.17.0
 
 `2021-11-15`

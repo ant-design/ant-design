@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.17.1
+
+`2021-11-22`
+
+- 🐞 Fix directly import `es/style/mixins/index.less` throw `Variable @root-entry-name is undefined` error. [#32887](https://github.com/ant-design/ant-design/pull/32887)
+- 🐞 Fix Menu text color in collapsed tooltip. [#32956](https://github.com/ant-design/ant-design/pull/32956)
+- 🐞 Fix Modal.method `bodyStyle` not working bug. [#32934](https://github.com/ant-design/ant-design/pull/32934) [@jin-benben](https://github.com/jin-benben)
+- 🐞 Fix abnormal placeholder color. [#32915](https://github.com/ant-design/ant-design/pull/32915)
+- 💄 Fix editable Tabs dropdown remove button style issue. [#32919](https://github.com/ant-design/ant-design/pull/32919)
+- 🛠 Modal.confirm() Remove unnecessary `div` container. [#31492](https://github.com/ant-design/ant-design/pull/31492) [@ppbl](https://github.com/ppbl)
+- 🛠 Remove unused css code for Drawer. [4ca6976](https://github.com/ant-design/ant-design/commit/4ca6976)
+- 🛠 Use `@height-base` in PageHeader. [#32883](https://github.com/ant-design/ant-design/pull/32883)
+- 🇵🇱 Added missing pl_PL translations. [#32896](https://github.com/ant-design/ant-design/pull/32896) [@MichalPodeszwa](https://github.com/MichalPodeszwa)
+- TypeScript
+  - 🤖 Remove unnecessary union types for ReactNode. [#32935](https://github.com/ant-design/ant-design/pull/32935) [@huangkairan](https://github.com/huangkairan)
+  - 🤖 Inherit `itemRender` typing from `rc-pagination`. [#32931](https://github.com/ant-design/ant-design/pull/32931) [@JounQin](https://github.com/JounQin)
+
 ## 4.17.0
 
 `2021-11-15`
