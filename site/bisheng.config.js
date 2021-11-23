@@ -86,6 +86,7 @@ module.exports = {
         react: require.resolve('react'),
       };
     } else if (process.env.ESBUILD) {
+      console.log('Enable ESBUILD');
       // use esbuild
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
