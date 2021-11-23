@@ -143,15 +143,13 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   blockNode?: boolean;
 }
 
-type GenericTree = <T extends BasicDataNode = any>(
+type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },
-) => React.ReactElement;
-
-interface CompoundedComponent<T extends BasicDataNode = DataNode> extends GenericTree {
-  defaultProps: Partial<React.PropsWithChildren<TreeProps<T>>>;
+) => React.ReactElement) & {
+  defaultProps: Partial<React.PropsWithChildren<TreeProps<any>>>;
   TreeNode: typeof TreeNode;
   DirectoryTree: typeof DirectoryTree;
-}
+};
 
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);

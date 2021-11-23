@@ -4,9 +4,31 @@ import type { BasicDataNode } from 'rc-tree';
 import Tree from '../index';
 
 describe('Tree.TypeScript', () => {
+  it('without generic', () => {
+    const wrapper = mount(
+      <Tree
+        treeData={[
+          {
+            title: 'Bamboo',
+            key: 'bamboo',
+            children: [
+              {
+                title: 'Little',
+                key: 'little',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    expect(wrapper).toBeTruthy();
+  });
+
   it('support generic', () => {
     interface MyDataNode extends BasicDataNode {
       bamboo: string;
+      list?: MyDataNode[];
     }
 
     const wrapper = mount(
@@ -14,6 +36,11 @@ describe('Tree.TypeScript', () => {
         treeData={[
           {
             bamboo: 'good',
+            list: [
+              {
+                bamboo: 'well',
+              },
+            ],
           },
         ]}
       />,
