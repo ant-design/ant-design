@@ -1,3 +1,4 @@
+import { mount } from 'enzyme';
 import * as React from 'react';
 import Cascader from '..';
 
@@ -41,5 +42,10 @@ describe('Cascader.typescript', () => {
     const result = <Cascader options={options} defaultValue={[1, 'hangzhou']} />;
 
     expect(result).toBeTruthy();
+  });
+
+  it('suffixIcon', () => {
+    const wrapper = mount(<Cascader suffixIcon={<span />} />);
+    expect(wrapper).toBeTruthy();
   });
 });

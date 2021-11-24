@@ -76,6 +76,8 @@ export interface CascaderProps extends Omit<RcCascaderProps, 'checkable'> {
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;
+
+  suffixIcon?: React.ReactNode;
 }
 
 interface CascaderRef {
