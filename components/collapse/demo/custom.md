@@ -51,9 +51,10 @@ ReactDOM.render(
 .site-collapse-custom-collapse .site-collapse-custom-panel {
   margin-bottom: 24px;
   overflow: hidden;
-  background: #f7f7f7;
-  border: 0px;
-  border-radius: 2px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  border:0px
 }
 ```
 
