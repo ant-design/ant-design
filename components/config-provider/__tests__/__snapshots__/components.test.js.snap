@@ -16402,17 +16402,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -16558,17 +16547,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -16721,17 +16699,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </span>
         </span>
       </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -16877,17 +16844,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -17040,17 +16996,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </span>
         </span>
       </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -17196,17 +17141,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -17359,17 +17293,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
           </span>
         </span>
       </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -17515,17 +17438,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -17678,17 +17590,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -17834,17 +17735,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -17997,17 +17887,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="prefix-Pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -18153,17 +18032,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="prefix-Pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
