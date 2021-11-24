@@ -4,6 +4,8 @@ import TimePicker from '../time-picker/locale/et_EE';
 import Calendar from '../calendar/locale/et_EE';
 import { Locale } from '../locale-provider';
 
+const typeTemplate = '${label} ei ole kehtiv ${type}';
+
 const localeValues: Locale = {
   locale: 'et',
   Pagination,
