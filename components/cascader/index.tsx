@@ -80,7 +80,7 @@ export interface CascaderProps extends Omit<RcCascaderProps, 'checkable'> {
   suffixIcon?: React.ReactNode;
 }
 
-interface CascaderRef {
+export interface CascaderRef {
   focus: () => void;
   blur: () => void;
 }
