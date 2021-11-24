@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import * as React from 'react';
-import Cascader from '..';
+import Cascader, { BasicDataNode } from '..';
 
 describe('Cascader.typescript', () => {
   it('options value', () => {
@@ -46,6 +46,32 @@ describe('Cascader.typescript', () => {
 
   it('suffixIcon', () => {
     const wrapper = mount(<Cascader suffixIcon={<span />} />);
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('Generic', () => {
+    interface MyOptionData extends BasicDataNode {
+      customizeLabel: string;
+      customizeValue: string;
+      customizeChildren?: MyOptionData[];
+    }
+
+    const wrapper = mount(
+      <Cascader<MyOptionData>
+        options={[
+          {
+            customizeLabel: 'Bamboo',
+            customizeValue: 'bamboo',
+            customizeChildren: [
+              {
+                customizeLabel: 'Little',
+                customizeValue: 'little',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
     expect(wrapper).toBeTruthy();
   });
 });
