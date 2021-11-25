@@ -41,7 +41,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
 | maskStyle | Style for Drawer's mask element | CSSProperties | {} |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
-| push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ | 
+| push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | style | Style of wrapper element which **contains mask** compare to `drawerStyle` | CSSProperties | - |  |
 | size | presetted size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
