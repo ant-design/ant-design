@@ -47,4 +47,4 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | visible | Drawer 是否可见 | boolean | - |  |
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
-| onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |
+| onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
