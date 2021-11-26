@@ -21,12 +21,12 @@ When a numeric value needs to be provided.
 | bordered | Whether has border style | boolean | true | 4.12.0 |
 | controls | Whether to show `+-` controls | boolean | true | 4.17.0 |
 | decimalSeparator | Decimal separator | string | - | - |
-| defaultValue | The initial value | number | - | - |
+| defaultValue | The initial value | string | - | - |
 | disabled | If disable the input | boolean | false | - |
 | formatter | Specifies the format of the value presented | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |
 | keyboard | If enable keyboard behavior | boolean | true | 4.12.0 |
-| max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
-| min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
+| max | The max value | string | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
+| min | The min value | string | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
 | parser | Specifies the value extracted from formatter | function(string): number | - | - |
 | precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - |
 | readOnly | If readonly the input | boolean | false | - |
