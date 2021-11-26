@@ -111,6 +111,13 @@ module.exports = {
 
     delete config.module.noParse;
 
+    // Use dev mod to speed up site preview build
+    // This is used for CI preview build in `preview-build.yml`
+    if (process.env.SITE_ENV === 'development') {
+      console.log('Site build with development mode...');
+      config.mode = 'development';
+    }
+
     if (ANT_THEME) {
       config.mode = 'development';
       config.plugins.forEach(plugin => {
