@@ -253,6 +253,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'initialValue',
           'isListField',
           'labelAlign',
+          'labelWrap',
           'labelCol',
           'normalize',
           'preserve',

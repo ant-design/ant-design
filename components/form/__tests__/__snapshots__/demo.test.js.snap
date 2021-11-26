@@ -2899,6 +2899,120 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="wrap"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-no-colon"
+        for="wrap_username"
+        title="正常标签文案"
+      >
+        正常标签文案
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="wrap_username"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-no-colon"
+        for="wrap_password"
+        title="超长标签文案超长标签文案"
+      >
+        超长标签文案超长标签文案
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="wrap_password"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-no-colon"
+        title=" "
+      >
+         
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
