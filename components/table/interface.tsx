@@ -4,6 +4,7 @@ import {
   ColumnType as RcColumnType,
   RenderedCell as RcRenderedCell,
   ExpandableConfig,
+  FixedType,
 } from 'rc-table/lib/interface';
 import { TooltipProps } from '../tooltip';
 import { CheckboxProps } from '../checkbox';
@@ -159,7 +160,7 @@ export interface TableRowSelection<T> {
   onSelectNone?: () => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;
-  fixed?: boolean;
+  fixed?: FixedType;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;
   checkStrictly?: boolean;
