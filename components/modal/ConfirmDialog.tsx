@@ -99,6 +99,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         maskClosable={maskClosable}
         maskStyle={maskStyle}
         style={style}
+        bodyStyle={bodyStyle}
         width={width}
         zIndex={zIndex}
         afterClose={afterClose}
@@ -111,7 +112,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         focusTriggerAfterClose={focusTriggerAfterClose}
       >
         <div className={`${contentPrefixCls}-body-wrapper`}>
-          <div className={`${contentPrefixCls}-body`} style={bodyStyle}>
+          <div className={`${contentPrefixCls}-body`}>
             {icon}
             {props.title === undefined ? null : (
               <span className={`${contentPrefixCls}-title`}>{props.title}</span>
