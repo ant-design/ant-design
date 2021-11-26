@@ -20,11 +20,6 @@ export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
   responsive?: boolean;
-  itemRender?: (
-    page: number,
-    type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
-    originalElement: React.ReactElement<HTMLElement>,
-  ) => React.ReactNode;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
 }

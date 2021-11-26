@@ -38,7 +38,7 @@ export interface ModalProps {
   /** 确定按钮 loading */
   confirmLoading?: boolean;
   /** 标题 */
-  title?: React.ReactNode | string;
+  title?: React.ReactNode;
   /** 是否显示右上角的关闭按钮 */
   closable?: boolean;
   /** 点击确定回调 */

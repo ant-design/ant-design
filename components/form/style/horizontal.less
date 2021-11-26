@@ -9,6 +9,9 @@
   }
   .@{form-item-prefix-cls}-control {
     flex: 1 1 0;
+  }
+  // https://github.com/ant-design/ant-design/issues/32980
+  .@{form-item-prefix-cls}-control:not(.@{ant-prefix}-col) {
     // https://github.com/ant-design/ant-design/issues/32777
     min-width: 0;
   }
