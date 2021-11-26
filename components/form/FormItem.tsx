@@ -245,6 +245,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         {...omit(restProps, [
           'colon',
           'extra',
+          'fieldKey',
           'getValueFromEvent',
           'getValueProps',
           'htmlFor',
