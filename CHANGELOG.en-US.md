@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.17.2
+
+`2021-11-26`
+
+- 💄 Fix Form broken layout when set `wrapperCol={{ span: 24 }}`. [#32981](https://github.com/ant-design/ant-design/pull/32981)
+- 🐞 Fix Modal `centered` was not centered vertically. [#33022](https://github.com/ant-design/ant-design/pull/33022)
+- 🐞 Cascader typescript fix definition missing `suffixIcon` and support generic of `options` type. [#33008](https://github.com/ant-design/ant-design/pull/33008)
+- 🐞 Fix Input.Search don't trigger click event on element inside `enterButton`. [#32999](https://github.com/ant-design/ant-design/pull/32999)
+- 🇪🇪 Added missing Estonian translations. [#33005](https://github.com/ant-design/ant-design/pull/33005) [@wedeso](https://github.com/wedeso)
+- 🤖 Tree support generic to work more well with `fieldNames`. [#32992](https://github.com/ant-design/ant-design/pull/32992)
+
 ## 4.17.1
 
 `2021-11-22`
