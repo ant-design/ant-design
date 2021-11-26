@@ -1,5 +1,8 @@
+
 export default class UnreachableException {
+  error: Error;
+
   constructor(value: never) {
-    return new Error(`unreachable case: ${JSON.stringify(value)}`);
+    this.error = new Error(`unreachable case: ${JSON.stringify(value)}`);
   }
 }
