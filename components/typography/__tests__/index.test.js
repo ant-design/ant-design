@@ -396,7 +396,7 @@ describe('Typography', () => {
 
     describe('editable', () => {
       function testStep(
-        { name = '', icon, tooltip, triggerType, enterIcon } = {},
+        { name = '', icon, tooltip, triggerType, enterIcon },
         submitFunc,
         expectFunc,
       ) {
