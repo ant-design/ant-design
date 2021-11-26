@@ -40,7 +40,7 @@ const Demo = () => {
         name="username"
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
-        <Input />
+        <Input.TextArea showCount maxLength={100} style={{ height: 120 }} />
       </Form.Item>
 
       <Form.Item
