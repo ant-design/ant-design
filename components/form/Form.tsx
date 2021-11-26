@@ -21,7 +21,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   name?: string;
   layout?: FormLayout;
   labelAlign?: FormLabelAlign;
-  labelWrap?: Boolean;
+  labelWrap?: boolean;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
