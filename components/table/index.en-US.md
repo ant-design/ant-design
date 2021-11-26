@@ -178,17 +178,13 @@ Properties for expandable.
 | expandedRowKeys | Current expanded row keys | string\[] | - |  |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |  |
 | expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
-| expandIconColumnIndex | Customize expand icon column index. Not render when `-1` | number | - |  |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |  |
 | fixed | Whether the expansion icon is fixed. Optional true `left` `right` | boolean \| string | false | 4.16.0 |
 | indentSize | Indent size in pixels of tree data | number | 15 |  |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - |  |
+| showExpandColumn | Show expand column | boolean | true | 4.18.0 |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
-
-- `fixed`
-  - When set to true or `left` and `expandIconColumnIndex` is not set or is 0, enable fixed
-  - When set to true or `right` and `expandIconColumnIndex` is set to the number of table columns, enable fixed
 
 ### rowSelection
 

@@ -185,17 +185,13 @@ const columns = [
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |  |
 | expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |  |
 | expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
-| expandIconColumnIndex | 自定义展开按钮的列顺序，`-1` 时不展示 | number | - |  |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
 | fixed | 控制展开图标是否固定，可选 true `left` `right` | boolean \| string | false | 4.16.0 |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开 | (record) => boolean | - |  |
+| showExpandColumn | 设置是否展示行展开列 | boolean | true | 4.18.0 |
 | onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
-
-- `fixed`
-  - 当设置为 true 或 `left` 且 `expandIconColumnIndex` 未设置或为 0 时，开启固定
-  - 当设置为 true 或 `right` 且 `expandIconColumnIndex` 设置为表格列数时，开启固定
 
 ### rowSelection
 
