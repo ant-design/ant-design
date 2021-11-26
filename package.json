@@ -188,7 +188,7 @@
     "bisheng-plugin-react": "^1.1.2",
     "bisheng-plugin-toc": "^0.4.4",
     "bundlesize": "^0.18.0",
-    "chalk": "^4.0.0",
+    "chalk": "^5.0.0",
     "cheerio": "^1.0.0-rc.3",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.0",
