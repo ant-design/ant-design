@@ -132,7 +132,10 @@ describe('Popconfirm', () => {
   });
 
   it('should support onConfirm to return Promise', async () => {
-    const confirm = () => new Promise(res => setTimeout(res, 300));
+    const confirm = () =>
+      new Promise(res => {
+        setTimeout(res, 300);
+      });
     const onVisibleChange = jest.fn();
     const popconfirm = mount(
       <Popconfirm title="code" onConfirm={confirm} onVisibleChange={onVisibleChange}>

@@ -64,19 +64,22 @@ const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
     className,
   );
 
-  return (
-    <LayoutContext.Provider
-      value={{
-        siderHook: {
-          addSider: (id: string) => {
-            setSiders(prev => [...prev, id]);
-          },
-          removeSider: (id: string) => {
-            setSiders(prev => prev.filter(currentId => currentId !== id));
-          },
+  const contextValue = React.useMemo(
+    () => ({
+      siderHook: {
+        addSider: (id: string) => {
+          setSiders(prev => [...prev, id]);
         },
-      }}
-    >
+        removeSider: (id: string) => {
+          setSiders(prev => prev.filter(currentId => currentId !== id));
+        },
+      },
+    }),
+    [],
+  );
+
+  return (
+    <LayoutContext.Provider value={contextValue}>
       <Tag className={classString} {...others}>
         {children}
       </Tag>
