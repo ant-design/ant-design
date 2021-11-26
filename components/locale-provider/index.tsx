@@ -1,4 +1,5 @@
 import * as React from 'react';
+import memoizeOne from 'memoize-one';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
 import devWarning from '../_util/devWarning';
 
@@ -79,9 +80,10 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
 
   render() {
     const { locale, children } = this.props;
-
-    return (
-      <LocaleContext.Provider value={{ ...locale, exist: true }}>{children}</LocaleContext.Provider>
-    );
+    const contextValue = memoizeOne(localeValue => ({
+      ...localeValue,
+      exist: true,
+    }))(locale);
+    return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
   }
 }
