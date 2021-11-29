@@ -177,7 +177,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   };
 
   // =============== Update Loading ===============
-  const loadingOrDelay: Loading = 
+  const loadingOrDelay: Loading =
     typeof loading === 'object' && loading.delay ?
       loading.delay || true :
       !!loading;
