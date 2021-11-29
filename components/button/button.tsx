@@ -220,7 +220,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
-  const abbrs = { large: 'lg', small: 'sm' };
+  const sizeClassNameMap = { large: 'lg', small: 'sm' };
   const sizeCls = abbrs[customizeSize || size] || '';
 
   const iconType = innerLoading ? 'loading' : icon;
