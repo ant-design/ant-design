@@ -221,7 +221,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
   const sizeClassNameMap = { large: 'lg', small: 'sm' };
-  const sizeCls = abbrs[customizeSize || size] || '';
+  const sizeCls = sizeClassNameMap[customizeSize || size] || '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
