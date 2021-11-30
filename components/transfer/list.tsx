@@ -67,6 +67,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
   pagination?: PaginationType;
+  searchValue?: string;
 }
 
 interface TransferListState {
@@ -94,6 +95,11 @@ export default class TransferList<
     this.state = {
       filterValue: '',
     };
+  }
+
+  componentDidMount() {
+    const { searchValue = '' } = this.props;
+    this.setState({ filterValue: searchValue });
   }
 
   componentWillUnmount() {

@@ -86,6 +86,7 @@ export interface TransferProps<RecordType> {
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
   pagination?: PaginationType;
+  searchValue?: string[];
 }
 
 interface TransferState {
@@ -372,6 +373,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
           showSelectAll,
           oneWay,
           pagination,
+          searchValue = []
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -418,6 +420,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
+              searchValue={searchValue[0]}
               {...locale}
             />
             <Operation
@@ -456,6 +459,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
               pagination={mergedPagination}
+              searchValue={searchValue[1]}
               {...locale}
             />
           </div>
