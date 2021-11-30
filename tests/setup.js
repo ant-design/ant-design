@@ -53,7 +53,7 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     const target = this.findObserver(index).getDOMNode();
     const originGetBoundingClientRect = target.getBoundingClientRect;
 
-    target.getBoundingClientRect = () => ({ width: 903, height: 1128 });
+    target.getBoundingClientRect = () => ({ width: 510, height: 903 });
     onLibResize([{ target }]);
     onEsResize([{ target }]);
 
