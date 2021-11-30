@@ -28,7 +28,7 @@ Cascade selection box.
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
-| displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
+| displayRender | The render function of displaying single selected options. You can use tagRender for multiple mode | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
 | dropdownClassName | The additional className of popup overlay | string | - | 4.17.0 |
 | dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |

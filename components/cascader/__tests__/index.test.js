@@ -475,17 +475,30 @@ describe('Cascader', () => {
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
 
-  it('legacy props', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const wrapper = mount(<Cascader open popupPlacement="topRight" popupClassName="mock-cls" />);
+  describe('legacy props', () => {
+    it('popupClassName', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper = mount(<Cascader open popupPlacement="topRight" popupClassName="mock-cls" />);
 
-    expect(wrapper.exists('.mock-cls')).toBeTruthy();
-    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+      expect(wrapper.exists('.mock-cls')).toBeTruthy();
+      expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
 
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
-    );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+      );
 
-    errorSpy.mockRestore();
+      errorSpy.mockRestore();
+    });
+
+    it('displayRender & multiple', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      mount(<Cascader multiple displayRender={() => null} />);
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `displayRender` not work on `multiple`. Please use `tagRender` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
   });
 });
