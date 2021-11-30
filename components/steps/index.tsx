@@ -39,11 +39,11 @@ export interface StepProps {
   style?: React.CSSProperties;
 }
 
-interface StepsType extends React.FC<StepsProps> {
+export interface StepsInterface extends React.FC<StepsProps> {
   Step: typeof RcSteps.Step;
 }
 
-const Steps: StepsType = props => {
+const Steps: StepsInterface = props => {
   const { percent, size, className, direction, responsive } = props;
   const { xs } = useBreakpoint();
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);

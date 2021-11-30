@@ -8,6 +8,9 @@ import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { cloneElement } from '../_util/reactNode';
 
+export { BreadcrumbItemInterface } from './BreadcrumbItem';
+export { BreadcrumbSeparatorInterface } from './BreadcrumbSeparator';
+
 export interface Route {
   path: string;
   breadcrumbName: string;
@@ -64,7 +67,7 @@ const addChildPath = (paths: string[], childPath: string, params: any) => {
   return originalPaths;
 };
 
-interface BreadcrumbInterface extends React.FC<BreadcrumbProps> {
+export interface BreadcrumbInterface extends React.FC<BreadcrumbProps> {
   Item: typeof BreadcrumbItem;
   Separator: typeof BreadcrumbSeparator;
 }

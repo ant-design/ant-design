@@ -38,7 +38,7 @@ interface MentionsEntity {
   value: string;
 }
 
-interface CompoundedComponent
+export interface MentionsInterface
   extends React.ForwardRefExoticComponent<MentionProps & React.RefAttributes<HTMLElement>> {
   Option: typeof Option;
   getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
@@ -133,7 +133,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   );
 };
 
-const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;
+const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as MentionsInterface;
 Mentions.displayName = 'Mentions';
 Mentions.Option = Option;
 

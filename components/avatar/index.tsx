@@ -5,12 +5,12 @@ import Group from './group';
 export { AvatarProps } from './avatar';
 export { GroupProps } from './group';
 
-interface CompoundedComponent
+export interface AvatarInterface
   extends React.ForwardRefExoticComponent<AvatarProps & React.RefAttributes<HTMLElement>> {
   Group: typeof Group;
 }
 
-const Avatar = InternalAvatar as CompoundedComponent;
+const Avatar = InternalAvatar as AvatarInterface;
 Avatar.Group = Group;
 
 export { Group };

@@ -54,11 +54,11 @@ export const Meta: React.FC<ListItemMetaProps> = ({
   );
 };
 
-export interface ListItemTypeProps extends React.FC<ListItemProps> {
+export interface ListItemInterface extends React.FC<ListItemProps> {
   Meta: typeof Meta;
 }
 
-const Item: ListItemTypeProps = ({
+const Item: ListItemInterface = ({
   prefixCls: customizePrefixCls,
   children,
   actions,

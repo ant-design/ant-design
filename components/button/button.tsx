@@ -124,7 +124,7 @@ export type NativeButtonProps = {
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
-interface CompoundedComponent
+export interface ButtonInterface
   extends React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLElement>> {
   Group: typeof Group;
   __ANT_BUTTON: boolean;
@@ -297,7 +297,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   return <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
 };
 
-const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
+const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as ButtonInterface;
 
 Button.displayName = 'Button';
 

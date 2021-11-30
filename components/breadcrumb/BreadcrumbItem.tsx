@@ -13,7 +13,7 @@ export interface BreadcrumbItemProps {
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
 }
-interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
+export interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
   __ANT_BREADCRUMB_ITEM: boolean;
 }
 const BreadcrumbItem: BreadcrumbItemInterface = ({
@@ -62,9 +62,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
     return (
       <span>
         {link}
-        {separator && (
-          <span className={`${prefixCls}-separator`}>{separator}</span>
-        )}
+        {separator && <span className={`${prefixCls}-separator`}>{separator}</span>}
       </span>
     );
   }

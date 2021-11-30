@@ -4,14 +4,14 @@ import Sider from './Sider';
 export { BasicProps as LayoutProps } from './layout';
 export { SiderProps } from './Sider';
 
-interface LayoutType extends React.FC<BasicProps> {
+export interface LayoutInterface extends React.FC<BasicProps> {
   Header: typeof Header;
   Footer: typeof Footer;
   Content: typeof Content;
   Sider: typeof Sider;
 }
 
-const Layout = InternalLayout as LayoutType;
+const Layout = InternalLayout as LayoutInterface;
 
 Layout.Header = Header;
 Layout.Footer = Footer;

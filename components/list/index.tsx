@@ -8,7 +8,7 @@ import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
 
-export { ListItemProps, ListItemMetaProps } from './Item';
+export { ListItemProps, ListItemMetaProps, ListItemInterface } from './Item';
 
 export type ColumnCount = number;
 

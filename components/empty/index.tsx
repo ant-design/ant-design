@@ -23,12 +23,12 @@ export interface EmptyProps {
   children?: React.ReactNode;
 }
 
-interface EmptyType extends React.FC<EmptyProps> {
+export interface EmptyInterface extends React.FC<EmptyProps> {
   PRESENTED_IMAGE_DEFAULT: React.ReactNode;
   PRESENTED_IMAGE_SIMPLE: React.ReactNode;
 }
 
-const Empty: EmptyType = ({
+const Empty: EmptyInterface = ({
   className,
   prefixCls: customizePrefixCls,
   image = defaultEmptyImg,

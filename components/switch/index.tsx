@@ -31,7 +31,7 @@ export interface SwitchProps {
   id?: string;
 }
 
-interface CompoundedComponent
+export interface SwitchInterface
   extends React.ForwardRefExoticComponent<SwitchProps & React.RefAttributes<HTMLElement>> {
   __ANT_SWITCH: boolean;
 }
@@ -85,7 +85,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
       </Wave>
     );
   },
-) as CompoundedComponent;
+) as SwitchInterface;
 
 Switch.__ANT_SWITCH = true;
 Switch.displayName = 'Switch';

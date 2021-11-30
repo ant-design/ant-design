@@ -61,10 +61,10 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
 
 TimePicker.displayName = 'TimePicker';
 
-type MergedTimePicker = typeof TimePicker & {
+export type MergedTimePickerInterface = typeof TimePicker & {
   RangePicker: typeof RangePicker;
 };
 
-(TimePicker as MergedTimePicker).RangePicker = RangePicker;
+(TimePicker as MergedTimePickerInterface).RangePicker = RangePicker;
 
-export default TimePicker as MergedTimePicker;
+export default TimePicker as MergedTimePickerInterface;

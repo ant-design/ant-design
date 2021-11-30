@@ -12,7 +12,7 @@ import { isPresetColor } from './utils';
 
 export { ScrollNumberProps } from './ScrollNumber';
 
-interface CompoundedComponent extends React.FC<BadgeProps> {
+export interface BadgeInterface extends React.FC<BadgeProps> {
   Ribbon: typeof Ribbon;
 }
 
@@ -36,7 +36,7 @@ export interface BadgeProps {
   title?: string;
 }
 
-const Badge: CompoundedComponent = ({
+const Badge: BadgeInterface = ({
   prefixCls: customizePrefixCls,
   scrollNumberPrefixCls: customizeScrollNumberPrefixCls,
   children,

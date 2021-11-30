@@ -17,14 +17,14 @@ function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));
 }
 
-type ModalType = typeof OriginModal &
+type ModalInterface = typeof OriginModal &
   ModalStaticFunctions & {
     useModal: typeof useModal;
     destroyAll: () => void;
     config: typeof modalGlobalConfig;
   };
 
-const Modal = OriginModal as ModalType;
+const Modal = OriginModal as ModalInterface;
 
 Modal.useModal = useModal;
 

@@ -172,7 +172,7 @@ const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <T extends Default
 
 type InternalTreeSelectType = typeof TreeSelectRef;
 
-interface TreeSelectInterface extends InternalTreeSelectType {
+export interface TreeSelectInterface extends InternalTreeSelectType {
   TreeNode: typeof TreeNode;
   SHOW_ALL: typeof SHOW_ALL;
   SHOW_PARENT: typeof SHOW_PARENT;

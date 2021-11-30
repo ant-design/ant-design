@@ -17,11 +17,11 @@ export interface TimelineProps {
   mode?: 'left' | 'alternate' | 'right';
 }
 
-interface TimelineType extends React.FC<TimelineProps> {
+export interface TimelineInterface extends React.FC<TimelineProps> {
   Item: React.FC<TimelineItemProps>;
 }
 
-const Timeline: TimelineType = props => {
+const Timeline: TimelineInterface = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,

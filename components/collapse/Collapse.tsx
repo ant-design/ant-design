@@ -43,7 +43,7 @@ interface PanelProps {
   collapsible?: CollapsibleType;
 }
 
-interface CollapseInterface extends React.FC<CollapseProps> {
+export interface CollapseInterface extends React.FC<CollapseProps> {
   Panel: typeof CollapsePanel;
 }
 

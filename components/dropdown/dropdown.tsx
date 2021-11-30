@@ -56,7 +56,7 @@ export interface DropDownProps {
   openClassName?: string;
 }
 
-interface DropdownInterface extends React.FC<DropDownProps> {
+export interface DropdownInterface extends React.FC<DropDownProps> {
   Button: typeof DropdownButton;
 }
 

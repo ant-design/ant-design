@@ -35,6 +35,7 @@ Form.create = () => {
 };
 
 export {
+  FormInterface,
   FormInstance,
   FormProps,
   FormItemProps,

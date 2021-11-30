@@ -143,7 +143,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   blockNode?: boolean;
 }
 
-type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
+export type TreeInterface = (<T extends BasicDataNode | DataNode = DataNode>(
   props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },
 ) => React.ReactElement) & {
   defaultProps: Partial<React.PropsWithChildren<TreeProps<any>>>;
@@ -225,7 +225,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       {children}
     </RcTree>
   );
-}) as unknown as CompoundedComponent;
+}) as unknown as TreeInterface;
 
 Tree.TreeNode = TreeNode;
 

@@ -60,7 +60,7 @@ const iconMapOutlined = {
   warning: ExclamationCircleOutlined,
 };
 
-interface AlertInterface extends React.FC<AlertProps> {
+export interface AlertInterface extends React.FC<AlertProps> {
   ErrorBoundary: typeof ErrorBoundary;
 }
 
