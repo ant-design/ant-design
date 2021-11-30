@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcCascader from 'rc-cascader';
 import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
-import type { ShowSearchType, FieldNames } from 'rc-cascader/lib/interface';
+import type { ShowSearchType, FieldNames, DataNode } from 'rc-cascader/lib/interface';
 import omit from 'rc-util/lib/omit';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
@@ -18,6 +18,8 @@ import { getTransitionName } from '../_util/motion';
 // - List search content will show all content
 // - Hover opacity style
 // - Search filter match case
+
+export type BasicDataNode = Omit<DataNode, 'label' | 'value' | 'children'>;
 
 export type FieldNamesType = FieldNames;
 
@@ -72,18 +74,22 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-export interface CascaderProps extends Omit<RcCascaderProps, 'checkable'> {
+export interface CascaderProps<DataNodeType>
+  extends Omit<RcCascaderProps, 'checkable' | 'options'> {
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;
+
+  suffixIcon?: React.ReactNode;
+  options?: DataNodeType[];
 }
 
-interface CascaderRef {
+export interface CascaderRef {
   focus: () => void;
   blur: () => void;
 }
 
-const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<CascaderRef>) => {
+const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<CascaderRef>) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -225,7 +231,11 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
       ref={ref}
     />
   );
-});
+}) as (<DataNodeType extends BasicDataNode | DataNode = DataNode>(
+  props: React.PropsWithChildren<CascaderProps<DataNodeType>> & { ref?: React.Ref<CascaderRef> },
+) => React.ReactElement) & {
+  displayName: string;
+};
 
 Cascader.displayName = 'Cascader';
 

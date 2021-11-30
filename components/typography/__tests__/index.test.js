@@ -395,7 +395,7 @@ describe('Typography', () => {
     });
 
     describe('editable', () => {
-      function testStep({ name = '', icon, tooltip } = {}, submitFunc, expectFunc) {
+      function testStep({ name, icon, tooltip }, submitFunc, expectFunc) {
         it(name, () => {
           jest.useFakeTimers();
           const onStart = jest.fn();

@@ -64,6 +64,8 @@ jobs:
       - name: npm run site
         id: site
         run: npm run site
+        env:
+          SITE_ENV: development
 
       - name: upload site artifact
         uses: actions/upload-artifact@v2

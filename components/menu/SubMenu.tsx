@@ -58,13 +58,16 @@ function SubMenu(props: SubMenuProps) {
     );
   }
 
+  const contextValue = React.useMemo(
+    () => ({
+      ...context,
+      firstLevel: false,
+    }),
+    [context],
+  );
+
   return (
-    <MenuContext.Provider
-      value={{
-        ...context,
-        firstLevel: false,
-      }}
-    >
+    <MenuContext.Provider value={contextValue}>
       <RcSubMenu
         {...omit(props, ['icon'])}
         title={titleNode}

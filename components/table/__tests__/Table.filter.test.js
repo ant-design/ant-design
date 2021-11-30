@@ -866,6 +866,7 @@ describe('Table.filter', () => {
               dataIndex: 'name',
               key: 'name',
               filteredValue: name,
+              // eslint-disable-next-line react/no-unstable-nested-components
               filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => (
                 <div>
                   <Input
@@ -1266,7 +1267,7 @@ describe('Table.filter', () => {
         cols: [],
       };
 
-      componentDidMount = () => {
+      componentDidMount() {
         this.setState({
           cols: [
             {
@@ -1276,7 +1277,7 @@ describe('Table.filter', () => {
             },
           ],
         });
-      };
+      }
 
       render() {
         const { cols } = this.state;
@@ -1700,38 +1701,36 @@ describe('Table.filter', () => {
           },
         ];
         return (
-          <>
-            <Table
-              columns={columns}
-              dataSource={[
-                {
-                  key: '1',
-                  name: 'John Brown',
-                  age: 32,
-                  address: 'New York No. 1 Lake Park',
-                },
-                {
-                  key: '2',
-                  name: 'Jim Green',
-                  age: 42,
-                  address: 'London No. 1 Lake Park',
-                },
-                {
-                  key: '3',
-                  name: 'Joe Black',
-                  age: 66,
-                  address: 'Sidney No. 1 Lake Park',
-                },
-                {
-                  key: '4',
-                  name: 'Jim Red',
-                  age: 32,
-                  address: 'London No. 2 Lake Park',
-                },
-              ]}
-              onChange={this.handleChange}
-            />
-          </>
+          <Table
+            columns={columns}
+            dataSource={[
+              {
+                key: '1',
+                name: 'John Brown',
+                age: 32,
+                address: 'New York No. 1 Lake Park',
+              },
+              {
+                key: '2',
+                name: 'Jim Green',
+                age: 42,
+                address: 'London No. 1 Lake Park',
+              },
+              {
+                key: '3',
+                name: 'Joe Black',
+                age: 66,
+                address: 'Sidney No. 1 Lake Park',
+              },
+              {
+                key: '4',
+                name: 'Jim Red',
+                age: 32,
+                address: 'London No. 2 Lake Park',
+              },
+            ]}
+            onChange={this.handleChange}
+          />
         );
       }
     }
