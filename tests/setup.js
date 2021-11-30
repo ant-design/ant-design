@@ -47,11 +47,16 @@ Enzyme.configure({ adapter: new Adapter() });
 
 Object.assign(Enzyme.ReactWrapper.prototype, {
   findObserver() {
-    return this.find('ResizeObserver');
+    return this.find('ResizeObserver').at(0);
   },
   triggerResize() {
     const target = this.findObserver().getDOMNode();
+    const originGetBoundingClientRect = target.getBoundingClientRect;
+
+    target.getBoundingClientRect = () => ({ width: 903, height: 1128 });
     onLibResize([{ target }]);
     onEsResize([{ target }]);
+
+    target.getBoundingClientRect = originGetBoundingClientRect;
   },
 });

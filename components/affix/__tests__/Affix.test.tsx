@@ -205,24 +205,7 @@ describe('Affix Render', () => {
 
       // Mock trigger resize
       updateCalled.mockReset();
-      const resizeObserverInstance: ReactWrapper<HTMLAttributes, unknown, any> =
-        affixMounterWrapper.find('ResizeObserver') as any;
-      resizeObserverInstance
-        .at(index)
-        .instance()
-        .onResize(
-          [
-            {
-              target: {
-                getBoundingClientRect: () => ({ width: 99, height: 99 }),
-              } as Element,
-              contentRect: {} as DOMRect,
-              borderBoxSize: [],
-              contentBoxSize: [],
-            },
-          ],
-          {} as unknown as ResizeObserver,
-        );
+      (affixMounterWrapper as any).triggerResize();
       await sleep(20);
 
       expect(updateCalled).toHaveBeenCalled();

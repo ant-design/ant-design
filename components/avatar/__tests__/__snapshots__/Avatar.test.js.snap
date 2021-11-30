@@ -184,18 +184,25 @@ exports[`Avatar Render should show image on success after a failure state 1`] = 
     <ResizeObserver
       onResize={[Function]}
     >
-      <span
-        className="ant-avatar-string"
-        style={
-          Object {
-            "WebkitTransform": "scale(1) translateX(-50%)",
-            "msTransform": "scale(1) translateX(-50%)",
-            "transform": "scale(1) translateX(-50%)",
-          }
-        }
+      <SingleObserver
+        key="rc-observer-key-0"
+        onResize={[Function]}
       >
-        Fallback
-      </span>
+        <DomWrapper>
+          <span
+            className="ant-avatar-string"
+            style={
+              Object {
+                "WebkitTransform": "scale(1) translateX(-50%)",
+                "msTransform": "scale(1) translateX(-50%)",
+                "transform": "scale(1) translateX(-50%)",
+              }
+            }
+          >
+            Fallback
+          </span>
+        </DomWrapper>
+      </SingleObserver>
     </ResizeObserver>
   </span>
 </Avatar>
