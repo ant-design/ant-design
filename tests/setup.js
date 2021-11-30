@@ -46,11 +46,11 @@ const Adapter =
 Enzyme.configure({ adapter: new Adapter() });
 
 Object.assign(Enzyme.ReactWrapper.prototype, {
-  findObserver() {
-    return this.find('ResizeObserver').at(0);
+  findObserver(index = 0) {
+    return this.find('ResizeObserver').at(index);
   },
-  triggerResize() {
-    const target = this.findObserver().getDOMNode();
+  triggerResize(index = 0) {
+    const target = this.findObserver(index).getDOMNode();
     const originGetBoundingClientRect = target.getBoundingClientRect;
 
     target.getBoundingClientRect = () => ({ width: 903, height: 1128 });

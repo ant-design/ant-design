@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, ReactWrapper, HTMLAttributes } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import Affix, { AffixProps, AffixState } from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
@@ -205,7 +205,7 @@ describe('Affix Render', () => {
 
       // Mock trigger resize
       updateCalled.mockReset();
-      (affixMounterWrapper as any).triggerResize();
+      (affixMounterWrapper as any).triggerResize(index);
       await sleep(20);
 
       expect(updateCalled).toHaveBeenCalled();
