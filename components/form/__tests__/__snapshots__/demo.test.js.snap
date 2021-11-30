@@ -509,6 +509,7 @@ exports[`renders ./components/form/demo/col-24-debug.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="basic_username"
             type="text"
@@ -546,6 +547,7 @@ exports[`renders ./components/form/demo/col-24-debug.md correctly 1`] = `
           >
             <input
               action="click"
+              aria-required="true"
               class="ant-input"
               id="basic_password"
               type="password"
@@ -2356,7 +2358,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
           <span
             class="ant-typography ant-typography-secondary ant-form-text"
           >
-            (
+            ( 
             <span
               aria-label="smile"
               class="anticon anticon-smile"
@@ -2951,6 +2953,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="wrap_username"
             type="text"
@@ -2986,6 +2989,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="wrap_password"
             type="text"
@@ -3006,7 +3010,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
         class="ant-form-item-no-colon"
         title=" "
       >
-
+         
       </label>
     </div>
     <div
@@ -3467,7 +3471,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               Log in
             </span>
           </button>
-          Or
+          Or 
           <a
             href=""
           >
@@ -3810,6 +3814,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
@@ -3819,19 +3824,18 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-required="true"
                   aria-activedescendant="register_residence_list_0"
                   aria-autocomplete="list"
                   aria-controls="register_residence_list"
                   aria-haspopup="listbox"
                   aria-owns="register_residence_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="register_residence"
                   readonly=""
                   role="combobox"
                   style="opacity:0"
-                  tabindex="-1"
                   type="search"
                   unselectable="on"
                   value=""
@@ -4104,6 +4108,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-required="true"
                     autocomplete="off"
                     class="ant-input-number-input"
                     id="register_donation"
@@ -4268,6 +4273,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             data-count="0 / 100"
           >
             <textarea
+              aria-required="true"
               class="ant-input"
               id="register_intro"
               maxlength="100"
@@ -4301,6 +4307,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-single ant-select-show-arrow"
           >
             <div
@@ -4315,6 +4322,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   aria-controls="register_gender_list"
                   aria-haspopup="listbox"
                   aria-owns="register_gender_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="register_gender"
@@ -4452,7 +4460,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               />
             </span>
             <span>
-              I have read the
+              I have read the 
               <a
                 href=""
               >
@@ -6452,6 +6460,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-radio-group ant-radio-group-outline"
             id="validate_other_radio-button"
           >
@@ -8590,6 +8599,7 @@ exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="url"
             placeholder="input placeholder"
