@@ -1,4 +1,6 @@
 const React = require('react');
+const { _rs: onLibResize } = require('rc-resize-observer/lib/utils/observerUtil');
+const { _rs: onEsResize } = require('rc-resize-observer/es/utils/observerUtil');
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
@@ -48,7 +50,8 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     return this.find('ResizeObserver');
   },
   triggerResize() {
-    const ob = this.findObserver();
-    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+    const target = this.findObserver().getDOMNode();
+    onLibResize([{ target }]);
+    onEsResize([{ target }]);
   },
 });
