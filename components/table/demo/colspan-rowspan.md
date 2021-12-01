@@ -1,5 +1,6 @@
 ---
 order: 15
+version: 4.18.0
 title:
   en-US: colSpan and rowSpan
   zh-CN: 表格行/列合并
