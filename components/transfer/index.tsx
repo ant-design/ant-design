@@ -92,8 +92,8 @@ export interface TransferProps<RecordType> {
 interface TransferState {
   sourceSelectedKeys: string[];
   targetSelectedKeys: string[];
-  sourceSearchValue: string;
-  targetSearchValue: string;
+  sourceSearchValue?: string;
+  targetSearchValue?: string;
 }
 
 class Transfer<RecordType extends TransferItem = TransferItem> extends React.Component<
@@ -112,17 +112,12 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     locale: {},
     showSearch: false,
     listStyle: () => {},
-    sourceSearchValue: '',
-    targetSearchValue: '',
   };
 
-  static getDerivedStateFromProps<T>({
-    selectedKeys,
-    targetKeys,
-    pagination,
-    children,
-    searchValue,
-  }: TransferProps<T>) {
+  static getDerivedStateFromProps<T>(
+    { selectedKeys, targetKeys, pagination, children, searchValue }: TransferProps<T>,
+    { sourceSearchValue, targetSearchValue }: TransferState,
+  ) {
     if (selectedKeys) {
       const mergedTargetKeys = targetKeys || [];
       return {
@@ -131,9 +126,14 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       };
     }
 
-    if (searchValue) {
+    if (searchValue && searchValue[0] !== sourceSearchValue) {
       return {
         sourceSearchValue: searchValue[0],
+      };
+    }
+
+    if (searchValue && searchValue[1] !== targetSearchValue) {
+      return {
         targetSearchValue: searchValue[1],
       };
     }
@@ -155,12 +155,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   constructor(props: TransferProps<RecordType>) {
     super(props);
 
-    const { selectedKeys = [], targetKeys = [], searchValue = [] } = props;
+    const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
       sourceSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
       targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
-      sourceSearchValue: searchValue[0],
-      targetSearchValue: searchValue[1],
     };
   }
 
