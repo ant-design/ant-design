@@ -2,7 +2,7 @@ const transformIgnorePatterns = [
   '/dist/',
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  'node_modules/(?!.*@(babel|ant-design))[^/]+?/(?!(es|node_modules)/)',
+  'node_modules/(?!.*@(babel|ant-design))(?!array-move)[^/]+?/(?!(es|node_modules)/)',
 ];
 
 function getTestRegex(libDir) {
@@ -14,6 +14,7 @@ function getTestRegex(libDir) {
 
 module.exports = {
   verbose: true,
+  testEnvironment: 'jsdom',
   setupFiles: ['./tests/setup.js'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
@@ -30,7 +31,7 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+    '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },

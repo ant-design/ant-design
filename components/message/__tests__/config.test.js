@@ -1,5 +1,6 @@
 import { sleep } from '../../../tests/utils';
 import message, { getInstance } from '..';
+import ConfigProvider from '../../config-provider';
 
 describe('message.config', () => {
   // Mock for rc-util raf
@@ -76,15 +77,41 @@ describe('message.config', () => {
     });
   });
 
+  it('customize prefix should auto get transition prefixCls', () => {
+    message.config({
+      prefixCls: 'light-message',
+    });
+
+    message.info('bamboo');
+
+    expect(getInstance().config).toEqual(
+      expect.objectContaining({
+        transitionName: 'light-move-up',
+      }),
+    );
+
+    message.config({
+      prefixCls: '',
+    });
+  });
+
+  it('should be able to global config rootPrefixCls', () => {
+    ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
+    message.info('last');
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+  });
   it('should be able to config prefixCls', () => {
     message.config({
       prefixCls: 'prefix-test',
     });
     message.info('last');
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
     message.config({
-      prefixCls: 'ant-message',
+      prefixCls: '', // can be set to empty, ant default value is set in ConfigProvider
     });
   });
 
@@ -93,9 +120,9 @@ describe('message.config', () => {
       transitionName: '',
     });
     message.info('last');
-    expect(document.querySelectorAll('.move-up-enter').length).toBe(0);
+    expect(document.querySelectorAll('.ant-move-up-enter')).toHaveLength(0);
     message.config({
-      transitionName: 'move-up',
+      transitionName: 'ant-move-up',
     });
   });
 });

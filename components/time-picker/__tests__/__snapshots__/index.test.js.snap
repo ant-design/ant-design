@@ -89,6 +89,7 @@ Array [
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
@@ -114,7 +115,7 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown slide-up-appear slide-up-appear-prepare slide-up"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
       style="opacity: 0; pointer-events: none;"
     >
       <div
@@ -1567,6 +1568,7 @@ exports[`TimePicker should support bordered 1`] = `
     </span>
     <span
       class="ant-picker-clear"
+      role="button"
     >
       <span
         aria-label="close-circle"

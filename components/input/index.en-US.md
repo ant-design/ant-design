@@ -26,6 +26,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | disabled | Whether the input is disabled | boolean | false |  |
 | id | The ID for input | string | - |  |
 | maxLength | The max length | number | - |  |
+| showCount | Whether show text count | boolean \| { formatter: ({ count: number, maxLength?: number }) => ReactNode } | false | 4.17.0 |
 | prefix | The prefix icon for the Input | ReactNode | - |  |
 | size | The size of the input box. Note: in the context of a form, the `large` size is used | `large` \| `middle` \| `small` | - |  |
 | suffix | The suffix icon for the Input | ReactNode | - |  |
@@ -103,3 +104,7 @@ const suffix = condition ? <Icon type="smile" /> : <span />;
 
 <Input suffix={suffix} />;
 ```
+
+### Why TextArea in control can make `value` exceed `maxLength`?
+
+When in control, component should show as what it set to avoid submit value not align with store value in Form.

@@ -1,0 +1,32 @@
+// theme customization for DocSearch Modal
+.customDocSearch() {
+  .DocSearch {
+    --docsearch-primary-color: @primary-color;
+    --docsearch-text-color: @text-color;
+    --docsearch-muted-color: @text-color-secondary;
+    --docsearch-container-background: @modal-mask-bg;
+    --docsearch-searchbox-shadow: inset 0 0 0 2px @primary-color;
+
+    // Modal
+    --docsearch-modal-background: @modal-content-bg;
+
+    // Search box
+    --docsearch-searchbox-background: @input-bg;
+    --docsearch-searchbox-focus-background: @input-bg;
+
+    // Footer
+    --docsearch-footer-background: @modal-content-bg;
+
+    // Hits
+    --docsearch-hit-background: @modal-content-bg;
+    --docsearch-hit-color: @primary-color;
+    --docsearch-hit-active-color: @text-color-inverse;
+    --docsearch-highlight-color: @primary-color;
+
+    // apply antd modal style
+    .DocSearch-Footer {
+      border-top: @modal-footer-border-width @modal-footer-border-style
+        @modal-footer-border-color-split;
+    }
+  }
+}

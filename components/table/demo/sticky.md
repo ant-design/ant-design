@@ -14,7 +14,7 @@ title:
 For long table，need to scroll to view the header and scroll bar，then you can now set the fixed header and scroll bar to follow the page.
 
 ```jsx
-import { Table } from 'antd';
+import { Table, Switch } from 'antd';
 
 const columns = [
   {
@@ -93,8 +93,38 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-ReactDOM.render(
-  <Table columns={columns} dataSource={data} scroll={{ x: 1500 }} sticky />,
-  mountNode,
-);
+const Demo = () => {
+  const [fixedTop, setFixedTop] = React.useState(false);
+
+  return (
+    <Table
+      columns={columns}
+      dataSource={data}
+      scroll={{ x: 1500 }}
+      summary={pageData => (
+        <Table.Summary fixed={fixedTop ? 'top' : 'bottom'}>
+          <Table.Summary.Row>
+            <Table.Summary.Cell index={0} colSpan={2}>
+              <Switch
+                checkedChildren="Fixed Top"
+                unCheckedChildren="Fixed Top"
+                checked={fixedTop}
+                onChange={() => {
+                  setFixedTop(!fixedTop);
+                }}
+              />
+            </Table.Summary.Cell>
+            <Table.Summary.Cell index={2} colSpan={8}>
+              Scroll Context
+            </Table.Summary.Cell>
+            <Table.Summary.Cell index={10}>Fix Right</Table.Summary.Cell>
+          </Table.Summary.Row>
+        </Table.Summary>
+      )}
+      sticky
+    />
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```

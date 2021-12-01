@@ -7,25 +7,23 @@ title:
 
 ## zh-CN
 
-使用自定义元素，我们可以集成 react-dnd 来实现拖拽排序。
+使用自定义元素，我们可以集成 [react-dnd](https://github.com/react-dnd/react-dnd) 来实现拖拽排序。
 
 ## en-US
 
-By using custom components, we can integrate table with react-dnd to implement drag sorting.
+By using `components`, we can integrate table with [react-dnd](https://github.com/react-dnd/react-dnd) to implement drag sorting function.
 
 ```jsx
 import React, { useState, useCallback, useRef } from 'react';
 import { Table } from 'antd';
-import { DndProvider, useDrag, useDrop, createDndContext } from 'react-dnd';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-const RNDContext = createDndContext(HTML5Backend);
+const type = 'DraggableBodyRow';
 
-const type = 'DragableBodyRow';
-
-const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
-  const ref = React.useRef();
+const DraggableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
+  const ref = useRef();
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
     collect: monitor => {
@@ -43,12 +41,14 @@ const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => 
     },
   });
   const [, drag] = useDrag({
-    item: { type, index },
+    type,
+    item: { index },
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
   });
   drop(drag(ref));
+
   return (
     <tr
       ref={ref}
@@ -101,7 +101,7 @@ const DragSortingTable: React.FC = () => {
 
   const components = {
     body: {
-      row: DragableBodyRow,
+      row: DraggableBodyRow,
     },
   };
 
@@ -120,10 +120,8 @@ const DragSortingTable: React.FC = () => {
     [data],
   );
 
-  const manager = useRef(RNDContext);
-
   return (
-    <DndProvider manager={manager.current.dragDropManager}>
+    <DndProvider backend={HTML5Backend}>
       <Table
         columns={columns}
         dataSource={data}

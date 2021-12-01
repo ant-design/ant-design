@@ -22,6 +22,7 @@
 
   &&-danger {
     color: @error-color;
+
     a&:active,
     a&:focus,
     a&:hover {
@@ -45,18 +46,22 @@
   h1 {
     .typography-title-1();
   }
+
   h2&,
   h2 {
     .typography-title-2();
   }
+
   h3&,
   h3 {
     .typography-title-3();
   }
+
   h4&,
   h4 {
     .typography-title-4();
   }
+
   h5&,
   h5 {
     .typography-title-5();
@@ -93,6 +98,7 @@
   a&-ellipsis,
   span&-ellipsis {
     display: inline-block;
+    max-width: 100%;
   }
 
   a&,
@@ -184,7 +190,6 @@
     div& {
       left: -@input-padding-horizontal - 1px;
       margin-top: -@input-padding-vertical-base - 1px;
-      // stylelint-disable-next-line function-calc-no-invalid
       margin-bottom: calc(1em - @input-padding-vertical-base - 1px);
     }
 
@@ -198,6 +203,7 @@
 
     // Fix Editable Textarea flash in Firefox
     textarea {
+      /* stylelint-disable-next-line property-no-vendor-prefix */
       -moz-transition: none;
     }
   }
@@ -205,7 +211,7 @@
   // list
   ul,
   ol {
-    margin: 0 0 1em 0;
+    margin: 0 0 1em;
     padding: 0;
 
     li {
@@ -259,9 +265,12 @@
   }
 
   // ============ Ellipsis ============
+  &-single-line {
+    white-space: nowrap;
+  }
+
   &-ellipsis-single-line {
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
 
     // https://blog.csdn.net/iefreer/article/details/50421025
@@ -272,11 +281,13 @@
   }
 
   &-ellipsis-multiple-line {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
     display: -webkit-box;
+    overflow: hidden;
     -webkit-line-clamp: 3;
+
     /*! autoprefixer: ignore next */
     -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 }
 

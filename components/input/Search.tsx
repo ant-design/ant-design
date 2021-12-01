@@ -68,10 +68,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
-  const searchIcon =
-    typeof enterButton === 'boolean' || typeof enterButton === 'undefined' ? (
-      <SearchOutlined />
-    ) : null;
+  const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
   const btnClassName = `${prefixCls}-button`;
 
   let button: React.ReactNode;
@@ -81,7 +78,10 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
   if (isAntdButton || enterButtonAsElement.type === 'button') {
     button = cloneElement(enterButtonAsElement, {
       onMouseDown,
-      onClick: onSearch,
+      onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        enterButtonAsElement?.props?.onClick?.(e);
+        onSearch(e);
+      },
       key: 'enterButton',
       ...(isAntdButton
         ? {

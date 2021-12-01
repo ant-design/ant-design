@@ -34,26 +34,24 @@ interface CustomizedFormProps {
   fields: FieldData[];
 }
 
-const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => {
-  return (
-    <Form
-      name="global_state"
-      layout="inline"
-      fields={fields}
-      onFieldsChange={(_, allFields) => {
-        onChange(allFields);
-      }}
+const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => (
+  <Form
+    name="global_state"
+    layout="inline"
+    fields={fields}
+    onFieldsChange={(_, allFields) => {
+      onChange(allFields);
+    }}
+  >
+    <Form.Item
+      name="username"
+      label="Username"
+      rules={[{ required: true, message: 'Username is required!' }]}
     >
-      <Form.Item
-        name="username"
-        label="Username"
-        rules={[{ required: true, message: 'Username is required!' }]}
-      >
-        <Input />
-      </Form.Item>
-    </Form>
-  );
-};
+      <Input />
+    </Form.Item>
+  </Form>
+);
 
 const Demo = () => {
   const [fields, setFields] = useState<FieldData[]>([{ name: ['username'], value: 'Ant Design' }]);

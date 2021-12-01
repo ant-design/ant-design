@@ -6,7 +6,7 @@ import { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Valitse päivä',
-    rangePlaceholder: ['Alku päivä', 'Loppu päivä'],
+    rangePlaceholder: ['Alkamispäivä', 'Päättymispäivä'],
     ...CalendarLocale,
   },
   timePickerLocale: {

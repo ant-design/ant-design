@@ -9,7 +9,7 @@ title: 可视化
 
 ## 前端实现
 
-[AntV](https://antv.vision/zh) 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2，欢迎社区贡献其他框架的实现版本。
+[AntV](https://antv.vision/zh) 是基于原生 JavaScript 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2，欢迎社区贡献其他框架的实现版本。
 
 - [G2 可视化引擎](https://g2.antv.vision/zh)
 - [G2Plot 开箱即用的图表库](https://g2plot.antv.vision/zh) 🔥

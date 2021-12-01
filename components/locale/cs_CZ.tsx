@@ -18,7 +18,7 @@ const localeValues: Locale = {
     filterConfirm: 'Potvrdit',
     filterReset: 'Obnovit',
     filterEmptyText: 'Žádné filtry',
-    selectAll: 'Vybrat všehchny řádky na současné stránce',
+    selectAll: 'Vybrat všechny řádky na současné stránce',
     selectInvert: 'Invertovat výběr na současné stránce',
     selectionAll: 'Vybrat všechny řádky',
     sortTitle: 'Řadit',
@@ -29,12 +29,12 @@ const localeValues: Locale = {
     cancelSort: 'Klikni pro zrušení řazení',
   },
   Modal: {
-    okText: 'Ok',
+    okText: 'OK',
     cancelText: 'Storno',
-    justOkText: 'Ok',
+    justOkText: 'OK',
   },
   Popconfirm: {
-    okText: 'Ok',
+    okText: 'OK',
     cancelText: 'Storno',
   },
   Transfer: {

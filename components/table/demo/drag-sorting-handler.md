@@ -17,11 +17,9 @@ Alternatively you can implement drag sorting with handler using [react-sortable-
 import { Table } from 'antd';
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
-import arrayMove from 'array-move';
+import { arrayMoveImmutable } from 'array-move';
 
-const DragHandle = sortableHandle(() => (
-  <MenuOutlined style={{ cursor: 'pointer', color: '#999' }} />
-));
+const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
   {
@@ -81,7 +79,7 @@ class SortableTable extends React.Component {
   onSortEnd = ({ oldIndex, newIndex }) => {
     const { dataSource } = this.state;
     if (oldIndex !== newIndex) {
-      const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
+      const newData = arrayMoveImmutable([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
       console.log('Sorted items: ', newData);
       this.setState({ dataSource: newData });
     }
@@ -135,7 +133,6 @@ ReactDOM.render(<SortableTable />, mountNode);
 
 .row-dragging td {
   padding: 16px;
-  visibility: hidden;
 }
 
 .row-dragging .drag-visible {

@@ -36,28 +36,8 @@
     }
 
     &-search {
-      padding-right: 24px;
-      padding-left: @control-padding-horizontal-sm;
-      &-action {
-        position: absolute;
-        top: @transfer-list-search-icon-top;
-        right: 12px;
-        bottom: 12px;
-        width: 28px;
+      .anticon-search {
         color: @disabled-color;
-        line-height: @input-height-base;
-        text-align: center;
-
-        .@{iconfont-css-prefix} {
-          color: @disabled-color;
-          transition: all 0.3s;
-          &:hover {
-            color: @text-color-secondary;
-          }
-        }
-        span& {
-          pointer-events: none;
-        }
       }
     }
 
@@ -121,12 +101,12 @@
       padding: 0;
       overflow: auto;
       list-style: none;
+
       &-item {
         display: flex;
         align-items: center;
         min-height: @transfer-item-height;
         padding: @transfer-item-padding-vertical @control-padding-horizontal;
-        overflow: hidden;
         line-height: @transfer-item-height - 2 * @transfer-item-padding-vertical;
         transition: all 0.3s;
 
@@ -172,7 +152,7 @@
         }
 
         &.@{transfer-prefix-cls}-list-content-item-checked:hover {
-          background-color: darken(@item-active-bg, 2%);
+          background-color: @transfer-item-selected-hover-bg;
         }
       }
 
@@ -217,7 +197,6 @@
     flex-direction: column;
     align-self: center;
     margin: 0 8px;
-    overflow: hidden;
     vertical-align: middle;
 
     .@{ant-prefix}-btn {

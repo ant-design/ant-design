@@ -1,7 +1,7 @@
 /* eslint-disable import/no-dynamic-require, no-console */
 const chalk = require('chalk');
 const path = require('path');
-const fetch = require('node-fetch');
+const fetch = require('isomorphic-fetch');
 const simpleGit = require('simple-git/promise');
 
 const cwd = process.cwd();
@@ -24,7 +24,9 @@ async function checkVersion() {
 }
 
 async function checkBranch({ current }) {
-  if (current !== 'master' && current !== '4.0-prepare') {
+  if (version.includes('-alpha.')) {
+    console.log(chalk.cyan('😃 Alpha version. Skip branch check.'));
+  } else if (current !== 'master' && current !== '4.0-prepare') {
     console.log(chalk.yellow('🤔 You are not in the master branch!'));
     exitProcess();
   }

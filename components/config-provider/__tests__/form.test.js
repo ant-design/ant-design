@@ -6,6 +6,14 @@ import zhCN from '../../locale/zh_CN';
 import Form from '../../form';
 
 describe('ConfigProvider.Form', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   describe('form validateMessages', () => {
     const wrapperComponent = ({ validateMessages }) => {
       const formRef = React.createRef();
@@ -25,14 +33,6 @@ describe('ConfigProvider.Form', () => {
 
       return [wrapper, formRef];
     };
-
-    beforeEach(() => {
-      jest.useFakeTimers();
-    });
-
-    afterEach(() => {
-      jest.useRealTimers();
-    });
 
     it('set locale zhCN', async () => {
       const [wrapper, formRef] = wrapperComponent({});
@@ -89,6 +89,36 @@ describe('ConfigProvider.Form', () => {
       );
 
       expect(wrapper).toMatchRenderedSnapshot();
+    });
+  });
+
+  describe('form colon', () => {
+    it('set colon false', async () => {
+      const wrapper = mount(
+        <ConfigProvider form={{ colon: false }}>
+          <Form>
+            <Form.Item label="没有冒号">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-no-colon')).toBeTruthy();
+    });
+
+    it('set colon default', async () => {
+      const wrapper = mount(
+        <ConfigProvider>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-no-colon')).toBeFalsy();
     });
   });
 });

@@ -20,13 +20,16 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 | Props | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterVisibleChange | Callback after the animation ends when switching drawers | function(visible) | - |  |
 | bodyStyle | Style of the drawer content part | object | - |  |
 | className | The class name of the container of the Drawer dialog | string | - |  |
-| closable | Whether a close (x) button is visible on top right of the Drawer dialog or not | boolean | true |  |
+| closable | Whether a close (x) button is visible on top left of the Drawer dialog or not | boolean | true |  |
 | closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |
+| contentWrapperStyle | Style of the drawer wrapper of content part | CSSProperties | - |  |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | drawerStyle | Style of the popup layer element | object | - |  |
+| extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
 | footerStyle | Style of the drawer footer part | CSSProperties | - |  |
 | forceRender | Prerender Drawer component forcely | boolean | false |  |
@@ -40,8 +43,9 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | style | Style of wrapper element which **contains mask** compare to `drawerStyle` | CSSProperties | - |  |
+| size | presetted size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
 | visible | Whether the Drawer dialog is visible or not | boolean | false |  |
-| width | Width of the Drawer dialog | string \| number | 256 |  |
+| width | Width of the Drawer dialog | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |

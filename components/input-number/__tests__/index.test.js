@@ -15,8 +15,6 @@ describe('InputNumber', () => {
     const onChange = jest.fn();
     const wrapper = mount(<InputNumber defaultValue="1" onChange={onChange} />);
     wrapper.find('input').simulate('change', { target: { value: '' } });
-    expect(onChange).toHaveBeenLastCalledWith('');
-    wrapper.find('input').simulate('blur');
     expect(onChange).toHaveBeenLastCalledWith(null);
   });
 

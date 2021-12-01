@@ -1,0 +1,191 @@
+@import '../../../static/theme.less';
+@import (reference) '../../../../../components/style/themes/index.less';
+@import './index.less';
+@import './DocSearch.less';
+
+@search-icon-color: #ced4d9;
+
+#search-box {
+  position: relative;
+  display: flex;
+  flex: auto !important;
+  align-items: center;
+  height: 22px;
+  margin: 0 auto 0 0 !important;
+  padding-left: 16px;
+  line-height: 22px;
+  white-space: nowrap;
+  border-left: 1px solid @site-border-color-split;
+  transition: width 0.5s;
+
+  .keybindings {
+    cursor: pointer;
+  }
+
+  .keybinding {
+    color: @search-icon-color;
+
+    kbd {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      // better keybinding font display using `Arial`
+      font-family: Arial; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+      text-align: center;
+    }
+  }
+
+  .ant-row-rtl & {
+    margin: 0 0 0 auto !important;
+    padding-right: 16px;
+    padding-left: 0;
+    border-right: 1px solid @site-border-color-split;
+    border-left: none;
+  }
+
+  > * {
+    flex: auto;
+  }
+
+  .anticon {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    flex: none;
+    color: @search-icon-color;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .ant-input-affix-wrapper {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  input {
+    width: 100%;
+    max-width: 200px;
+    padding-left: 20px;
+    font-size: 14px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+
+    .ant-row-rtl & {
+      padding-right: 20px;
+      padding-left: 11px;
+    }
+
+    &::placeholder {
+      color: #a3b1bf;
+    }
+  }
+
+  // ================ Narrow ================
+  &.narrow-mode {
+    flex: none !important;
+    width: 30px;
+
+    &:hover {
+      .anticon {
+        color: #a3b1bf;
+      }
+    }
+
+    .anticon {
+      right: 0;
+      left: auto;
+
+      .ant-row-rtl & {
+        right: auto;
+        left: 0;
+      }
+    }
+
+    input {
+      max-width: none;
+      padding-right: 20px;
+      padding-left: 11px;
+      cursor: pointer;
+
+      .ant-row-rtl & {
+        padding-right: 11px;
+        padding-left: 20px;
+      }
+    }
+
+    &.focused {
+      width: 500px;
+
+      .anticon {
+        color: @search-icon-color;
+      }
+
+      input {
+        cursor: text;
+      }
+    }
+  }
+}
+
+.component-select {
+  &.ant-select-dropdown {
+    font-size: 14px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .ant-select-dropdown-menu {
+    max-height: 200px;
+  }
+
+  .ant-select-dropdown-menu-item {
+    border-radius: 0 !important;
+  }
+
+  .ant-component-decs {
+    position: absolute;
+    right: 16px;
+    color: #aaa;
+    font-size: 12px;
+
+    .ant-row-rtl & {
+      right: auto;
+      left: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: @mobile-max-width) {
+  #search-box {
+    display: none;
+  }
+}
+
+.DocSearch {
+  font-family: @font-family;
+}
+
+#antd_algolia_search_modal {
+  // avoid the veritcal scrollbar(looks like a white block)
+  .DocSearch-Hit-title {
+    overflow-y: hidden;
+
+    mark {
+      padding: 0;
+    }
+  }
+
+  // reset original `box-shadow` style
+  .DocSearch-Footer {
+    box-shadow: none;
+  }
+}
+
+// customization DocSearch Modal component in light mode
+body[data-theme='default'] #antd_algolia_search_modal {
+  .customDocSearch();
+}

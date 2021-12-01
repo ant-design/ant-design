@@ -31,7 +31,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
     divRef,
   } = props;
 
-  const year = generateConfig.getYear(value);
+  const year = generateConfig.getYear(value || generateConfig.getNow());
 
   let start = year - YearSelectOffset;
   let end = start + YearSelectTotal;
@@ -92,7 +92,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
     onChange,
     divRef,
   } = props;
-  const month = generateConfig.getMonth(value);
+  const month = generateConfig.getMonth(value || generateConfig.getNow());
 
   let start = 0;
   let end = 11;

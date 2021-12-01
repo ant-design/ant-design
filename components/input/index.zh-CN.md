@@ -27,6 +27,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string | - |  |
 | maxLength | 最大长度 | number | - |  |
+| showCount | 是否展示字数 | boolean \| { formatter: ({ count: number, maxLength?: number }) => ReactNode } | false | 4.17.0 |
 | prefix | 带有前缀图标的 input | ReactNode | - |  |
 | size | 控件大小。注：标准表单内的输入框大小限制为 `large` | `large` \| `middle` \| `small` | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
@@ -46,7 +47,6 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | allowClear | 可以点击清除图标删除内容 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
-| countFormatter | 指定字数展示的格式 | (count: number, maxLength?: number) => string | - | 4.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | maxLength | 内容最大长度 | number | - | 4.7.0 |
 | showCount | 是否展示字数 | boolean \| { formatter: ({ count: number, maxLength?: number }) => string } | false | 4.7.0 (formatter: 4.10.0) |
@@ -105,3 +105,7 @@ const suffix = condition ? <Icon type="smile" /> : <span />;
 
 <Input suffix={suffix} />;
 ```
+
+### 为何 TextArea 受控时，`value` 可以超过 `maxLength`？
+
+受控时，组件应该按照受控内容展示。以防止在表单组件内使用时显示值和提交值不同的问题。

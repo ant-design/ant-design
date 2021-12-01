@@ -75,7 +75,13 @@ const BackTop: React.FC<BackTopProps> = props => {
     }
   };
 
-  const renderChildren = ({ prefixCls }: { prefixCls: string }) => {
+  const renderChildren = ({
+    prefixCls,
+    rootPrefixCls,
+  }: {
+    prefixCls: string;
+    rootPrefixCls: string;
+  }) => {
     const { children } = props;
     const defaultElement = (
       <div className={`${prefixCls}-content`}>
@@ -85,17 +91,12 @@ const BackTop: React.FC<BackTopProps> = props => {
       </div>
     );
     return (
-      <CSSMotion visible={visible} motionName="fade" removeOnLeave>
-        {({ className: motionClassName }) => {
-          const childNode = children || defaultElement;
-          return (
-            <div>
-              {cloneElement(childNode, ({ className }) => ({
-                className: classNames(motionClassName, className),
-              }))}
-            </div>
-          );
-        }}
+      <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
+        {({ className: motionClassName }) =>
+          cloneElement(children || defaultElement, ({ className }) => ({
+            className: classNames(motionClassName, className),
+          }))
+        }
       </CSSMotion>
     );
   };
@@ -103,6 +104,7 @@ const BackTop: React.FC<BackTopProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('back-top', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
   const classString = classNames(
     prefixCls,
     {
@@ -123,7 +125,7 @@ const BackTop: React.FC<BackTopProps> = props => {
 
   return (
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
-      {renderChildren({ prefixCls })}
+      {renderChildren({ prefixCls, rootPrefixCls })}
     </div>
   );
 };

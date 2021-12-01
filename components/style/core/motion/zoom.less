@@ -1,7 +1,8 @@
 .zoom-motion(@className, @keyframeName, @duration: @animation-duration-base) {
-  .make-motion(@className, @keyframeName, @duration);
-  .@{className}-enter,
-  .@{className}-appear {
+  @name: ~'@{ant-prefix}-@{className}';
+  .make-motion(@name, @keyframeName, @duration);
+  .@{name}-enter,
+  .@{name}-appear {
     transform: scale(0); // need this by yiminghe
     opacity: 0;
     animation-timing-function: @ease-out-circ;
@@ -10,7 +11,7 @@
       transform: none;
     }
   }
-  .@{className}-leave {
+  .@{name}-leave {
     animation-timing-function: @ease-in-out-circ;
   }
 }
@@ -32,6 +33,7 @@
     transform: scale(0.2);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -42,6 +44,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0.2);
     opacity: 0;
@@ -53,6 +56,7 @@
     transform: scale(0.8);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -63,6 +67,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0.8);
     opacity: 0;
@@ -75,6 +80,7 @@
     transform-origin: 50% 0%;
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     transform-origin: 50% 0%;
@@ -86,6 +92,7 @@
     transform: scale(1);
     transform-origin: 50% 0%;
   }
+
   100% {
     transform: scale(0.8);
     transform-origin: 50% 0%;
@@ -99,6 +106,7 @@
     transform-origin: 0% 50%;
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     transform-origin: 0% 50%;
@@ -110,6 +118,7 @@
     transform: scale(1);
     transform-origin: 0% 50%;
   }
+
   100% {
     transform: scale(0.8);
     transform-origin: 0% 50%;
@@ -123,6 +132,7 @@
     transform-origin: 100% 50%;
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     transform-origin: 100% 50%;
@@ -134,6 +144,7 @@
     transform: scale(1);
     transform-origin: 100% 50%;
   }
+
   100% {
     transform: scale(0.8);
     transform-origin: 100% 50%;
@@ -147,6 +158,7 @@
     transform-origin: 50% 100%;
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     transform-origin: 50% 100%;
@@ -158,6 +170,7 @@
     transform: scale(1);
     transform-origin: 50% 100%;
   }
+
   100% {
     transform: scale(0.8);
     transform-origin: 50% 100%;

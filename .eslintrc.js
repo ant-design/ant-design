@@ -2,10 +2,11 @@ module.exports = {
   extends: [
     'airbnb',
     'prettier',
+    'plugin:compat/recommended',
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:import/typescript',
-    'prettier/react',
+    'plugin:markdown/recommended',
   ],
   env: {
     browser: true,
@@ -18,9 +19,10 @@ module.exports = {
     react: {
       version: '16.9',
     },
+    polyfills: ['Promise', 'URL'],
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn'],
+  plugins: ['react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
@@ -32,7 +34,28 @@ module.exports = {
       },
     },
     {
-      files: ['*.md'],
+      // In v2, explicitly apply eslint-plugin-markdown's `markdown`
+      // processor on any Markdown files you want to lint.
+      files: ['components/*/demo/*.md'],
+      processor: 'markdown/markdown',
+    },
+    {
+      // In v2, configuration for fenced code blocks is separate from the
+      // containing Markdown file. Each code block has a virtual filename
+      // appended to the Markdown file's path.
+      files: [
+        'components/*/demo/*.md/*.ts',
+        'components/*/demo/*.md/*.tsx',
+        'components/*/demo/*.md/*.js',
+        'components/*/demo/*.md/*.jsx',
+      ],
+      // Configuration for fenced code blocks goes with the override for
+      // the code block's virtual filename, for example:
+      parserOptions: {
+        ecmaFeatures: {
+          impliedStrict: true,
+        },
+      },
       globals: {
         React: true,
         ReactDOM: true,
@@ -40,17 +63,23 @@ module.exports = {
       },
       rules: {
         indent: 0,
+        'default-case': 0,
+        'eol-last': 0,
         'no-console': 0,
         'no-plusplus': 0,
-        'eol-last': 0,
         'no-script-url': 0,
         'prefer-rest-params': 0,
+        'compat/compat': 0,
+        'class-methods-use-this': 0,
         'react/no-access-state-in-setstate': 0,
         'react/destructuring-assignment': 0,
         'react/no-multi-comp': 0,
+        'react/no-array-index-key': 0,
         'jsx-a11y/href-no-hash': 0,
-        'import/no-extraneous-dependencies': 0,
         'jsx-a11y/control-has-associated-label': 0,
+        'import/no-extraneous-dependencies': 0,
+        'react/jsx-no-constructed-context-values': 0,
+        'react/no-unstable-nested-components': 0,
       },
     },
   ],
@@ -68,11 +97,13 @@ module.exports = {
     'react/sort-comp': 0,
     'react/display-name': 0,
     'react/static-property-placement': 0,
+    'react/jsx-no-bind': 0, // Should not check test file
     'react/no-find-dom-node': 0,
     'react/no-unused-prop-types': 0,
     'react/default-props-match-prop-types': 0,
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
-
+    'react/function-component-definition': 0,
+    'react/no-unused-class-component-methods': 0,
     'import/extensions': 0,
     'import/no-cycle': 0,
     'import/no-extraneous-dependencies': [

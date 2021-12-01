@@ -1,7 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
-
 @import './single';
 @import './multiple';
 
@@ -37,6 +36,10 @@
     background: @input-disabled-bg;
     cursor: not-allowed;
 
+    .@{select-prefix-cls}-multiple& {
+      background: @select-multiple-disabled-background;
+    }
+
     input {
       cursor: not-allowed;
     }
@@ -55,6 +58,7 @@
 
     &::-webkit-search-cancel-button {
       display: none;
+      /* stylelint-disable-next-line property-no-vendor-prefix */
       -webkit-appearance: none;
     }
   }
@@ -79,6 +83,7 @@
   &-selection-item {
     flex: 1;
     overflow: hidden;
+    font-weight: normal;
     white-space: nowrap;
     text-overflow: ellipsis;
 
@@ -113,7 +118,7 @@
   &-arrow {
     .iconfont-mixin();
     position: absolute;
-    top: 53%;
+    top: 50%;
     right: @control-padding-horizontal - 1px;
     width: @font-size-sm;
     height: @font-size-sm;
@@ -163,9 +168,11 @@
     opacity: 0;
     transition: color 0.3s ease, opacity 0.15s ease;
     text-rendering: auto;
+
     &::before {
       display: block;
     }
+
     &:hover {
       color: @text-color-secondary;
     }
@@ -195,21 +202,21 @@
     outline: none;
     box-shadow: @box-shadow-base;
 
-    &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
-    &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
+    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-bottomLeft,
+    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-bottomLeft {
       animation-name: antSlideUpIn;
     }
 
-    &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
-    &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
+    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topLeft,
+    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topLeft {
       animation-name: antSlideDownIn;
     }
 
-    &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
+    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-bottomLeft {
       animation-name: antSlideUpOut;
     }
 
-    &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
+    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topLeft {
       animation-name: antSlideDownOut;
     }
 
@@ -282,6 +289,9 @@
       }
 
       &-disabled {
+        &.@{select-prefix-cls}-item-option-selected {
+          background-color: @select-multiple-disabled-background;
+        }
         color: @disabled-color;
         cursor: not-allowed;
       }

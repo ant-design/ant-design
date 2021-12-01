@@ -39,5 +39,5 @@ cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 | simple | 当添加该属性时，显示为简单分页 | boolean | - |  |
 | size | 当为 `small` 时，是小尺寸分页 | `default` \| `small` | `default` |  |
 | total | 数据总数 | number | 0 |  |
-| onChange | 页码改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  |
+| onChange | 页码或 `pageSize` 改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  |
 | onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  |

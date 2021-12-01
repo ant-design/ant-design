@@ -85,4 +85,11 @@ describe('Tabs', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('tabBarGutter should work', () => {
+    const wrapper = mount(<Tabs tabBarGutter={0}><TabPane /><TabPane /><TabPane /></Tabs>);
+    expect(wrapper).toMatchRenderedSnapshot();
+    const wrapper2 = mount(<Tabs tabBarGutter={0} tabPosition="left"><TabPane /><TabPane /><TabPane /></Tabs>);
+    expect(wrapper2).toMatchRenderedSnapshot();
+  });
 });

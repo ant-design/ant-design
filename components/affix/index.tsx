@@ -60,7 +60,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   fixedNode: HTMLDivElement;
 
-  private timeout: number;
+  private timeout: any;
 
   context: ConfigConsumerProps;
 
@@ -215,9 +215,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
     // Test if `updatePosition` called
     if (process.env.NODE_ENV === 'test') {
       const { onTestUpdatePosition } = this.props as any;
-      if (onTestUpdatePosition) {
-        onTestUpdatePosition();
-      }
+      onTestUpdatePosition?.();
     }
   };
 
@@ -258,12 +256,12 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 
   // =================== Render ===================
-  render = () => {
+  render() {
     const { getPrefixCls } = this.context;
     const { affixStyle, placeholderStyle } = this.state;
     const { prefixCls, children } = this.props;
     const className = classNames({
-      [getPrefixCls('affix', prefixCls)]: affixStyle,
+      [getPrefixCls('affix', prefixCls)]: !!affixStyle,
     });
 
     let props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
@@ -292,7 +290,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
         </div>
       </ResizeObserver>
     );
-  };
+  }
 }
 
 export default Affix;

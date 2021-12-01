@@ -202,4 +202,15 @@ describe('CheckboxGroup', () => {
     wrapper.find('.ant-checkbox-input').at(1).simulate('change');
     expect(onChange).not.toHaveBeenCalled();
   });
+
+  it('should get div ref', () => {
+    mount(
+      <Checkbox.Group
+        options={['Apple', 'Pear', 'Orange']}
+        ref={node => {
+          expect(node.nodeName).toBe('DIV');
+        }}
+      />,
+    );
+  });
 });

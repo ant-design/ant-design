@@ -31,12 +31,10 @@ ReactDOM.render(
     </Paragraph>
     <Paragraph>
       After massive project practice and summaries, Ant Design, a design language for background
-      applications, is refined by Ant UED Team, which aims to
-      <Text strong>
+      applications, is refined by Ant UED Team, which aims to <Text strong>
         uniform the user interface specs for internal background projects, lower the unnecessary
         cost of design differences and implementation and liberate the resources of design and
-        front-end development
-      </Text>.
+        front-end development</Text>.
     </Paragraph>
     <Title level={2}>Guidelines and Resources</Title>
     <Paragraph>
@@ -51,10 +49,10 @@ ReactDOM.render(
           <Link href="/docs/spec/proximity">Principles</Link>
         </li>
         <li>
-          <Link href="/docs/pattern/navigation">Patterns</Link>
+          <Link href="/docs/spec/overview">Patterns</Link>
         </li>
         <li>
-          <Link href="/docs/resource/download">Resource Download</Link>
+          <Link href="/docs/resources">Resource Download</Link>
         </li>
       </ul>
     </Paragraph>
@@ -84,13 +82,13 @@ ReactDOM.render(
     <Paragraph>
       <ul>
         <li>
-          <Link href="/docs/spec/proximity">设计原则</Link>
+          <Link href="/docs/spec/proximity-cn">设计原则</Link>
         </li>
         <li>
-          <Link href="/docs/pattern/navigation">设计模式</Link>
+          <Link href="/docs/spec/overview-cn">设计模式</Link>
         </li>
         <li>
-          <Link href="/docs/resource/download">设计资源</Link>
+          <Link href="/docs/resources-cn">设计资源</Link>
         </li>
       </ul>
     </Paragraph>

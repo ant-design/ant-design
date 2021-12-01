@@ -1,4 +1,4 @@
-/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable property-no-vendor-prefix, at-rule-no-vendor-prefix */
 
 // Reboot
 //
@@ -199,6 +199,7 @@ sup {
 sub {
   bottom: -0.25em;
 }
+
 sup {
   top: -0.5em;
 }
@@ -239,7 +240,6 @@ a {
   &[disabled] {
     color: @disabled-color;
     cursor: not-allowed;
-    pointer-events: none;
   }
 }
 
@@ -321,12 +321,6 @@ caption {
   color: @text-color-secondary;
   text-align: left;
   caption-side: bottom;
-}
-
-th {
-  // Matches default `<td>` alignment by inheriting from the `<body>`, or the
-  // closest parent with a set `text-align`.
-  text-align: inherit;
 }
 
 //

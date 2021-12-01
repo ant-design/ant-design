@@ -12,6 +12,7 @@ import {
   attachTypeApi,
   ThenableArgument,
   getKeyThenIncreaseKey,
+  NoticeType,
 } from '..';
 
 export default function createUseMessage(
@@ -24,6 +25,7 @@ export default function createUseMessage(
   const useMessage = (): [MessageInstance, React.ReactElement] => {
     // We can only get content by render
     let getPrefixCls: ConfigConsumerProps['getPrefixCls'];
+    let getPopupContainer: ConfigConsumerProps['getPopupContainer'];
 
     // We create a proxy to handle delay created instance
     let innerInstance: RCNotificationInstance | null = null;
@@ -38,6 +40,7 @@ export default function createUseMessage(
     function notify(args: ArgsProps) {
       const { prefixCls: customizePrefixCls } = args;
       const mergedPrefixCls = getPrefixCls('message', customizePrefixCls);
+      const rootPrefixCls = getPrefixCls();
       const target = args.key || getKeyThenIncreaseKey();
       const closePromise = new Promise(resolve => {
         const callback = () => {
@@ -50,6 +53,8 @@ export default function createUseMessage(
           {
             ...args,
             prefixCls: mergedPrefixCls,
+            rootPrefixCls,
+            getPopupContainer,
           },
           ({ prefixCls, instance }) => {
             innerInstance = instance;
@@ -73,7 +78,7 @@ export default function createUseMessage(
 
     hookApiRef.current.open = notify;
 
-    ['success', 'info', 'warning', 'error', 'loading'].forEach(type =>
+    (['success', 'info', 'warning', 'error', 'loading'] as NoticeType[]).forEach(type =>
       attachTypeApi(hookApiRef.current, type),
     );
 
@@ -81,7 +86,7 @@ export default function createUseMessage(
       hookApiRef.current,
       <ConfigConsumer key="holder">
         {(context: ConfigConsumerProps) => {
-          ({ getPrefixCls } = context);
+          ({ getPrefixCls, getPopupContainer } = context);
           return holder;
         }}
       </ConfigConsumer>,

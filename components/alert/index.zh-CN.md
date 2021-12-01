@@ -22,6 +22,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg
 | banner | 是否用作顶部公告 | boolean | false |  |
 | closable | 默认不显示关闭按钮 | boolean | - |  |
 | closeText | 自定义关闭按钮 | ReactNode | - |  |
+| closeIcon | 自定义关闭 Icon | ReactNode | <CloseOutlined /> | 4.17.0 |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
 | message | 警告提示内容 | ReactNode | - |  |

@@ -15,6 +15,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 更多布局和导航的使用可以参考：[通用布局](/components/layout)。
 
+## 开发者注意事项
+
+- Menu 元素为 `ul`，因而仅支持 [`li` 以及 `script-supporting` 子元素](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)。因而你的子节点元素应该都在 `Menu.Item` 内使用。
+- Menu 需要计算节点结构，因而其子元素仅支持 `Menu.*` 以及对此进行封装的 HOC 组件。
+
 ## API
 
 ```jsx
@@ -106,3 +111,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ### Menu.Divider
 
 菜单项分割线，只用在弹出菜单内。
+
+| 参数   | 说明     | 类型    | 默认值 | 版本   |
+| ------ | -------- | ------- | ------ | ------ |
+| dashed | 是否虚线 | boolean | false  | 4.17.0 |
+
+## FAQ
+
+### 为何 Menu 的子元素会渲染两次？
+
+Menu 通过[二次渲染](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543)收集嵌套结构信息以支持 HOC 的结构。合并成一个推导结构会使得逻辑变得十分复杂，欢迎 PR 以协助改进该设计。

@@ -1,11 +1,12 @@
 .fade-motion(@className, @keyframeName) {
-  .make-motion(@className, @keyframeName);
-  .@{className}-enter,
-  .@{className}-appear {
+  @name: ~'@{ant-prefix}-@{className}';
+  .make-motion(@name, @keyframeName);
+  .@{name}-enter,
+  .@{name}-appear {
     opacity: 0;
     animation-timing-function: linear;
   }
-  .@{className}-leave {
+  .@{name}-leave {
     animation-timing-function: linear;
   }
 }
@@ -16,6 +17,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -25,6 +27,7 @@
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }

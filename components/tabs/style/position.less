@@ -1,4 +1,5 @@
-@import './index';
+@import '../../style/themes/index';
+@tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
 .@{tab-prefix-cls} {
   // ========================== Top & Bottom ==========================
@@ -39,6 +40,7 @@
           left: 0;
           box-shadow: inset 10px 0 8px -8px fade(@shadow-color, 8%);
         }
+
         &::after {
           right: 0;
           box-shadow: inset -10px 0 8px -8px fade(@shadow-color, 8%);
@@ -99,18 +101,12 @@
 
       // >>>>>>>>>>> Tab
       .@{tab-prefix-cls}-tab {
-        margin: @tabs-vertical-margin;
         padding: @tabs-vertical-padding;
         text-align: center;
+      }
 
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-
-        &-active .@{tab-prefix-cls}-tab-btn {
-          font-weight: normal;
-          text-shadow: 0 0 0.25px @tabs-active-color;
-        }
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+        margin: @tabs-vertical-margin;
       }
 
       // >>>>>>>>>>> Nav
@@ -128,6 +124,7 @@
           top: 0;
           box-shadow: inset 0 10px 8px -8px fade(@shadow-color, 8%);
         }
+
         &::after {
           bottom: 0;
           box-shadow: inset 0 -10px 8px -8px fade(@shadow-color, 8%);
@@ -152,6 +149,7 @@
 
       .@{tab-prefix-cls}-nav-list,
       .@{tab-prefix-cls}-nav-operations {
+        flex: 1 0 auto; // fix safari scroll problem
         flex-direction: column;
       }
     }

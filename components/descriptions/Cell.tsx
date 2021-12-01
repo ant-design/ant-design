@@ -47,7 +47,8 @@ const Cell: React.FC<CellProps> = ({
         style={style}
         colSpan={span}
       >
-        {notEmpty(label) ? label : content}
+        {notEmpty(label) && <span style={labelStyle}>{label}</span>}
+        {notEmpty(content) && <span style={contentStyle}>{content}</span>}
       </Component>
     );
   }

@@ -204,16 +204,16 @@ describe('Layout', () => {
       </Sider>,
     );
 
-    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
-    wrapper.find('.ant-menu-item').simulate('mouseout');
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseout');
     jest.runAllTimers();
     wrapper.update();
 
     wrapper.setProps({ collapsed: true });
-    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-inner').length).toBeTruthy();
@@ -283,5 +283,17 @@ describe('Sider', () => {
       </Sider>,
     );
     expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
+  });
+
+  it('should get aside element from ref', () => {
+    const ref = React.createRef();
+    const onSelect = jest.fn();
+
+    mount(
+      <Sider onSelect={onSelect} ref={ref}>
+        Sider
+      </Sider>,
+    );
+    expect(ref.current instanceof HTMLElement).toBe(true);
   });
 });

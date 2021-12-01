@@ -12,11 +12,14 @@ import {
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
+  Theme,
 } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
+import { registerTheme } from './cssVariables';
+import defaultLocale from '../locale/default';
 
 export {
   RenderEmptyHandler,
@@ -51,7 +54,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
 
 export interface ConfigProviderProps {
   getTargetContainer?: () => HTMLElement;
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   prefixCls?: string;
   iconPrefixCls?: string;
   children?: React.ReactNode;
@@ -61,6 +64,7 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
+    colon?: boolean;
   };
   input?: {
     autoComplete?: string;
@@ -82,6 +86,63 @@ interface ProviderChildrenProps extends ConfigProviderProps {
   parentContext: ConfigConsumerProps;
   legacyLocale: Locale;
 }
+
+export const defaultPrefixCls = 'ant';
+export const defaultIconPrefixCls = 'anticon';
+let globalPrefixCls: string;
+let globalIconPrefixCls: string;
+
+function getGlobalPrefixCls() {
+  return globalPrefixCls || defaultPrefixCls;
+}
+
+function getGlobalIconPrefixCls() {
+  return globalIconPrefixCls || defaultIconPrefixCls;
+}
+
+const setGlobalConfig = ({
+  prefixCls,
+  iconPrefixCls,
+  theme,
+}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
+  if (prefixCls !== undefined) {
+    globalPrefixCls = prefixCls;
+  }
+  if (iconPrefixCls !== undefined) {
+    globalIconPrefixCls = iconPrefixCls;
+  }
+
+  if (theme) {
+    registerTheme(getGlobalPrefixCls(), theme);
+  }
+};
+
+export const globalConfig = () => ({
+  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
+    if (customizePrefixCls) return customizePrefixCls;
+    return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
+  },
+  getIconPrefixCls: getGlobalIconPrefixCls,
+  getRootPrefixCls: (rootPrefixCls?: string, customizePrefixCls?: string) => {
+    // Customize rootPrefixCls is first priority
+    if (rootPrefixCls) {
+      return rootPrefixCls;
+    }
+
+    // If Global prefixCls provided, use this
+    if (globalPrefixCls) {
+      return globalPrefixCls;
+    }
+
+    // [Legacy] If customize prefixCls provided, we cut it to get the prefixCls
+    if (customizePrefixCls && customizePrefixCls.includes('-')) {
+      return customizePrefixCls.replace(/^(.*)-[^-]*$/, '$1');
+    }
+
+    // Fallback to default prefixCls
+    return getGlobalPrefixCls();
+  },
+});
 
 const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const {
@@ -110,7 +171,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
       return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
     },
-    [parentContext.getPrefixCls],
+    [parentContext.getPrefixCls, props.prefixCls],
   );
 
   const config = {
@@ -148,14 +209,18 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     },
   );
 
-  const memoIconContextValue = React.useMemo(() => ({ prefixCls: iconPrefixCls }), [iconPrefixCls]);
+  const memoIconContextValue = React.useMemo(
+    () => ({ prefixCls: iconPrefixCls, csp }),
+    [iconPrefixCls],
+  );
 
   let childNode = children;
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
 
-  if (locale && locale.Form && locale.Form.defaultValidateMessages) {
-    validateMessages = locale.Form.defaultValidateMessages;
+  if (locale) {
+    validateMessages =
+      locale.Form?.defaultValidateMessages || defaultLocale.Form?.defaultValidateMessages || {};
   }
   if (form && form.validateMessages) {
     validateMessages = { ...validateMessages, ...form.validateMessages };
@@ -189,6 +254,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
+  config: typeof setGlobalConfig;
 } = props => {
   React.useEffect(() => {
     if (props.direction) {
@@ -218,8 +284,9 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   );
 };
 
-/** @private internal usage. do not use in your production */
+/** @private internal Usage. do not use in your production */
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
+ConfigProvider.config = setGlobalConfig;
 
 export default ConfigProvider;

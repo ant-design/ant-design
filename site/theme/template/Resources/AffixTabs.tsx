@@ -16,9 +16,12 @@ export default () => {
   const [fixedId, setFixedId] = React.useState<string | null>(null);
 
   function scrollToId(id: string) {
-    const newTop =
-      document.getElementById(id)!.offsetTop - containerRef.current!.offsetHeight - VIEW_BALANCE;
-    scrollTo(newTop);
+    const targetNode = document.getElementById(id);
+
+    if (targetNode) {
+      const newTop = targetNode.offsetTop - containerRef.current!.offsetHeight - VIEW_BALANCE;
+      scrollTo(newTop);
+    }
   }
 
   React.useEffect(() => {

@@ -24,13 +24,14 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | Display ellipsis when text overflows | boolean | false |  |
+| ellipsis | Display ellipsis when text overflows，can't configure expandable、rows and onExpand by using object | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | mark | Marked style | boolean | false |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
+| italic | Italic style | boolean | false | 4.16.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
 
 ### Typography.Title
 
@@ -44,9 +45,10 @@ Basic text writing, including headings, body text, lists, and more.
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | Marked style | boolean | false |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
+| italic | Italic style | boolean | false | 4.16.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
 
 ### Typography.Paragraph
 
@@ -59,10 +61,11 @@ Basic text writing, including headings, body text, lists, and more.
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | mark | Marked style | boolean | false |  |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
+| italic | Italic style | boolean | false | 4.16.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| onChange | Trigger when user edits the content | function(string) | - |  |
 
 ### copyable
 
@@ -90,6 +93,10 @@ Basic text writing, including headings, body text, lists, and more.
       autoSize: boolean | { minRows: number, maxRows: number },
       onStart: function,
       onChange: function(string),
+      onCancel: function,
+      onEnd: function,
+      triggerType: ('icon' | 'text')[],
+      enterIcon: ReactNode,
     }
 
 | Property | Description | Type | Default | Version |
@@ -99,8 +106,12 @@ Basic text writing, including headings, body text, lists, and more.
 | icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
 | tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
-| onChange | Called when input at textarea | function(event) | - |  |
 | onStart | Called when enter editable state | function | - |  |
+| onChange | Called when input at textarea | function(event) | - |  |
+| onCancel | Called when type ESC to exit editable state | function | - |  |
+| onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
+| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
 ### ellipsis
 

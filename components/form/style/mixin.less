@@ -1,12 +1,19 @@
 @import '../../input/style/mixin';
 
-.form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
+.form-control-validation(
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
   .@{ant-prefix}-form-item-split {
     color: @text-color;
   }
   // 输入框的不同校验状态
-  .@{ant-prefix}-input,
-  .@{ant-prefix}-input-affix-wrapper {
+  :not(.@{ant-prefix}-input-disabled):not(.@{ant-prefix}-input-borderless).@{ant-prefix}-input,
+  :not(.@{ant-prefix}-input-affix-wrapper-disabled):not(.@{ant-prefix}-input-affix-wrapper-borderless).@{ant-prefix}-input-affix-wrapper,
+  :not(.@{ant-prefix}-input-number-affix-wrapper-disabled):not(.@{ant-prefix}-input-number-affix-wrapper-borderless).@{ant-prefix}-input-number-affix-wrapper {
     &,
     &:hover {
       background-color: @background-color;
@@ -15,33 +22,21 @@
 
     &:focus,
     &-focused {
-      .active(@border-color);
-    }
-  }
-
-  .@{ant-prefix}-input-disabled {
-    background-color: @input-disabled-bg;
-    border-color: @input-border-color;
-  }
-
-  .@{ant-prefix}-input-affix-wrapper-disabled {
-    background-color: @input-disabled-bg;
-    border-color: @input-border-color;
-
-    input:focus {
-      box-shadow: none !important;
+      .active(@border-color, @hoverBorderColor, @outlineColor);
     }
   }
 
   .@{ant-prefix}-calendar-picker-open .@{ant-prefix}-calendar-picker-input {
-    .active(@border-color);
+    .active(@border-color, @hoverBorderColor, @outlineColor);
   }
 
-  .@{ant-prefix}-input-prefix {
+  .@{ant-prefix}-input-prefix,
+  .@{ant-prefix}-input-number-prefix {
     color: @text-color;
   }
 
-  .@{ant-prefix}-input-group-addon {
+  .@{ant-prefix}-input-group-addon,
+  .@{ant-prefix}-input-number-group-addon {
     color: @text-color;
     border-color: @border-color;
   }

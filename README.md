@@ -12,9 +12,9 @@ An enterprise-class UI design language and React UI library.
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![david deps][david-image]][david-url] [![david devDeps][david-dev-image]][david-dev-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
+[![Renovate status][renovate-image]][renovate-dashboard-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
 
-[![Follow Twitter][twitter-image]][twitter-url] [![FOSSA Status][fossa-image]][fossa-url] [![Discussions][discussions-image]][discussions-url] [![Issues need help][help-wanted-image]][help-wanted-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![FOSSA Status][fossa-image]][fossa-url] [![Discussions][discussions-image]][discussions-url] [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
@@ -22,10 +22,6 @@ An enterprise-class UI design language and React UI library.
 [github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3A%22%E2%9C%85+test%22
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
-[david-image]: https://img.shields.io/david/ant-design/ant-design?style=flat-square
-[david-dev-url]: https://david-dm.org/ant-design/ant-design?type=dev
-[david-dev-image]: https://img.shields.io/david/dev/ant-design/ant-design?style=flat-square
-[david-url]: https://david-dm.org/ant-design/ant-design
 [download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
 [download-url]: https://npmjs.org/package/antd
 [lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
@@ -42,12 +38,16 @@ An enterprise-class UI design language and React UI library.
 [bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.css?label=antd.min.css&compression=gzip&style=flat-square
 [unpkg-js-url]: https://unpkg.com/browse/antd/dist/antd.min.js
 [unpkg-css-url]: https://unpkg.com/browse/antd/dist/antd.min.css
+[issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
+[issues-helper-url]: https://github.com/actions-cool/issues-helper
+[renovate-image]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square
+[renovate-dashboard-url]: https://github.com/ant-design/ant-design/issues/32498
 
 </div>
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
-English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
+English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md)
 
 ## ✨ Features
 
@@ -99,7 +99,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to getting started.
+`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to get started.
 
 ## 🌍 Internationalization
 
@@ -150,7 +150,7 @@ Read our [contributing guide](https://ant.design/docs/react/contributing) and le
 
 We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
 
-If you are a collaborator, please follow our [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request by [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
+If you are a collaborator, please follow our [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request with [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 

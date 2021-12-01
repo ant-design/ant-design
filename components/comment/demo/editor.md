@@ -62,13 +62,13 @@ class App extends React.Component {
         submitting: false,
         value: '',
         comments: [
+          ...this.state.comments,
           {
             author: 'Han Solo',
-            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            avatar: 'https://joeschmoe.io/api/v1/random',
             content: <p>{this.state.value}</p>,
             datetime: moment().fromNow(),
           },
-          ...this.state.comments,
         ],
       });
     }, 1000);
@@ -87,12 +87,7 @@ class App extends React.Component {
       <>
         {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
-          avatar={
-            <Avatar
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              alt="Han Solo"
-            />
-          }
+          avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
           content={
             <Editor
               onChange={this.handleChange}

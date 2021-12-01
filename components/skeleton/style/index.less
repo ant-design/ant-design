@@ -109,6 +109,15 @@
     }
   }
 
+  // Skeleton Block Button
+  &.@{skeleton-prefix-cls}-block {
+    width: 100%;
+
+    .@{skeleton-button-prefix-cls} {
+      width: 100%;
+    }
+  }
+
   // Skeleton element
   &-element {
     display: inline-block;
@@ -214,10 +223,12 @@
 
 .skeleton-element-button-size(@size) {
   width: @size * 2;
+  min-width: @size * 2;
   .skeleton-element-common-size(@size);
 
   &.@{skeleton-button-prefix-cls}-circle {
     width: @size;
+    min-width: @size;
     border-radius: 50%;
   }
 
@@ -260,6 +271,7 @@
   0% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0 50%;
   }

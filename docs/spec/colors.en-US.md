@@ -40,7 +40,7 @@ ReactDOM.render(<Palette color={{ name: 'gray', count: 13 }} direction="horizont
 
 ### Data Visualization Color Palette
 
-Data visualization color palette is based on the basic color palette and neutral color palette, and based on the principle that AntV's "effective, clear, accurate and beautiful". [View Palette](https://antv.vision/en/docs/specification/principles/visual)
+Data visualization color palette is based on the basic color palette and neutral color palette, and based on the principle that AntV's "effective, clear, accurate and beautiful". [View Palette](https://antv.vision/en/docs/specification/language/palette)
 
 ### Palette Generation Tool
 

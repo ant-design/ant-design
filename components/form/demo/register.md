@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import {
   Form,
   Input,
-  Tooltip,
+  InputNumber,
   Cascader,
   Select,
   Row,
@@ -27,7 +27,6 @@ import {
   Button,
   AutoComplete,
 } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -105,6 +104,15 @@ const RegistrationForm = () => {
     </Form.Item>
   );
 
+  const suffixSelector = (
+    <Form.Item name="suffix" noStyle>
+      <Select style={{ width: 70 }}>
+        <Option value="USD">$</Option>
+        <Option value="CNY">¥</Option>
+      </Select>
+    </Form.Item>
+  );
+
   const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
 
   const onWebsiteChange = (value: string) => {
@@ -178,7 +186,7 @@ const RegistrationForm = () => {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject('The two passwords that you entered do not match!');
+              return Promise.reject(new Error('The two passwords that you entered do not match!'));
             },
           }),
         ]}
@@ -188,14 +196,8 @@ const RegistrationForm = () => {
 
       <Form.Item
         name="nickname"
-        label={
-          <span>
-            Nickname&nbsp;
-            <Tooltip title="What do you want others to call you?">
-              <QuestionCircleOutlined />
-            </Tooltip>
-          </span>
-        }
+        label="Nickname"
+        tooltip="What do you want others to call you?"
         rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
       >
         <Input />
@@ -220,6 +222,14 @@ const RegistrationForm = () => {
       </Form.Item>
 
       <Form.Item
+        name="donation"
+        label="Donation"
+        rules={[{ required: true, message: 'Please input donation amount!' }]}
+      >
+        <InputNumber addonAfter={suffixSelector} style={{ width: '100%' }} />
+      </Form.Item>
+
+      <Form.Item
         name="website"
         label="Website"
         rules={[{ required: true, message: 'Please input website!' }]}
@@ -227,6 +237,26 @@ const RegistrationForm = () => {
         <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
           <Input />
         </AutoComplete>
+      </Form.Item>
+
+      <Form.Item
+        name="intro"
+        label="Intro"
+        rules={[{ required: true, message: 'Please input Intro' }]}
+      >
+        <Input.TextArea showCount maxLength={100} />
+      </Form.Item>
+
+      <Form.Item
+        name="gender"
+        label="Gender"
+        rules={[{ required: true, message: 'Please select gender!' }]}
+      >
+        <Select placeholder="select your gender">
+          <Option value="male">Male</Option>
+          <Option value="female">Female</Option>
+          <Option value="other">Other</Option>
+        </Select>
       </Form.Item>
 
       <Form.Item label="Captcha" extra="We must make sure that your are a human.">
@@ -252,7 +282,7 @@ const RegistrationForm = () => {
         rules={[
           {
             validator: (_, value) =>
-              value ? Promise.resolve() : Promise.reject('Should accept agreement'),
+              value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
           },
         ]}
         {...tailFormItemLayout}

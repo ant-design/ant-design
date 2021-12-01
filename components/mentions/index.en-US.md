@@ -9,7 +9,7 @@ Mention component.
 
 ## When To Use
 
-When need to mention someone or something.
+When you need to mention someone or something.
 
 ## API
 
@@ -43,10 +43,10 @@ When need to mention someone or something.
 
 ### Mention methods
 
-| Name    | Description  |
-| ------- | ------------ |
-| blur()  | Remove focus |
-| focus() | Get focus    |
+| Name | Description |
+| --- | --- |
+| blur() | Remove focus |
+| focus() | Get focus |
 
 ### Option
 

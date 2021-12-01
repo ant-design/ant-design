@@ -14,20 +14,27 @@
 }
 
 // input status
-// == when focus or actived
-.active(@color: @outline-color) {
+// == when focus or active
+.active(@borderColor: @primary-color; @hoverBorderColor: @primary-color-hover; @outlineColor: @primary-color-outline) {
   & when (@theme = dark) {
-    border-color: @color;
+    border-color: @borderColor;
   }
-  & when not (@theme = dark) {
-    border-color: ~`colorPalette('@{color}', 5) `;
+  & when (not (@theme = dark) and not (@theme = variable)) {
+    border-color: @hoverBorderColor;
+  }
+  & when not (@theme = variable) {
+    box-shadow: @input-outline-offset @outline-blur-size @outline-width
+      fade(@borderColor, @outline-fade);
+  }
+  & when (@theme = variable) {
+    border-color: @hoverBorderColor;
+    box-shadow: @input-outline-offset @outline-blur-size @outline-width @outlineColor;
   }
   border-right-width: @border-width-base !important;
   outline: 0;
-  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, @outline-fade);
 }
 
-// == when hoverd
+// == when hover
 .hover(@color: @input-hover-border-color) {
   border-color: @color;
   border-right-width: @border-width-base !important;
@@ -36,6 +43,8 @@
 .disabled() {
   color: @input-disabled-color;
   background-color: @input-disabled-bg;
+  border-color: @input-border-color;
+  box-shadow: none;
   cursor: not-allowed;
   opacity: 1;
 
@@ -205,6 +214,17 @@
         }
       }
     }
+
+    // https://github.com/ant-design/ant-design/issues/31333
+    .@{ant-prefix}-cascader-picker {
+      margin: -9px (-@control-padding-horizontal);
+      background-color: transparent;
+      .@{ant-prefix}-cascader-input {
+        text-align: left;
+        border: 0;
+        box-shadow: none;
+      }
+    }
   }
 
   // Reset rounded corners
@@ -273,11 +293,6 @@
   }
 
   .@{inputClass}-affix-wrapper {
-    &:not(:first-child) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-
     &:not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
@@ -285,6 +300,12 @@
         border-top-left-radius: @border-radius-base;
         border-bottom-left-radius: @border-radius-base;
       }
+    }
+
+    &:not(:first-child),
+    .@{ant-prefix}-input-search &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 

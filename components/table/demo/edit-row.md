@@ -9,7 +9,7 @@ title:
 
 带行编辑功能的表格。
 
-> 🛎️ 想要 3 分钟实现？试试 [ProTable 的可编辑表格](https://procomponents.ant.design/components/table#%E5%8F%AF%E7%BC%96%E8%BE%91%E8%A1%A8%E6%A0%BC)！
+> 🛎️ 想要 3 分钟实现？试试 [ProTable 的可编辑表格](https://procomponents.ant.design/components/editable-table)！
 
 ## en-US
 
@@ -145,9 +145,9 @@ const EditableTable = () => {
         const editable = isEditing(record);
         return editable ? (
           <span>
-            <a href="javascript:;" onClick={() => save(record.key)} style={{ marginRight: 8 }}>
+            <Typography.Link onClick={() => save(record.key)} style={{ marginRight: 8 }}>
               Save
-            </a>
+            </Typography.Link>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
               <a>Cancel</a>
             </Popconfirm>

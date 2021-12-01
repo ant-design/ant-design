@@ -60,29 +60,27 @@ const Content = ({ children, extra }) => (
 );
 
 ReactDOM.render(
-  <>
-    <PageHeader
-      className="site-page-header-responsive"
-      onBack={() => window.history.back()}
-      title="Title"
-      subTitle="This is a subtitle"
-      extra={[
-        <Button key="3">Operation</Button>,
-        <Button key="2">Operation</Button>,
-        <Button key="1" type="primary">
-          Primary
-        </Button>,
-      ]}
-      footer={
-        <Tabs defaultActiveKey="1">
-          <TabPane tab="Details" key="1" />
-          <TabPane tab="Rule" key="2" />
-        </Tabs>
-      }
-    >
-      <Content extra={extraContent}>{renderContent()}</Content>
-    </PageHeader>
-  </>,
+  <PageHeader
+    className="site-page-header-responsive"
+    onBack={() => window.history.back()}
+    title="Title"
+    subTitle="This is a subtitle"
+    extra={[
+      <Button key="3">Operation</Button>,
+      <Button key="2">Operation</Button>,
+      <Button key="1" type="primary">
+        Primary
+      </Button>,
+    ]}
+    footer={
+      <Tabs defaultActiveKey="1">
+        <TabPane tab="Details" key="1" />
+        <TabPane tab="Rule" key="2" />
+      </Tabs>
+    }
+  >
+    <Content extra={extraContent}>{renderContent()}</Content>
+  </PageHeader>,
   mountNode,
 );
 ```

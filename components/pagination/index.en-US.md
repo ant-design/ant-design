@@ -38,5 +38,5 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | simple | Whether to use simple mode | boolean | - |  |
 | size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` |  |
 | total | Total number of data items | number | 0 |  |
-| onChange | Called when the page number is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
+| onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  |

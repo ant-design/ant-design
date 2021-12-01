@@ -3,7 +3,6 @@ import * as React from 'react';
 import DatePicker from '../date-picker';
 import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 import devWarning from '../_util/devWarning';
-import { Omit } from '../_util/type';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -12,10 +11,18 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
-export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {}
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
+  popupClassName?: string;
+}
 
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
-  <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
+  <InternalRangePicker
+    {...props}
+    dropdownClassName={props.popupClassName}
+    picker="time"
+    mode={undefined}
+    ref={ref}
+  />
 ));
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {

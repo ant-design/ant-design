@@ -56,7 +56,7 @@ describe('Wave component', () => {
     );
     wrapper.find('button').getDOMNode().click();
     await sleep(0);
-    const styles = document.getElementsByTagName('style');
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles.length).toBe(0);
     wrapper.unmount();
   });
@@ -71,7 +71,7 @@ describe('Wave component', () => {
     );
     wrapper.find('button').getDOMNode().click();
     await sleep(200);
-    const styles = document.getElementsByTagName('style');
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     wrapper.unmount();
@@ -85,7 +85,7 @@ describe('Wave component', () => {
     );
     wrapper.find('div').getDOMNode().click();
     await sleep(0);
-    const styles = document.getElementsByTagName('style');
+    const styles = wrapper.find('div').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: blue;');
     wrapper.unmount();
@@ -99,7 +99,7 @@ describe('Wave component', () => {
     );
     wrapper.find('div').getDOMNode().click();
     await sleep(0);
-    const styles = document.getElementsByTagName('style');
+    const styles = wrapper.find('div').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: green;');
     wrapper.unmount();
@@ -113,7 +113,7 @@ describe('Wave component', () => {
     );
     wrapper.find('div').getDOMNode().click();
     await sleep(0);
-    const styles = document.getElementsByTagName('style');
+    const styles = wrapper.find('div').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: yellow;');
     wrapper.unmount();
@@ -129,7 +129,7 @@ describe('Wave component', () => {
     );
     wrapper.find('button').getDOMNode().click();
     await sleep(0);
-    const styles = document.getElementsByTagName('style');
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles.length).toBe(0);
     wrapper.unmount();
   });
@@ -144,7 +144,7 @@ describe('Wave component', () => {
     );
     wrapper.find('button').getDOMNode().click();
     await sleep(0);
-    const styles = document.getElementsByTagName('style');
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles[0].getAttribute('nonce')).toBe('YourNonceCode');
     wrapper.unmount();
   });

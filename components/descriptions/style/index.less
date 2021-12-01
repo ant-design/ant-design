@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
@@ -31,6 +31,7 @@
     width: 100%;
     overflow: hidden;
     border-radius: @border-radius-base;
+
     table {
       width: 100%;
       table-layout: fixed;
@@ -42,6 +43,7 @@
     > td {
       padding-bottom: @descriptions-item-padding-bottom;
     }
+
     &:last-child {
       border-bottom: none;
     }
@@ -126,8 +128,10 @@
   &-bordered {
     .@{descriptions-prefix-cls}-view {
       border: 1px solid @border-color-split;
+
       > table {
         table-layout: auto;
+        border-collapse: collapse;
       }
     }
 
@@ -143,6 +147,7 @@
 
     .@{descriptions-prefix-cls}-item-label {
       background-color: @descriptions-bg;
+
       &::after {
         display: none;
       }
@@ -150,6 +155,7 @@
 
     .@{descriptions-prefix-cls}-row {
       border-bottom: 1px solid @border-color-split;
+
       &:last-child {
         border-bottom: none;
       }

@@ -1,19 +1,24 @@
-@import './index.less';
+@import (reference) '../../style/themes/index';
+
+@form-prefix-cls: ~'@{ant-prefix}-form';
+@form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 
 .@{form-item-prefix-cls} {
   // ================================================================
   // =                            Status                            =
   // ================================================================
+
   /* Some non-status related component style is in `components.less` */
 
   // ========================= Explain =========================
+
   /* To support leave along ErrorList. We add additional className to handle explain style */
   &-explain {
-    &&-error {
+    &-error {
       color: @error-color;
     }
 
-    &&-warning {
+    &-warning {
       color: @warning-color;
     }
   }
@@ -48,11 +53,20 @@
     > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
     > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear {
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
+    :not(.@{ant-prefix}-input-number-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-number-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-clear {
       right: 32px;
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-number-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection-selected-value {
       padding-right: 42px;
@@ -63,6 +77,7 @@
       &-arrow {
         margin-right: 19px;
       }
+
       &-clear {
         right: 32px;
       }
@@ -118,7 +133,7 @@
 
   // ======================== Warning ========================
   &-has-warning {
-    .form-control-validation(@warning-color; @warning-color; @form-warning-input-bg);
+    .form-control-validation(@warning-color; @warning-color; @form-warning-input-bg; @warning-color-hover; @warning-color-outline);
 
     &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
       color: @warning-color;
@@ -133,7 +148,7 @@
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
       &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
-        .active(@warning-color);
+        .active(@warning-color, @warning-color-hover, @warning-color-outline);
       }
     }
 
@@ -142,10 +157,12 @@
     .@{ant-prefix}-picker {
       background-color: @form-warning-input-bg;
       border-color: @warning-color;
+
       &-focused,
       &:focus {
-        .active(@warning-color);
+        .active(@warning-color, @warning-color-hover, @warning-color-outline);
       }
+
       &:not([disabled]):hover {
         background-color: @form-warning-input-bg;
         border-color: @warning-color;
@@ -153,13 +170,13 @@
     }
 
     .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
-      .active(@warning-color);
+      .active(@warning-color, @warning-color-hover, @warning-color-outline);
     }
   }
 
   // ========================= Error =========================
   &-has-error {
-    .form-control-validation(@error-color; @error-color; @form-error-input-bg);
+    .form-control-validation(@error-color; @error-color; @form-error-input-bg; @error-color-hover; @error-color-outline);
 
     &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
       color: @error-color;
@@ -174,15 +191,20 @@
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
       &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
-        .active(@error-color);
+        .active(@error-color, @error-color-hover, @error-color-outline);
       }
     }
 
     // fixes https://github.com/ant-design/ant-design/issues/20482
-    .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
-      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
-        .@{ant-prefix}-select-selector {
-        border: 0;
+    .@{ant-prefix}-input-group-addon,
+    .@{ant-prefix}-input-number-group-addon {
+      .@{ant-prefix}-select {
+        &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
+          .@{ant-prefix}-select-selector {
+          background-color: inherit;
+          border: 0;
+          box-shadow: none;
+        }
       }
     }
 
@@ -197,10 +219,12 @@
     .@{ant-prefix}-picker {
       background-color: @form-error-input-bg;
       border-color: @error-color;
+
       &-focused,
       &:focus {
-        .active(@error-color);
+        .active(@error-color, @error-color-hover, @error-color-outline);
       }
+
       &:not([disabled]):hover {
         background-color: @form-error-input-bg;
         border-color: @error-color;
@@ -217,16 +241,25 @@
       }
       &.@{ant-prefix}-mention-active:not([disabled]) .@{ant-prefix}-mention-editor,
       .@{ant-prefix}-mention-editor:not([disabled]):focus {
-        .active(@error-color);
+        .active(@error-color, @error-color-hover, @error-color-outline);
       }
     }
 
-    .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
-      background-color: @form-error-input-bg;
-      .active(@error-color);
+    // Cascader
+    .@{ant-prefix}-cascader-picker {
+      &:hover
+        .@{ant-prefix}-cascader-picker-label:hover
+        + .@{ant-prefix}-cascader-input.@{ant-prefix}-input {
+        border-color: @error-color;
+      }
+
+      &:focus .@{ant-prefix}-cascader-input {
+        background-color: @form-error-input-bg;
+        .active(@error-color, @error-color-hover, @error-color-outline);
+      }
     }
 
-    // transfer
+    // Transfer
     .@{ant-prefix}-transfer {
       &-list {
         border-color: @error-color;
@@ -245,7 +278,7 @@
       }
     }
 
-    // RadioGroup
+    // Radio.Group
     .@{ant-prefix}-radio-button-wrapper {
       border-color: @error-color !important;
 
@@ -253,6 +286,16 @@
         &::before {
           background-color: @error-color;
         }
+      }
+    }
+
+    // Mentions
+    .@{ant-prefix}-mentions {
+      border-color: @error-color !important;
+
+      &-focused,
+      &:focus {
+        .active(@error-color, @error-color-hover, @error-color-outline);
       }
     }
   }

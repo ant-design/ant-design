@@ -2,7 +2,6 @@ import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-
 import DropdownButton from './dropdown-button';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
@@ -17,6 +16,7 @@ const Placements = tuple(
   'bottomCenter',
   'bottomRight',
 );
+
 type Placement = typeof Placements[number];
 
 type OverlayFunc = () => React.ReactElement;
@@ -41,6 +41,7 @@ export interface DropDownProps {
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
+  destroyPopupOnHide?: boolean;
   align?: Align;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
@@ -60,19 +61,22 @@ interface DropdownInterface extends React.FC<DropDownProps> {
 }
 
 const Dropdown: DropdownInterface = props => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const getTransitionName = () => {
+    const rootPrefixCls = getPrefixCls();
     const { placement = '', transitionName } = props;
     if (transitionName !== undefined) {
       return transitionName;
     }
     if (placement.indexOf('top') >= 0) {
-      return 'slide-down';
+      return `${rootPrefixCls}-slide-down`;
     }
-    return 'slide-up';
+    return `${rootPrefixCls}-slide-up`;
   };
 
   const renderOverlay = (prefixCls: string) => {
@@ -100,14 +104,16 @@ const Dropdown: DropdownInterface = props => {
     );
 
     // menu cannot be selectable in dropdown defaultly
-    // menu should be focusable in dropdown defaultly
-    const { selectable = false, focusable = true } = overlayProps;
+    const { selectable = false, expandIcon } = overlayProps;
 
-    const expandIcon = (
-      <span className={`${prefixCls}-menu-submenu-arrow`}>
-        <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
-      </span>
-    );
+    const overlayNodeExpandIcon =
+      typeof expandIcon !== 'undefined' && React.isValidElement(expandIcon) ? (
+        expandIcon
+      ) : (
+        <span className={`${prefixCls}-menu-submenu-arrow`}>
+          <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+        </span>
+      );
 
     const fixedModeOverlay =
       typeof overlayNode.type === 'string'
@@ -115,8 +121,7 @@ const Dropdown: DropdownInterface = props => {
         : cloneElement(overlayNode, {
             mode: 'vertical',
             selectable,
-            focusable,
-            expandIcon,
+            expandIcon: overlayNodeExpandIcon,
           });
 
     return fixedModeOverlay as React.ReactElement;

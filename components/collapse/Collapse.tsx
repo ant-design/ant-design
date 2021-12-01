@@ -62,15 +62,22 @@ const Collapse: CollapseInterface = props => {
 
   const renderExpandIcon = (panelProps: PanelProps = {}) => {
     const { expandIcon } = props;
-    const icon = (expandIcon ? (
-      expandIcon(panelProps)
-    ) : (
-      <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
-    )) as React.ReactNode;
+    const icon = (
+      expandIcon ? (
+        expandIcon(panelProps)
+      ) : (
+        <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+      )
+    ) as React.ReactNode;
 
-    return cloneElement(icon, () => ({
-      className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
-    }));
+    return (
+      // Create additional div here to make arrow align to center of first line
+      <div>
+        {cloneElement(icon, () => ({
+          className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
+        }))}
+      </div>
+    );
   };
 
   const iconPosition = getIconPosition();
@@ -110,7 +117,6 @@ const Collapse: CollapseInterface = props => {
     <RcCollapse
       openMotion={openMotion}
       {...props}
-      bordered={bordered}
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}

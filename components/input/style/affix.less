@@ -1,5 +1,6 @@
-@import './index';
 @import './mixin';
+@import (reference) '../../style/themes/index';
+@input-prefix-cls: ~'@{ant-prefix}-input';
 
 @input-affix-margin: 4px;
 
@@ -8,7 +9,7 @@
     .input();
     display: inline-flex;
 
-    &:hover {
+    &:not(&-disabled):hover {
       .hover();
       z-index: 1;
       .@{ant-prefix}-input-search-with-button & {
@@ -33,7 +34,7 @@
       outline: none;
 
       &:focus {
-        box-shadow: none;
+        box-shadow: none !important;
       }
     }
 
@@ -49,6 +50,14 @@
     display: flex;
     flex: none;
     align-items: center;
+  }
+
+  &-show-count-suffix {
+    color: @text-color-secondary;
+  }
+
+  &-show-count-has-suffix {
+    margin-right: 2px;
   }
 
   &-prefix {

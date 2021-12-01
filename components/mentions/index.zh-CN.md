@@ -44,14 +44,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 
 ### Mentions 方法
 
-| 名称    | 描述     |
-| ------- | -------- |
-| blur()  | 移除焦点 |
+| 名称 | 描述 |
+| --- | --- |
+| blur() | 移除焦点 |
 | focus() | 获取焦点 |
 
 ### Option
 
-| 参数     | 说明           | 类型      | 默认值 |
-| -------- | -------------- | --------- | ------ |
-| children | 选项内容       | ReactNode | -      |
-| value    | 选择时填充的值 | string    | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| children | 选项内容 | ReactNode | - |
+| value | 选择时填充的值 | string | - |

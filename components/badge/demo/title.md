@@ -15,36 +15,17 @@ debug: true
 The badge will display `title` when hovered over, instead of `count`.
 
 ```jsx
-import { Badge } from 'antd';
+import { Badge, Avatar } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Badge count={5} title="Custom hover text">
-      <a href="#" className="head-example" />
+      <Avatar shape="square" size="large" />
     </Badge>
-  </div>,
+    <Badge count={-5} title="Negative">
+      <Avatar shape="square" size="large" />
+    </Badge>
+  </>,
   mountNode,
 );
 ```
-
-<style>
-.ant-badge:not(.ant-badge-not-a-wrapper) {
-  margin-right: 20px;
-}
-
-.ant-badge.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
-  margin-right: 0;
-  margin-left: 20px;
-}
-
-.head-example {
-  width: 42px;
-  height: 42px;
-  border-radius: 2px;
-  background: #eee;
-  display: inline-block;
-}
-[data-theme="dark"] .head-example {
-  background: rgba(255,255,255,.12);
-}
-</style>

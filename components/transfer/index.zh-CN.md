@@ -27,11 +27,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | [RecordType extends TransferItem = TransferItem](https://git.io/vMM64)\[] | \[] |  |
 | disabled | 是否禁用 | boolean | false |  |
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue, option): boolean | - |  |
-| footer | 底部渲染函数 | (props) => ReactNode | - |  |
+| footer | 底部渲染函数 | (props, { direction }) => ReactNode | - | direction: 4.17.0 |
 | listStyle | 两个穿梭框的自定义样式 | object\|({direction: `left` \| `right`}) => object | - |  |
-| locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` } |  |
+| locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` } |  |
 | oneWay | 展示为单向样式 | boolean | false | 4.3.0 |
 | operations | 操作文案集合，顺序从上至下 | string\[] | \[`>`, `<`] |  |
+| operationStyle | 操作栏的自定义样式 | CSSProperties | - |  |
 | pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| { pageSize: number } | false | 4.3.0 |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | (record) => ReactNode | - |  |
 | searchValue | 初始化默认的值 | string[] | - |  |
@@ -80,4 +81,4 @@ return <Transfer rowKey={record => record.uid} />;
 
 ### 怎样让 Transfer 穿梭框列表支持异步数据加载
 
-为了保持页码同步，在勾选时可以不移除选项而以禁用代替：<https://codesandbox.io/s/93xeb>
+为了保持页码同步，在勾选时可以不移除选项而以禁用代替：<https://codesandbox.io/s/objective-wing-6iqbx>

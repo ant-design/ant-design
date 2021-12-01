@@ -19,6 +19,7 @@ import LocaleProvider from '..';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
+import bnBD from '../bn_BD';
 import byBY from '../by_BY';
 import caES from '../ca_ES';
 import csCZ from '../cs_CZ';
@@ -32,6 +33,7 @@ import etEE from '../et_EE';
 import faIR from '../fa_IR';
 import fiFI from '../fi_FI';
 import frBE from '../fr_BE';
+import frCA from '../fr_CA';
 import frFR from '../fr_FR';
 import gaIE from '../ga_IE';
 import glES from '../gl_ES';
@@ -44,14 +46,17 @@ import idID from '../id_ID';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
 import jaJP from '../ja_JP';
+import kaGE from '../ka_GE';
 import kkKZ from '../kk_KZ';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
+import kmKH from '../km_KH';
 import kmrIQ from '../kmr_IQ';
 import kuIQ from '../ku_IQ';
 import lvLV from '../lv_LV';
 import ltLT from '../lt_LT';
 import mkMK from '../mk_MK';
+import mlIN from '../ml_IN';
 import mnMN from '../mn_MN';
 import msMY from '../ms_MY';
 import nbNO from '../nb_NO';
@@ -75,11 +80,13 @@ import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
 import zhHK from '../zh_HK';
 import zhTW from '../zh_TW';
+import urPK from '../ur_PK';
 
 const locales = [
   azAZ,
   arEG,
   bgBG,
+  bnBD,
   byBY,
   caES,
   csCZ,
@@ -93,6 +100,7 @@ const locales = [
   faIR,
   fiFI,
   frBE,
+  frCA,
   frFR,
   gaIE,
   glES,
@@ -104,13 +112,16 @@ const locales = [
   isIS,
   itIT,
   jaJP,
+  kaGE,
   kkKZ,
   knIN,
   koKR,
+  kmKH,
   kmrIQ,
   kuIQ,
   ltLT,
   mkMK,
+  mlIN,
   msMY,
   mnMN,
   nbNO,
@@ -136,6 +147,7 @@ const locales = [
   zhCN,
   zhHK,
   zhTW,
+  urPK,
 ];
 
 const { Option } = Select;
@@ -227,9 +239,10 @@ describe('Locale Provider', () => {
           <ModalDemo />
         </LocaleProvider>,
       );
-      const currentConfirmNode = document.querySelectorAll('.ant-modal-confirm')[
-        document.querySelectorAll('.ant-modal-confirm').length - 1
-      ];
+      const currentConfirmNode =
+        document.querySelectorAll('.ant-modal-confirm')[
+          document.querySelectorAll('.ant-modal-confirm').length - 1
+        ];
       let cancelButtonText = currentConfirmNode.querySelectorAll(
         '.ant-btn:not(.ant-btn-primary) span',
       )[0].innerHTML;

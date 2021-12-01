@@ -64,15 +64,16 @@ notification.config({
 });
 ```
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |
-| closeIcon | Custom close icon | ReactNode | - |
-| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
-| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
-| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
-| rtl | Whether to enable RTL mode | boolean | false |
-| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
+| closeIcon | Custom close icon | ReactNode | - |  |
+| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
+| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
+| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
+| rtl | Whether to enable RTL mode | boolean | false |  |
+| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
+| maxCount | Max Notification show, drop oldest if exceed limit | number | - | 4.17.0 |
 
 ## FAQ
 
@@ -97,3 +98,7 @@ return (
 ```
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
+
+### How to set static methods prefixCls ？
+
+You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)

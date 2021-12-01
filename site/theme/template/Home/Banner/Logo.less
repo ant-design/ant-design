@@ -1,16 +1,16 @@
-@import '../../../../../components/style/themes/default.less';
+@import (reference) '../../../../../components/style/themes/index.less';
 
 .home-card-logo {
   position: relative;
   display: inline-block;
-  max-width: 490px;
+  max-width: 500px;
   margin: 0 32px;
   cursor: pointer;
 
   .home-card-logo-icon {
     position: absolute;
-    top: -35px;
-    left: 334px;
+    top: -38px;
+    left: 339px;
     display: none;
     width: 64px;
     height: 64px;
@@ -20,6 +20,7 @@
     display: block;
     max-width: 100%;
   }
+
   .home-banner-normal {
     display: none;
   }
@@ -33,9 +34,11 @@
     .home-banner-mini {
       display: none;
     }
+
     .home-banner-normal {
       display: block;
     }
+
     .home-card-logo-icon {
       display: block;
     }

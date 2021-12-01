@@ -11,10 +11,11 @@ import omit from 'rc-util/lib/omit';
 import { DefaultValueType } from 'rc-tree-select/lib/interface';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import { AntTreeNodeProps } from '../tree';
+import { AntTreeNodeProps, TreeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { getTransitionName } from '../_util/motion';
 
 type RawValue = string | number;
 
@@ -29,11 +30,18 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 export interface TreeSelectProps<T>
   extends Omit<
     RcTreeSelectProps<T>,
-    'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
+    | 'showTreeIcon'
+    | 'treeMotion'
+    | 'inputIcon'
+    | 'mode'
+    | 'getInputElement'
+    | 'backfill'
+    | 'treeLine'
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
+  treeLine?: TreeProps['showLine'];
 }
 
 export interface RefTreeSelectProps {
@@ -57,7 +65,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
     getPopupContainer,
     dropdownClassName,
     treeIcon = false,
-    transitionName = 'slide-up',
+    transitionName,
     choiceTransitionName = '',
     ...props
   }: TreeSelectProps<T>,
@@ -76,7 +84,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
   devWarning(
     multiple !== false || !treeCheckable,
     'TreeSelect',
-    '`multiple` will alway be `true` when `treeCheckable` is true',
+    '`multiple` will always be `true` when `treeCheckable` is true',
   );
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -124,6 +132,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
     },
     className,
   );
+  const rootPrefixCls = getPrefixCls();
 
   return (
     <RcTreeSelect
@@ -138,6 +147,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
       treeCheckable={
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
+      treeLine={!!treeLine}
       inputIcon={suffixIcon}
       multiple={multiple}
       removeIcon={removeIcon}
@@ -150,8 +160,8 @@ const InternalTreeSelect = <T extends DefaultValueType>(
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
-      choiceTransitionName={choiceTransitionName}
-      transitionName={transitionName}
+      choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
     />
   );
 };

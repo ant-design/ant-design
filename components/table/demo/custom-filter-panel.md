@@ -64,7 +64,7 @@ class App extends React.Component {
           value={selectedKeys[0]}
           onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
           onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
-          style={{ width: 188, marginBottom: 8, display: 'block' }}
+          style={{ marginBottom: 8, display: 'block' }}
         />
         <Space>
           <Button
@@ -152,6 +152,8 @@ class App extends React.Component {
         dataIndex: 'address',
         key: 'address',
         ...this.getColumnSearchProps('address'),
+        sorter: (a, b) => a.address.length - b.address.length,
+        sortDirections: ['descend', 'ascend'],
       },
     ];
     return <Table columns={columns} dataSource={data} />;

@@ -56,8 +56,8 @@ const Demo = () => {
       {...formItemLayout}
       onFinish={onFinish}
       initialValues={{
-        ['input-number']: 3,
-        ['checkbox-group']: ['A', 'B'],
+        'input-number': 3,
+        'checkbox-group': ['A', 'B'],
         rate: 3.5,
       }}
     >

@@ -146,17 +146,20 @@ function injectSorter<RecordType>(
       } else if (nextSortOrder === ASCEND) {
         sortTip = triggerAsc;
       }
-      const tooltipProps: TooltipProps = typeof showSorterTooltip === 'object' ? showSorterTooltip : { title: sortTip };
+      const tooltipProps: TooltipProps =
+        typeof showSorterTooltip === 'object' ? showSorterTooltip : { title: sortTip };
       newColumn = {
         ...newColumn,
         className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sorterOrder }),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
           const renderSortTitle = (
             <div className={`${prefixCls}-column-sorters`}>
-              <span>{renderColumnTitle(column.title, renderProps)}</span>
+              <span className={`${prefixCls}-column-title`}>
+                {renderColumnTitle(column.title, renderProps)}
+              </span>
               <span
                 className={classNames(`${prefixCls}-column-sorter`, {
-                  [`${prefixCls}-column-sorter-full`]: upNode && downNode,
+                  [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
                 })}
               >
                 <span className={`${prefixCls}-column-sorter-inner`}>
@@ -167,9 +170,7 @@ function injectSorter<RecordType>(
             </div>
           );
           return showSorterTooltip ? (
-            <Tooltip {...tooltipProps}>
-              <div className={`${prefixCls}-column-sorters-with-tooltip`}>{renderSortTitle}</div>
-            </Tooltip>
+            <Tooltip {...tooltipProps}>{renderSortTitle}</Tooltip>
           ) : (
             renderSortTitle
           );

@@ -13,74 +13,94 @@ title:
 
 A complete multiple select sample with remote search, debounce fetch, ajax callback order flow, and loading state.
 
-```jsx
+```tsx
 import { Select, Spin } from 'antd';
+import { SelectProps } from 'antd/es/select';
 import debounce from 'lodash/debounce';
 
-const { Option } = Select;
+export interface DebounceSelectProps<ValueType = any>
+  extends Omit<SelectProps<ValueType>, 'options' | 'children'> {
+  fetchOptions: (search: string) => Promise<ValueType[]>;
+  debounceTimeout?: number;
+}
 
-class UserRemoteSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.lastFetchId = 0;
-    this.fetchUser = debounce(this.fetchUser, 800);
-  }
+function DebounceSelect<
+  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any
+>({ fetchOptions, debounceTimeout = 800, ...props }: DebounceSelectProps) {
+  const [fetching, setFetching] = React.useState(false);
+  const [options, setOptions] = React.useState<ValueType[]>([]);
+  const fetchRef = React.useRef(0);
 
-  state = {
-    data: [],
-    value: [],
-    fetching: false,
-  };
+  const debounceFetcher = React.useMemo(() => {
+    const loadOptions = (value: string) => {
+      fetchRef.current += 1;
+      const fetchId = fetchRef.current;
+      setOptions([]);
+      setFetching(true);
 
-  fetchUser = value => {
-    console.log('fetching user', value);
-    this.lastFetchId += 1;
-    const fetchId = this.lastFetchId;
-    this.setState({ data: [], fetching: true });
-    fetch('https://randomuser.me/api/?results=5')
-      .then(response => response.json())
-      .then(body => {
-        if (fetchId !== this.lastFetchId) {
+      fetchOptions(value).then(newOptions => {
+        if (fetchId !== fetchRef.current) {
           // for fetch callback order
           return;
         }
-        const data = body.results.map(user => ({
-          text: `${user.name.first} ${user.name.last}`,
-          value: user.login.username,
-        }));
-        this.setState({ data, fetching: false });
+
+        setOptions(newOptions);
+        setFetching(false);
       });
-  };
+    };
 
-  handleChange = value => {
-    this.setState({
-      value,
-      data: [],
-      fetching: false,
-    });
-  };
+    return debounce(loadOptions, debounceTimeout);
+  }, [fetchOptions, debounceTimeout]);
 
-  render() {
-    const { fetching, data, value } = this.state;
-    return (
-      <Select
-        mode="multiple"
-        labelInValue
-        value={value}
-        placeholder="Select users"
-        notFoundContent={fetching ? <Spin size="small" /> : null}
-        filterOption={false}
-        onSearch={this.fetchUser}
-        onChange={this.handleChange}
-        style={{ width: '100%' }}
-      >
-        {data.map(d => (
-          <Option key={d.value}>{d.text}</Option>
-        ))}
-      </Select>
-    );
-  }
+  return (
+    <Select<ValueType>
+      labelInValue
+      filterOption={false}
+      onSearch={debounceFetcher}
+      notFoundContent={fetching ? <Spin size="small" /> : null}
+      {...props}
+      options={options}
+    />
+  );
 }
 
-ReactDOM.render(<UserRemoteSelect />, mountNode);
+// Usage of DebounceSelect
+interface UserValue {
+  label: string;
+  value: string;
+}
+
+async function fetchUserList(username: string): Promise<UserValue[]> {
+  console.log('fetching user', username);
+
+  return fetch('https://randomuser.me/api/?results=5')
+    .then(response => response.json())
+    .then(body =>
+      body.results.map(
+        (user: { name: { first: string; last: string }; login: { username: string } }) => ({
+          label: `${user.name.first} ${user.name.last}`,
+          value: user.login.username,
+        }),
+      ),
+    );
+}
+
+const Demo = () => {
+  const [value, setValue] = React.useState<UserValue[]>([]);
+
+  return (
+    <DebounceSelect
+      mode="multiple"
+      value={value}
+      placeholder="Select users"
+      fetchOptions={fetchUserList}
+      onChange={newValue => {
+        setValue(newValue);
+      }}
+      style={{ width: '100%' }}
+    />
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```

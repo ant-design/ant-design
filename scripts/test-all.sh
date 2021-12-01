@@ -1,7 +1,7 @@
 #!/bin/sh
 
-echo "[CLEAN] clean"
-npm run clean
+echo "[TEST ALL] test changlog"
+node ./scripts/check-version-md.js
 
 echo "[TEST ALL] check-commit"
 npm run check-commit
@@ -16,7 +16,7 @@ if [ "$1" != "--skip-build" ]; then
   echo "[TEST ALL] compile"
   npm run compile
 else
-  echo "Skip build..."
+  echo "Skip build..."	
 fi
 
 echo "[TEST ALL] dekko dist"

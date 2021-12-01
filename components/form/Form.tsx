@@ -21,6 +21,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   name?: string;
   layout?: FormLayout;
   labelAlign?: FormLabelAlign;
+  labelWrap?: boolean;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
@@ -31,7 +32,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   hideRequiredMark?: boolean;
 }
 
-const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props, ref) => {
+const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
   const contextSize = React.useContext(SizeContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
@@ -42,6 +43,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     form,
     colon,
     labelAlign,
+    labelWrap,
     labelCol,
     wrapperCol,
     hideRequiredMark,
@@ -69,6 +71,8 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     return true;
   }, [hideRequiredMark, requiredMark, contextForm]);
 
+  const mergedColon = colon ?? contextForm?.colon;
+
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   const formClassName = classNames(
@@ -91,21 +95,20 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       name,
       labelAlign,
       labelCol,
+      labelWrap,
       wrapperCol,
       vertical: layout === 'vertical',
-      colon,
+      colon: mergedColon,
       requiredMark: mergedRequiredMark,
       itemRef: __INTERNAL__.itemRef,
     }),
-    [name, labelAlign, labelCol, wrapperCol, layout, colon, mergedRequiredMark],
+    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark],
   );
 
   React.useImperativeHandle(ref, () => wrapForm);
 
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
-    if (onFinishFailed) {
-      onFinishFailed(errorInfo);
-    }
+    onFinishFailed?.(errorInfo);
 
     let defaultScrollToFirstError: Options = { block: 'nearest' };
 

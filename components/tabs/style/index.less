@@ -81,6 +81,7 @@
 
     .@{tab-prefix-cls}-nav-add {
       min-width: @tabs-card-height;
+      margin-left: @tabs-card-gutter;
       padding: 0 @padding-xs;
       background: @tabs-card-head-background;
       border: @border-width-base @border-style-base @border-color-split;
@@ -127,18 +128,12 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    margin: @tabs-horizontal-margin;
     padding: @tabs-horizontal-padding;
     font-size: @tabs-title-font-size;
     background: transparent;
     border: 0;
     outline: none;
     cursor: pointer;
-
-    &:last-of-type {
-      margin-right: 0;
-      margin-left: 0;
-    }
 
     &-btn,
     &-remove {
@@ -176,7 +171,7 @@
 
     &&-active &-btn {
       color: @tabs-highlight-color;
-      font-weight: 500;
+      text-shadow: 0 0 0.25px currentColor;
     }
 
     &&-disabled {
@@ -199,6 +194,10 @@
     .@{iconfont-css-prefix} {
       margin-right: @margin-sm;
     }
+  }
+
+  &-tab + &-tab {
+    margin: @tabs-horizontal-margin;
   }
 
   // =========================== TabPanes ===========================

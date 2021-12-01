@@ -1,5 +1,5 @@
 @import '../../../static/theme.less';
-@import '../../../../../components/style/themes/default.less';
+@import (reference) '../../../../../components/style/themes/index.less';
 
 @header-height: 64px;
 @menu-item-border: 2px;
@@ -19,7 +19,7 @@
 
     > * {
       flex: none;
-      margin: 0 16px 0 0;
+      margin: 0 12px 0 0;
 
       &:last-child {
         margin-right: 40px;
@@ -33,7 +33,7 @@
     .menu-row {
       > * {
         &:last-child {
-          margin-right: 16px;
+          margin-right: 12px;
           margin-left: 40px;
         }
       }

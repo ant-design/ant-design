@@ -5,10 +5,13 @@ import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import { getConfirmLocale } from './locale';
-import { ModalFuncProps, destroyFns } from './Modal';
+import type { ModalFuncProps } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
+import { globalConfig } from '../config-provider';
+import devWarning from '../_util/devWarning';
+import destroyFns from './destroyFns';
 
-let defaultRootPrefixCls = 'ant';
+let defaultRootPrefixCls = '';
 
 function getRootPrefixCls() {
   return defaultRootPrefixCls;
@@ -16,9 +19,7 @@ function getRootPrefixCls() {
 
 type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
-export type ModalFunc = (
-  props: ModalFuncProps,
-) => {
+export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void;
   update: (configUpdate: ConfigUpdate) => void;
 };
@@ -26,16 +27,12 @@ export type ModalFunc = (
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 export default function confirm(config: ModalFuncProps) {
-  const div = document.createElement('div');
-  document.body.appendChild(div);
+  const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
 
   function destroy(...args: any[]) {
-    const unmountResult = ReactDOM.unmountComponentAtNode(div);
-    if (unmountResult && div.parentNode) {
-      div.parentNode.removeChild(div);
-    }
+    ReactDOM.unmountComponentAtNode(container);
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
@@ -50,7 +47,7 @@ export default function confirm(config: ModalFuncProps) {
     }
   }
 
-  function render({ okText, cancelText, prefixCls, ...props }: any) {
+  function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      *
@@ -58,15 +55,22 @@ export default function confirm(config: ModalFuncProps) {
      */
     setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
+      const { getPrefixCls, getIconPrefixCls } = globalConfig();
+      // because Modal.config  set rootPrefixCls, which is different from other components
+      const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
+      const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+      const iconPrefixCls = getIconPrefixCls();
+
       ReactDOM.render(
         <ConfirmDialog
           {...props}
-          prefixCls={prefixCls || `${getRootPrefixCls()}-modal`}
-          rootPrefixCls={getRootPrefixCls()}
+          prefixCls={prefixCls}
+          rootPrefixCls={rootPrefixCls}
+          iconPrefixCls={iconPrefixCls}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
-        div,
+        container,
       );
     });
   }
@@ -152,8 +156,11 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   };
 }
 
-export function globalConfig({ rootPrefixCls }: { rootPrefixCls?: string }) {
-  if (rootPrefixCls) {
-    defaultRootPrefixCls = rootPrefixCls;
-  }
+export function modalGlobalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
+  devWarning(
+    false,
+    'Modal',
+    'Modal.config is deprecated. Please use ConfigProvider.config instead.',
+  );
+  defaultRootPrefixCls = rootPrefixCls;
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import memoizeOne from 'memoize-one';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
@@ -32,7 +33,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
   return rect.top;
 }
 
-const sharpMatcherRegx = /#(\S+)$/;
+const sharpMatcherRegx = /#([\S ]+)$/;
 
 type Section = {
   link: string;
@@ -163,12 +164,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   }
 
   getCurrentAnchor(offsetTop = 0, bounds = 5): string {
-    const { getCurrentAnchor } = this.props;
-
-    if (typeof getCurrentAnchor === 'function') {
-      return getCurrentAnchor();
-    }
-
     const linkSections: Array<Section> = [];
     const container = this.getContainer();
     this.links.forEach(link => {
@@ -229,16 +224,15 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
 
   setCurrentActiveLink = (link: string) => {
     const { activeLink } = this.state;
-    const { onChange } = this.props;
-
-    if (activeLink !== link) {
-      this.setState({
-        activeLink: link,
-      });
-      if (onChange) {
-        onChange(link);
-      }
+    const { onChange, getCurrentAnchor } = this.props;
+    if (activeLink === link) {
+      return;
     }
+    // https://github.com/ant-design/ant-design/issues/30584
+    this.setState({
+      activeLink: typeof getCurrentAnchor === 'function' ? getCurrentAnchor() : link,
+    });
+    onChange?.(link);
   };
 
   handleScroll = () => {
@@ -263,9 +257,8 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     }
   };
 
-  render = () => {
+  render() {
     const { getPrefixCls, direction } = this.context;
-
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -274,6 +267,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       affix,
       showInkInFixed,
       children,
+      onClick,
     } = this.props;
     const { activeLink } = this.state;
 
@@ -316,16 +310,16 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       </div>
     );
 
+    const contextValue = memoizeOne((link, onClickFn) => ({
+      registerLink: this.registerLink,
+      unregisterLink: this.unregisterLink,
+      scrollTo: this.handleScrollTo,
+      activeLink: link,
+      onClick: onClickFn,
+    }))(activeLink, onClick);
+
     return (
-      <AnchorContext.Provider
-        value={{
-          registerLink: this.registerLink,
-          unregisterLink: this.unregisterLink,
-          activeLink: this.state.activeLink,
-          scrollTo: this.handleScrollTo,
-          onClick: this.props.onClick,
-        }}
-      >
+      <AnchorContext.Provider value={contextValue}>
         {!affix ? (
           anchorContent
         ) : (
@@ -335,5 +329,5 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
         )}
       </AnchorContext.Provider>
     );
-  };
+  }
 }

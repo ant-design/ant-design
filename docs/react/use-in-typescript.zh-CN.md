@@ -5,7 +5,7 @@ title: 在 TypeScript 中使用
 
 使用 `create-react-app` 一步步地创建一个 TypeScript 项目，并引入 antd。
 
-> `antd` 基于最新稳定版本的 TypeScript（`>=3.8.4`），请确保项目中使用匹配的版本。
+> `antd` 基于最新稳定版本的 TypeScript（`>=4.0.0`），请确保项目中使用匹配的版本。
 
 ---
 
@@ -22,7 +22,7 @@ $ yarn create react-app antd-demo-ts --template typescript
 如果你使用的是 npm（接下来我们都会用 yarn 作为例子，如果你习惯用 npm 也没问题）。
 
 ```bash
-$ npx create-react-app antd-demo-ts --typescript
+$ npx create-react-app antd-demo-ts --template typescript
 ```
 
 然后我们进入项目并启动。

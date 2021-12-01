@@ -30,8 +30,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | defaultExpandParent | 默认展开父节点 | boolean | true |  |
 | defaultSelectedKeys | 默认选中的树节点 | string\[] | \[] |  |
 | disabled | 将树禁用 | boolean | false |  |
-| draggable | 设置节点可拖拽（IE>8） | boolean \| ((node: DataNode) => boolean) | false |  |
+| draggable | 设置节点可拖拽，可以通过 `icon: false` 关闭拖拽提示图标 | boolean \| ((node: DataNode) => boolean) \| { icon?: React.ReactNode \| false, nodeDraggable?: (node: DataNode) => boolean } | false | `config`: 4.17.0 |
 | expandedKeys | （受控）展开指定的树节点 | string\[] | \[] |  |
+| fieldNames | 自定义节点 title、key、children 的字段 | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - |  |
 | height | 设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动 | number | - |  |
 | icon | 自定义树节点图标。 | ReactNode \| (props) => ReactNode | - |  |
@@ -45,6 +46,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |  |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
+| treeLoadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string[] | [] |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |  |

@@ -86,13 +86,6 @@
         left: auto;
       }
     }
-
-    &:first-child > .@{select-prefix-cls}-selection-search-input {
-      .@{select-prefix-cls}-rtl& {
-        margin-right: 5px !important;
-        margin-left: 0 !important;
-      }
-    }
   }
 
   // ======================= Placeholder =======================
@@ -149,18 +142,6 @@
     }
   }
 
-  // ========================== Input ==========================
-  // We only change the style of non-customize input which is only support by `combobox` mode.
-
-  // Not customize
-  &:not(.@{select-prefix-cls}-customize-input) {
-    .@{select-prefix-cls}-selector {
-      .@{select-prefix-cls}-rtl& {
-        padding: 0 @input-padding-horizontal-base;
-      }
-    }
-  }
-
   // ============================================================
   // ==                          Size                          ==
   // ============================================================
@@ -171,7 +152,7 @@
       // With arrow should provides `padding-right` to show the arrow
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
         .@{select-prefix-cls}-rtl& {
-          right: 0;
+          right: @input-padding-horizontal-sm - 1px;
         }
       }
 

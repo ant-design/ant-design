@@ -81,8 +81,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 | hasSider | 表示子元素里有 Sider，一般不用指定。可用于服务端渲染时避免样式闪动 | boolean | - |
 | style | 指定样式 | CSSProperties | - |
 
-> `Layout.Header` `Layout.Footer` `Layout.Content` API 与 `Layout` 相同
-
 ### Layout.Sider
 
 侧边栏。

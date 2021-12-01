@@ -5,13 +5,12 @@ on:
     - cron: "0 0 */15 * *"
 
 jobs:
-  check-inactive:
+  issue-check-inactive:
     runs-on: ubuntu-latest
     steps:
       - name: check-inactive
-        uses: actions-cool/issues-helper@v1.7
+        uses: actions-cool/issues-helper@v2
         with:
           actions: 'check-inactive'
-          token: ${{ secrets.ANT_BOT_TOKEN }}
           inactive-label: 'Inactive'
           inactive-day: 30

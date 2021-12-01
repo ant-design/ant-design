@@ -2,11 +2,13 @@
 @import '../../style/mixins/index';
 
 @layout-prefix-cls: ~'@{ant-prefix}-layout';
+@layout-menu-prefix-cls: ~'@{ant-prefix}-menu';
 
 .@{layout-prefix-cls} {
   display: flex;
   flex: auto;
   flex-direction: column;
+
   /* fix firefox can't set height smaller than content on flex item */
   min-height: 0;
   background: @layout-body-background;
@@ -47,6 +49,7 @@
 
   &-content {
     flex: auto;
+
     /* fix firefox can't set height smaller than content on flex item */
     min-height: 0;
   }
@@ -66,6 +69,10 @@
       // https://github.com/ant-design/ant-design/issues/7967
       // solution from https://stackoverflow.com/a/33132624/3040605
       padding-top: 0.1px;
+
+      .@{layout-menu-prefix-cls}.@{layout-menu-prefix-cls}-inline-collapsed {
+        width: auto;
+      }
     }
 
     &-has-trigger {

@@ -26,7 +26,7 @@ describe('TimePicker', () => {
     resetWarned();
     const addon = () => (
       <button className="my-btn" type="button">
-        Ok
+        OK
       </button>
     );
     const wrapper = mount(<TimePicker addon={addon} open />);
@@ -71,6 +71,17 @@ describe('TimePicker', () => {
       />,
     );
     expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
+  });
+
+  it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
+    const popupClassName = 'myCustomClassName';
+    const wrapper = mount(
+      <TimePicker.RangePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        popupClassName={popupClassName}
+      />,
+    );
+    expect(wrapper.find('RangePicker').at(1).prop('dropdownClassName')).toEqual(popupClassName);
   });
 
   it('should support bordered', () => {

@@ -33,9 +33,6 @@ exports[`Alert action of Alert custom action 1`] = `
     >
       Success Tips
     </div>
-    <div
-      class="ant-alert-description"
-    />
   </div>
   <div
     class="ant-alert-action"
@@ -96,9 +93,6 @@ exports[`Alert could accept none react element icon 1`] = `
     >
       Success Tips
     </div>
-    <div
-      class="ant-alert-description"
-    />
   </div>
 </div>
 `;
@@ -111,13 +105,33 @@ exports[`Alert rtl render component should be rendered correctly in RTL directio
 >
   <div
     class="ant-alert-content"
+  />
+</div>
+`;
+
+exports[`Alert support closeIcon 1`] = `
+<div
+  class="ant-alert ant-alert-warning ant-alert-no-icon"
+  data-show="true"
+  role="alert"
+>
+  <div
+    class="ant-alert-content"
   >
     <div
       class="ant-alert-message"
-    />
-    <div
-      class="ant-alert-description"
-    />
+    >
+      Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
+    </div>
   </div>
+  <button
+    class="ant-alert-close-icon"
+    tabindex="0"
+    type="button"
+  >
+    <span>
+      close
+    </span>
+  </button>
 </div>
 `;

@@ -1,5 +1,5 @@
 @import '../../../static/theme.less';
-@import '../../../../../components/style/themes/default.less';
+@import (reference) '../../../../../components/style/themes/index.less';
 @import './index.less';
 
 #logo {
@@ -7,9 +7,11 @@
   padding-left: 40px;
   overflow: hidden;
   color: @site-heading-color;
+  font-weight: bold;
   font-size: 18px;
-  font-family: Avenir, @font-family, sans-serif;
+  font-family: PuHuiTi, @font-family, sans-serif;
   line-height: @header-height;
+  letter-spacing: -0.18px;
   white-space: nowrap;
   text-decoration: none;
 
@@ -20,10 +22,8 @@
   }
 
   img {
-    position: relative;
-    top: -1.5px;
     height: 32px;
-    margin-right: 16px;
+    margin-right: 12px;
 
     .ant-row-rtl & {
       margin-right: 0;
