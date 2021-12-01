@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount, ReactWrapper, HTMLAttributes } from 'enzyme';
-import ResizeObserverImpl from 'rc-resize-observer';
+import { mount, ReactWrapper } from 'enzyme';
 import Affix, { AffixProps, AffixState } from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
@@ -206,24 +205,7 @@ describe('Affix Render', () => {
 
       // Mock trigger resize
       updateCalled.mockReset();
-      const resizeObserverInstance: ReactWrapper<HTMLAttributes, unknown, ResizeObserverImpl> =
-        affixMounterWrapper.find('ResizeObserver') as any;
-      resizeObserverInstance
-        .at(index)
-        .instance()
-        .onResize(
-          [
-            {
-              target: {
-                getBoundingClientRect: () => ({ width: 99, height: 99 }),
-              } as Element,
-              contentRect: {} as DOMRect,
-              borderBoxSize: [],
-              contentBoxSize: [],
-            },
-          ],
-          {} as unknown as ResizeObserver,
-        );
+      (affixMounterWrapper as any).triggerResize(index);
       await sleep(20);
 
       expect(updateCalled).toHaveBeenCalled();

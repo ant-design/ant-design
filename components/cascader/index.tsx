@@ -130,6 +130,12 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       'Cascader',
       '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
     );
+
+    devWarning(
+      !multiple || !props.displayRender,
+      'Cascader',
+      '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
+    );
   }
 
   // =================== No Found ====================

@@ -29,7 +29,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | className | 自定义类名 | string | - |  |
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
-| displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
+| displayRender | 单选模式下选择后展示的渲染函数，多选请使用 tagRender | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
 | dropdownClassName | 自定义浮层类名 | string | - | 4.17.0 |
 | dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
