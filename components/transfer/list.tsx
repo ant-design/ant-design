@@ -100,9 +100,10 @@ export default class TransferList<
     };
   }
 
-  componentDidMount() {
-    const { searchValue = '' } = this.props;
-    this.setState({ filterValue: searchValue });
+  static getDerivedStateFromProps<T>({ searchValue }: TransferListProps<T>) {
+    return {
+      filterValue: searchValue,
+    };
   }
 
   componentWillUnmount() {

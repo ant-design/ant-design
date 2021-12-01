@@ -64,7 +64,6 @@ class App extends React.Component {
         onChange={this.handleChange}
         onSearch={this.handleSearch}
         render={item => item.title}
-        searchValue={['1','4']}
       />
     );
   }

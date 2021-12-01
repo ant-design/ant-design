@@ -32,7 +32,7 @@ One or more elements can be selected from either column, one click on the proper
 | operationStyle | A custom CSS style used for rendering the operations column | object | - |  |
 | pagination | Use pagination. Not work in render props | boolean \| { pageSize: number } | false | 4.3.0 |
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | (record) => ReactNode | - |  |
-| searchValue | default search value | string[] | - |  |
+| searchValue | default search value | string[] | - | 4.17.2 |
 | selectAllLabels | A set of customized labels for select all checkboxs on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | A set of keys of selected items | string\[] | \[] |  |
 | showSearch | If included, a search box is shown on each column | boolean | false |  |

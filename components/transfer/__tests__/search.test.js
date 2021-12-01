@@ -90,9 +90,7 @@ describe('Transfer.Search', () => {
     expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
   });
 
-  it('should have default value by using searchValue prop', () => {
-    jest.useFakeTimers();
-
+  it('should have correctly value by using searchValue prop', () => {
     const wrapper = mount(
       <Transfer
         dataSource={dataSource}
@@ -100,7 +98,7 @@ describe('Transfer.Search', () => {
         targetKeys={[]}
         render={item => item.title}
         showSearch
-        searchValue={['a','b']}
+        searchValue={['a', 'b']}
       />,
     );
     expect(
@@ -109,6 +107,12 @@ describe('Transfer.Search', () => {
     expect(
       wrapper.find('.ant-input').at(1).getDOMNode().attributes.getNamedItem('value').value,
     ).toEqual('b');
+    wrapper.setProps({ searchValue: ['b', 'a'] });
+    expect(
+      wrapper.find('.ant-input').at(0).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('b');
+    expect(
+      wrapper.find('.ant-input').at(1).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('a');
   });
-
 });
