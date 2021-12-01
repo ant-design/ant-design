@@ -178,9 +178,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   // =============== Update Loading ===============
   const loadingOrDelay: Loading =
-    typeof loading === 'object' && loading.delay ?
-      loading.delay || true :
-      !!loading;
+    typeof loading === 'object' && loading.delay ? loading.delay || true : !!loading;
 
   React.useEffect(() => {
     clearTimeout(delayTimeoutRef.current);
@@ -220,8 +218,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
-  const sizeClassNameMap = { large: 'lg', small: 'sm' };
-  const sizeCls = sizeClassNameMap[customizeSize || size] || '';
+  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
+  const sizeFullname = customizeSize || size;
+  const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
