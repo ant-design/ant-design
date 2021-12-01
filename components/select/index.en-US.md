@@ -89,12 +89,12 @@ Select component to select value from options.
 
 ### Option props
 
-| Property  | Description                                | Type             | Default | Version |
-| --------- | ------------------------------------------ | ---------------- | ------- | ------- |
-| className | The additional class to option             | string           | -       |         |
-| disabled  | Disable this option                        | boolean          | false   |         |
-| title     | `title` of Select after select this Option | string           | -       |         |
-| value     | Default to filter with this property       | string \| number | -       |         |
+| Property  | Description                          | Type             | Default | Version |
+| --------- | ------------------------------------ | ---------------- | ------- | ------- |
+| className | The additional class to option       | string           | -       |         |
+| disabled  | Disable this option                  | boolean          | false   |         |
+| title     | `title` attribute of Select Option   | string           | -       |         |
+| value     | Default to filter with this property | string \| number | -       |         |
 
 ### OptGroup props
 
