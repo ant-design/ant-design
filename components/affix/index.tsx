@@ -92,10 +92,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
   componentDidUpdate(prevProps: AffixProps) {
     const { prevTarget } = this.state;
     const targetFunc = this.getTargetFunc();
-    let newTarget = null;
-    if (targetFunc) {
-      newTarget = targetFunc() || null;
-    }
+    const newTarget = targetFunc ? (targetFunc() || null) : null;
 
     if (prevTarget !== newTarget) {
       removeObserveTarget(this);
