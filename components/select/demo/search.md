@@ -22,14 +22,6 @@ function onChange(value) {
   console.log(`selected ${value}`);
 }
 
-function onBlur() {
-  console.log('blur');
-}
-
-function onFocus() {
-  console.log('focus');
-}
-
 function onSearch(val) {
   console.log('search:', val);
 }
@@ -37,12 +29,9 @@ function onSearch(val) {
 ReactDOM.render(
   <Select
     showSearch
-    style={{ width: 200 }}
     placeholder="Select a person"
     optionFilterProp="children"
     onChange={onChange}
-    onFocus={onFocus}
-    onBlur={onBlur}
     onSearch={onSearch}
     filterOption={(input, option) =>
       option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
