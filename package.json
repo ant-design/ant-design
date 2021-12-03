@@ -250,7 +250,7 @@
     "react-draggable": "^4.4.3",
     "react-fast-marquee": "^1.2.1",
     "react-github-button": "^0.1.11",
-    "react-helmet-async": "~1.1.2",
+    "react-helmet-async": "~1.2.0",
     "react-highlight-words": "^0.17.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-intl": "^5.20.4",
