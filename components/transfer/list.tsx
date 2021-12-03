@@ -70,16 +70,12 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
   pagination?: PaginationType;
-}
-
-interface TransferListState {
-  /** Filter input value */
-  filterValue: string;
+  searchValue?: string;
 }
 
 export default class TransferList<
   RecordType extends KeyWiseTransferItem,
-> extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
+> extends React.PureComponent<TransferListProps<RecordType>> {
   static defaultProps = {
     dataSource: [],
     titleText: '',
@@ -94,9 +90,6 @@ export default class TransferList<
 
   constructor(props: TransferListProps<RecordType>) {
     super(props);
-    this.state = {
-      filterValue: '',
-    };
   }
 
   componentWillUnmount() {
@@ -141,26 +134,20 @@ export default class TransferList<
   // =============================== Filter ===============================
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { handleFilter } = this.props;
-    const {
-      target: { value: filterValue },
-    } = e;
-    this.setState({ filterValue });
     handleFilter(e);
   };
 
   handleClear = () => {
     const { handleClear } = this.props;
-    this.setState({ filterValue: '' });
     handleClear();
   };
 
   matchFilter = (text: string, item: RecordType) => {
-    const { filterValue } = this.state;
-    const { filterOption } = this.props;
+    const { filterOption, searchValue = '' } = this.props;
     if (filterOption) {
-      return filterOption(filterValue, item);
+      return filterOption(searchValue, item);
     }
-    return text.indexOf(filterValue) >= 0;
+    return text.indexOf(searchValue) >= 0;
   };
 
   // =============================== Render ===============================
@@ -301,7 +288,6 @@ export default class TransferList<
   };
 
   render() {
-    const { filterValue } = this.state;
     const {
       prefixCls,
       dataSource,
@@ -325,6 +311,7 @@ export default class TransferList<
       showRemove,
       pagination,
       direction,
+      searchValue = '',
     } = this.props;
 
     // Custom Layout
@@ -338,14 +325,14 @@ export default class TransferList<
 
     // ====================== Get filtered, checked item list ======================
 
-    const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue);
+    const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, searchValue);
 
     // ================================= List Body =================================
 
     const listBody = this.getListBody(
       prefixCls,
       searchPlaceholder,
-      filterValue,
+      searchValue,
       filteredItems,
       notFoundContent,
       filteredRenderItems,

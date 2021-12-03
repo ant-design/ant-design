@@ -86,11 +86,14 @@ export interface TransferProps<RecordType> {
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
   pagination?: PaginationType;
+  searchValue?: string[];
 }
 
 interface TransferState {
   sourceSelectedKeys: string[];
   targetSelectedKeys: string[];
+  sourceSearchValue?: string;
+  targetSearchValue?: string;
 }
 
 class Transfer<RecordType extends TransferItem = TransferItem> extends React.Component<
@@ -111,18 +114,21 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     listStyle: () => {},
   };
 
-  static getDerivedStateFromProps<T>({
-    selectedKeys,
-    targetKeys,
-    pagination,
-    children,
-  }: TransferProps<T>) {
+  static getDerivedStateFromProps<T>(
+    { selectedKeys, targetKeys, pagination, children, searchValue }: TransferProps<T>,
+    { sourceSearchValue, targetSearchValue }: TransferState,
+  ) {
+    const newState: Partial<TransferState> = {};
     if (selectedKeys) {
       const mergedTargetKeys = targetKeys || [];
-      return {
-        sourceSelectedKeys: selectedKeys.filter(key => !mergedTargetKeys.includes(key)),
-        targetSelectedKeys: selectedKeys.filter(key => mergedTargetKeys.includes(key)),
-      };
+      newState.sourceSelectedKeys = selectedKeys.filter(key => !mergedTargetKeys.includes(key));
+      newState.targetSelectedKeys = selectedKeys.filter(key => mergedTargetKeys.includes(key));
+    }
+    if (searchValue) {
+      newState.sourceSearchValue =
+        searchValue[0] !== sourceSearchValue ? searchValue[0] : sourceSearchValue;
+      newState.targetSearchValue =
+        searchValue[1] !== targetSearchValue ? searchValue[1] : targetSearchValue;
     }
 
     devWarning(
@@ -131,7 +137,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       '`pagination` not support customize render list.',
     );
 
-    return null;
+    return newState;
   }
 
   separatedDataSource: {
@@ -226,6 +232,15 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearch } = this.props;
     const { value } = e.target;
+    if (direction === 'left') {
+      this.setState({
+        sourceSearchValue: value,
+      });
+    } else {
+      this.setState({
+        targetSearchValue: value,
+      });
+    }
     onSearch?.(direction, value);
   };
 
@@ -235,6 +250,15 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   handleClear = (direction: TransferDirection) => {
     const { onSearch } = this.props;
+    if (direction === 'left') {
+      this.setState({
+        sourceSearchValue: '',
+      });
+    } else {
+      this.setState({
+        targetSearchValue: '',
+      });
+    }
     onSearch?.(direction, '');
   };
 
@@ -362,7 +386,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
-        const { sourceSelectedKeys, targetSelectedKeys } = this.state;
+        const { sourceSelectedKeys, targetSelectedKeys, sourceSearchValue, targetSearchValue } =
+          this.state;
 
         const mergedPagination = !children && pagination;
 
@@ -405,6 +430,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
+              searchValue={sourceSearchValue}
               {...locale}
             />
             <Operation
@@ -443,6 +469,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
               pagination={mergedPagination}
+              searchValue={targetSearchValue}
               {...locale}
             />
           </div>

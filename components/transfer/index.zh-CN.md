@@ -35,6 +35,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 | operationStyle | 操作栏的自定义样式 | CSSProperties | - |  |
 | pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| { pageSize: number } | false | 4.3.0 |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | (record) => ReactNode | - |  |
+| searchValue | 搜索框的内容 | string[] | - | 4.18.0 |
 | selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |  |
 | showSearch | 是否显示搜索框 | boolean | false |  |

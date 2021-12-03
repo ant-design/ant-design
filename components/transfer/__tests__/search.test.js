@@ -89,4 +89,30 @@ describe('Transfer.Search', () => {
       .simulate('change', { target: { value: ' ' } });
     expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
   });
+
+  it('should have correctly value by using searchValue prop', () => {
+    const wrapper = mount(
+      <Transfer
+        dataSource={dataSource}
+        selectedKeys={[]}
+        targetKeys={[]}
+        render={item => item.title}
+        showSearch
+        searchValue={['a', 'b']}
+      />,
+    );
+    expect(
+      wrapper.find('.ant-input').at(0).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('a');
+    expect(
+      wrapper.find('.ant-input').at(1).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('b');
+    wrapper.setProps({ searchValue: ['b', 'a'] });
+    expect(
+      wrapper.find('.ant-input').at(0).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('b');
+    expect(
+      wrapper.find('.ant-input').at(1).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('a');
+  });
 });
