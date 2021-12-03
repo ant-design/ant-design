@@ -134,7 +134,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filters | Filter menu config | object\[] | - |  |
 | fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean \| string | false |  |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
-| render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | function(text, record, index) {} | - |  |
+| render | Renderer of the table cell. The return value should be a ReactNode | function(text, record, index) {} | - |  |
 | responsive | The list of breakpoints at which to display this column. Always visible if not set. | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | 4.3.0 |
 | showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) | true |  |

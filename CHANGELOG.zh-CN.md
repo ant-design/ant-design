@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.17.2
+
+`2021-11-26`
+
+- 💄 修复 Form `wrapperCol={{ span: 24 }}` 时样式错乱的问题。[#32981](https://github.com/ant-design/ant-design/pull/32981)
+- 🐞 修复 Modal `centered` 略微偏上的问题。[#33022](https://github.com/ant-design/ant-design/pull/33022)
+- 🐞 Cascader 丢失 `suffixIcon` 定义问题并且支持 `options` 泛型定义。[#33008](https://github.com/ant-design/ant-design/pull/33008)
+- 🐞 修复 Input.Search 下 `enterButton` 内元素上的 `onClick` 未被触发的问题。[#32999](https://github.com/ant-design/ant-design/pull/32999)
+- 🇪🇪 补充爱沙尼亚语言包。[#33005](https://github.com/ant-design/ant-design/pull/33005) [@wedeso](https://github.com/wedeso)
+- 🤖 Tree 支持泛型以更好的配合 `fieldNames`。[#32992](https://github.com/ant-design/ant-design/pull/32992)
+
 ## 4.17.1
 
 `2021-11-22`

@@ -1,5 +1,6 @@
 ---
 order: 15
+version: 4.18.0
 title:
   en-US: colSpan and rowSpan
   zh-CN: 表格行/列合并
@@ -22,70 +23,53 @@ import { Table } from 'antd';
 
 // In the fifth row, other columns are merged into first column
 // by setting it's colSpan to be 0
-const renderContent = (value, row, index) => {
-  const obj = {
-    children: value,
-    props: {},
-  };
+const sharedOnCell = (_, index) => {
   if (index === 4) {
-    obj.props.colSpan = 0;
+    return { colSpan: 0 };
   }
-  return obj;
 };
 
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: (text, row, index) => {
-      if (index < 4) {
-        return <a>{text}</a>;
-      }
-      return {
-        children: <a>{text}</a>,
-        props: {
-          colSpan: 5,
-        },
-      };
-    },
+    render: (text, row, index) => <a>{text}</a>,
+    onCell: (_, index) => ({
+      colSpan: index < 4 ? 1 : 5,
+    }),
   },
   {
     title: 'Age',
     dataIndex: 'age',
-    render: renderContent,
+    onCell: sharedOnCell,
   },
   {
     title: 'Home phone',
     colSpan: 2,
     dataIndex: 'tel',
-    render: (value, row, index) => {
-      const obj = {
-        children: value,
-        props: {},
-      };
+    onCell: (_, index) => {
       if (index === 2) {
-        obj.props.rowSpan = 2;
+        return { rowSpan: 2 };
       }
       // These two are merged into above cell
       if (index === 3) {
-        obj.props.rowSpan = 0;
+        return { rowSpan: 0 };
       }
       if (index === 4) {
-        obj.props.colSpan = 0;
+        return { colSpan: 0 };
       }
-      return obj;
     },
   },
   {
     title: 'Phone',
     colSpan: 0,
     dataIndex: 'phone',
-    render: renderContent,
+    onCell: sharedOnCell,
   },
   {
     title: 'Address',
     dataIndex: 'address',
-    render: renderContent,
+    onCell: sharedOnCell,
   },
 ];
 
