@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Alert from '..';
 import Button from '../../button';
 import Tooltip from '../../tooltip';
@@ -32,14 +33,18 @@ describe('Alert', () => {
         onClose={onClose}
       />,
     );
-    wrapper.find('.ant-alert-close-icon').simulate('click');
-    jest.runAllTimers();
+    act(() => {
+      jest.useFakeTimers();
+      wrapper.find('.ant-alert-close-icon').simulate('click');
+      jest.runAllTimers();
+      jest.useRealTimers();
+    });
     expect(onClose).toHaveBeenCalled();
   });
 
   describe('action of Alert', () => {
     it('custom action', () => {
-      const wrapper = render(
+      const wrapper = mount(
         <Alert
           message="Success Tips"
           type="success"
@@ -131,7 +136,7 @@ describe('Alert', () => {
 
   it('could accept none react element icon', () => {
     const wrapper = mount(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should not render message div when no message', () => {

@@ -466,7 +466,7 @@ exports[`Skeleton rtl render component should be rendered correctly in RTL direc
   >
     <h3
       class="ant-skeleton-title"
-      style="width:38%"
+      style="width: 38%;"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -474,7 +474,7 @@ exports[`Skeleton rtl render component should be rendered correctly in RTL direc
       <li />
       <li />
       <li
-        style="width:61%"
+        style="width: 61%;"
       />
     </ul>
   </div>
