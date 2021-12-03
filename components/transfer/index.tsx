@@ -118,24 +118,17 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     { selectedKeys, targetKeys, pagination, children, searchValue }: TransferProps<T>,
     { sourceSearchValue, targetSearchValue }: TransferState,
   ) {
+    const newState: Partial<TransferState> = {};
     if (selectedKeys) {
       const mergedTargetKeys = targetKeys || [];
-      return {
-        sourceSelectedKeys: selectedKeys.filter(key => !mergedTargetKeys.includes(key)),
-        targetSelectedKeys: selectedKeys.filter(key => mergedTargetKeys.includes(key)),
-      };
+      newState.sourceSelectedKeys = selectedKeys.filter(key => !mergedTargetKeys.includes(key));
+      newState.targetSelectedKeys = selectedKeys.filter(key => mergedTargetKeys.includes(key));
     }
-
-    if (searchValue && searchValue[0] !== sourceSearchValue) {
-      return {
-        sourceSearchValue: searchValue[0],
-      };
-    }
-
-    if (searchValue && searchValue[1] !== targetSearchValue) {
-      return {
-        targetSearchValue: searchValue[1],
-      };
+    if (searchValue) {
+      newState.sourceSearchValue =
+        searchValue[0] !== sourceSearchValue ? searchValue[0] : sourceSearchValue;
+      newState.targetSearchValue =
+        searchValue[1] !== targetSearchValue ? searchValue[1] : targetSearchValue;
     }
 
     devWarning(
@@ -144,7 +137,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       '`pagination` not support customize render list.',
     );
 
-    return null;
+    return newState;
   }
 
   separatedDataSource: {
