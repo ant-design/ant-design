@@ -2,7 +2,7 @@
 // This config is for building dist files
 const chalk = require('chalk');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
-const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
+const RemovePlugin = require('remove-files-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
@@ -103,9 +103,22 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     // apply ${theme} less variables
     injectLessVariables(config, vars);
 
-    const themeReg = new RegExp(`${theme}(.min)?\\.js(\\.map)?$`);
     // ignore emit ${theme} entry js & js.map file
-    config.plugins.push(new IgnoreEmitPlugin(themeReg));
+    config.plugins.push(
+      new RemovePlugin({
+        after: {
+          root: './dist',
+          include: [
+            `antd.${theme}.js`,
+            `antd.${theme}.js.map`,
+            `antd.${theme}.min.js`,
+            `antd.${theme}.min.js.map`,
+          ],
+          log: false,
+          logWarning: false,
+        },
+      }),
+    );
   });
 }
 

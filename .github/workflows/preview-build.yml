@@ -2,7 +2,7 @@
 
 name: Preview Build
 
-on: 
+on:
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -22,7 +22,7 @@ jobs:
           key: lock-${{ github.sha }}
 
       - name: create package-lock.json
-        run: npm i --package-lock-only
+        run: npm i --package-lock-only --ignore-scripts
 
       - name: hack for single file
         run: |
