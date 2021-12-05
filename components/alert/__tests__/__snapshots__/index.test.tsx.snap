@@ -271,28 +271,51 @@ exports[`Alert rtl render component should be rendered correctly in RTL directio
 `;
 
 exports[`Alert support closeIcon 1`] = `
-<div
-  class="ant-alert ant-alert-warning ant-alert-no-icon"
-  data-show="true"
-  role="alert"
->
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
-    </div>
-  </div>
-  <button
-    class="ant-alert-close-icon"
-    tabindex="0"
-    type="button"
-  >
+<Alert
+  closable={true}
+  closeIcon={
     <span>
       close
     </span>
-  </button>
-</div>
+  }
+  message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+  type="warning"
+>
+  <CSSMotion
+    motionAppear={false}
+    motionEnter={false}
+    motionName="ant-alert-motion"
+    onLeaveStart={[Function]}
+    visible={true}
+  >
+    <DomWrapper>
+      <div
+        className="ant-alert ant-alert-warning ant-alert-no-icon"
+        data-show={true}
+        role="alert"
+        style={Object {}}
+      >
+        <div
+          className="ant-alert-content"
+        >
+          <div
+            className="ant-alert-message"
+          >
+            Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
+          </div>
+        </div>
+        <button
+          className="ant-alert-close-icon"
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span>
+            close
+          </span>
+        </button>
+      </div>
+    </DomWrapper>
+  </CSSMotion>
+</Alert>
 `;
