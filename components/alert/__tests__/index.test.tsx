@@ -1,13 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import Alert from '..';
 import Button from '../../button';
 import Tooltip from '../../tooltip';
 import Popconfirm from '../../popconfirm';
 import rtlTest from '../../../tests/shared/rtlTest';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { sleep } from '../../../tests/utils';
+import Alert from '..';
 
 const { ErrorBoundary } = Alert;
 
