@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import Alert from '..';
 import Button from '../../button';
 import Tooltip from '../../tooltip';
@@ -55,7 +55,7 @@ describe('Alert', () => {
   });
 
   it('support closeIcon', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Alert
         closable
         closeIcon={<span>close</span>}
