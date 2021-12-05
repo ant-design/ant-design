@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: cache package-lock.json
         uses: actions/cache@v2
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -78,7 +78,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -122,7 +122,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -145,7 +145,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -171,7 +171,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -194,7 +194,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -225,7 +225,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -256,7 +256,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -296,7 +296,7 @@ jobs:
       REACT: 16
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -324,7 +324,7 @@ jobs:
       REACT: 16
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -352,7 +352,7 @@ jobs:
       REACT: 16
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -388,7 +388,7 @@ jobs:
       REACT: 16
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -424,7 +424,7 @@ jobs:
       REACT: 16
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
@@ -460,7 +460,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
