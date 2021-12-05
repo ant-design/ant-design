@@ -62,7 +62,7 @@ describe('Alert', () => {
   });
 
   it('support closeIcon', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Alert
         closable
         closeIcon={<span>close</span>}
