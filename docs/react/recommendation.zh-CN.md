@@ -26,7 +26,7 @@ title: 社区精选组件
 | 应用国际化 | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
-| 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-virtualized](https://github.com/bvaughn/react-virtualized) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
+| 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | 地图 | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap 高德](https://github.com/ElemeFE/react-amap) |
 | 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
 | 右键菜单 | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify) |

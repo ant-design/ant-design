@@ -796,7 +796,7 @@ describe('Form', () => {
           </Form.Item>
         </Form>,
       );
-      expect(wrapper).toMatchRenderedSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('noStyle should not work when hidden', () => {
@@ -807,7 +807,7 @@ describe('Form', () => {
           </Form.Item>
         </Form>,
       );
-      expect(wrapper).toMatchRenderedSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 

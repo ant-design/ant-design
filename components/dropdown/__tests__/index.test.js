@@ -25,7 +25,7 @@ describe('Dropdown', () => {
         <button type="button">button</button>
       </Dropdown>,
     );
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('overlay is string', () => {
@@ -34,7 +34,7 @@ describe('Dropdown', () => {
         <button type="button">button</button>
       </Dropdown>,
     );
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('support Menu expandIcon', async () => {

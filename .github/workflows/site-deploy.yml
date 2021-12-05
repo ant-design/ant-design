@@ -10,7 +10,7 @@ jobs:
     if: github.event.ref_type == 'tag' && (contains(github.event.ref, '-') == false)
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: cache package-lock.json
         uses: actions/cache@v2
@@ -19,7 +19,7 @@ jobs:
           key: lock-${{ github.sha }}
 
       - name: create package-lock.json
-        run: npm i --package-lock-only
+        run: npm i --package-lock-only --ignore-scripts
 
       - name: hack for single file
         run: |
@@ -43,7 +43,7 @@ jobs:
     needs: setup
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2

@@ -87,7 +87,7 @@ describe('RangePicker', () => {
           open
         />,
       );
-      expect(wrapper).toMatchRenderedSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
