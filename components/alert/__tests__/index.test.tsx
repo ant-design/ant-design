@@ -1,13 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import Alert from '..';
 import Button from '../../button';
 import Tooltip from '../../tooltip';
 import Popconfirm from '../../popconfirm';
 import rtlTest from '../../../tests/shared/rtlTest';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { sleep } from '../../../tests/utils';
+import Alert from '..';
 
 const { ErrorBoundary } = Alert;
 
@@ -57,12 +57,12 @@ describe('Alert', () => {
           closable
         />,
       );
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
   it('support closeIcon', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Alert
         closable
         closeIcon={<span>close</span>}
@@ -70,7 +70,7 @@ describe('Alert', () => {
         type="warning"
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('data and aria props', () => {
