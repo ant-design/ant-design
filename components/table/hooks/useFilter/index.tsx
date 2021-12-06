@@ -31,7 +31,10 @@ function collectFilterStates<RecordType>(
 
   (columns || []).forEach((column, index) => {
     const columnPos = getColumnPos(index, pos);
-
+    if (!(column && typeOf column === 'object')) {
+      const errorText = `TypeError: columns[${index}] should be an object`;
+      throw new Error(errorText);
+    }
     if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
