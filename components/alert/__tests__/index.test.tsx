@@ -57,7 +57,7 @@ describe('Alert', () => {
           closable
         />,
       );
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
@@ -70,7 +70,7 @@ describe('Alert', () => {
         type="warning"
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('data and aria props', () => {
