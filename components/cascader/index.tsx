@@ -74,15 +74,25 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-export interface CascaderProps<DataNodeType>
-  extends Omit<RcCascaderProps, 'checkable' | 'options'> {
+type SingleCascaderProps = Omit<
+  Extract<RcCascaderProps, { checkable?: false }>,
+  'checkable' | 'options'
+> & { multiple?: false };
+type MultipleCascaderProps = Omit<
+  Extract<RcCascaderProps, { checkable: true | React.ReactNode }>,
+  'checkable' | 'options'
+> & { multiple: true };
+
+type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
+
+export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;
 
   suffixIcon?: React.ReactNode;
   options?: DataNodeType[];
-}
+};
 
 export interface CascaderRef {
   focus: () => void;
