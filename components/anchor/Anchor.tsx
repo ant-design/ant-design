@@ -291,7 +291,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     );
 
     const anchorClass = classNames(prefixCls, {
-      fixed: !affix && !showInkInFixed,
+      [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
     });
 
     const wrapperStyle = {

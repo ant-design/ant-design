@@ -126,7 +126,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
             class="ant-table-content"
           >
             <table
-              style="table-layout:auto"
+              style="table-layout: auto;"
             >
               <colgroup />
               <thead

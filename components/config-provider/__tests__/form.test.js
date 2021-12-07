@@ -88,7 +88,7 @@ describe('ConfigProvider.Form', () => {
         </ConfigProvider>,
       );
 
-      expect(wrapper).toMatchRenderedSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
