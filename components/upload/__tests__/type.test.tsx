@@ -126,22 +126,20 @@ describe('Upload.typescript', () => {
   it('data', () => {
     const upload1 = (
       <Upload
-        data={() => {
-          return {
-            url: '',
-          };
-        }}
+        data={() => ({
+          url: '',
+        })}
       >
         <span>click to upload</span>
       </Upload>
     );
     const upload2 = (
       <Upload
-        data={() => {
-          return Promise.resolve({
+        data={() =>
+          Promise.resolve({
             url: '',
-          });
-        }}
+          })
+        }
       >
         <span>click to upload</span>
       </Upload>
