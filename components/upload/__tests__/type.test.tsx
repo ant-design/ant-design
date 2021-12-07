@@ -99,11 +99,10 @@ describe('Upload.typescript', () => {
         status: 'error' as const,
       },
     ];
-    const upload = (
-      <Upload fileList={fileList} defaultFileList={fileList} />
-    )
+    const upload = <Upload fileList={fileList} defaultFileList={fileList} />;
     expect(upload).toBeTruthy();
   });
+
   it('itemRender', () => {
     const upload = (
       <Upload
@@ -122,5 +121,40 @@ describe('Upload.typescript', () => {
       </Upload>
     );
     expect(upload).toBeTruthy();
+  });
+
+  it('data', () => {
+    const upload1 = (
+      <Upload
+        data={() => ({
+          url: '',
+        })}
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    const upload2 = (
+      <Upload
+        data={() =>
+          Promise.resolve({
+            url: '',
+          })
+        }
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    const upload3 = (
+      <Upload
+        data={{
+          url: '',
+        }}
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    expect(upload1).toBeTruthy();
+    expect(upload2).toBeTruthy();
+    expect(upload3).toBeTruthy();
   });
 });
