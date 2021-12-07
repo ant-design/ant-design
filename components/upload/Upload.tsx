@@ -174,13 +174,13 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         let clone;
 
         try {
-          clone = (new File([originFileObj], originFileObj.name, {
+          clone = new File([originFileObj], originFileObj.name, {
             type: originFileObj.type,
-          }) as any) as UploadFile;
+          }) as any as UploadFile;
         } catch (e) {
-          clone = (new Blob([originFileObj], {
+          clone = new Blob([originFileObj], {
             type: originFileObj.type,
-          }) as any) as UploadFile;
+          }) as any as UploadFile;
           clone.name = originFileObj.name;
           clone.lastModifiedDate = new Date();
           clone.lastModified = new Date().getTime();
@@ -305,7 +305,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onError,
     onProgress,
     onSuccess,
-    ...props,
+    ...(props as RcUploadProps),
     prefixCls,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
