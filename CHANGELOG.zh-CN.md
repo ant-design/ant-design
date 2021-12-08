@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 4.17.3
+
+`2021-12-08`
+
+- 🐞 修复 Drawer `title` 未能填满一行造成的样式问题。[#33205](https://github.com/ant-design/ant-design/pull/33205)
+- 🐞 修复 Badge 从 `display:none` 时切换到显示时闪动的问题。[#33083](https://github.com/ant-design/ant-design/pull/33083) [@songlinn](https://github.com/songlinn)
+- 💄 Anchor 固定样式类从 `.fixed` 修改成 `.ant-anchor-fixed`[#33085](https://github.com/ant-design/ant-design/pull/33085) [@tangjinzhou](https://github.com/tangjinzhou)
+- 💄 修复 Button `loading` 样式在 Firefox 下丢失的问题。[#33199](https://github.com/ant-design/ant-design/pull/33199)
+- Select
+  - 🐞 修复 Select 单选搜索时宽度收缩的问题。[#32988](https://github.com/ant-design/ant-design/pull/32988)
+  - 🐞 修复 Select 在低版本浏览器报出 `Object.values not defined` 错误的问题。[#33124](https://github.com/ant-design/ant-design/pull/33124)
+- Radio
+  - 💄 修复 Radio 在缩放时蓝点不居中的问题。[#33086](https://github.com/ant-design/ant-design/pull/33086) [@hydraZty](https://github.com/hydraZty)
+  - 💄 修复 Radio 禁用鼠标手型样式。[#33198](https://github.com/ant-design/ant-design/pull/33198) [@tangjinzhou](https://github.com/tangjinzhou)
+- 💄 Collapse header 添加 `position: relative` 样式以兼容过去某些场景用户依赖了该样式。[#33070](https://github.com/ant-design/ant-design/pull/33070)
+- 🐞 修复 Input.TextArea 当有 `showCount` 时设置高度失效。[#33055](https://github.com/ant-design/ant-design/pull/33055)
+- TypeScript
+  - 🤖 修复 Upload `data` TypeScript 定义。[#33193](https://github.com/ant-design/ant-design/pull/33193)
+  - 🤖 修复 Carousel TypeScript 定义。[#33109](https://github.com/ant-design/ant-design/pull/33109) [@q1uxu](https://github.com/q1uxu)
+- 🌐 补充 `zh-TW` 语言包。[#33108](https://github.com/ant-design/ant-design/pull/33108) [@dengfuping](https://github.com/dengfuping)
+
 ## 4.17.2
 
 `2021-11-26`
