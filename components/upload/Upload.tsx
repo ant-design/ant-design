@@ -305,7 +305,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onError,
     onProgress,
     onSuccess,
-    ...props,
+    ...(props as RcUploadProps),
     prefixCls,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
