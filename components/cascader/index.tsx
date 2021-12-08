@@ -1,7 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcCascader from 'rc-cascader';
-import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
+import type {
+  SingleCascaderProps as RcSingleCascaderProps,
+  MultipleCascaderProps as RcMultipleCascaderProps,
+} from 'rc-cascader';
 import type { ShowSearchType, FieldNames, DataNode } from 'rc-cascader/lib/interface';
 import omit from 'rc-util/lib/omit';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -74,14 +77,12 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-type SingleCascaderProps = Omit<
-  Extract<RcCascaderProps, { checkable?: false }>,
-  'checkable' | 'options'
-> & { multiple?: false };
-type MultipleCascaderProps = Omit<
-  Extract<RcCascaderProps, { checkable: true | React.ReactNode }>,
-  'checkable' | 'options'
-> & { multiple: true };
+type SingleCascaderProps = Omit<RcSingleCascaderProps, 'checkable' | 'options'> & {
+  multiple?: false;
+};
+type MultipleCascaderProps = Omit<RcMultipleCascaderProps, 'checkable' | 'options'> & {
+  multiple: true;
+};
 
 type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
 
