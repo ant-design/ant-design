@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 4.17.3
+
+`2021-12-08`
+
+- 🐞 Fix Drawer broken style caused by title width. [#33205](https://github.com/ant-design/ant-design/pull/33205)
+- 🐞 Fix Badge flash style when switch from `display:none`. [#33083](https://github.com/ant-design/ant-design/pull/33083) [@songlinn](https://github.com/songlinn)
+- 💄 Change Anchor className form `.fixed` to `.ant-anchor-fixed`. [#33085](https://github.com/ant-design/ant-design/pull/33085) [@tangjinzhou](https://github.com/tangjinzhou)
+- 💄 Fix Button loading style missing in Firefox. [#33199](https://github.com/ant-design/ant-design/pull/33199)
+- Select
+  - 🐞 Fix Select width became small when searching. [#32988](https://github.com/ant-design/ant-design/pull/32988)
+  - 🐞 Fix Select throw `Object.values not defined` in low version browser. [#33124](https://github.com/ant-design/ant-design/pull/33124)
+- Radio
+  - 💄 Fix Radio dot offset when zooming. [#33086](https://github.com/ant-design/ant-design/pull/33086) [@hydraZty](https://github.com/hydraZty)
+  - 💄 Fix Radio cursor style. [#33198](https://github.com/ant-design/ant-design/pull/33198) [@tangjinzhou](https://github.com/tangjinzhou)
+- 💄 Revert Collapse header `position: relative` style to ensure some user depends on this style. [#33070](https://github.com/ant-design/ant-design/pull/33070)
+- 🐞 Fix Input.TextArea height bug when has `showCount`. [#33055](https://github.com/ant-design/ant-design/pull/33055)
+- TypeScript
+  - 🤖 Fix Upload `data` type. [#33193](https://github.com/ant-design/ant-design/pull/33193)
+  - 🤖 Fix Carousel type declaration. [#33109](https://github.com/ant-design/ant-design/pull/33109) [@q1uxu](https://github.com/q1uxu)
+- 🌐 Add missing zh-TW translation. [#33108](https://github.com/ant-design/ant-design/pull/33108) [@dengfuping](https://github.com/dengfuping)
+
 ## 4.17.2
 
 `2021-11-26`
