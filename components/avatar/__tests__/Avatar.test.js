@@ -155,7 +155,7 @@ describe('Avatar Render', () => {
 
   it('support size is number', () => {
     const wrapper = mount(<Avatar size={100}>TestString</Avatar>);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   Object.entries(sizes).forEach(([key, value]) => {
@@ -189,7 +189,7 @@ describe('Avatar Render', () => {
     );
     wrapper.find('img').simulate('error');
     wrapper.update();
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.detach();
     global.document.body.removeChild(div);
   });

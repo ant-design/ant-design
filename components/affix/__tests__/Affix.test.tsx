@@ -4,6 +4,7 @@ import Affix, { AffixProps, AffixState } from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { sleep } from '../../../tests/utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
@@ -53,6 +54,7 @@ class AffixMounter extends React.Component<{
 
 describe('Affix Render', () => {
   rtlTest(Affix);
+  accessibilityTest(Affix);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;

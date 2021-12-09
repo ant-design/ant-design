@@ -91,7 +91,9 @@ export interface UploadProps<T = any> {
   fileList?: Array<UploadFile<T>>;
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
-  data?: object | ((file: UploadFile<T>) => object);
+  data?:
+    | Record<string, unknown>
+    | ((file: UploadFile<T>) => Record<string, unknown> | Promise<Record<string, unknown>>);
   method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;

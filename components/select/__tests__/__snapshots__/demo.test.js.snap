@@ -1711,7 +1711,6 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
 exports[`renders ./components/select/demo/search.md correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
-  style="width:200px"
 >
   <div
     class="ant-select-selector"
