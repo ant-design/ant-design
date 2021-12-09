@@ -107,12 +107,26 @@ describe('Transfer.Search', () => {
     expect(
       wrapper.find('.ant-input').at(1).getDOMNode().attributes.getNamedItem('value').value,
     ).toEqual('b');
-    wrapper.setProps({ searchValue: ['b', 'a'] });
+    wrapper.setProps({ searchValue: ['a', 'c'] });
+    expect(
+      wrapper.find('.ant-input').at(0).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('a');
+    expect(
+      wrapper.find('.ant-input').at(1).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('c');
+    wrapper.setProps({ searchValue: ['b', 'c'] });
     expect(
       wrapper.find('.ant-input').at(0).getDOMNode().attributes.getNamedItem('value').value,
     ).toEqual('b');
     expect(
       wrapper.find('.ant-input').at(1).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('c');
+    wrapper.setProps({ searchValue: ['a', 'b'] });
+    expect(
+      wrapper.find('.ant-input').at(0).getDOMNode().attributes.getNamedItem('value').value,
     ).toEqual('a');
+    expect(
+      wrapper.find('.ant-input').at(1).getDOMNode().attributes.getNamedItem('value').value,
+    ).toEqual('b');
   });
 });
