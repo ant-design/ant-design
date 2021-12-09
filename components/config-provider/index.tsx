@@ -90,6 +90,7 @@ export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
+let globalTheme: Theme;
 
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
@@ -112,6 +113,7 @@ const setGlobalConfig = ({
   }
 
   if (theme) {
+    globalTheme = theme;
     registerTheme(getGlobalPrefixCls(), theme);
   }
 };
@@ -140,6 +142,9 @@ export const globalConfig = () => ({
 
     // Fallback to default prefixCls
     return getGlobalPrefixCls();
+  },
+  getTheme: () => {
+    return globalTheme;
   },
 });
 
