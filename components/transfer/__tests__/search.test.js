@@ -61,7 +61,13 @@ describe('Transfer.Search', () => {
     onSearch.mockReset();
     wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(onSearch).toHaveBeenCalledWith('left', '');
-    wrapper.find('.ant-input-clear-icon').at(1).simulate('click');
+    wrapper
+      .find('.ant-input')
+      .at(1)
+      .simulate('change', { target: { value: 'a' } });
+    expect(onSearch).toHaveBeenCalledWith('right', 'a');
+    onSearch.mockReset();
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(onSearch).toHaveBeenCalledWith('right', '');
     jest.useRealTimers();
   });
