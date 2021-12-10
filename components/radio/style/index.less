@@ -85,17 +85,15 @@
   &-inner {
     &::after {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: ((@radio-size - @radio-dot-size) / 2) - @radio-border-width;
+      left: ((@radio-size - @radio-dot-size) / 2) - @radio-border-width;
       display: block;
-      width: @radio-size;
-      height: @radio-size;
-      margin-top: -(@radio-size / 2);
-      margin-left: -(@radio-size / 2);
+      width: @radio-dot-size;
+      height: @radio-dot-size;
       background-color: @radio-dot-color;
       border-top: 0;
       border-left: 0;
-      border-radius: @radio-size;
+      border-radius: @radio-dot-size;
       transform: scale(0);
       opacity: 0;
       transition: all @radio-duration @ease-in-out-circ;
@@ -134,7 +132,7 @@
     border-color: @radio-dot-color;
 
     &::after {
-      transform: scale((unit(@radio-dot-size) / unit(@radio-size)));
+      transform: scale(1);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
