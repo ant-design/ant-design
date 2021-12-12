@@ -159,7 +159,7 @@ const DrawerForm = () => {
   </>;
 };
 
-ReactDOM.render(<DrawerForm/>, mountNode);
+ReactDOM.render(<DrawerForm />, mountNode);
 ```
 
 ```css
