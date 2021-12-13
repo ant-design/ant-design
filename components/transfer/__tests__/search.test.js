@@ -65,8 +65,8 @@ describe('Transfer.Search', () => {
     wrapper
       .find('.ant-input')
       .last()
-      .simulate('change', { target: { value: 'a' } });
-    expect(onSearch).toHaveBeenCalledWith('right', 'a');
+      .simulate('change', { target: { value: 'b' } });
+    expect(onSearch).toHaveBeenCalledWith('right', 'b');
     onSearch.mockReset();
     wrapper.find('.ant-input-clear-icon').last().simulate('click');
     expect(onSearch).toHaveBeenCalledWith('right', '');
