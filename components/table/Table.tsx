@@ -77,6 +77,7 @@ export interface TableProps<RecordType>
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
+  title?: RcTableProps<RecordType>['title'];
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
   size?: SizeType;
@@ -116,6 +117,7 @@ function InternalTable<RecordType extends object = any>(
     rowKey,
     rowClassName,
     columns,
+    title,
     children,
     childrenColumnName: legacyChildrenColumnName,
     onChange,
@@ -148,7 +150,12 @@ function InternalTable<RecordType extends object = any>(
     );
   }, [children, columns, screens]);
 
-  const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
+  const tableProps = omit(props, [
+    'className',
+    'style',
+    'columns',
+    'title',
+  ]) as TableProps<RecordType>;
 
   const size = React.useContext(SizeContext);
   const {
@@ -492,6 +499,7 @@ function InternalTable<RecordType extends object = any>(
         <RcTable<RecordType>
           {...tableProps}
           columns={mergedColumns}
+          title={title}
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
