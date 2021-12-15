@@ -113,4 +113,38 @@ describe('Slider', () => {
       mount(<Slider step={value} tooltipVisible />);
     });
   });
+
+  it('should accept tooltip props ', () => {
+    let ref;
+
+    const tooltipProps = {
+      visible: true,
+      title: <div className="title" />,
+      children: <div className="content" />,
+      overlayInnerStyle: { color: 'red' },
+      ref: node => {
+        ref = node;
+      },
+    };
+
+    const wrapper = mount(<Slider tooltipProps={tooltipProps} />);
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
+
+    expect(ref.getPopupDomNode().className).toContain('ant-tooltip');
+    expect(wrapper.find('.title')).toBeTruthy();
+    expect(wrapper.find('.content')).toBeTruthy();
+    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().style.color).toBe('red');
+    expect(wrapper.find('.ant-zoom-big-fast')).toBeTruthy();
+  });
+
+  it('should render tooltip with different "transitionName" value', () => {
+    const tooltipProps = {
+      visible: true,
+      transitionName: 'test-transition',
+    };
+
+    const wrapper = mount(<Slider tooltipProps={tooltipProps} />);
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
+    expect(wrapper.find('.test-transition')).toBeTruthy();
+  });
 });
