@@ -30,6 +30,7 @@ To input a value in a range.
 | tipFormatter | Slider will pass its value to `tipFormatter`, and display its value in Tooltip, and hide Tooltip when return value is null | value => ReactNode \| null | IDENTITY |  |
 | tooltipPlacement | Set Tooltip display position. Ref [Tooltip](/components/tooltip/) | string | - |  |
 | tooltipVisible | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering | boolean | - |  |
+| tooltipProps | The tooltip props | [TooltipProps](/components/tooltip/#API) | - |  |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
 | vertical | If true, the slider will be vertical | boolean | false |  |
 | onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
