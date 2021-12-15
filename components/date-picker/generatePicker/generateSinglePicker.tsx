@@ -71,7 +71,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           placeholder,
           ...restProps
         } = this.props;
-        const { format, showTime } = this.props as any;
+        const { format, showTime, showWeek } = this.props as any;
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
         const additionalProps = {
@@ -90,6 +90,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           ...(mergedPicker === 'time'
             ? getTimeProps({ format, ...this.props, picker: mergedPicker })
             : {}),
+          ...(showWeek ? { showWeek: true } : {}),
         };
         const rootPrefixCls = getPrefixCls();
 

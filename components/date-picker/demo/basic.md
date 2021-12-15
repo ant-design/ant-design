@@ -27,6 +27,8 @@ ReactDOM.render(
     <DatePicker onChange={onChange} picker="month" />
     <DatePicker onChange={onChange} picker="quarter" />
     <DatePicker onChange={onChange} picker="year" />
+    <DatePicker onChange={onChange} showWeek />
+    <DatePicker onChange={onChange} picker="month" showWeek />
   </Space>,
   mountNode,
 );
