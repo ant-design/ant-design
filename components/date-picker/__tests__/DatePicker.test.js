@@ -199,4 +199,14 @@ describe('DatePicker', () => {
     expect(year).toBe(startDate.format('YYYY'));
     expect(wrapper.find('.ant-picker-time-panel').length).toBe(1);
   });
+
+  it('showWeek={showWeek: true}', () => {
+    const wrapper = mount(<DatePicker defaultValue={moment()} showWeek open />);
+    expect(wrapper.find('.ant-picker-cell-week').length).toBe(6);
+  });
+
+  it('showWeek', () => {
+    const wrapper = mount(<DatePicker defaultValue={moment()} showWeek open />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
