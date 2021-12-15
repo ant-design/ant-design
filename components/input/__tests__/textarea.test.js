@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
+import { _rs as libOnResize } from 'rc-resize-observer/lib/utils/observerUtil';
+import { _rs as esOnResize } from 'rc-resize-observer/es/utils/observerUtil';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { sleep } from '../../../tests/utils';
@@ -358,6 +360,9 @@ describe('TextArea allowClear', () => {
       'setSelectionRange',
     );
     wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
+    const targets = [{ target: wrapper.find('ResizeObserver').getDOMNode() }];
+    libOnResize(targets);
+    esOnResize(targets);
     await sleep(100);
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();
