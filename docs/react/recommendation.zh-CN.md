@@ -26,7 +26,7 @@ title: 社区精选组件
 | 应用国际化 | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
-| 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-virtualized](https://github.com/bvaughn/react-virtualized) [antd-table-infinity](https://github.com/Leonard-Li777/antd-table-infinity) |
+| 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | 地图 | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap 高德](https://github.com/ElemeFE/react-amap) |
 | 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
 | 右键菜单 | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify) |
@@ -35,7 +35,7 @@ title: 社区精选组件
 | 图片裁切 | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines) |
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
-| 文字轮播 | [react-text-loop](https://github.com/braposo/react-text-loop) |
+| 文字轮播 | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
 | 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | 页脚 | [rc-footer](https://github.com/react-component/footer) |
 | 水印 | [WaterMark](https://procomponents.ant.design/components/water-mark) |

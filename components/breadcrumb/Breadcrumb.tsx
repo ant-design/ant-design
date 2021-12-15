@@ -55,9 +55,9 @@ const getPath = (path: string, params: any) => {
   return path;
 };
 
-const addChildPath = (paths: string[], childPath: string = '', params: any) => {
+const addChildPath = (paths: string[], childPath: string, params: any) => {
   const originalPaths = [...paths];
-  const path = getPath(childPath, params);
+  const path = getPath(childPath || '', params);
   if (path) {
     originalPaths.push(path);
   }

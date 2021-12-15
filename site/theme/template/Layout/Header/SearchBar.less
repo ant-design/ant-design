@@ -1,5 +1,5 @@
 @import '../../../static/theme.less';
-@import (reference) '../../../../../components/style/themes/variable.less';
+@import (reference) '../../../../../components/style/themes/index.less';
 @import './index.less';
 @import './DocSearch.less';
 
@@ -24,6 +24,7 @@
 
   .keybinding {
     color: @search-icon-color;
+
     kbd {
       display: inline-block;
       width: 20px;
@@ -136,12 +137,15 @@
     border-radius: 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   }
+
   .ant-select-dropdown-menu {
     max-height: 200px;
   }
+
   .ant-select-dropdown-menu-item {
     border-radius: 0 !important;
   }
+
   .ant-component-decs {
     position: absolute;
     right: 16px;

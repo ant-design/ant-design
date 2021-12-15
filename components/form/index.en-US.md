@@ -244,7 +244,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | resetFields | Reset fields to `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
 | scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | Set fields status | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | Set fields value | (values) => void |  |
+| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
 | validateFields | Validate fields | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 

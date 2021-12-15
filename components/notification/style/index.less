@@ -69,6 +69,7 @@
         max-width: 4px;
         background-color: transparent;
         pointer-events: none;
+
         &::before {
           display: block;
           content: '';
@@ -109,12 +110,15 @@
       &-success {
         color: @success-color;
       }
+
       &-info {
         color: @info-color;
       }
+
       &-warning {
         color: @warning-color;
       }
+
       &-error {
         color: @error-color;
       }
@@ -181,6 +185,7 @@
     left: @notification-width;
     opacity: 0;
   }
+
   100% {
     left: 0;
     opacity: 1;
@@ -192,6 +197,7 @@
     right: @notification-width;
     opacity: 0;
   }
+
   100% {
     right: 0;
     opacity: 1;
@@ -204,6 +210,7 @@
     margin-bottom: @notification-margin-bottom;
     opacity: 1;
   }
+
   100% {
     max-height: 0;
     margin-bottom: 0;

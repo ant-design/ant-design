@@ -16,6 +16,11 @@
       }
 
       .@{collapse-prefix-cls}-arrow {
+        .@{collapse-prefix-cls}-rtl& {
+          margin-right: 0;
+          margin-left: @margin-sm;
+        }
+
         & svg {
           .@{collapse-prefix-cls}-rtl& {
             transform: rotate(180deg);
@@ -25,7 +30,8 @@
 
       .@{collapse-prefix-cls}-extra {
         .@{collapse-prefix-cls}-rtl& {
-          float: left;
+          margin-right: auto;
+          margin-left: 0;
         }
       }
     }
@@ -33,7 +39,7 @@
     &.@{collapse-prefix-cls}-no-arrow {
       > .@{collapse-prefix-cls}-header {
         .@{collapse-prefix-cls}-rtl& {
-          padding-right: 12px;
+          padding-right: @padding-sm;
           padding-left: 0;
         }
       }

@@ -64,6 +64,7 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
         let iconList = categories[key];
         if (searchKey) {
           const matchKey = searchKey
+            // eslint-disable-next-line prefer-regex-literals
             .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
             .replace(/(Filled|Outlined|TwoTone)$/, '')
             .toLowerCase();

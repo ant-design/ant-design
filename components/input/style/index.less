@@ -15,6 +15,7 @@
   &-group {
     .reset-component();
     .input-group(~'@{input-prefix-cls}');
+
     &-wrapper {
       display: inline-block;
       width: 100%;
@@ -46,8 +47,13 @@
     }
   }
 
-  &-textarea {
-    &-show-count::after {
+  &-textarea-show-count {
+    // https://github.com/ant-design/ant-design/issues/33049
+    > .@{input-prefix-cls} {
+      height: 100%;
+    }
+
+    &::after {
       float: right;
       color: @text-color-secondary;
       white-space: nowrap;

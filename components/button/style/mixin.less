@@ -20,6 +20,7 @@
   // http://stackoverflow.com/a/17253457
   > a:only-child {
     color: currentColor;
+
     &::after {
       position: absolute;
       top: 0;
@@ -106,6 +107,7 @@
       .button-color(@primary-color-hover; @background; @primary-color-hover);
     }
   }
+
   &:active {
     & when (@theme = dark) {
       .button-color(@primary-7; @background; @primary-7);
@@ -126,6 +128,7 @@
 .button-variant-ghost(@color; @border; @borderHover: yellow; @borderActive: yellow) {
   .button-color(@color; null; @border);
   text-shadow: none;
+
   &:hover,
   &:focus {
     & when (@border = transparent) {
@@ -155,6 +158,7 @@
       }
     }
   }
+
   &:active {
     & when (@border = transparent) {
       & when (@theme = dark) {
@@ -192,11 +196,13 @@
   > .@{btnClassName},
   > span > .@{btnClassName} {
     position: relative;
+
     &:hover,
     &:focus,
     &:active {
       z-index: 2;
     }
+
     &[disabled] {
       z-index: 0;
     }
@@ -248,29 +254,36 @@
   > .@{iconfont-css-prefix} {
     line-height: 1;
   }
+
   &,
   &:active,
   &:focus {
     outline: 0;
   }
+
   &:not([disabled]):hover {
     text-decoration: none;
   }
+
   &:not([disabled]):active {
     outline: 0;
     box-shadow: none;
   }
+
   &[disabled] {
     cursor: not-allowed;
+
     > * {
       pointer-events: none;
     }
   }
+
   &-lg {
     .button-size(
       @btn-height-lg; @btn-padding-horizontal-lg; @btn-font-size-lg; @btn-border-radius-base
     );
   }
+
   &-sm {
     .button-size(
       @btn-height-sm; @btn-padding-horizontal-sm; @btn-font-size-sm; @btn-border-radius-sm
@@ -284,6 +297,7 @@
 // default button style
 .btn-default() {
   .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border; );
+
   &:hover,
   &:focus,
   &:active {
@@ -307,6 +321,7 @@
 // danger default button style
 .btn-danger-default() {
   .button-color(@error-color, @btn-default-bg, @error-color);
+
   &:hover,
   &:focus {
     & when (@theme = dark) {
@@ -325,6 +340,7 @@
       .button-color(@error-color-hover, @btn-default-bg, @error-color-hover);
     }
   }
+
   &:active {
     & when (@theme = dark) {
       .button-color(
@@ -348,6 +364,7 @@
 .btn-danger-link() {
   .button-variant-other(@error-color, transparent, transparent);
   box-shadow: none;
+
   &:hover,
   &:focus {
     & when (@theme = dark) {
@@ -360,6 +377,7 @@
       .button-color(@error-color-hover; transparent; transparent);
     }
   }
+
   &:active {
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
@@ -377,9 +395,11 @@
 .btn-link() {
   .button-variant-other(@link-color, transparent, transparent);
   box-shadow: none;
+
   &:hover {
     background: @btn-link-hover-bg;
   }
+
   &:hover,
   &:focus,
   &:active {
@@ -391,6 +411,7 @@
 .btn-text() {
   .button-variant-other(@text-color, transparent, transparent);
   box-shadow: none;
+
   &:hover,
   &:focus {
     color: @text-color;
@@ -409,6 +430,7 @@
 .btn-danger-text() {
   .button-variant-other(@error-color, transparent, transparent);
   box-shadow: none;
+
   &:hover,
   &:focus {
     & when (@theme = dark) {
@@ -453,12 +475,14 @@
 .btn-square(@btnClassName: btn) {
   .square(@btn-square-size);
   .button-size(@btn-square-size; 0; @btn-square-only-icon-size; @btn-border-radius-base);
+
   & > * {
     font-size: @btn-square-only-icon-size;
   }
   &.@{btnClassName}-lg {
     .square(@btn-square-size-lg);
     .button-size(@btn-square-size-lg; 0; @btn-square-only-icon-size-lg; @btn-border-radius-base);
+
     & > * {
       font-size: @btn-square-only-icon-size-lg;
     }
@@ -466,6 +490,7 @@
   &.@{btnClassName}-sm {
     .square(@btn-square-size-sm);
     .button-size(@btn-square-size-sm; 0; @btn-square-only-icon-size-sm; @btn-border-radius-base);
+
     & > * {
       font-size: @btn-square-only-icon-size-sm;
     }
@@ -526,6 +551,7 @@
     border-top-right-radius: @btn-border-radius-base;
     border-bottom-right-radius: @btn-border-radius-base;
   }
+
   &-sm {
     > .@{btnClassName}:only-child {
       border-radius: @btn-border-radius-sm;
@@ -544,12 +570,14 @@
       border-bottom-right-radius: @btn-border-radius-sm;
     }
   }
+
   & > & {
     float: left;
   }
   & > &:not(:first-child):not(:last-child) > .@{btnClassName} {
     border-radius: 0;
   }
+
   & > &:first-child:not(:last-child) {
     > .@{btnClassName}:last-child {
       padding-right: 8px;

@@ -19,7 +19,7 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 | indicator | React node of the spinning indicator | ReactNode | - |
 | size | The size of Spin, options: `small`, `default` and `large` | string | `default` |
 | spinning | Whether Spin is spinning | boolean | true |
-| tip | Customize description content when Spin has children | string | - |
+| tip | Customize description content when Spin has children | ReactNode | - |
 | wrapperClassName | The className of wrapper when Spin has children | string | - |
 
 ### Static Method

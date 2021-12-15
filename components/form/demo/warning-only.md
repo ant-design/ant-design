@@ -1,5 +1,6 @@
 ---
 order: 3.2
+version: 4.17.0
 title:
   zh-CN: 非阻塞校验
   en-US: No block rule
@@ -42,19 +43,13 @@ const Demo = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-      <div style={{ overflow: 'hidden' }}>
-        <Form.Item
-          name="url"
-          label="URL"
-          rules={[
-            { required: true },
-            { type: 'url', warningOnly: true },
-            { type: 'string', min: 6 },
-          ]}
-        >
-          <Input placeholder="input placeholder" />
-        </Form.Item>
-      </div>
+      <Form.Item
+        name="url"
+        label="URL"
+        rules={[{ required: true }, { type: 'url', warningOnly: true }, { type: 'string', min: 6 }]}
+      >
+        <Input placeholder="input placeholder" />
+      </Form.Item>
       <Form.Item>
         <Space>
           <Button type="primary" htmlType="submit">

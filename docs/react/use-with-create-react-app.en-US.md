@@ -78,7 +78,7 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 @import '~antd/dist/antd.css';
 ```
 
-Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide](https://create-react-app.dev/docs/getting-started).
+OK, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide](https://create-react-app.dev/docs/getting-started).
 
 We are successfully running antd components now, go build your own application!
 

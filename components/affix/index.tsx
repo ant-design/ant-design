@@ -92,10 +92,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
   componentDidUpdate(prevProps: AffixProps) {
     const { prevTarget } = this.state;
     const targetFunc = this.getTargetFunc();
-    let newTarget = null;
-    if (targetFunc) {
-      newTarget = targetFunc() || null;
-    }
+    const newTarget = targetFunc?.() || null;
 
     if (prevTarget !== newTarget) {
       removeObserveTarget(this);
@@ -128,12 +125,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 
   getOffsetTop = () => {
-    const { offsetBottom } = this.props;
-    let { offsetTop } = this.props;
-    if (offsetBottom === undefined && offsetTop === undefined) {
-      offsetTop = 0;
-    }
-    return offsetTop;
+    const { offsetBottom, offsetTop } = this.props;
+    return (offsetBottom === undefined && offsetTop === undefined) ? 0 : offsetTop;
   };
 
   getOffsetBottom = () => this.props.offsetBottom;
@@ -256,7 +249,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 
   // =================== Render ===================
-  render = () => {
+  render() {
     const { getPrefixCls } = this.context;
     const { affixStyle, placeholderStyle } = this.state;
     const { prefixCls, children } = this.props;
@@ -290,7 +283,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
         </div>
       </ResizeObserver>
     );
-  };
+  }
 }
 
 export default Affix;

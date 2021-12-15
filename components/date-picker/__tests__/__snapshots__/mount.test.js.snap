@@ -182,7 +182,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
   </div>
   <div
     class="ant-picker-active-bar"
-    style="right:0;width:0;position:absolute"
+    style="right: 0px; width: 0px; position: absolute;"
   />
   <span
     class="ant-picker-suffix"

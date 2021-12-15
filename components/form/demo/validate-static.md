@@ -23,18 +23,18 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 
 ```tsx
 import { SmileOutlined } from '@ant-design/icons';
-import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
+import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber, Mentions } from 'antd';
 
 const { Option } = Select;
 
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
-    sm: { span: 5 },
+    sm: { span: 6 },
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 12 },
+    sm: { span: 14 },
   },
 };
 
@@ -106,7 +106,7 @@ ReactDOM.render(
     <Form.Item label="inline" style={{ marginBottom: 0 }}>
       <Form.Item
         validateStatus="error"
-        help="Please select the correct date"
+        help="Please select right date"
         style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
       >
         <DatePicker />
@@ -135,6 +135,10 @@ ReactDOM.render(
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
       <Input.Password allowClear placeholder="with input password and allowClear" />
+    </Form.Item>
+
+    <Form.Item label="Fail" validateStatus="error">
+      <Mentions />
     </Form.Item>
   </Form>,
   mountNode,

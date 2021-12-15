@@ -13,6 +13,7 @@
   &-group {
     .reset-component();
     .input-group(~'@{input-number-prefix-cls}');
+
     &-wrapper {
       display: inline-block;
       text-align: start;
@@ -39,9 +40,11 @@
     text-align: center;
     border-left: @border-width-base @border-style-base @input-number-handler-border-color;
     transition: all 0.1s linear;
+
     &:active {
       background: @input-number-handler-active-bg;
     }
+
     &:hover &-up-inner,
     &:hover &-down-inner {
       color: @input-number-handler-hover-bg;
@@ -100,13 +103,15 @@
     border-radius: @border-radius-base;
     outline: 0;
     transition: all 0.3s linear;
-    -moz-appearance: textfield !important;
+    appearance: textfield !important;
     .placeholder();
 
     &[type='number']::-webkit-inner-spin-button,
     &[type='number']::-webkit-outer-spin-button {
       margin: 0;
+      /* stylelint-disable-next-line property-no-vendor-prefix */
       -webkit-appearance: none;
+      appearance: none;
     }
   }
 
@@ -145,6 +150,9 @@
     .@{input-number-prefix-cls}-handler {
       .@{input-number-prefix-cls}-handler-up-inner,
       .@{input-number-prefix-cls}-handler-down-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         min-width: auto;
         margin-right: 0;
         font-size: 7px;
@@ -168,11 +176,13 @@
   &-handler-up {
     border-top-right-radius: @border-radius-base;
     cursor: pointer;
+
     &-inner {
       top: 50%;
       margin-top: -5px;
       text-align: center;
     }
+
     &:hover {
       height: 60% !important;
     }
@@ -183,11 +193,13 @@
     border-top: @border-width-base @border-style-base @border-color-base;
     border-bottom-right-radius: @border-radius-base;
     cursor: pointer;
+
     &-inner {
       top: 50%;
       text-align: center;
       transform: translateY(-50%);
     }
+
     &:hover {
       height: 60% !important;
     }

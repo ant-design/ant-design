@@ -241,9 +241,9 @@ Form.List 渲染表单相关操作函数。
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |  |
 | isFieldValidating | 检查对应字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |  |
 | resetFields | 重置一组字段到 `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
-| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)) => void |  |
 | setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | 设置表单的值 | (values) => void |  |
+| setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
@@ -443,3 +443,4 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 ### 有更多参考文档吗？
 
 - 你可以阅读[《antd v4 Form 使用心得》](https://zhuanlan.zhihu.com/p/375753910)获得一些使用帮助以及建议。
+- 想在 DatePicker、Switch 也使用 before、after？可以参考[《如何优雅的对 Form.Item 的 children 增加 before、after》](https://zhuanlan.zhihu.com/p/422752055)。

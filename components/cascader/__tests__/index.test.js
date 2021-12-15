@@ -327,14 +327,15 @@ describe('Cascader', () => {
   });
 
   // FIXME: Move to `rc-tree-select` instead
-  // it('should warning if not find `value` in `options`', () => {
-  //   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-  //   mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     'Warning: [antd: Cascader] Not found `value` in `options`.',
-  //   );
-  //   errorSpy.mockRestore();
-  // });
+  // eslint-disable-next-line jest/no-disabled-tests
+  it.skip('should warning if not find `value` in `options`', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] Not found `value` in `options`.',
+    );
+    errorSpy.mockRestore();
+  });
 
   // https://github.com/ant-design/ant-design/issues/17690
   it('should not breaks when children is null', () => {
@@ -474,17 +475,30 @@ describe('Cascader', () => {
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
 
-  it('legacy props', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const wrapper = mount(<Cascader open popupPlacement="topRight" popupClassName="mock-cls" />);
+  describe('legacy props', () => {
+    it('popupClassName', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper = mount(<Cascader open popupPlacement="topRight" popupClassName="mock-cls" />);
 
-    expect(wrapper.exists('.mock-cls')).toBeTruthy();
-    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+      expect(wrapper.exists('.mock-cls')).toBeTruthy();
+      expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
 
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
-    );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+      );
 
-    errorSpy.mockRestore();
+      errorSpy.mockRestore();
+    });
+
+    it('displayRender & multiple', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      mount(<Cascader multiple displayRender={() => null} />);
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `displayRender` not work on `multiple`. Please use `tagRender` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
   });
 });

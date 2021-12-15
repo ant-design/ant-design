@@ -61,7 +61,7 @@ Select component to select value from options.
 | showSearch | Whether show search input in single mode | boolean | false |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
-| tagRender | Customize tag render | (props) => ReactNode | - |  |
+| tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize on `tag` and `multiple` mode | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
@@ -89,12 +89,12 @@ Select component to select value from options.
 
 ### Option props
 
-| Property  | Description                                | Type             | Default | Version |
-| --------- | ------------------------------------------ | ---------------- | ------- | ------- |
-| className | The additional class to option             | string           | -       |         |
-| disabled  | Disable this option                        | boolean          | false   |         |
-| title     | `title` of Select after select this Option | string           | -       |         |
-| value     | Default to filter with this property       | string \| number | -       |         |
+| Property  | Description                          | Type             | Default | Version |
+| --------- | ------------------------------------ | ---------------- | ------- | ------- |
+| className | The additional class to option       | string           | -       |         |
+| disabled  | Disable this option                  | boolean          | false   |         |
+| title     | `title` attribute of Select Option   | string           | -       |         |
+| value     | Default to filter with this property | string \| number | -       |         |
 
 ### OptGroup props
 

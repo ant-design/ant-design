@@ -86,11 +86,14 @@ exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`]
 
 exports[`Avatar Render fallback 1`] = `
 <span
-  class="ant-avatar ant-avatar-circle ant-avatar-image"
+  class="ant-avatar ant-avatar-circle"
 >
-  <img
-    src="http://error.url"
-  />
+  <span
+    class="ant-avatar-string"
+    style="transform: scale(1) translateX(-50%);"
+  >
+    A
+  </span>
 </span>
 `;
 
@@ -100,7 +103,7 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
 >
   <span
     class="ant-avatar-string"
-    style="opacity:0"
+    style="transform: scale(0.72) translateX(-50%);"
   />
 </span>
 `;
@@ -156,7 +159,7 @@ exports[`Avatar Render should handle onError correctly 1`] = `
     onError={[Function]}
     shape="circle"
     size="default"
-    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    src="https://joeschmoe.io/api/v1/random"
   >
     <span
       className="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -164,7 +167,7 @@ exports[`Avatar Render should handle onError correctly 1`] = `
     >
       <img
         onError={[Function]}
-        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        src="https://joeschmoe.io/api/v1/random"
       />
     </span>
   </Avatar>
@@ -184,18 +187,25 @@ exports[`Avatar Render should show image on success after a failure state 1`] = 
     <ResizeObserver
       onResize={[Function]}
     >
-      <span
-        className="ant-avatar-string"
-        style={
-          Object {
-            "WebkitTransform": "scale(1) translateX(-50%)",
-            "msTransform": "scale(1) translateX(-50%)",
-            "transform": "scale(1) translateX(-50%)",
-          }
-        }
+      <SingleObserver
+        key="rc-observer-key-0"
+        onResize={[Function]}
       >
-        Fallback
-      </span>
+        <DomWrapper>
+          <span
+            className="ant-avatar-string"
+            style={
+              Object {
+                "WebkitTransform": "scale(1) translateX(-50%)",
+                "msTransform": "scale(1) translateX(-50%)",
+                "transform": "scale(1) translateX(-50%)",
+              }
+            }
+          >
+            Fallback
+          </span>
+        </DomWrapper>
+      </SingleObserver>
     </ResizeObserver>
   </span>
 </Avatar>
@@ -205,7 +215,7 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
 <Avatar
   shape="circle"
   size="default"
-  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+  src="https://joeschmoe.io/api/v1/random"
 >
   <span
     className="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -213,7 +223,7 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
   >
     <img
       onError={[Function]}
-      src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      src="https://joeschmoe.io/api/v1/random"
     />
   </span>
 </Avatar>
@@ -222,11 +232,11 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
 exports[`Avatar Render support size is number 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
-  style="width:100px;height:100px;line-height:100px;font-size:18px"
+  style="width: 100px; height: 100px; line-height: 100px; font-size: 18px;"
 >
   <span
     class="ant-avatar-string"
-    style="opacity:0"
+    style="line-height: 100px; transform: scale(0.32) translateX(-50%);"
   >
     TestString
   </span>

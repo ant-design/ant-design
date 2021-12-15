@@ -314,10 +314,14 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { ellipsisText, isEllipsis, expanded } = this.state;
     const { rows, suffix, onEllipsis } = this.getEllipsis();
     const { children } = this.props;
-    if (!rows || rows < 0 || !this.contentRef.current || expanded) return;
+    if (!rows || rows < 0 || !this.contentRef.current || expanded) {
+      return;
+    }
 
     // Do not measure if css already support ellipsis
-    if (this.canUseCSSEllipsis()) return;
+    if (this.canUseCSSEllipsis()) {
+      return;
+    }
 
     devWarning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
@@ -536,7 +540,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                     [`${prefixCls}-${type}`]: type,
                     [`${prefixCls}-disabled`]: disabled,
                     [`${prefixCls}-ellipsis`]: rows,
-                    [`${prefixCls}-single-line`]: rows === 1,
+                    [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
                     [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                     [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
                   },

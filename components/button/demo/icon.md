@@ -47,6 +47,7 @@ ReactDOM.render(
     <Button type="dashed" icon={<SearchOutlined />}>
       Search
     </Button>
+    <Button icon={<SearchOutlined />} href="https://www.google.com" />
     <br />
     <br />
     <Tooltip title="search">
@@ -77,6 +78,7 @@ ReactDOM.render(
     <Button type="dashed" icon={<SearchOutlined />} size="large">
       Search
     </Button>
+    <Button icon={<SearchOutlined />} size="large" href="https://www.google.com" />
   </>,
   mountNode,
 );

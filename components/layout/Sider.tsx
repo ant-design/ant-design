@@ -214,15 +214,14 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>(
       );
     };
 
-    return (
-      <SiderContext.Provider
-        value={{
-          siderCollapsed: collapsed,
-        }}
-      >
-        {renderSider()}
-      </SiderContext.Provider>
+    const contextValue = React.useMemo(
+      () => ({
+        siderCollapsed: collapsed,
+      }),
+      [collapsed],
     );
+
+    return <SiderContext.Provider value={contextValue}>{renderSider()}</SiderContext.Provider>;
   },
 );
 

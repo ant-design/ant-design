@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Link, withRouter, MemoryRouter } from 'react-router-dom';
+import { Route, Routes, Link, useLocation, useNavigate, MemoryRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 import Breadcrumb from '../index';
 
@@ -32,12 +32,10 @@ describe('react router', () => {
   });
 
   // https://github.com/airbnb/enzyme/issues/875
-  it('react router 4', () => {
-    if (process.env.REACT === '15') {
-      return;
-    }
-    const Home = withRouter(props => {
-      const { location, history } = props;
+  it('react router 6', () => {
+    const Home = () => {
+      const location = useLocation();
+      const navigate = useNavigate();
       const pathSnippets = location.pathname.split('/').filter(i => i);
       const extraBreadcrumbItems = pathSnippets.map((_, index) => {
         const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
@@ -55,17 +53,17 @@ describe('react router', () => {
       return (
         <div className="demo">
           <div className="demo-nav">
-            <a onClick={() => history.push('/')}>Home</a>
-            <a onClick={() => history.push('/apps')}>Application List</a>
+            <a onClick={() => navigate('/')}>Home</a>
+            <a onClick={() => navigate('/apps')}>Application List</a>
           </div>
-          <Switch>
+          <Routes>
             <Route path="/apps" component={Apps} />
             <Route render={() => <span>Home Page</span>} />
-          </Switch>
+          </Routes>
           <Breadcrumb>{breadcrumbItems}</Breadcrumb>
         </div>
       );
-    });
+    };
     const wrapper = mount(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <Home />

@@ -20,13 +20,13 @@ import { SettingOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 const selectBefore = (
-  <Select defaultValue="add" className="select-before">
+  <Select defaultValue="add" style={{ width: 60 }}>
     <Option value="add">+</Option>
     <Option value="minus">-</Option>
   </Select>
 );
 const selectAfter = (
-  <Select defaultValue="USD" className="select-after">
+  <Select defaultValue="USD" style={{ width: 60 }}>
     <Option value="USD">$</Option>
     <Option value="EUR">€</Option>
     <Option value="GBP">£</Option>
@@ -46,14 +46,4 @@ ReactDOM.render(
   </Space>,
   mountNode,
 );
-```
-
-```css
-.select-before {
-  width: 50px;
-}
-
-.select-after {
-  width: 50px;
-}
 ```

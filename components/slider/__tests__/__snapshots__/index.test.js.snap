@@ -9,7 +9,7 @@ exports[`Slider rtl render component should be rendered correctly in RTL directi
   />
   <div
     class="ant-slider-track"
-    style="right:0%;left:auto;width:0%"
+    style="right: 0%; width: 0%;"
   />
   <div
     class="ant-slider-step"
@@ -21,7 +21,7 @@ exports[`Slider rtl render component should be rendered correctly in RTL directi
     aria-valuenow="0"
     class="ant-slider-handle"
     role="slider"
-    style="right:0%;left:auto;transform:translateX(+50%)"
+    style="right: 0%; transform: translateX(+50%);"
     tabindex="0"
   />
   <div
