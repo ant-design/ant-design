@@ -1,9 +1,10 @@
 import * as React from 'react';
 import RcSlider, { Range as RcRange, Handle as RcHandle } from 'rc-slider';
 import classNames from 'classnames';
-import { TooltipPlacement } from '../tooltip';
+import { TooltipPlacement, TooltipProps } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import { ConfigContext } from '../config-provider';
+import { getTransitionName } from '../_util/motion';
 
 export interface SliderMarks {
   [key: number]:
@@ -44,6 +45,7 @@ export interface SliderBaseProps {
   style?: React.CSSProperties;
   tooltipVisible?: boolean;
   tooltipPlacement?: TooltipPlacement;
+  tooltipProps?: Partial<TooltipProps>;
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   autoFocus?: boolean;
 }
@@ -103,22 +105,28 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
         tooltipVisible,
         tooltipPlacement,
         getTooltipPopupContainer,
+        tooltipProps = {},
         vertical,
       } = props;
       const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
       const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
       const rootPrefixCls = getPrefixCls();
-
+      const transitionName = getTransitionName(
+        rootPrefixCls,
+        'zoom-down',
+        tooltipProps.transitionName,
+      );
       return (
         <SliderTooltip
           prefixCls={tooltipPrefixCls}
           title={tipFormatter ? tipFormatter(value) : ''}
           visible={visible}
           placement={getTooltipPlacement(tooltipPlacement, vertical)}
-          transitionName={`${rootPrefixCls}-zoom-down`}
           key={index}
           overlayClassName={`${prefixCls}-tooltip`}
           getPopupContainer={getTooltipPopupContainer || getPopupContainer}
+          {...tooltipProps}
+          transitionName={transitionName}
         >
           <RcHandle
             {...restProps}
