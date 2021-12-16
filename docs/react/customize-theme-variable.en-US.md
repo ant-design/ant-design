@@ -71,7 +71,7 @@ ConfigProvider.config({
 Since prefix modified. Origin `antd.variable.css` should also be replaced:
 
 ```bash
-lessc --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
+lessc --js --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
 ```
 
 ### Related changes
