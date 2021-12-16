@@ -245,7 +245,6 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 exports[`TextArea maxLength should support maxLength 1`] = `
 <textarea
   class="ant-input"
-  maxlength="10"
 />
 `;
 
