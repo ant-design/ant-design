@@ -4237,7 +4237,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             <textarea
               class="ant-input"
               id="register_intro"
-              maxlength="100"
             />
           </div>
         </div>

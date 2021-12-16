@@ -135,7 +135,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         onChange={handleChange}
         onCompositionEnd={onInternalCompositionEnd}
         ref={innerRef}
-        maxLength={maxLength}
       />
     );
 

@@ -71,7 +71,7 @@ ConfigProvider.config({
 由于前缀变更，你需要重新生成一份对应的 css 文件。
 
 ```bash
-lessc --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
+lessc --js --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
 ```
 
 ### 相关变更
