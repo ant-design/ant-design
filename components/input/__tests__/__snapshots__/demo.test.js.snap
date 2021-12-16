@@ -3194,7 +3194,6 @@ Array [
   >
     <textarea
       class="ant-input"
-      maxlength="100"
     />
   </div>,
 ]
