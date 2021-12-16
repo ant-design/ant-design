@@ -88,10 +88,6 @@ export default class TransferList<
 
   defaultListBodyRef = React.createRef<DefaultListBody<RecordType>>();
 
-  constructor(props: TransferListProps<RecordType>) {
-    super(props);
-  }
-
   componentWillUnmount() {
     clearTimeout(this.triggerScrollTimer);
   }
