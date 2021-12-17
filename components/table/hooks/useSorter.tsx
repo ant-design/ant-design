@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import KeyCode from 'rc-util/lib/KeyCode';
 import {
   TransformColumns,
   ColumnsType,
@@ -179,6 +180,7 @@ function injectSorter<RecordType>(
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
           const originOnClick = cell.onClick;
+          const keyboardOnClick = cell.onKeyPress;
           cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
             triggerSorter({
               column,
@@ -192,7 +194,24 @@ function injectSorter<RecordType>(
             }
           };
 
+          cell.onKeyPress = (event: React.KeyboardEvent<HTMLElement>) => {
+            const { charCode } = event;
+            if (charCode === KeyCode.ENTER) {
+              triggerSorter({
+                column,
+                key: columnKey,
+                sortOrder: nextSortOrder,
+                multiplePriority: getMultiplePriority(column),
+              });
+
+              if (keyboardOnClick) {
+                keyboardOnClick(event);
+              }
+            }
+          };
+
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
+          cell.tabIndex = 0;
 
           return cell;
         },
