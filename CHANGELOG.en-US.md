@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 4.17.4
+
+`2021-12-19`
+
+- 🐞 Fix a bug that Form.Item name is "parentNode" casue endless loop and memory leak. [#31846](https://github.com/ant-design/ant-design/pull/31846) [@DaoxingHuang](https://github.com/DaoxingHuang)
+
 ## 4.17.3
 
 `2021-12-08`
