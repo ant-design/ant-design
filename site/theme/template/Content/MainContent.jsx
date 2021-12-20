@@ -377,9 +377,50 @@ class MainContent extends Component {
         <ComponentOverview
           {...this.props}
           doc={localizedPageData}
-          componentsData={getModuleData(this.props).filter(
-            ({ meta }) => meta.category === 'Components',
-          )}
+          componentsData={getModuleData(this.props)
+            .filter(({ meta }) => meta.category === 'Components')
+            .concat([
+              {
+                meta: {
+                  category: 'Components',
+                  cover: 'https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg',
+                  filename: 'https://procomponents.ant.design/components/layout/',
+                  subtitle: '高级布局',
+                  title: 'ProLayout',
+                  type: '重型组件',
+                },
+              },
+              {
+                meta: {
+                  category: 'Components',
+                  cover: 'https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg',
+                  filename: 'https://procomponents.ant.design/components/layout/',
+                  subtitle: '高级表单',
+                  title: 'ProForm',
+                  type: '重型组件',
+                },
+              },
+              {
+                meta: {
+                  category: 'Components',
+                  cover: 'https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg',
+                  filename: 'https://procomponents.ant.design/components/layout/',
+                  subtitle: '高级表格',
+                  title: 'ProTable',
+                  type: '重型组件',
+                },
+              },
+              {
+                meta: {
+                  category: 'Components',
+                  cover: 'https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg',
+                  filename: 'https://procomponents.ant.design/components/layout/',
+                  subtitle: '高级定义列表',
+                  title: 'ProDescriptions',
+                  type: '重型组件',
+                },
+              },
+            ])}
         />
       );
     }
