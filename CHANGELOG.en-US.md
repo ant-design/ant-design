@@ -20,7 +20,7 @@ timeline: true
 `2021-12-19`
 
 - 🐞 Fix a bug that Form.Item name is "parentNode" casue endless loop and memory leak. [#31846](https://github.com/ant-design/ant-design/pull/31846) [@DaoxingHuang](https://github.com/DaoxingHuang)
-- 🐞 Revert "fix: TextArea missing maxLength attr.". [#32448](https://github.com/ant-design/ant-design/pull/32448)
+- 🐞 Revert [#32448](https://github.com/ant-design/ant-design/pull/32448) to fix emoji input at Input.TextArea. [#33312](https://github.com/ant-design/ant-design/pull/33312)
 
 ## 4.17.3
 
