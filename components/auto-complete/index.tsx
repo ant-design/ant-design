@@ -16,6 +16,7 @@ import Select, {
   InternalSelectProps,
   RefSelectProps,
 } from '../select';
+import type { BaseSelectRef } from 'rc-select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { isValidElement } from '../_util/reactNode';
@@ -135,12 +136,16 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   );
 };
 
-const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(AutoComplete);
-
-type RefAutoCompleteWithOption = typeof RefAutoComplete & {
+const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
+  AutoComplete,
+) as unknown as (<Values extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
+  props: React.PropsWithChildren<AutoCompleteProps<Values>> & {
+    ref?: React.Ref<BaseSelectRef>;
+  },
+) => React.ReactElement) & {
   Option: typeof Option;
 };
 
-(RefAutoComplete as RefAutoCompleteWithOption).Option = Option;
+RefAutoComplete.Option = Option;
 
-export default RefAutoComplete as RefAutoCompleteWithOption;
+export default RefAutoComplete;

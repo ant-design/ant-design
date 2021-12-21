@@ -8,7 +8,8 @@ import RcTreeSelect, {
 } from 'rc-tree-select';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import { DefaultValueType } from 'rc-tree-select/lib/interface';
+import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
+import type { BaseSelectRef } from 'rc-select';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { AntTreeNodeProps, TreeProps } from '../tree';
@@ -44,12 +45,7 @@ export interface TreeSelectProps<T>
   treeLine?: TreeProps['showLine'];
 }
 
-export interface RefTreeSelectProps {
-  focus: () => void;
-  blur: () => void;
-}
-
-const InternalTreeSelect = <T extends DefaultValueType>(
+const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(
   {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -68,8 +64,8 @@ const InternalTreeSelect = <T extends DefaultValueType>(
     transitionName,
     choiceTransitionName = '',
     ...props
-  }: TreeSelectProps<T>,
-  ref: React.Ref<RefTreeSelectProps>,
+  }: TreeSelectProps<OptionType>,
+  ref: React.Ref<BaseSelectRef>,
 ) => {
   const {
     getPopupContainer: getContextPopupContainer,
@@ -166,8 +162,12 @@ const InternalTreeSelect = <T extends DefaultValueType>(
   );
 };
 
-const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <T extends DefaultValueType>(
-  props: TreeSelectProps<T> & { ref?: React.Ref<RefTreeSelectProps> },
+const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+>(
+  props: React.PropsWithChildren<TreeSelectProps<OptionType>> & {
+    ref?: React.Ref<BaseSelectRef>;
+  },
 ) => React.ReactElement;
 
 type InternalTreeSelectType = typeof TreeSelectRef;
