@@ -394,7 +394,7 @@ describe('Table.pagination', () => {
     );
     wrapper.find('.ant-select-selector').simulate('mousedown');
     jest.runAllTimers();
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = wrapper.find('Trigger');
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
     dropdownWrapper.find('.ant-select-item-option').at(3).simulate('click');
     expect(onShowSizeChange).toHaveBeenCalledTimes(1);
@@ -451,7 +451,7 @@ describe('Table.pagination', () => {
       }),
     );
     wrapper.find('.ant-select-selector').simulate('mousedown');
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = wrapper.find('Trigger');
     dropdownWrapper.find('.ant-select-item-option').at(2).simulate('click');
 
     expect(onChange).toBeCalledTimes(1);
