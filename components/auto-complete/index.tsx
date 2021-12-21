@@ -10,7 +10,12 @@ import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import Select, { InternalSelectProps, OptionType, RefSelectProps } from '../select';
+import Select, {
+  BaseOptionType,
+  DefaultOptionType,
+  InternalSelectProps,
+  RefSelectProps,
+} from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { isValidElement } from '../_util/reactNode';
@@ -23,9 +28,10 @@ export interface DataSourceItemObject {
 }
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
-export interface AutoCompleteProps
-  extends Omit<
-    InternalSelectProps<string>,
+export interface AutoCompleteProps<
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+> extends Omit<
+    InternalSelectProps<OptionType>,
     'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
   > {
   dataSource?: DataSourceItemType[];
@@ -132,7 +138,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(AutoComplete);
 
 type RefAutoCompleteWithOption = typeof RefAutoComplete & {
-  Option: OptionType;
+  Option: typeof Option;
 };
 
 (RefAutoComplete as RefAutoCompleteWithOption).Option = Option;

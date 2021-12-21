@@ -13,7 +13,7 @@ import { getTransitionName } from '../_util/motion';
 
 type RawValue = string | number;
 
-export { OptionProps, BaseSelectRef as RefSelectProps };
+export { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
 
 export interface LabeledValue {
   key?: string;

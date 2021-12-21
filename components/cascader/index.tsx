@@ -24,6 +24,8 @@ import { getTransitionName } from '../_util/motion';
 // - Hover opacity style
 // - Search filter match case
 
+export { BaseOptionType, DefaultOptionType };
+
 export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;

@@ -20,16 +20,8 @@ interface SharedProps<DateType> {
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
-  const {
-    fullscreen,
-    validRange,
-    generateConfig,
-    locale,
-    prefixCls,
-    value,
-    onChange,
-    divRef,
-  } = props;
+  const { fullscreen, validRange, generateConfig, locale, prefixCls, value, onChange, divRef } =
+    props;
 
   const year = generateConfig.getYear(value || generateConfig.getNow());
 
@@ -53,7 +45,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
       options={options}
       value={year}
       className={`${prefixCls}-year-select`}
-      onChange={numYear => {
+      onChange={(numYear: number) => {
         let newDate = generateConfig.setYear(value, numYear);
 
         if (validRange) {
@@ -82,16 +74,8 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
 }
 
 function MonthSelect<DateType>(props: SharedProps<DateType>) {
-  const {
-    prefixCls,
-    fullscreen,
-    validRange,
-    value,
-    generateConfig,
-    locale,
-    onChange,
-    divRef,
-  } = props;
+  const { prefixCls, fullscreen, validRange, value, generateConfig, locale, onChange, divRef } =
+    props;
   const month = generateConfig.getMonth(value || generateConfig.getNow());
 
   let start = 0;
@@ -123,7 +107,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       className={`${prefixCls}-month-select`}
       value={month}
       options={options}
-      onChange={newMonth => {
+      onChange={(newMonth: number) => {
         onChange(generateConfig.setMonth(value, newMonth));
       }}
       getPopupContainer={() => divRef!.current!}
