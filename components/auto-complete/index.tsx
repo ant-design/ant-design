@@ -30,9 +30,10 @@ export interface DataSourceItemObject {
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
 export interface AutoCompleteProps<
+  ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<OptionType>,
+    InternalSelectProps<ValueType, OptionType>,
     'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
   > {
   dataSource?: DataSourceItemType[];
@@ -138,8 +139,11 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
 const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
   AutoComplete,
-) as unknown as (<Values extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
-  props: React.PropsWithChildren<AutoCompleteProps<Values>> & {
+) as unknown as (<
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+>(
+  props: React.PropsWithChildren<AutoCompleteProps<ValueType, OptionType>> & {
     ref?: React.Ref<BaseSelectRef>;
   },
 ) => React.ReactElement) & {

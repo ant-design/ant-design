@@ -23,16 +23,21 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
-export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
+export interface InternalSelectProps<
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
   bordered?: boolean;
 }
 
-export interface SelectProps<VT>
-  extends Omit<
-    InternalSelectProps<VT>,
+export interface SelectProps<
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+> extends Omit<
+    InternalSelectProps<ValueType, OptionType>,
     'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
   > {
   mode?: 'multiple' | 'tags';
@@ -119,7 +124,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   );
 
   return (
-    <RcSelect
+    <RcSelect<any, any>
       ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
@@ -127,7 +132,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
-      mode={mode}
+      mode={mode as any}
       prefixCls={prefixCls}
       direction={direction}
       inputIcon={suffixIcon}
@@ -143,9 +148,10 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 };
 
 const Select = React.forwardRef(InternalSelect) as unknown as (<
-  Values extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  props: React.PropsWithChildren<SelectProps<Values>> & {
+  props: React.PropsWithChildren<SelectProps<ValueType, OptionType>> & {
     ref?: React.Ref<BaseSelectRef>;
   },
 ) => React.ReactElement) & {

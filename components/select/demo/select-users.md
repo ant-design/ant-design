@@ -94,7 +94,7 @@ const Demo = () => {
       value={value}
       placeholder="Select users"
       fetchOptions={fetchUserList}
-      onChange={(newValue: UserValue[]) => {
+      onChange={newValue => {
         setValue(newValue);
       }}
       style={{ width: '100%' }}
