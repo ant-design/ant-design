@@ -25,7 +25,7 @@ export interface DebounceSelectProps<ValueType = any>
 }
 
 function DebounceSelect<
-  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any
+  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any,
 >({ fetchOptions, debounceTimeout = 800, ...props }: DebounceSelectProps) {
   const [fetching, setFetching] = React.useState(false);
   const [options, setOptions] = React.useState<ValueType[]>([]);
@@ -94,7 +94,7 @@ const Demo = () => {
       value={value}
       placeholder="Select users"
       fetchOptions={fetchUserList}
-      onChange={newValue => {
+      onChange={(newValue: UserValue[]) => {
         setValue(newValue);
       }}
       style={{ width: '100%' }}

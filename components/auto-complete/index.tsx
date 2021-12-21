@@ -10,13 +10,13 @@ import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import type { BaseSelectRef } from 'rc-select';
 import Select, {
   BaseOptionType,
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
 } from '../select';
-import type { BaseSelectRef } from 'rc-select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { isValidElement } from '../_util/reactNode';
