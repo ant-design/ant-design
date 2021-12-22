@@ -1,8 +1,12 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+import * as React from 'react';
 import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
 import { excludeWarning } from './excludeWarning';
+
+export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];
@@ -46,7 +50,8 @@ function ariaConvert(wrapper: CheerIO) {
 }
 
 type Options = {
-  skip?: boolean;
+  skip?: boolean | string[];
+  skipTrigger?: string[];
 };
 
 export default function demoTest(component: string, options: Options = {}) {
@@ -61,7 +66,21 @@ export default function demoTest(component: string, options: Options = {}) {
       const errSpy = excludeWarning();
 
       MockDate.set(moment('2016-11-22').valueOf());
-      const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+      let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+
+      // Inject Trigger status unless skipped
+      if (options.skipTrigger?.some(c => file.includes(c))) {
+        demo = (
+          <TriggerMockContext.Provider
+            value={{
+              popupVisible: true,
+            }}
+          >
+            {demo}
+          </TriggerMockContext.Provider>
+        );
+      }
+
       const wrapper = render(demo);
 
       // Convert aria related content
