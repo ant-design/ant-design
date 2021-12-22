@@ -11,7 +11,29 @@ exports[`renders ./components/message/demo/custom-style.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/message/demo/custom-style.md with trigger correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Customized style
+  </span>
+</button>
+`;
+
 exports[`renders ./components/message/demo/duration.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Customized display duration
+  </span>
+</button>
+`;
+
+exports[`renders ./components/message/demo/duration.md with trigger correctly 1`] = `
 <button
   class="ant-btn"
   type="button"
@@ -33,6 +55,17 @@ exports[`renders ./components/message/demo/hooks.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/message/demo/hooks.md with trigger correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Display normal message
+  </span>
+</button>
+`;
+
 exports[`renders ./components/message/demo/info.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -44,7 +77,29 @@ exports[`renders ./components/message/demo/info.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/message/demo/info.md with trigger correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Display normal message
+  </span>
+</button>
+`;
+
 exports[`renders ./components/message/demo/loading.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Display a loading indicator
+  </span>
+</button>
+`;
+
+exports[`renders ./components/message/demo/loading.md with trigger correctly 1`] = `
 <button
   class="ant-btn"
   type="button"
@@ -100,6 +155,51 @@ exports[`renders ./components/message/demo/other.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/message/demo/other.md with trigger correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Success
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Error
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Warning
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/message/demo/thenable.md correctly 1`] = `
 <button
   class="ant-btn"
@@ -111,7 +211,29 @@ exports[`renders ./components/message/demo/thenable.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/message/demo/thenable.md with trigger correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Display sequential messages
+  </span>
+</button>
+`;
+
 exports[`renders ./components/message/demo/update.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the message box
+  </span>
+</button>
+`;
+
+exports[`renders ./components/message/demo/update.md with trigger correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"

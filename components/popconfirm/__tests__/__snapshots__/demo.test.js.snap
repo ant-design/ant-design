@@ -1,6 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/popconfirm/demo/async.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Popconfirm with async logic
+  </span>
+</button>
+`;
+
+exports[`renders ./components/popconfirm/demo/async.md with trigger correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -89,6 +100,14 @@ Array [
 `;
 
 exports[`renders ./components/popconfirm/demo/basic.md correctly 1`] = `
+<a
+  href="#"
+>
+  Delete
+</a>
+`;
+
+exports[`renders ./components/popconfirm/demo/basic.md with trigger correctly 1`] = `
 Array [
   <a
     href="#"
@@ -174,6 +193,32 @@ Array [
 `;
 
 exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] = `
+<div>
+  <a
+    href="#"
+  >
+    Delete a task
+  </a>
+  <br />
+  <br />
+  Whether directly execute：
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    />
+  </button>
+</div>
+`;
+
+exports[`renders ./components/popconfirm/demo/dynamic-trigger.md with trigger correctly 1`] = `
 <div>
   <a
     href="#"
@@ -275,6 +320,14 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] =
 `;
 
 exports[`renders ./components/popconfirm/demo/icon.md correctly 1`] = `
+<a
+  href="#"
+>
+  Delete
+</a>
+`;
+
+exports[`renders ./components/popconfirm/demo/icon.md with trigger correctly 1`] = `
 Array [
   <a
     href="#"
@@ -364,6 +417,14 @@ Array [
 `;
 
 exports[`renders ./components/popconfirm/demo/locale.md correctly 1`] = `
+<a
+  href="#"
+>
+  Delete
+</a>
+`;
+
+exports[`renders ./components/popconfirm/demo/locale.md with trigger correctly 1`] = `
 Array [
   <a
     href="#"
@@ -449,6 +510,125 @@ Array [
 `;
 
 exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
+<div
+  class="demo"
+>
+  <div
+    style="margin-left:70px;white-space:nowrap"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        TL
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Top
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        TR
+      </span>
+    </button>
+  </div>
+  <div
+    style="width:70px;float:left"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        LT
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Left
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        LB
+      </span>
+    </button>
+  </div>
+  <div
+    style="width:70px;margin-left:304px"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        RT
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Right
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        RB
+      </span>
+    </button>
+  </div>
+  <div
+    style="margin-left:70px;clear:both;white-space:nowrap"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        BL
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Bottom
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        BR
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/popconfirm/demo/placement.md with trigger correctly 1`] = `
 <div
   class="demo"
 >
@@ -1468,6 +1648,17 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
 `;
 
 exports[`renders ./components/popconfirm/demo/promise.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Popconfirm with Promise
+  </span>
+</button>
+`;
+
+exports[`renders ./components/popconfirm/demo/promise.md with trigger correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"

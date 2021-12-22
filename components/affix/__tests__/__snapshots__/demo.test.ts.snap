@@ -34,7 +34,72 @@ Array [
 ]
 `;
 
+exports[`renders ./components/affix/demo/basic.md with trigger correctly 1`] = `
+Array [
+  <div>
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Affix top
+        </span>
+      </button>
+    </div>
+  </div>,
+  <br />,
+  <div>
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Affix bottom
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders ./components/affix/demo/debug.md correctly 1`] = `
+<div
+  style="height:10000px"
+>
+  <div>
+    Top
+  </div>
+  <div>
+    <div
+      class=""
+    >
+      <div
+        style="background:red"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Affix top
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    Bottom
+  </div>
+</div>
+`;
+
+exports[`renders ./components/affix/demo/debug.md with trigger correctly 1`] = `
 <div
   style="height:10000px"
 >
@@ -82,7 +147,49 @@ exports[`renders ./components/affix/demo/on-change.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/affix/demo/on-change.md with trigger correctly 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        120px to affix top
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/affix/demo/target.md correctly 1`] = `
+<div
+  class="scrollable-container"
+>
+  <div
+    class="background"
+  >
+    <div>
+      <div
+        class=""
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Fixed at the top of container
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/affix/demo/target.md with trigger correctly 1`] = `
 <div
   class="scrollable-container"
 >
