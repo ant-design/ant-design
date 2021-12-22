@@ -39,6 +39,28 @@ Array [
         Navigation One
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       aria-disabled="true"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
@@ -70,6 +92,28 @@ Array [
         Navigation Two
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
       role="none"
@@ -129,6 +173,28 @@ Array [
         </a>
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       aria-hidden="true"
       class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
@@ -165,12 +231,178 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+          />
+        </div>
+      </div>
     </li>
   </ul>,
   <div
     aria-hidden="true"
     style="display:none"
-  />,
+  >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -223,6 +455,182 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item-group"
+            >
+              <div
+                class="ant-menu-item-group-title"
+                title="Item 1"
+              >
+                Item 1
+              </div>
+              <ul
+                class="ant-menu-item-group-list"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  role="menuitem"
+                  style="padding-left:48px"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 1
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  style="padding-left:48px"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 2
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </li>
+            <li
+              class="ant-menu-item-group"
+            >
+              <div
+                class="ant-menu-item-group-title"
+                title="Item 2"
+              >
+                Item 2
+              </div>
+              <ul
+                class="ant-menu-item-group-list"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  style="padding-left:48px"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 3
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  style="padding-left:48px"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 4
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
@@ -251,6 +659,28 @@ Array [
                 Option 1
               </span>
             </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
@@ -263,6 +693,28 @@ Array [
                 Option 2
               </span>
             </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
           </ul>
         </li>
         <li
@@ -289,6 +741,28 @@ Array [
                 Option 3
               </span>
             </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
@@ -301,6 +775,28 @@ Array [
                 Option 4
               </span>
             </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
           </ul>
         </li>
       </ul>
@@ -345,6 +841,188 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 5
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 6
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-submenu ant-menu-submenu-inline"
+              role="none"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Submenu
+                </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+              <div>
+                <div
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                  style="opacity:0;pointer-events:none"
+                >
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    data-menu-list="true"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 7
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 8
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
@@ -386,12 +1064,425 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 9
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 10
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 11
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 12
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
     </li>
   </ul>,
   <div
     aria-hidden="true"
     style="display:none"
-  />,
+  >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -461,6 +1552,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         Option 1
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       class="ant-menu-item"
       role="menuitem"
@@ -492,6 +1605,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         Option 2
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       class="ant-menu-item"
       role="menuitem"
@@ -523,6 +1658,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         Option 3
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
       role="none"
@@ -563,6 +1720,154 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 5
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 6
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 7
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 8
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
@@ -579,6 +1884,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             Option 5
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -591,6 +1918,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             Option 6
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -603,6 +1952,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             Option 7
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -615,6 +1986,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             Option 8
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
       </ul>
     </li>
     <li
@@ -657,12 +2050,437 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 9
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 10
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-submenu ant-menu-submenu-inline"
+              role="none"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Submenu
+                </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+              <div>
+                <div
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+                  style="opacity:0;pointer-events:none"
+                >
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    data-menu-list="true"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 11
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 12
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </li>
   </ul>
   <div
     aria-hidden="true"
     style="display:none"
-  />
+  >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -715,6 +2533,154 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 1
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 2
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 3
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 4
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
@@ -731,6 +2697,28 @@ Array [
             Option 1
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -743,6 +2731,28 @@ Array [
             Option 2
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -755,6 +2765,28 @@ Array [
             Option 3
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -767,6 +2799,28 @@ Array [
             Option 4
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
       </ul>
     </li>
     <li
@@ -809,6 +2863,188 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 5
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 6
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-submenu ant-menu-submenu-inline"
+              role="none"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Submenu
+                </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+              <div>
+                <div
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                  style="opacity:0;pointer-events:none"
+                >
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    data-menu-list="true"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 7
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 8
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
@@ -850,12 +3086,425 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 9
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 10
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 11
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 12
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
     </li>
   </ul>,
   <div
     aria-hidden="true"
     style="display:none"
-  />,
+  >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -924,6 +3573,150 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 1
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 2
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 3
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 4
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
     </li>
     <li
       class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
@@ -978,6 +3771,28 @@ Array [
         Option 11
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
       role="menuitem"
@@ -990,6 +3805,28 @@ Array [
         Option 12
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       aria-hidden="true"
       class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
@@ -1026,12 +3863,244 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+          />
+        </div>
+      </div>
     </li>
   </ul>,
   <div
     aria-hidden="true"
     style="display:none"
-  />,
+  >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -1109,6 +4178,28 @@ Array [
         Navigation One
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       class="ant-menu-item"
       role="menuitem"
@@ -1140,6 +4231,28 @@ Array [
         Navigation Two
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
       role="none"
@@ -1180,6 +4293,188 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 3
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 4
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-submenu ant-menu-submenu-inline"
+              role="none"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Submenu
+                </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+              <div>
+                <div
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                  style="opacity:0;pointer-events:none"
+                >
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    data-menu-list="true"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 5
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 6
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
@@ -1196,6 +4491,28 @@ Array [
             Option 3
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -1208,6 +4525,28 @@ Array [
             Option 4
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-submenu ant-menu-submenu-inline"
           role="none"
@@ -1228,6 +4567,86 @@ Array [
             <i
               class="ant-menu-submenu-arrow"
             />
+          </div>
+          <div>
+            <div
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              style="opacity:0;pointer-events:none"
+            >
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  style="padding-left:72px"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 5
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  style="padding-left:72px"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 6
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </div>
           </div>
         </li>
       </ul>
@@ -1272,6 +4691,154 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 7
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 8
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 9
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 10
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
     </li>
     <li
       class="ant-menu-item"
@@ -1310,11 +4877,276 @@ Array [
         </a>
       </span>
     </li>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
   </ul>,
   <div
     aria-hidden="true"
     style="display:none"
-  />,
+  >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -1384,6 +5216,154 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 1
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 2
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 3
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 4
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
@@ -1400,6 +5380,28 @@ Array [
             Option 1
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -1412,6 +5414,28 @@ Array [
             Option 2
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -1424,6 +5448,28 @@ Array [
             Option 3
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
         <li
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
@@ -1436,6 +5482,28 @@ Array [
             Option 4
           </span>
         </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
       </ul>
     </li>
     <li
@@ -1478,6 +5546,188 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 5
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 6
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-submenu ant-menu-submenu-inline"
+              role="none"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Submenu
+                </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+              <div>
+                <div
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+                  style="opacity:0;pointer-events:none"
+                >
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    data-menu-list="true"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 7
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      style="padding-left:72px"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 8
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
@@ -1519,12 +5769,425 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 9
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 10
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 11
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:48px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 12
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
     </li>
   </ul>,
   <div
     aria-hidden="true"
     style="display:none"
-  />,
+  >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -1576,6 +6239,178 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item-group"
+            >
+              <div
+                class="ant-menu-item-group-title"
+                title="Item 1"
+              >
+                Item 1
+              </div>
+              <ul
+                class="ant-menu-item-group-list"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 1
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 2
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </li>
+            <li
+              class="ant-menu-item-group"
+            >
+              <div
+                class="ant-menu-item-group-title"
+                title="Item 2"
+              >
+                Item 2
+              </div>
+              <ul
+                class="ant-menu-item-group-list"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 3
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 4
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-vertical"
@@ -1615,6 +6450,183 @@ Array [
         <i
           class="ant-menu-submenu-arrow"
         />
+      </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 5
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 6
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-submenu ant-menu-submenu-vertical"
+              role="none"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                role="menuitem"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Submenu
+                </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+              <div>
+                <div
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                  style="opacity:0;pointer-events:none"
+                >
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-vertical"
+                    data-menu-list="true"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 7
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      role="menuitem"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        Option 8
+                      </span>
+                    </li>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </li>
     <li
@@ -1656,11 +6668,420 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
+      <div>
+        <div
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          style="opacity:0;pointer-events:none"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 9
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 10
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 11
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 12
+              </span>
+            </li>
+            <div>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+                style="opacity:0;pointer-events:none"
+              >
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                  >
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
     </li>
   </ul>,
   <div
     aria-hidden="true"
     style="display:none"
-  />,
+  >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;

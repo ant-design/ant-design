@@ -328,6 +328,30 @@ Array [
       style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            1
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -403,6 +427,30 @@ Array [
         </svg>
       </span>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Edit
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   <div
     class="ant-typography"
@@ -434,6 +482,30 @@ Array [
           />
         </svg>
       </span>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            click to edit text
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <div
@@ -467,6 +539,28 @@ Array [
         </svg>
       </span>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
   </div>,
   <div
     class="ant-typography"
@@ -498,6 +592,30 @@ Array [
           />
         </svg>
       </span>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Edit
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <div
@@ -531,6 +649,30 @@ Array [
         </svg>
       </span>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Copy
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   <div
     class="ant-typography"
@@ -562,6 +704,30 @@ Array [
           />
         </svg>
       </span>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Copy
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <div
@@ -595,6 +761,30 @@ Array [
         </svg>
       </span>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            click here
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   <div
     class="ant-typography"
@@ -626,6 +816,28 @@ Array [
           />
         </svg>
       </span>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
     </div>
   </div>,
 ]
@@ -857,6 +1069,30 @@ Array [
       style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            1
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />

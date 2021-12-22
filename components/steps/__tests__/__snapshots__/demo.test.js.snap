@@ -255,6 +255,36 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
           <span
             class="ant-steps-icon-dot"
           />
+          <div>
+            <div
+              class="ant-popover"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-popover-content"
+              >
+                <div
+                  class="ant-popover-arrow"
+                >
+                  <span
+                    class="ant-popover-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-popover-inner"
+                  role="tooltip"
+                >
+                  <div
+                    class="ant-popover-inner-content"
+                  >
+                    <span>
+                      step 0 status: finish
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </span>
       </div>
       <div
@@ -291,6 +321,36 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
           <span
             class="ant-steps-icon-dot"
           />
+          <div>
+            <div
+              class="ant-popover"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-popover-content"
+              >
+                <div
+                  class="ant-popover-arrow"
+                >
+                  <span
+                    class="ant-popover-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-popover-inner"
+                  role="tooltip"
+                >
+                  <div
+                    class="ant-popover-inner-content"
+                  >
+                    <span>
+                      step 1 status: process
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </span>
       </div>
       <div
@@ -327,6 +387,36 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
           <span
             class="ant-steps-icon-dot"
           />
+          <div>
+            <div
+              class="ant-popover"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-popover-content"
+              >
+                <div
+                  class="ant-popover-arrow"
+                >
+                  <span
+                    class="ant-popover-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-popover-inner"
+                  role="tooltip"
+                >
+                  <div
+                    class="ant-popover-inner-content"
+                  >
+                    <span>
+                      step 2 status: wait
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </span>
       </div>
       <div
@@ -363,6 +453,36 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
           <span
             class="ant-steps-icon-dot"
           />
+          <div>
+            <div
+              class="ant-popover"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-popover-content"
+              >
+                <div
+                  class="ant-popover-arrow"
+                >
+                  <span
+                    class="ant-popover-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-popover-inner"
+                  role="tooltip"
+                >
+                  <div
+                    class="ant-popover-inner-content"
+                  >
+                    <span>
+                      step 3 status: wait
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </span>
       </div>
       <div

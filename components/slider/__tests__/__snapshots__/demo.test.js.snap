@@ -25,6 +25,30 @@ Array [
       style="left:30%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            30
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -52,6 +76,30 @@ Array [
       style="left:20%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            20
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       aria-disabled="false"
       aria-valuemax="100"
@@ -62,6 +110,30 @@ Array [
       style="left:50%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            50
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -107,6 +179,30 @@ exports[`renders ./components/slider/demo/dragableTrack.md correctly 1`] = `
     style="left:20%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
+  <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          20
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     aria-disabled="false"
     aria-valuemax="100"
@@ -117,6 +213,30 @@ exports[`renders ./components/slider/demo/dragableTrack.md correctly 1`] = `
     style="left:50%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
+  <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          50
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-slider-mark"
   />
@@ -148,6 +268,30 @@ Array [
       style="left:30%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            30
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -175,6 +319,30 @@ Array [
       style="left:20%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            20
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       aria-disabled="false"
       aria-valuemax="100"
@@ -185,6 +353,30 @@ Array [
       style="left:50%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            50
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -238,6 +430,30 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            0
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -295,6 +511,30 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           style="left:0%;right:auto;transform:translateX(-50%)"
           tabindex="0"
         />
+        <div>
+          <div
+            class="ant-tooltip ant-slider-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              >
+                1
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           class="ant-slider-mark"
         />
@@ -411,6 +651,30 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           style="left:0%;right:auto;transform:translateX(-50%)"
           tabindex="0"
         />
+        <div>
+          <div
+            class="ant-tooltip ant-slider-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              >
+                0
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           class="ant-slider-mark"
         />
@@ -546,6 +810,30 @@ Array [
       style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            37
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     >
@@ -617,6 +905,30 @@ Array [
       style="left:26%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            26
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       aria-disabled="false"
       aria-valuemax="100"
@@ -627,6 +939,30 @@ Array [
       style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            37
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     >
@@ -697,6 +1033,30 @@ Array [
       style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            37
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     >
@@ -771,6 +1131,30 @@ Array [
       style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            37
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     >
@@ -845,6 +1229,30 @@ Array [
       style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            37
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     >
@@ -904,6 +1312,30 @@ Array [
       style="right:30%;left:auto;transform:translateX(+50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            30
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -931,6 +1363,30 @@ Array [
       style="right:20%;left:auto;transform:translateX(+50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            20
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       aria-disabled="false"
       aria-valuemax="100"
@@ -941,6 +1397,30 @@ Array [
       style="right:50%;left:auto;transform:translateX(+50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            50
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -1041,6 +1521,30 @@ Array [
       style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            0%
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -1068,6 +1572,28 @@ Array [
       style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -1103,6 +1629,30 @@ Array [
         style="bottom:30%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
+      <div>
+        <div
+          class="ant-tooltip ant-slider-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              30
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         class="ant-slider-mark"
       />
@@ -1134,6 +1684,30 @@ Array [
         style="bottom:20%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
+      <div>
+        <div
+          class="ant-tooltip ant-slider-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              20
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         aria-disabled="false"
         aria-valuemax="100"
@@ -1144,6 +1718,30 @@ Array [
         style="bottom:50%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
+      <div>
+        <div
+          class="ant-tooltip ant-slider-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              50
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         class="ant-slider-mark"
       />
@@ -1192,6 +1790,30 @@ Array [
         style="bottom:26%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
+      <div>
+        <div
+          class="ant-tooltip ant-slider-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              26
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         aria-disabled="false"
         aria-valuemax="100"
@@ -1202,6 +1824,30 @@ Array [
         style="bottom:37%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
+      <div>
+        <div
+          class="ant-tooltip ant-slider-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              37
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         class="ant-slider-mark"
       >

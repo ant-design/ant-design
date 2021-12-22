@@ -558,6 +558,30 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
           </span>
         </div>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Server Error 500
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </span>
@@ -1137,6 +1161,30 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
             </span>
           </div>
         </div>
+        <div>
+          <div
+            class="ant-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              >
+                Upload Error
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1507,6 +1555,30 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
           </button>
         </span>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Upload error
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="ant-upload-list-picture-card-container"
@@ -1625,6 +1697,30 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
           </button>
         </span>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Upload error
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="ant-upload-list-picture-card-container"
@@ -1734,6 +1830,30 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             </span>
           </button>
         </span>
+      </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Upload error
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -2559,6 +2679,30 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           </button>
         </span>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Upload error
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture-card"
@@ -2817,6 +2961,30 @@ Array [
             </span>
           </div>
         </div>
+        <div>
+          <div
+            class="ant-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              >
+                Upload error
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </span>,
@@ -3026,6 +3194,30 @@ Array [
                 </button>
               </span>
             </span>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              >
+                Upload error
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3436,6 +3628,30 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
               </button>
             </span>
           </span>
+        </div>
+      </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Server Error 500
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -362,6 +362,30 @@ Array [
       </svg>
     </span>
   </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          search
+        </div>
+      </div>
+    </div>
+  </div>,
   <button
     class="ant-btn ant-btn-primary ant-btn-circle"
     type="button"
@@ -421,6 +445,30 @@ Array [
       </svg>
     </span>
   </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          search
+        </div>
+      </div>
+    </div>
+  </div>,
   <button
     class="ant-btn"
     type="button"
@@ -473,6 +521,30 @@ Array [
       </svg>
     </span>
   </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          search
+        </div>
+      </div>
+    </div>
+  </div>,
   <button
     class="ant-btn"
     type="button"
@@ -524,6 +596,30 @@ Array [
       </svg>
     </span>
   </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          search
+        </div>
+      </div>
+    </div>
+  </div>,
   <button
     class="ant-btn ant-btn-dashed"
     type="button"
@@ -601,6 +697,30 @@ Array [
       </svg>
     </span>
   </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          search
+        </div>
+      </div>
+    </div>
+  </div>,
   <button
     class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
     type="button"
@@ -660,6 +780,30 @@ Array [
       </svg>
     </span>
   </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          search
+        </div>
+      </div>
+    </div>
+  </div>,
   <button
     class="ant-btn ant-btn-lg"
     type="button"
@@ -712,6 +856,30 @@ Array [
       </svg>
     </span>
   </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          search
+        </div>
+      </div>
+    </div>
+  </div>,
   <button
     class="ant-btn ant-btn-lg"
     type="button"
@@ -763,6 +931,30 @@ Array [
       </svg>
     </span>
   </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          search
+        </div>
+      </div>
+    </div>
+  </div>,
   <button
     class="ant-btn ant-btn-dashed ant-btn-lg"
     type="button"
@@ -870,6 +1062,30 @@ Array [
           </span>
         </button>
       </span>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Tooltip
+            </div>
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-primary ant-btn-icon-only"
         type="button"
@@ -894,6 +1110,30 @@ Array [
           </svg>
         </span>
       </button>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Tooltip
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <br />,
@@ -948,6 +1188,30 @@ Array [
           </span>
         </button>
       </span>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Tooltip
+            </div>
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-primary ant-btn-icon-only"
         type="button"
@@ -972,6 +1236,30 @@ Array [
           </svg>
         </span>
       </button>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Tooltip
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <br />,
@@ -1026,6 +1314,30 @@ Array [
           </span>
         </button>
       </span>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Tooltip
+            </div>
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-primary ant-btn-icon-only"
         type="button"
@@ -1050,6 +1362,30 @@ Array [
           </svg>
         </span>
       </button>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0;pointer-events:none"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Tooltip
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
 ]
@@ -1300,6 +1636,190 @@ Array [
         </svg>
       </span>
     </button>
+    <div>
+      <div
+        class="ant-dropdown"
+        style="opacity:0;pointer-events:none"
+      >
+        <ul
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+          data-menu-list="true"
+          role="menu"
+          tabindex="0"
+        >
+          <li
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+            role="menuitem"
+            tabindex="-1"
+          >
+            <span
+              class="ant-dropdown-menu-title-content"
+            >
+              1st item
+            </span>
+          </li>
+          <div>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+          <li
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+            role="menuitem"
+            tabindex="-1"
+          >
+            <span
+              class="ant-dropdown-menu-title-content"
+            >
+              2nd item
+            </span>
+          </li>
+          <div>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+          <li
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+            role="menuitem"
+            tabindex="-1"
+          >
+            <span
+              class="ant-dropdown-menu-title-content"
+            >
+              3rd item
+            </span>
+          </li>
+          <div>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+        </ul>
+        <div
+          aria-hidden="true"
+          style="display:none"
+        >
+          <div>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
 ]
 `;

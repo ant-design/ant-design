@@ -4,6 +4,7 @@ import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
 
 export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);
@@ -69,7 +70,7 @@ export default function demoTest(component: string, options: Options = {}) {
       let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
 
       // Inject Trigger status unless skipped
-      if (options.skipTrigger?.some(c => file.includes(c))) {
+      if (!options.skipTrigger || options.skipTrigger.every(c => !file.includes(c))) {
         demo = (
           <TriggerMockContext.Provider
             value={{

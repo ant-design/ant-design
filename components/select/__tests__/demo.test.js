@@ -1,3 +1,3 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('select');
+demoTest('select', { skipTrigger: ['big-data.md'] });

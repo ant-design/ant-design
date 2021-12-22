@@ -2524,6 +2524,30 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         </div>
       </div>
     </li>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            terrible
+          </div>
+        </div>
+      </div>
+    </div>
     <li
       class="ant-rate-star ant-rate-star-full"
     >
@@ -2582,6 +2606,30 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         </div>
       </div>
     </li>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            bad
+          </div>
+        </div>
+      </div>
+    </div>
     <li
       class="ant-rate-star ant-rate-star-full"
     >
@@ -2640,6 +2688,30 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         </div>
       </div>
     </li>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            normal
+          </div>
+        </div>
+      </div>
+    </div>
     <li
       class="ant-rate-star ant-rate-star-zero"
     >
@@ -2698,6 +2770,30 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         </div>
       </div>
     </li>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            good
+          </div>
+        </div>
+      </div>
+    </div>
     <li
       class="ant-rate-star ant-rate-star-zero"
     >
@@ -2756,6 +2852,30 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         </div>
       </div>
     </li>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            wonderful
+          </div>
+        </div>
+      </div>
+    </div>
   </ul>
   <span
     class="ant-rate-text"

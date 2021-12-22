@@ -239,6 +239,81 @@ exports[`renders ./components/space/demo/base.md correctly 1`] = `
         Confirm
       </span>
     </button>
+    <div>
+      <div
+        class="ant-popover ant-popconfirm"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-popover-content"
+        >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-inner"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Are you sure delete this task?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -268,6 +343,30 @@ Array [
       style="left:8%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
+    <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            8
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-slider-mark"
     />
@@ -373,6 +472,81 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
         Delete
       </span>
     </button>
+    <div>
+      <div
+        class="ant-popover ant-popconfirm"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-popover-content"
+        >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-inner"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Are you sure delete this task?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-space-item"
@@ -393,6 +567,81 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
         </span>
       </button>
     </span>
+    <div>
+      <div
+        class="ant-popover ant-popconfirm"
+        style="opacity:0;pointer-events:none"
+      >
+        <div
+          class="ant-popover-content"
+        >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-inner"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Are you sure delete this task?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-space-item"

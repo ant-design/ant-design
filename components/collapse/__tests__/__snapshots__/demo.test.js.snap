@@ -811,6 +811,88 @@ Array [
         left
       </span>
     </div>
+    <div>
+      <div
+        class="ant-select-dropdown"
+        style="opacity:0;pointer-events:none"
+      >
+        <div>
+          <div
+            id="undefined_list"
+            role="listbox"
+            style="height:0;width:0;overflow:hidden"
+          >
+            <div
+              aria-label="left"
+              aria-selected="true"
+              id="undefined_list_0"
+              role="option"
+            >
+              left
+            </div>
+            <div
+              aria-label="right"
+              aria-selected="false"
+              id="undefined_list_1"
+              role="option"
+            >
+              right
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position:relative"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display:flex;flex-direction:column"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    title="left"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      left
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select:none;-webkit-user-select:none"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="right"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      right
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select:none;-webkit-user-select:none"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <span
       aria-hidden="true"
       class="ant-select-arrow"

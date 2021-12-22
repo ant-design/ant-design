@@ -1471,6 +1471,30 @@ Array [
       60%
     </span>
   </div>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          3 done / 3 in progress / 4 to do
+        </div>
+      </div>
+    </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1525,6 +1549,30 @@ Array [
       </span>
     </div>
   </div>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          3 done / 3 in progress / 4 to do
+        </div>
+      </div>
+    </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1577,6 +1625,30 @@ Array [
       >
         60%
       </span>
+    </div>
+  </div>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          3 done / 3 in progress / 4 to do
+        </div>
+      </div>
     </div>
   </div>,
 ]

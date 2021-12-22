@@ -38,6 +38,30 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
           <span>
             a few seconds ago
           </span>
+          <div>
+            <div
+              class="ant-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                >
+                  2016-11-22 00:00:00
+                </div>
+              </div>
+            </div>
+          </div>
         </span>
       </div>
       <div
@@ -77,6 +101,30 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               0
             </span>
           </span>
+          <div>
+            <div
+              class="ant-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                >
+                  Like
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
         <li>
           <span>
@@ -105,6 +153,30 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               0
             </span>
           </span>
+          <div>
+            <div
+              class="ant-tooltip"
+              style="opacity:0;pointer-events:none"
+            >
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                >
+                  Dislike
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
         <li>
           <span>
@@ -242,6 +314,30 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                     <span>
                       a day ago
                     </span>
+                    <div>
+                      <div
+                        class="ant-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            2016-11-21 00:00:00
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </span>
                 </div>
                 <div
@@ -296,6 +392,30 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                     <span>
                       2 days ago
                     </span>
+                    <div>
+                      <div
+                        class="ant-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            2016-11-20 00:00:00
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </span>
                 </div>
                 <div
