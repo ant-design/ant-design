@@ -63,34 +63,48 @@ export default function demoTest(component: string, options: Options = {}) {
     if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
       testMethod = test.skip;
     }
-    testMethod(`renders ${file} correctly`, () => {
-      const errSpy = excludeWarning();
 
-      MockDate.set(moment('2016-11-22').valueOf());
-      let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+    const canTestTrigger =
+      !options.skipTrigger || options.skipTrigger.every(c => !file.includes(c));
 
-      // Inject Trigger status unless skipped
-      if (!options.skipTrigger || options.skipTrigger.every(c => !file.includes(c))) {
-        demo = (
-          <TriggerMockContext.Provider
-            value={{
-              popupVisible: true,
-            }}
-          >
-            {demo}
-          </TriggerMockContext.Provider>
-        );
-      }
+    function doTest(name: string, openTrigger = false) {
+      testMethod(name, () => {
+        const errSpy = excludeWarning();
 
-      const wrapper = render(demo);
+        MockDate.set(moment('2016-11-22').valueOf());
+        let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
 
-      // Convert aria related content
-      ariaConvert(wrapper);
+        // Inject Trigger status unless skipped
+        if (openTrigger) {
+          demo = (
+            <TriggerMockContext.Provider
+              value={{
+                popupVisible: true,
+              }}
+            >
+              {demo}
+            </TriggerMockContext.Provider>
+          );
+        }
 
-      expect(wrapper).toMatchSnapshot();
-      MockDate.reset();
+        const wrapper = render(demo);
 
-      errSpy();
-    });
+        // Convert aria related content
+        ariaConvert(wrapper);
+
+        expect(wrapper).toMatchSnapshot();
+        MockDate.reset();
+
+        errSpy();
+      });
+    }
+
+    doTest(`renders ${file} correctly`);
+
+    // Test for trigger popup
+    // This only work in esm, dist do not have trigger module
+    if (canTestTrigger && !testDist) {
+      doTest(`renders ${file} with trigger correctly`, true);
+    }
   });
 }
