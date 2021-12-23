@@ -14,25 +14,31 @@ buggy!
 
 buggy!
 
-```jsx
-import { Menu, Switch } from 'antd';
+```tsx
+import * as React from 'react';
+import { Menu, MenuProps, Switch } from 'antd';
 import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
-class Sider extends React.Component {
-  state = {
+interface DemoState {
+  theme: 'light' | 'dark';
+  current: string;
+}
+
+class Demo extends React.Component<{}, DemoState> {
+  state: DemoState = {
     theme: 'dark',
     current: '1',
   };
 
-  changeTheme = value => {
+  changeTheme = (value: boolean) => {
     this.setState({
       theme: value ? 'dark' : 'light',
     });
   };
 
-  handleClick = e => {
+  handleClick: MenuProps['onClick'] = e => {
     console.log('click ', e);
     this.setState({
       current: e.key,
@@ -54,7 +60,25 @@ class Sider extends React.Component {
           theme={this.state.theme}
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}
-          mode="horizontal"
+          mode="inline"
+          inlineCollapsed
+          _internalRenderMenuItem={node =>
+            React.cloneElement(node, {
+              style: {
+                ...node.props.style,
+                textDecoration: 'underline',
+              },
+            })
+          }
+          _internalRenderSubMenuItem={(node, props) => {
+            console.log('Node:', node, props);
+            return React.cloneElement(node, {
+              style: {
+                ...node.props.style,
+                background: 'rgba(255,255,255,0.3)',
+              },
+            });
+          }}
         >
           <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One Long Long Long Long">
             <Menu.Item key="1">Option 1</Menu.Item>
@@ -78,5 +102,5 @@ class Sider extends React.Component {
   }
 }
 
-ReactDOM.render(<Sider />, mountNode);
+ReactDOM.render(<Demo />, mountNode);
 ```
