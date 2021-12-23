@@ -11,17 +11,6 @@ exports[`renders ./components/modal/demo/async.md correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/modal/demo/async.md with trigger correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Open Modal with async logic
-  </span>
-</button>
-`;
-
 exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -33,29 +22,7 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/modal/demo/basic.md with trigger correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Open Modal
-  </span>
-</button>
-`;
-
 exports[`renders ./components/modal/demo/button-props.md correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Open Modal with customized button props
-  </span>
-</button>
-`;
-
-exports[`renders ./components/modal/demo/button-props.md with trigger correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -126,78 +93,7 @@ exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/modal/demo/confirm.md with trigger correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
->
-  <div
-    class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Confirm
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        With promise
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
-  >
-    <button
-      class="ant-btn ant-btn-dashed"
-      type="button"
-    >
-      <span>
-        Delete
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="padding-bottom:8px"
-  >
-    <button
-      class="ant-btn ant-btn-dashed"
-      type="button"
-    >
-      <span>
-        With extra props
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
 exports[`renders ./components/modal/demo/confirm-router.md correctly 1`] = `
-<button
-  class="ant-btn"
-  type="button"
->
-  <span>
-    Confirm
-  </span>
-</button>
-`;
-
-exports[`renders ./components/modal/demo/confirm-router.md with trigger correctly 1`] = `
 <button
   class="ant-btn"
   type="button"
@@ -219,17 +115,6 @@ exports[`renders ./components/modal/demo/dark.md correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/modal/demo/dark.md with trigger correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Open Modal
-  </span>
-</button>
-`;
-
 exports[`renders ./components/modal/demo/footer.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -241,76 +126,7 @@ exports[`renders ./components/modal/demo/footer.md correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/modal/demo/footer.md with trigger correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Open Modal with customized footer
-  </span>
-</button>
-`;
-
 exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
->
-  <div
-    class="ant-space-item"
-    style="margin-right:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Confirm
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Info
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/modal/demo/hooks.md with trigger correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -428,99 +244,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/modal/demo/info.md with trigger correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
->
-  <div
-    class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Info
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="padding-bottom:8px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
 exports[`renders ./components/modal/demo/locale.md correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
->
-  <div
-    class="ant-space-item"
-    style="margin-right:8px"
-  >
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
-    >
-      <span>
-        Modal
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Confirm
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/modal/demo/locale.md with trigger correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -563,29 +287,7 @@ exports[`renders ./components/modal/demo/manual.md correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/modal/demo/manual.md with trigger correctly 1`] = `
-<button
-  class="ant-btn"
-  type="button"
->
-  <span>
-    Open modal to close in 5s
-  </span>
-</button>
-`;
-
 exports[`renders ./components/modal/demo/modal-render.md correctly 1`] = `
-<button
-  class="ant-btn"
-  type="button"
->
-  <span>
-    Open Draggable Modal
-  </span>
-</button>
-`;
-
-exports[`renders ./components/modal/demo/modal-render.md with trigger correctly 1`] = `
 <button
   class="ant-btn"
   type="button"
@@ -619,41 +321,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/modal/demo/position.md with trigger correctly 1`] = `
-Array [
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Display a modal dialog at 20px to Top
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Vertically centered modal dialog
-    </span>
-  </button>,
-]
-`;
-
 exports[`renders ./components/modal/demo/width.md correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Open Modal of 1000px width
-  </span>
-</button>
-`;
-
-exports[`renders ./components/modal/demo/width.md with trigger correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
