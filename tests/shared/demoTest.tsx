@@ -52,10 +52,9 @@ function ariaConvert(wrapper: CheerIO) {
 
 type Options = {
   skip?: boolean | string[];
-  skipTrigger?: string[];
 };
 
-export default function demoTest(component: string, options: Options = {}) {
+function baseText(doInject: boolean, component: string, options: Options = {}) {
   const files = glob.sync(`./components/${component}/demo/*.md`);
 
   files.forEach(file => {
@@ -64,18 +63,17 @@ export default function demoTest(component: string, options: Options = {}) {
       testMethod = test.skip;
     }
 
-    const canTestTrigger =
-      !options.skipTrigger || options.skipTrigger.every(c => !file.includes(c));
-
-    function doTest(name: string, openTrigger = false) {
-      testMethod(name, () => {
+    // function doTest(name: string, openTrigger = false) {
+    testMethod(
+      doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
+      () => {
         const errSpy = excludeWarning();
 
         MockDate.set(moment('2016-11-22').valueOf());
         let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
 
         // Inject Trigger status unless skipped
-        if (openTrigger) {
+        if (doInject) {
           demo = (
             <TriggerMockContext.Provider
               value={{
@@ -96,15 +94,15 @@ export default function demoTest(component: string, options: Options = {}) {
         MockDate.reset();
 
         errSpy();
-      });
-    }
-
-    doTest(`renders ${file} correctly`);
-
-    // Test for trigger popup
-    // This only work in esm, dist do not have trigger module
-    if (canTestTrigger && !testDist) {
-      doTest(`renders ${file} with trigger correctly`, true);
-    }
+      },
+    );
   });
+}
+
+export function extendTest(component: string, options: Options = {}) {
+  baseText(true, component, options);
+}
+
+export default function demoTest(component: string, options: Options = {}) {
+  baseText(false, component, options);
 }
