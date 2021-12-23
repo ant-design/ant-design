@@ -136,7 +136,7 @@
     "rc-notification": "~4.5.7",
     "rc-pagination": "~3.1.9",
     "rc-picker": "~2.5.17",
-    "rc-progress": "~3.1.0",
+    "rc-progress": "~3.2.1",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.1.2",
     "rc-select": "~13.2.1",

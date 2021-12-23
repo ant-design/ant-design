@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
+exports[`renders ./components/progress/demo/circle.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -201,7 +201,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
+exports[`renders ./components/progress/demo/circle-dynamic.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -316,7 +316,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
+exports[`renders ./components/progress/demo/circle-mini.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -517,7 +517,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
+exports[`renders ./components/progress/demo/dashboard.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -630,7 +630,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
+exports[`renders ./components/progress/demo/dynamic.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -713,7 +713,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/format.md correctly 1`] = `
+exports[`renders ./components/progress/demo/format.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -826,7 +826,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
+exports[`renders ./components/progress/demo/gradient-line.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1036,7 +1036,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/line.md correctly 1`] = `
+exports[`renders ./components/progress/demo/line.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1179,7 +1179,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
+exports[`renders ./components/progress/demo/line-mini.md extend context correctly 1`] = `
 <div
   style="width:170px"
 >
@@ -1308,7 +1308,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
+exports[`renders ./components/progress/demo/linecap.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1443,7 +1443,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
+exports[`renders ./components/progress/demo/segment.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1470,6 +1470,30 @@ Array [
     >
       60%
     </span>
+  </div>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          3 done / 3 in progress / 4 to do
+        </div>
+      </div>
+    </div>
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1523,6 +1547,30 @@ Array [
       >
         60%
       </span>
+    </div>
+  </div>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          3 done / 3 in progress / 4 to do
+        </div>
+      </div>
     </div>
   </div>,
   <div
@@ -1579,10 +1627,34 @@ Array [
       </span>
     </div>
   </div>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          3 done / 3 in progress / 4 to do
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
-exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
+exports[`renders ./components/progress/demo/steps.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
