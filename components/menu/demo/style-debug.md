@@ -62,6 +62,7 @@ class Demo extends React.Component<{}, DemoState> {
           selectedKeys={[this.state.current]}
           mode="inline"
           inlineCollapsed
+          // Test only. Remove in future.
           _internalRenderMenuItem={node =>
             React.cloneElement(node, {
               style: {
@@ -70,6 +71,7 @@ class Demo extends React.Component<{}, DemoState> {
               },
             })
           }
+          // Test only. Remove in future.
           _internalRenderSubMenuItem={(node, props) => {
             console.log('Node:', node, props);
             return React.cloneElement(node, {
@@ -79,6 +81,8 @@ class Demo extends React.Component<{}, DemoState> {
               },
             });
           }}
+          // Test only. Remove in future.
+          _internalDisableTitleTooltip
         >
           <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One Long Long Long Long">
             <Menu.Item key="1">Option 1</Menu.Item>

@@ -9,6 +9,8 @@ export interface MenuContextProps {
   antdMenuTheme?: MenuTheme;
   direction?: DirectionType;
   firstLevel: boolean;
+  /** @private Internal Usage. Safe to remove */
+  disableTitleTooltip?: boolean;
 }
 
 const MenuContext = createContext<MenuContextProps>({
