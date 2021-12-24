@@ -34,7 +34,8 @@ export default class MenuItem extends React.Component<MenuItemProps> {
   }
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { prefixCls, firstLevel, inlineCollapsed, direction, disableTitleTooltip } = this.context;
+    const { prefixCls, firstLevel, inlineCollapsed, direction, disableMenuItemTitleTooltip } =
+      this.context;
     const { className, children } = this.props;
     const { title, icon, danger, ...rest } = this.props;
 
@@ -78,7 +79,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
       </Item>
     );
 
-    if (!disableTitleTooltip) {
+    if (!disableMenuItemTitleTooltip) {
       returnNode = (
         <Tooltip
           {...tooltipProps}

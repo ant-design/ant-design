@@ -72,17 +72,16 @@ class Demo extends React.Component<{}, DemoState> {
             })
           }
           // Test only. Remove in future.
-          _internalRenderSubMenuItem={(node, props) => {
-            console.log('Node:', node, props);
-            return React.cloneElement(node, {
+          _internalRenderSubMenuItem={node =>
+            React.cloneElement(node, {
               style: {
                 ...node.props.style,
                 background: 'rgba(255,255,255,0.3)',
               },
-            });
-          }}
+            })
+          }
           // Test only. Remove in future.
-          _internalDisableTitleTooltip
+          _internalDisableMenuItemTitleTooltip
         >
           <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One Long Long Long Long">
             <Menu.Item key="1">Option 1</Menu.Item>

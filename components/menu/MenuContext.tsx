@@ -10,7 +10,7 @@ export interface MenuContextProps {
   direction?: DirectionType;
   firstLevel: boolean;
   /** @private Internal Usage. Safe to remove */
-  disableTitleTooltip?: boolean;
+  disableMenuItemTitleTooltip?: boolean;
 }
 
 const MenuContext = createContext<MenuContextProps>({
