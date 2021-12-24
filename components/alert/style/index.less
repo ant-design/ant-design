@@ -7,7 +7,7 @@
   .reset-component();
   position: relative;
   display: flex;
-  align-items: center;
+  // align-items: center;
   padding: 12px 16px;
   line-height: 1.5;
   word-wrap: break-word;
@@ -26,6 +26,12 @@
     display: none;
     font-size: @font-size-base;
     line-height: @font-size-base + 8px;
+  }
+
+  .@{alert-prefix-cls}:not(&-with-description) {
+    .@{alert-prefix-cls}-icon {
+      margin-top: 4px;
+    }
   }
 
   &-success {
