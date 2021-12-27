@@ -32,6 +32,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
+      ref.current = null;
     };
   }, []);
 
@@ -43,7 +44,9 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     setLoading(true);
     returnValueOfOnOk!.then(
       (...args: any[]) => {
-        setLoading(false);
+        if (ref.current) {
+          setLoading(false);
+        }
         close(...args);
         clickedRef.current = false;
       },
@@ -52,7 +55,9 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
         // eslint-disable-next-line no-console
         console.error(e);
         // See: https://github.com/ant-design/ant-design/issues/6183
-        setLoading(false);
+        if (ref.current) {
+          setLoading(false);
+        }
         clickedRef.current = false;
       },
     );
