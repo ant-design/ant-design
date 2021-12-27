@@ -48,11 +48,22 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     defaultValue: props.defaultVisible,
   });
 
+  const mounted = React.useRef<boolean>(true);
+
+  React.useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
+
   const settingVisible = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    setVisible(value);
+    if (mounted.current) {
+      setVisible(value);
+    }
 
     props.onVisibleChange?.(value, e);
   };
