@@ -12,7 +12,6 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -74,7 +73,6 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -182,7 +180,6 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"
@@ -212,7 +209,6 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-  multiple=""
   style="width:100%"
 >
   <div
@@ -230,7 +226,6 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"
@@ -274,7 +269,6 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -333,7 +327,6 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -441,7 +434,6 @@ exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"

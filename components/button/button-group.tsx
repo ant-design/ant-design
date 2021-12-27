@@ -32,7 +32,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => (
           break;
         default:
           // eslint-disable-next-line no-console
-          console.warn((new UnreachableException(size)).error);
+          console.warn(new UnreachableException(size).error);
       }
 
       const classes = classNames(

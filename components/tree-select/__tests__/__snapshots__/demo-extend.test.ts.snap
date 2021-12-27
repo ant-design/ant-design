@@ -12,7 +12,6 @@ exports[`renders ./components/tree-select/demo/async.md extend context correctly
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -237,7 +236,6 @@ exports[`renders ./components/tree-select/demo/basic.md extend context correctly
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -630,7 +628,6 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"
@@ -733,11 +730,7 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
                       </span>
                       <span
                         class="ant-select-tree-checkbox ant-select-tree-checkbox-checked"
-                      >
-                        <span
-                          class="ant-select-tree-checkbox-inner"
-                        />
-                      </span>
+                      />
                       <span
                         class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"
                         title="Node1"
@@ -783,11 +776,7 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
                       </span>
                       <span
                         class="ant-select-tree-checkbox"
-                      >
-                        <span
-                          class="ant-select-tree-checkbox-inner"
-                        />
-                      </span>
+                      />
                       <span
                         class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"
                         title="Node2"
@@ -814,7 +803,6 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
 exports[`renders ./components/tree-select/demo/multiple.md extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-  multiple=""
   style="width:100%"
 >
   <div
@@ -832,7 +820,6 @@ exports[`renders ./components/tree-select/demo/multiple.md extend context correc
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"
@@ -1161,7 +1148,6 @@ exports[`renders ./components/tree-select/demo/suffix.md extend context correctl
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -1505,7 +1491,6 @@ exports[`renders ./components/tree-select/demo/treeData.md extend context correc
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -1787,7 +1772,6 @@ exports[`renders ./components/tree-select/demo/treeLine.md extend context correc
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"

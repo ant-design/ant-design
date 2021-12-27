@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { SmileOutlined, LikeOutlined, HighlightOutlined } from '@ant-design/icons';
+import { SmileOutlined, LikeOutlined, HighlightOutlined, CheckOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
@@ -395,7 +395,11 @@ describe('Typography', () => {
     });
 
     describe('editable', () => {
-      function testStep({ name, icon, tooltip }, submitFunc, expectFunc) {
+      function testStep(
+        { name = '', icon, tooltip, triggerType, enterIcon },
+        submitFunc,
+        expectFunc,
+      ) {
         it(name, () => {
           jest.useFakeTimers();
           const onStart = jest.fn();
@@ -406,7 +410,7 @@ describe('Typography', () => {
 
           const wrapper = mount(
             <Paragraph
-              editable={{ onChange, onStart, icon, tooltip }}
+              editable={{ onChange, onStart, icon, tooltip, triggerType, enterIcon }}
               className={className}
               style={style}
             >
@@ -414,27 +418,47 @@ describe('Typography', () => {
             </Paragraph>,
           );
 
-          if (icon) {
-            expect(wrapper.find('.anticon-highlight').length).toBeTruthy();
-          } else {
-            expect(wrapper.find('.anticon-edit').length).toBeTruthy();
+          if (triggerType === undefined || triggerType.indexOf('icon') !== -1) {
+            if (icon) {
+              expect(wrapper.find('.anticon-highlight').length).toBeTruthy();
+            } else {
+              expect(wrapper.find('.anticon-edit').length).toBeTruthy();
+            }
+
+            if (triggerType === undefined || triggerType.indexOf('text') === -1) {
+              wrapper.simulate('click');
+              expect(onStart).not.toHaveBeenCalled();
+            }
+            wrapper.find('.ant-typography-edit').first().simulate('mouseenter');
+            jest.runAllTimers();
+            wrapper.update();
+
+            if (tooltip === undefined || tooltip === true) {
+              expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Edit');
+            } else if (tooltip === false) {
+              expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+            } else {
+              expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltip);
+            }
+
+            wrapper.find('.ant-typography-edit').first().simulate('click');
+
+            expect(onStart).toHaveBeenCalled();
+            if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
+              wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ESC });
+              wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ESC });
+              expect(onChange).not.toHaveBeenCalled();
+            }
           }
 
-          wrapper.find('.ant-typography-edit').first().simulate('mouseenter');
-          jest.runAllTimers();
-          wrapper.update();
-
-          if (tooltip === undefined || tooltip === true) {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Edit');
-          } else if (tooltip === false) {
-            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
-          } else {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltip);
+          if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
+            if (triggerType.indexOf('icon') === -1) {
+              expect(wrapper.find('.anticon-highlight').length).toBeFalsy();
+              expect(wrapper.find('.anticon-edit').length).toBeFalsy();
+            }
+            wrapper.simulate('click');
+            expect(onStart).toHaveBeenCalled();
           }
-
-          wrapper.find('.ant-typography-edit').first().simulate('click');
-
-          expect(onStart).toHaveBeenCalled();
 
           // Should have className
           const props = wrapper.find('div').first().props();
@@ -444,6 +468,18 @@ describe('Typography', () => {
           wrapper.find('textarea').simulate('change', {
             target: { value: 'Bamboo' },
           });
+
+          if (enterIcon === undefined) {
+            expect(
+              wrapper.find('span.ant-typography-edit-content-confirm').first().props().className,
+            ).toContain('anticon-enter');
+          } else if (enterIcon === null) {
+            expect(wrapper.find('span.ant-typography-edit-content-confirm').length).toBe(0);
+          } else {
+            expect(
+              wrapper.find('span.ant-typography-edit-content-confirm').first().props().className,
+            ).not.toContain('anticon-enter');
+          }
 
           if (submitFunc) {
             submitFunc(wrapper);
@@ -492,6 +528,13 @@ describe('Typography', () => {
       testStep({ name: 'customize edit show tooltip', tooltip: true });
       testStep({ name: 'customize edit hide tooltip', tooltip: false });
       testStep({ name: 'customize edit tooltip text', tooltip: 'click to edit text' });
+      testStep({ name: 'enter icon - default', enterIcon: undefined });
+      testStep({ name: 'enter icon - null', enterIcon: null });
+      testStep({ name: 'enter icon - custom', enterIcon: <CheckOutlined /> });
+
+      testStep({ name: 'trigger by icon', triggerType: ['icon'] });
+      testStep({ name: 'trigger by text', triggerType: ['text'] });
+      testStep({ name: 'trigger by both icon and text', triggerType: ['icon', 'text'] });
 
       it('should trigger onEnd when type Enter', () => {
         const onEnd = jest.fn();

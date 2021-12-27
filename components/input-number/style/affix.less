@@ -1,0 +1,64 @@
+@import '../../input/style/mixin';
+@import (reference) '../../style/themes/index';
+@input-prefix-cls: ~'@{ant-prefix}-input';
+
+@input-affix-margin: 4px;
+
+.@{ant-prefix}-input-number {
+  &-affix-wrapper {
+    .input();
+    // or number handler will cover form status
+    position: static;
+    display: inline-flex;
+    width: 90px;
+    padding: 0;
+    padding-inline-start: @input-padding-horizontal-base;
+
+    &:not(&-disabled):hover {
+      .hover();
+      z-index: 1;
+    }
+
+    &-focused,
+    &:focus {
+      z-index: 1;
+    }
+
+    &-disabled {
+      .@{ant-prefix}-input-number[disabled] {
+        background: transparent;
+      }
+    }
+
+    > div.@{ant-prefix}-input-number {
+      width: 100%;
+      border: none;
+      outline: none;
+
+      &.@{ant-prefix}-input-number-focused {
+        box-shadow: none !important;
+      }
+    }
+
+    input.@{ant-prefix}-input-number-input {
+      padding: 0;
+    }
+
+    &::before {
+      width: 0;
+      visibility: hidden;
+      content: '\a0';
+    }
+  }
+
+  &-prefix {
+    display: flex;
+    flex: none;
+    align-items: center;
+    margin-inline-end: @input-affix-margin;
+  }
+}
+
+.@{ant-prefix}-input-number-group-wrapper .@{ant-prefix}-input-number-affix-wrapper {
+  width: 100%;
+}

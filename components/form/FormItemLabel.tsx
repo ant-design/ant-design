@@ -60,6 +60,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         vertical,
         labelAlign: contextLabelAlign,
         labelCol: contextLabelCol,
+        labelWrap,
         colon: contextColon,
       }: FormContextProps) => {
         const mergedLabelCol: ColProps = labelCol || contextLabelCol || {};
@@ -71,6 +72,9 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           labelClsBasic,
           mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
           mergedLabelCol.className,
+          {
+            [`${labelClsBasic}-wrap`]: !!labelWrap,
+          },
         );
 
         let labelChildren = label;

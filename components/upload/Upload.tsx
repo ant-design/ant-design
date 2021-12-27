@@ -326,7 +326,14 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
         {(locale: UploadLocale) => {
-          const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } =
+          const {
+            showRemoveIcon,
+            showPreviewIcon,
+            showDownloadIcon,
+            removeIcon,
+            previewIcon,
+            downloadIcon,
+          } =
             typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
           return (
             <UploadList
@@ -340,6 +347,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
               showPreviewIcon={showPreviewIcon}
               showDownloadIcon={showDownloadIcon}
               removeIcon={removeIcon}
+              previewIcon={previewIcon}
               downloadIcon={downloadIcon}
               iconRender={iconRender}
               locale={{ ...locale, ...propLocale }}

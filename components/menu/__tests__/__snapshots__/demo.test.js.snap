@@ -879,15 +879,15 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
     data-menu-list="true"
     role="menu"
     tabindex="0"
   >
     <li
-      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+      class="ant-menu-submenu ant-menu-submenu-vertical"
       role="none"
-      style="opacity:1;order:0"
+      style="background:rgba(255,255,255,0.3)"
     >
       <div
         aria-expanded="false"
@@ -926,9 +926,9 @@ Array [
       </div>
     </li>
     <li
-      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+      class="ant-menu-submenu ant-menu-submenu-vertical"
       role="none"
-      style="opacity:1;order:1"
+      style="background:rgba(255,255,255,0.3)"
     >
       <div
         aria-expanded="false"
@@ -967,64 +967,27 @@ Array [
       </div>
     </li>
     <li
-      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-item ant-menu-item-only-child"
       role="menuitem"
-      style="opacity:1;order:2"
+      style="text-decoration:underline"
       tabindex="-1"
-    >
-      <span
-        class="ant-menu-title-content"
-      >
-        Option 11
-      </span>
-    </li>
-    <li
-      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
-      role="menuitem"
-      style="opacity:1;order:3"
-      tabindex="-1"
-    >
-      <span
-        class="ant-menu-title-content"
-      >
-        Option 12
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
-      role="none"
-      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        role="menuitem"
-        tabindex="-1"
+        class="ant-menu-inline-collapsed-noicon"
       >
-        <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
-        </span>
-        <i
-          class="ant-menu-submenu-arrow"
-        />
+        O
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      style="text-decoration:underline"
+      tabindex="-1"
+    >
+      <div
+        class="ant-menu-inline-collapsed-noicon"
+      >
+        O
       </div>
     </li>
   </ul>,
