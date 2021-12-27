@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.17.4
+
+`2021-12-19`
+
+- 🐞 修复 Form.Item 的 name 属性改为 parentNode，dom-align 死循环，内存溢出的 bug。[#31846](https://github.com/ant-design/ant-design/pull/31846) [@DaoxingHuang](https://github.com/DaoxingHuang)
+- 🐞 回滚 [#32448](https://github.com/ant-design/ant-design/pull/32448) 以修复 Input.TextArea 输入 emoji 时被截断的问题。[#33312](https://github.com/ant-design/ant-design/pull/33312)
+
 ## 4.17.3
 
 `2021-12-08`

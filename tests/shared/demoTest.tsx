@@ -1,8 +1,13 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+import * as React from 'react';
 import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
+
+export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];
@@ -46,10 +51,10 @@ function ariaConvert(wrapper: CheerIO) {
 }
 
 type Options = {
-  skip?: boolean;
+  skip?: boolean | string[];
 };
 
-export default function demoTest(component: string, options: Options = {}) {
+function baseText(doInject: boolean, component: string, options: Options = {}) {
   const files = glob.sync(`./components/${component}/demo/*.md`);
 
   files.forEach(file => {
@@ -57,20 +62,47 @@ export default function demoTest(component: string, options: Options = {}) {
     if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
       testMethod = test.skip;
     }
-    testMethod(`renders ${file} correctly`, () => {
-      const errSpy = excludeWarning();
 
-      MockDate.set(moment('2016-11-22').valueOf());
-      const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-      const wrapper = render(demo);
+    // function doTest(name: string, openTrigger = false) {
+    testMethod(
+      doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
+      () => {
+        const errSpy = excludeWarning();
 
-      // Convert aria related content
-      ariaConvert(wrapper);
+        MockDate.set(moment('2016-11-22').valueOf());
+        let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
 
-      expect(wrapper).toMatchSnapshot();
-      MockDate.reset();
+        // Inject Trigger status unless skipped
+        if (doInject) {
+          demo = (
+            <TriggerMockContext.Provider
+              value={{
+                popupVisible: true,
+              }}
+            >
+              {demo}
+            </TriggerMockContext.Provider>
+          );
+        }
 
-      errSpy();
-    });
+        const wrapper = render(demo);
+
+        // Convert aria related content
+        ariaConvert(wrapper);
+
+        expect(wrapper).toMatchSnapshot();
+        MockDate.reset();
+
+        errSpy();
+      },
+    );
   });
+}
+
+export function extendTest(component: string, options: Options = {}) {
+  baseText(true, component, options);
+}
+
+export default function demoTest(component: string, options: Options = {}) {
+  baseText(false, component, options);
 }
