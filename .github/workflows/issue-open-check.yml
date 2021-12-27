@@ -15,7 +15,7 @@ jobs:
           check-bot: true
 
       - name: check invalid
-        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.result == 'false') 
+        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.result == 'false')
         uses: actions-cool/issues-helper@v2
         with:
           actions: 'create-comment,add-labels,close-issue'
@@ -32,7 +32,7 @@ jobs:
         with:
           actions: 'check-issue'
           issue-number: ${{ github.event.issue.number }}
-          # 格式如：'x1,x2' or  'x1,x2/y1,y2' 最多支持 2 个数组           
+          # 格式如：'x1,x2' or  'x1,x2/y1,y2' 最多支持 2 个数组
           title-includes: '官网,网站,国内,镜像,mobile ant design,mobile.ant.design,ant design,ant design pro,pro.ant.design/挂了,挂掉了,无法访问,不能访问,访问不了,出问题,打不开,登不上,can not open,cannot open,can not be reached'
 
       - name: deal website

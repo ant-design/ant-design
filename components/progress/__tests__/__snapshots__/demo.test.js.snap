@@ -885,7 +885,7 @@ Array [
       >
         <defs>
           <linearGradient
-            id="ant-progress-gradient-12"
+            id="undefined-gradient"
             x1="100%"
             x2="0%"
             y1="0%"
@@ -918,7 +918,7 @@ Array [
    a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           opacity="1"
-          stroke="url(#ant-progress-gradient-12)"
+          stroke="url(#undefined-gradient)"
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:265.77873849369655px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
@@ -957,7 +957,7 @@ Array [
       >
         <defs>
           <linearGradient
-            id="ant-progress-gradient-13"
+            id="undefined-gradient"
             x1="100%"
             x2="0%"
             y1="0%"
@@ -990,7 +990,7 @@ Array [
    a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           opacity="1"
-          stroke="url(#ant-progress-gradient-13)"
+          stroke="url(#undefined-gradient)"
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
