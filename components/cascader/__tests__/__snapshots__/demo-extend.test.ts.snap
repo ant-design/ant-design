@@ -11,7 +11,6 @@ exports[`renders ./components/cascader/demo/basic.md extend context correctly 1`
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -48,7 +47,7 @@ exports[`renders ./components/cascader/demo/basic.md extend context correctly 1`
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -84,7 +83,7 @@ exports[`renders ./components/cascader/demo/basic.md extend context correctly 1`
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -162,7 +161,6 @@ exports[`renders ./components/cascader/demo/change-on-select.md extend context c
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -197,7 +195,7 @@ exports[`renders ./components/cascader/demo/change-on-select.md extend context c
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -233,7 +231,7 @@ exports[`renders ./components/cascader/demo/change-on-select.md extend context c
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -311,7 +309,6 @@ exports[`renders ./components/cascader/demo/custom-dropdown.md extend context co
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -349,7 +346,7 @@ exports[`renders ./components/cascader/demo/custom-dropdown.md extend context co
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="zhejiang"
+                data-path-key="zhejiang"
                 role="menuitemcheckbox"
                 title="Zhejiang"
               >
@@ -385,7 +382,7 @@ exports[`renders ./components/cascader/demo/custom-dropdown.md extend context co
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="jiangsu"
+                data-path-key="jiangsu"
                 role="menuitemcheckbox"
                 title="Jiangsu"
               >
@@ -475,7 +472,6 @@ exports[`renders ./components/cascader/demo/custom-render.md extend context corr
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -524,7 +520,7 @@ exports[`renders ./components/cascader/demo/custom-render.md extend context corr
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -560,7 +556,7 @@ exports[`renders ./components/cascader/demo/custom-render.md extend context corr
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -677,7 +673,7 @@ exports[`renders ./components/cascader/demo/custom-trigger.md extend context cor
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -713,7 +709,7 @@ exports[`renders ./components/cascader/demo/custom-trigger.md extend context cor
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -765,7 +761,6 @@ exports[`renders ./components/cascader/demo/default-value.md extend context corr
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -803,7 +798,7 @@ exports[`renders ./components/cascader/demo/default-value.md extend context corr
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -839,7 +834,7 @@ exports[`renders ./components/cascader/demo/default-value.md extend context corr
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -943,7 +938,6 @@ exports[`renders ./components/cascader/demo/disabled-option.md extend context co
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -978,7 +972,7 @@ exports[`renders ./components/cascader/demo/disabled-option.md extend context co
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -1014,7 +1008,7 @@ exports[`renders ./components/cascader/demo/disabled-option.md extend context co
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-disabled"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -1092,7 +1086,6 @@ exports[`renders ./components/cascader/demo/fields-name.md extend context correc
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -1129,7 +1122,7 @@ exports[`renders ./components/cascader/demo/fields-name.md extend context correc
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -1165,7 +1158,7 @@ exports[`renders ./components/cascader/demo/fields-name.md extend context correc
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -1243,7 +1236,6 @@ exports[`renders ./components/cascader/demo/hover.md extend context correctly 1`
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -1278,7 +1270,7 @@ exports[`renders ./components/cascader/demo/hover.md extend context correctly 1`
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -1314,7 +1306,7 @@ exports[`renders ./components/cascader/demo/hover.md extend context correctly 1`
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -1392,7 +1384,6 @@ exports[`renders ./components/cascader/demo/lazy.md extend context correctly 1`]
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -1427,7 +1418,7 @@ exports[`renders ./components/cascader/demo/lazy.md extend context correctly 1`]
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -1463,7 +1454,7 @@ exports[`renders ./components/cascader/demo/lazy.md extend context correctly 1`]
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -1550,7 +1541,6 @@ exports[`renders ./components/cascader/demo/multiple.md extend context correctly
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"
@@ -1593,7 +1583,7 @@ exports[`renders ./components/cascader/demo/multiple.md extend context correctly
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="light"
+              data-path-key="light"
               role="menuitemcheckbox"
               title="Light"
             >
@@ -1636,7 +1626,7 @@ exports[`renders ./components/cascader/demo/multiple.md extend context correctly
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="bamboo"
+              data-path-key="bamboo"
               role="menuitemcheckbox"
               title="Bamboo"
             >
@@ -1695,7 +1685,6 @@ exports[`renders ./components/cascader/demo/search.md extend context correctly 1
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -1729,7 +1718,7 @@ exports[`renders ./components/cascader/demo/search.md extend context correctly 1
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -1765,7 +1754,7 @@ exports[`renders ./components/cascader/demo/search.md extend context correctly 1
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -1844,7 +1833,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-haspopup="listbox"
@@ -1879,7 +1867,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="zhejiang"
+                data-path-key="zhejiang"
                 role="menuitemcheckbox"
                 title="Zhejiang"
               >
@@ -1915,7 +1903,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="jiangsu"
+                data-path-key="jiangsu"
                 role="menuitemcheckbox"
                 title="Jiangsu"
               >
@@ -1992,7 +1980,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-haspopup="listbox"
@@ -2027,7 +2014,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="zhejiang"
+                data-path-key="zhejiang"
                 role="menuitemcheckbox"
                 title="Zhejiang"
               >
@@ -2063,7 +2050,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="jiangsu"
+                data-path-key="jiangsu"
                 role="menuitemcheckbox"
                 title="Jiangsu"
               >
@@ -2140,7 +2127,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-haspopup="listbox"
@@ -2175,7 +2161,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="zhejiang"
+                data-path-key="zhejiang"
                 role="menuitemcheckbox"
                 title="Zhejiang"
               >
@@ -2211,7 +2197,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="jiangsu"
+                data-path-key="jiangsu"
                 role="menuitemcheckbox"
                 title="Jiangsu"
               >
@@ -2293,7 +2279,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-haspopup="listbox"
@@ -2330,7 +2315,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="zhejiang"
+                data-path-key="zhejiang"
                 role="menuitemcheckbox"
                 title="Zhejiang"
               >
@@ -2366,7 +2351,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="jiangsu"
+                data-path-key="jiangsu"
                 role="menuitemcheckbox"
                 title="Jiangsu"
               >
@@ -2443,7 +2428,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-haspopup="listbox"
@@ -2480,7 +2464,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="zhejiang"
+                data-path-key="zhejiang"
                 role="menuitemcheckbox"
                 title="Zhejiang"
               >
@@ -2516,7 +2500,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="jiangsu"
+                data-path-key="jiangsu"
                 role="menuitemcheckbox"
                 title="Jiangsu"
               >
@@ -2575,7 +2559,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-haspopup="listbox"
@@ -2612,7 +2595,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="zhejiang"
+                data-path-key="zhejiang"
                 role="menuitemcheckbox"
                 title="Zhejiang"
               >
@@ -2648,7 +2631,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="jiangsu"
+                data-path-key="jiangsu"
                 role="menuitemcheckbox"
                 title="Jiangsu"
               >
@@ -2725,7 +2708,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-haspopup="listbox"
@@ -2762,7 +2744,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="zhejiang"
+                data-path-key="zhejiang"
                 role="menuitemcheckbox"
                 title="Zhejiang"
               >
@@ -2780,7 +2762,7 @@ Array [
               <li
                 aria-checked="false"
                 class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-value="jiangsu"
+                data-path-key="jiangsu"
                 role="menuitemcheckbox"
                 title="Jiangsu"
               >

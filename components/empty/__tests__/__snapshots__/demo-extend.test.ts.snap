@@ -234,7 +234,6 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"
@@ -354,7 +353,6 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"
@@ -386,7 +384,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 <li
                   aria-checked="false"
                   class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
-                  data-value="__EMPTY__"
+                  data-path-key="__EMPTY__"
                   role="menuitemcheckbox"
                 >
                   <div
