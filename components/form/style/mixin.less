@@ -12,7 +12,8 @@
   }
   // 输入框的不同校验状态
   :not(.@{ant-prefix}-input-disabled):not(.@{ant-prefix}-input-borderless).@{ant-prefix}-input,
-  :not(.@{ant-prefix}-input-affix-wrapper-disabled):not(.@{ant-prefix}-input-affix-wrapper-borderless).@{ant-prefix}-input-affix-wrapper {
+  :not(.@{ant-prefix}-input-affix-wrapper-disabled):not(.@{ant-prefix}-input-affix-wrapper-borderless).@{ant-prefix}-input-affix-wrapper,
+  :not(.@{ant-prefix}-input-number-affix-wrapper-disabled):not(.@{ant-prefix}-input-number-affix-wrapper-borderless).@{ant-prefix}-input-number-affix-wrapper {
     &,
     &:hover {
       background-color: @background-color;
@@ -29,7 +30,8 @@
     .active(@border-color, @hoverBorderColor, @outlineColor);
   }
 
-  .@{ant-prefix}-input-prefix {
+  .@{ant-prefix}-input-prefix,
+  .@{ant-prefix}-input-number-prefix {
     color: @text-color;
   }
 

@@ -17,6 +17,9 @@ const localeValues: Locale = {
     selectAll: 'Valitse kaikki',
     selectInvert: 'Valitse päinvastoin',
     sortTitle: 'Lajittele',
+    triggerDesc: 'Lajittele laskevasti',
+    triggerAsc: 'Lajittele nousevasti',
+    cancelSort: 'Peruuta lajittelu',
   },
   Modal: {
     okText: 'OK',

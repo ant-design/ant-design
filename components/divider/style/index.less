@@ -106,6 +106,34 @@
     font-weight: normal;
     font-size: @font-size-base;
   }
+
+  &-horizontal&-with-text-left&-no-default-orientation-margin-left {
+    &::before {
+      width: 0;
+    }
+
+    &::after {
+      width: 100%;
+    }
+
+    .ant-divider-inner-text {
+      padding-left: 0;
+    }
+  }
+
+  &-horizontal&-with-text-right&-no-default-orientation-margin-right {
+    &::before {
+      width: 100%;
+    }
+
+    &::after {
+      width: 0;
+    }
+
+    .ant-divider-inner-text {
+      padding-right: 0;
+    }
+  }
 }
 
 @import './rtl';

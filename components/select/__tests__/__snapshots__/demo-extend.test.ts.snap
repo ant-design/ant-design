@@ -3772,7 +3772,7 @@ exports[`renders ./components/select/demo/optgroup.md extend context correctly 1
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Jack"
@@ -4028,6 +4028,7 @@ exports[`renders ./components/select/demo/option-label-prop.md extend context co
                 <div
                   aria-selected="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                  label="China"
                 >
                   <div
                     class="ant-select-item-option-content"
@@ -4074,6 +4075,7 @@ exports[`renders ./components/select/demo/option-label-prop.md extend context co
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option"
+                  label="USA"
                 >
                   <div
                     class="ant-select-item-option-content"
@@ -4094,6 +4096,7 @@ exports[`renders ./components/select/demo/option-label-prop.md extend context co
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option"
+                  label="Japan"
                 >
                   <div
                     class="ant-select-item-option-content"
@@ -4114,6 +4117,7 @@ exports[`renders ./components/select/demo/option-label-prop.md extend context co
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option"
+                  label="Korea"
                 >
                   <div
                     class="ant-select-item-option-content"
@@ -5454,12 +5458,12 @@ exports[`renders ./components/select/demo/search-sort.md extend context correctl
           style="height:0;width:0;overflow:hidden"
         >
           <div
-            aria-label="Not Identified"
+            aria-label="Cancelled"
             aria-selected="false"
             id="undefined_list_0"
             role="option"
           >
-            1
+            6
           </div>
           <div
             aria-label="Closed"
@@ -5486,12 +5490,12 @@ exports[`renders ./components/select/demo/search-sort.md extend context correctl
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                  title="Not Identified"
+                  title="Cancelled"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Not Identified
+                    Cancelled
                   </div>
                   <span
                     aria-hidden="true"
@@ -5554,12 +5558,12 @@ exports[`renders ./components/select/demo/search-sort.md extend context correctl
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option"
-                  title="Resolved"
+                  title="Not Identified"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Resolved
+                    Not Identified
                   </div>
                   <span
                     aria-hidden="true"
@@ -5571,12 +5575,12 @@ exports[`renders ./components/select/demo/search-sort.md extend context correctl
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option"
-                  title="Cancelled"
+                  title="Resolved"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Cancelled
+                    Resolved
                   </div>
                   <span
                     aria-hidden="true"

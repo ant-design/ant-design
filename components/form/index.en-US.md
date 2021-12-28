@@ -25,6 +25,7 @@ High performance Form component with data scope management. Including data colle
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
 | initialValues | Set value by Form initialization or reset | object | - |  |
 | labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
+| labelWrap | whether label can be wrap | boolean | false | 4.18.0 |
 | labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | Form name. Will be the prefix of Field `id` | string | - |  |

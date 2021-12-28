@@ -1,4 +1,3 @@
-
 export default class UnreachableException {
   error: Error;
 

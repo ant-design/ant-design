@@ -53,6 +53,7 @@ export interface ShowUploadListInterface {
   showDownloadIcon?: boolean;
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
 }
 
 export interface UploadLocale {
@@ -148,6 +149,7 @@ export interface UploadListProps<T = any> {
   showPreviewIcon?: boolean;
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;

@@ -2035,6 +2035,112 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
 </form>
 `;
 
+exports[`renders ./components/form/demo/dynamic-form-items-no-style.md correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-horizontal"
+  id="dynamic_form_nest_item"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Users"
+      >
+        Users
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <button
+                    class="ant-btn ant-btn-dashed ant-btn-block"
+                    type="button"
+                  >
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <defs />
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      Add field
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -2781,6 +2887,120 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           <button
             class="ant-btn ant-btn-primary"
             type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="wrap"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-no-colon"
+        for="wrap_username"
+        title="正常标签文案"
+      >
+        正常标签文案
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="wrap_username"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-no-colon"
+        for="wrap_password"
+        title="超长标签文案超长标签文案"
+      >
+        超长标签文案超长标签文案
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="wrap_password"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-no-colon"
+        title=" "
+      >
+         
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
           >
             <span>
               Submit
@@ -3571,7 +3791,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="register_residence_list_0"
                   aria-autocomplete="list"
                   aria-controls="register_residence_list"
                   aria-haspopup="listbox"
@@ -4718,7 +4937,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-haspopup="listbox"
@@ -4800,7 +5018,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-haspopup="listbox"
@@ -7620,7 +7837,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-haspopup="listbox"
