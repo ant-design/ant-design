@@ -26,6 +26,7 @@ timeline: true
 - Table
   - 🆕 Table `colSpan` &amp; `rowSpan` move to `onCell` function to optimize performance. [#33114](https://github.com/ant-design/ant-design/pull/33114)
   - 🆕 Table support Table.EXPAND_COLUMN &amp; Table.SELECTION_COLUMN to customize column order. [#33026](https://github.com/ant-design/ant-design/pull/33026)
+  - 🐞 Fix Table hovering will trigger `expandedRowRender` and `column.render` unexpectly. [#33342](https://github.com/ant-design/ant-design/issues/33342)
 - Form
   - 🔥 Form.List nest Form.Item no longer need pass `fieldKey` anymore. [#32689](https://github.com/ant-design/ant-design/pull/32689)
   - 🆕 Form `label` can wrap via setting `labelWrap` now. [#33048](https://github.com/ant-design/ant-design/pull/33048)
