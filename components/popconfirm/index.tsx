@@ -1,18 +1,19 @@
-import * as React from 'react';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import KeyCode from 'rc-util/lib/KeyCode';
-import Tooltip, { AbstractTooltipProps } from '../tooltip';
+import * as React from 'react';
 import Button from '../button';
-import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
+import { ButtonProps, convertLegacyProps, LegacyButtonType } from '../button/button';
+import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { ConfigContext } from '../config-provider';
-import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
-import { cloneElement } from '../_util/reactNode';
-import { getTransitionName } from '../_util/motion';
+import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import ActionButton from '../_util/ActionButton';
+import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
+import useMountedRef from '../_util/hooks/useMountedRef';
+import { getTransitionName } from '../_util/motion';
+import { cloneElement } from '../_util/reactNode';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -48,20 +49,13 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     defaultValue: props.defaultVisible,
   });
 
-  const mounted = React.useRef<boolean>(true);
-
-  React.useEffect(() => {
-    mounted.current = true;
-    return () => {
-      mounted.current = false;
-    };
-  }, []);
+  const mountedRef = useMountedRef();
 
   const settingVisible = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    if (mounted.current) {
+    if (mountedRef.current) {
       setVisible(value);
     }
 

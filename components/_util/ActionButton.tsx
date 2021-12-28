@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
+import useMountedRef from './hooks/useMountedRef';
 
 export interface ActionButtonProps {
   type?: LegacyButtonType;
@@ -20,6 +21,7 @@ function isThenable(thing?: PromiseLike<any>): boolean {
 const ActionButton: React.FC<ActionButtonProps> = props => {
   const clickedRef = React.useRef<boolean>(false);
   const ref = React.useRef<any>();
+  const mountedRef = useMountedRef();
   const [loading, setLoading] = React.useState<ButtonProps['loading']>(false);
 
   React.useEffect(() => {
@@ -32,7 +34,6 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
-      ref.current = null;
     };
   }, []);
 
@@ -44,7 +45,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     setLoading(true);
     returnValueOfOnOk!.then(
       (...args: any[]) => {
-        if (ref.current) {
+        if (mountedRef.current) {
           setLoading(false);
         }
         close(...args);
@@ -55,7 +56,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
         // eslint-disable-next-line no-console
         console.error(e);
         // See: https://github.com/ant-design/ant-design/issues/6183
-        if (ref.current) {
+        if (mountedRef.current) {
           setLoading(false);
         }
         clickedRef.current = false;
