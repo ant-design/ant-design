@@ -26,6 +26,7 @@ timeline: true
 - Table
   - 🆕 Table `colSpan` 与 `rowSpan` 迁移至 `onCell` 方法中，以优化渲染性能。[#33114](https://github.com/ant-design/ant-design/pull/33114)
   - 🆕 Table 支持 Table.EXPAND_COLUMN 和 Table.SELECTION_COLUMN 以实现自定义列排序。[#33026](https://github.com/ant-design/ant-design/pull/33026)
+  - 🐞 修复 Table 鼠标移动时重复触发 `expandedRowRender` 和 `column.render` 的问题。[#33342](https://github.com/ant-design/ant-design/issues/33342)
 - Form
   - 🔥 Form.List 嵌套使用 Form.Item 时不再需要手工指定 `fieldKey`。[#32689](https://github.com/ant-design/ant-design/pull/32689)
   - 🆕 Form 现在支持通过 `labelWrap` 开启标签可换行。[#33048](https://github.com/ant-design/ant-design/pull/33048)
