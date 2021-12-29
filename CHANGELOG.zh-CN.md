@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.18.1
+
+`2021-12-29`
+
+- 🐞 修复 Popconfirm 在某些情况下会出现 `Can't perform a React state update on an unmounted component.` 的错误。[#33432](https://github.com/ant-design/ant-design/pull/33432) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Input 配置 `suffix` 时 `value` 为数字类型会崩溃的问题。[#33462](https://github.com/ant-design/ant-design/pull/33462)
+- 🐞 修复 Divider with text dashed 的边框颜色错误问题。[#33452](https://github.com/ant-design/ant-design/pull/33452) [@chen-jingjie](https://github.com/chen-jingjie)
+- 🐞 修复 Dropdown.Button 不支持 `destroyPopupOnHide` 的问题。[#33442](https://github.com/ant-design/ant-design/pull/33442) [@LongHaoo](https://github.com/LongHaoo)
+- 🐞 修复 Table 的 Pagination 在 `current` 改变时不触发 `pagination.onChange` 的问题。[#33411](https://github.com/ant-design/ant-design/pull/33411) [@2724635499](https://github.com/2724635499)
+
 ## 4.18.0
 
 `2021-12-27`
