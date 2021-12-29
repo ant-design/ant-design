@@ -1,20 +1,20 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import useMountedRef from '../hooks/useMountedRef';
+import useMounted from '../hooks/useMounted';
 
-describe('useMountedRef', () => {
+describe('useMounted', () => {
   it('should work properly', () => {
-    let ref = null;
+    let isMounted = null;
 
     const AutoUnmounted = () => {
-      ref = useMountedRef();
+      isMounted = useMounted();
 
       return <div>Mounted</div>;
     };
 
     const wrapper = mount(<AutoUnmounted />);
-    expect(ref.current).toBeTruthy();
+    expect(isMounted()).toBeTruthy();
     wrapper.unmount();
-    expect(ref.current).toBeFalsy();
+    expect(isMounted()).toBeFalsy();
   });
 });
