@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default function useMountedRef() {
+export default function useMounted() {
   const mountedRef = React.useRef<boolean>(true);
 
   React.useEffect(
@@ -10,5 +10,5 @@ export default function useMountedRef() {
     [],
   );
 
-  return mountedRef;
+  return () => mountedRef.current;
 }

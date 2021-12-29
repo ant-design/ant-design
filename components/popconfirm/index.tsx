@@ -13,7 +13,7 @@ import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue'
 import { cloneElement } from '../_util/reactNode';
 import { getTransitionName } from '../_util/motion';
 import ActionButton from '../_util/ActionButton';
-import useMountedRef from '../_util/hooks/useMountedRef';
+import useMounted from '../_util/hooks/useMounted';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -49,13 +49,13 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     defaultValue: props.defaultVisible,
   });
 
-  const mountedRef = useMountedRef();
+  const isMounted = useMounted();
 
   const settingVisible = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    if (mountedRef.current) {
+    if (isMounted()) {
       setVisible(value);
     }
     props.onVisibleChange?.(value, e);
