@@ -5,6 +5,7 @@ import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { sleep } from '../../../tests/utils';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Button from '../../button';
 
 describe('Popconfirm', () => {
   mountTest(Popconfirm);
@@ -222,5 +223,46 @@ describe('Popconfirm', () => {
     expect(onVisibleChange).toHaveBeenLastCalledWith(true, undefined);
     triggerNode.simulate('keydown', { key: 'Escape', keyCode: 27 });
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
+  });
+
+  it('should not warn memory leaking if setState in async callback', async () => {
+    const error = jest.spyOn(console, 'error');
+
+    const Test = () => {
+      const [show, setShow] = React.useState(true);
+
+      if (show) {
+        return (
+          <Popconfirm
+            title="will unmount"
+            onConfirm={() =>
+              new Promise(resolve => {
+                setTimeout(() => {
+                  setShow(false);
+                  resolve();
+                }, 300);
+              })
+            }
+          >
+            <Button className="clickTarget">Test</Button>
+          </Popconfirm>
+        );
+      }
+      return <Button>Unmounted</Button>;
+    };
+
+    const wrapper = mount(
+      <div>
+        <Test />
+      </div>,
+    );
+
+    expect(wrapper.text()).toEqual('Test');
+    const triggerNode = wrapper.find('.clickTarget').at(0);
+    triggerNode.simulate('click');
+    wrapper.find('.ant-btn-primary').simulate('click');
+    await sleep(500);
+    expect(wrapper.text()).toEqual('Unmounted');
+    expect(error).not.toHaveBeenCalled();
   });
 });
