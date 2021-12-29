@@ -146,6 +146,12 @@ describe('should support showCount', () => {
     expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('8 / 5');
   });
 
+  it('value is a number', () => {
+    const wrapper = mount(<Input maxLength={5} showCount value={12345} />);
+    expect(wrapper.find('input').prop('value')).toBe('12345');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+  });
+
   describe('emoji', () => {
     it('should minimize value between emoji length and maxLength', () => {
       const wrapper = mount(<Input maxLength={1} showCount value="👀" />);
