@@ -13,6 +13,7 @@ import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue'
 import { cloneElement } from '../_util/reactNode';
 import { getTransitionName } from '../_util/motion';
 import ActionButton from '../_util/ActionButton';
+import useDestroyed from '../_util/hooks/useDestroyed';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -48,12 +49,15 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     defaultValue: props.defaultVisible,
   });
 
+  const isDestroyed = useDestroyed();
+
   const settingVisible = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    setVisible(value);
-
+    if (!isDestroyed()) {
+      setVisible(value);
+    }
     props.onVisibleChange?.(value, e);
   };
 
