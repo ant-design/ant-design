@@ -298,4 +298,9 @@ describe('Input allowClear', () => {
 
     wrapper.unmount();
   });
+
+  it('not crash when value is number', () => {
+    const wrapper = mount(<Input suffix="Bamboo" value={1} />);
+    expect(wrapper).toBeTruthy();
+  });
 });
