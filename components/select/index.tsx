@@ -11,6 +11,8 @@ import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionName } from '../_util/motion';
 
+export declare type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+
 type RawValue = string | number;
 
 export { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
@@ -38,8 +40,9 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
+  placement?: Placement;
   mode?: 'multiple' | 'tags';
 }
 
@@ -53,6 +56,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     getPopupContainer,
     dropdownClassName,
     listHeight = 256,
+    placement,
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
@@ -123,6 +127,14 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     className,
   );
 
+  // ===================== Placement =====================
+  const getPlacement = () => {
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+  };
+
   return (
     <RcSelect<any, any>
       ref={ref as any}
@@ -134,6 +146,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       listItemHeight={listItemHeight}
       mode={mode as any}
       prefixCls={prefixCls}
+      placement={getPlacement()}
       direction={direction}
       inputIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
