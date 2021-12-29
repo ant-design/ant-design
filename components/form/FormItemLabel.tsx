@@ -26,6 +26,7 @@ function toTooltipProps(tooltip: LabelTooltipType): WrapperTooltipProps | null {
 
   return {
     title: tooltip,
+    trigger: ['click', 'focus', 'hover'],
   };
 }
 
@@ -89,7 +90,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         // Tooltip
         const tooltipProps = toTooltipProps(tooltip);
         if (tooltipProps) {
-          const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
+          const { icon = <QuestionCircleOutlined tabIndex={0} />, ...restTooltipProps } = tooltipProps;
           const tooltipNode = (
             <Tooltip {...restTooltipProps}>
               {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip`, title: '' })}
@@ -127,7 +128,6 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
             <label
               htmlFor={htmlFor}
               className={labelClassName}
-              title={typeof label === 'string' ? label : ''}
             >
               {labelChildren}
             </label>
