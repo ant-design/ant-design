@@ -558,25 +558,34 @@ describe('Table.pagination', () => {
   // https://codesandbox.io/s/festive-edison-6uq3e?file=/src/App.js
   it('should called onChange when page number is changed by change of total ', () => {
     const onChange = jest.fn();
+    const onPaginationChange = jest.fn();
     const wrapper = mount(
       createTable({
+        onChange,
         pagination: {
           current: 2,
           pageSize: 3,
           total: 4,
-          onChange,
+          onChange: onPaginationChange,
         },
       }),
     );
     wrapper.setProps({
       dataSource: data.slice(0, 3),
+      onChange,
       pagination: {
         current: 2,
         pageSize: 3,
         total: 3,
-        onChange,
+        onChange: onPaginationChange,
       },
     });
-    expect(onChange).toHaveBeenCalledWith(1, 3);
+    expect(onChange).toHaveBeenCalledWith(
+      { current: 1, pageSize: 3, total: 3 },
+      {},
+      {},
+      {}
+    );
+    expect(onPaginationChange).toHaveBeenCalledWith(1, 3);
   });
 });
