@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
-import useMounted from './hooks/useMounted';
+import useDestroyed from './hooks/useDestroyed';
 
 export interface ActionButtonProps {
   type?: LegacyButtonType;
@@ -21,7 +21,7 @@ function isThenable(thing?: PromiseLike<any>): boolean {
 const ActionButton: React.FC<ActionButtonProps> = props => {
   const clickedRef = React.useRef<boolean>(false);
   const ref = React.useRef<any>();
-  const isMounted = useMounted();
+  const isDestroyed = useDestroyed();
   const [loading, setLoading] = React.useState<ButtonProps['loading']>(false);
 
   React.useEffect(() => {
@@ -45,7 +45,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     setLoading(true);
     returnValueOfOnOk!.then(
       (...args: any[]) => {
-        if (isMounted()) {
+        if (!isDestroyed()) {
           setLoading(false);
         }
         close(...args);
@@ -56,7 +56,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
         // eslint-disable-next-line no-console
         console.error(e);
         // See: https://github.com/ant-design/ant-design/issues/6183
-        if (isMounted()) {
+        if (!isDestroyed()) {
           setLoading(false);
         }
         clickedRef.current = false;
