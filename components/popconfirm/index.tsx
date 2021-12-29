@@ -58,7 +58,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     if (mountedRef.current) {
       setVisible(value);
     }
-
     props.onVisibleChange?.(value, e);
   };
 
