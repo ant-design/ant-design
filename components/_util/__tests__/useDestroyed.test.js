@@ -1,20 +1,20 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import useMounted from '../hooks/useMounted';
+import useDestroyed from '../hooks/useDestroyed';
 
 describe('useMounted', () => {
   it('should work properly', () => {
-    let isMounted = null;
+    let isDestroyed = null;
 
     const AutoUnmounted = () => {
-      isMounted = useMounted();
+      isDestroyed = useDestroyed();
 
       return <div>Mounted</div>;
     };
 
     const wrapper = mount(<AutoUnmounted />);
-    expect(isMounted()).toBeTruthy();
+    expect(isDestroyed()).toBeFalsy();
     wrapper.unmount();
-    expect(isMounted()).toBeFalsy();
+    expect(isDestroyed()).toBeTruthy();
   });
 });
