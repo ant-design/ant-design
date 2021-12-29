@@ -730,7 +730,11 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
                       </span>
                       <span
                         class="ant-select-tree-checkbox ant-select-tree-checkbox-checked"
-                      />
+                      >
+                        <span
+                          class="ant-select-tree-checkbox-inner"
+                        />
+                      </span>
                       <span
                         class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"
                         title="Node1"
@@ -776,7 +780,11 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
                       </span>
                       <span
                         class="ant-select-tree-checkbox"
-                      />
+                      >
+                        <span
+                          class="ant-select-tree-checkbox-inner"
+                        />
+                      </span>
                       <span
                         class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"
                         title="Node2"
