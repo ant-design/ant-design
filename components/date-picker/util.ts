@@ -56,45 +56,37 @@ export function getRangePlaceholder(
 type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
 export function transPlacement2DropdownAlign(direction: DirectionType, placement?: Placement) {
+  const overflow = {
+    adjustX: 1,
+    adjustY: 1,
+  };
   switch (placement) {
     case 'bottomLeft': {
       return {
         points: ['tl', 'bl'],
         offset: [0, 4],
-        overflow: {
-          adjustX: 1,
-          adjustY: 1,
-        },
+        overflow,
       };
     }
     case 'bottomRight': {
       return {
         points: ['tr', 'br'],
         offset: [0, 4],
-        overflow: {
-          adjustX: 1,
-          adjustY: 1,
-        },
+        overflow,
       };
     }
     case 'topLeft': {
       return {
         points: ['bl', 'tl'],
         offset: [0, -4],
-        overflow: {
-          adjustX: 1,
-          adjustY: 1,
-        },
+        overflow,
       };
     }
     case 'topRight': {
       return {
         points: ['br', 'tr'],
         offset: [0, -4],
-        overflow: {
-          adjustX: 1,
-          adjustY: 1,
-        },
+        overflow,
       };
     }
     default: {
@@ -102,18 +94,12 @@ export function transPlacement2DropdownAlign(direction: DirectionType, placement
         ? {
             points: ['tr', 'br'],
             offset: [0, 4],
-            overflow: {
-              adjustX: 1,
-              adjustY: 1,
-            },
+            overflow,
           }
         : {
             points: ['tl', 'bl'],
             offset: [0, 4],
-            overflow: {
-              adjustX: 1,
-              adjustY: 1,
-            },
+            overflow,
           };
     }
   }
