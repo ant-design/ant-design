@@ -126,7 +126,7 @@ timeline: true
   - 🐞 修复 antd 编译产物缺失 `/style/default.css` 文件的问题。[#32116](https://github.com/ant-design/ant-design/pull/32116)
   - 🐞 修复 less 编译 `antd.xxx.less` 会抛出 `Maximum call stack size exceeded error` 的问题。[#32063](https://github.com/ant-design/ant-design/pull/32063)
 - Input
-  - 🐞 修复 `Input.Search` 组件在有 `allowClear` 和 `addonBefore` 属性时，输入框 `border-left-radius` 值错误的问题。[#32812](https://github.com/ant-design/ant-design/pull/32812) [@KAROTT7](https://github.com/KAROTT7)
+  - 🐞 修复 Input.Search 组件在有 `allowClear` 和 `addonBefore` 属性时，输入框 `border-left-radius` 值错误的问题。[#32812](https://github.com/ant-design/ant-design/pull/32812) [@KAROTT7](https://github.com/KAROTT7)
   - 🐞 修复 Input 设置 `disabled` 时仍然保留聚焦样式的问题。[#32739](https://github.com/ant-design/ant-design/pull/32739)
   - 🐞 修复 Input `placeholder` 在 Chrome 上能被选择的问题。[#32639](https://github.com/ant-design/ant-design/pull/32639) [@cw1997](https://github.com/cw1997)
   - 🐞 Input.TextArea `maxLength` 属性现在会传给原生 textarea 标签。[#32448](https://github.com/ant-design/ant-design/pull/32448) [@MOHAMMADArsalan](https://github.com/MOHAMMADArsalan)
@@ -134,7 +134,7 @@ timeline: true
 - Cascader
   - 🔥 Cascader 支持 `multiple` 多选模式。[#31936](https://github.com/ant-design/ant-design/pull/31936)
   - 🆕 Cascader 支持 `onSearch` 和 `searchValue` 属性。[#31936](https://github.com/ant-design/ant-design/pull/31936)
-  - 🆕 在 `Cascader` 组件中，默认给选中值的文本添加 `title` 属性。[#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
+  - 🆕 Cascader 默认给选中值的文本添加 `title` 属性。[#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
   - 🐞 修复 Cascader 中 `popupClassName` 与 `popupPlacement` 属性无效问题。[#32143](https://github.com/ant-design/ant-design/pull/32143)
 - Select
   - 🆕 Select 支持 `placement` 属性。[#32143](https://github.com/ant-design/ant-design/pull/32143)
