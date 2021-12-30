@@ -65,15 +65,15 @@ export function getTimeProps<DateType>(
   };
 }
 
+type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+
 type InjectDefaultProps<Props> = Omit<
   Props,
-  | 'locale'
-  | 'generateConfig'
-  | 'hideHeader'
-  | 'components'
+  'locale' | 'generateConfig' | 'hideHeader' | 'components'
 > & {
   locale?: PickerLocale;
   size?: SizeType;
+  placement?: Placement;
   bordered?: boolean;
 };
 
