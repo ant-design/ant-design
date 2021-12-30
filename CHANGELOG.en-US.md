@@ -15,6 +15,50 @@ timeline: true
 
 ---
 
+## 4.18.1
+
+`2021-12-29`
+
+- 🐞 Fix Popconfirm throws `Can't perform a React state update on an unmounted component.` warning in some async case. [#33432](https://github.com/ant-design/ant-design/pull/33432) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Input with `suffix` will crash when `value` is number type. [#33462](https://github.com/ant-design/ant-design/pull/33462)
+- 🐞 Fix Divider with text dashed border color error. [#33452](https://github.com/ant-design/ant-design/pull/33452) [@chen-jingjie](https://github.com/chen-jingjie)
+- 🐞 Fix Dropdown.Button not support `destroyPopupOnHide`. [#33442](https://github.com/ant-design/ant-design/pull/33442) [@LongHaoo](https://github.com/LongHaoo)
+- 🐞 Fix Table Pagination not trigger `onChange` when `current` changed. [#33411](https://github.com/ant-design/ant-design/pull/33411) [@2724635499](https://github.com/2724635499)
+
+## 4.18.0
+
+`2021-12-27`
+
+- 🐞 Fix Skeleton missing `style` prop. [#33405](https://github.com/ant-design/ant-design/pull/33405)
+- 🐞 Fix Descriptions overflow style cause other components being cut. [#33392](https://github.com/ant-design/ant-design/pull/33392)
+- 🆕 Unique Select-like component generic as OptionType to support FieldNames type. [#33364](https://github.com/ant-design/ant-design/pull/33364)
+- 🐞 Fix Slider rail hover color when it is disabled. [#33369](https://github.com/ant-design/ant-design/pull/33369) [@chen-jingjie](https://github.com/chen-jingjie)
+- Table
+  - 🆕 Table `colSpan` &amp; `rowSpan` move to `onCell` function to optimize performance. [#33114](https://github.com/ant-design/ant-design/pull/33114)
+  - 🆕 Table support Table.EXPAND_COLUMN &amp; Table.SELECTION_COLUMN to customize column order. [#33026](https://github.com/ant-design/ant-design/pull/33026)
+  - 🐞 Fix Table hovering will trigger `expandedRowRender` and `column.render` unexpectly. [#33342](https://github.com/ant-design/ant-design/issues/33342)
+- Form
+  - 🔥 Form.List nest Form.Item no longer need pass `fieldKey` anymore. [#32689](https://github.com/ant-design/ant-design/pull/32689)
+  - 🆕 Form `label` can wrap via setting `labelWrap` now. [#33048](https://github.com/ant-design/ant-design/pull/33048)
+- 🆕 ConfigProvider support Form `colon`. [9bc148a](https://github.com/ant-design/ant-design/commit/9bc148a) [@seaSuper](https://github.com/seaSuper)
+- 🆕 add `prefix` to `InputNumber`. [#32600](https://github.com/ant-design/ant-design/pull/32600) [@Austaras](https://github.com/Austaras)
+- 🆕 Modal static function support `wrapClassName` prop. [#32676](https://github.com/ant-design/ant-design/pull/32676) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🆕 Popconfirm add `showCancel` prop. [#32620](https://github.com/ant-design/ant-design/pull/32620) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🆕 Dropdown.Button supports `loading` property now. [#32467](https://github.com/ant-design/ant-design/pull/32467) [@kaysonwu](https://github.com/kaysonwu)
+- 🆕 Input adds `showCount` property. [#32522](https://github.com/ant-design/ant-design/pull/32522) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🆕 Alert supports `closeIcon` now. [#32345](https://github.com/ant-design/ant-design/pull/32345) [@chen-jingjie](https://github.com/chen-jingjie)
+- Typography
+  - 🆕 for editable Paragraph, edit can be triggered by clicking the icon or the value itself (or both) with `triggerType`. [#32219](https://github.com/ant-design/ant-design/pull/32219) [@kachanovskiy](https://github.com/kachanovskiy)
+  - 🆕 Typography support `enterIcon` to config confirm icon. [#32220](https://github.com/ant-design/ant-design/pull/32220) [@kachanovskiy](https://github.com/kachanovskiy)
+- 🆕 Divider added `orientationMargin` APIs for customizing `margin-left/right` of title. [#32084](https://github.com/ant-design/ant-design/pull/32084) [@neotan](https://github.com/neotan)
+- 🆕 Avatar add `maxPopoverTrigger` to support configuration of popover trigger. [#32197](https://github.com/ant-design/ant-design/pull/32197) [@RiteshMakan](https://github.com/RiteshMakan)
+- 🆕 Upload supports `showUploadList.previewIcon` now. [#32059](https://github.com/ant-design/ant-design/pull/32059) [@1040961807](https://github.com/1040961807)
+- 🏴󠁥󠁳󠁣󠁴󠁿 Fix Catalan (ca_ES) missing translation key with `Form`. [#33377](https://github.com/ant-design/ant-design/pull/33377) [@ZzGGitter](https://github.com/ZzGGitter)
+- 🇫🇮 Fix Finland (fi_FI) missing translation key with `Table`. [#33372](https://github.com/ant-design/ant-design/pull/33372) [@ZakarFin](https://github.com/ZakarFin)
+- 🇰🇭 Added locales for Khmer (km_KH) translation. [#32853](https://github.com/ant-design/ant-design/pull/32853) [@vireakkeosokvibol](https://github.com/vireakkeosokvibol)
+- TypeScript
+  - 🤖 Add Upload `capture` definition. [#33370](https://github.com/ant-design/ant-design/pull/33370) [@MichalPodeszwa](https://github.com/MichalPodeszwa)
+
 ## 4.17.4
 
 `2021-12-19`
@@ -89,6 +133,7 @@ timeline: true
   - 🐞 Fix Input cannot clear content when focus it. [#31931](https://github.com/ant-design/ant-design/pull/31931) [@adaex](https://github.com/adaex)
 - Cascader
   - 🔥 Cascader support `multiple` mode. [#31936](https://github.com/ant-design/ant-design/pull/31936)
+  - 🆕 Cascader support `onSearch` and `searchValue` props. [#31936](https://github.com/ant-design/ant-design/pull/31936)
   - 🆕 Cascader add `title` prop with content by default. [#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
   - 🐞 Fix Cascader missing `popupClassName` and `popupPlacement` props. [#32143](https://github.com/ant-design/ant-design/pull/32143)
 - Select

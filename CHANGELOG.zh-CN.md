@@ -15,6 +15,50 @@ timeline: true
 
 ---
 
+## 4.18.1
+
+`2021-12-29`
+
+- 🐞 修复 Popconfirm 在某些情况下会出现 `Can't perform a React state update on an unmounted component.` 的错误。[#33432](https://github.com/ant-design/ant-design/pull/33432) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Input 配置 `suffix` 时 `value` 为数字类型会崩溃的问题。[#33462](https://github.com/ant-design/ant-design/pull/33462)
+- 🐞 修复 Divider with text dashed 的边框颜色错误问题。[#33452](https://github.com/ant-design/ant-design/pull/33452) [@chen-jingjie](https://github.com/chen-jingjie)
+- 🐞 修复 Dropdown.Button 不支持 `destroyPopupOnHide` 的问题。[#33442](https://github.com/ant-design/ant-design/pull/33442) [@LongHaoo](https://github.com/LongHaoo)
+- 🐞 修复 Table 的 Pagination 在 `current` 改变时不触发 `pagination.onChange` 的问题。[#33411](https://github.com/ant-design/ant-design/pull/33411) [@2724635499](https://github.com/2724635499)
+
+## 4.18.0
+
+`2021-12-27`
+
+- 🐞 修复 Skeleton 不支持 `style` 的问题。[#33405](https://github.com/ant-design/ant-design/pull/33405)
+- 🐞 修复 Descriptions 内使用其他组件会被切割的问题。[#33392](https://github.com/ant-design/ant-design/pull/33392)
+- 🆕 统一类 Select 组件泛型定义为 OptionType 以支持自定义 FieldNames 匹配。[#33364](https://github.com/ant-design/ant-design/pull/33364)
+- 🐞 修复 Slider 禁用时 `hover` 色彩的问题。[#33369](https://github.com/ant-design/ant-design/pull/33369) [@chen-jingjie](https://github.com/chen-jingjie)
+- Table
+  - 🆕 Table `colSpan` 与 `rowSpan` 迁移至 `onCell` 方法中，以优化渲染性能。[#33114](https://github.com/ant-design/ant-design/pull/33114)
+  - 🆕 Table 支持 Table.EXPAND_COLUMN 和 Table.SELECTION_COLUMN 以实现自定义列排序。[#33026](https://github.com/ant-design/ant-design/pull/33026)
+  - 🐞 修复 Table 鼠标移动时重复触发 `expandedRowRender` 和 `column.render` 的问题。[#33342](https://github.com/ant-design/ant-design/issues/33342)
+- Form
+  - 🔥 Form.List 嵌套使用 Form.Item 时不再需要手工指定 `fieldKey`。[#32689](https://github.com/ant-design/ant-design/pull/32689)
+  - 🆕 Form 现在支持通过 `labelWrap` 开启标签可换行。[#33048](https://github.com/ant-design/ant-design/pull/33048)
+- 🆕 ConfigProvider 支持 Form 的 colon 配置。[9bc148a](https://github.com/ant-design/ant-design/commit/9bc148a) [@seaSuper](https://github.com/seaSuper)
+- 🆕 `InputNumber` 增加 `prefix` 属性支持。[#32600](https://github.com/ant-design/ant-design/pull/32600) [@Austaras](https://github.com/Austaras)
+- 🆕 Modal 静态方法支持 `wrapClassName` 属性。[#32676](https://github.com/ant-design/ant-design/pull/32676) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🆕 Popconfirm 新增是否显示取消按钮。[#32620](https://github.com/ant-design/ant-design/pull/32620) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🆕 Dropdown.Button 新增 `loading` 属性。[#32467](https://github.com/ant-design/ant-design/pull/32467) [@kaysonwu](https://github.com/kaysonwu)
+- 🆕 Input 新增 `showCount` 属性。[#32522](https://github.com/ant-design/ant-design/pull/32522) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🆕 Alert 支持 `closeIcon` 自定义关闭图标。[#32345](https://github.com/ant-design/ant-design/pull/32345) [@chen-jingjie](https://github.com/chen-jingjie)
+- Typography
+  - 🆕 对于可编辑段落，可以通过配置 `triggerType` 配置触发编辑状态。[#32219](https://github.com/ant-design/ant-design/pull/32219) [@kachanovskiy](https://github.com/kachanovskiy)
+  - 🆕 Typography 支持 `enterIcon` 以设置编辑确认图标。[#32220](https://github.com/ant-design/ant-design/pull/32220) [@kachanovskiy](https://github.com/kachanovskiy)
+- 🆕 Divider 增加了 `orientationMargin` 属性以设置间距。[#32084](https://github.com/ant-design/ant-design/pull/32084) [@neotan](https://github.com/neotan)
+- 🆕 Avatar.Group 添加 `maxPopoverTrigger` 以定制剩余头像展示的触发逻辑。[#32197](https://github.com/ant-design/ant-design/pull/32197) [@RiteshMakan](https://github.com/RiteshMakan)
+- 🆕 Upload 新增 `showUploadList.previewIcon` 用于自定义预览图标。[#32059](https://github.com/ant-design/ant-design/pull/32059) [@1040961807](https://github.com/1040961807)
+- 🏴󠁥󠁳󠁣󠁴󠁿 修复加泰罗尼亚语 (ca_ES) 对 Form 缺失翻译问题。[#33377](https://github.com/ant-design/ant-design/pull/33377) [@ZzGGitter](https://github.com/ZzGGitter)
+- 🇫🇮 修复芬兰语 (fi_FI) 对 Table 的缺失翻译问题。[#33372](https://github.com/ant-design/ant-design/pull/33372) [@ZakarFin](https://github.com/ZakarFin)
+- 🇰🇭 新增高棉语 (km_KH) 语言包。[#32853](https://github.com/ant-design/ant-design/pull/32853) [@vireakkeosokvibol](https://github.com/vireakkeosokvibol)
+- TypeScript
+  - 🤖 添加 Upload `capture` 定义。[#33370](https://github.com/ant-design/ant-design/pull/33370) [@MichalPodeszwa](https://github.com/MichalPodeszwa)
+
 ## 4.17.4
 
 `2021-12-19`
@@ -88,7 +132,8 @@ timeline: true
   - 🐞 Input.TextArea `maxLength` 属性现在会传给原生 textarea 标签。[#32448](https://github.com/ant-design/ant-design/pull/32448) [@MOHAMMADArsalan](https://github.com/MOHAMMADArsalan)
   - 🐞 修复 Input 聚焦时点击清除图标无效的问题。[#31931](https://github.com/ant-design/ant-design/pull/31931) [@adaex](https://github.com/adaex)
 - Cascader
-  - 🔥 Cascader 支持 `multiple` 模式。[#31936](https://github.com/ant-design/ant-design/pull/31936)
+  - 🔥 Cascader 支持 `multiple` 多选模式。[#31936](https://github.com/ant-design/ant-design/pull/31936)
+  - 🆕 Cascader 支持 `onSearch` 和 `searchValue` 属性。[#31936](https://github.com/ant-design/ant-design/pull/31936)
   - 🆕 在 `Cascader` 组件中，默认给选中值的文本添加 `title` 属性。[#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
   - 🐞 修复 Cascader 中 `popupClassName` 与 `popupPlacement` 属性无效问题。[#32143](https://github.com/ant-design/ant-design/pull/32143)
 - Select

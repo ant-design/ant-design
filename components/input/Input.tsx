@@ -65,7 +65,7 @@ export function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
-  return value;
+  return String(value);
 }
 
 export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
