@@ -30,6 +30,8 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
+declare type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
   const cells = str
     .toLowerCase()
@@ -84,7 +86,7 @@ export interface CascaderProps<DataNodeType>
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;
-
+  placement?: Placement;
   suffixIcon?: React.ReactNode;
   options?: DataNodeType[];
 }
@@ -106,6 +108,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     popupClassName,
     dropdownClassName,
     expandIcon,
+    placement,
     showSearch,
     allowClear = true,
     notFoundContent,
@@ -209,6 +212,14 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     prefixCls,
   });
 
+  // ===================== Placement =====================
+  const getPlacement = () => {
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+  };
+
   // ==================== Render =====================
   return (
     <RcCascader
@@ -225,6 +236,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       )}
       {...(restProps as any)}
       direction={mergedDirection}
+      placement={getPlacement()}
       notFoundContent={mergedNotFoundContent}
       allowClear={allowClear}
       showSearch={mergedShowSearch}

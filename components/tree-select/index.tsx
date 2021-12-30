@@ -18,6 +18,8 @@ import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionName } from '../_util/motion';
 
+declare type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+
 type RawValue = string | number;
 
 export interface LabeledValue {
@@ -43,6 +45,7 @@ export interface TreeSelectProps<
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
+  placement?: Placement;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
 }
@@ -57,6 +60,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     multiple,
     listHeight = 256,
     listItemHeight = 26,
+    placement,
     notFoundContent,
     switcherIcon,
     treeLine,
@@ -119,6 +123,14 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     'switcherIcon',
   ]);
 
+  // ===================== Placement =====================
+  const getPlacement = () => {
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+  };
+
   const mergedSize = customizeSize || size;
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,
@@ -148,6 +160,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       treeLine={!!treeLine}
       inputIcon={suffixIcon}
       multiple={multiple}
+      placement={getPlacement()}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>

@@ -1,5 +1,5 @@
 ---
-order: 38
+order: 13
 title:
   zh-CN: 弹出位置
   en-US: Placement
@@ -14,9 +14,42 @@ title:
 You can manually specify the position of the popup via `placement`.
 
 ```jsx
-import { Select, Radio } from 'antd';
+import { Cascader, Radio } from 'antd';
 
-const { Option } = Select;
+const options = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [
+      {
+        value: 'hangzhou',
+        label: 'Hangzhou',
+        children: [
+          {
+            value: 'xihu',
+            label: 'West Lake',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [
+      {
+        value: 'nanjing',
+        label: 'Nanjing',
+        children: [
+          {
+            value: 'zhonghuamen',
+            label: 'Zhong Hua Men',
+          },
+        ],
+      },
+    ],
+  },
+];
 
 const SetPlacementDemo = () => {
   const [placement, SetPlacement] = React.useState('topLeft');
@@ -35,16 +68,7 @@ const SetPlacementDemo = () => {
       </Radio.Group>
       <br />
       <br />
-      <Select
-        defaultValue="HangZhou"
-        style={{ width: 120 }}
-        dropdownMatchSelectWidth={false}
-        placement={placement}
-      >
-        <Option value="HangZhou">HangZhou #310000</Option>
-        <Option value="NingBo">NingBo #315000</Option>
-        <Option value="WenZhou">WenZhou #325000</Option>
-      </Select>
+      <Cascader options={options} placeholder="Please select" placement={placement} />
     </>
   );
 };
