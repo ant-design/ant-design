@@ -132,7 +132,8 @@ timeline: true
   - 🐞 Input.TextArea `maxLength` 属性现在会传给原生 textarea 标签。[#32448](https://github.com/ant-design/ant-design/pull/32448) [@MOHAMMADArsalan](https://github.com/MOHAMMADArsalan)
   - 🐞 修复 Input 聚焦时点击清除图标无效的问题。[#31931](https://github.com/ant-design/ant-design/pull/31931) [@adaex](https://github.com/adaex)
 - Cascader
-  - 🔥 Cascader 支持 `multiple` 模式。[#31936](https://github.com/ant-design/ant-design/pull/31936)
+  - 🔥 Cascader 支持 `multiple` 多选模式。[#31936](https://github.com/ant-design/ant-design/pull/31936)
+  - 🆕 Cascader 支持 `onSearch` 和 `searchValue` 属性。[#31936](https://github.com/ant-design/ant-design/pull/31936)
   - 🆕 在 `Cascader` 组件中，默认给选中值的文本添加 `title` 属性。[#31237](https://github.com/ant-design/ant-design/pull/31237) [@yingpengsha](https://github.com/yingpengsha)
   - 🐞 修复 Cascader 中 `popupClassName` 与 `popupPlacement` 属性无效问题。[#32143](https://github.com/ant-design/ant-design/pull/32143)
 - Select
