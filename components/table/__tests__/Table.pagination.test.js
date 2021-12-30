@@ -610,4 +610,5 @@ describe('Table.pagination', () => {
     });
     expect(onChange).toHaveBeenCalledTimes(0);
   });
+
 });
