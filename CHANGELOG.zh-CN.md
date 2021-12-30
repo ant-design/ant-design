@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 4.18.2
+
+`2021-12-30`
+
+- 🐞 回滚 [#33411](https://github.com/ant-design/ant-design/pull/33411) 以修复 Table 死循环调用 `onChange` 的问题。
+
 ## 4.18.1
 
 `2021-12-29`
