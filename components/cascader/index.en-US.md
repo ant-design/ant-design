@@ -52,8 +52,8 @@ Cascade selection box.
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | Callback when popup shown or hidden | (value) => void | - | 4.17.0 |
 | multiple | Support multiple or not | boolean | - | 4.17.0 |
-| searchValue | Set search value，Need work with `showSearch` | string | - |  |
-| onSearch | The callback function triggered when input changed | (search: string) => void | - |  |
+| searchValue | Set search value，Need work with `showSearch` | string | - | 4.17.0 |
+| onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
 | loadingIcon | The apparence of lazy loading (now is useless) | ReactNode | - |  |
 
