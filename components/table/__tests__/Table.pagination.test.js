@@ -581,10 +581,17 @@ describe('Table.pagination', () => {
       },
     });
     expect(onChange).toHaveBeenCalledWith(
-      { current: 1, pageSize: 3, total: 3 },
+      { current: 1, pageSize: 3 },
       {},
       {},
-      {}
+      {
+        currentDataSource: [
+          { key: 0, name: 'Jack' },
+          { key: 1, name: 'Lucy' },
+          { key: 2, name: 'Tom' },
+        ],
+        action: 'paginate',
+      },
     );
     expect(onPaginationChange).toHaveBeenCalledWith(1, 3);
   });

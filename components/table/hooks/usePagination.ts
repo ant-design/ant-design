@@ -73,8 +73,10 @@ export default function usePagination(
   if (mergedPagination.current! > maxPage) {
     // Prevent a maximum page count of 0
     mergedPagination.current = maxPage || 1;
-    mergedPagination.onChange?.(mergedPagination.current, mergedPagination?.pageSize!);
-    onChange(mergedPagination.current, mergedPagination?.pageSize!);
+    if (mergedPagination.total !== 0) {
+      mergedPagination.onChange?.(mergedPagination.current, mergedPagination?.pageSize!);
+      onChange(mergedPagination.current, mergedPagination?.pageSize!);
+    }
   }
 
   const refreshPagination = (current?: number, pageSize?: number) => {
