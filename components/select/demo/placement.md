@@ -14,53 +14,40 @@ title:
 Basic Usage.
 
 ```jsx
-import { Select } from 'antd';
+import { Select, Radio } from 'antd';
 
 const { Option } = Select;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
+const SetPlacementDemo = () => {
+  const [placement, SetPlacement] = React.useState('topLeft');
 
-ReactDOM.render(
-  <>
-    <Select
-      defaultValue="topLeft"
-      style={{ width: 120 }}
-      onChange={handleChange}
-      dropdownStyle={{ minWidth: 500 }}
-      placement="topLeft"
-    >
-      <Option value="topLeft">topLeft</Option>
-    </Select>
-    <Select
-      defaultValue="topRight"
-      style={{ width: 120 }}
-      onChange={handleChange}
-      dropdownStyle={{ minWidth: 500 }}
-      placement="topRight"
-    >
-      <Option value="topRight">topRight</Option>
-    </Select>
-    <Select
-      defaultValue="bottomLeft"
-      style={{ width: 120 }}
-      onChange={handleChange}
-      dropdownStyle={{ minWidth: 500 }}
-      placement="bottomLeft"
-    >
-      <Option value="bottomLeft">bottomLeft</Option>
-    </Select>
-    <Select
-      defaultValue="bottomRight"
-      style={{ width: 120 }}
-      onChange={handleChange}
-      dropdownStyle={{ minWidth: 500 }}
-      placement="bottomRight"
-    >
-      <Option value="bottomRight">bottomRight</Option>
-    </Select>
-  </>,
-  mountNode,
-);
+  const placementChange = e => {
+    SetPlacement(e.target.value);
+  };
+
+  return (
+    <>
+      <Radio.Group value={placement} onChange={placementChange}>
+        <Radio.Button value="topLeft">topLeft</Radio.Button>
+        <Radio.Button value="topRight">topRight</Radio.Button>
+        <Radio.Button value="bottomLeft">bottomLeft</Radio.Button>
+        <Radio.Button value="bottomRight">bottomRight</Radio.Button>
+      </Radio.Group>
+      <br />
+      <br />
+      <Select
+        defaultValue="HangZhou"
+        style={{ width: 120 }}
+        dropdownMatchSelectWidth={false}
+        placement={placement}
+      >
+        <Option value="HangZhou">HangZhou #310000</Option>
+        <Option value="NingBo">NingBo #315000</Option>
+        <Option value="WenZhou">WenZhou #325000</Option>
+      </Select>
+    </>
+  );
+};
+
+ReactDOM.render(<SetPlacementDemo />, mountNode);
 ```

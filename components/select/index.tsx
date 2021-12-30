@@ -11,7 +11,7 @@ import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionName } from '../_util/motion';
 
-export declare type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+declare type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
 type RawValue = string | number;
 
