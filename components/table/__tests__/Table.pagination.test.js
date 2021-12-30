@@ -579,4 +579,35 @@ describe('Table.pagination', () => {
     });
     expect(onChange).toHaveBeenCalledWith(1, 3);
   });
+
+  // https://github.com/ant-design/ant-design/issues/33487
+  // https://codesandbox.io/s/focused-chatterjee-y60q6?file=/src/App.js
+  it('not should called onChange repeat when page total is 0 or null or undefined and dataSource is array and the length of dataSource not greater than 0 ', () => {
+    const onChange = jest.fn();
+    const paginationProp = {
+      onChange,
+    };
+    const wrapper = mount(
+      createTable({
+        dataSource: [],
+        pagination: { ...paginationProp },
+      }),
+    );
+    expect(onChange).toHaveBeenCalledTimes(0);
+    wrapper.setProps({
+      dataSource: [],
+      pagination: { ...paginationProp, total: 0 },
+    });
+    expect(onChange).toHaveBeenCalledTimes(0);
+    wrapper.setProps({
+      dataSource: [],
+      pagination: { ...paginationProp, total: null },
+    });
+    expect(onChange).toHaveBeenCalledTimes(0);
+    wrapper.setProps({
+      dataSource: [],
+      pagination: { ...paginationProp, total: undefined },
+    });
+    expect(onChange).toHaveBeenCalledTimes(0);
+  });
 });
