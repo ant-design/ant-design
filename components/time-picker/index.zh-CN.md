@@ -33,9 +33,7 @@ import moment from 'moment';
 | clearText | 清除按钮的提示文案 | string | clear |  |
 | defaultValue | 默认时间 | [moment](http://momentjs.com/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
-| disabledHours | 禁止选择部分小时选项 | function() | - |  |
-| disabledMinutes | 禁止选择部分分钟选项 | function(selectedHour) | - |  |
-| disabledSeconds | 禁止选择部分秒选项 | function(selectedHour, selectedMinute) | - |  |
+| disabledTime | 不可选择的时间 | [DisabledTime](#DisabledTime) | - | 4.19.0 |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  |
@@ -55,20 +53,44 @@ import moment from 'moment';
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
 
+#### DisabledTime
+
+```typescript
+type DisabledTime = (now: Moment) => {
+  disabledHours?: () => number[];
+  disabledMinutes?: (selectedHour: number) => number[];
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+};
+```
+
 ## 方法
 
-| 名称 | 描述 | 版本 |
-| --- | --- | --- |
-| blur() | 移除焦点 |  |
-| focus() | 获取焦点 |  |
+| 名称    | 描述     | 版本 |
+| ------- | -------- | ---- |
+| blur()  | 移除焦点 |      |
+| focus() | 获取焦点 |      |
 
-### RangePicker
+## RangePicker
 
 属性与 DatePicker 的 [RangePicker](/components/date-picker/#RangePicker) 相同。还包含以下属性：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| order | 始末时间是否自动排序 | boolean | true | 4.1.0 |
+| 参数         | 说明                 | 类型                                    | 默认值 | 版本   |
+| ------------ | -------------------- | --------------------------------------- | ------ | ------ |
+| disabledTime | 不可选择的时间       | [RangeDisabledTime](#RangeDisabledTime) | -      | 4.19.0 |
+| order        | 始末时间是否自动排序 | boolean                                 | true   | 4.1.0  |
+
+### RangeDisabledTime
+
+```typescript
+type RangeDisabledTime = (
+  now: Moment,
+  type = 'start' | 'end',
+) => {
+  disabledHours?: () => number[];
+  disabledMinutes?: (selectedHour: number) => number[];
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+};
+```
 
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }

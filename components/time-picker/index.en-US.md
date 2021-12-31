@@ -33,9 +33,7 @@ import moment from 'moment';
 | clearText | The clear tooltip of icon | string | clear |  |
 | defaultValue | To set default time | [moment](http://momentjs.com/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
-| disabledHours | To specify the hours that cannot be selected | function() | - |  |
-| disabledMinutes | To specify the minutes that cannot be selected | function(selectedHour) | - |  |
-| disabledSeconds | To specify the seconds that cannot be selected | function(selectedHour, selectedMinute) | - |  |
+| disabledTime | To specify the time that cannot be selected | [DisabledTime](#DisabledTime) | - | 4.19.0 |
 | format | To set the time format | string | `HH:mm:ss` |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
@@ -56,12 +54,22 @@ import moment from 'moment';
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
 | onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
 
+#### DisabledTime
+
+```typescript
+type DisabledTime = (now: Moment) => {
+  disabledHours?: () => number[];
+  disabledMinutes?: (selectedHour: number) => number[];
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+};
+```
+
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### RangePicker
 
@@ -69,7 +77,21 @@ Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicke
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#RangeDisabledTime) | - | 4.19.0 |
 | order | Order start and end time | boolean | true | 4.1.0 |
+
+### RangeDisabledTime
+
+```typescript
+type RangeDisabledTime = (
+  now: Moment,
+  type = 'start' | 'end',
+) => {
+  disabledHours?: () => number[];
+  disabledMinutes?: (selectedHour: number) => number[];
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+};
+```
 
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }
