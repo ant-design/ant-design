@@ -110,7 +110,7 @@ module.exports = {
 首先把 `src/App.css` 文件修改为 `src/App.less`，然后修改样式引用为 less 文件。
 
 ```diff
-/* src/App.ts */
+/* src/App.tsx */
 - import './App.css';
 + import './App.less';
 ```

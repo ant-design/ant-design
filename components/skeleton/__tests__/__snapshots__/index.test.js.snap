@@ -526,6 +526,31 @@ exports[`Skeleton should square avatar 1`] = `
 </div>
 `;
 
+exports[`Skeleton should support style 1`] = `
+<div
+  class="ant-skeleton"
+  style="background: blue;"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width: 38%;"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width: 61%;"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
 exports[`Skeleton should without avatar and paragraph 1`] = `
 <div
   class="ant-skeleton"

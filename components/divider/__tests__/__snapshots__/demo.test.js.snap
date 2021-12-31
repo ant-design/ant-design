@@ -173,5 +173,33 @@ Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-no-default-orientation-margin-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+      style="margin-left:0"
+    >
+      Left Text with 0 orientationMargin
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-right ant-divider-no-default-orientation-margin-right"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+      style="margin-right:50px"
+    >
+      Right Text with 50px orientationMargin
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
 ]
 `;

@@ -508,8 +508,7 @@ describe('Upload List', () => {
         name: 'image',
         status: 'done',
         uid: '-12',
-        url:
-          'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
+        url: 'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
         type: 'image/png',
       },
     ];
@@ -637,14 +636,17 @@ describe('Upload List', () => {
         showUploadList={{
           showRemoveIcon: true,
           showDownloadIcon: true,
-          removeIcon: () => <i>RM</i>,
+          showPreviewIcon: true,
+          removeIcon: <i>RM</i>,
           downloadIcon: <i>DL</i>,
+          previewIcon: <i>PV</i>,
         }}
       >
         <button type="button">upload</button>
       </Upload>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+    wrapper.unmount();
 
     const wrapper2 = mount(
       <Upload
@@ -653,16 +655,16 @@ describe('Upload List', () => {
         showUploadList={{
           showRemoveIcon: true,
           showDownloadIcon: true,
-          removeIcon: <i>RM</i>,
+          showPreviewIcon: true,
+          removeIcon: () => <i>RM</i>,
           downloadIcon: () => <i>DL</i>,
+          previewIcon: () => <i>PV</i>,
         }}
       >
         <button type="button">upload</button>
       </Upload>,
     );
     expect(wrapper2.render()).toMatchSnapshot();
-
-    wrapper.unmount();
     wrapper2.unmount();
   });
 

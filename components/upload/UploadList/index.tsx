@@ -38,6 +38,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     showRemoveIcon,
     showDownloadIcon,
     removeIcon,
+    previewIcon,
     downloadIcon,
     progress,
     appendAction,
@@ -210,6 +211,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
             showRemoveIcon={showRemoveIcon}
             showDownloadIcon={showDownloadIcon}
             removeIcon={removeIcon}
+            previewIcon={previewIcon}
             downloadIcon={downloadIcon}
             iconRender={internalIconRender}
             actionIconRender={actionIconRender}

@@ -16,7 +16,7 @@ exports[`Cascader can be selected 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang"
+          data-path-key="zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -52,7 +52,7 @@ exports[`Cascader can be selected 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="jiangsu"
+          data-path-key="jiangsu"
           role="menuitemcheckbox"
           title="Jiangsu"
         >
@@ -93,7 +93,7 @@ exports[`Cascader can be selected 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -148,7 +148,7 @@ exports[`Cascader can be selected 2`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang"
+          data-path-key="zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -184,7 +184,7 @@ exports[`Cascader can be selected 2`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="jiangsu"
+          data-path-key="jiangsu"
           role="menuitemcheckbox"
           title="Jiangsu"
         >
@@ -225,7 +225,7 @@ exports[`Cascader can be selected 2`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -266,7 +266,7 @@ exports[`Cascader can be selected 2`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
           role="menuitemcheckbox"
           title="West Lake"
         >
@@ -298,7 +298,7 @@ exports[`Cascader can be selected 3`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang"
+          data-path-key="zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -334,7 +334,7 @@ exports[`Cascader can be selected 3`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="jiangsu"
+          data-path-key="jiangsu"
           role="menuitemcheckbox"
           title="Jiangsu"
         >
@@ -375,7 +375,7 @@ exports[`Cascader can be selected 3`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -416,7 +416,7 @@ exports[`Cascader can be selected 3`] = `
         <li
           aria-checked="true"
           class="ant-cascader-menu-item ant-cascader-menu-item-active"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
           role="menuitemcheckbox"
           title="West Lake"
         >
@@ -448,7 +448,7 @@ exports[`Cascader can be selected in RTL direction 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang"
+          data-path-key="zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -484,7 +484,7 @@ exports[`Cascader can be selected in RTL direction 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="jiangsu"
+          data-path-key="jiangsu"
           role="menuitemcheckbox"
           title="Jiangsu"
         >
@@ -525,7 +525,7 @@ exports[`Cascader can be selected in RTL direction 1`] = `
         <li
           aria-checked="true"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -580,7 +580,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang"
+          data-path-key="zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -616,7 +616,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="jiangsu"
+          data-path-key="jiangsu"
           role="menuitemcheckbox"
           title="Jiangsu"
         >
@@ -657,7 +657,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
         <li
           aria-checked="true"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -698,7 +698,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
           role="menuitemcheckbox"
           title="West Lake"
         >
@@ -730,7 +730,7 @@ exports[`Cascader can be selected in RTL direction 3`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang"
+          data-path-key="zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -766,7 +766,7 @@ exports[`Cascader can be selected in RTL direction 3`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="jiangsu"
+          data-path-key="jiangsu"
           role="menuitemcheckbox"
           title="Jiangsu"
         >
@@ -807,7 +807,7 @@ exports[`Cascader can be selected in RTL direction 3`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -848,7 +848,7 @@ exports[`Cascader can be selected in RTL direction 3`] = `
         <li
           aria-checked="true"
           class="ant-cascader-menu-item ant-cascader-menu-item-active"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
           role="menuitemcheckbox"
           title="West Lake"
         >
@@ -880,7 +880,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang"
+          data-path-key="zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -916,7 +916,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          data-value="jiangsu"
+          data-path-key="jiangsu"
           role="menuitemcheckbox"
           title="Jiangsu"
         >
@@ -957,7 +957,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
         <li
           aria-checked="true"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -998,7 +998,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
           role="menuitemcheckbox"
           title="West Lake"
         >
@@ -1025,7 +1025,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
@@ -1065,7 +1064,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-              data-value="zhejiang"
+              data-path-key="zhejiang"
               role="menuitemcheckbox"
               title="Zhejiang"
             >
@@ -1101,7 +1100,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-value="jiangsu"
+              data-path-key="jiangsu"
               role="menuitemcheckbox"
               title="Jiangsu"
             >
@@ -1142,7 +1141,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             <li
               aria-checked="true"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-              data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+              data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
               role="menuitemcheckbox"
               title="Hangzhou"
             >
@@ -1183,7 +1182,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
             <li
               aria-checked="false"
               class="ant-cascader-menu-item"
-              data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+              data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
               role="menuitemcheckbox"
               title="West Lake"
             >
@@ -1264,7 +1263,6 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
@@ -1329,7 +1327,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
         <li
           aria-checked="false"
           class="ant-cascader-menu-item"
-          data-value="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+          data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
           role="menuitemcheckbox"
         >
           <div
@@ -1352,7 +1350,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
         <li
           aria-checked="false"
           class="ant-cascader-menu-item"
-          data-value="jiangsu__RC_CASCADER_SPLIT__nanjing__RC_CASCADER_SPLIT__zhonghuamen"
+          data-path-key="jiangsu__RC_CASCADER_SPLIT__nanjing__RC_CASCADER_SPLIT__zhonghuamen"
           role="menuitemcheckbox"
         >
           <div
@@ -1389,7 +1387,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
         <li
           aria-checked="false"
           class="ant-cascader-menu-item"
-          data-value="Zhejiang__RC_CASCADER_SPLIT__Hangzhou__RC_CASCADER_SPLIT__West Lake"
+          data-path-key="Zhejiang__RC_CASCADER_SPLIT__Hangzhou__RC_CASCADER_SPLIT__West Lake"
           role="menuitemcheckbox"
         >
           <div
@@ -1412,7 +1410,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
-          data-value="Zhejiang__RC_CASCADER_SPLIT__Hangzhou__RC_CASCADER_SPLIT__Xia Sha"
+          data-path-key="Zhejiang__RC_CASCADER_SPLIT__Hangzhou__RC_CASCADER_SPLIT__Xia Sha"
           role="menuitemcheckbox"
         >
           <div
@@ -1440,7 +1438,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
 
 exports[`Cascader should render not found content 1`] = `
 <div
-  class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+  class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
   style="opacity: 0; pointer-events: none; min-width: 0;"
 >
   <div>
@@ -1454,7 +1452,7 @@ exports[`Cascader should render not found content 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
-          data-value="__EMPTY__"
+          data-path-key="__EMPTY__"
           role="menuitemcheckbox"
         >
           <div
@@ -1530,7 +1528,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
         <li
           aria-checked="false"
           class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
-          data-value="__EMPTY__"
+          data-path-key="__EMPTY__"
           role="menuitemcheckbox"
         >
           <div
@@ -1601,7 +1599,6 @@ exports[`Cascader support controlled mode 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
