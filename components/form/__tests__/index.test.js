@@ -12,6 +12,7 @@ import Select from '../../select';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -596,6 +597,25 @@ describe('Form', () => {
     wrapper.update();
     await sleep(100);
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+  });
+
+  it('should have default validateMessages in default locale', async () => {
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <ConfigProvider>
+        <Form>
+          <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+        </Form>
+      </ConfigProvider>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await sleep(100);
+    wrapper.update();
+    await sleep(100);
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Please enter Bamboo');
   });
 
   it('`name` support template when label is not provided', async () => {
