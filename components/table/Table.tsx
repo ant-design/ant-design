@@ -330,6 +330,19 @@ function InternalTable<RecordType extends object = any>(
     onPaginationChange,
   );
 
+  React.useEffect(() => {
+    if (
+      mergedPagination &&
+      pagination &&
+      mergedPagination.current &&
+      pagination.current &&
+      mergedPagination.current !== pagination.current &&
+      mergedPagination.onChange
+    ) {
+      mergedPagination.onChange(mergedPagination.current!, mergedPagination?.pageSize!);
+    }
+  }, [pagination]);
+
   changeEventInfo.pagination =
     pagination === false ? {} : getPaginationParam(pagination, mergedPagination);
 
