@@ -440,7 +440,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 <section
-  class="ant-layout"
+  class="ant-layout ant-layout-has-sider"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"

@@ -51,14 +51,14 @@ describe('Button', () => {
     // should not insert space when there is icon
     expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
     // should not insert space when there is icon
-    expect(
+    expect(mount(
       <Button>
         <SearchOutlined />
         按钮
       </Button>,
-    ).toMatchSnapshot();
+    ).render()).toMatchSnapshot();
     // should not insert space when there is icon
-    expect(<Button icon={<SearchOutlined />}>按钮</Button>).toMatchSnapshot();
+    expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
     // should not insert space when there is icon while loading
     expect(
       mount(
