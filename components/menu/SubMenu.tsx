@@ -66,6 +66,9 @@ function SubMenu(props: SubMenuProps) {
     [context],
   );
 
+  console.log('props');
+  console.log(props);
+
   return (
     <MenuContext.Provider value={contextValue}>
       <RcSubMenu
