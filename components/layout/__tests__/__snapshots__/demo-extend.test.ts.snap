@@ -717,7 +717,7 @@ exports[`renders ./components/layout/demo/fixed.md extend context correctly 1`] 
 
 exports[`renders ./components/layout/demo/fixed-sider.md extend context correctly 1`] = `
 <section
-  class="ant-layout"
+  class="ant-layout ant-layout-has-sider"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"

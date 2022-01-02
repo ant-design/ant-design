@@ -14,7 +14,7 @@ title:
 Add a prefix inside input.
 
 ```jsx
-import { Form, InputNumber, Tooltip } from 'antd';
+import { InputNumber } from 'antd';
 import { InfoCircleOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
@@ -26,18 +26,6 @@ ReactDOM.render(
     <br />
     <br />
     <InputNumber prefix="￥" disabled style={{ width: '100%' }} />
-    <br />
-    <br />
-    <Form>
-      <Form.Item label="Warning" hasFeedback validateStatus="warning">
-        <InputNumber
-          style={{ width: '100%' }}
-          placeholder="Warning"
-          id="warning"
-          prefix={<SmileOutlined />}
-        />
-      </Form.Item>
-    </Form>
   </>,
   mountNode,
 );

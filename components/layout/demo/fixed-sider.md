@@ -30,7 +30,7 @@ import {
 const { Header, Content, Footer, Sider } = Layout;
 
 ReactDOM.render(
-  <Layout>
+  <Layout hasSider>
     <Sider
       style={{
         overflow: 'auto',
