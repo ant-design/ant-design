@@ -58,7 +58,7 @@ Un lenguaje de diseño de interfaz de usuario de clase empresarial y una bibliot
 - 🌍 Soporte de internacionalización para decenas de idiomas.
 - 🎨 Potente personalización del tema en cada detalle.
 
-## 🖥 Apoyo al Medio Ambiente
+## 🖥 Entornos soportados
 
 - Navegadores modernos y Internet Explorer 11 (con [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
 - Representación del lado del servidor
