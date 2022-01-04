@@ -40,7 +40,7 @@ export interface InternalUploadFile<T = any> extends UploadFile<T> {
   originFileObj: RcFile;
 }
 
-export interface UploadChangeParam<T extends object = UploadFile> {
+export interface UploadChangeParam<T = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
   fileList: UploadFile[];
