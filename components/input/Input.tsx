@@ -83,9 +83,6 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
   let event = e;
 
   if (e.type === 'click') {
-    // click clear icon
-    event = Object.create(e);
-
     // Clone a new target for event.
     // Avoid the following usage, the setQuery method gets the original value.
     //
@@ -100,8 +97,11 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
 
     const currentTarget = target.cloneNode(true) as E;
 
-    event.target = currentTarget;
-    event.currentTarget = currentTarget;
+    // click clear icon
+    event = Object.create(e, {
+      target: { value: currentTarget },
+      currentTarget: { value: currentTarget },
+    });
 
     currentTarget.value = '';
     onChange(event as React.ChangeEvent<E>);
@@ -110,9 +110,10 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
 
   // Trigger by composition event, this means we need force change the input value
   if (targetValue !== undefined) {
-    event = Object.create(e);
-    event.target = target;
-    event.currentTarget = target;
+    event = Object.create(e, {
+      target: { value: target },
+      currentTarget: { value: target },
+    });
 
     target.value = targetValue;
     onChange(event as React.ChangeEvent<E>);
