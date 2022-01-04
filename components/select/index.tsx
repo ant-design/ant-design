@@ -40,7 +40,7 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
   placement?: Placement;
   mode?: 'multiple' | 'tags';
