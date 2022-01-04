@@ -100,7 +100,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     // click clear icon
     event = Object.create(e, {
       target: { value: currentTarget },
-      currentTarget: { value: currentTarget }
+      currentTarget: { value: currentTarget },
     });
 
     currentTarget.value = '';
