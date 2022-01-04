@@ -63,7 +63,7 @@ import moment from 'moment';
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
-### RangePicker
+## RangePicker
 
 属性与 DatePicker 的 [RangePicker](/components/date-picker/#RangePicker) 相同。还包含以下属性：
 
@@ -71,6 +71,19 @@ import moment from 'moment';
 | ------------ | -------------------- | --------------------------------------- | ------ | ------ |
 | disabledTime | 不可选择的时间       | [RangeDisabledTime](#RangeDisabledTime) | -      | 4.19.0 |
 | order        | 始末时间是否自动排序 | boolean                                 | true   | 4.1.0  |
+
+### RangeDisabledTime
+
+```typescript
+type RangeDisabledTime = (
+  now: Moment,
+  type = 'start' | 'end',
+) => {
+  disabledHours?: () => number[];
+  disabledMinutes?: (selectedHour: number) => number[];
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+};
+```
 
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }
