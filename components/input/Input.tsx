@@ -112,7 +112,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
   if (targetValue !== undefined) {
     event = Object.create(e, {
       target: { value: target },
-      currentTarget: { value: target }
+      currentTarget: { value: target },
     });
 
     target.value = targetValue;
