@@ -68,9 +68,10 @@ import moment from 'moment';
 
 Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicker. And includes additional props:
 
-| Property | Description              | Type    | Default | Version |
-| -------- | ------------------------ | ------- | ------- | ------- |
-| order    | Order start and end time | boolean | true    | 4.1.0   |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#RangeDisabledTime) | - | 4.19.0 |
+| order | Order start and end time | boolean | true | 4.1.0 |
 
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }
