@@ -25,7 +25,8 @@ jobs:
           forbid-files: 'components/style/themes/default.less'
           skip-verify-authority: 'admin'
           comment: |
-            🚨 Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution, as the `default.less` file is currently being upgraded, changes will not be accepted for the time being.
+            🚨 Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution, as the `default.less` file is currently being upgraded, changes are not recommended.
 
-            🚨 你好，@${{ github.event.pull_request.user.login }}。感谢你的贡献，由于 `default.less` 文件近期处于升级状态，暂不接受更改。
-          close: true
+            🚨 你好，@${{ github.event.pull_request.user.login }}。感谢你的贡献，由于 `default.less` 文件近期处于升级状态，不建议进行更改。
+          close: false
+          set-failed: false
