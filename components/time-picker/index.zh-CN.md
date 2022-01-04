@@ -93,8 +93,6 @@ type RangeDisabledTime = (
 };
 ```
 
-> > > > > > > feature
-
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }
 .ant-row-rtl .code-box-demo .ant-picker { margin: 0 0 12px 8px; }
