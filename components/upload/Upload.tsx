@@ -422,15 +422,20 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   );
 };
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<
-    React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
-  > {
+const ForwardUpload = React.forwardRef<unknown, UploadProps>(InternalUpload) as <T>(
+  props: React.PropsWithChildren<UploadProps<T>> & React.RefAttributes<any>,
+) => React.ReactElement;
+
+type InternalUploadType = typeof ForwardUpload;
+
+interface UploadInterface extends InternalUploadType {
+  defaultProps?: Partial<UploadProps>;
+  displayName?: string;
   Dragger: typeof Dragger;
   LIST_IGNORE: string;
 }
 
-const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;
+const Upload = ForwardUpload as UploadInterface;
 
 Upload.Dragger = Dragger;
 

@@ -40,7 +40,7 @@ export interface InternalUploadFile<T = any> extends UploadFile<T> {
   originFileObj: RcFile;
 }
 
-export interface UploadChangeParam<T extends object = UploadFile> {
+export interface UploadChangeParam<T = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
   fileList: UploadFile[];
@@ -104,7 +104,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
     file: RcFile,
     FileList: RcFile[],
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
-  onChange?: (info: UploadChangeParam) => void;
+  onChange?: (info: UploadChangeParam<T>) => void;
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
