@@ -1,5 +1,5 @@
 import React from 'react';
-import Upload from '..';
+import Upload, { UploadProps } from '..';
 
 describe('Upload.typescript', () => {
   it('Upload', () => {
@@ -8,6 +8,29 @@ describe('Upload.typescript', () => {
         <span>click to upload</span>
       </Upload>
     );
+    expect(upload).toBeTruthy();
+  });
+
+  it('onChange', () => {
+    const upload = (
+      <Upload<File> onChange={({ file }) => file}>
+        <span>click to upload</span>
+      </Upload>
+    );
+
+    expect(upload).toBeTruthy();
+  });
+
+  it('onChange in UploadProps', () => {
+    const uploadProps: UploadProps<File> = {
+      onChange: ({ file }) => file,
+    };
+    const upload = (
+      <Upload {...uploadProps}>
+        <span>click to upload</span>
+      </Upload>
+    );
+
     expect(upload).toBeTruthy();
   });
 
