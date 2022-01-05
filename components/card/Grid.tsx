@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-export interface CardGridProps {
+export interface CardGridProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   hoverable?: boolean;
