@@ -83,6 +83,27 @@ describe('Table.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 
+  // https://github.com/ant-design/ant-design/issues/33487
+  it('should not crash when trigger onChange in render', () => {
+    function App() {
+      const [page, setPage] = React.useState({ current: 1, pageSize: 10 });
+      const onChange = (current, pageSize) => {
+        setPage({ current, pageSize });
+      };
+      return (
+        <Table
+          dataSource={[]}
+          pagination={{
+            ...page,
+            onChange,
+          }}
+        />
+      );
+    }
+    const wrapper = mount(<App />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('should accept pagination size', () => {
     const wrapper = mount(
       createTable({
@@ -552,31 +573,5 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-pagination').prop('className')).toEqual(
       'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
     );
-  });
-
-  // https://github.com/ant-design/ant-design/issues/33374
-  // https://codesandbox.io/s/festive-edison-6uq3e?file=/src/App.js
-  it('should called onChange when page number is changed by change of total ', () => {
-    const onChange = jest.fn();
-    const wrapper = mount(
-      createTable({
-        pagination: {
-          current: 2,
-          pageSize: 3,
-          total: 4,
-          onChange,
-        },
-      }),
-    );
-    wrapper.setProps({
-      dataSource: data.slice(0, 3),
-      pagination: {
-        current: 2,
-        pageSize: 3,
-        total: 3,
-        onChange,
-      },
-    });
-    expect(onChange).toHaveBeenCalledWith(1, 3);
   });
 });
