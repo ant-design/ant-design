@@ -35,6 +35,7 @@ Tree selection control.
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
+| notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | searchValue | Work with `onSearch` to make search value controlled | string | - |  |
 | showArrow | Whether to show the `suffixIcon`，when single selection mode, default `true` | boolean | - |  |
