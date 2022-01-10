@@ -97,6 +97,17 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
   });
 
+  // ================ TransDirection =================
+  const getTransitionDirection = () => {
+    if (placement !== undefined) {
+      if (placement.indexOf('top') >= 0) {
+        return `slide-down`;
+      }
+      return `slide-up`;
+    }
+    return `slide-up`;
+  };
+
   const isMultiple = !!(treeCheckable || multiple);
 
   // ===================== Icons =====================
@@ -172,7 +183,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      transitionName={getTransitionName(rootPrefixCls, getTransitionDirection(), transitionName)}
     />
   );
 };

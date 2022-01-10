@@ -146,6 +146,17 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     );
   }
 
+  // ================ TransDirection =================
+  const getTransitionDirection = () => {
+    if (placement !== undefined) {
+      if (placement.indexOf('top') >= 0) {
+        return `slide-down`;
+      }
+      return `slide-up`;
+    }
+    return `slide-up`;
+  };
+
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty('Cascader');
 
@@ -249,7 +260,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      transitionName={getTransitionName(rootPrefixCls, getTransitionDirection(), transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
     />

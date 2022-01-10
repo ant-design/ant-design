@@ -91,6 +91,17 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     return m;
   }, [props.mode]);
 
+  // ================ TransDirection =================
+  const getTransitionDirection = () => {
+    if (placement !== undefined) {
+      if (placement.indexOf('top') >= 0) {
+        return `slide-down`;
+      }
+      return `slide-up`;
+    }
+    return `slide-up`;
+  };
+
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
   // ===================== Empty =====================
@@ -141,7 +152,11 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
+      transitionName={getTransitionName(
+        rootPrefixCls,
+        getTransitionDirection(),
+        props.transitionName,
+      )}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode as any}
