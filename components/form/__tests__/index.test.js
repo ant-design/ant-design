@@ -315,16 +315,30 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
   });
 
-  it('should show related className when customize help', () => {
-    const wrapper = mount(
-      <Form>
-        <Form.Item help="good">
-          <input />
-        </Form.Item>
-      </Form>,
-    );
+  describe('should show related className when customize help', () => {
+    it('normal', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item help="good">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
+      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
+    });
+
+    it('empty string', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item help="">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
+    });
   });
 
   it('warning when use v3 function', () => {
