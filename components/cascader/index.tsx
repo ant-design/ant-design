@@ -45,7 +45,7 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string |
 
     if (index % 2 === 1) {
       originWorld = (
-        <span className={`${prefixCls}-menu-item-keyword`} key="seperator">
+        <span className={`${prefixCls}-menu-item-keyword`} key={`seperator-${index}`}>
           {originWorld}
         </span>
       );
