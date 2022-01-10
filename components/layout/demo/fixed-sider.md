@@ -35,6 +35,7 @@ ReactDOM.render(
       style={{
         overflow: 'auto',
         height: '100vh',
+        minHeight: '400px',
         position: 'fixed',
         left: 0,
       }}
