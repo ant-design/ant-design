@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.18.3
+
+`2022-01-10`
+
+- Table
+  - ⚡️ Improve Table perfermance significantly when mount and unmount. [#33554](https://github.com/ant-design/ant-design/pull/33554)
+  - 🐞 Fix Table emptynode fixed display. [#33610](https://github.com/ant-design/ant-design/pull/33610) [@hemengke1997](https://github.com/hemengke1997)
+- 🐞 Fix Form validateMessages is not correct in default locale. [#33511](https://github.com/ant-design/ant-design/pull/33511)
+- 🐞 Fix Card.Grid props should expose Div Properties like onClick. [#33563](https://github.com/ant-design/ant-design/pull/33563) [@LongHaoo](https://github.com/LongHaoo)
+- 🐞 Fix Input.Textarea throws error on preact. [#33536](https://github.com/ant-design/ant-design/pull/33536) [@developit](https://github.com/developit)
+- 🐞 Fix PageHeader state update error after unmounted. [#33546](https://github.com/ant-design/ant-design/pull/33546) [@wuifdesign](https://github.com/wuifdesign)
+- 💄 Fix Select tag margin issue when using `tagRender`. [#33539](https://github.com/ant-design/ant-design/pull/33539)
+- 💄 Remove svg reset style for IE9-, fix svg elements being cutting style problem. [#33579](https://github.com/ant-design/ant-design/pull/33579)
+- TypeScript
+  - 🤖 Fix Upload types for pass generic. [#33543](https://github.com/ant-design/ant-design/pull/33543) [@woochanleee](https://github.com/woochanleee)
+
 ## 4.18.2
 
 `2021-12-30`
