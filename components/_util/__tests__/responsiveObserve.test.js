@@ -9,6 +9,6 @@ describe('Test ResponsiveObserve', () => {
     expect(subscribeFunc).toBeCalledTimes(1);
 
     ResponsiveObserve.unsubscribe(token);
-    expect(ResponsiveObserve.matchHandlers[xs].mql.removeListener).toBeCalled();
+    expect(ResponsiveObserve.matchHandlers[xs].mql.removeEventListener).toBeCalled();
   });
 });

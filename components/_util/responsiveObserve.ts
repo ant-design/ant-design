@@ -46,7 +46,11 @@ const responsiveObserve = {
     Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
       const matchMediaQuery = responsiveMap[screen];
       const handler = this.matchHandlers[matchMediaQuery];
-      handler?.mql.removeListener(handler?.listener);
+      try {
+        handler?.mql.removeEventListener('change', handler?.listener);
+      } catch {
+        handler?.mql.removeListener(handler?.listener);
+      }
     });
     subscribers.clear();
   },
@@ -60,7 +64,11 @@ const responsiveObserve = {
         });
       };
       const mql = window.matchMedia(matchMediaQuery);
-      mql.addEventListener('change', listener);
+      try {
+        mql.addEventListener('change', listener);
+      } catch {
+        mql.addListener(listener);
+      }
       this.matchHandlers[matchMediaQuery] = {
         mql,
         listener,
