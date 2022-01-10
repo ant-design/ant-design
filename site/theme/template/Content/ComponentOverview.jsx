@@ -76,7 +76,7 @@ const ComponentOverview = ({
           reportSearch(e.target.value);
         }}
         onKeyDown={onKeyDown}
-        autoFocus // eslint-disable-line jsx-a11y/no-autofocus
+        autoFocus
         suffix={<SearchOutlined />}
       />
       <Divider />

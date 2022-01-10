@@ -128,7 +128,6 @@ const SearchBar = ({
       })}
     >
       <Helmet>
-        {/* pre-connect to algolia server */}
         <link
           rel="preconnect"
           href={`https://${algoliaConfig.appId}-dsn.algolia.net`}
@@ -156,7 +155,6 @@ const SearchBar = ({
               <span
                 className="keybindings"
                 onClick={() => {
-                  // move userSearch to SearchModal
                   setSearchModalQuery(inputSearch);
                   setInputSearch('');
                   handleModalOpen();
