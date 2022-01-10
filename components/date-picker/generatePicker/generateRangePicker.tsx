@@ -46,6 +46,10 @@ export default function generateRangePicker<DateType>(
         size: customizeSize,
         bordered = true,
         placeholder,
+        prevIcon,
+        nextIcon,
+        superPrevIcon,
+        superNextIcon,
         ...restProps
       } = this.props;
       const { format, showTime, picker } = this.props as any;
@@ -76,10 +80,10 @@ export default function generateRangePicker<DateType>(
                 placeholder={getRangePlaceholder(picker, locale, placeholder)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
                 clearIcon={<CloseCircleFilled />}
-                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                prevIcon={prevIcon || <span className={`${prefixCls}-prev-icon`} />}
+                nextIcon={nextIcon || <span className={`${prefixCls}-next-icon`} />}
+                superPrevIcon={superPrevIcon || <span className={`${prefixCls}-super-prev-icon`} />}
+                superNextIcon={superNextIcon || <span className={`${prefixCls}-super-next-icon`} />}
                 allowClear
                 transitionName={`${rootPrefixCls}-slide-up`}
                 {...restProps}
