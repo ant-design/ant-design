@@ -36,6 +36,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  |
 | multiple | 支持多选（当设置 treeCheckable 时自动变为 true） | boolean | false |  |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
 | placeholder | 选择框默认文字 | string | - |  |
 | searchValue | 搜索框的值，可以通过 `onSearch` 获取用户输入 | string | - |  |
 | showArrow | 是否显示 `suffixIcon`，单选模式下默认 `true` | boolean | - |  |
