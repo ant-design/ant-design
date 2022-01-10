@@ -428,6 +428,28 @@ class MainContent extends Component {
                   tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
                 },
               },
+              {
+                meta: {
+                  category: 'Components',
+                  cover: 'https://gw.alipayobjects.com/zos/antfincdn/uZUmLtne5/bianzu%2525209.svg',
+                  filename: 'https://procomponents.ant.design/components/list',
+                  subtitle: '高级列表',
+                  title: 'ProList',
+                  type,
+                  tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
+                },
+              },
+              {
+                meta: {
+                  category: 'Components',
+                  cover: 'https://gw.alipayobjects.com/zos/antfincdn/N3eU432oA/bianzu%2525209.svg',
+                  filename: 'https://procomponents.ant.design/components/list',
+                  subtitle: '可编辑表格',
+                  title: 'EditableProTable',
+                  type,
+                  tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
+                },
+              },
             ])}
         />
       );
