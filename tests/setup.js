@@ -23,6 +23,8 @@ if (typeof window !== 'undefined') {
     Object.defineProperty(global.window, 'matchMedia', {
       value: jest.fn(query => ({
         matches: query.includes('max-width'),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
         addListener: jest.fn(),
         removeListener: jest.fn(),
       })),
