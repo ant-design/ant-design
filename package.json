@@ -190,7 +190,7 @@
     "bundlesize": "^0.18.0",
     "chalk": "^4.0.0",
     "cheerio": "^1.0.0-rc.3",
-    "concurrently": "^6.0.0",
+    "concurrently": "^7.0.0",
     "cross-env": "^7.0.0",
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dekko": "^0.2.1",
