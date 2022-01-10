@@ -21,7 +21,8 @@ timeline: true
 
 - Table
   - ⚡️ 大幅优化 Table 渲染时和卸载时的性能。[#33554](https://github.com/ant-design/ant-design/pull/33554)
-  - 🐞 修复表格空状态未居中显示。[#33610](https://github.com/ant-design/ant-design/pull/33610) [@hemengke1997](https://github.com/hemengke1997)
+  - 🐞 修复 Table 空状态未居中显示。[#33610](https://github.com/ant-design/ant-design/pull/33610) [@hemengke1997](https://github.com/hemengke1997)
+  - 🐞 修复 Table 树形数据展示 hover 高亮异常的问题。[#33638](https://github.com/ant-design/ant-design/pull/33638) [@LongHaoo](https://github.com/LongHaoo)
 - 🐞 修复 Form 在英文语言包下错误提示文案不生效的问题。[#33511](https://github.com/ant-design/ant-design/pull/33511)
 - 🐞 修复 Card.Grid props 未能正常支持 div 相应 attribute 提示。[#33563](https://github.com/ant-design/ant-design/pull/33563) [@LongHaoo](https://github.com/LongHaoo)
 - 🐞 修复 Input.Textarea 在 preact 下报错的问题。[#33536](https://github.com/ant-design/ant-design/pull/33536) [@developit](https://github.com/developit)
