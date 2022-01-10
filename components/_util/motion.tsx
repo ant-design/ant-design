@@ -25,11 +25,23 @@ const collapseMotion: CSSMotionProps = {
   motionDeadline: 500,
 };
 
+type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+
+const getTransitionDirection = (placement: Placement | undefined) => {
+  if (placement !== undefined) {
+    if (placement.indexOf('top') >= 0) {
+      return `slide-down`;
+    }
+    return `slide-up`;
+  }
+  return `slide-up`;
+};
+
 const getTransitionName = (rootPrefixCls: string, motion: string, transitionName?: string) => {
   if (transitionName !== undefined) {
     return transitionName;
   }
   return `${rootPrefixCls}-${motion}`;
 };
-export { getTransitionName };
+export { getTransitionName, getTransitionDirection };
 export default collapseMotion;

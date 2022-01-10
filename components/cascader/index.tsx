@@ -17,7 +17,7 @@ import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import getIcons from '../select/utils/iconUtil';
-import { getTransitionName } from '../_util/motion';
+import { getTransitionName, getTransitionDirection } from '../_util/motion';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -30,7 +30,7 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-declare type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
   const cells = str
@@ -146,17 +146,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     );
   }
 
-  // ================ TransDirection =================
-  const getTransitionDirection = () => {
-    if (placement !== undefined) {
-      if (placement.indexOf('top') >= 0) {
-        return `slide-down`;
-      }
-      return `slide-up`;
-    }
-    return `slide-up`;
-  };
-
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty('Cascader');
 
@@ -260,7 +249,11 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(rootPrefixCls, getTransitionDirection(), transitionName)}
+      transitionName={getTransitionName(
+        rootPrefixCls,
+        getTransitionDirection(placement),
+        transitionName,
+      )}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
     />

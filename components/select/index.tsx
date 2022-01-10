@@ -9,7 +9,7 @@ import { OptionProps } from 'rc-select/lib/Option';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName } from '../_util/motion';
+import { getTransitionName, getTransitionDirection } from '../_util/motion';
 
 type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
@@ -91,17 +91,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     return m;
   }, [props.mode]);
 
-  // ================ TransDirection =================
-  const getTransitionDirection = () => {
-    if (placement !== undefined) {
-      if (placement.indexOf('top') >= 0) {
-        return `slide-down`;
-      }
-      return `slide-up`;
-    }
-    return `slide-up`;
-  };
-
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
   // ===================== Empty =====================
@@ -154,7 +143,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       {...selectProps}
       transitionName={getTransitionName(
         rootPrefixCls,
-        getTransitionDirection(),
+        getTransitionDirection(placement),
         props.transitionName,
       )}
       listHeight={listHeight}

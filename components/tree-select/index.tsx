@@ -16,9 +16,9 @@ import { AntTreeNodeProps, TreeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName } from '../_util/motion';
+import { getTransitionName, getTransitionDirection } from '../_util/motion';
 
-declare type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
 type RawValue = string | number;
 
@@ -97,17 +97,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
   });
 
-  // ================ TransDirection =================
-  const getTransitionDirection = () => {
-    if (placement !== undefined) {
-      if (placement.indexOf('top') >= 0) {
-        return `slide-down`;
-      }
-      return `slide-up`;
-    }
-    return `slide-up`;
-  };
-
   const isMultiple = !!(treeCheckable || multiple);
 
   // ===================== Icons =====================
@@ -183,7 +172,11 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(rootPrefixCls, getTransitionDirection(), transitionName)}
+      transitionName={getTransitionName(
+        rootPrefixCls,
+        getTransitionDirection(placement),
+        transitionName,
+      )}
     />
   );
 };
