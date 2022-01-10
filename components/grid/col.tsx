@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigContext } from '../config-provider';
+import responsiveObserve, { responsiveArray, ScreenMap } from '../_util/responsiveObserve';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -65,6 +66,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
 
+  const sizeFlexMapRef = React.useRef<Partial<Record<typeof sizes[number], FlexType>>>({});
+
   let sizeClassObj = {};
   sizes.forEach(size => {
     let sizeProps: ColSize = {};
@@ -87,6 +90,12 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     };
+
+    if (sizeProps.flex) {
+      sizeFlexMapRef.current[size] = sizeProps.flex;
+    } else {
+      delete sizeFlexMapRef.current[size];
+    }
   });
 
   const classes = classNames(
@@ -117,9 +126,33 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     mergedStyle.paddingBottom = verticalGutter;
   }
 
-  if (flex) {
-    mergedStyle.flex = parseFlex(flex);
+  // Flex
+  const [screenMatchMap, setScreenMatchMap] = React.useState<ScreenMap>({});
+  React.useEffect(() => {
+    const subscribeId = responsiveObserve.subscribe(screenMatches => {
+      if (Object.keys(sizeFlexMapRef.current).length) {
+        setScreenMatchMap(screenMatches);
+      }
+    });
+    return () => {
+      responsiveObserve.unsubscribe(subscribeId);
+    };
+  }, []);
 
+  if (Object.keys(sizeFlexMapRef.current).length && Object.keys(screenMatchMap).length) {
+    for (let i = 0, len = responsiveArray.length; i < len; i++) {
+      const bp = responsiveArray[i];
+      const sizeFlex = sizeFlexMapRef.current[bp];
+      if (screenMatchMap[bp] && sizeFlex) {
+        mergedStyle.flex = parseFlex(sizeFlex);
+        break;
+      }
+    }
+  }
+  if (!mergedStyle.flex && flex) {
+    mergedStyle.flex = parseFlex(flex);
+  }
+  if (mergedStyle.flex) {
     // Hack for Firefox to avoid size issue
     // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
     if (wrap === false && !mergedStyle.minWidth) {

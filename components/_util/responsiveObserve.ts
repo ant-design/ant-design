@@ -60,7 +60,7 @@ const responsiveObserve = {
         });
       };
       const mql = window.matchMedia(matchMediaQuery);
-      mql.addListener(listener);
+      mql.addEventListener('change', listener);
       this.matchHandlers[matchMediaQuery] = {
         mql,
         listener,
