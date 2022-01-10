@@ -7,7 +7,6 @@ import Tabs, { TabsProps } from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigContext } from '../config-provider';
-import { Omit } from '../_util/type';
 import SizeContext from '../config-provider/SizeContext';
 
 function getAction(actions: React.ReactNode[]) {
@@ -50,7 +49,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
   tabList?: CardTabListType[];
-  tabBarExtraContent?: React.ReactNode | null;
+  tabBarExtraContent?: React.ReactNode;
   onTabChange?: (key: string) => void;
   activeTabKey?: string;
   defaultActiveTabKey?: string;

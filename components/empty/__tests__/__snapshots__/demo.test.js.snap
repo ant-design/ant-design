@@ -173,7 +173,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-haspopup="listbox"
@@ -222,42 +221,59 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     <h4>
       Cascader
     </h4>
-    <span
-      class="ant-cascader-picker ant-cascader-picker-show-search"
+    <div
+      class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width:200px"
-      tabindex="0"
     >
-      <span
-        class="ant-cascader-picker-label"
-      />
-      <input
-        autocomplete="off"
-        class="ant-input ant-cascader-input "
-        placeholder="Please select"
-        tabindex="-1"
-        type="text"
-        value=""
-      />
-      <span
-        aria-label="arrow-down"
-        class="anticon anticon-arrow-down ant-cascader-picker-arrow"
-        role="img"
+      <div
+        class="ant-select-selector"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="arrow-down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <span
+          class="ant-select-selection-search"
         >
-          <path
-            d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+          <input
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
           />
-        </svg>
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="arrow-down"
+          class="anticon anticon-arrow-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="arrow-down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
+    </div>
     <h4>
       Transfer
     </h4>

@@ -41,6 +41,8 @@ interface EditConfig {
   onEnd?: () => void;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
+  triggerType?: ('icon' | 'text')[];
+  enterIcon?: React.ReactNode;
 }
 
 export interface EllipsisConfig {
@@ -314,10 +316,14 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { ellipsisText, isEllipsis, expanded } = this.state;
     const { rows, suffix, onEllipsis } = this.getEllipsis();
     const { children } = this.props;
-    if (!rows || rows < 0 || !this.contentRef.current || expanded) return;
+    if (!rows || rows < 0 || !this.contentRef.current || expanded) {
+      return;
+    }
 
     // Do not measure if css already support ellipsis
-    if (this.canUseCSSEllipsis()) return;
+    if (this.canUseCSSEllipsis()) {
+      return;
+    }
 
     devWarning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
@@ -372,12 +378,12 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { editable } = this.props;
     if (!editable) return;
 
-    const { icon, tooltip } = editable as EditConfig;
+    const { icon, tooltip, triggerType = ['icon'] } = editable as EditConfig;
 
     const title = toArray(tooltip)[0] || this.editStr;
     const ariaLabel = typeof title === 'string' ? title : '';
 
-    return (
+    return triggerType.indexOf('icon') !== -1 ? (
       <Tooltip key="edit" title={tooltip === false ? '' : title}>
         <TransButton
           ref={this.setEditRef}
@@ -388,7 +394,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           {icon || <EditOutlined role="button" />}
         </TransButton>
       </Tooltip>
-    );
+    ) : null;
   }
 
   renderCopy() {
@@ -427,7 +433,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
-    const { maxLength, autoSize, onEnd } = this.getEditable();
+    const { maxLength, autoSize, onEnd, enterIcon } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
@@ -440,6 +446,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         direction={direction}
         maxLength={maxLength}
         autoSize={autoSize}
+        enterIcon={enterIcon}
       />
     );
   }
@@ -455,6 +462,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { component, children, className, type, disabled, style, ...restProps } = this.props;
     const { direction } = this.context;
     const { rows, suffix, tooltip } = this.getEllipsis();
+    const { triggerType = ['icon'] } = this.getEditable() as EditConfig;
 
     const prefixCls = this.getPrefixCls();
 
@@ -536,7 +544,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                     [`${prefixCls}-${type}`]: type,
                     [`${prefixCls}-disabled`]: disabled,
                     [`${prefixCls}-ellipsis`]: rows,
-                    [`${prefixCls}-single-line`]: rows === 1,
+                    [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
                     [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                     [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
                   },
@@ -549,6 +557,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
                 component={component}
                 ref={this.contentRef}
                 direction={direction}
+                onClick={triggerType.indexOf('text') !== -1 ? this.onEditClick : () => {}}
                 {...textProps}
               >
                 {textNode}

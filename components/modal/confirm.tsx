@@ -3,10 +3,11 @@ import * as ReactDOM from 'react-dom';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import { ISuccessFilled, ICloseFullfiled, INoticeCircleFilled } from 'infra-design-icons';
 import { getConfirmLocale } from './locale';
-import { ModalFuncProps, destroyFns } from './Modal';
+import type { ModalFuncProps } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 import { globalConfig } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import destroyFns from './destroyFns';
 
 let defaultRootPrefixCls = '';
 
@@ -24,16 +25,12 @@ export type ModalFunc = (props: ModalFuncProps) => {
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 export default function confirm(config: ModalFuncProps) {
-  const div = document.createElement('div');
-  document.body.appendChild(div);
+  const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
 
   function destroy(...args: any[]) {
-    const unmountResult = ReactDOM.unmountComponentAtNode(div);
-    if (unmountResult && div.parentNode) {
-      div.parentNode.removeChild(div);
-    }
+    ReactDOM.unmountComponentAtNode(container);
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
@@ -56,20 +53,22 @@ export default function confirm(config: ModalFuncProps) {
      */
     setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
-      const { getPrefixCls } = globalConfig();
+      const { getPrefixCls, getIconPrefixCls } = globalConfig();
       // because Modal.config  set rootPrefixCls, which is different from other components
       const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+      const iconPrefixCls = getIconPrefixCls();
 
       ReactDOM.render(
         <ConfirmDialog
           {...props}
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
+          iconPrefixCls={iconPrefixCls}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
-        div,
+        container,
       );
     });
   }

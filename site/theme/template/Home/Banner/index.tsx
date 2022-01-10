@@ -58,7 +58,6 @@ const Banner = (props: { location: any }) => {
   return (
     <div className="home-banner">
       <Background />
-
       <div className="home-banner-holder">
         <div className="home-banner-content">
           <div>
@@ -67,13 +66,10 @@ const Banner = (props: { location: any }) => {
           <p>
             <FormattedMessage id="app.home.introduce" />
           </p>
-
           <a className="banner-video">
             <PlayCircleFilled /> <FormattedMessage id="app.home.play-video" />
           </a>
-
           {isZhCN && <div className="banner-qr">{qrNode}</div>}
-
           <div className="home-banner-content-operations">
             <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}>
               <Button type="primary" shape="round">
@@ -86,6 +82,10 @@ const Banner = (props: { location: any }) => {
               </Button>
             </Link>
           </div>
+          <code className="use-code">
+            <div>$ yarn add infrad</div>
+            <div>import 'infrad/dist/antd.css'</div>
+          </code>
         </div>
       </div>
     </div>

@@ -2,16 +2,13 @@ import * as React from 'react';
 import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { tuple } from '../_util/type';
-import { InputProps, getInputClassName } from './Input';
+import type { InputProps } from './Input';
 import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
+import { getInputClassName, hasPrefixSuffix } from './utils';
 
 const ClearableInputType = tuple('text', 'input');
-
-export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
-  return !!(props.prefix || props.suffix || props.allowClear);
-}
 
 function hasAddon(props: InputProps | ClearableInputProps) {
   return !!(props.addonBefore || props.addonAfter);
@@ -36,7 +33,7 @@ interface BasicProps {
 }
 
 /** This props only for input. */
-interface ClearableInputProps extends BasicProps {
+export interface ClearableInputProps extends BasicProps {
   size?: SizeType;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
@@ -57,7 +54,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   };
 
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, readOnly, handleReset } = this.props;
+    const { allowClear, value, disabled, readOnly, handleReset, suffix } = this.props;
     if (!allowClear) {
       return null;
     }
@@ -72,6 +69,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         className={classNames(
           {
             [`${className}-hidden`]: !needClear,
+            [`${className}-has-suffix`]: !!suffix,
           },
           className,
         )}
@@ -109,13 +107,13 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       bordered,
       isError,
     } = this.props;
-    const suffixNode = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(this.props)) {
       return cloneElement(element, {
         value,
       });
     }
 
+    const suffixNode = this.renderSuffix(prefixCls);
     const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
     const affixWrapperCls = classNames(`${prefixCls}-affix-wrapper`, {

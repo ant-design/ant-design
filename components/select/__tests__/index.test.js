@@ -56,7 +56,7 @@ describe('Select', () => {
       <Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE} notFoundContent="not at all" />,
     );
     toggleOpen(wrapper);
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = wrapper.find('Trigger');
     expect(dropdownWrapper.find('.ant-select-item-option').length).toBeFalsy();
     expect(dropdownWrapper.find('.ant-select-item-empty').at(0).text()).toBe('not at all');
   });
@@ -68,18 +68,18 @@ describe('Select', () => {
         <Option value="1">1</Option>
       </Select>,
     );
-    let dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(dropdownWrapper.props().visible).toBe(true);
+    let dropdownWrapper = wrapper.find('Trigger');
+    expect(dropdownWrapper.prop('popupVisible')).toBe(true);
     toggleOpen(wrapper);
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(false);
-    expect(dropdownWrapper.props().visible).toBe(true);
+    expect(dropdownWrapper.prop('popupVisible')).toBe(true);
 
     wrapper.setProps({ open: false });
-    dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(dropdownWrapper.props().visible).toBe(false);
+    dropdownWrapper = wrapper.find('Trigger');
+    expect(dropdownWrapper.prop('popupVisible')).toBe(false);
     toggleOpen(wrapper);
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);
-    expect(dropdownWrapper.props().visible).toBe(false);
+    expect(dropdownWrapper.prop('popupVisible')).toBe(false);
   });
 
   it('should show search icon when showSearch and open', () => {

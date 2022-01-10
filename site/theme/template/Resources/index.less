@@ -1,4 +1,4 @@
-@import '../../../../components/style/themes/default.less';
+@import (reference) '../../../../components/style/themes/index.less';
 
 @ArticleMaxWidth: 1208px;
 @resource-padding: 40px;
@@ -13,7 +13,7 @@
       margin: 0 -@resource-padding;
       padding: 0 @resource-padding;
       overflow: hidden;
-      background: url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ);
+      background: url('https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ');
       background-size: cover;
 
       h1 {
@@ -86,18 +86,19 @@
         width: calc(100% + 2px);
         max-width: none;
         height: 184px;
-        margin: -1px -1px 0 -1px;
+        margin: -1px -1px 0;
         object-fit: cover;
       }
 
       .resource-card-title {
-        margin: 16px 20px 8px 20px;
+        margin: 16px 20px 8px;
         color: #0d1a26;
         font-size: 20px;
         line-height: 28px;
       }
+
       .resource-card-description {
-        margin: 0 20px 20px 20px;
+        margin: 0 20px 20px;
         color: #697b8c;
         font-size: 14px;
         line-height: 22px;

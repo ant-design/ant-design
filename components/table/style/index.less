@@ -4,12 +4,14 @@
 @import './bordered';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
+@tree-prefix-cls: ~'@{ant-prefix}-tree';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
-@table-sticky-zindex: (@zindex-table-fixed + 1);
+@table-sticky-zindex: calc(@zindex-table-fixed + 1);
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
+@table-filter-dropdown-max-height: 264px;
 
 .@{table-prefix-cls}-wrapper {
   clear: both;
@@ -143,10 +145,9 @@
         }
       }
 
-      &.@{table-prefix-cls}-row:hover {
-        > td {
-          background: @table-row-hover-bg;
-        }
+      &.@{table-prefix-cls}-row:hover > td,
+      > td.@{table-prefix-cls}-cell-row-hover {
+        background: @table-row-hover-bg;
       }
 
       &.@{table-prefix-cls}-row-selected {
@@ -270,6 +271,7 @@
   }
 
   &-column-sorter {
+    margin-left: 4px;
     color: @table-header-icon-color;
     font-size: 0;
     transition: color 0.3s;
@@ -330,21 +332,64 @@
   &-filter-dropdown {
     .reset-component();
 
+    min-width: 120px;
+    background-color: @table-filter-dropdown-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
       // https://github.com/ant-design/ant-design/issues/4916
       // https://github.com/ant-design/ant-design/issues/19542
-      max-height: 264px;
+      max-height: @table-filter-dropdown-max-height;
       overflow-x: hidden;
       border: 0;
       box-shadow: none;
+
+      &:empty::after {
+        display: block;
+        padding: 8px 0;
+        color: @disabled-color;
+        font-size: @font-size-sm;
+        text-align: center;
+        content: 'Not Found';
+      }
     }
 
-    min-width: 120px;
-    background-color: @table-filter-dropdown-bg;
+    &-tree {
+      padding: 8px 8px 0;
 
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
+      .@{tree-prefix-cls}-treenode .@{tree-prefix-cls}-node-content-wrapper:hover {
+        background-color: @tree-node-hover-bg;
+      }
+
+      .@{tree-prefix-cls}-treenode-checkbox-checked .@{tree-prefix-cls}-node-content-wrapper {
+        &,
+        &:hover {
+          background-color: @tree-node-selected-bg;
+        }
+      }
+    }
+
+    &-search {
+      padding: 8px;
+      border-bottom: @border-width-base @border-color-split @border-style-base;
+
+      &-input {
+        input {
+          min-width: 140px;
+        }
+        .@{iconfont-css-prefix} {
+          color: @disabled-color;
+        }
+      }
+    }
+
+    &-checkall {
+      width: 100%;
+      margin-bottom: 4px;
+      margin-left: 4px;
+    }
 
     &-submenu > ul {
       max-height: calc(100vh - 130px);
@@ -364,7 +409,7 @@
     &-btns {
       display: flex;
       justify-content: space-between;
-      padding: 7px 8px 7px 3px;
+      padding: 7px 8px;
       overflow: hidden;
       background-color: @table-filter-btns-bg;
       border-top: @border-width-base @border-style-base @table-border-color;
@@ -389,6 +434,10 @@
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
+  }
+
+  table tr th&-selection-column&-cell-fix-left {
+    z-index: 3;
   }
 
   table tr th&-selection-column::after {
@@ -489,6 +538,7 @@
     &-collapsed::before {
       transform: rotate(-180deg);
     }
+
     &-collapsed::after {
       transform: rotate(0deg);
     }
@@ -543,6 +593,7 @@
     .@{table-prefix-cls}-empty & {
       color: @disabled-color;
     }
+
     &:hover {
       > td {
         background: @component-background;
@@ -553,7 +604,6 @@
   // ============================ Fixed =============================
   &-cell-fix-left,
   &-cell-fix-right {
-    position: -webkit-sticky !important;
     position: sticky !important;
     z-index: @zindex-table-fixed;
     background: @table-bg;
@@ -601,6 +651,7 @@
     &::before {
       left: 0;
     }
+
     &::after {
       right: 0;
     }
@@ -639,6 +690,7 @@
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
+
   &-sticky {
     &-holder {
       position: sticky;
@@ -655,16 +707,20 @@
       background: lighten(@table-border-color, 80%);
       border-top: 1px solid @table-border-color;
       opacity: 0.6;
+
       &:hover {
         transform-origin: center bottom;
       }
+
       &-bar {
         height: 8px;
         background-color: @table-sticky-scroll-bar-bg;
         border-radius: @table-sticky-scroll-bar-radius;
+
         &:hover {
           background-color: @table-sticky-scroll-bar-active-bg;
         }
+
         &-active {
           background-color: @table-sticky-scroll-bar-active-bg;
         }
@@ -680,6 +736,7 @@
         box-shadow: none !important;
       }
     }
+
     &-ping-right {
       .@{table-prefix-cls}-cell-fix-right-first::after {
         box-shadow: none !important;

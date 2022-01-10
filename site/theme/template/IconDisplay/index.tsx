@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Icon, * as AntdIcons from 'infra-design-icons';
-import { Radio, Input } from 'antd';
+import { Radio, Input, Empty } from 'infrad';
 import { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
@@ -61,13 +61,17 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
   renderCategories() {
     const { searchKey = '', theme } = this.state;
     const categoryList = theme === ThemeType.Shopee ? categoriesShopee : categories;
-    return Object.keys(categoryList)
+
+    const categoriesResult = Object.keys(categoryList)
       .map((key: CategoriesKeys) => {
         let iconList = categoryList[key];
         if (searchKey) {
-          iconList = iconList.filter(iconName =>
-            iconName.toLowerCase().includes(searchKey.toLowerCase()),
-          );
+          const matchKey = searchKey
+            // eslint-disable-next-line prefer-regex-literals
+            .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
+            .replace(/(Filled|Outlined|TwoTone)$/, '')
+            .toLowerCase();
+          iconList = iconList.filter(iconName => iconName.toLowerCase().includes(matchKey));
         }
 
         // CopyrightCircle is same as Copyright, don't show it
@@ -93,6 +97,8 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
           newIcons={IconDisplay.newIconNames}
         />
       ));
+
+    return categoriesResult.length === 0 ? <Empty style={{ margin: '2em 0' }} /> : categoriesResult;
   }
 
   render() {

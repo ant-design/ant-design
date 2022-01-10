@@ -52,8 +52,8 @@ function updateTreeData(list: DataNode[], key: React.Key, children: DataNode[]):
 const Demo: React.FC<{}> = () => {
   const [treeData, setTreeData] = useState(initTreeData);
 
-  function onLoadData({ key, children }: any) {
-    return new Promise<void>(resolve => {
+  const onLoadData = ({ key, children }: any) =>
+    new Promise<void>(resolve => {
       if (children) {
         resolve();
         return;
@@ -69,7 +69,6 @@ const Demo: React.FC<{}> = () => {
         resolve();
       }, 1000);
     });
-  }
 
   return <Tree loadData={onLoadData} treeData={treeData} />;
 };

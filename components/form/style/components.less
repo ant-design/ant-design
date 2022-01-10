@@ -1,14 +1,12 @@
-@import './index';
+@import (reference) '../../style/themes/index';
+
+@form-prefix-cls: ~'@{ant-prefix}-form';
+@form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 
 // ================================================================
 // =                      Children Component                      =
 // ================================================================
 .@{form-item-prefix-cls} {
-  .@{ant-prefix}-mentions,
-  textarea.@{ant-prefix}-input {
-    height: auto;
-  }
-
   // input[type=file]
   .@{ant-prefix}-upload {
     background: transparent;
@@ -51,6 +49,7 @@
     + .@{form-prefix-cls}-text {
       margin-left: 8px;
     }
+
     &-handler-wrap {
       z-index: 2; // https://github.com/ant-design/ant-design/issues/6289
     }
@@ -65,7 +64,9 @@
   .@{ant-prefix}-picker-calendar-year-select,
   .@{ant-prefix}-picker-calendar-month-select,
   .@{ant-prefix}-input-group .@{ant-prefix}-select,
-  .@{ant-prefix}-input-group .@{ant-prefix}-cascader-picker {
+  .@{ant-prefix}-input-group .@{ant-prefix}-cascader-picker,
+  .@{ant-prefix}-input-number-group .@{ant-prefix}-select,
+  .@{ant-prefix}-input-number-group .@{ant-prefix}-cascader-picker {
     width: auto;
   }
 }

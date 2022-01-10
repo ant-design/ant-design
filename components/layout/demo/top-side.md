@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   zh-CN: 顶部-侧边布局
   en-US: Header-Sider

@@ -14,7 +14,7 @@ title:
 Use a form in Drawer with a submit button.
 
 ```jsx
-import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'infrad';
+import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker, Space } from 'infrad';
 import { PlusOutlined } from 'infra-design-icons';
 
 const { Option } = Select;
@@ -37,8 +37,8 @@ class DrawerForm extends React.Component {
   render() {
     return (
       <>
-        <Button type="primary" onClick={this.showDrawer}>
-          <PlusOutlined /> New account
+        <Button type="primary" onClick={this.showDrawer} icon={<PlusOutlined />}>
+          New account
         </Button>
         <Drawer
           title="Create a new account"
@@ -46,19 +46,15 @@ class DrawerForm extends React.Component {
           onClose={this.onClose}
           visible={this.state.visible}
           bodyStyle={{ paddingBottom: 80 }}
-          footer={
-            <div
-              style={{
-                textAlign: 'right',
-              }}
-            >
+          extra={
+            <Space>
               <Button onClick={this.onClose} style={{ marginRight: 16 }}>
                 Cancel
               </Button>
               <Button onClick={this.onClose} type="primary">
                 Submit
               </Button>
-            </div>
+            </Space>
           }
         >
           <Form layout="vertical" hideRequiredMark>

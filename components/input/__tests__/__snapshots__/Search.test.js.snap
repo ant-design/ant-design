@@ -23,7 +23,7 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
           aria-label="search"
           class="anticon anticon-search"
           role="img"
-          style="color:#999999"
+          style="color: rgb(153, 153, 153);"
         >
           <svg
             aria-hidden="true"

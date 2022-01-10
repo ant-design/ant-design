@@ -33,9 +33,6 @@ exports[`Alert action of Alert custom action 1`] = `
     >
       Success Tips
     </div>
-    <div
-      class="ant-alert-description"
-    />
   </div>
   <div
     class="ant-alert-action"
@@ -96,9 +93,6 @@ exports[`Alert could accept none react element icon 1`] = `
     >
       Success Tips
     </div>
-    <div
-      class="ant-alert-description"
-    />
   </div>
 </div>
 `;
@@ -111,13 +105,49 @@ exports[`Alert rtl render component should be rendered correctly in RTL directio
 >
   <div
     class="ant-alert-content"
+  />
+</div>
+`;
+
+exports[`Alert support closeIcon 1`] = `
+<div
+  class="ant-alert ant-alert-warning ant-alert-no-icon"
+  data-show="true"
+  role="alert"
+>
+  <div
+    class="ant-alert-content"
   >
     <div
       class="ant-alert-message"
-    />
-    <div
-      class="ant-alert-description"
-    />
+    >
+      Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
+    </div>
   </div>
+  <button
+    class="ant-alert-close-icon"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      aria-label="close"
+      class="anticon anticon-close"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="close"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+        />
+      </svg>
+    </span>
+  </button>
 </div>
 `;

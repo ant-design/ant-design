@@ -145,9 +145,9 @@ const EditableTable = () => {
         const editable = isEditing(record);
         return editable ? (
           <span>
-            <a href="javascript:;" onClick={() => save(record.key)} style={{ marginRight: 8 }}>
+            <Typography.Link onClick={() => save(record.key)} style={{ marginRight: 8 }}>
               Save
-            </a>
+            </Typography.Link>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
               <a>Cancel</a>
             </Popconfirm>

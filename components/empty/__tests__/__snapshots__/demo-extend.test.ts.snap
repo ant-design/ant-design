@@ -1,0 +1,2112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/empty/demo/basic.md extend context correctly 1`] = `
+<div
+  class="ant-empty"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      class="ant-empty-img-default"
+      height="152"
+      viewBox="0 0 184 152"
+      width="184"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <g
+          transform="translate(24 31.67)"
+        >
+          <ellipse
+            class="ant-empty-img-default-ellipse"
+            cx="67.797"
+            cy="106.89"
+            rx="67.797"
+            ry="12.668"
+          />
+          <path
+            class="ant-empty-img-default-path-1"
+            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+          />
+          <path
+            class="ant-empty-img-default-path-2"
+            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            transform="translate(13.56)"
+          />
+          <path
+            class="ant-empty-img-default-path-3"
+            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+          />
+          <path
+            class="ant-empty-img-default-path-4"
+            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+          />
+        </g>
+        <path
+          class="ant-empty-img-default-path-5"
+          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+        />
+        <g
+          class="ant-empty-img-default-g"
+          transform="translate(149.65 15.383)"
+        >
+          <ellipse
+            cx="20.654"
+            cy="3.167"
+            rx="2.849"
+            ry="2.815"
+          />
+          <path
+            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No Data
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/config-provider.md extend context correctly 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      default
+    </span>
+  </button>
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />
+  <div
+    class="config-provider"
+  >
+    <h4>
+      Select
+    </h4>
+    <div
+      class="ant-select ant-select-single ant-select-show-arrow"
+      style="width:200px"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+      <div>
+        <div
+          class="ant-select-dropdown ant-select-dropdown-empty"
+          style="opacity:0;pointer-events:none"
+        >
+          <div>
+            <div
+              class="ant-select-item-empty"
+              id="undefined_list"
+              role="listbox"
+            >
+              <div
+                class="ant-empty ant-empty-normal ant-empty-small"
+              >
+                <div
+                  class="ant-empty-image"
+                >
+                  <svg
+                    fill="none"
+                    height="96"
+                    viewBox="0 0 96 96"
+                    width="96"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <ellipse
+                      cx="48"
+                      cy="85"
+                      fill="#F2F2F2"
+                      rx="45"
+                      ry="6"
+                    />
+                    <path
+                      d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                      fill="white"
+                      stroke="#D8D8D8"
+                    />
+                    <path
+                      d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                      fill="#DBDBDB"
+                    />
+                    <circle
+                      cx="91"
+                      cy="14"
+                      fill="#D8D8D8"
+                      opacity="0.5"
+                      r="3"
+                    />
+                    <circle
+                      cx="85"
+                      cy="7"
+                      fill="#D8D8D8"
+                      opacity="0.3"
+                      r="2"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                      fill="#D8D8D8"
+                      fill-rule="evenodd"
+                      opacity="0.3"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                      fill="#FAFAFA"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="ant-empty-description"
+                >
+                  No Data
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="arrow-down"
+          class="anticon anticon-arrow-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="arrow-down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <h4>
+      TreeSelect
+    </h4>
+    <div
+      class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+      style="width:200px"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+      <div>
+        <div
+          class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
+          style="opacity:0;pointer-events:none"
+        >
+          <div>
+            <div
+              class="ant-select-empty"
+              role="listbox"
+            >
+              <div
+                class="ant-empty ant-empty-normal ant-empty-small"
+              >
+                <div
+                  class="ant-empty-image"
+                >
+                  <svg
+                    fill="none"
+                    height="96"
+                    viewBox="0 0 96 96"
+                    width="96"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <ellipse
+                      cx="48"
+                      cy="85"
+                      fill="#F2F2F2"
+                      rx="45"
+                      ry="6"
+                    />
+                    <path
+                      d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                      fill="white"
+                      stroke="#D8D8D8"
+                    />
+                    <path
+                      d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                      fill="#DBDBDB"
+                    />
+                    <circle
+                      cx="91"
+                      cy="14"
+                      fill="#D8D8D8"
+                      opacity="0.5"
+                      r="3"
+                    />
+                    <circle
+                      cx="85"
+                      cy="7"
+                      fill="#D8D8D8"
+                      opacity="0.3"
+                      r="2"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                      fill="#D8D8D8"
+                      fill-rule="evenodd"
+                      opacity="0.3"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                      fill="#FAFAFA"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="ant-empty-description"
+                >
+                  No Data
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="arrow-down"
+          class="anticon anticon-arrow-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="arrow-down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <h4>
+      Cascader
+    </h4>
+    <div
+      class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      style="width:200px"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+      <div>
+        <div
+          class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
+          style="opacity:0;pointer-events:none"
+        >
+          <div>
+            <div
+              class="ant-cascader-menus ant-cascader-menu-empty"
+            >
+              <ul
+                class="ant-cascader-menu"
+                role="menu"
+              >
+                <li
+                  aria-checked="false"
+                  class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+                  data-path-key="__EMPTY__"
+                  role="menuitemcheckbox"
+                >
+                  <div
+                    class="ant-cascader-menu-item-content"
+                  >
+                    <div
+                      class="ant-empty ant-empty-normal ant-empty-small"
+                    >
+                      <div
+                        class="ant-empty-image"
+                      >
+                        <svg
+                          fill="none"
+                          height="96"
+                          viewBox="0 0 96 96"
+                          width="96"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <ellipse
+                            cx="48"
+                            cy="85"
+                            fill="#F2F2F2"
+                            rx="45"
+                            ry="6"
+                          />
+                          <path
+                            d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                            fill="white"
+                            stroke="#D8D8D8"
+                          />
+                          <path
+                            d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                            fill="#DBDBDB"
+                          />
+                          <circle
+                            cx="91"
+                            cy="14"
+                            fill="#D8D8D8"
+                            opacity="0.5"
+                            r="3"
+                          />
+                          <circle
+                            cx="85"
+                            cy="7"
+                            fill="#D8D8D8"
+                            opacity="0.3"
+                            r="2"
+                          />
+                          <path
+                            clip-rule="evenodd"
+                            d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                            fill="#D8D8D8"
+                            fill-rule="evenodd"
+                            opacity="0.3"
+                          />
+                          <path
+                            clip-rule="evenodd"
+                            d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                            fill="#FAFAFA"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No Data
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="arrow-down"
+          class="anticon anticon-arrow-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="arrow-down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <h4>
+      Transfer
+    </h4>
+    <div
+      class="ant-transfer"
+    >
+      <div
+        class="ant-transfer-list"
+      >
+        <div
+          class="ant-transfer-list-header"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+          <div>
+            <div
+              class="ant-dropdown"
+              style="opacity:0;pointer-events:none"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
+              >
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Select all data
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Invert current page
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display:none"
+              >
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span
+            class="ant-transfer-list-header-selected"
+          >
+            0 item
+          </span>
+          <span
+            class="ant-transfer-list-header-title"
+          />
+        </div>
+        <div
+          class="ant-transfer-list-body"
+        >
+          <div
+            class="ant-transfer-list-body-not-found"
+          >
+            <div
+              class="ant-empty ant-empty-normal ant-empty-small"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <svg
+                  fill="none"
+                  height="96"
+                  viewBox="0 0 96 96"
+                  width="96"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <ellipse
+                    cx="48"
+                    cy="85"
+                    fill="#F2F2F2"
+                    rx="45"
+                    ry="6"
+                  />
+                  <path
+                    d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                    fill="white"
+                    stroke="#D8D8D8"
+                  />
+                  <path
+                    d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                    fill="#DBDBDB"
+                  />
+                  <circle
+                    cx="91"
+                    cy="14"
+                    fill="#D8D8D8"
+                    opacity="0.5"
+                    r="3"
+                  />
+                  <circle
+                    cx="85"
+                    cy="7"
+                    fill="#D8D8D8"
+                    opacity="0.3"
+                    r="2"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                    fill="#D8D8D8"
+                    fill-rule="evenodd"
+                    opacity="0.3"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                    fill="#FAFAFA"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                class="ant-empty-description"
+              >
+                No Data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-transfer-operation"
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+          disabled=""
+          type="button"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+          disabled=""
+          type="button"
+        >
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-transfer-list"
+      >
+        <div
+          class="ant-transfer-list-header"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+          <div>
+            <div
+              class="ant-dropdown"
+              style="opacity:0;pointer-events:none"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
+              >
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Select all data
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Invert current page
+                  </span>
+                </li>
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display:none"
+              >
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span
+            class="ant-transfer-list-header-selected"
+          >
+            0 item
+          </span>
+          <span
+            class="ant-transfer-list-header-title"
+          />
+        </div>
+        <div
+          class="ant-transfer-list-body"
+        >
+          <div
+            class="ant-transfer-list-body-not-found"
+          >
+            <div
+              class="ant-empty ant-empty-normal ant-empty-small"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <svg
+                  fill="none"
+                  height="96"
+                  viewBox="0 0 96 96"
+                  width="96"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <ellipse
+                    cx="48"
+                    cy="85"
+                    fill="#F2F2F2"
+                    rx="45"
+                    ry="6"
+                  />
+                  <path
+                    d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+                    fill="white"
+                    stroke="#D8D8D8"
+                  />
+                  <path
+                    d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+                    fill="#DBDBDB"
+                  />
+                  <circle
+                    cx="91"
+                    cy="14"
+                    fill="#D8D8D8"
+                    opacity="0.5"
+                    r="3"
+                  />
+                  <circle
+                    cx="85"
+                    cy="7"
+                    fill="#D8D8D8"
+                    opacity="0.3"
+                    r="2"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+                    fill="#D8D8D8"
+                    fill-rule="evenodd"
+                    opacity="0.3"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+                    fill="#FAFAFA"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                class="ant-empty-description"
+              >
+                No Data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>
+      Table
+    </h4>
+    <div
+      class="ant-table-wrapper"
+      style="margin-top:8px"
+    >
+      <div
+        class="ant-spin-nested-loading"
+      >
+        <div
+          class="ant-spin-container"
+        >
+          <div
+            class="ant-table ant-table-empty"
+          >
+            <div
+              class="ant-table-container"
+            >
+              <div
+                class="ant-table-content"
+              >
+                <table
+                  style="table-layout:auto"
+                >
+                  <colgroup />
+                  <thead
+                    class="ant-table-thead"
+                  >
+                    <tr>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Name
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Age
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      class="ant-table-placeholder"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        colspan="2"
+                      >
+                        <div
+                          class="ant-empty ant-empty-normal"
+                        >
+                          <div
+                            class="ant-empty-image"
+                          >
+                            <svg
+                              class="ant-empty-img-simple"
+                              height="41"
+                              viewBox="0 0 64 41"
+                              width="64"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g
+                                fill="none"
+                                fill-rule="evenodd"
+                                transform="translate(0 1)"
+                              >
+                                <ellipse
+                                  class="ant-empty-img-simple-ellipse"
+                                  cx="32"
+                                  cy="33"
+                                  rx="32"
+                                  ry="7"
+                                />
+                                <g
+                                  class="ant-empty-img-simple-g"
+                                  fill-rule="nonzero"
+                                >
+                                  <path
+                                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                  />
+                                  <path
+                                    class="ant-empty-img-simple-path"
+                                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  />
+                                </g>
+                              </g>
+                            </svg>
+                          </div>
+                          <div
+                            class="ant-empty-description"
+                          >
+                            No Data
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>
+      List
+    </h4>
+    <div
+      class="ant-list ant-list-split"
+    >
+      <div
+        class="ant-spin-nested-loading"
+      >
+        <div
+          class="ant-spin-container"
+        >
+          <div
+            class="ant-list-empty-text"
+          >
+            <div
+              class="ant-empty ant-empty-normal"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <svg
+                  class="ant-empty-img-simple"
+                  height="41"
+                  viewBox="0 0 64 41"
+                  width="64"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    transform="translate(0 1)"
+                  >
+                    <ellipse
+                      class="ant-empty-img-simple-ellipse"
+                      cx="32"
+                      cy="33"
+                      rx="32"
+                      ry="7"
+                    />
+                    <g
+                      class="ant-empty-img-simple-g"
+                      fill-rule="nonzero"
+                    >
+                      <path
+                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      />
+                      <path
+                        class="ant-empty-img-simple-path"
+                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div
+                class="ant-empty-description"
+              >
+                No Data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/customize.md extend context correctly 1`] = `
+<div
+  class="ant-empty"
+>
+  <div
+    class="ant-empty-image"
+    style="height:60px"
+  >
+    <img
+      alt="empty"
+      src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+    />
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    <span>
+      Customize 
+      <a
+        href="#API"
+      >
+        Description
+      </a>
+    </span>
+  </div>
+  <div
+    class="ant-empty-footer"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Create Now
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/description.md extend context correctly 1`] = `
+<div
+  class="ant-empty"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      class="ant-empty-img-default"
+      height="152"
+      viewBox="0 0 184 152"
+      width="184"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <g
+          transform="translate(24 31.67)"
+        >
+          <ellipse
+            class="ant-empty-img-default-ellipse"
+            cx="67.797"
+            cy="106.89"
+            rx="67.797"
+            ry="12.668"
+          />
+          <path
+            class="ant-empty-img-default-path-1"
+            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+          />
+          <path
+            class="ant-empty-img-default-path-2"
+            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            transform="translate(13.56)"
+          />
+          <path
+            class="ant-empty-img-default-path-3"
+            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+          />
+          <path
+            class="ant-empty-img-default-path-4"
+            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+          />
+        </g>
+        <path
+          class="ant-empty-img-default-path-5"
+          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+        />
+        <g
+          class="ant-empty-img-default-g"
+          transform="translate(149.65 15.383)"
+        >
+          <ellipse
+            cx="20.654"
+            cy="3.167"
+            rx="2.849"
+            ry="2.815"
+          />
+          <path
+            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/no-app.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      fill="none"
+      height="72"
+      viewBox="0 0 89 72"
+      width="96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M81.4461 28.5H0.54722C0.557435 28.4182 0.569762 28.3285 0.584612 28.2321C0.659441 27.7464 0.796782 27.1013 1.04528 26.4505C5.43584 15.1939 7.40823 10.2753 8.84873 7.08137L8.85619 7.06482L8.86244 7.04777C8.9487 6.81227 9.01647 6.71784 9.08956 6.66166C9.16279 6.60538 9.31044 6.53575 9.66383 6.51372C13.151 6.48994 26.4762 6.50169 40.0233 6.51362C53.7385 6.52571 67.681 6.53799 71.872 6.51382C72.3199 6.51391 72.5514 6.55322 72.7139 6.63738C72.8591 6.71261 73.0139 6.85884 73.2063 7.23957C74.1576 9.24065 75.4318 12.4965 77.0286 16.5764C78.1727 19.4998 79.4823 22.8463 80.9575 26.4574C81.1783 27.0055 81.3158 27.6457 81.3976 28.1624C81.4169 28.2841 81.4329 28.3977 81.4461 28.5Z"
+        fill="#FAFAFA"
+        stroke="#D8D8D8"
+      />
+      <circle
+        cx="84"
+        cy="10"
+        fill="#D8D8D8"
+        opacity="0.5"
+        r="3"
+      />
+      <circle
+        cx="78"
+        cy="3"
+        fill="#D8D8D8"
+        opacity="0.3"
+        r="2"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M89 2.5C89 1.11929 87.8807 0 86.5 0C85.1193 0 84 1.11929 84 2.5C84 3.88071 85.1193 5 86.5 5C87.8807 5 89 3.88071 89 2.5ZM85 2.5C85 1.67157 85.6716 1 86.5 1C87.3284 1 88 1.67157 88 2.5C88 3.32843 87.3284 4 86.5 4C85.6716 4 85 3.32843 85 2.5Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+        opacity="0.3"
+      />
+      <path
+        d="M0.964706 28.5H81.0353C81.2938 28.5 81.5 28.7106 81.5 28.9565V71.0435C81.5 71.2894 81.2938 71.5 81.0353 71.5H0.964706C0.706234 71.5 0.5 71.2894 0.5 71.0435V28.9565C0.5 28.7106 0.706235 28.5 0.964706 28.5Z"
+        fill="white"
+        stroke="#D8D8D8"
+      />
+      <path
+        d="M42.2148 40.2192L42 40.1171L41.7852 40.2192L35.5 43.2085V5.5H48.5V43.2085L42.2148 40.2192Z"
+        fill="white"
+        stroke="#D8D8D8"
+      />
+      <rect
+        fill="#D8D8D8"
+        height="1"
+        rx="0.5"
+        width="12"
+        x="6"
+        y="34"
+      />
+      <rect
+        fill="#D8D8D8"
+        height="1"
+        rx="0.5"
+        width="6"
+        x="6"
+        y="38"
+      />
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No Application Found
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/no-data.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      fill="none"
+      height="96"
+      viewBox="0 0 96 96"
+      width="96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <ellipse
+        cx="48"
+        cy="85"
+        fill="#F2F2F2"
+        rx="45"
+        ry="6"
+      />
+      <path
+        d="M15.5 7C15.5 6.17157 16.1716 5.5 17 5.5H66.6371L79.5 17.4859V83C79.5 83.8284 78.8284 84.5 78 84.5H17C16.1716 84.5 15.5 83.8284 15.5 83V7Z"
+        fill="white"
+        stroke="#D8D8D8"
+      />
+      <path
+        d="M66 6H67.1293V16.4295C67.1293 17.1939 67.7192 17.8136 68.4469 17.8136H79V19H68.4469C67.0955 19 66 17.8491 66 16.4295V6Z"
+        fill="#DBDBDB"
+      />
+      <circle
+        cx="91"
+        cy="14"
+        fill="#D8D8D8"
+        opacity="0.5"
+        r="3"
+      />
+      <circle
+        cx="85"
+        cy="7"
+        fill="#D8D8D8"
+        opacity="0.3"
+        r="2"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M96 6.5C96 5.11929 94.8807 4 93.5 4C92.1193 4 91 5.11929 91 6.5C91 7.88071 92.1193 9 93.5 9C94.8807 9 96 7.88071 96 6.5ZM92 6.5C92 5.67157 92.6716 5 93.5 5C94.3284 5 95 5.67157 95 6.5C95 7.32843 94.3284 8 93.5 8C92.6716 8 92 7.32843 92 6.5Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+        opacity="0.3"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M67 7V16.5258C67 16.5258 67.0952 18 68.2714 18C69.4476 18 79 18 79 18L67 7Z"
+        fill="#FAFAFA"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No Data
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/no-image.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      fill="none"
+      height="96"
+      viewBox="0 0 96 96"
+      width="96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        fill="#D8D8D8"
+        height="96"
+        opacity="0.01"
+        width="96"
+      />
+      <ellipse
+        cx="48"
+        cy="84"
+        fill="#F2F2F2"
+        rx="45"
+        ry="5"
+      />
+      <path
+        d="M67.1059 33.986L82.5 50.7624V72.002C82.5 72.8288 81.8289 73.5 81 73.5H13C12.1711 73.5 11.5 72.8288 11.5 72.002V60.6257L26.8976 43.9612C27.4585 43.3542 28.4053 43.3152 29.0142 43.8734L29.068 43.925L29.0679 43.925L29.0739 43.9306L42.1267 56.0561L42.4796 56.3839L42.8204 56.0434L64.8791 34.0016L64.8868 33.994L64.8941 33.986C65.4539 33.3759 66.403 33.3346 67.0138 33.8939C67.0458 33.9233 67.0765 33.954 67.1059 33.986L67.4743 33.6479L67.1059 33.986Z"
+        fill="#FAFAFA"
+        stroke="#D8D8D8"
+      />
+      <circle
+        cx="25"
+        cy="31"
+        r="4.5"
+        stroke="#D8D8D8"
+      />
+      <rect
+        height="55"
+        rx="1.5"
+        stroke="#D8D8D8"
+        width="71"
+        x="11.5"
+        y="18.5"
+      />
+      <rect
+        height="55"
+        rx="1.5"
+        stroke="#D8D8D8"
+        width="71"
+        x="11.5"
+        y="18.5"
+      />
+      <circle
+        cx="92"
+        cy="17"
+        fill="#D8D8D8"
+        opacity="0.5"
+        r="3"
+      />
+      <circle
+        cx="84"
+        cy="13"
+        fill="#D8D8D8"
+        opacity="0.3"
+        r="2"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M90.5 5C89.6716 5 89 5.67157 89 6.5C89 7.32843 89.6716 8 90.5 8C91.3284 8 92 7.32843 92 6.5C92 5.67157 91.3284 5 90.5 5ZM90.5 4C91.8807 4 93 5.11929 93 6.5C93 7.88071 91.8807 9 90.5 9C89.1193 9 88 7.88071 88 6.5C88 5.11929 89.1193 4 90.5 4Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+        opacity="0.3"
+      />
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No Image Found
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/no-log.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      fill="none"
+      height="96"
+      viewBox="0 0 96 96"
+      width="96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <ellipse
+        cx="47"
+        cy="87"
+        fill="#F2F2F2"
+        rx="45"
+        ry="6"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M79 55.5384V84.1647C79 85.1783 78.1453 86 77.0909 86H17.9091C16.8547 86 16 85.1783 16 84.1647V9.83529C16 8.82169 16.8547 8 17.9091 8H77.0909C78.1453 8 79 8.82169 79 9.83529V43.6505V55.5384Z"
+        fill="white"
+        fill-rule="evenodd"
+        stroke="#D8D8D8"
+      />
+      <path
+        d="M57.2361 3.56522V4.06522H57.7361H65.0278C65.2536 4.06522 65.5 4.27703 65.5 4.6087V12.9565C65.5 13.2882 65.2536 13.5 65.0278 13.5H31.9722C31.7464 13.5 31.5 13.2882 31.5 12.9565V4.6087C31.5 4.27703 31.7464 4.06522 31.9722 4.06522H39.2639H39.7639V3.56522C39.7639 2.92051 40.2047 2.5 40.7222 2.5H56.2778C56.7953 2.5 57.2361 2.92051 57.2361 3.56522Z"
+        fill="#FAFAFA"
+        stroke="#D8D8D8"
+      />
+      <circle
+        cx="93"
+        cy="13"
+        fill="#D8D8D8"
+        opacity="0.5"
+        r="3"
+      />
+      <circle
+        cx="85"
+        cy="9"
+        fill="#D8D8D8"
+        opacity="0.3"
+        r="2"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M91.5 1C90.6716 1 90 1.67157 90 2.5C90 3.32843 90.6716 4 91.5 4C92.3284 4 93 3.32843 93 2.5C93 1.67157 92.3284 1 91.5 1ZM91.5 0C92.8807 0 94 1.11929 94 2.5C94 3.88071 92.8807 5 91.5 5C90.1193 5 89 3.88071 89 2.5C89 1.11929 90.1193 0 91.5 0Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+        opacity="0.3"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M26 25.5C26 25.2239 26.2239 25 26.5 25H68.5C68.7761 25 69 25.2239 69 25.5C69 25.7761 68.7761 26 68.5 26H26.5C26.2239 26 26 25.7761 26 25.5ZM26 34.5C26 34.2239 26.2239 34 26.5 34H68.5C68.7761 34 69 34.2239 69 34.5C69 34.7761 68.7761 35 68.5 35H26.5C26.2239 35 26 34.7761 26 34.5ZM26.5 43C26.2239 43 26 43.2239 26 43.5C26 43.7761 26.2239 44 26.5 44H48.5C48.7761 44 49 43.7761 49 43.5C49 43.2239 48.7761 43 48.5 43H26.5Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No Logs Found
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/no-premission.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      fill="none"
+      height="96"
+      viewBox="0 0 96 96"
+      width="96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        fill="#D8D8D8"
+        height="96"
+        opacity="0.01"
+        width="96"
+      />
+      <path
+        d="M19.5 24.6367C19.5 22.9851 20.6545 21.5583 22.2698 21.2137L48.2698 15.667C48.7512 15.5643 49.2488 15.5643 49.7302 15.667L75.7302 21.2137C77.3455 21.5583 78.5 22.9851 78.5 24.6367V41.099C78.5 56.122 69.5343 69.6951 55.7164 75.5907L50.3735 77.8703C49.4961 78.2447 48.5039 78.2447 47.6265 77.8703L42.2835 75.5907C28.4657 69.6951 19.5 56.122 19.5 41.099V24.6367Z"
+        fill="white"
+        stroke="#D8D8D8"
+      />
+      <path
+        d="M47.5 46.5H50.5V62C50.5 62.8284 49.8284 63.5 49 63.5C48.1716 63.5 47.5 62.8284 47.5 62V46.5Z"
+        fill="#FAFAFA"
+        stroke="#D8D8D8"
+      />
+      <rect
+        fill="#D8D8D8"
+        height="1"
+        rx="0.5"
+        width="5"
+        x="50"
+        y="56"
+      />
+      <rect
+        fill="#D8D8D8"
+        height="1"
+        rx="0.5"
+        width="5"
+        x="50"
+        y="52"
+      />
+      <circle
+        cx="49"
+        cy="39"
+        fill="#FAFAFA"
+        r="8.5"
+        stroke="#D8D8D8"
+      />
+      <circle
+        cx="49"
+        cy="39"
+        fill="white"
+        r="4.5"
+        stroke="#D8D8D8"
+      />
+      <ellipse
+        cx="49"
+        cy="86"
+        fill="#F2F2F2"
+        rx="45"
+        ry="5"
+      />
+      <circle
+        cx="88"
+        cy="17"
+        fill="#D8D8D8"
+        opacity="0.5"
+        r="3"
+      />
+      <circle
+        cx="80"
+        cy="13"
+        fill="#D8D8D8"
+        opacity="0.3"
+        r="2"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M86.5 5C85.6716 5 85 5.67157 85 6.5C85 7.32843 85.6716 8 86.5 8C87.3284 8 88 7.32843 88 6.5C88 5.67157 87.3284 5 86.5 5ZM86.5 4C87.8807 4 89 5.11929 89 6.5C89 7.88071 87.8807 9 86.5 9C85.1193 9 84 7.88071 84 6.5C84 5.11929 85.1193 4 86.5 4Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+        opacity="0.3"
+      />
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No Premission
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/no-ratings.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      fill="none"
+      height="96"
+      viewBox="0 0 96 96"
+      width="96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <ellipse
+        cx="47"
+        cy="85"
+        fill="#F2F2F2"
+        rx="45"
+        ry="5"
+      />
+      <path
+        d="M24.9493 63.8968H24.7255L24.5764 64.0637L18.8255 70.5H18.7183V64.3968V63.8968H18.2183H7.83099C7.6469 63.8968 7.5 63.7461 7.5 63.5714V19.8254C7.5 19.6507 7.6469 19.5 7.83099 19.5H65.169C65.3531 19.5 65.5 19.6507 65.5 19.8254V63.5714C65.5 63.7461 65.3531 63.8968 65.169 63.8968H24.9493Z"
+        fill="#FAFAFA"
+        stroke="#D8D8D8"
+      />
+      <path
+        d="M68.1165 71.0606L67.9677 70.8968H67.7465H26.8451C26.6453 70.8968 26.5 70.7382 26.5 70.5714V26.8254C26.5 26.6586 26.6453 26.5 26.8451 26.5H85.1549C85.3547 26.5 85.5 26.6586 85.5 26.8254V70.5714C85.5 70.7382 85.3547 70.8968 85.1549 70.8968H74.5915H74.0915V71.3968V77.5H73.9677L68.1165 71.0606Z"
+        fill="white"
+        stroke="#D8D8D8"
+      />
+      <rect
+        fill="#D8D8D8"
+        height="1"
+        rx="0.5"
+        width="40"
+        x="35"
+        y="38"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M35 48.5C35 48.2239 35.2239 48 35.5 48H58.5C58.7761 48 59 48.2239 59 48.5C59 48.7761 58.7761 49 58.5 49H35.5C35.2239 49 35 48.7761 35 48.5Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+      />
+      <circle
+        cx="92"
+        cy="19"
+        fill="#D8D8D8"
+        opacity="0.5"
+        r="3"
+      />
+      <circle
+        cx="84"
+        cy="15"
+        fill="#D8D8D8"
+        opacity="0.3"
+        r="2"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M90.5 7C89.6716 7 89 7.67157 89 8.5C89 9.32843 89.6716 10 90.5 10C91.3284 10 92 9.32843 92 8.5C92 7.67157 91.3284 7 90.5 7ZM90.5 6C91.8807 6 93 7.11929 93 8.5C93 9.88071 91.8807 11 90.5 11C89.1193 11 88 9.88071 88 8.5C88 7.11929 89.1193 6 90.5 6Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+        opacity="0.3"
+      />
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    You hava not received any ratings
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/no-records.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      fill="none"
+      height="96"
+      viewBox="0 0 96 96"
+      width="96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="93"
+        cy="13"
+        fill="#D8D8D8"
+        opacity="0.5"
+        r="3"
+      />
+      <circle
+        cx="85"
+        cy="9"
+        fill="#D8D8D8"
+        opacity="0.3"
+        r="2"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M91.5 1C90.6716 1 90 1.67157 90 2.5C90 3.32843 90.6716 4 91.5 4C92.3284 4 93 3.32843 93 2.5C93 1.67157 92.3284 1 91.5 1ZM91.5 0C92.8807 0 94 1.11929 94 2.5C94 3.88071 92.8807 5 91.5 5C90.1193 5 89 3.88071 89 2.5C89 1.11929 90.1193 0 91.5 0Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+        opacity="0.3"
+      />
+      <ellipse
+        cx="45"
+        cy="84"
+        fill="#F2F2F2"
+        rx="45"
+        ry="5"
+      />
+      <path
+        d="M19.2928 6.5H77.3327L75.3071 13.4234L75.287 13.4921V13.5638V80C75.287 81.933 73.72 83.5 71.787 83.5H11.6782L13.7705 76.7397L13.7928 76.6674V76.5918V12C13.7928 8.96243 16.2553 6.5 19.2928 6.5Z"
+        fill="white"
+        stroke="#D8D8D8"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M23 29.5C23 29.2239 23.2239 29 23.5 29H65.5C65.7761 29 66 29.2239 66 29.5C66 29.7761 65.7761 30 65.5 30H23.5C23.2239 30 23 29.7761 23 29.5Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M23 20.5C23 20.2239 23.2239 20 23.5 20H65.5C65.7761 20 66 20.2239 66 20.5C66 20.7761 65.7761 21 65.5 21H23.5C23.2239 21 23 20.7761 23 20.5Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M23 38.5C23 38.2239 23.2239 38 23.5 38H46.5C46.7761 38 47 38.2239 47 38.5C47 38.7761 46.7761 39 46.5 39H23.5C23.2239 39 23 38.7761 23 38.5Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M75.5 9C75.5 7.61929 76.6193 6.5 78 6.5C79.3807 6.5 80.5 7.61929 80.5 9V13.5H75.5V9Z"
+        fill="#F4F4F4"
+        stroke="#DBDBDB"
+      />
+      <mask
+        fill="white"
+        id="path-10-inside-1"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M72 83C70.3431 83 69 81.6569 69 80V77H8V81C8 82.6569 9.34315 84 11 84H72C74.2091 84 76 82.2091 76 80V77H75V80C75 81.6569 73.6569 83 72 83Z"
+          fill-rule="evenodd"
+        />
+      </mask>
+      <path
+        clip-rule="evenodd"
+        d="M72 83C70.3431 83 69 81.6569 69 80V77H8V81C8 82.6569 9.34315 84 11 84H72C74.2091 84 76 82.2091 76 80V77H75V80C75 81.6569 73.6569 83 72 83Z"
+        fill="white"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M69 77H70V76H69V77ZM8 77V76H7V77H8ZM76 77H77V76H76V77ZM75 77V76H74V77H75ZM68 80C68 82.2091 69.7909 84 72 84V82C70.8954 82 70 81.1046 70 80H68ZM68 77V80H70V77H68ZM69 76H8V78H69V76ZM7 77V81H9V77H7ZM7 81C7 83.2091 8.79086 85 11 85V83C9.89543 83 9 82.1046 9 81H7ZM11 85H72V83H11V85ZM72 85C74.7614 85 77 82.7614 77 80H75C75 81.6569 73.6569 83 72 83V85ZM77 80V77H75V80H77ZM76 76H75V78H76V76ZM76 80V77H74V80H76ZM72 84C74.2091 84 76 82.2091 76 80H74C74 81.1046 73.1046 82 72 82V84Z"
+        fill="#D8D8D8"
+        mask="url(#path-10-inside-1)"
+      />
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No Operation Records
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/no-results.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      fill="none"
+      height="96"
+      viewBox="0 0 96 96"
+      width="96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        fill="#D8D8D8"
+        height="96"
+        opacity="0.01"
+        width="96"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M64.4958 59.4959L76.8702 71.8702C77.6512 72.6513 77.8095 73.7593 77.2238 74.3451C76.638 74.9309 75.5299 74.7726 74.7489 73.9916L62.3745 61.6172"
+        fill="#FAFAFA"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M64.4958 59.4959L76.8702 71.8702C77.6512 72.6513 77.8095 73.7593 77.2238 74.3451C76.638 74.9309 75.5299 74.7726 74.7489 73.9916L62.3745 61.6172"
+        stroke="#D8D8D8"
+      />
+      <circle
+        cx="40.0832"
+        cy="37"
+        fill="#FAFAFA"
+        r="33.5"
+        stroke="#D8D8D8"
+      />
+      <circle
+        cx="40.4263"
+        cy="37"
+        fill="white"
+        r="29.5"
+        stroke="#D8D8D8"
+      />
+      <ellipse
+        cx="48"
+        cy="85"
+        fill="#F2F2F2"
+        rx="45"
+        ry="6"
+      />
+      <circle
+        cx="87"
+        cy="18"
+        fill="#D8D8D8"
+        opacity="0.5"
+        r="3"
+      />
+      <circle
+        cx="81"
+        cy="11"
+        fill="#D8D8D8"
+        opacity="0.3"
+        r="2"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M92.2 10.2207C92.2 8.83999 91.0807 7.7207 89.7 7.7207C88.3192 7.7207 87.2 8.83999 87.2 10.2207C87.2 11.6014 88.3192 12.7207 89.7 12.7207C91.0807 12.7207 92.2 11.6014 92.2 10.2207ZM88.2 10.2207C88.2 9.39228 88.8715 8.7207 89.7 8.7207C90.5284 8.7207 91.2 9.39228 91.2 10.2207C91.2 11.0491 90.5284 11.7207 89.7 11.7207C88.8715 11.7207 88.2 11.0491 88.2 10.2207Z"
+        fill="#D8D8D8"
+        fill-rule="evenodd"
+        opacity="0.3"
+      />
+      <mask
+        fill="black"
+        height="32"
+        id="path-10-outside-1"
+        maskUnits="userSpaceOnUse"
+        width="19"
+        x="30"
+        y="21"
+      >
+        <rect
+          fill="white"
+          height="32"
+          width="19"
+          x="30"
+          y="21"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M37.5338 41.6013C37.5338 42.5048 38.2637 43.2347 39.1672 43.2347C40.0707 43.2347 40.8007 42.5048 40.8007 41.6013C40.8007 38.9725 42.0666 37.9312 43.6694 36.6142L43.6702 36.6136C45.3035 35.2712 47.3344 33.602 47.3344 30.1672C47.3344 25.665 43.6694 22 39.1672 22C34.665 22 31 25.665 31 30.1672C31 31.0707 31.7299 31.8007 32.6334 31.8007C33.5369 31.8007 34.2669 31.0707 34.2669 30.1672C34.2669 27.4618 36.4618 25.2669 39.1672 25.2669C41.8726 25.2669 44.0675 27.4618 44.0675 30.1672C44.0675 31.9742 43.2202 32.7552 41.597 34.0926C39.7849 35.578 37.5338 37.4309 37.5338 41.6013ZM39.5 47C38.1193 47 37 48.1193 37 49.5C37 50.8807 38.1193 52 39.5 52C40.8807 52 42 50.8807 42 49.5C42 48.1193 40.8807 47 39.5 47Z"
+          fill-rule="evenodd"
+        />
+      </mask>
+      <path
+        clip-rule="evenodd"
+        d="M37.5338 41.6013C37.5338 42.5048 38.2637 43.2347 39.1672 43.2347C40.0707 43.2347 40.8007 42.5048 40.8007 41.6013C40.8007 38.9725 42.0666 37.9312 43.6694 36.6142L43.6702 36.6136C45.3035 35.2712 47.3344 33.602 47.3344 30.1672C47.3344 25.665 43.6694 22 39.1672 22C34.665 22 31 25.665 31 30.1672C31 31.0707 31.7299 31.8007 32.6334 31.8007C33.5369 31.8007 34.2669 31.0707 34.2669 30.1672C34.2669 27.4618 36.4618 25.2669 39.1672 25.2669C41.8726 25.2669 44.0675 27.4618 44.0675 30.1672C44.0675 31.9742 43.2202 32.7552 41.597 34.0926C39.7849 35.578 37.5338 37.4309 37.5338 41.6013ZM39.5 47C38.1193 47 37 48.1193 37 49.5C37 50.8807 38.1193 52 39.5 52C40.8807 52 42 50.8807 42 49.5C42 48.1193 40.8807 47 39.5 47Z"
+        fill="#FAFAFA"
+        fill-rule="evenodd"
+      />
+      <path
+        d="M43.6694 36.6142L43.0346 35.8415L43.0345 35.8416L43.6694 36.6142ZM43.6702 36.6136L44.305 37.3862L44.3051 37.3861L43.6702 36.6136ZM41.597 34.0926L42.2309 34.866L42.2328 34.8644L41.597 34.0926ZM39.1672 42.2347C38.816 42.2347 38.5338 41.9525 38.5338 41.6013H36.5338C36.5338 43.0571 37.7114 44.2347 39.1672 44.2347V42.2347ZM39.8007 41.6013C39.8007 41.9525 39.5184 42.2347 39.1672 42.2347V44.2347C40.623 44.2347 41.8007 43.0571 41.8007 41.6013H39.8007ZM43.0345 35.8416C42.2567 36.4807 41.4208 37.1586 40.8093 38.0502C40.1674 38.9861 39.8007 40.1051 39.8007 41.6013H41.8007C41.8007 40.4687 42.0669 39.7526 42.4586 39.1814C42.8808 38.5659 43.4793 38.0647 44.3042 37.3868L43.0345 35.8416ZM43.0354 35.8409L43.0346 35.8415L44.3042 37.3869L44.305 37.3862L43.0354 35.8409ZM46.3344 30.1672C46.3344 33.0979 44.6656 34.501 43.0352 35.841L44.3051 37.3861C45.9413 36.0414 48.3344 34.1061 48.3344 30.1672H46.3344ZM39.1672 23C43.1171 23 46.3344 26.2173 46.3344 30.1672H48.3344C48.3344 25.1128 44.2217 21 39.1672 21V23ZM32 30.1672C32 26.2173 35.2173 23 39.1672 23V21C34.1128 21 30 25.1128 30 30.1672H32ZM32.6334 30.8007C32.2822 30.8007 32 30.5184 32 30.1672H30C30 31.623 31.1777 32.8007 32.6334 32.8007V30.8007ZM33.2669 30.1672C33.2669 30.5184 32.9847 30.8007 32.6334 30.8007V32.8007C34.0892 32.8007 35.2669 31.623 35.2669 30.1672H33.2669ZM39.1672 24.2669C35.9095 24.2669 33.2669 26.9095 33.2669 30.1672H35.2669C35.2669 28.0141 37.0141 26.2669 39.1672 26.2669V24.2669ZM45.0675 30.1672C45.0675 26.9095 42.4249 24.2669 39.1672 24.2669V26.2669C41.3203 26.2669 43.0675 28.0141 43.0675 30.1672H45.0675ZM42.2328 34.8644C43.025 34.2117 43.7527 33.5993 44.2583 32.8822C44.8035 32.1089 45.0675 31.256 45.0675 30.1672H43.0675C43.0675 30.8854 42.9079 31.3265 42.6236 31.7298C42.2997 32.1893 41.7921 32.6361 40.9611 33.3208L42.2328 34.8644ZM38.5338 41.6013C38.5338 39.7151 39.0371 38.4041 39.7149 37.3993C40.4112 36.3669 41.315 35.6167 42.2309 34.8659L40.963 33.3192C40.0668 34.0539 38.939 34.9729 38.0568 36.2809C37.1559 37.6165 36.5338 39.3171 36.5338 41.6013H38.5338ZM38 49.5C38 48.6716 38.6716 48 39.5 48V46C37.567 46 36 47.567 36 49.5H38ZM39.5 51C38.6716 51 38 50.3284 38 49.5H36C36 51.433 37.567 53 39.5 53V51ZM41 49.5C41 50.3284 40.3284 51 39.5 51V53C41.433 53 43 51.433 43 49.5H41ZM39.5 48C40.3284 48 41 48.6716 41 49.5H43C43 47.567 41.433 46 39.5 46V48Z"
+        fill="#D8D8D8"
+        mask="url(#path-10-outside-1)"
+      />
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    Your search does not match any results
+  </div>
+</div>
+`;
+
+exports[`renders ./components/empty/demo/simple.md extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      class="ant-empty-img-simple"
+      height="41"
+      viewBox="0 0 64 41"
+      width="64"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+        transform="translate(0 1)"
+      >
+        <ellipse
+          class="ant-empty-img-simple-ellipse"
+          cx="32"
+          cy="33"
+          rx="32"
+          ry="7"
+        />
+        <g
+          class="ant-empty-img-simple-g"
+          fill-rule="nonzero"
+        >
+          <path
+            d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+          />
+          <path
+            class="ant-empty-img-simple-path"
+            d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No Data
+  </div>
+</div>
+`;

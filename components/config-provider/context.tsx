@@ -4,6 +4,15 @@ import { Locale } from '../locale-provider';
 import { SizeType } from './SizeContext';
 import { RequiredMark } from '../form/Form';
 
+export interface Theme {
+  primaryColor?: string;
+  infoColor?: string;
+  successColor?: string;
+  processingColor?: string;
+  errorColor?: string;
+  warningColor?: string;
+}
+
 export interface CSPConfig {
   nonce?: string;
 }
@@ -12,7 +21,7 @@ export type DirectionType = 'ltr' | 'rtl' | undefined;
 
 export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   iconPrefixCls?: string;
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
@@ -34,6 +43,7 @@ export interface ConfigConsumerProps {
   dropdownMatchSelectWidth?: boolean;
   form?: {
     requiredMark?: RequiredMark;
+    colon?: boolean;
   };
 }
 

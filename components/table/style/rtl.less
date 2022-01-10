@@ -32,6 +32,13 @@
           }
         }
 
+        &:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(.@{table-prefix-cls}-row-expand-icon-cell):not([colspan])::before {
+          .@{table-wrapepr-rtl-cls} & {
+            right: auto;
+            left: 0;
+          }
+        }
+
         .@{table-wrapepr-rtl-cls} & {
           text-align: right;
         }
@@ -73,7 +80,7 @@
   // ============================ Sorter ============================
   &-column-sorter {
     .@{table-wrapepr-rtl-cls} & {
-      margin-right: @padding-xs;
+      margin-right: 4px;
       margin-left: 0;
     }
   }
@@ -93,10 +100,9 @@
     }
   }
 
-  &-filter-trigger-container {
+  &-filter-trigger {
     .@{table-wrapepr-rtl-cls} & {
-      right: auto;
-      left: 0;
+      margin: -4px 4px -4px (-@table-padding-horizontal / 2);
     }
   }
 

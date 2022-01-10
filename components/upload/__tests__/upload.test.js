@@ -52,7 +52,10 @@ describe('Upload', () => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload: () => new Promise(resolve => setTimeout(() => resolve('success'), 100)),
+      beforeUpload: () =>
+        new Promise(resolve => {
+          setTimeout(() => resolve('success'), 100);
+        }),
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
@@ -103,13 +106,13 @@ describe('Upload', () => {
     const props = {
       action: 'http://upload.com',
       beforeUpload: file =>
-        new Promise(resolve =>
+        new Promise(resolve => {
           setTimeout(() => {
             const result = file;
             result.name = 'test.png';
             resolve(result);
-          }, 100),
-        ),
+          }, 100);
+        }),
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {

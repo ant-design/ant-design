@@ -120,9 +120,11 @@
     &:first-child {
       margin-left: -4px;
     }
+
     &:last-child {
       margin-left: -4px;
     }
+
     &-active {
       border-color: @slider-dot-border-color-active;
     }
@@ -130,6 +132,10 @@
 
   &-disabled {
     cursor: not-allowed;
+
+    .@{slider-prefix-cls}-rail {
+      background-color: @slider-rail-background-color !important;
+    }
 
     .@{slider-prefix-cls}-track {
       background-color: @slider-disabled-color !important;

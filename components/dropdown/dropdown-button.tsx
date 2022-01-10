@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import Button from '../button';
+import Button, { ButtonProps } from '../button';
 import { ButtonHTMLType } from '../button/button';
 import { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
@@ -9,12 +9,13 @@ import Dropdown, { DropDownProps } from './dropdown';
 
 const ButtonGroup = Button.Group;
 
-type DropdownButtonType = 'primary' | 'ghost' | 'dashed';
+export type DropdownButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
 
 export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   type?: DropdownButtonType;
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
+  loading?: ButtonProps['loading'];
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   icon?: React.ReactNode;
   href?: string;
@@ -36,8 +37,9 @@ const DropdownButton: DropdownButtonInterface = props => {
 
   const {
     prefixCls: customizePrefixCls,
-    type,
+    type = 'default',
     disabled,
+    loading,
     onClick,
     htmlType,
     children,
@@ -52,11 +54,12 @@ const DropdownButton: DropdownButtonInterface = props => {
     href,
     icon = <EllipsisOutlined />,
     title,
-    buttonsRender,
+    buttonsRender = (buttons: React.ReactNode[]) => buttons,
     mouseEnterDelay,
     mouseLeaveDelay,
     overlayClassName,
     overlayStyle,
+    destroyPopupOnHide,
     ...restProps
   } = props;
 
@@ -72,6 +75,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     mouseLeaveDelay,
     overlayClassName,
     overlayStyle,
+    destroyPopupOnHide,
   } as DropDownProps;
 
   if ('visible' in props) {
@@ -88,6 +92,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     <Button
       type={type}
       disabled={disabled}
+      loading={loading}
       onClick={onClick}
       htmlType={htmlType}
       href={href}
@@ -110,10 +115,5 @@ const DropdownButton: DropdownButtonInterface = props => {
 };
 
 DropdownButton.__ANT_BUTTON = true;
-
-DropdownButton.defaultProps = {
-  type: 'default' as DropdownButtonType,
-  buttonsRender: (buttons: React.ReactNode[]) => buttons,
-};
 
 export default DropdownButton;

@@ -10,8 +10,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-dropdown"
-      style="opacity:0;pointer-events:none"
+      class="ant-dropdown move-up-appear move-up-appear-prepare move-up"
+      style="opacity: 0; pointer-events: none;"
     >
       <div>
         menu
@@ -31,8 +31,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-dropdown"
-      style="opacity:0;pointer-events:none"
+      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0; pointer-events: none;"
     >
       <span>
         string

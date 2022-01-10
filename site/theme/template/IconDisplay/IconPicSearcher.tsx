@@ -95,6 +95,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     reader.readAsDataURL(file);
   };
 
+  // eslint-disable-next-line class-methods-use-this
   toImage = (url: any) =>
     new Promise(resolve => {
       const img = new Image();
@@ -133,6 +134,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     }
   };
 
+  // eslint-disable-next-line class-methods-use-this
   onCopied = (text: string) => {
     message.success(
       <span>

@@ -8,10 +8,11 @@ import RcTreeSelect, {
 } from 'rc-tree-select';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import { DefaultValueType } from 'rc-tree-select/lib/interface';
+import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
+import type { BaseSelectRef } from 'rc-select';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import { AntTreeNodeProps } from '../tree';
+import { AntTreeNodeProps, TreeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
@@ -27,22 +28,26 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-export interface TreeSelectProps<T>
-  extends Omit<
-    RcTreeSelectProps<T>,
-    'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
+export interface TreeSelectProps<
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+> extends Omit<
+    RcTreeSelectProps<ValueType, OptionType>,
+    | 'showTreeIcon'
+    | 'treeMotion'
+    | 'inputIcon'
+    | 'mode'
+    | 'getInputElement'
+    | 'backfill'
+    | 'treeLine'
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
+  treeLine?: TreeProps['showLine'];
 }
 
-export interface RefTreeSelectProps {
-  focus: () => void;
-  blur: () => void;
-}
-
-const InternalTreeSelect = <T extends DefaultValueType>(
+const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(
   {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -61,8 +66,8 @@ const InternalTreeSelect = <T extends DefaultValueType>(
     transitionName,
     choiceTransitionName = '',
     ...props
-  }: TreeSelectProps<T>,
-  ref: React.Ref<RefTreeSelectProps>,
+  }: TreeSelectProps<OptionType>,
+  ref: React.Ref<BaseSelectRef>,
 ) => {
   const {
     getPopupContainer: getContextPopupContainer,
@@ -140,6 +145,7 @@ const InternalTreeSelect = <T extends DefaultValueType>(
       treeCheckable={
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
+      treeLine={!!treeLine}
       inputIcon={suffixIcon}
       multiple={multiple}
       removeIcon={removeIcon}
@@ -158,8 +164,13 @@ const InternalTreeSelect = <T extends DefaultValueType>(
   );
 };
 
-const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <T extends DefaultValueType>(
-  props: TreeSelectProps<T> & { ref?: React.Ref<RefTreeSelectProps> },
+const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+>(
+  props: React.PropsWithChildren<TreeSelectProps<ValueType, OptionType>> & {
+    ref?: React.Ref<BaseSelectRef>;
+  },
 ) => React.ReactElement;
 
 type InternalTreeSelectType = typeof TreeSelectRef;

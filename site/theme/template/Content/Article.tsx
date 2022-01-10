@@ -45,6 +45,7 @@ class Article extends React.Component<ArticleProps> {
     return true;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   onResourceClick: React.MouseEventHandler<HTMLAnchorElement> = event => {
     const { target } = event as unknown as { target: HTMLAnchorElement };
     if (!window.gtag) {

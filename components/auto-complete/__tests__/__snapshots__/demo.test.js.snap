@@ -258,7 +258,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-haspopup="listbox"
@@ -344,7 +343,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
@@ -538,7 +536,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
@@ -679,7 +676,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
@@ -830,7 +826,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"

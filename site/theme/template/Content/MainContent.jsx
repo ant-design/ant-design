@@ -319,8 +319,14 @@ class MainContent extends Component {
     if (selectedTheme !== theme) {
       setTheme(theme);
       if (theme === 'default') {
+        document.documentElement.style.colorScheme = 'light';
+        setColor(false);
         delete query.theme;
       } else {
+        if (theme === 'dark') {
+          document.documentElement.style.colorScheme = 'dark';
+          setColor(true);
+        }
         query.theme = theme;
       }
       browserHistory.push({

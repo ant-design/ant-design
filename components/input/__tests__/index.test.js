@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
@@ -133,6 +133,49 @@ describe('As Form Control', () => {
   });
 });
 
+describe('should support showCount', () => {
+  it('maxLength', () => {
+    const wrapper = mount(<Input maxLength={5} showCount value="12345" />);
+    expect(wrapper.find('input').prop('value')).toBe('12345');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+  });
+
+  it('control exceed maxLength', () => {
+    const wrapper = mount(<Input maxLength={5} showCount value="12345678" />);
+    expect(wrapper.find('input').prop('value')).toBe('12345678');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('8 / 5');
+  });
+
+  describe('emoji', () => {
+    it('should minimize value between emoji length and maxLength', () => {
+      const wrapper = mount(<Input maxLength={1} showCount value="👀" />);
+      expect(wrapper.find('input').prop('value')).toBe('👀');
+      expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('1 / 1');
+
+      const wrapper1 = mount(<Input maxLength={2} showCount value="👀" />);
+      expect(wrapper1.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('1 / 2');
+    });
+
+    it('slice emoji', () => {
+      const wrapper = mount(<Input maxLength={5} showCount value="1234😂" />);
+      expect(wrapper.find('input').prop('value')).toBe('1234😂');
+      expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+    });
+  });
+
+  it('count formatter', () => {
+    const wrapper = mount(
+      <Input
+        maxLength={5}
+        showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+        value="12345"
+      />,
+    );
+    expect(wrapper.find('input').prop('value')).toBe('12345');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5, 5');
+  });
+});
+
 describe('Input allowClear', () => {
   it('should change type when click', () => {
     const wrapper = mount(<Input allowClear />);
@@ -227,5 +270,37 @@ describe('Input allowClear', () => {
     wrapper.find('.ant-input-clear-icon').at(0).getDOMNode().click();
     expect(onBlur).not.toBeCalled();
     wrapper.unmount();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/31927
+  it('should correctly when useState', () => {
+    const App = () => {
+      const [query, setQuery] = useState('');
+      return (
+        <Input
+          allowClear
+          value={query}
+          onChange={e => {
+            setQuery(() => e.target.value);
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<App />);
+
+    wrapper.find('input').getDOMNode().focus();
+    wrapper.find('input').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111');
+
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    expect(wrapper.find('input').getDOMNode().value).toEqual('');
+
+    wrapper.unmount();
+  });
+
+  it('not crash when value is number', () => {
+    const wrapper = mount(<Input suffix="Bamboo" value={1} />);
+    expect(wrapper).toBeTruthy();
   });
 });

@@ -17,14 +17,12 @@ Show all configured prop.
 import { Pagination } from 'infrad';
 
 ReactDOM.render(
-  <>
-    <Pagination
-      total={85}
-      showSizeChanger
-      showQuickJumper
-      showTotal={total => `Total ${total} items`}
-    />
-  </>,
+  <Pagination
+    total={85}
+    showSizeChanger
+    showQuickJumper
+    showTotal={total => `Total ${total} items`}
+  />,
   mountNode,
 );
 ```

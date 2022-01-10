@@ -37,6 +37,7 @@ Select component to select value from options.
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | The style of dropdown menu | CSSProperties | - |  |
+| fieldNames | Customize node label, value, options field name | object | { label: `label`, value: `value`, options: `options` } | 4.17.0 |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | filterSort | Sort function for search options sorting, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction | (optionA: Option, optionB: Option) => number | - | 4.9.0 |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
@@ -60,7 +61,7 @@ Select component to select value from options.
 | showSearch | Whether show search input in single mode | boolean | false |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
-| tagRender | Customize tag render | (props) => ReactNode | - |  |
+| tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize on `tag` and `multiple` mode | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
@@ -88,12 +89,12 @@ Select component to select value from options.
 
 ### Option props
 
-| Property  | Description                                | Type             | Default | Version |
-| --------- | ------------------------------------------ | ---------------- | ------- | ------- |
-| className | The additional class to option             | string           | -       |         |
-| disabled  | Disable this option                        | boolean          | false   |         |
-| title     | `title` of Select after select this Option | string           | -       |         |
-| value     | Default to filter with this property       | string \| number | -       |         |
+| Property  | Description                          | Type             | Default | Version |
+| --------- | ------------------------------------ | ---------------- | ------- | ------- |
+| className | The additional class to option       | string           | -       |         |
+| disabled  | Disable this option                  | boolean          | false   |         |
+| title     | `title` attribute of Select Option   | string           | -       |         |
+| value     | Default to filter with this property | string \| number | -       |         |
 
 ### OptGroup props
 

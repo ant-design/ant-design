@@ -80,6 +80,10 @@ describe('Skeleton', () => {
       const wrapper = genSkeletonButton({ active: true });
       expect(wrapper.render()).toMatchSnapshot();
     });
+    it('block', () => {
+      const wrapper = genSkeletonButton({ block: true });
+      expect(wrapper.render()).toMatchSnapshot();
+    });
     it('size', () => {
       const wrapperDefault = genSkeletonButton({ size: 'default' });
       expect(wrapperDefault.render()).toMatchSnapshot();
@@ -142,5 +146,10 @@ describe('Skeleton', () => {
       const wrapper = genSkeletonImage();
       expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  it('should support style', () => {
+    const wrapper = genSkeleton({ style: { background: 'blue' } });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

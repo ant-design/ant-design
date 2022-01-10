@@ -50,7 +50,7 @@ function warning() {
 }
 
 ReactDOM.render(
-  <Space>
+  <Space wrap>
     <Button onClick={info}>Info</Button>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>

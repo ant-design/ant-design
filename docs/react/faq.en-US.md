@@ -75,7 +75,7 @@ No, `message` is just a function, not a React Component, thus it is not a typo t
 
 ### `antd` doesn't work well in mobile.
 
-Please check [And Design Mobile](http://mobile.ant.design) as a possible solution, as `antd` has not been optimized to work well on mobile. You can also try the [react-component](https://github.com/react-component/) repositories which start with 'm-' 'rn-', which are also designed for mobile.
+Please check [Ant Design Mobile](http://mobile.ant.design) as a possible solution, as `antd` has not been optimized to work well on mobile. You can also try the [react-component](https://github.com/react-component/) repositories which start with 'm-' 'rn-', which are also designed for mobile.
 
 ### Does `antd` supply standalone files like 'React'?
 

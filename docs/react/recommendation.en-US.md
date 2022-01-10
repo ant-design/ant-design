@@ -7,7 +7,7 @@ title: Third-Party Libraries
 
 | Category | Recommended Components |
 | --- | --- |
-| Visualization and charts | [AntV Data Visualization](https://antv.vision/en) [🔥 AntV Charting Library](https://g2plot.antv.vision/en) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
+| Visualization and charts | [Ant Design Charts](https://charts.ant.design) [AntV Data Visualization](https://antv.vision/en) |
 | React Hooks Library | [ahooks](https://github.com/alibaba/hooks) |
 | React Form Library | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
@@ -23,10 +23,10 @@ title: Third-Party Libraries
 | Icons | [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) [react-icons](https://github.com/gorangajic/react-icons) |
 | QR Code | [qrcode.react](https://github.com/zpao/qrcode.react) |
 | Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress) |
-| i18n | [react-intl](https://github.com/yahoo/react-intl) |
+| i18n | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown renderer | [react-markdown](https://remarkjs.github.io/react-markdown/) |
-| Infinite Scroll | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-virtualized](https://github.com/bvaughn/react-virtualized) [antd-table-infinity](https://github.com/Leonard-Li777/antd-table-infinity) |
+| Infinite Scroll | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | Map | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap](https://github.com/ElemeFE/react-amap) |
 | Video | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
 | Context Menu | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify) |
@@ -35,7 +35,7 @@ title: Third-Party Libraries
 | Image Crop | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | Trend Lines | [react-sparklines](https://github.com/borisyankov/react-sparklines) |
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
-| Text Loop | [react-text-loop](https://github.com/braposo/react-text-loop) |
+| Text Loop | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
 | Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | Page Footer | [rc-footer](https://github.com/react-component/footer) |
 | Water Mark | [WaterMark](https://procomponents.ant.design/components/water-mark) |

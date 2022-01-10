@@ -56,13 +56,12 @@ describe('Tree', () => {
   });
 
   it('switcherIcon should be loading icon when loadData', () => {
-    function onLoadData() {
-      return new Promise(resolve => {
+    const onLoadData = () =>
+      new Promise(resolve => {
         setTimeout(() => {
           resolve();
         }, 1000);
       });
-    }
     const wrapper = mount(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
         <TreeNode icon="icon">
@@ -95,5 +94,38 @@ describe('Tree', () => {
       </Tree>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  describe('draggable', () => {
+    const dragTreeData = [
+      {
+        title: 'bamboo',
+        key: 'bamboo',
+      },
+    ];
+
+    it('hide icon', () => {
+      const wrapper = mount(<Tree treeData={dragTreeData} draggable={{ icon: false }} />);
+      expect(wrapper.exists('.anticon-holder')).toBeFalsy();
+    });
+
+    it('customize icon', () => {
+      const wrapper = mount(
+        <Tree treeData={dragTreeData} draggable={{ icon: <span className="little" /> }} />,
+      );
+      expect(wrapper.exists('.little')).toBeTruthy();
+    });
+
+    it('nodeDraggable', () => {
+      const nodeDraggable = jest.fn(() => false);
+      mount(<Tree treeData={dragTreeData} draggable={{ nodeDraggable }} />);
+      expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
+
+    it('nodeDraggable func', () => {
+      const nodeDraggable = jest.fn(() => false);
+      mount(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
+      expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
   });
 });

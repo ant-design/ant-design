@@ -13,7 +13,7 @@ exports[`Drawer className is test_drawer 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:528px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -23,34 +23,37 @@ exports[`Drawer className is test_drawer 1`] = `
           style="opacity:0;transition:opacity .3s"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -77,7 +80,7 @@ exports[`Drawer closable is false 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:528px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -110,7 +113,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:528px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -120,34 +123,37 @@ exports[`Drawer destroyOnClose is true 1`] = `
           style="opacity:0;transition:opacity .3s"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -186,34 +192,37 @@ exports[`Drawer getContainer return undefined 2`] = `
             class="ant-drawer-wrapper-body"
           >
             <div
-              class="ant-drawer-header-no-title"
+              class="ant-drawer-header ant-drawer-header-close-only"
             >
-              <button
-                aria-label="Close"
-                class="ant-drawer-close"
-                style="--scroll-bar: 0px;"
-                type="button"
+              <div
+                class="ant-drawer-header-title"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close"
-                  role="img"
+                <button
+                  aria-label="Close"
+                  class="ant-drawer-close"
+                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    width="1em"
+                  <span
+                    aria-label="close"
+                    class="anticon anticon-close"
+                    role="img"
                   >
-                    <path
-                      d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="close"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
             <div
               class="ant-drawer-body"
@@ -241,7 +250,7 @@ exports[`Drawer have a footer 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:528px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -250,34 +259,37 @@ exports[`Drawer have a footer 1`] = `
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -309,7 +321,7 @@ exports[`Drawer have a title 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:528px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -321,36 +333,39 @@ exports[`Drawer have a title 1`] = `
             class="ant-drawer-header"
           >
             <div
-              class="ant-drawer-title"
+              class="ant-drawer-header-title"
             >
-              Test Title
-            </div>
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
-            >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ant-drawer-title"
+              >
+                Test Title
+              </div>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -386,34 +401,37 @@ exports[`Drawer render correctly 1`] = `
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -449,34 +467,37 @@ exports[`Drawer render top drawer 1`] = `
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -506,7 +527,7 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:528px"
+      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
     >
       <div
         class="ant-drawer-content"
@@ -516,35 +537,38 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
           style="background-color:#08c"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
             style="background-color:#08c"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
                 >
-                  <path
-                    d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M13.65 2.15a.5.5 0 11.7.7L9.21 8l5.46 5.46a.5.5 0 11-.71.7L8.5 8.72l-5.46 5.46a.5.5 0 01-.7-.71L7.78 8 2.65 2.85a.5.5 0 11.7-.7L8.5 7.29l5.15-5.14z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"
@@ -581,18 +605,21 @@ exports[`Drawer support closeIcon 1`] = `
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header-no-title"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              style="--scroll-bar:0px"
-              type="button"
+            <div
+              class="ant-drawer-header-title"
             >
-              <span>
-                close
-              </span>
-            </button>
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
+              >
+                <span>
+                  close
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="ant-drawer-body"

@@ -25,6 +25,7 @@
     background: @badge-color;
     border-radius: (@badge-height / 2);
     box-shadow: 0 0 0 1px @shadow-color-inverse;
+
     a,
     a:hover {
       color: @badge-text-color;
@@ -86,12 +87,15 @@
       vertical-align: middle;
       border-radius: 50%;
     }
+
     &-success {
       background-color: @success-color;
     }
+
     &-processing {
       position: relative;
       background-color: @processing-color;
+
       &::after {
         position: absolute;
         top: 0;
@@ -104,12 +108,15 @@
         content: '';
       }
     }
+
     &-default {
       background-color: @normal-color;
     }
+
     &-error {
       background-color: @error-color;
     }
+
     &-warning {
       background-color: @warning-color;
     }
@@ -157,7 +164,8 @@
       vertical-align: middle;
     }
 
-    .@{number-prefix-cls}-custom-component {
+    .@{number-prefix-cls}-custom-component,
+    .@{badge-prefix-cls}-count {
       transform: none;
     }
 
@@ -168,10 +176,6 @@
       display: block;
       transform-origin: 50% 50%;
     }
-
-    .@{badge-prefix-cls}-count {
-      transform: none;
-    }
   }
 }
 
@@ -180,6 +184,7 @@
     transform: scale(0.8);
     opacity: 0.5;
   }
+
   100% {
     transform: scale(2.4);
     opacity: 0;
@@ -188,12 +193,16 @@
 
 // Safari will blink with transform when inner element has absolute style.
 .safari-fix-motion() {
+  /* stylelint-disable property-no-vendor-prefix */
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
+  /* stylelint-enable property-no-vendor-prefix */
 }
 
 .@{number-prefix-cls} {
   overflow: hidden;
+  direction: ltr;
+
   &-only {
     position: relative;
     display: inline-block;
@@ -218,6 +227,7 @@
     transform: scale(0) translate(50%, -50%);
     opacity: 0;
   }
+
   100% {
     transform: scale(1) translate(50%, -50%);
   }
@@ -227,6 +237,7 @@
   0% {
     transform: scale(1) translate(50%, -50%);
   }
+
   100% {
     transform: scale(0) translate(50%, -50%);
     opacity: 0;
@@ -238,6 +249,7 @@
     transform: scale(0);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
   }
@@ -247,6 +259,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0);
     opacity: 0;

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 iframe: 360
 title:
   zh-CN: 固定头部

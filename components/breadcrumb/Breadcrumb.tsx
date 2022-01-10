@@ -6,7 +6,6 @@ import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import { Omit } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
 
 export interface Route {
@@ -56,9 +55,9 @@ const getPath = (path: string, params: any) => {
   return path;
 };
 
-const addChildPath = (paths: string[], childPath: string = '', params: any) => {
+const addChildPath = (paths: string[], childPath: string, params: any) => {
   const originalPaths = [...paths];
-  const path = getPath(childPath, params);
+  const path = getPath(childPath || '', params);
   if (path) {
     originalPaths.push(path);
   }

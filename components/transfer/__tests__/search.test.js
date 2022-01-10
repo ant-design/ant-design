@@ -34,9 +34,9 @@ describe('Transfer.Search', () => {
 
   it('should show cross icon when input value exists', () => {
     const wrapper = mount(<Search value="" />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({ value: 'a' });
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('onSearch', () => {
@@ -59,7 +59,7 @@ describe('Transfer.Search', () => {
       .simulate('change', { target: { value: 'a' } });
     expect(onSearch).toHaveBeenCalledWith('left', 'a');
     onSearch.mockReset();
-    wrapper.find('.ant-transfer-list-search-action').at(0).simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(onSearch).toHaveBeenCalledWith('left', '');
     jest.useRealTimers();
   });

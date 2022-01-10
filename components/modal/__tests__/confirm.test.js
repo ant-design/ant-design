@@ -1,10 +1,12 @@
+import * as React from 'react';
 import TestUtils, { act } from 'react-dom/test-utils';
 import CSSMotion from 'rc-motion';
+import { SmileOutlined } from '@ant-design/icons';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import Modal from '..';
-import { destroyFns } from '../Modal';
+import destroyFns from '../destroyFns';
 import { sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
@@ -472,13 +474,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('should be able to global config rootPrefixCls', () => {
     jest.useFakeTimers();
-    ConfigProvider.config({ prefixCls: 'my' });
-    confirm({ title: 'title' });
+    ConfigProvider.config({ prefixCls: 'my', iconPrefixCls: 'bamboo' });
+    confirm({ title: 'title', icon: <SmileOutlined /> });
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-btn').length).toBe(0);
     expect(document.querySelectorAll('.my-btn').length).toBe(2);
+    expect(document.querySelectorAll('.bamboo-smile').length).toBe(1);
     expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant' });
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
     jest.useRealTimers();
   });
 
@@ -541,5 +544,11 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(afterClose).not.toHaveBeenCalled();
     await sleep(500);
     expect(afterClose).toHaveBeenCalled();
+  });
+
+  it('bodyStyle', async () => {
+    open({ bodyStyle: { width: 500 } });
+    const { width } = $$('.ant-modal-body')[0].style;
+    expect(width).toBe('500px');
   });
 });

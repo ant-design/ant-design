@@ -306,6 +306,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
 
 exports[`renders ./components/form/demo/basic.md correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="basic"
 >
@@ -448,6 +449,137 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
   >
     <div
       class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/col-24-debug.md correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-horizontal"
+  id="basic"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-24 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="basic_username"
+        title="Username"
+      >
+        Username
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-24 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="basic_username"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-24 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="basic_password"
+        title="Password"
+      >
+        Password
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-24 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-password"
+          >
+            <input
+              action="click"
+              class="ant-input"
+              id="basic_password"
+              type="password"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="eye-invisible"
+                class="anticon anticon-eye-invisible ant-input-password-icon"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="eye-invisible"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+                  />
+                  <path
+                    d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-24 ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -1073,9 +1205,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Buggy!
@@ -1115,9 +1248,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Buggy!
@@ -1188,9 +1322,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Buggy!
@@ -1230,9 +1365,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Buggy!
@@ -1329,9 +1465,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Buggy!
@@ -1384,9 +1521,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Buggy!
@@ -1475,9 +1613,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Buggy!
@@ -1526,9 +1665,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Buggy!
@@ -1864,6 +2004,112 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
               Add sights
             </span>
           </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/dynamic-form-items-no-style.md correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-horizontal"
+  id="dynamic_form_nest_item"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Users"
+      >
+        Users
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <button
+                    class="ant-btn ant-btn-dashed ant-btn-block"
+                    type="button"
+                  >
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <defs />
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      Add field
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2354,6 +2600,120 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/label-debug.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="label-ellipsis"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-8 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="label-ellipsis_username"
+        title=""
+      >
+        <span
+          class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+        >
+          longtextlongtextlongtextlongtextlongtextlongtextlongtext
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-16 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="label-ellipsis_username"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-8 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="label-ellipsis_password"
+        title=""
+      >
+        <span
+          class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+        >
+          longtext longtext longtext longtext longtext longtext longtext
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-16 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-password"
+          >
+            <input
+              action="click"
+              class="ant-input"
+              id="label-ellipsis_password"
+              type="password"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="eye-invisible"
+                class="anticon anticon-eye-invisible ant-input-password-icon"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="eye-invisible"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+                  />
+                  <path
+                    d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/layout.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -2527,6 +2887,120 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           <button
             class="ant-btn ant-btn-primary"
             type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="wrap"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-no-colon"
+        for="wrap_username"
+        title="正常标签文案"
+      >
+        正常标签文案
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="wrap_username"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-no-colon"
+        for="wrap_password"
+        title="超长标签文案超长标签文案"
+      >
+        超长标签文案超长标签文案
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="wrap_password"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+      style="flex:0 0 110px"
+    >
+      <label
+        class="ant-form-item-no-colon"
+        title=" "
+      >
+         
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+      style="flex:1 1 auto"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
           >
             <span>
               Submit
@@ -3244,6 +3718,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3306,64 +3781,91 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span
-            class="ant-cascader-picker"
-            tabindex="0"
+          <div
+            class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
-            <span
-              class="ant-cascader-picker-label"
+            <div
+              class="ant-select-selector"
             >
-              Zhejiang / Hangzhou / West Lake
-            </span>
-            <input
-              autocomplete="off"
-              class="ant-input ant-cascader-input "
-              id="register_residence"
-              readonly=""
-              tabindex="-1"
-              type="text"
-              value=""
-            />
-            <span
-              aria-label="close-circle"
-              class="anticon anticon-close-circle ant-cascader-picker-clear"
-              role="img"
-              tabindex="-1"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="close-circle"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                class="ant-select-selection-search"
               >
-                <path
-                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="register_residence_list"
+                  aria-haspopup="listbox"
+                  aria-owns="register_residence_list"
+                  autocomplete="off"
+                  class="ant-select-selection-search-input"
+                  id="register_residence"
+                  readonly=""
+                  role="combobox"
+                  style="opacity:0"
+                  type="search"
+                  unselectable="on"
+                  value=""
                 />
-              </svg>
+              </span>
+              <span
+                class="ant-select-selection-item"
+                title="Zhejiang / Hangzhou / West Lake"
+              >
+                Zhejiang / Hangzhou / West Lake
+              </span>
+            </div>
+            <span
+              aria-hidden="true"
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="arrow-down"
+                class="anticon anticon-arrow-down ant-select-suffix"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="arrow-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                  />
+                </svg>
+              </span>
             </span>
             <span
-              aria-label="arrow-down"
-              class="anticon anticon-arrow-down ant-cascader-picker-arrow"
-              role="img"
+              aria-hidden="true"
+              class="ant-select-clear"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="arrow-down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
+              <span
+                aria-label="close-fullfiled"
+                class="anticon anticon-close-fullfiled"
+                role="img"
               >
-                <path
-                  d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-fullfiled"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 6.3L5.88 5.16a.5.5 0 00-.77.64l.06.07L7.3 8l-2.12 2.12a.5.5 0 00.64.77l.07-.06L8 8.7l2.12 2.12a.5.5 0 00.77-.64l-.06-.07L8.7 8l2.12-2.12a.5.5 0 00-.64-.77l-.07.06L8 7.3 5.88 5.17 8 7.3z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -3483,6 +3985,178 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_donation"
+        title="Donation"
+      >
+        Donation
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-input-number-group-wrapper"
+            style="width:100%"
+          >
+            <div
+              class="ant-input-number-wrapper ant-input-number-group"
+            >
+              <div
+                class="ant-input-number"
+              >
+                <div
+                  class="ant-input-number-handler-wrap"
+                >
+                  <span
+                    aria-disabled="false"
+                    aria-label="Increase Value"
+                    class="ant-input-number-handler ant-input-number-handler-up"
+                    role="button"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="up"
+                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="up"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <span
+                    aria-disabled="false"
+                    aria-label="Decrease Value"
+                    class="ant-input-number-handler ant-input-number-handler-down"
+                    role="button"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+                <div
+                  class="ant-input-number-input-wrap"
+                >
+                  <input
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    id="register_donation"
+                    role="spinbutton"
+                    step="1"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                class="ant-input-number-group-addon"
+              >
+                <div
+                  class="ant-select ant-select-single ant-select-show-arrow"
+                  style="width:70px"
+                >
+                  <div
+                    class="ant-select-selector"
+                  >
+                    <span
+                      class="ant-select-selection-search"
+                    >
+                      <input
+                        aria-activedescendant="register_suffix_list_0"
+                        aria-autocomplete="list"
+                        aria-controls="register_suffix_list"
+                        aria-haspopup="listbox"
+                        aria-owns="register_suffix_list"
+                        autocomplete="off"
+                        class="ant-select-selection-search-input"
+                        id="register_suffix"
+                        readonly=""
+                        role="combobox"
+                        style="opacity:0"
+                        type="search"
+                        unselectable="on"
+                        value=""
+                      />
+                    </span>
+                    <span
+                      class="ant-select-selection-placeholder"
+                    />
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-arrow"
+                    style="user-select:none;-webkit-user-select:none"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="arrow-down"
+                      class="anticon anticon-arrow-down ant-select-suffix"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="arrow-down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
         for="register_website"
         title="Website"
       >
@@ -3527,6 +4201,42 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 website
               </span>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
+        for="register_intro"
+        title="Intro"
+      >
+        Intro
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-input-textarea ant-input-textarea-show-count"
+            data-count="0 / 100"
+          >
+            <textarea
+              class="ant-input"
+              id="register_intro"
+            />
           </div>
         </div>
       </div>
@@ -3763,6 +4473,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         Required Mark
         <span
           class="ant-form-item-optional"
+          title=""
         >
           (optional)
         </span>
@@ -3859,6 +4570,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3913,6 +4625,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
           aria-label="info-circle"
           class="anticon anticon-info-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -3933,6 +4646,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         </span>
         <span
           class="ant-form-item-optional"
+          title=""
         >
           (optional)
         </span>
@@ -4223,7 +4937,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-haspopup="listbox"
@@ -4295,42 +5008,61 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span
-            class="ant-cascader-picker ant-cascader-picker-default"
-            tabindex="0"
+          <div
+            class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
-            <span
-              class="ant-cascader-picker-label"
-            />
-            <input
-              autocomplete="off"
-              class="ant-input ant-cascader-input "
-              placeholder="Please select"
-              readonly=""
-              tabindex="-1"
-              type="text"
-              value=""
-            />
-            <span
-              aria-label="arrow-down"
-              class="anticon anticon-arrow-down ant-cascader-picker-arrow"
-              role="img"
+            <div
+              class="ant-select-selector"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="arrow-down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
+              <span
+                class="ant-select-selection-search"
               >
-                <path
-                  d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="undefined_list"
+                  aria-haspopup="listbox"
+                  aria-owns="undefined_list"
+                  autocomplete="off"
+                  class="ant-select-selection-search-input"
+                  readonly=""
+                  role="combobox"
+                  style="opacity:0"
+                  type="search"
+                  unselectable="on"
+                  value=""
                 />
-              </svg>
+              </span>
+              <span
+                class="ant-select-selection-placeholder"
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="arrow-down"
+                class="anticon anticon-arrow-down ant-select-suffix"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="arrow-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -6444,7 +7176,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6454,7 +7186,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6472,9 +7204,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Should be combination of numbers & alphabets
@@ -6486,7 +7219,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6496,7 +7229,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6546,7 +7279,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6556,7 +7289,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6597,9 +7330,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-validating"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-validating"
           role="alert"
         >
           The information is being validated...
@@ -6611,7 +7345,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6621,7 +7355,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6667,7 +7401,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6677,7 +7411,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6723,7 +7457,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6733,7 +7467,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6774,9 +7508,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-error"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-error"
           role="alert"
         >
           Should be combination of numbers & alphabets
@@ -6788,7 +7523,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6798,7 +7533,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6877,7 +7612,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6887,7 +7622,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -6969,7 +7704,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -6979,7 +7714,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7074,7 +7809,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7084,7 +7819,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7092,42 +7827,61 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span
-            class="ant-cascader-picker"
-            tabindex="0"
+          <div
+            class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
-            <span
-              class="ant-cascader-picker-label"
-            />
-            <input
-              autocomplete="off"
-              class="ant-input ant-cascader-input "
-              placeholder="Please select"
-              readonly=""
-              tabindex="-1"
-              type="text"
-              value=""
-            />
-            <span
-              aria-label="arrow-down"
-              class="anticon anticon-arrow-down ant-cascader-picker-arrow"
-              role="img"
+            <div
+              class="ant-select-selector"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="arrow-down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
+              <span
+                class="ant-select-selection-search"
               >
-                <path
-                  d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="undefined_list"
+                  aria-haspopup="listbox"
+                  aria-owns="undefined_list"
+                  autocomplete="off"
+                  class="ant-select-selection-search-input"
+                  readonly=""
+                  role="combobox"
+                  style="opacity:0"
+                  type="search"
+                  unselectable="on"
+                  value=""
                 />
-              </svg>
+              </span>
+              <span
+                class="ant-select-selection-placeholder"
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="arrow-down"
+                class="anticon anticon-arrow-down ant-select-suffix"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="arrow-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M8.25 9.19L4.28 5.22a.75.75 0 00-1.06 1.06l4.5 4.5c.3.3.77.3 1.06 0l4.5-4.5a.75.75 0 00-1.06-1.06L8.25 9.19z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
         <span
           class="ant-form-item-children-icon"
@@ -7154,9 +7908,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-form-item-explain ant-form-item-explain-validating"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class="ant-form-item-explain-validating"
           role="alert"
         >
           The information is being validated...
@@ -7169,7 +7924,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     style="margin-bottom:0"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7179,7 +7934,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7242,12 +7997,13 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-form-item-explain ant-form-item-explain-error"
+                class="ant-form-item-explain ant-form-item-explain-connected"
               >
                 <div
+                  class="ant-form-item-explain-error"
                   role="alert"
                 >
-                  Please select the correct date
+                  Please select right date
                 </div>
               </div>
             </div>
@@ -7321,7 +8077,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7331,7 +8087,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7444,7 +8200,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7454,7 +8210,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7527,7 +8283,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7537,7 +8293,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7614,7 +8370,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
     >
       <label
         class=""
@@ -7624,7 +8380,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
     >
       <div
         class="ant-form-item-control-input"
@@ -7647,7 +8403,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <span
                 aria-label="close-circle"
-                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix ant-input-clear-icon"
                 role="button"
                 tabindex="-1"
               >
@@ -7714,6 +8470,127 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </svg>
           </span>
         </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class=""
+        title="Fail"
+      >
+        Fail
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-mentions"
+          >
+            <textarea
+              class="rc-textarea"
+              rows="1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-vertical"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="url"
+        title="URL"
+      >
+        URL
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="url"
+            placeholder="input placeholder"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-space ant-space-horizontal ant-space-align-center"
+          >
+            <div
+              class="ant-space-item"
+              style="margin-right:16px"
+            >
+              <button
+                class="ant-btn ant-btn-primary"
+                type="submit"
+              >
+                <span>
+                  Submit
+                </span>
+              </button>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Fill
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -7825,9 +8702,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
+          class=""
           role="alert"
         >
           A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.

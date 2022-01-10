@@ -73,6 +73,11 @@ describe('PageHeader', () => {
     expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
   });
 
+  it('pageHeader support breadcrumbRender return false', () => {
+    const wrapper = mount(<PageHeader title="Page Title" breadcrumbRender={() => false} />);
+    expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
+  });
+
   it('pageHeader do not has title', () => {
     const routes = [
       {
@@ -152,6 +157,6 @@ describe('PageHeader', () => {
     wrapper.triggerResize();
     await Promise.resolve();
     wrapper.update();
-    expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBe(true);
+    expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBeTruthy();
   });
 });

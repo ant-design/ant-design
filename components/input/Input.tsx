@@ -1,19 +1,24 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import Group from './Group';
-import Search from './Search';
-import TextArea from './TextArea';
-import Password from './Password';
-import { Omit, LiteralUnion } from '../_util/type';
-import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
+import type Group from './Group';
+import type Search from './Search';
+import type TextArea from './TextArea';
+import type Password from './Password';
+import { LiteralUnion } from '../_util/type';
+import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { cloneElement } from '../_util/reactNode';
+import { getInputClassName, hasPrefixSuffix } from './utils';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
+}
+
+export interface ShowCountProps {
+  formatter: (args: { count: number; maxLength?: number }) => React.ReactNode;
 }
 
 export interface InputProps
@@ -52,16 +57,18 @@ export interface InputProps
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   allowClear?: boolean;
+  showCount?: boolean | ShowCountProps;
   bordered?: boolean;
   tip?: string | React.ReactNode;
   isError?: boolean;
+  htmlSize?: number;
 }
 
 export function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
-  return value;
+  return String(value);
 }
 
 export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
@@ -77,18 +84,30 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     return;
   }
   let event = e;
-  const originalInputValue = target.value;
 
   if (e.type === 'click') {
     // click clear icon
     event = Object.create(e);
-    event.target = target;
-    event.currentTarget = target;
-    // change target ref value cause e.target.value should be '' when clear input
-    target.value = '';
+
+    // Clone a new target for event.
+    // Avoid the following usage, the setQuery method gets the original value.
+    //
+    // const [query, setQuery] = React.useState('');
+    // <Input
+    //   allowClear
+    //   value={query}
+    //   onChange={(e)=> {
+    //     setQuery((prevStatus) => e.target.value);
+    //   }}
+    // />
+
+    const currentTarget = target.cloneNode(true) as E;
+
+    event.target = currentTarget;
+    event.currentTarget = currentTarget;
+
+    currentTarget.value = '';
     onChange(event as React.ChangeEvent<E>);
-    // reset target ref value
-    target.value = originalInputValue;
     return;
   }
 
@@ -103,22 +122,6 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     return;
   }
   onChange(event as React.ChangeEvent<E>);
-}
-
-export function getInputClassName(
-  prefixCls: string,
-  bordered: boolean,
-  size?: SizeType,
-  disabled?: boolean,
-  direction?: DirectionType,
-) {
-  return classNames(prefixCls, {
-    [`${prefixCls}-sm`]: size === 'small',
-    [`${prefixCls}-lg`]: size === 'large',
-    [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-borderless`]: !bordered,
-  });
 }
 
 export function triggerFocus(
@@ -192,6 +195,9 @@ class Input extends React.Component<InputProps, InputState> {
     const newState: Partial<InputState> = { prevValue: nextProps.value };
     if (nextProps.value !== undefined || prevValue !== nextProps.value) {
       newState.value = nextProps.value;
+    }
+    if (nextProps.disabled) {
+      newState.focused = false;
     }
     return newState;
   }
@@ -285,6 +291,7 @@ class Input extends React.Component<InputProps, InputState> {
       size: customizeSize,
       disabled,
       isError,
+      htmlSize,
     } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props as InputProps & { inputType: any }, [
@@ -301,6 +308,7 @@ class Input extends React.Component<InputProps, InputState> {
       'size',
       'inputType',
       'bordered',
+      'htmlSize',
     ]);
     return (
       <input
@@ -318,6 +326,7 @@ class Input extends React.Component<InputProps, InputState> {
           },
         )}
         ref={this.saveInput}
+        size={htmlSize}
       />
     );
   };
@@ -348,6 +357,38 @@ class Input extends React.Component<InputProps, InputState> {
     onKeyDown?.(e);
   };
 
+  renderShowCountSuffix = (prefixCls: string) => {
+    const { value } = this.state;
+    const { maxLength, suffix, showCount } = this.props;
+    // Max length value
+    const hasMaxLength = Number(maxLength) > 0;
+
+    if (suffix || showCount) {
+      const valueLength = [...fixControlledValue(value)].length;
+      let dataCount = null;
+      if (typeof showCount === 'object') {
+        dataCount = showCount.formatter({ count: valueLength, maxLength });
+      } else {
+        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      }
+      return (
+        <>
+          {!!showCount && (
+            <span
+              className={classNames(`${prefixCls}-show-count-suffix`, {
+                [`${prefixCls}-show-count-has-suffix`]: !!suffix,
+              })}
+            >
+              {dataCount}
+            </span>
+          )}
+          {suffix}
+        </>
+      );
+    }
+    return null;
+  };
+
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
     const { prefixCls: customizePrefixCls, bordered = true, tip, isError } = this.props;
@@ -369,8 +410,11 @@ class Input extends React.Component<InputProps, InputState> {
         focused={focused}
         triggerFocus={this.focus}
         bordered={bordered}
+        suffix={showCountSuffix}
       />
     );
+
+    const showCountSuffix = this.renderShowCountSuffix(prefixCls);
 
     return (
       <SizeContext.Consumer>

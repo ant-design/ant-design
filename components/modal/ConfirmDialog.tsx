@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Dialog, { ModalFuncProps } from './Modal';
-import ActionButton from './ActionButton';
+import ActionButton from '../_util/ActionButton';
 import devWarning from '../_util/devWarning';
 import ConfigProvider from '../config-provider';
 import { getTransitionName } from '../_util/motion';
@@ -11,6 +11,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
   close: (...args: any[]) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
+  iconPrefixCls?: string;
 }
 
 const ConfirmDialog = (props: ConfirmDialogProps) => {
@@ -32,7 +33,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     cancelButtonProps,
     direction,
     prefixCls,
+    wrapClassName,
     rootPrefixCls,
+    iconPrefixCls,
     bodyStyle,
     closable = false,
     closeIcon,
@@ -68,7 +71,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const cancelButton = okCancel && (
     <ActionButton
       actionFn={onCancel}
-      closeModal={close}
+      close={close}
       autoFocus={autoFocusButton === 'cancel'}
       buttonProps={cancelButtonProps}
       prefixCls={`${rootPrefixCls}-btn`}
@@ -78,56 +81,60 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   );
 
   return (
-    <Dialog
-      prefixCls={prefixCls}
-      className={classString}
-      wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={() => close({ triggerCancel: true })}
-      visible={visible}
-      title=""
-      footer=""
-      transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-      maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-      mask={mask}
-      maskClosable={maskClosable}
-      maskStyle={maskStyle}
-      style={style}
-      width={width}
-      zIndex={zIndex}
-      afterClose={afterClose}
-      keyboard={keyboard}
-      centered={centered}
-      getContainer={getContainer}
-      closable={closable}
-      closeIcon={closeIcon}
-      modalRender={modalRender}
-      focusTriggerAfterClose={focusTriggerAfterClose}
-    >
-      <div className={`${contentPrefixCls}-body-wrapper`}>
-        <ConfigProvider prefixCls={rootPrefixCls}>
-          <div className={`${contentPrefixCls}-body`} style={bodyStyle}>
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
+      <Dialog
+        prefixCls={prefixCls}
+        className={classString}
+        wrapClassName={classNames(
+          { [`${contentPrefixCls}-centered`]: !!props.centered },
+          wrapClassName,
+        )}
+        onCancel={() => close({ triggerCancel: true })}
+        visible={visible}
+        title=""
+        footer=""
+        transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+        maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+        mask={mask}
+        maskClosable={maskClosable}
+        maskStyle={maskStyle}
+        style={style}
+        bodyStyle={bodyStyle}
+        width={width}
+        zIndex={zIndex}
+        afterClose={afterClose}
+        keyboard={keyboard}
+        centered={centered}
+        getContainer={getContainer}
+        closable={closable}
+        closeIcon={closeIcon}
+        modalRender={modalRender}
+        focusTriggerAfterClose={focusTriggerAfterClose}
+      >
+        <div className={`${contentPrefixCls}-body-wrapper`}>
+          <div className={`${contentPrefixCls}-body`}>
             {icon}
             {props.title === undefined ? null : (
               <span className={`${contentPrefixCls}-title`}>{props.title}</span>
             )}
             <div className={`${contentPrefixCls}-content`}>{props.content}</div>
           </div>
-        </ConfigProvider>
-        <div className={`${contentPrefixCls}-btns`}>
-          {cancelButton}
-          <ActionButton
-            type={okType}
-            actionFn={onOk}
-            closeModal={close}
-            autoFocus={autoFocusButton === 'ok'}
-            buttonProps={okButtonProps}
-            prefixCls={`${rootPrefixCls}-btn`}
-          >
-            {okText}
-          </ActionButton>
+          <div className={`${contentPrefixCls}-btns`}>
+            {cancelButton}
+            <ActionButton
+              type={okType}
+              actionFn={onOk}
+              close={close}
+              autoFocus={autoFocusButton === 'ok'}
+              buttonProps={okButtonProps}
+              prefixCls={`${rootPrefixCls}-btn`}
+            >
+              {okText}
+            </ActionButton>
+          </div>
         </div>
-      </div>
-    </Dialog>
+      </Dialog>
+    </ConfigProvider>
   );
 };
 

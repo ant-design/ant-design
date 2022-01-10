@@ -25,14 +25,6 @@ const wrapperStyle: React.CSSProperties = {
   lineHeight: 'inherit',
 };
 
-function pxToNumber(value: string | null): number {
-  if (!value) {
-    return 0;
-  }
-  const match = value.match(/^\d*(\.\d*)?/);
-  return match ? Number(match[0]) : 0;
-}
-
 function styleToString(style: CSSStyleDeclaration) {
   // There are some different behavior between Firefox & Chrome.
   // We have to handle this ourself.
@@ -66,6 +58,10 @@ function resetDomStyles(target: HTMLElement, origin: HTMLElement) {
   target.style.height = 'auto';
   target.style.minHeight = 'auto';
   target.style.maxHeight = 'auto';
+  target.style.paddingTop = '0';
+  target.style.paddingBottom = '0';
+  target.style.borderTopWidth = '0';
+  target.style.borderBottomWidth = '0';
   target.style.top = '-999999px';
   target.style.zIndex = '-1000';
   // clean up css overflow
@@ -79,10 +75,11 @@ function getRealLineHeight(originElement: HTMLElement) {
   resetDomStyles(heightContainer, originElement);
   heightContainer.appendChild(document.createTextNode('text'));
   document.body.appendChild(heightContainer);
-  const { offsetHeight } = heightContainer;
-  const lineHeight = pxToNumber(window.getComputedStyle(originElement).lineHeight);
+  // The element real height is always less than multiple of line-height
+  // Use getBoundingClientRect to get actual single row height of the element
+  const realHeight = heightContainer.getBoundingClientRect().height;
   document.body.removeChild(heightContainer);
-  return offsetHeight > lineHeight ? offsetHeight : lineHeight;
+  return realHeight;
 }
 
 export default (
@@ -103,13 +100,8 @@ export default (
   }
 
   const { rows, suffix = '' } = option;
-  // Get origin style
-  const originStyle = window.getComputedStyle(originElement);
   const lineHeight = getRealLineHeight(originElement);
-  const maxHeight =
-    Math.floor(lineHeight) * (rows + 1) +
-    pxToNumber(originStyle.paddingTop) +
-    pxToNumber(originStyle.paddingBottom);
+  const maxHeight = Math.round(lineHeight * rows * 100) / 100;
 
   resetDomStyles(ellipsisContainer, originElement);
 
@@ -128,7 +120,8 @@ export default (
 
   // Check if ellipsis in measure div is height enough for content
   function inRange() {
-    return Math.ceil(ellipsisContainer.getBoundingClientRect().height) < maxHeight;
+    const currentHeight = Math.round(ellipsisContainer.getBoundingClientRect().height * 100) / 100;
+    return currentHeight - 0.1 <= maxHeight; // -.1 for firefox
   }
 
   // Skip ellipsis if already match
@@ -223,6 +216,7 @@ export default (
         reactNode: null,
       };
     }
+
     if (type === TEXT_NODE) {
       const fullText = childNode.textContent || '';
       const textNode = document.createTextNode(fullText);

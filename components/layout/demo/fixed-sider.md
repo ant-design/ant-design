@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 8
 iframe: 360
 title:
   zh-CN: 固定侧边栏
@@ -30,7 +30,7 @@ import {
 const { Header, Content, Footer, Sider } = Layout;
 
 ReactDOM.render(
-  <Layout>
+  <Layout hasSider>
     <Sider
       style={{
         overflow: 'auto',

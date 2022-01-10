@@ -38,6 +38,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
+| fieldNames | 自定义节点 label、value、options 的字段 | object | { label: `label`, value: `value`, options: `options` } | 4.17.0 |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | boolean \| function(inputValue, option) | true |  |
 | filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的 compareFunction | (optionA: Option, optionB: Option) => number | - | 4.9.0 |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
@@ -61,7 +62,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | showSearch | 使单选模式可搜索 | boolean | false |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| tagRender | 自定义 tag 内容 render | (props) => ReactNode | - |  |
+| tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | tokenSeparators | 在 `tags` 和 `multiple` 模式下自动分词的分隔符 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
@@ -89,12 +90,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 ### Option props
 
-| 参数      | 说明                              | 类型             | 默认值 | 版本 |
-| --------- | --------------------------------- | ---------------- | ------ | ---- |
-| className | Option 器类名                     | string           | -      |      |
-| disabled  | 是否禁用                          | boolean          | false  |      |
-| title     | 选中该 Option 后，Select 的 title | string           | -      |      |
-| value     | 默认根据此属性值进行筛选          | string \| number | -      |      |
+| 参数      | 说明                     | 类型             | 默认值 | 版本 |
+| --------- | ------------------------ | ---------------- | ------ | ---- |
+| className | Option 器类名            | string           | -      |      |
+| disabled  | 是否禁用                 | boolean          | false  |      |
+| title     | 选项上的原生 title 提示  | string           | -      |      |
+| value     | 默认根据此属性值进行筛选 | string \| number | -      |      |
 
 ### OptGroup props
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
@@ -139,18 +139,7 @@ describe('TextArea', () => {
     const onResize = jest.fn();
     const wrapper = mount(<TextArea onResize={onResize} autoSize />);
     await sleep(100);
-    wrapper
-      .find('ResizeObserver')
-      .instance()
-      .onResize([
-        {
-          target: {
-            getBoundingClientRect() {
-              return {};
-            },
-          },
-        },
-      ]);
+    wrapper.triggerResize();
     await Promise.resolve();
 
     expect(onResize).toHaveBeenCalledWith(
@@ -369,6 +358,7 @@ describe('TextArea allowClear', () => {
       'setSelectionRange',
     );
     wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
+    wrapper.triggerResize();
     await sleep(100);
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();
@@ -380,14 +370,14 @@ describe('TextArea allowClear', () => {
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('Light');
   });
 
-  it('onChange event should return HTMLInputElement', () => {
+  it('onChange event should return HTMLTextAreaElement', () => {
     const onChange = jest.fn();
     const wrapper = mount(<Input.TextArea onChange={onChange} allowClear />);
 
     function isNativeElement() {
       expect(onChange).toHaveBeenCalledWith(
         expect.objectContaining({
-          target: wrapper.find('textarea').instance(),
+          target: expect.any(HTMLTextAreaElement),
         }),
       );
 
@@ -410,5 +400,32 @@ describe('TextArea allowClear', () => {
     // Reset
     wrapper.find('.ant-input-clear-icon').first().simulate('click');
     isNativeElement();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/31927
+  it('should correctly when useState', () => {
+    const App = () => {
+      const [query, setQuery] = useState('');
+      return (
+        <TextArea
+          allowClear
+          value={query}
+          onChange={e => {
+            setQuery(() => e.target.value);
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<App />);
+
+    wrapper.find('textarea').getDOMNode().focus();
+    wrapper.find('textarea').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('textarea').getDOMNode().value).toEqual('111');
+
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
+
+    wrapper.unmount();
   });
 });

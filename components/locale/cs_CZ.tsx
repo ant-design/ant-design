@@ -29,12 +29,12 @@ const localeValues: Locale = {
     cancelSort: 'Klikni pro zrušení řazení',
   },
   Modal: {
-    okText: 'Ok',
+    okText: 'OK',
     cancelText: 'Storno',
-    justOkText: 'Ok',
+    justOkText: 'OK',
   },
   Popconfirm: {
-    okText: 'Ok',
+    okText: 'OK',
     cancelText: 'Storno',
   },
   Transfer: {

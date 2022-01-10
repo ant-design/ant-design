@@ -47,7 +47,7 @@ export type SelectAllLabel =
 
 export interface TransferLocale {
   titles: React.ReactNode[];
-  notFoundContent?: React.ReactNode;
+  notFoundContent?: React.ReactNode | React.ReactNode[];
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
@@ -300,6 +300,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     }
   }
 
+  // eslint-disable-next-line class-methods-use-this
   handleListStyle = (
     listStyle: TransferProps<RecordType>['listStyle'],
     direction: TransferDirection,
@@ -400,7 +401,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               footer={footer}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
-              direction="left"
+              direction={direction === 'rtl' ? 'right' : 'left'}
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
@@ -437,7 +438,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               footer={footer}
               onScroll={this.handleRightScroll}
               disabled={disabled}
-              direction="right"
+              direction={direction === 'rtl' ? 'left' : 'right'}
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}

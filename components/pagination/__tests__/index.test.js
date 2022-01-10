@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Pagination from '..';
+import Select from '../../select';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -19,7 +20,7 @@ describe('Pagination', () => {
   });
 
   it('should pass disabled to prev and next buttons', () => {
-    function itemRender(current, type, originalElement) {
+    const itemRender = (current, type, originalElement) => {
       if (type === 'prev') {
         return <button type="button">prev</button>;
       }
@@ -27,7 +28,7 @@ describe('Pagination', () => {
         return <button type="button">next</button>;
       }
       return originalElement;
-    }
+    };
     const wrapper = mount(<Pagination defaultCurrent={1} total={50} itemRender={itemRender} />);
     expect(wrapper.find('button').at(0).props().disabled).toBe(true);
   });
@@ -54,5 +55,18 @@ describe('Pagination', () => {
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
     wrapper.find('.ant-select-item-option').at(1).simulate('click');
     expect(onChange).toHaveBeenCalledWith(1, 20);
+  });
+
+  it('should support custom selectComponentClass', () => {
+    const CustomSelect = ({ className, ...props }) => (
+      <Select className={`${className} custom-select`} {...props} />
+    );
+
+    CustomSelect.Option = Select.Option;
+
+    const wrapper = mount(
+      <Pagination defaultCurrent={1} total={500} selectComponentClass={CustomSelect} />,
+    );
+    expect(wrapper.find('.custom-select').length).toBeTruthy();
   });
 });

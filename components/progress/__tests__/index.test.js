@@ -158,7 +158,7 @@ describe('Progress', () => {
 
   it('should support steps', () => {
     const wrapper = mount(<Progress steps={3} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('steps should be changable', () => {

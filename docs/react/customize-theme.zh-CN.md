@@ -105,6 +105,10 @@ module.exports = {
 
 注意，这种方式已经载入了所有组件的样式，不需要也无法和按需加载插件 `babel-plugin-import` 的 `style` 属性一起使用。
 
+### 动态主题色
+
+在运行时调整主题色请[参考此处](/docs/react/customize-theme-variable)。
+
 ## 没有生效？
 
 注意样式必须加载 less 格式，一个常见的问题就是引入了多份样式，less 的样式被 css 的样式覆盖了。

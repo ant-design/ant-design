@@ -14,7 +14,7 @@ const localeValues: Locale = {
     filterTitle: 'Filtermenu',
     filterConfirm: 'OK',
     filterReset: 'Nulstil',
-    filterEmptyText: 'Ingen filtre', 
+    filterEmptyText: 'Ingen filtre',
     emptyText: 'Ingen data',
     selectAll: 'Vælg alle',
     selectNone: 'Ryd alt data',

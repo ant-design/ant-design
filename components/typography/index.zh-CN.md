@@ -25,7 +25,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | 自动溢出省略 | boolean | false |  |
+| ellipsis | 自动溢出省略，为对象时不能设置省略行数、是否可展开、onExpand 展开事件 | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | onClick | 点击 Text 时的回调 | (event) => void | - |  |
@@ -96,6 +96,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       onChange: function(string),
       onCancel: function,
       onEnd: function,
+      triggerType: ('icon' | 'text')[],
+      enterIcon: ReactNode,
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -109,7 +111,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | onChange | 文本域编辑时触发 | function(event) | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | onStart | 进入编辑中状态时触发 | function | - |  |
-| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  | 
+| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
 ### ellipsis
 

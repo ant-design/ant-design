@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount, ReactWrapper, HTMLAttributes } from 'enzyme';
-import ResizeObserverImpl from 'rc-resize-observer';
+import { mount, ReactWrapper } from 'enzyme';
 import Affix, { AffixProps, AffixState } from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { sleep } from '../../../tests/utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
@@ -54,6 +54,7 @@ class AffixMounter extends React.Component<{
 
 describe('Affix Render', () => {
   rtlTest(Affix);
+  accessibilityTest(Affix);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
@@ -171,13 +172,13 @@ describe('Affix Render', () => {
       const originLength = getObserverLength();
       const getTarget = () => target;
       affixWrapper = mount(<Affix target={getTarget}>{null}</Affix>);
-      await sleep(50);
+      await sleep(100);
 
       expect(getObserverLength()).toBe(originLength + 1);
       target = null;
       affixWrapper.setProps({});
       affixWrapper.update();
-      await sleep(50);
+      await sleep(100);
       expect(getObserverLength()).toBe(originLength);
     });
   });
@@ -206,27 +207,7 @@ describe('Affix Render', () => {
 
       // Mock trigger resize
       updateCalled.mockReset();
-      const resizeObserverInstance: ReactWrapper<
-        HTMLAttributes,
-        unknown,
-        ResizeObserverImpl
-      > = affixMounterWrapper.find('ResizeObserver') as any;
-      resizeObserverInstance
-        .at(index)
-        .instance()
-        .onResize(
-          [
-            {
-              target: {
-                getBoundingClientRect: () => ({ width: 99, height: 99 }),
-              } as Element,
-              contentRect: {} as DOMRect,
-              borderBoxSize: [],
-              contentBoxSize: [],
-            },
-          ],
-          ({} as unknown) as ResizeObserver,
-        );
+      (affixMounterWrapper as any).triggerResize(index);
       await sleep(20);
 
       expect(updateCalled).toHaveBeenCalled();

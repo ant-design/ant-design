@@ -19,6 +19,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | --- | --- | --- | --- | --- |
 | arrow | Whether the dropdown arrow should be visible | boolean | false |  |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
+| destroyPopupOnHide | Whether destroy dropdown when hidden | boolean | false |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
 | overlayClassName | The class name of the dropdown root element | string | - |  |
@@ -26,7 +27,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | placement | Placement of popup menu: `bottomLeft`, `bottomCenter`, `bottomRight`, `topLeft`, `topCenter` or `topRight` | string | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | visible | Whether the dropdown menu is currently visible | boolean | - |  |
-| onVisibleChange | Called when the visible state is changed | (visible: boolean) => void | - |  |
+| onVisibleChange | Called when the visible state is changed. Not trigger when hidden by click item | (visible: boolean) => void | - |  |
 
 You should use [Menu](/components/menu/) as `overlay`. The menu items and dividers are also available by using `Menu.Item` and `Menu.Divider`.
 
@@ -39,6 +40,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
+| loading | Set the loading status of button | boolean \| { delay: number } | false |  |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | icon | Icon (appears on the right) | ReactNode | - |  |
 | overlay | The dropdown menu | [Menu](/components/menu) | - |  |

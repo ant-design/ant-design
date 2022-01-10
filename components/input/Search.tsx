@@ -81,7 +81,10 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
   if (isAntdButton || enterButtonAsElement.type === 'button') {
     button = cloneElement(enterButtonAsElement, {
       onMouseDown,
-      onClick: onSearch,
+      onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        enterButtonAsElement?.props?.onClick?.(e);
+        onSearch(e);
+      },
       key: 'enterButton',
       ...(isAntdButton
         ? {

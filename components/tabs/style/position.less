@@ -1,4 +1,5 @@
-@import './index';
+@import '../../style/themes/index';
+@tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
 .@{tab-prefix-cls} {
   // ========================== Top & Bottom ==========================
@@ -39,6 +40,7 @@
           left: 0;
           box-shadow: inset 10px 0 8px -8px fade(@shadow-color, 8%);
         }
+
         &::after {
           right: 0;
           box-shadow: inset -10px 0 8px -8px fade(@shadow-color, 8%);
@@ -122,6 +124,7 @@
           top: 0;
           box-shadow: inset 0 10px 8px -8px fade(@shadow-color, 8%);
         }
+
         &::after {
           bottom: 0;
           box-shadow: inset 0 -10px 8px -8px fade(@shadow-color, 8%);

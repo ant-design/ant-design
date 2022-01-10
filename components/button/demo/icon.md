@@ -47,6 +47,38 @@ ReactDOM.render(
     <Button type="dashed" icon={<ISearch />}>
       Search
     </Button>
+    <Button icon={<ISearch />} href="https://www.google.com" />
+    <br />
+    <br />
+    <Tooltip title="search">
+      <Button type="primary" shape="circle" icon={<ISearch />} size="large" />
+    </Tooltip>
+    <Button type="primary" shape="circle" size="large">
+      A
+    </Button>
+    <Button type="primary" icon={<ISearch />} size="large">
+      Search
+    </Button>
+    <Tooltip title="search">
+      <Button shape="circle" icon={<ISearch />} size="large" />
+    </Tooltip>
+    <Button icon={<ISearch />} size="large">
+      Search
+    </Button>
+    <br />
+    <Tooltip title="search">
+      <Button shape="circle" icon={<ISearch />} size="large" />
+    </Tooltip>
+    <Button icon={<ISearch />} size="large">
+      Search
+    </Button>
+    <Tooltip title="search">
+      <Button type="dashed" shape="circle" icon={<ISearch />} size="large" />
+    </Tooltip>
+    <Button type="dashed" icon={<ISearch />} size="large">
+      Search
+    </Button>
+    <Button icon={<ISearch />} size="large" href="https://www.google.com" />
   </>,
   mountNode,
 );

@@ -61,11 +61,11 @@ You can subscribe to this feed for new version notifications: https://github.com
 **We recommend using npm or yarn to install**, it not only makes development easier, but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
 
 ```bash
-$ npm install antd
+$ npm install infrad
 ```
 
 ```bash
-$ yarn add antd
+$ yarn add infrad
 ```
 
 If you are in a bad network environment, you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
@@ -83,7 +83,7 @@ We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dis
 ## Usage
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from 'infrad';
 
 ReactDOM.render(<DatePicker />, mountNode);
 ```
@@ -91,7 +91,7 @@ ReactDOM.render(<DatePicker />, mountNode);
 And import stylesheets manually:
 
 ```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'infrad/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
 ### Use modularized antd

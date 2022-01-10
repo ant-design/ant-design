@@ -1,15 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Transfer.Search should show cross icon when input value exists 1`] = `
-Array [
-  <input
-    class="ant-input"
-    placeholder=""
-    type="text"
-    value=""
-  />,
+<span
+  class="ant-input-affix-wrapper"
+>
   <span
-    class="undefined-action"
+    class="ant-input-prefix"
   >
     <span
       aria-label="search"
@@ -30,25 +26,21 @@ Array [
         />
       </svg>
     </span>
-  </span>,
-]
-`;
-
-exports[`Transfer.Search should show cross icon when input value exists 2`] = `
-Array [
+  </span>
   <input
     class="ant-input"
     placeholder=""
     type="text"
-    value="a"
-  />,
-  <a
-    class="undefined-action"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle"
-      role="img"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+      role="button"
+      tabindex="-1"
     >
       <svg
         aria-hidden="true"
@@ -64,6 +56,66 @@ Array [
         />
       </svg>
     </span>
-  </a>,
-]
+  </span>
+</span>
+`;
+
+exports[`Transfer.Search should show cross icon when input value exists 2`] = `
+<span
+  class="ant-input-affix-wrapper"
+>
+  <span
+    class="ant-input-prefix"
+  >
+    <span
+      aria-label="search"
+      class="anticon anticon-search"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="search"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M7 1a6 6 0 014.58 9.86l3.28 3.28a.5.5 0 01-.64.77l-.07-.06-3.28-3.28A6 6 0 117 1zm0 1a5 5 0 100 10A5 5 0 007 2z"
+        />
+      </svg>
+    </span>
+  </span>
+  <input
+    class="ant-input"
+    placeholder=""
+    type="text"
+    value="a"
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <span
+      aria-label="close-circle"
+      class="anticon anticon-close-circle ant-input-clear-icon"
+      role="button"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="close-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        />
+      </svg>
+    </span>
+  </span>
+</span>
 `;

@@ -3,7 +3,7 @@ order: 0
 title: Infra Design of React
 ---
 
-`antd` 是基于 Infra Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。
+`infrad` 是基于 Infra Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。
 
 <div class="pic-plus">
   <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
@@ -61,11 +61,11 @@ title: Infra Design of React
 **我们推荐使用 npm 或 yarn 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
 
 ```bash
-$ npm install antd --save
+$ npm install infrad --save
 ```
 
 ```bash
-$ yarn add antd
+$ yarn add infrad
 ```
 
 如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
@@ -83,7 +83,7 @@ $ yarn add antd
 ## 示例
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from 'infrad';
 
 ReactDOM.render(<DatePicker />, mountNode);
 ```
@@ -91,7 +91,7 @@ ReactDOM.render(<DatePicker />, mountNode);
 引入样式：
 
 ```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'infrad/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
 ### 按需加载
