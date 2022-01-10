@@ -12,6 +12,7 @@ import Select from '../../select';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -314,16 +315,30 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
   });
 
-  it('should show related className when customize help', () => {
-    const wrapper = mount(
-      <Form>
-        <Form.Item help="good">
-          <input />
-        </Form.Item>
-      </Form>,
-    );
+  describe('should show related className when customize help', () => {
+    it('normal', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item help="good">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
+      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
+    });
+
+    it('empty string', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item help="">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
+    });
   });
 
   it('warning when use v3 function', () => {
@@ -596,6 +611,25 @@ describe('Form', () => {
     wrapper.update();
     await sleep(100);
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+  });
+
+  it('should have default validateMessages in default locale', async () => {
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <ConfigProvider>
+        <Form>
+          <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+        </Form>
+      </ConfigProvider>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await sleep(100);
+    wrapper.update();
+    await sleep(100);
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Please enter Bamboo');
   });
 
   it('`name` support template when label is not provided', async () => {
@@ -988,5 +1022,43 @@ describe('Form', () => {
     expect(errorSpy).not.toHaveBeenCalled();
 
     jest.useRealTimers();
+  });
+
+  describe('form colon', () => {
+    it('default colon', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item label="姓名">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-no-colon')).toBeFalsy();
+    });
+
+    it('set Form.Item colon false', () => {
+      const wrapper = mount(
+        <Form colon>
+          <Form.Item colon={false} label="姓名">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.find('.ant-form-item-no-colon')).toBeTruthy();
+    });
+
+    it('set Form colon false', () => {
+      const wrapper = mount(
+        <Form colon={false}>
+          <Form.Item label="姓名">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.find('.ant-form-item-no-colon')).toBeTruthy();
+    });
   });
 });

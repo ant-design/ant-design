@@ -60,8 +60,8 @@ const Home = props => {
         <Link to="/apps">Application List</Link>
       </div>
       <Routes>
-        <Route path="/apps" component={Apps} />
-        <Route render={() => <span>Home Page</span>} />
+        <Route path="/apps" element={<Apps />} />
+        <Route path="*" element={<span>Home Page</span>} />
       </Routes>
       <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
       <Breadcrumb>{breadcrumbItems}</Breadcrumb>

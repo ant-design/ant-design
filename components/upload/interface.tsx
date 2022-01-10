@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
+  UploadProps as RcUploadProps,
 } from 'rc-upload/lib/interface';
 import { ProgressProps } from '../progress';
 
@@ -39,7 +40,7 @@ export interface InternalUploadFile<T = any> extends UploadFile<T> {
   originFileObj: RcFile;
 }
 
-export interface UploadChangeParam<T extends object = UploadFile> {
+export interface UploadChangeParam<T = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
   fileList: UploadFile[];
@@ -52,6 +53,7 @@ export interface ShowUploadListInterface {
   showDownloadIcon?: boolean;
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
 }
 
 export interface UploadLocale {
@@ -83,7 +85,7 @@ type TransformFileHandler = (
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
-export interface UploadProps<T = any> {
+export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
@@ -102,7 +104,7 @@ export interface UploadProps<T = any> {
     file: RcFile,
     FileList: RcFile[],
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
-  onChange?: (info: UploadChangeParam) => void;
+  onChange?: (info: UploadChangeParam<T>) => void;
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
@@ -147,6 +149,7 @@ export interface UploadListProps<T = any> {
   showPreviewIcon?: boolean;
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;

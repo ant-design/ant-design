@@ -96,6 +96,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       onChange: function(string),
       onCancel: function,
       onEnd: function,
+      triggerType: ('icon' | 'text')[],
+      enterIcon: ReactNode,
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -109,6 +111,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | onChange | 文本域编辑时触发 | function(event) | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | onStart | 进入编辑中状态时触发 | function | - |  |
+| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
 ### ellipsis
 

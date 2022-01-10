@@ -341,10 +341,21 @@
 .@{dropdown-prefix-cls}-button {
   white-space: nowrap;
 
-  &.@{ant-prefix}-btn-group
-    > .@{ant-prefix}-btn:last-child:not(:first-child):not(.@{ant-prefix}-btn-icon-only) {
-    padding-right: @padding-xs;
-    padding-left: @padding-xs;
+  &.@{ant-prefix}-btn-group > .@{ant-prefix}-btn {
+    &-loading,
+    &-loading + .@{ant-prefix}-btn {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &-loading + .@{ant-prefix}-btn::before {
+      display: block;
+    }
+
+    &:last-child:not(:first-child):not(.@{ant-prefix}-btn-icon-only) {
+      padding-right: @padding-xs;
+      padding-left: @padding-xs;
+    }
   }
 }
 

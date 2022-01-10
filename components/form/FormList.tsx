@@ -8,7 +8,6 @@ import { FormItemPrefixContext } from './context';
 export interface FormListFieldData {
   name: number;
   key: number;
-  fieldKey: number;
 }
 
 export interface FormListOperation {

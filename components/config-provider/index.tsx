@@ -64,6 +64,7 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
+    colon?: boolean;
   };
   input?: {
     autoComplete?: string;
@@ -215,7 +216,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   let childNode = children;
   // Additional Form provider
-  let validateMessages: ValidateMessages = {};
+  let validateMessages: ValidateMessages = {
+    ...defaultLocale.Form?.defaultValidateMessages,
+  };
 
   if (locale) {
     validateMessages =
