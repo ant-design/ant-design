@@ -7,6 +7,7 @@ import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { tuple } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
+import getPlacements from './placements';
 
 const Placements = tuple(
   'topLeft',
@@ -34,8 +35,12 @@ type Align = {
   useCssTransform?: boolean;
 };
 
+export type DropdownArrowOptions = {
+  pointAtCenter?: boolean;
+};
+
 export interface DropDownProps {
-  arrow?: boolean;
+  arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
@@ -169,11 +174,47 @@ const Dropdown: DropdownInterface = props => {
     alignPoint = true;
   }
 
+  const getDropdownPlacements = () =>
+    getPlacements({
+      arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
+    });
+
+  const onPopupAlign = (domNode: HTMLElement, align: any) => {
+    const placements: any = getDropdownPlacements();
+    // 当前返回的位置
+    const placement = Object.keys(placements).filter(
+      key =>
+        placements[key].points[0] === align.points[0] &&
+        placements[key].points[1] === align.points[1],
+    )[0];
+    if (!placement) {
+      return;
+    }
+    // 根据当前坐标设置动画点
+    const rect = domNode.getBoundingClientRect();
+    const transformOrigin = {
+      top: '50%',
+      left: '50%',
+    };
+    if (placement.indexOf('top') >= 0 || placement.indexOf('Bottom') >= 0) {
+      transformOrigin.top = `${rect.height - align.offset[1]}px`;
+    } else if (placement.indexOf('Top') >= 0 || placement.indexOf('bottom') >= 0) {
+      transformOrigin.top = `${-align.offset[1]}px`;
+    }
+    if (placement.indexOf('left') >= 0 || placement.indexOf('Right') >= 0) {
+      transformOrigin.left = `${rect.width - align.offset[0]}px`;
+    } else if (placement.indexOf('right') >= 0 || placement.indexOf('Left') >= 0) {
+      transformOrigin.left = `${-align.offset[0]}px`;
+    }
+    domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
+  };
+
   return (
     <RcDropdown
-      arrow={arrow}
       alignPoint={alignPoint}
       {...props}
+      builtinPlacements={getDropdownPlacements()}
+      arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
       prefixCls={prefixCls}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
@@ -181,6 +222,7 @@ const Dropdown: DropdownInterface = props => {
       trigger={triggerActions}
       overlay={() => renderOverlay(prefixCls)}
       placement={getPlacement()}
+      onPopupAlign={onPopupAlign}
     >
       {dropdownTrigger}
     </RcDropdown>
