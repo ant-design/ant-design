@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { mount, render } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Layout from '..';
 import Icon from '../../icon';
 import Menu from '../../menu';
@@ -245,21 +246,26 @@ describe('Sider', () => {
   });
 
   it('should work before safari 14', async () => {
+    const removeListener = jest.fn();
     const matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation(
       jest.fn(query => ({
         matches: query.includes('max-width'),
         addListener: jest.fn(),
-        removeListener: jest.fn(),
+        removeListener,
       })),
     );
     const onBreakpoint = jest.fn();
 
-    mount(
+    const wrapper = mount(
       <Sider breakpoint="md" onBreakpoint={onBreakpoint}>
         Sider
       </Sider>,
     );
     expect(onBreakpoint).toHaveBeenCalledWith(true);
+    act(() => {
+      wrapper.unmount();
+    });
+    expect(removeListener).toHaveBeenCalled();
     matchMediaSpy.mockRestore();
   });
 
