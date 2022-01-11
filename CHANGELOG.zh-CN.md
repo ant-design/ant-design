@@ -19,21 +19,21 @@ timeline: true
 
 `2022-01-10`
 
-- 🆕 Menu 组件支持 `home`（跳转到第一项）和 `end`（跳转到最后一项)。[#33642](https://github.com/ant-design/ant-design/pull/33642) [@dartamonov-vertex](https://github.com/dartamonov-vertex)
+- 🆕 Menu 组件支持 `home`（跳转到第一项）和 `end`（跳转到最后一项）的键盘操作。[#33642](https://github.com/ant-design/ant-design/pull/33642) [@dartamonov-vertex](https://github.com/dartamonov-vertex)
 - Table
   - ⚡️ 大幅优化 Table 渲染时和卸载时的性能。[#33554](https://github.com/ant-design/ant-design/pull/33554)
   - 🐞 修复 Table 空状态未居中显示。[#33610](https://github.com/ant-design/ant-design/pull/33610) [@hemengke1997](https://github.com/hemengke1997)
   - 🐞 修复 Table 树形数据展示 hover 高亮异常的问题。[#33638](https://github.com/ant-design/ant-design/pull/33638) [@LongHaoo](https://github.com/LongHaoo)
 - Form
   - 🐞 修复 Form 在英文语言包下错误提示文案不生效的问题。[#33511](https://github.com/ant-design/ant-design/pull/33511)
-  - 🐞 修复 Form.Item help 使用空字符串的时候布局抖动的问题。[#33644](https://github.com/ant-design/ant-design/pull/33644)
-- 🐞 修复 Card.Grid props 未能正常支持 div 相应 attribute 提示。[#33563](https://github.com/ant-design/ant-design/pull/33563) [@LongHaoo](https://github.com/LongHaoo)
+  - 🐞 修复 Form.Item `help` 使用空字符串的时候布局抖动的问题。[#33644](https://github.com/ant-design/ant-design/pull/33644)
 - 🐞 修复 Input.Textarea 在 preact 下报错的问题。[#33536](https://github.com/ant-design/ant-design/pull/33536) [@developit](https://github.com/developit)
 - 🐞 修复 PageHeader unmounted 后报 `React state update on an unmounted component` 的错误。[#33546](https://github.com/ant-design/ant-design/pull/33546) [@wuifdesign](https://github.com/wuifdesign)
 - 💄 修复 Select 使用 `tagRender` 时标签上下边距不统一的问题。[#33539](https://github.com/ant-design/ant-design/pull/33539)
 - 💄 移除 svg 针对 IE9- 的重设样式，修复全局样式影响部分 svg 元素的问题。[#33579](https://github.com/ant-design/ant-design/pull/33579)
 - TypeScript
   - 🤖 修复 Upload 泛型定义。[#33543](https://github.com/ant-design/ant-design/pull/33543) [@woochanleee](https://github.com/woochanleee)
+  - 🤖 修复 Card.Grid 未能正常支持 `onClick` 的问题。[#33563](https://github.com/ant-design/ant-design/pull/33563) [@LongHaoo](https://github.com/LongHaoo)
 
 ## 4.18.2
 
