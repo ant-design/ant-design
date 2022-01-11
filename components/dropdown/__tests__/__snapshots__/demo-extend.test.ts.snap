@@ -220,7 +220,7 @@ Array [
     type="button"
   >
     <span>
-      bottomCenter
+      bottom
     </span>
   </button>,
   <div>
@@ -860,7 +860,7 @@ Array [
     type="button"
   >
     <span>
-      topCenter
+      top
     </span>
   </button>,
   <div>
@@ -1504,7 +1504,7 @@ Array [
     type="button"
   >
     <span>
-      bottomCenter
+      bottom
     </span>
   </button>,
   <div>
@@ -2144,7 +2144,7 @@ Array [
     type="button"
   >
     <span>
-      topCenter
+      top
     </span>
   </button>,
   <div>

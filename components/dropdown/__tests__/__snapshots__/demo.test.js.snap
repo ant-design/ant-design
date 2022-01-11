@@ -15,7 +15,7 @@ Array [
     type="button"
   >
     <span>
-      bottomCenter
+      bottom
     </span>
   </button>,
   <button
@@ -40,7 +40,7 @@ Array [
     type="button"
   >
     <span>
-      topCenter
+      top
     </span>
   </button>,
   <button
@@ -69,7 +69,7 @@ Array [
     type="button"
   >
     <span>
-      bottomCenter
+      bottom
     </span>
   </button>,
   <button
@@ -94,7 +94,7 @@ Array [
     type="button"
   >
     <span>
-      topCenter
+      top
     </span>
   </button>,
   <button
