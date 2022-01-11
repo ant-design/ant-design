@@ -244,6 +244,25 @@ describe('Sider', () => {
     expect(onBreakpoint).toHaveBeenCalledWith(true);
   });
 
+  it('should work before safari 14', async () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation(
+      jest.fn(query => ({
+        matches: query.includes('max-width'),
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    );
+    const onBreakpoint = jest.fn();
+
+    mount(
+      <Sider breakpoint="md" onBreakpoint={onBreakpoint}>
+        Sider
+      </Sider>,
+    );
+    expect(onBreakpoint).toHaveBeenCalledWith(true);
+    matchMediaSpy.mockRestore();
+  });
+
   it('should warning if use `inlineCollapsed` with menu', () => {
     mount(
       <Sider collapsible>
