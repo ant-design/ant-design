@@ -56,7 +56,15 @@ export default function getPlacements(config: PlacementsConfig) {
       points: ['bc', 'tc'],
       offset: [0, -4],
     },
+    topCenter: {
+      points: ['bc', 'tc'],
+      offset: [0, -4],
+    },
     bottom: {
+      points: ['tc', 'bc'],
+      offset: [0, 4],
+    },
+    bottomCenter: {
       points: ['tc', 'bc'],
       offset: [0, 4],
     },

@@ -7,7 +7,7 @@ import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { tuple } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
-import getPlacements from './placements';
+import getPlacements from '../tooltip/placements';
 
 const Placements = tuple(
   'topLeft',
