@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { SmileOutlined, LikeOutlined, HighlightOutlined, CheckOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import { spyElementPrototype, spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Link from '../Link';
@@ -258,6 +258,23 @@ describe('Typography', () => {
       });
 
       describe('should tooltip support', () => {
+        let domSpy;
+
+        beforeAll(() => {
+          domSpy = spyElementPrototypes(HTMLElement, {
+            offsetWidth: {
+              get: () => 100,
+            },
+            scrollWidth: {
+              get: () => 200,
+            },
+          });
+        });
+
+        afterAll(() => {
+          domSpy.mockRestore();
+        });
+
         function getWrapper(tooltip) {
           return mount(
             <Base ellipsis={{ tooltip }} component="p">
