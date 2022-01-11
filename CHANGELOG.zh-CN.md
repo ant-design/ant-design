@@ -19,7 +19,7 @@ timeline: true
 
 `2022-01-10`
 
-- 🆕 Menu 组件支持 <kbd>home</kbd>（跳转到第一项）和 <kbd>end</kbd>（跳转到最后一项)。[#33642](https://github.com/ant-design/ant-design/pull/33642) [@dartamonov-vertex](https://github.com/dartamonov-vertex)
+- 🆕 Menu 组件支持 `home`（跳转到第一项）和 `end`（跳转到最后一项)。[#33642](https://github.com/ant-design/ant-design/pull/33642) [@dartamonov-vertex](https://github.com/dartamonov-vertex)
 - Table
   - ⚡️ 大幅优化 Table 渲染时和卸载时的性能。[#33554](https://github.com/ant-design/ant-design/pull/33554)
   - 🐞 修复 Table 空状态未居中显示。[#33610](https://github.com/ant-design/ant-design/pull/33610) [@hemengke1997](https://github.com/hemengke1997)
