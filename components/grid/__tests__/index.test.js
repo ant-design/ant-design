@@ -24,6 +24,30 @@ describe('Grid', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  // By jsdom mock, actual jsdom not implemented matchMedia
+  // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+  it('should work with useBreakpoint', () => {
+    function Demo() {
+      const screens = useBreakpoint();
+
+      return JSON.stringify(screens);
+    }
+    const wrapper = mount(<Demo />);
+
+    expect(wrapper.text()).toEqual(
+      JSON.stringify({
+        xs: true,
+        sm: false,
+        md: false,
+        lg: false,
+        xl: false,
+        xxl: false,
+      }),
+    );
+  });
+});
+
+describe('Row', () => {
   it('when typeof gutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
     expect(wrapper.find('div').first().props().style).toEqual(
@@ -102,26 +126,22 @@ describe('Grid', () => {
       marginBottom: -10,
     });
   });
+});
 
-  // By jsdom mock, actual jsdom not implemented matchMedia
-  // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
-  it('should work with useBreakpoint', () => {
-    function Demo() {
-      const screens = useBreakpoint();
+describe('Col', () => {
+  it('should render correct when responsive flex set', () => {
+    const wrapper = mount(<Col xs={{ flex: 'auto' }} flex="none" />);
+    expect(wrapper.find('div').prop('style')).toEqual({
+      flex: 'auto',
+    });
+  });
 
-      return JSON.stringify(screens);
-    }
-    const wrapper = mount(<Demo />);
-
-    expect(wrapper.text()).toEqual(
-      JSON.stringify({
-        xs: true,
-        sm: false,
-        md: false,
-        lg: false,
-        xl: false,
-        xxl: false,
-      }),
-    );
+  it('ResponsiveObserve.unsubscribe should be called when unmounted', () => {
+    const Unmount = jest.spyOn(ResponsiveObserve, 'unsubscribe');
+    const wrapper = mount(<Col />);
+    act(() => {
+      wrapper.unmount();
+    });
+    expect(Unmount).toHaveBeenCalled();
   });
 });
