@@ -35,9 +35,10 @@ ReactDOM.render(
       style={{
         overflow: 'auto',
         height: '100vh',
-        minHeight: '400px',
         position: 'fixed',
         left: 0,
+        top: 0,
+        bottom: 0,
       }}
     >
       <div className="logo" />
