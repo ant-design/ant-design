@@ -17,7 +17,7 @@ export interface CheckboxOptionType {
 export interface AbstractCheckboxGroupProps {
   prefixCls?: string;
   className?: string;
-  options?: Array<CheckboxOptionType | string>;
+  options?: Array<CheckboxOptionType | CheckboxValueType>;
   disabled?: boolean;
   style?: React.CSSProperties;
 }
@@ -69,7 +69,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
 
   const getOptions = () =>
     options.map(option => {
-      if (typeof option === 'string') {
+      if (typeof option !== 'object') {
         return {
           label: option,
           value: option,
