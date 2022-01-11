@@ -28,11 +28,8 @@ const collapseMotion: CSSMotionProps = {
 type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
 const getTransitionDirection = (placement: Placement | undefined) => {
-  if (placement !== undefined) {
-    if (placement.indexOf('top') >= 0) {
-      return `slide-down`;
-    }
-    return `slide-up`;
+  if (placement !== undefined && placement.indexOf('top') >= 0) {
+    return `slide-down`;
   }
   return `slide-up`;
 };
