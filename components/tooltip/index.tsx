@@ -130,9 +130,11 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
 }
 
 const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const [visible, setVisible] = useMergedState(false, {
     value: props.visible,
@@ -167,11 +169,11 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const onPopupAlign = (domNode: HTMLElement, align: any) => {
     const placements: any = getTooltipPlacements();
     // 当前返回的位置
-    const placement = Object.keys(placements).filter(
+    const placement = Object.keys(placements).find(
       key =>
         placements[key].points[0] === align.points[0] &&
         placements[key].points[1] === align.points[1],
-    )[0];
+    );
     if (!placement) {
       return;
     }

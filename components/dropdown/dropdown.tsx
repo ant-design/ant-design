@@ -16,6 +16,8 @@ const Placements = tuple(
   'bottomLeft',
   'bottomCenter',
   'bottomRight',
+  'top',
+  'bottom',
 );
 
 type Placement = typeof Placements[number];
@@ -174,16 +176,15 @@ const Dropdown: DropdownInterface = props => {
     alignPoint = true;
   }
 
-  const getDropdownPlacements = () =>
-    getPlacements({
-      arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
-    });
+  const builtinPlacements = getPlacements({
+    arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
+  });
 
   return (
     <RcDropdown
       alignPoint={alignPoint}
       {...props}
-      builtinPlacements={getDropdownPlacements()}
+      builtinPlacements={builtinPlacements}
       arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
       prefixCls={prefixCls}

@@ -42,6 +42,7 @@ export default function getPlacements(config: PlacementsConfig) {
     horizontalArrowShift = 16,
     verticalArrowShift = 8,
     autoAdjustOverflow,
+    arrowPointAtCenter,
   } = config;
   const placementMap: BuildInPlacements = {
     left: {
@@ -102,18 +103,21 @@ export default function getPlacements(config: PlacementsConfig) {
     },
   };
   Object.keys(placementMap).forEach(key => {
-    placementMap[key] = config.arrowPointAtCenter
+    // Adjust dropdown's placement (with 'Center')
+    const placementKey = key.includes('Center') ? key.slice(0, key.indexOf('Center')) : key;
+
+    placementMap[placementKey] = arrowPointAtCenter
       ? {
-          ...placementMap[key],
+          ...placementMap[placementKey],
           overflow: getOverflowOptions(autoAdjustOverflow),
           targetOffset,
         }
       : {
-          ...placements[key],
+          ...placements[placementKey],
           overflow: getOverflowOptions(autoAdjustOverflow),
         };
 
-    placementMap[key].ignoreShake = true;
+    placementMap[placementKey].ignoreShake = true;
   });
   return placementMap;
 }

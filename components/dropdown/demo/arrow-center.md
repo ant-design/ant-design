@@ -41,8 +41,8 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
       <Button>bottomLeft</Button>
     </Dropdown>
-    <Dropdown overlay={menu} placement="bottomCenter" arrow={{ pointAtCenter: true }}>
-      <Button>bottomCenter</Button>
+    <Dropdown overlay={menu} placement="bottom" arrow={{ pointAtCenter: true }}>
+      <Button>bottom</Button>
     </Dropdown>
     <Dropdown overlay={menu} placement="bottomRight" arrow={{ pointAtCenter: true }}>
       <Button>bottomRight</Button>
@@ -51,8 +51,8 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="topLeft" arrow={{ pointAtCenter: true }}>
       <Button>topLeft</Button>
     </Dropdown>
-    <Dropdown overlay={menu} placement="topCenter" arrow={{ pointAtCenter: true }}>
-      <Button>topCenter</Button>
+    <Dropdown overlay={menu} placement="top" arrow={{ pointAtCenter: true }}>
+      <Button>top</Button>
     </Dropdown>
     <Dropdown overlay={menu} placement="topRight" arrow={{ pointAtCenter: true }}>
       <Button>topRight</Button>
