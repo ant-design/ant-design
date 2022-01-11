@@ -11,4 +11,23 @@ describe('Test ResponsiveObserve', () => {
     ResponsiveObserve.unsubscribe(token);
     expect(ResponsiveObserve.matchHandlers[xs].mql.removeEventListener).toBeCalled();
   });
+
+  it('test ResponsiveObserve before safari 14', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation(
+      jest.fn(query => ({
+        matches: query.includes('max-width'),
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    );
+    const { xs } = responsiveMap;
+    const subscribeFunc = jest.fn();
+    const token = ResponsiveObserve.subscribe(subscribeFunc);
+    expect(ResponsiveObserve.matchHandlers[xs].mql.matches).toBeTruthy();
+    expect(subscribeFunc).toBeCalledTimes(1);
+
+    ResponsiveObserve.unsubscribe(token);
+    expect(ResponsiveObserve.matchHandlers[xs].mql.removeListener).toBeCalled();
+    matchMediaSpy.mockRestore();
+  });
 });
