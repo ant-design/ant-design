@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import toArray from 'rc-util/lib/Children/toArray';
 import copy from 'copy-to-clipboard';
 import omit from 'rc-util/lib/omit';
@@ -10,7 +11,7 @@ import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import { ConfigConsumerProps, configConsumerProps, ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
@@ -19,6 +20,10 @@ import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
 import measure from './util';
+import Measure from './Measure';
+import useMergedConfig from './hooks/useMergedConfig';
+import useUpdatedEffect from './hooks/useUpdatedEffect';
+import Ellipsis from './Ellipsis';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -103,269 +108,164 @@ function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: b
   return dom || (needDom && defaultNode);
 }
 
+function toList<T>(val: T | T[]): T[] {
+  return Array.isArray(val) ? val : [val];
+}
+
 interface InternalBlockProps extends BlockProps {
   component: string;
 }
 
-interface BaseState {
-  edit: boolean;
-  copied: boolean;
-  ellipsisText: string;
-  ellipsisContent: React.ReactNode;
-  isEllipsis: boolean;
-  isNativeEllipsis: boolean;
-  expanded: boolean;
-  clientRendered: boolean;
-}
-
-interface Locale {
-  edit?: string;
-  copy?: string;
-  copied?: string;
-  expand?: string;
-}
-
 const ELLIPSIS_STR = '...';
 
-class Base extends React.Component<InternalBlockProps, BaseState> {
-  static contextType = ConfigContext;
+const Base = (props: InternalBlockProps) => {
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    style,
+    children,
+    ellipsis,
+    editable,
+    copyable,
+  } = props;
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const textLocale = useLocaleReceiver('Text')[0]!; // Force TS get this
 
-  static defaultProps = {
-    children: '',
-  };
+  const editIconRef = React.useRef<HTMLDivElement>(null);
 
-  static getDerivedStateFromProps(nextProps: BlockProps) {
-    const { children, editable } = nextProps;
+  // ============================ MISC ============================
+  const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
-    devWarning(
-      !editable || typeof children === 'string',
-      'Typography',
-      'When `editable` is enabled, the `children` should use string.',
-    );
+  // ========================== Editable ==========================
+  const [enableEdit, editConfig] = useMergedConfig<EditConfig>(editable);
+  const [editing, setEditing] = useMergedState(false, {
+    value: editConfig.editing,
+  });
 
-    return {};
-  }
-
-  context: ConfigConsumerProps;
-
-  editIcon?: HTMLDivElement;
-
-  contentRef = React.createRef<HTMLElement>();
-
-  copyId?: number;
-
-  rafId?: number;
-
-  // Locale
-  expandStr?: string;
-
-  copyStr?: string;
-
-  copiedStr?: string;
-
-  editStr?: string;
-
-  state: BaseState = {
-    edit: false,
-    copied: false,
-    ellipsisText: '',
-    ellipsisContent: null,
-    isEllipsis: false,
-    isNativeEllipsis: false,
-    expanded: false,
-    clientRendered: false,
-  };
-
-  componentDidMount() {
-    this.setState({ clientRendered: true });
-    this.resizeOnNextFrame();
-  }
-
-  componentDidUpdate(prevProps: BlockProps) {
-    const { children } = this.props;
-    const { isNativeEllipsis } = this.state;
-
-    const ellipsis = this.getEllipsis();
-    const prevEllipsis = this.getEllipsis(prevProps);
-    if (children !== prevProps.children || ellipsis.rows !== prevEllipsis.rows) {
-      this.resizeOnNextFrame();
+  const triggerEdit = (edit: boolean) => {
+    if (edit) {
+      editConfig.onStart?.();
     }
 
-    // If use native ellipsis, we should check if ellipsis changed
-    const textEle = this.contentRef.current;
-    if (this.canUseCSSEllipsis() && textEle) {
-      const currentEllipsis = textEle.offsetWidth < textEle.scrollWidth;
-      if (isNativeEllipsis !== currentEllipsis) {
-        // eslint-disable-next-line react/no-did-update-set-state
-        this.setState({
-          isNativeEllipsis: currentEllipsis,
-        });
-      }
+    setEditing(edit);
+  };
+
+  // Focus edit icon when back
+  useUpdatedEffect(() => {
+    if (!editing) {
+      editIconRef.current?.focus();
     }
-  }
+  }, [editing]);
 
-  componentWillUnmount() {
-    window.clearTimeout(this.copyId);
-    raf.cancel(this.rafId);
-  }
-
-  getPrefixCls = () => {
-    const { prefixCls: customizePrefixCls } = this.props;
-    const { getPrefixCls } = this.context;
-    return getPrefixCls('typography', customizePrefixCls);
-  };
-
-  // =============== Expand ===============
-  onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
-    const { onExpand } = this.getEllipsis();
-    this.setState({ expanded: true });
-    (onExpand as React.MouseEventHandler<HTMLElement>)?.(e);
-  };
-
-  // ================ Edit ================
-  onEditClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onEditClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    this.triggerEdit(true);
+    triggerEdit(true);
   };
 
-  onEditChange = (value: string) => {
-    const { onChange } = this.getEditable();
-    onChange?.(value);
-    this.triggerEdit(false);
+  const onEditChange = (value: string) => {
+    editConfig.onChange?.(value);
+    triggerEdit(false);
   };
 
-  onEditCancel = () => {
-    this.getEditable().onCancel?.();
-    this.triggerEdit(false);
+  const onEditCancel = () => {
+    editConfig.onCancel?.();
+    triggerEdit(false);
   };
 
-  // ================ Copy ================
-  onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  // ========================== Copyable ==========================
+  const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
+  const [copied, setCopied] = React.useState(false);
+  const copyIdRef = React.useRef<NodeJS.Timeout>();
+
+  const onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    const { children, copyable } = this.props;
-    const copyConfig: CopyConfig = {
-      ...(typeof copyable === 'object' ? copyable : null),
-    };
 
     if (copyConfig.text === undefined) {
       copyConfig.text = String(children);
     }
     copy(copyConfig.text || '');
 
-    this.setState({ copied: true }, () => {
-      if (copyConfig.onCopy) {
-        copyConfig.onCopy();
-      }
+    setCopied(true);
+    copyConfig.onCopy?.();
+  };
 
-      this.copyId = window.setTimeout(() => {
-        this.setState({ copied: false });
+  React.useEffect(() => {
+    if (copied) {
+      copyIdRef.current = setTimeout(() => {
+        setCopied(false);
       }, 3000);
-    });
-  };
-
-  getEditable(props?: BlockProps): EditConfig {
-    const { edit } = this.state;
-    const { editable } = props || this.props;
-    if (!editable) return { editing: edit };
-
-    return {
-      editing: edit,
-      ...(typeof editable === 'object' ? editable : null),
-    };
-  }
-
-  getEllipsis(props?: BlockProps): EllipsisConfig {
-    const { ellipsis } = props || this.props;
-    if (!ellipsis) return {};
-
-    return {
-      rows: 1,
-      expandable: false,
-      ...(typeof ellipsis === 'object' ? ellipsis : null),
-    };
-  }
-
-  setEditRef = (node: HTMLDivElement) => {
-    this.editIcon = node;
-  };
-
-  triggerEdit = (edit: boolean) => {
-    const { onStart } = this.getEditable();
-    if (edit && onStart) {
-      onStart();
     }
 
-    this.setState({ edit }, () => {
-      if (!edit && this.editIcon) {
-        this.editIcon.focus();
-      }
-    });
-  };
+    return clearTimeout(copyIdRef.current!);
+  }, [copied]);
 
-  // ============== Ellipsis ==============
-  resizeOnNextFrame = () => {
-    raf.cancel(this.rafId);
-    this.rafId = raf(() => {
-      // Do not bind `syncEllipsis`. It need for test usage on prototype
-      this.syncEllipsis();
-    });
-  };
+  // ========================== Ellipsis ==========================
+  const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
+    rows: 1,
+    expandable: false,
+  });
+  const [isEllipsis, setIsEllipsis] = React.useState(false);
 
-  canUseCSSEllipsis(): boolean {
-    const { clientRendered } = this.state;
-    const { editable, copyable } = this.props;
-    const { rows, expandable, suffix, onEllipsis } = this.getEllipsis();
-
-    if (suffix) return false;
-    // Can't use css ellipsis since we need to provide the place for button
-    if (editable || copyable || expandable || !clientRendered || onEllipsis) {
+  const cssEllipsis = React.useMemo(() => {
+    if (
+      // Disable ellipsis
+      !enableEllipsis ||
+      // Provide suffix
+      ellipsisConfig.suffix !== undefined ||
+      ellipsisConfig.onEllipsis ||
+      // Can't use css ellipsis since we need to provide the place for button
+      ellipsisConfig.expandable ||
+      enableEdit ||
+      enableCopy
+    ) {
       return false;
     }
 
-    if (rows === 1) {
+    if (ellipsisConfig.rows === 1) {
       return isTextOverflowSupport;
     }
 
     return isLineClampSupport;
+  }, [
+    enableEllipsis,
+    enableEdit,
+    enableCopy,
+    ellipsisConfig,
+    isTextOverflowSupport,
+    isLineClampSupport,
+  ]);
+
+  // >>>>> Expand
+  const [expanded, setExpanded] = React.useState(false);
+  const onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
+    setExpanded(true);
+    ellipsisConfig.onExpand?.(e);
+  };
+
+  // =========================== Render ===========================
+  // >>>>>>>>>>> Editing input
+  if (editConfig.editing) {
+    return (
+      <Editable
+        value={typeof children === 'string' ? children : ''}
+        onSave={onEditChange}
+        onCancel={onEditCancel}
+        onEnd={editConfig.onEnd}
+        prefixCls={prefixCls}
+        className={className}
+        style={style}
+        direction={direction}
+        maxLength={editConfig.maxLength}
+        autoSize={editConfig.autoSize}
+        enterIcon={editConfig.enterIcon}
+      />
+    );
   }
 
-  syncEllipsis() {
-    const { ellipsisText, isEllipsis, expanded } = this.state;
-    const { rows, suffix, onEllipsis } = this.getEllipsis();
-    const { children } = this.props;
-    if (!rows || rows < 0 || !this.contentRef.current || expanded) {
-      return;
-    }
-
-    // Do not measure if css already support ellipsis
-    if (this.canUseCSSEllipsis()) {
-      return;
-    }
-
-    devWarning(
-      toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
-      'Typography',
-      '`ellipsis` should use string as children only.',
-    );
-
-    const { content, text, ellipsis } = measure(
-      this.contentRef.current,
-      { rows, suffix },
-      children,
-      this.renderOperations(true),
-      ELLIPSIS_STR,
-    );
-    if (ellipsisText !== text || isEllipsis !== ellipsis) {
-      this.setState({ ellipsisText: text, ellipsisContent: content, isEllipsis: ellipsis });
-      if (isEllipsis !== ellipsis && onEllipsis) {
-        onEllipsis(ellipsis);
-      }
-    }
-  }
-
-  renderExpand(forceRender?: boolean) {
-    const { expandable, symbol } = this.getEllipsis();
-    const { expanded, isEllipsis } = this.state;
+  // >>>>>>>>>>> Typography
+  // Expand
+  const renderExpand = (forceRender?: boolean) => {
+    const { expandable, symbol } = ellipsisConfig;
 
     if (!expandable) return null;
 
@@ -376,67 +276,64 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     if (symbol) {
       expandContent = symbol;
     } else {
-      expandContent = this.expandStr;
+      expandContent = textLocale.expand;
     }
 
     return (
       <a
         key="expand"
-        className={`${this.getPrefixCls()}-expand`}
-        onClick={this.onExpandClick}
-        aria-label={this.expandStr}
+        className={`${prefixCls}-expand`}
+        onClick={onExpandClick}
+        aria-label={textLocale.expand}
       >
         {expandContent}
       </a>
     );
-  }
+  };
 
-  renderEdit() {
-    const { editable } = this.props;
-    if (!editable) return;
+  // Edit
+  const renderEdit = () => {
+    if (!enableEdit) return;
 
-    const { icon, tooltip, triggerType = ['icon'] } = editable as EditConfig;
+    const { icon, tooltip, triggerType = ['icon'] } = editConfig;
 
-    const title = toArray(tooltip)[0] || this.editStr;
+    const title = toArray(tooltip)[0] || textLocale.edit;
     const ariaLabel = typeof title === 'string' ? title : '';
 
     return triggerType.indexOf('icon') !== -1 ? (
       <Tooltip key="edit" title={tooltip === false ? '' : title}>
         <TransButton
-          ref={this.setEditRef}
-          className={`${this.getPrefixCls()}-edit`}
-          onClick={this.onEditClick}
+          ref={editIconRef}
+          className={`${prefixCls}-edit`}
+          onClick={onEditClick}
           aria-label={ariaLabel}
         >
           {icon || <EditOutlined role="button" />}
         </TransButton>
       </Tooltip>
     ) : null;
-  }
+  };
 
-  renderCopy() {
-    const { copied } = this.state;
-    const { copyable } = this.props;
-    if (!copyable) return;
+  // Copy
+  const renderCopy = () => {
+    if (!enableCopy) return;
 
-    const prefixCls = this.getPrefixCls();
+    const { tooltips, icon } = copyConfig;
 
-    const { tooltips, icon } = copyable as CopyConfig;
-
-    const tooltipNodes = Array.isArray(tooltips) ? tooltips : [tooltips];
-    const iconNodes = Array.isArray(icon) ? icon : [icon];
+    const tooltipNodes = toList(tooltips);
+    const iconNodes = toList(icon);
 
     const title = copied
-      ? getNode(tooltipNodes[1], this.copiedStr)
-      : getNode(tooltipNodes[0], this.copyStr);
-    const systemStr = copied ? this.copiedStr : this.copyStr;
+      ? getNode(tooltipNodes[1], textLocale.copied)
+      : getNode(tooltipNodes[0], textLocale.copy);
+    const systemStr = copied ? textLocale.copied : textLocale.copy;
     const ariaLabel = typeof title === 'string' ? title : systemStr;
 
     return (
       <Tooltip key="copy" title={title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
-          onClick={this.onCopyClick}
+          onClick={onCopyClick}
           aria-label={ariaLabel}
         >
           {copied
@@ -445,160 +342,28 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         </TransButton>
       </Tooltip>
     );
-  }
+  };
 
-  renderEditInput() {
-    const { children, className, style } = this.props;
-    const { direction } = this.context;
-    const { maxLength, autoSize, onEnd, enterIcon } = this.getEditable();
-    return (
-      <Editable
-        value={typeof children === 'string' ? children : ''}
-        onSave={this.onEditChange}
-        onCancel={this.onEditCancel}
-        onEnd={onEnd}
-        prefixCls={this.getPrefixCls()}
-        className={className}
-        style={style}
-        direction={direction}
-        maxLength={maxLength}
-        autoSize={autoSize}
-        enterIcon={enterIcon}
-      />
-    );
-  }
+  const renderOperations = (forceRenderExpanded?: boolean) => [
+    renderExpand(forceRenderExpanded),
+    renderEdit(),
+    renderCopy(),
+  ];
 
-  renderOperations(forceRenderExpanded?: boolean) {
-    return [this.renderExpand(forceRenderExpanded), this.renderEdit(), this.renderCopy()].filter(
-      node => node,
-    );
-  }
+  const renderSuffix = (forceRenderExpanded?: boolean) => [
+    ellipsisConfig.suffix,
+    renderOperations(forceRenderExpanded),
+  ];
 
-  renderContent() {
-    const { ellipsisContent, isEllipsis, isNativeEllipsis, expanded } = this.state;
-    const { component, children, className, type, disabled, style, ...restProps } = this.props;
-    const { direction } = this.context;
-    const { rows, suffix, tooltip } = this.getEllipsis();
-    const { triggerType = ['icon'] } = this.getEditable() as EditConfig;
-
-    const prefixCls = this.getPrefixCls();
-
-    const textProps = omit(restProps, [
-      'prefixCls',
-      'editable',
-      'copyable',
-      'ellipsis',
-      'mark',
-      'code',
-      'delete',
-      'underline',
-      'strong',
-      'keyboard',
-      'italic',
-      ...(configConsumerProps as any),
-    ]) as any;
-
-    const cssEllipsis = this.canUseCSSEllipsis();
-    const cssTextOverflow = rows === 1 && cssEllipsis;
-    const cssLineClamp = rows && rows > 1 && cssEllipsis;
-
-    let textNode: React.ReactNode = children;
-
-    // Only use js ellipsis when css ellipsis not support
-    if (rows && isEllipsis && !expanded && !cssEllipsis) {
-      const { title } = restProps;
-      let restContent = title || '';
-      if (!title && (typeof children === 'string' || typeof children === 'number')) {
-        restContent = String(children);
-      }
-
-      // show rest content as title on symbol
-      restContent = restContent.slice(String(ellipsisContent || '').length);
-
-      // We move full content to outer element to avoid repeat read the content by accessibility
-      textNode = (
-        <>
-          {ellipsisContent}
-          <span title={restContent} aria-hidden="true">
-            {ELLIPSIS_STR}
-          </span>
-          {suffix}
-        </>
-      );
-    } else {
-      textNode = (
-        <>
-          {children}
-          {suffix}
-        </>
-      );
-    }
-
-    textNode = wrapperDecorations(this.props, textNode);
-
-    return (
-      <LocaleReceiver componentName="Text">
-        {({ edit, copy: copyStr, copied, expand }: Locale) => {
-          this.editStr = edit;
-          this.copyStr = copyStr;
-          this.copiedStr = copied;
-          this.expandStr = expand;
-
-          return (
-            <ResizeObserver onResize={this.resizeOnNextFrame} disabled={cssEllipsis}>
-              {resizeRef => {
-                let typography = (
-                  <Typography
-                    className={classNames(
-                      {
-                        [`${prefixCls}-${type}`]: type,
-                        [`${prefixCls}-disabled`]: disabled,
-                        [`${prefixCls}-ellipsis`]: rows,
-                        [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
-                        [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-                        [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-                      },
-                      className,
-                    )}
-                    style={{
-                      ...style,
-                      WebkitLineClamp: cssLineClamp ? rows : undefined,
-                    }}
-                    component={component}
-                    ref={composeRef(this.contentRef, resizeRef)}
-                    direction={direction}
-                    onClick={triggerType.indexOf('text') !== -1 ? this.onEditClick : () => {}}
-                    {...textProps}
-                  >
-                    {textNode}
-                    {this.renderOperations()}
-                  </Typography>
-                );
-
-                // If provided tooltip, we need wrap with span to let Tooltip inject events
-                if (cssEllipsis ? isNativeEllipsis : isEllipsis) {
-                  typography = (
-                    <Tooltip title={tooltip === true ? children : tooltip}>{typography}</Tooltip>
-                  );
-                }
-
-                return typography;
-              }}
-            </ResizeObserver>
-          );
-        }}
-      </LocaleReceiver>
-    );
-  }
-
-  render() {
-    const { editing } = this.getEditable();
-
-    if (editing) {
-      return this.renderEditInput();
-    }
-    return this.renderContent();
-  }
-}
+  return (
+    <Ellipsis
+      enabled={enableEllipsis}
+      text={children}
+      suffix={forceRenderExpanded => renderSuffix(forceRenderExpanded)}
+    >
+      {node => wrapperDecorations(props, node)}
+    </Ellipsis>
+  );
+};
 
 export default Base;

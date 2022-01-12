@@ -3,7 +3,10 @@ import * as ReactDOM from 'react-dom';
 import toArray from 'rc-util/lib/Children/toArray';
 
 export interface MeasureProps {
-  children: React.ReactNode;
+  text: React.ReactNode;
+  suffix: React.ReactNode;
+  operation: React.ReactNode;
+  originDom: () => HTMLElement;
 }
 
 let ellipsisContainer: HTMLDivElement;
@@ -27,10 +30,10 @@ function getContainer() {
   return ellipsisContainer;
 }
 
-export default ({ children }: MeasureProps) => {
+export default ({ text, operation }: MeasureProps) => {
   const [walking, setWalking] = React.useState(false);
   const [renderLength, setRenderLength] = React.useState(0);
-  const childList = React.useMemo(() => toArray(children), [children]);
+  const childList = React.useMemo(() => toArray(text), [text]);
   const length = React.useMemo(() => {
     let len = 0;
 
@@ -47,7 +50,7 @@ export default ({ children }: MeasureProps) => {
 
   React.useEffect(() => {
     setWalking(false);
-  }, [children]);
+  }, [text]);
 
-  return ReactDOM.createPortal(children, getContainer());
+  return ReactDOM.createPortal(text, getContainer());
 };
