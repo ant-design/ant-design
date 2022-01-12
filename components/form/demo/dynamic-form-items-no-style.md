@@ -15,8 +15,8 @@ debug: true
 Nest with `noStyle` field dynamic form.
 
 ```jsx
-import { Form, Input, Button, Space } from 'antd';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Space } from 'infrad';
+import { MinusCircleOutlined, PlusOutlined } from 'infra-design-icons';
 
 const Demo = () => {
   const onFinish = values => {

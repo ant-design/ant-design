@@ -236,8 +236,8 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
-import { Table } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import { Table } from 'infrad';
+import { ColumnsType } from 'infrad/es/table';
 
 interface User {
   key: number;

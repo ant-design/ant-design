@@ -228,8 +228,8 @@ Properties for row selection.
 ## Using in TypeScript
 
 ```tsx
-import { Table } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import { Table } from 'infrad';
+import { ColumnsType } from 'infrad/es/table';
 
 interface User {
   key: number;

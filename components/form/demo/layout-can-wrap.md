@@ -15,7 +15,7 @@ version: 4.18.0
 Turn on `labelWrap` to wrap label if text is long.
 
 ```tsx
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button } from 'infrad';
 
 const Demo = () => (
   <Form

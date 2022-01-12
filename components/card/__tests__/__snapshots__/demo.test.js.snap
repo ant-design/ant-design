@@ -161,6 +161,49 @@ exports[`renders ./components/card/demo/flexible-content.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/card/demo/gray-card.md correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-gray"
+  style="width:300px"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Default size card
+      </div>
+      <div
+        class="ant-card-extra"
+      >
+        <a
+          href="#"
+        >
+          More
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-contain-grid"
@@ -781,6 +824,49 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
       </span>
     </li>
   </ul>
+</div>
+`;
+
+exports[`renders ./components/card/demo/shadow-card.md correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-shadow"
+  style="width:300px"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Default size card
+      </div>
+      <div
+        class="ant-card-extra"
+      >
+        <a
+          href="#"
+        >
+          More
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+  </div>
 </div>
 `;
 

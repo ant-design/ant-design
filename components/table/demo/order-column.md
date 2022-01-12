@@ -15,7 +15,7 @@ title:
 You can control the order of the expand and select columns by using `Table.EXPAND_COLUMN` and `Table.SELECT_COLUMN`.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from 'infrad';
 
 const columns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },

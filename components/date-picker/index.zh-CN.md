@@ -32,7 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 
 ```jsx
 import 'moment/locale/zh-cn';
-import locale from 'antd/es/date-picker/locale/zh_CN';
+import locale from 'infrad/es/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />;
 ```
@@ -41,7 +41,7 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/lib/locale/zh_CN';
+import locale from 'infrad/lib/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />

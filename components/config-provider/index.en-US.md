@@ -13,7 +13,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
 This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html). In the render tree all components will have access to the provided config.
 
 ```jsx
-import { ConfigProvider } from 'antd';
+import { ConfigProvider } from 'infrad';
 
 // ...
 

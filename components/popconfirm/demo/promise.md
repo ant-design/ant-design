@@ -15,7 +15,7 @@ title:
 Asynchronously close a popconfirm when the OK button is pressed. For example, you can use this pattern when you submit a form.
 
 ```jsx
-import { Button, Popconfirm } from 'antd';
+import { Button, Popconfirm } from 'infrad';
 
 const App = () => {
   const confirm = () =>

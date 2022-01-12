@@ -19,7 +19,7 @@ You can use `filterMode` to change default filter interface, options: `menu`(def
 > `filterSearch` is used for making filter dropdown items searchable.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from 'infrad';
 
 const columns = [
   {

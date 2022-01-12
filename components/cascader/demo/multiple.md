@@ -15,7 +15,7 @@ title:
 Select multiple options
 
 ```jsx
-import { Cascader } from 'antd';
+import { Cascader } from 'infrad';
 
 const options = [
   {

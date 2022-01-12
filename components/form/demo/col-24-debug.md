@@ -15,7 +15,7 @@ See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 
 ```tsx
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button } from 'infrad';
 
 const Demo = () => {
   const onFinish = (values: any) => {

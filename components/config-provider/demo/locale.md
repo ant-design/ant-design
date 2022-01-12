@@ -28,8 +28,8 @@ import {
   Transfer,
   Radio,
 } from 'infrad';
-import enUS from 'antd/lib/locale/en_US';
-import zhCN from 'antd/lib/locale/zh_CN';
+import enUS from 'infrad/lib/locale/en_US';
+import zhCN from 'infrad/lib/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
