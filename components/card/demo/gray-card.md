@@ -17,13 +17,11 @@ A gray card containing a title, content and an extra corner content. Set mode to
 import { Card } from 'infrad';
 
 ReactDOM.render(
-  <>
-    <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }} mode="gray">
-      <p>Card content</p>
-      <p>Card content</p>
-      <p>Card content</p>
-    </Card>
-  </>,
+  <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }} mode="gray">
+    <p>Card content</p>
+    <p>Card content</p>
+    <p>Card content</p>
+  </Card>,
   mountNode,
 );
 ```
