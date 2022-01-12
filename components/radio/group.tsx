@@ -50,7 +50,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     if (options && options.length > 0) {
       const optionsPrefixCls = optionType === 'button' ? `${prefixCls}-button` : prefixCls;
       childrenToRender = options.map(option => {
-        if (typeof option !== 'object') {
+        if (typeof option === 'string' || typeof option === 'number') {
           // 此处类型自动推导为 string
           return (
             <Radio
