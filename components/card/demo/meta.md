@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 11
 title:
   zh-CN: 支持更多内容配置
   en-US: Support more content configuration

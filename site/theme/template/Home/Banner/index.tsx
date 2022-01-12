@@ -84,7 +84,7 @@ const Banner = (props: { location: any }) => {
           </div>
           <code className="use-code">
             <div>$ yarn add infrad</div>
-            <div>import 'infrad/dist/antd.css'</div>
+            <div>import &apos;infrad/dist/antd.css&apos;</div>
           </code>
         </div>
       </div>

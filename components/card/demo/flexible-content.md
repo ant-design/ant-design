@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 5
 title:
   zh-CN: 更灵活的内容展示
   en-US: Customized content

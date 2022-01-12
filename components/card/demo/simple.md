@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 4
 title:
   zh-CN: 简洁卡片
   en-US: Simple card

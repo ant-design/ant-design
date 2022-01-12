@@ -5,7 +5,6 @@ import {
   ICloseFullfiled,
   IInformationFilled,
   IClose,
-  CloseOutlined,
 } from 'infra-design-icons';
 import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
@@ -79,7 +78,7 @@ const Alert: AlertInterface = ({
   showIcon,
   closable,
   closeText,
-  closeIcon = <CloseOutlined />,
+  closeIcon = <IClose />,
   action,
   ...props
 }) => {
@@ -129,7 +128,7 @@ const Alert: AlertInterface = ({
         className={`${prefixCls}-close-icon`}
         tabIndex={0}
       >
-        {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : <IClose />}
+        {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : closeIcon}
       </button>
     ) : null;
 

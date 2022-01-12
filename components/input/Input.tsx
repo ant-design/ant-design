@@ -396,6 +396,8 @@ class Input extends React.Component<InputProps, InputState> {
     this.direction = direction;
     const tipClassNames = `${prefixCls}-tip ${isError ? `${prefixCls}-tip-error` : ''}`;
 
+    const showCountSuffix = this.renderShowCountSuffix(prefixCls);
+
     const renderClearableLabeledInput = (size: SizeType) => (
       <ClearableLabeledInput
         size={size}
@@ -413,8 +415,6 @@ class Input extends React.Component<InputProps, InputState> {
         suffix={showCountSuffix}
       />
     );
-
-    const showCountSuffix = this.renderShowCountSuffix(prefixCls);
 
     return (
       <SizeContext.Consumer>

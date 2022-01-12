@@ -23,6 +23,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| mode | 设置卡片是普通模式还是灰色模式还是阴影模式 | `normal` \| `gray` \| `shadow` | `normal` |  |
 | actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  |
 | activeTabKey | 当前激活页签的 key | string | - |  |
 | bodyStyle | 内容区域自定义样式 | CSSProperties | - |  |
@@ -43,18 +44,18 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
 
 ### Card.Grid
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 网格容器类名 | string | - |  |
-| hoverable | 鼠标移过时可浮起 | boolean | true |  |
-| style | 定义网格容器类名的样式 | CSSProperties | - |  |
+| 参数      | 说明                   | 类型          | 默认值 | 版本 |
+| --------- | ---------------------- | ------------- | ------ | ---- |
+| className | 网格容器类名           | string        | -      |      |
+| hoverable | 鼠标移过时可浮起       | boolean       | true   |      |
+| style     | 定义网格容器类名的样式 | CSSProperties | -      |      |
 
 ### Card.Meta
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| avatar | 头像/图标 | ReactNode | - |  |
-| className | 容器类名 | string | - |  |
-| description | 描述内容 | ReactNode | - |  |
-| style | 定义容器类名的样式 | CSSProperties | - |  |
-| title | 标题内容 | ReactNode | - |  |
+| 参数        | 说明               | 类型          | 默认值 | 版本 |
+| ----------- | ------------------ | ------------- | ------ | ---- |
+| avatar      | 头像/图标          | ReactNode     | -      |      |
+| className   | 容器类名           | string        | -      |      |
+| description | 描述内容           | ReactNode     | -      |      |
+| style       | 定义容器类名的样式 | CSSProperties | -      |      |
+| title       | 标题内容           | ReactNode     | -      |      |

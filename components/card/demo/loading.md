@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 7
 title:
   zh-CN: 预加载的卡片
   en-US: Loading card

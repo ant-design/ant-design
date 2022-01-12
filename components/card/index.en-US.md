@@ -22,6 +22,7 @@ A card can be used to display content related to a single subject. The content c
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| mode | Set card model with 'normal' or 'gray' or 'shadow' | `normal` \| `gray` \| `shadow` | `normal` |  |
 | actions | The action list, shows at the bottom of the Card | Array&lt;ReactNode> | - |  |
 | activeTabKey | Current TabPane's key | string | - |  |
 | bodyStyle | Inline style to apply to the card content | CSSProperties | - |  |
@@ -42,18 +43,18 @@ A card can be used to display content related to a single subject. The content c
 
 ### Card.Grid
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| className | The className of container | string | - |  |
-| hoverable | Lift up when hovering card grid | boolean | true |  |
-| style | The style object of container | CSSProperties | - |  |
+| Property  | Description                     | Type          | Default | Version |
+| --------- | ------------------------------- | ------------- | ------- | ------- |
+| className | The className of container      | string        | -       |         |
+| hoverable | Lift up when hovering card grid | boolean       | true    |         |
+| style     | The style object of container   | CSSProperties | -       |         |
 
 ### Card.Meta
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| avatar | Avatar or icon | ReactNode | - |  |
-| className | The className of container | string | - |  |
-| description | Description content | ReactNode | - |  |
-| style | The style object of container | CSSProperties | - |  |
-| title | Title content | ReactNode | - |  |
+| Property    | Description                   | Type          | Default | Version |
+| ----------- | ----------------------------- | ------------- | ------- | ------- |
+| avatar      | Avatar or icon                | ReactNode     | -       |         |
+| className   | The className of container    | string        | -       |         |
+| description | Description content           | ReactNode     | -       |         |
+| style       | The style object of container | CSSProperties | -       |         |
+| title       | Title content                 | ReactNode     | -       |         |

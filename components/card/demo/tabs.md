@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 10
 title:
   zh-CN: 带页签的卡片
   en-US: With tabs

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 8
 title:
   zh-CN: 网格型内嵌卡片
   en-US: Grid card
