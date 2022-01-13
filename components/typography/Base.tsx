@@ -118,7 +118,7 @@ interface InternalBlockProps extends BlockProps {
 
 const ELLIPSIS_STR = '...';
 
-const Base = (props: InternalBlockProps) => {
+const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -135,7 +135,6 @@ const Base = (props: InternalBlockProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const textLocale = useLocaleReceiver('Text')[0]!; // Force TS get this
 
-  const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLDivElement>(null);
 
   // ============================ MISC ============================
@@ -374,9 +373,9 @@ const Base = (props: InternalBlockProps) => {
     renderCopy(),
   ];
 
-  const renderSuffix = (renderExpanded: boolean) => [
-    ellipsisConfig.suffix || ELLIPSIS_STR,
-    renderOperations(renderExpanded),
+  const renderSuffix = (needEllipsis: boolean) => [
+    needEllipsis && (ellipsisConfig.suffix || ELLIPSIS_STR),
+    renderOperations(needEllipsis),
   ];
 
   return (
@@ -387,7 +386,7 @@ const Base = (props: InternalBlockProps) => {
             {
               [`${prefixCls}-${type}`]: type,
               [`${prefixCls}-disabled`]: disabled,
-              [`${prefixCls}-ellipsis`]: rows,
+              [`${prefixCls}-ellipsis`]: enableEllipsis,
               [`${prefixCls}-single-line`]: rows === 1 && mergedEnableEllipsis,
               [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
               [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
@@ -399,7 +398,7 @@ const Base = (props: InternalBlockProps) => {
             WebkitLineClamp: cssLineClamp ? rows : undefined,
           }}
           component={component}
-          ref={composeRef(resizeRef, typographyRef)}
+          ref={composeRef(resizeRef, ref)}
           direction={direction}
           onClick={triggerType.includes('text') ? onEditClick : null}
           {...textProps}
@@ -415,7 +414,7 @@ const Base = (props: InternalBlockProps) => {
                 props,
                 <>
                   {node}
-                  {needEllipsis && renderSuffix(needEllipsis)}
+                  {renderSuffix(needEllipsis)}
                 </>,
               );
 
@@ -426,6 +425,6 @@ const Base = (props: InternalBlockProps) => {
       )}
     </ResizeObserver>
   );
-};
+});
 
 export default Base;
