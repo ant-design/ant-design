@@ -83,31 +83,35 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows }: EllipsisProps
   }, [enabledMeasure, width, text, totalLen]);
 
   React.useLayoutEffect(() => {
-    if (walking && startLen !== endLen) {
-      // const startHeight = startRowRef.current?.offsetHeight || 0;
-      const midHeight = midRowRef.current?.offsetHeight || 0;
-      // const endHeight = endRowRef.current?.offsetHeight || 0;
-      const maxHeight = rows * singleRowHeight;
+    if (walking) {
+      if (startLen !== endLen) {
+        // const startHeight = startRowRef.current?.offsetHeight || 0;
+        const midHeight = midRowRef.current?.offsetHeight || 0;
+        // const endHeight = endRowRef.current?.offsetHeight || 0;
+        const maxHeight = rows * singleRowHeight;
 
-      let nextStartLen = startLen;
-      let nextEndLen = endLen;
+        let nextStartLen = startLen;
+        let nextEndLen = endLen;
 
-      // if (startHeight <= maxHeight && maxHeight <= midHeight) {
-      //   nextEndLen = midLen;
-      // } else {
-      //   nextStartLen = midLen;
-      // }
-      if (midHeight <= maxHeight) {
-        nextStartLen = midLen;
+        // We reach the last round
+        if (startLen === endLen - 1) {
+          if (midHeight > maxHeight) {
+            nextEndLen = startLen;
+          } else {
+            nextStartLen = endLen;
+          }
+        } else if (midHeight <= maxHeight) {
+          nextStartLen = midLen;
+        } else {
+          nextEndLen = midLen;
+        }
+
+        const nextMidLen = Math.ceil((nextStartLen + nextEndLen) / 2);
+
+        setCutLength([nextStartLen, nextMidLen, nextEndLen]);
       } else {
-        nextEndLen = midLen;
+        setWalking(false);
       }
-
-      const nextMidLen = Math.floor((nextStartLen + nextEndLen) / 2);
-
-      console.log(nextStartLen, nextMidLen, nextEndLen);
-
-      setCutLength([nextStartLen, nextMidLen, nextEndLen]);
     }
   }, [walking, startLen, endLen, rows, singleRowHeight]);
 
