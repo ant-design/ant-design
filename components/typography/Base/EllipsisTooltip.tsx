@@ -5,7 +5,7 @@ export interface EllipsisTooltipProps {
   title?: React.ReactNode;
   enabledEllipsis: boolean;
   isEllipsis?: boolean;
-  children?: React.ReactNode;
+  children: React.ReactElement;
 }
 
 const EllipsisTooltip = ({

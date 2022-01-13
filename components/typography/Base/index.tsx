@@ -289,7 +289,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
-  if (editConfig.editing) {
+  if (editing) {
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
