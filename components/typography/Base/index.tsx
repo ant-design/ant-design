@@ -190,6 +190,10 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   const [copied, setCopied] = React.useState(false);
   const copyIdRef = React.useRef<NodeJS.Timeout>();
 
+  const cleanCopyId = () => {
+    clearTimeout(copyIdRef.current!);
+  };
+
   const onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
@@ -199,18 +203,17 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     copy(copyConfig.text || '');
 
     setCopied(true);
+
+    // Trigger tips update
+    cleanCopyId();
+    copyIdRef.current = setTimeout(() => {
+      setCopied(false);
+    }, 3000);
+
     copyConfig.onCopy?.();
   };
 
-  React.useEffect(() => {
-    if (copied) {
-      copyIdRef.current = setTimeout(() => {
-        setCopied(false);
-      }, 3000);
-    }
-
-    return clearTimeout(copyIdRef.current!);
-  }, [copied]);
+  React.useEffect(() => cleanCopyId, []);
 
   // ========================== Ellipsis ==========================
   const [expanded, setExpanded] = React.useState(false);
@@ -273,6 +276,11 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   // >>>>> JS Ellipsis
   const onJsEllipsis = (jsEllipsis: boolean) => {
     setIsJsEllipsis(jsEllipsis);
+
+    // Trigger if changed
+    if (isJsEllipsis !== jsEllipsis) {
+      ellipsisConfig.onEllipsis?.(jsEllipsis);
+    }
   };
 
   // >>>>> Native ellipsis

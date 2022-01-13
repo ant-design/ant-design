@@ -86,7 +86,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
       setWalking(true);
       setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
     }
-  }, [enabledMeasure, width, text, totalLen]);
+  }, [enabledMeasure, width, text, totalLen, rows]);
 
   React.useLayoutEffect(() => {
     if (walking) {
