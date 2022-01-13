@@ -42,9 +42,9 @@ class Demo extends React.Component {
           checkedChildren="Long Text"
           onChange={val => this.setState({ longText: val })}
         />
-        <Switch onChange={val => this.setState({ copyable: val })} />
-        <Switch onChange={val => this.setState({ editable: val })} />
-        <Switch onChange={val => this.setState({ expandable: val })} />
+        <Switch checked={copyable} onChange={val => this.setState({ copyable: val })} />
+        <Switch checked={editable} onChange={val => this.setState({ editable: val })} />
+        <Switch checked={expandable} onChange={val => this.setState({ expandable: val })} />
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
         {longText ? (
           <Paragraph ellipsis={{ rows, expandable }} copyable={copyable} editable={editable}>

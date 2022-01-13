@@ -217,13 +217,13 @@ const Base = (props: InternalBlockProps) => {
 
   // ========================== Ellipsis ==========================
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
-    rows: 1,
     expandable: false,
+    suffix: ELLIPSIS_STR,
   });
   const [isEllipsis, setIsEllipsis] = React.useState(false);
 
   // Shared prop to reduce bundle size
-  const { rows } = ellipsisConfig;
+  const { rows = 1 } = ellipsisConfig;
 
   const cssEllipsis = React.useMemo(() => {
     if (
@@ -383,64 +383,106 @@ const Base = (props: InternalBlockProps) => {
   ];
 
   return (
-    <Ellipsis
-      enabled={enableEllipsis}
-      cssEllipsis={cssEllipsis}
-      text={children}
-      width={ellipsisWidth}
-    >
-      {(node, measureStyle) => {
-        let typoNode = (
-          <Typography
-            className={classNames(
-              {
-                [`${prefixCls}-${type}`]: type,
-                [`${prefixCls}-disabled`]: disabled,
-                [`${prefixCls}-ellipsis`]: rows,
-                [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
-                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-                [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-              },
-              className,
-            )}
-            style={{
-              ...style,
-              WebkitLineClamp: cssLineClamp ? rows : undefined,
-              ...measureStyle,
-            }}
-            component={component}
-            ref={!measureStyle ? typographyRef : null}
-            direction={direction}
-            onClick={triggerType.includes('text') ? onEditClick : null}
-            {...textProps}
+    <ResizeObserver onResize={onResize} disabled={!enableEllipsis || cssEllipsis}>
+      {resizeRef => (
+        <Typography
+          className={classNames(
+            {
+              [`${prefixCls}-${type}`]: type,
+              [`${prefixCls}-disabled`]: disabled,
+              [`${prefixCls}-ellipsis`]: rows,
+              [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
+              [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+              [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+            },
+            className,
+          )}
+          style={{
+            ...style,
+            WebkitLineClamp: cssLineClamp ? rows : undefined,
+          }}
+          component={component}
+          ref={composeRef(resizeRef, typographyRef)}
+          direction={direction}
+          onClick={triggerType.includes('text') ? onEditClick : null}
+          {...textProps}
+        >
+          <Ellipsis
+            enabledMeasure={enableEllipsis && !cssEllipsis}
+            text={children}
+            rows={rows}
+            width={ellipsisWidth}
           >
-            {wrapperDecorations(
-              props,
-              <>
-                {node}
-                {renderSuffix(!!measureStyle)}
-              </>,
-            )}
-          </Typography>
-        );
+            {(node, measureStyle) => {
+              const wrappedContext = wrapperDecorations(
+                props,
+                <>
+                  {node}
+                  {renderSuffix(!!measureStyle)}
+                </>,
+              );
 
-        if (enableEllipsis && !cssEllipsis && !measureStyle) {
-          const originNode = typoNode;
-          typoNode = (
-            <ResizeObserver onResize={onResize}>
-              {resizeRef =>
-                React.cloneElement(originNode, {
-                  ref: composeRef(resizeRef, typographyRef),
-                })
-              }
-            </ResizeObserver>
-          );
-        }
-
-        return typoNode;
-      }}
-    </Ellipsis>
+              return wrappedContext;
+            }}
+          </Ellipsis>
+        </Typography>
+      )}
+    </ResizeObserver>
   );
+
+  // return (
+  //   <Ellipsis
+  //     enabledMeasure={enableEllipsis && !cssEllipsis}
+  //     text={children}
+  //     rows={rows}
+  //     width={ellipsisWidth}
+  //   >
+  //     {(node, measureStyle) => {
+  //       const wrappedContext = wrapperDecorations(
+  //         props,
+  //         <>
+  //           {node}
+  //           {renderSuffix(!!measureStyle)}
+  //         </>,
+  //       );
+
+  //       if (measureStyle) {
+  //         return wrappedContext;
+  //       }
+
+  //       return (
+  //         <ResizeObserver onResize={onResize} disabled={!enableEllipsis || cssEllipsis}>
+  //           {resizeRef => (
+  //             <Typography
+  //               className={classNames(
+  //                 {
+  //                   [`${prefixCls}-${type}`]: type,
+  //                   [`${prefixCls}-disabled`]: disabled,
+  //                   [`${prefixCls}-ellipsis`]: rows,
+  //                   [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
+  //                   [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+  //                   [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+  //                 },
+  //                 className,
+  //               )}
+  //               style={{
+  //                 ...style,
+  //                 WebkitLineClamp: cssLineClamp ? rows : undefined,
+  //               }}
+  //               component={component}
+  //               ref={composeRef(resizeRef, typographyRef)}
+  //               direction={direction}
+  //               onClick={triggerType.includes('text') ? onEditClick : null}
+  //               {...textProps}
+  //             >
+  //               {wrappedContext}
+  //             </Typography>
+  //           )}
+  //         </ResizeObserver>
+  //       );
+  //     }}
+  //   </Ellipsis>
+  // );
 };
 
 export default Base;
