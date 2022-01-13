@@ -97,6 +97,18 @@ describe('prefix and suffix', () => {
     expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
     expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
   });
+
+  it('should support hidden when has prefix or suffix', () => {
+    const wrapper = mount(
+      <>
+        <Input prefix="prefix" hidden className="prefix-with-hidden" />
+        <Input suffix="suffix" hidden className="suffix-with-hidden" />
+      </>,
+    );
+
+    expect(wrapper.find('.prefix-with-hidden').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.suffix-with-hidden').at(0).getDOMNode().hidden).toBe(true);
+  });
 });
 
 describe('As Form Control', () => {

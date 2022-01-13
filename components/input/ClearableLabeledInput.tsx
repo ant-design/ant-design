@@ -29,6 +29,7 @@ interface BasicProps {
   focused?: boolean;
   readOnly?: boolean;
   bordered: boolean;
+  hidden?: boolean;
 }
 
 /** This props only for input. */
@@ -104,6 +105,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       style,
       readOnly,
       bordered,
+      hidden,
     } = this.props;
     if (!hasPrefixSuffix(this.props)) {
       return cloneElement(element, {
@@ -132,6 +134,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         className={affixWrapperCls}
         style={style}
         onMouseUp={this.onInputMouseUp}
+        hidden={hidden}
       >
         {prefixNode}
         {cloneElement(element, {
