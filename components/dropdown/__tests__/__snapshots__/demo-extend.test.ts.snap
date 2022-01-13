@@ -7038,7 +7038,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           type="button"
         >
           <span>
-            bottomCenter
+            bottom
           </span>
         </button>
         <div>
@@ -7692,7 +7692,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           type="button"
         >
           <span>
-            topCenter
+            top
           </span>
         </button>
         <div>

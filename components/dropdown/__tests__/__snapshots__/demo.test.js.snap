@@ -712,7 +712,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
           type="button"
         >
           <span>
-            bottomCenter
+            bottom
           </span>
         </button>
       </div>
@@ -760,7 +760,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
           type="button"
         >
           <span>
-            topCenter
+            top
           </span>
         </button>
       </div>
