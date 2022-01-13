@@ -4,7 +4,6 @@ title:
   zh-CN: 省略号 Debug
   en-US: Ellipsis Debug
 debug: true
-only: true
 ---
 
 ## zh-CN
@@ -22,7 +21,7 @@ const { Text, Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {
-    rows: 1,
+    rows: 2,
     longText: true,
     copyable: false,
     editable: false,
@@ -65,9 +64,9 @@ class Demo extends React.Component {
           </Paragraph>
         )}
 
-        {/* <p>
-          2333<Text ellipsis>2333</Text>2333
-        </p> */}
+        <p>
+          [Before]<Text ellipsis>not ellipsis</Text>[After]
+        </p>
       </>
     );
   }

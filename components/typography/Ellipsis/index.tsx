@@ -6,7 +6,7 @@ export interface EllipsisProps {
   text?: React.ReactNode;
   width: number;
   rows: number;
-  children: (cutChildren: React.ReactNode, measureStyle?: React.CSSProperties) => React.ReactNode;
+  children: (cutChildren: React.ReactNode, needEllipsis: boolean) => React.ReactNode;
 }
 
 function cuttable(node: React.ReactElement) {
@@ -66,28 +66,37 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows }: EllipsisProps
   const [singleRowHeight, setSingleRowHeight] = React.useState(0);
 
   const singleRowRef = React.useRef<HTMLSpanElement>(null);
-  const startRowRef = React.useRef<HTMLSpanElement>(null);
   const midRowRef = React.useRef<HTMLSpanElement>(null);
-  const endRowRef = React.useRef<HTMLSpanElement>(null);
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const totalLen = React.useMemo(() => getNodesLen(nodeList), [nodeList]);
+
+  const mergedChildren = React.useMemo(() => {
+    if (!enabledMeasure) {
+      return children(nodeList, false);
+    }
+
+    return children(sliceNodes(nodeList, midLen), midLen < totalLen);
+  }, [enabledMeasure, children, nodeList, midLen, totalLen]);
 
   // ======================== Walk ========================
   React.useLayoutEffect(() => {
     if (enabledMeasure && width && totalLen) {
       setWalking(true);
       setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
-      setSingleRowHeight(singleRowRef.current?.offsetHeight || 0);
     }
   }, [enabledMeasure, width, text, totalLen]);
 
   React.useLayoutEffect(() => {
     if (walking) {
+      setSingleRowHeight(singleRowRef.current?.offsetHeight || 0);
+    }
+  }, [walking]);
+
+  React.useLayoutEffect(() => {
+    if (walking && singleRowHeight) {
       if (startLen !== endLen) {
-        // const startHeight = startRowRef.current?.offsetHeight || 0;
         const midHeight = midRowRef.current?.offsetHeight || 0;
-        // const endHeight = endRowRef.current?.offsetHeight || 0;
         const maxHeight = rows * singleRowHeight;
 
         let nextStartLen = startLen;
@@ -116,17 +125,13 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows }: EllipsisProps
   }, [walking, startLen, endLen, rows, singleRowHeight]);
 
   // ======================= Render =======================
-  const showChildren = children(text);
-
   const renderMeasure = (
-    key: React.Key,
     content: React.ReactNode,
     ref: React.Ref<HTMLSpanElement>,
     style: React.CSSProperties,
   ) => (
     <span
       aria-hidden
-      key={key}
       ref={ref}
       style={{
         position: 'fixed',
@@ -141,24 +146,12 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows }: EllipsisProps
     </span>
   );
 
-  // Make sure we can reuse render but not conflict with keys
-  const keys: Record<number, boolean> = {};
-  const getKey = (len: number, fallbackKey: string) => {
-    if (!keys[len]) {
-      keys[len] = true;
-      return len;
-    }
-
-    return fallbackKey;
-  };
-
-  const renderMeasureSlice = (key: string, len: number, ref: React.Ref<HTMLSpanElement>) => {
+  const renderMeasureSlice = (len: number, ref: React.Ref<HTMLSpanElement>) => {
     const sliceNodeList = sliceNodes(nodeList, len);
 
-    return renderMeasure(getKey(len, key), children(sliceNodeList, {}), ref, {
+    return renderMeasure(children(sliceNodeList, true), ref, {
       width,
       whiteSpace: 'normal',
-      wordBreak: 'break-all',
       margin: 0,
       padding: 0,
     });
@@ -166,15 +159,13 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows }: EllipsisProps
 
   return (
     <>
-      {showChildren}
+      {mergedChildren}
       {/* Measure usage */}
       {enabledMeasure && walking && (
         <>
           {/* `l` for top & `g` for bottom measure */}
-          {renderMeasure('base', 'lg', singleRowRef, { width: 9999 })}
-          {/* {renderMeasureSlice('start', startLen, startRowRef)} */}
-          {renderMeasureSlice('mid', midLen, midRowRef)}
-          {/* {renderMeasureSlice('end', endLen, endRowRef)} */}
+          {renderMeasure('lg', singleRowRef, { width: 9999 })}
+          {renderMeasureSlice(midLen, midRowRef)}
         </>
       )}
     </>

@@ -216,11 +216,12 @@ const Base = (props: InternalBlockProps) => {
   }, [copied]);
 
   // ========================== Ellipsis ==========================
+  const [expanded, setExpanded] = React.useState(false);
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
-    suffix: ELLIPSIS_STR,
   });
-  const [isEllipsis, setIsEllipsis] = React.useState(false);
+
+  const mergedEnableEllipsis = enableEllipsis && !expanded;
 
   // Shared prop to reduce bundle size
   const { rows = 1 } = ellipsisConfig;
@@ -228,7 +229,7 @@ const Base = (props: InternalBlockProps) => {
   const cssEllipsis = React.useMemo(() => {
     if (
       // Disable ellipsis
-      !enableEllipsis ||
+      !mergedEnableEllipsis ||
       // Provide suffix
       ellipsisConfig.suffix !== undefined ||
       ellipsisConfig.onEllipsis ||
@@ -246,7 +247,7 @@ const Base = (props: InternalBlockProps) => {
 
     return isLineClampSupport;
   }, [
-    enableEllipsis,
+    mergedEnableEllipsis,
     enableEdit,
     enableCopy,
     ellipsisConfig,
@@ -258,7 +259,6 @@ const Base = (props: InternalBlockProps) => {
   const cssLineClamp = rows && rows > 1 && cssEllipsis;
 
   // >>>>> Expand
-  const [expanded, setExpanded] = React.useState(false);
   const onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
     setExpanded(true);
     ellipsisConfig.onExpand?.(e);
@@ -291,13 +291,10 @@ const Base = (props: InternalBlockProps) => {
 
   // >>>>>>>>>>> Typography
   // Expand
-  const renderExpand = (forceRender?: boolean) => {
+  const renderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
 
     if (!expandable) return null;
-
-    // force render expand icon for measure usage or it will cause dead loop
-    if (!forceRender && (expanded || !isEllipsis)) return null;
 
     let expandContent: React.ReactNode;
     if (symbol) {
@@ -371,19 +368,19 @@ const Base = (props: InternalBlockProps) => {
     );
   };
 
-  const renderOperations = (forceRenderExpanded?: boolean) => [
-    renderExpand(forceRenderExpanded),
+  const renderOperations = (renderExpanded: boolean) => [
+    renderExpanded && renderExpand(),
     renderEdit(),
     renderCopy(),
   ];
 
-  const renderSuffix = (forceRenderExpanded?: boolean) => [
-    ellipsisConfig.suffix,
-    renderOperations(forceRenderExpanded),
+  const renderSuffix = (renderExpanded: boolean) => [
+    ellipsisConfig.suffix || ELLIPSIS_STR,
+    renderOperations(renderExpanded),
   ];
 
   return (
-    <ResizeObserver onResize={onResize} disabled={!enableEllipsis || cssEllipsis}>
+    <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis || cssEllipsis}>
       {resizeRef => (
         <Typography
           className={classNames(
@@ -391,7 +388,7 @@ const Base = (props: InternalBlockProps) => {
               [`${prefixCls}-${type}`]: type,
               [`${prefixCls}-disabled`]: disabled,
               [`${prefixCls}-ellipsis`]: rows,
-              [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
+              [`${prefixCls}-single-line`]: rows === 1 && mergedEnableEllipsis,
               [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
               [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
             },
@@ -408,17 +405,17 @@ const Base = (props: InternalBlockProps) => {
           {...textProps}
         >
           <Ellipsis
-            enabledMeasure={enableEllipsis && !cssEllipsis}
+            enabledMeasure={mergedEnableEllipsis && !cssEllipsis}
             text={children}
             rows={rows}
             width={ellipsisWidth}
           >
-            {(node, measureStyle) => {
+            {(node, needEllipsis) => {
               const wrappedContext = wrapperDecorations(
                 props,
                 <>
                   {node}
-                  {renderSuffix(!!measureStyle)}
+                  {needEllipsis && renderSuffix(needEllipsis)}
                 </>,
               );
 
@@ -429,60 +426,6 @@ const Base = (props: InternalBlockProps) => {
       )}
     </ResizeObserver>
   );
-
-  // return (
-  //   <Ellipsis
-  //     enabledMeasure={enableEllipsis && !cssEllipsis}
-  //     text={children}
-  //     rows={rows}
-  //     width={ellipsisWidth}
-  //   >
-  //     {(node, measureStyle) => {
-  //       const wrappedContext = wrapperDecorations(
-  //         props,
-  //         <>
-  //           {node}
-  //           {renderSuffix(!!measureStyle)}
-  //         </>,
-  //       );
-
-  //       if (measureStyle) {
-  //         return wrappedContext;
-  //       }
-
-  //       return (
-  //         <ResizeObserver onResize={onResize} disabled={!enableEllipsis || cssEllipsis}>
-  //           {resizeRef => (
-  //             <Typography
-  //               className={classNames(
-  //                 {
-  //                   [`${prefixCls}-${type}`]: type,
-  //                   [`${prefixCls}-disabled`]: disabled,
-  //                   [`${prefixCls}-ellipsis`]: rows,
-  //                   [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
-  //                   [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-  //                   [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-  //                 },
-  //                 className,
-  //               )}
-  //               style={{
-  //                 ...style,
-  //                 WebkitLineClamp: cssLineClamp ? rows : undefined,
-  //               }}
-  //               component={component}
-  //               ref={composeRef(resizeRef, typographyRef)}
-  //               direction={direction}
-  //               onClick={triggerType.includes('text') ? onEditClick : null}
-  //               {...textProps}
-  //             >
-  //               {wrappedContext}
-  //             </Typography>
-  //           )}
-  //         </ResizeObserver>
-  //       );
-  //     }}
-  //   </Ellipsis>
-  // );
 };
 
 export default Base;
