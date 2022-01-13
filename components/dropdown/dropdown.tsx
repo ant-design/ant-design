@@ -136,10 +136,21 @@ const Dropdown: DropdownInterface = props => {
 
   const getPlacement = () => {
     const { placement } = props;
-    if (placement !== undefined) {
-      return placement;
+    if (!placement) {
+      return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
     }
-    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+
+    if (placement.includes('Center')) {
+      const newPlacement = placement.slice(0, placement.indexOf('Center'));
+      devWarning(
+        !placement.includes('Center'),
+        'Dropdown',
+        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
+      );
+      return newPlacement;
+    }
+
+    return placement;
   };
 
   const {

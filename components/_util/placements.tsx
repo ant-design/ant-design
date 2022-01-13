@@ -57,15 +57,7 @@ export default function getPlacements(config: PlacementsConfig) {
       points: ['bc', 'tc'],
       offset: [0, -4],
     },
-    topCenter: {
-      points: ['bc', 'tc'],
-      offset: [0, -4],
-    },
     bottom: {
-      points: ['tc', 'bc'],
-      offset: [0, 4],
-    },
-    bottomCenter: {
       points: ['tc', 'bc'],
       offset: [0, 4],
     },
@@ -103,21 +95,18 @@ export default function getPlacements(config: PlacementsConfig) {
     },
   };
   Object.keys(placementMap).forEach(key => {
-    // Adjust dropdown's placement (with 'Center')
-    const placementKey = key.includes('Center') ? key.slice(0, key.indexOf('Center')) : key;
-
-    placementMap[placementKey] = arrowPointAtCenter
+    placementMap[key] = arrowPointAtCenter
       ? {
-          ...placementMap[placementKey],
+          ...placementMap[key],
           overflow: getOverflowOptions(autoAdjustOverflow),
           targetOffset,
         }
       : {
-          ...placements[placementKey],
+          ...placements[key],
           overflow: getOverflowOptions(autoAdjustOverflow),
         };
 
-    placementMap[placementKey].ignoreShake = true;
+    placementMap[key].ignoreShake = true;
   });
   return placementMap;
 }

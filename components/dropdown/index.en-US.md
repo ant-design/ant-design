@@ -24,7 +24,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
 | overlayClassName | The class name of the dropdown root element | string | - |  |
 | overlayStyle | The style of the dropdown root element | CSSProperties | - |  |
-| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomCenter` `bottomRight` `top` `topLeft` `topCenter` `topRight` | string | `bottomLeft` |  |
+| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | visible | Whether the dropdown menu is currently visible | boolean | - |  |
 | onVisibleChange | Called when the visible state is changed. Not trigger when hidden by click item | (visible: boolean) => void | - |  |
@@ -44,7 +44,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | icon | Icon (appears on the right) | ReactNode | - |  |
 | overlay | The dropdown menu | [Menu](/components/menu) | - |  |
-| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomCenter` `bottomRight` `top` `topLeft` `topCenter` `topRight` | string | `bottomLeft` |  |
+| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | size | Size of the button, the same as [Button](/components/button/#API) | string | `default` |  |
 | trigger | The trigger mode which executes the dropdown action | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | type | Type of the button, the same as [Button](/components/button/#API) | string | `default` |  |

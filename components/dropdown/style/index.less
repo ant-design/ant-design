@@ -49,14 +49,12 @@
   }
 
   // Offset the popover to account for the dropdown arrow
-  &-show-arrow&-placement-topCenter,
   &-show-arrow&-placement-topLeft,
   &-show-arrow&-placement-top,
   &-show-arrow&-placement-topRight {
     padding-bottom: @popover-distance;
   }
 
-  &-show-arrow&-placement-bottomCenter,
   &-show-arrow&-placement-bottomLeft,
   &-show-arrow&-placement-bottom,
   &-show-arrow&-placement-bottomRight {
@@ -78,7 +76,6 @@
     transform: rotate(45deg);
   }
 
-  &-placement-topCenter > &-arrow,
   &-placement-top > &-arrow,
   &-placement-topLeft > &-arrow,
   &-placement-topRight > &-arrow {
@@ -87,7 +84,6 @@
     box-shadow: 3px 3px 7px fade(@black, 7%);
   }
 
-  &-placement-topCenter > &-arrow,
   &-placement-top > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
@@ -101,7 +97,6 @@
     right: 16px;
   }
 
-  &-placement-bottomCenter > &-arrow,
   &-placement-bottom > &-arrow,
   &-placement-bottomLeft > &-arrow,
   &-placement-bottomRight > &-arrow {
@@ -110,7 +105,6 @@
     box-shadow: -2px -2px 5px fade(@black, 6%);
   }
 
-  &-placement-bottomCenter > &-arrow,
   &-placement-bottom > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
@@ -306,9 +300,7 @@
 
   &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-bottomLeft,
   &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-bottomLeft,
-  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-bottomCenter,
   &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-bottom,
-  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-bottomCenter,
   &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-bottom,
   &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-bottomRight,
   &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-bottomRight {
@@ -317,9 +309,7 @@
 
   &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topLeft,
   &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topLeft,
-  &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topCenter,
   &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-top,
-  &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topCenter,
   &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-top,
   &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topRight,
   &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topRight {
@@ -327,14 +317,12 @@
   }
 
   &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottomLeft,
-  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottomCenter,
   &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottom,
   &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottomRight {
     animation-name: antSlideUpOut;
   }
 
   &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topLeft,
-  &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topCenter,
   &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-top,
   &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topRight {
     animation-name: antSlideDownOut;

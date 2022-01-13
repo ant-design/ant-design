@@ -28,7 +28,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 | overlay | 菜单 | [Menu](/components/menu) \| () => Menu | - |  |
 | overlayClassName | 下拉根元素的类名称 | string | - |  |
 | overlayStyle | 下拉根元素的样式 | CSSProperties | - |  |
-| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomCenter` `bottomRight` `top` `topLeft` `topCenter` `topRight` | string | `bottomLeft` |  |
+| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | 触发下拉的行为, 移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | visible | 菜单是否显示 | boolean | - |  |
 | onVisibleChange | 菜单显示状态改变时调用，参数为 `visible`。点击菜单按钮导致的消失不会触发 | (visible: boolean) => void | - |  |
@@ -48,7 +48,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 | disabled | 菜单是否禁用 | boolean | - |  |
 | icon | 右侧的 icon | ReactNode | - |  |
 | overlay | 菜单 | [Menu](/components/menu/) | - |  |
-| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomCenter` `bottomRight` `top` `topLeft` `topCenter` `topRight` | string | `bottomLeft` |  |
+| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | size | 按钮大小，和 [Button](/components/button/#API) 一致 | string | `default` |  |
 | trigger | 触发下拉的行为 | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | type | 按钮类型，和 [Button](/components/button/#API) 一致 | string | `default` |  |
