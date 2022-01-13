@@ -21,11 +21,11 @@ const { Text, Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {
-    rows: 2,
+    rows: 1,
     longText: true,
     copyable: false,
     editable: false,
-    expandable: true,
+    expandable: false,
   };
 
   onChange = rows => {

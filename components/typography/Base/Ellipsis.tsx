@@ -7,6 +7,7 @@ export interface EllipsisProps {
   width: number;
   rows: number;
   children: (cutChildren: React.ReactNode, needEllipsis: boolean) => React.ReactNode;
+  onEllipsis: (isEllipsis: boolean) => void;
 }
 
 function cuttable(node: React.ReactElement) {
@@ -58,7 +59,7 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
   return nodeList;
 }
 
-const Ellipsis = ({ enabledMeasure, children, text, width, rows }: EllipsisProps) => {
+const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: EllipsisProps) => {
   const [cutLength, setCutLength] = React.useState<[number, number, number]>([0, 0, 0]);
   const [walking, setWalking] = React.useState(false);
   const [startLen, midLen, endLen] = cutLength;
@@ -120,6 +121,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows }: EllipsisProps
         setCutLength([nextStartLen, nextMidLen, nextEndLen]);
       } else {
         setWalking(false);
+        onEllipsis(midLen < totalLen);
       }
     }
   }, [walking, startLen, endLen, rows, singleRowHeight]);

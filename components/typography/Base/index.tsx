@@ -10,20 +10,17 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
-import { ConfigConsumerProps, configConsumerProps, ConfigContext } from '../config-provider';
-import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
-import devWarning from '../_util/devWarning';
-import TransButton from '../_util/transButton';
-import raf from '../_util/raf';
-import { isStyleSupport } from '../_util/styleChecker';
-import Tooltip from '../tooltip';
-import Typography, { TypographyProps } from './Typography';
-import Editable from './Editable';
-import measure from './util';
-import Measure from './Measure';
-import useMergedConfig from './hooks/useMergedConfig';
-import useUpdatedEffect from './hooks/useUpdatedEffect';
+import { ConfigContext } from '../../config-provider';
+import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
+import TransButton from '../../_util/transButton';
+import { isStyleSupport } from '../../_util/styleChecker';
+import Tooltip from '../../tooltip';
+import Typography, { TypographyProps } from '../Typography';
+import Editable from '../Editable';
+import useMergedConfig from '../hooks/useMergedConfig';
+import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import Ellipsis from './Ellipsis';
+import EllipsisTooltip from './EllipsisTooltip';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -135,6 +132,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const textLocale = useLocaleReceiver('Text')[0]!; // Force TS get this
 
+  const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLDivElement>(null);
 
   // ============================ MISC ============================
@@ -216,6 +214,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   // ========================== Ellipsis ==========================
   const [expanded, setExpanded] = React.useState(false);
+  const [isJsEllipsis, setIsJsEllipsis] = React.useState(false);
+  const [isNativeEllipsis, setIsNativeEllipsis] = React.useState(false);
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
   });
@@ -254,8 +254,10 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     isLineClampSupport,
   ]);
 
-  const cssTextOverflow = rows === 1 && cssEllipsis;
-  const cssLineClamp = rows && rows > 1 && cssEllipsis;
+  const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis);
+
+  const cssTextOverflow = mergedEnableEllipsis && rows === 1 && cssEllipsis;
+  const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
 
   // >>>>> Expand
   const onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
@@ -267,6 +269,23 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
   };
+
+  // >>>>> JS Ellipsis
+  const onJsEllipsis = (jsEllipsis: boolean) => {
+    setIsJsEllipsis(jsEllipsis);
+  };
+
+  // >>>>> Native ellipsis
+  React.useEffect(() => {
+    const textEle = typographyRef.current;
+
+    if (enableEllipsis && cssEllipsis && textEle) {
+      const currentEllipsis = textEle.offsetWidth < textEle.scrollWidth;
+      if (isNativeEllipsis !== currentEllipsis) {
+        setIsNativeEllipsis(currentEllipsis);
+      }
+    }
+  }, [enableEllipsis, cssEllipsis, children]);
 
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
@@ -374,54 +393,61 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   ];
 
   const renderSuffix = (needEllipsis: boolean) => [
-    needEllipsis && (ellipsisConfig.suffix || ELLIPSIS_STR),
+    needEllipsis && [ELLIPSIS_STR, ellipsisConfig.suffix],
     renderOperations(needEllipsis),
   ];
 
   return (
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis || cssEllipsis}>
       {resizeRef => (
-        <Typography
-          className={classNames(
-            {
-              [`${prefixCls}-${type}`]: type,
-              [`${prefixCls}-disabled`]: disabled,
-              [`${prefixCls}-ellipsis`]: enableEllipsis,
-              [`${prefixCls}-single-line`]: rows === 1 && mergedEnableEllipsis,
-              [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-              [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-            },
-            className,
-          )}
-          style={{
-            ...style,
-            WebkitLineClamp: cssLineClamp ? rows : undefined,
-          }}
-          component={component}
-          ref={composeRef(resizeRef, ref)}
-          direction={direction}
-          onClick={triggerType.includes('text') ? onEditClick : null}
-          {...textProps}
+        <EllipsisTooltip
+          title={ellipsisConfig.tooltip === true ? children : ellipsisConfig.tooltip}
+          enabledEllipsis={mergedEnableEllipsis}
+          isEllipsis={isMergedEllipsis}
         >
-          <Ellipsis
-            enabledMeasure={mergedEnableEllipsis && !cssEllipsis}
-            text={children}
-            rows={rows}
-            width={ellipsisWidth}
-          >
-            {(node, needEllipsis) => {
-              const wrappedContext = wrapperDecorations(
-                props,
-                <>
-                  {node}
-                  {renderSuffix(needEllipsis)}
-                </>,
-              );
-
-              return wrappedContext;
+          <Typography
+            className={classNames(
+              {
+                [`${prefixCls}-${type}`]: type,
+                [`${prefixCls}-disabled`]: disabled,
+                [`${prefixCls}-ellipsis`]: enableEllipsis,
+                [`${prefixCls}-single-line`]: mergedEnableEllipsis && rows === 1,
+                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+              },
+              className,
+            )}
+            style={{
+              ...style,
+              WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}
-          </Ellipsis>
-        </Typography>
+            component={component}
+            ref={composeRef(resizeRef, typographyRef, ref)}
+            direction={direction}
+            onClick={triggerType.includes('text') ? onEditClick : null}
+            {...textProps}
+          >
+            <Ellipsis
+              enabledMeasure={mergedEnableEllipsis && !cssEllipsis}
+              text={children}
+              rows={rows}
+              width={ellipsisWidth}
+              onEllipsis={onJsEllipsis}
+            >
+              {(node, needEllipsis) => {
+                const wrappedContext = wrapperDecorations(
+                  props,
+                  <>
+                    {node}
+                    {renderSuffix(needEllipsis)}
+                  </>,
+                );
+
+                return wrappedContext;
+              }}
+            </Ellipsis>
+          </Typography>
+        </EllipsisTooltip>
       )}
     </ResizeObserver>
   );

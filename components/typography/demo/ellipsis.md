@@ -3,6 +3,7 @@ order: 4
 title:
   zh-CN: 省略号
   en-US: Ellipsis
+only: true
 ---
 
 ## zh-CN
