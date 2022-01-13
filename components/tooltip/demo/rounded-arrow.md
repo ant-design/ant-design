@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-使用 `roundArrow` 来启用圆角箭头样式。
+使用 `roundedArrow` 来启用圆角箭头样式。
 
 ## en-US
 
-Use `roundArrow` to enable round arrow.
+Use `roundedArrow` to enable round arrow.
 
 ```jsx
 import { Tooltip, Button } from 'antd';
@@ -23,22 +23,22 @@ const buttonWidth = 70;
 ReactDOM.render(
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
-      <Tooltip placement="top" title={text} roundArrow>
+      <Tooltip placement="top" title={text} roundedArrow>
         <Button>Top</Button>
       </Tooltip>
     </div>
     <div style={{ width: buttonWidth, float: 'left' }}>
-      <Tooltip placement="left" title={text} roundArrow>
+      <Tooltip placement="left" title={text} roundedArrow>
         <Button>Left</Button>
       </Tooltip>
     </div>
     <div style={{ width: buttonWidth, marginLeft: buttonWidth * 2 }}>
-      <Tooltip placement="right" title={text} roundArrow>
+      <Tooltip placement="right" title={text} roundedArrow>
         <Button>Right</Button>
       </Tooltip>
     </div>
     <div style={{ marginLeft: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
-      <Tooltip placement="bottom" title={text} roundArrow>
+      <Tooltip placement="bottom" title={text} roundedArrow>
         <Button>Bottom</Button>
       </Tooltip>
     </div>
@@ -60,7 +60,7 @@ ReactDOM.render(
   margin-left: 8px;
   margin-bottom: 8px;
 }
-#components-tooltip-demo-round-arrow .ant-btn {
+#components-tooltip-demo-rounded-arrow .ant-btn {
   width: 70px;
   text-align: center;
   padding: 0;
