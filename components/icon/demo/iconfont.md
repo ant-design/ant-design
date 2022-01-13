@@ -14,6 +14,7 @@ title:
 If you are using [iconfont.cn](http://iconfont.cn/), you can use the icons in your project gracefully.
 
 ```jsx
+import { Space } from 'antd';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const IconFont = createFromIconfontCN({
@@ -21,11 +22,11 @@ const IconFont = createFromIconfontCN({
 });
 
 ReactDOM.render(
-  <div className="icons-list">
+  <Space>
     <IconFont type="icon-tuichu" />
     <IconFont type="icon-facebook" />
     <IconFont type="icon-twitter" />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```
