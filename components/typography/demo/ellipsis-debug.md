@@ -26,7 +26,7 @@ class Demo extends React.Component {
     longText: true,
     copyable: false,
     editable: false,
-    expandable: false,
+    expandable: true,
   };
 
   onChange = rows => {
@@ -65,9 +65,9 @@ class Demo extends React.Component {
           </Paragraph>
         )}
 
-        <p>
+        {/* <p>
           2333<Text ellipsis>2333</Text>2333
-        </p>
+        </p> */}
       </>
     );
   }

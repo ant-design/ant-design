@@ -123,24 +123,40 @@ const Base = (props: InternalBlockProps) => {
     prefixCls: customizePrefixCls,
     className,
     style,
+    type,
+    disabled,
     children,
     ellipsis,
     editable,
     copyable,
+    component,
+    ...restProps
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const textLocale = useLocaleReceiver('Text')[0]!; // Force TS get this
 
+  const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLDivElement>(null);
 
   // ============================ MISC ============================
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
+
+  const textProps = omit(restProps, [
+    'mark',
+    'code',
+    'delete',
+    'underline',
+    'strong',
+    'keyboard',
+    'italic',
+  ]) as any;
 
   // ========================== Editable ==========================
   const [enableEdit, editConfig] = useMergedConfig<EditConfig>(editable);
   const [editing, setEditing] = useMergedState(false, {
     value: editConfig.editing,
   });
+  const { triggerType = ['icon'] } = editConfig;
 
   const triggerEdit = (edit: boolean) => {
     if (edit) {
@@ -206,6 +222,9 @@ const Base = (props: InternalBlockProps) => {
   });
   const [isEllipsis, setIsEllipsis] = React.useState(false);
 
+  // Shared prop to reduce bundle size
+  const { rows } = ellipsisConfig;
+
   const cssEllipsis = React.useMemo(() => {
     if (
       // Disable ellipsis
@@ -221,7 +240,7 @@ const Base = (props: InternalBlockProps) => {
       return false;
     }
 
-    if (ellipsisConfig.rows === 1) {
+    if (rows === 1) {
       return isTextOverflowSupport;
     }
 
@@ -235,11 +254,19 @@ const Base = (props: InternalBlockProps) => {
     isLineClampSupport,
   ]);
 
+  const cssTextOverflow = rows === 1 && cssEllipsis;
+  const cssLineClamp = rows && rows > 1 && cssEllipsis;
+
   // >>>>> Expand
   const [expanded, setExpanded] = React.useState(false);
   const onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
     setExpanded(true);
     ellipsisConfig.onExpand?.(e);
+  };
+
+  const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
+  const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
+    setEllipsisWidth(offsetWidth);
   };
 
   // =========================== Render ===========================
@@ -295,12 +322,12 @@ const Base = (props: InternalBlockProps) => {
   const renderEdit = () => {
     if (!enableEdit) return;
 
-    const { icon, tooltip, triggerType = ['icon'] } = editConfig;
+    const { icon, tooltip } = editConfig;
 
     const title = toArray(tooltip)[0] || textLocale.edit;
     const ariaLabel = typeof title === 'string' ? title : '';
 
-    return triggerType.indexOf('icon') !== -1 ? (
+    return triggerType.includes('icon') ? (
       <Tooltip key="edit" title={tooltip === false ? '' : title}>
         <TransButton
           ref={editIconRef}
@@ -358,10 +385,60 @@ const Base = (props: InternalBlockProps) => {
   return (
     <Ellipsis
       enabled={enableEllipsis}
+      cssEllipsis={cssEllipsis}
       text={children}
-      suffix={forceRenderExpanded => renderSuffix(forceRenderExpanded)}
+      width={ellipsisWidth}
     >
-      {node => wrapperDecorations(props, node)}
+      {(node, measureStyle) => {
+        let typoNode = (
+          <Typography
+            className={classNames(
+              {
+                [`${prefixCls}-${type}`]: type,
+                [`${prefixCls}-disabled`]: disabled,
+                [`${prefixCls}-ellipsis`]: rows,
+                [`${prefixCls}-single-line`]: rows === 1 && !isEllipsis,
+                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+              },
+              className,
+            )}
+            style={{
+              ...style,
+              WebkitLineClamp: cssLineClamp ? rows : undefined,
+              ...measureStyle,
+            }}
+            component={component}
+            ref={!measureStyle ? typographyRef : null}
+            direction={direction}
+            onClick={triggerType.includes('text') ? onEditClick : null}
+            {...textProps}
+          >
+            {wrapperDecorations(
+              props,
+              <>
+                {node}
+                {renderSuffix(!!measureStyle)}
+              </>,
+            )}
+          </Typography>
+        );
+
+        if (enableEllipsis && !cssEllipsis && !measureStyle) {
+          const originNode = typoNode;
+          typoNode = (
+            <ResizeObserver onResize={onResize}>
+              {resizeRef =>
+                React.cloneElement(originNode, {
+                  ref: composeRef(resizeRef, typographyRef),
+                })
+              }
+            </ResizeObserver>
+          );
+        }
+
+        return typoNode;
+      }}
     </Ellipsis>
   );
 };

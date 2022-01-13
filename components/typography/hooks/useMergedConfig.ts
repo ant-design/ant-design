@@ -5,7 +5,7 @@ export default function useMergedConfig<Target>(
   templateConfig?: Target,
 ): [boolean, Target] {
   return React.useMemo(() => {
-    const support = !!origin;
+    const support = !!propConfig;
 
     return [
       support,
@@ -14,5 +14,5 @@ export default function useMergedConfig<Target>(
         ...(support && typeof propConfig === 'object' ? propConfig : null),
       },
     ];
-  }, [origin]);
+  }, [propConfig]);
 }
