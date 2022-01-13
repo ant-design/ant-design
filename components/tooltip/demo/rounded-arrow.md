@@ -2,7 +2,7 @@
 order: 6
 title:
   zh-CN: 圆角箭头
-  en-US: Round Arrow
+  en-US: Rounded Arrow
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Use `roundedArrow` to enable round arrow.
+Use `roundedArrow` to enable rounded arrow.
 
 ```jsx
 import { Tooltip, Button } from 'antd';
