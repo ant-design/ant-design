@@ -1,0 +1,20 @@
+.roundArrow(@width, @outer-radius, @inner-radius) {
+  @a-x: 0;
+  @a-y: @width;
+  @b-x: @outer-radius * (1 / sqrt(2));
+  @b-y: @width - @outer-radius * (1 - 1 / sqrt(2));
+  @c-x: @width - @outer-radius * (1 - 1 / sqrt(2)) - @inner-radius;
+  @c-y: @width - @outer-radius * (1 - 1 / sqrt(2));
+  @d-x: @width - @outer-radius * (1 - 1 / sqrt(2));
+  @d-y: @width - @outer-radius * (1 - 1 / sqrt(2)) - @inner-radius;
+  @e-x: @width - @outer-radius * (1 - 1 / sqrt(2));
+  @e-y: @outer-radius * (1 / sqrt(2));
+  @f-x: @width;
+  @f-y: 0;
+
+  width: unit(@width, px);
+  height: unit(@width, px);
+  clip-path: path(
+    'M @{a-x} @{a-y} A @{outer-radius} @{outer-radius}, 0, 0, 1, @{b-x} @{b-y} L @{c-x} @{c-y} A @{inner-radius} @{inner-radius}, 0, 0, 0, @{d-x} @{d-y} L @{e-x} @{e-y} A @{outer-radius} @{outer-radius}, 0, 0, 1, @{f-x} @{f-y} L 0 0 Z'
+  );
+}

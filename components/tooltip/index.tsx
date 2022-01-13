@@ -47,6 +47,7 @@ export interface AbstractTooltipProps extends Partial<Omit<RcTooltipProps, 'chil
   builtinPlacements?: typeof Placements;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
+  roundedArrow?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
@@ -204,7 +205,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     return overlay || title || '';
   };
 
-  const { getPopupContainer, ...otherProps } = props;
+  const { getPopupContainer, roundedArrow, ...otherProps } = props;
 
   const {
     prefixCls: customizePrefixCls,
@@ -245,6 +246,11 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     arrowContentStyle = { background: color };
   }
 
+  const arrowContentClass = classNames(
+    `${prefixCls}-arrow-content`,
+    roundedArrow && `${prefixCls}-arrow-content-round`,
+  );
+
   return (
     <RcTooltip
       {...otherProps}
@@ -258,7 +264,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       onVisibleChange={onVisibleChange}
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
-      arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
+      arrowContent={<span className={arrowContentClass} style={arrowContentStyle} />}
       motion={{
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,
