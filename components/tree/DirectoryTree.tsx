@@ -5,9 +5,7 @@ import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
-import FileOutlined from '@ant-design/icons/FileOutlined';
-import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
-import FolderOutlined from '@ant-design/icons/FolderOutlined';
+import { FileOutlined, FolderOpenOutlined, FolderOutlined } from 'infra-design-icons';
 import { ConfigContext } from '../config-provider';
 
 import Tree, { TreeProps, AntdTreeNodeAttribute } from './Tree';

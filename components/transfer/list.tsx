@@ -1,7 +1,7 @@
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import { DownOutlined } from 'infra-design-icons';
 import Checkbox from '../checkbox';
 import Menu from '../menu';
 import Dropdown from '../dropdown';

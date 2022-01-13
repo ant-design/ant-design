@@ -22,7 +22,7 @@ import {
   MailOutlined,
   SettingOutlined,
   ClockCircleOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 import {
   ConfigProvider,
   Tag,

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { Helmet } from 'react-helmet-async';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { Input, Tooltip, Typography } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from 'infra-design-icons';
 import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from '@docsearch/react';
 import '@docsearch/css';
 import { SharedProps } from './interface';

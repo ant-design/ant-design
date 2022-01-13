@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Row, Col, Typography, Card } from 'antd';
-import { RightOutlined, LeftOutlined } from '@ant-design/icons';
+import { RightOutlined, LeftOutlined } from 'infra-design-icons';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link } from 'bisheng/router';
 import { getLocalizedPathname } from '../../utils';

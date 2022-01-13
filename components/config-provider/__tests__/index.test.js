@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined } from 'infra-design-icons';
 import ConfigProvider, { ConfigContext } from '..';
 import Button from '../../button';
 import Table from '../../table';

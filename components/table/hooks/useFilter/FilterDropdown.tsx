@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
-import FilterFilled from '@ant-design/icons/FilterFilled';
+import { FilterFilled } from 'infra-design-icons';
 import Button from '../../../button';
 import Menu from '../../../menu';
 import Tree from '../../../tree';

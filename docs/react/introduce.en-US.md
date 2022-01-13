@@ -3,7 +3,7 @@ order: 0
 title: Infra Design of React
 ---
 
-Following the Infra Design specification, we developed a React UI library `antd` that contains a set of high quality components and demos for building rich, interactive user interfaces.
+Following the Infra Design specification, we developed a React UI library `infrad` that contains a set of high quality components and demos for building rich, interactive user interfaces.
 
 <div class="pic-plus">
   <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
@@ -91,16 +91,16 @@ ReactDOM.render(<DatePicker />, mountNode);
 And import stylesheets manually:
 
 ```jsx
-import 'infrad/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'infrad/dist/antd.css'; // or 'infrad/dist/antd.less'
 ```
 
-### Use modularized antd
+### Use modularized infrad
 
-`antd` supports ES modules tree shaking by default for JS part.
+`infrad` supports ES modules tree shaking by default for JS part.
 
 ### TypeScript
 
-`antd` provides a built-in ts definition, don't install `@types/antd`.
+`infrad` provides a built-in ts definition, don't install `@types/infrad`.
 
 ## Links
 
@@ -127,7 +127,7 @@ import 'infrad/dist/antd.css'; // or 'antd/dist/antd.less'
 - [Customize Theme](/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
-## Companies using antd
+## Companies using infrad
 
 - [Ant Financial](http://www.antfin.com/index.htm?locale=en_US)
 - [Alibaba](http://www.alibaba.com/)
@@ -144,12 +144,12 @@ import 'infrad/dist/antd.css'; // or 'antd/dist/antd.less'
 
 Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first.
 
-If you'd like to help us improve antd, just create a [Pull Request](https://github.com/ant-design/ant-design/pulls). Feel free to report bugs and issues [here](http://new-issue.ant.design/).
+If you'd like to help us improve infrad, just create a [Pull Request](https://github.com/infra-fe/infra-design/pulls). Feel free to report bugs and issues [here](http://new-issue.ant.design/).
 
 > If you're new to posting issues, we ask that you read [_How To Ask Questions The Smart Way_](http://www.catb.org/~esr/faqs/smart-questions.html) and [How to Ask a Question in Open Source Community](https://github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) prior to posting. Well written bug reports help us help you!
 
 ## Need Help?
 
-For questions on how to use antd, please post questions to [GitHub Discussions](https://github.com/ant-design/ant-design/discussions) using the `Q&A` tag or [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag.
+For questions on how to use infrad, please post questions to [GitHub Discussions](https://github.com/ant-design/ant-design/discussions) using the `Q&A` tag or [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag.
 
-As always, we encourage experienced users to help those who are not familiar with `antd`!
+As always, we encourage experienced users to help those who are not familiar with `infrad`!

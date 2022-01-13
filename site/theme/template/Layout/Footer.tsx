@@ -17,7 +17,7 @@ import {
   IssuesCloseOutlined,
   QuestionCircleOutlined,
   BgColorsOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 import ColorPicker from '../Color/ColorPicker';
 import { loadScript, getLocalizedPathname } from '../utils';
 

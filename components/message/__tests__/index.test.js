@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined } from 'infra-design-icons';
 import message, { getInstance } from '..';
 
 describe('message', () => {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import { SearchOutlined } from 'infra-design-icons';
 import Input, { InputProps } from './Input';
 import Button from '../button';
 import SizeContext from '../config-provider/SizeContext';

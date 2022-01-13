@@ -392,7 +392,7 @@ timeline: true
 
 `2021-06-23`
 
-- 🐞 修复 Menu 直接导入 `@ant-design/icons` 的方式以减少不使用 Tree Shaking 的打包尺寸。[#31011](https://github.com/ant-design/ant-design/pull/31011)
+- 🐞 修复 Menu 直接导入 `infra-design-icons` 的方式以减少不使用 Tree Shaking 的打包尺寸。[#31011](https://github.com/ant-design/ant-design/pull/31011)
 - 🐞 修复 Menu 过长省略弹层没有跟随 `theme` 配置的问题。[#31043](https://github.com/ant-design/ant-design/pull/31043)
 - 🐞 修复 Table 某处样式代码没有使用 `@{table-prefix-cls}` less 变量可能导致样式覆盖失效的问题。[#30983](https://github.com/ant-design/ant-design/pull/30983)
 - 🐞 修复 Input.Password 校验失败时的 hover 边框色。[#30999](https://github.com/ant-design/ant-design/pull/30999)
@@ -2584,7 +2584,7 @@ Infra Design 4.0-rc 发布，发布文档请查看[此处](https://github.com/an
   - 🌟 范围选择器可以允许开始与结束时间为空。
   - 🌟 优化手工输入与键盘交互支持。
   - 🌟 支持 `inputReadOnly` 禁用手动输入。
-- 🌟 移除 Icon，使用 `@ant-design/icons` 代替。[#18217](https://github.com/ant-design/ant-design/pull/18217)
+- 🌟 移除 Icon，使用 `infra-design-icons` 代替。[#18217](https://github.com/ant-design/ant-design/pull/18217)
 - Skeleton
   - 🌟 支持 Skeleton.Avatar 占位组件。[#19898](https://github.com/ant-design/ant-design/pull/19898) [@Rustin-Liu](https://github.com/Rustin-Liu)
   - 🌟 支持 Skeleton.Button 占位组件。[#19699](https://github.com/ant-design/ant-design/pull/19699) [@Rustin-Liu](https://github.com/Rustin-Liu)

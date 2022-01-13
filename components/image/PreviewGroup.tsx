@@ -1,12 +1,14 @@
 import * as React from 'react';
 import RcImage from 'rc-image';
-import RotateLeftOutlined from '@ant-design/icons/RotateLeftOutlined';
-import RotateRightOutlined from '@ant-design/icons/RotateRightOutlined';
-import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
-import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import {
+  RightOutlined,
+  RotateLeftOutlined,
+  RotateRightOutlined,
+  ZoomInOutlined,
+  ZoomOutOutlined,
+  CloseOutlined,
+  LeftOutlined,
+} from 'infra-design-icons';
 import { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 import { ConfigContext } from '../config-provider';
 import { getTransitionName } from '../_util/motion';

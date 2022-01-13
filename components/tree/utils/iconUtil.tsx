@@ -1,10 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import FileOutlined from '@ant-design/icons/FileOutlined';
-import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
-import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
-import CaretDownFilled from '@ant-design/icons/CaretDownFilled';
+import { LoadingOutlined } from 'infra-design-icons';
+import {
+  FileOutlined,
+  MinusSquareOutlined,
+  PlusSquareOutlined,
+  CaretDownFilled,
+} from 'infra-design-icons';
 import { AntTreeNodeProps } from '../Tree';
 import { isValidElement, cloneElement } from '../../_util/reactNode';
 

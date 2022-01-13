@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import { EllipsisOutlined } from 'infra-design-icons';
 import memoize from 'memoize-one';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';

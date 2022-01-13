@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
-import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
+import { ArrowLeftOutlined, ArrowRightOutlined } from 'infra-design-icons';
 import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import { TagType } from '../tag';

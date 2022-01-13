@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from 'infra-design-icons';
 import { resetWarned } from 'rc-util/lib/warning';
 import Button from '..';
 import ConfigProvider from '../../config-provider';

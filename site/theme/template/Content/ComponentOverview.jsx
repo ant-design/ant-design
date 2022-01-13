@@ -4,7 +4,7 @@ import { Link } from 'bisheng/router';
 import { useIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
 import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from 'infra-design-icons';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { getMetaDescription, getLocalizedPathname, getThemeConfig, getMenuItems } from '../utils';
 import './ComponentOverview.less';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import { CSSMotionProps } from 'rc-motion';
 import classNames from 'classnames';
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import { RightOutlined } from 'infra-design-icons';
 
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';

@@ -1,7 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
-import { ISuccessFilled, ICloseFullfiled, INoticeCircleFilled } from 'infra-design-icons';
+import {
+  ISuccessFilled,
+  ICloseFullfiled,
+  INoticeCircleFilled,
+  InfoCircleOutlined,
+} from 'infra-design-icons';
 import { getConfirmLocale } from './locale';
 import type { ModalFuncProps } from './Modal';
 import ConfirmDialog from './ConfirmDialog';

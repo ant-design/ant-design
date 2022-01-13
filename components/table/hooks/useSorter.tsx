@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
-import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import { CaretDownOutlined, CaretUpOutlined } from 'infra-design-icons';
 import {
   TransformColumns,
   ColumnsType,

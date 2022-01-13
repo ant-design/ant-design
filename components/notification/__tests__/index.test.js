@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from 'infra-design-icons';
 import notification, { getInstance } from '..';
 import ConfigProvider from '../../config-provider';
 

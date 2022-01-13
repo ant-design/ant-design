@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
+import { QuestionCircleOutlined } from 'infra-design-icons';
 import Col, { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { FormContext, FormContextProps } from './context';

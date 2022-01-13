@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
-import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from 'infra-design-icons';
 
 import List from '..';
 

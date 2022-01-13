@@ -84,7 +84,7 @@ const Demo = () => (
 
   // tree-shaking supported
 - import { Icon } from 'antd';
-+ import { SmileOutlined } from '@ant-design/icons';
++ import { SmileOutlined } from 'infra-design-icons';
 
   const Demo = () => (
     <div>
@@ -95,7 +95,7 @@ const Demo = () => (
   );
 
   // or directly import
-  import SmileOutlined from '@ant-design/icons/SmileOutlined';
+  import SmileOutlined from 'infra-design-icons/SmileOutlined';
 ```
 
 你将仍然可以通过兼容包继续使用：
@@ -220,11 +220,11 @@ antd4-codemod src
 
 > **注意：**从 `@ant-design/compatible` 引入的老版本 Form 组件，样式类名会从 `.ant-form` 变成 `.ant-legacy-form`，如果你对其进行了样式覆盖，也需要相应修改。
 
-#### 用新的 `@ant-design/icons` 替换字符串类型的 `icon` 属性值
+#### 用新的 `infra-design-icons` 替换字符串类型的 `icon` 属性值
 
 ```diff
   import { Avatar, Button, Result } from 'antd';
-+ import { QuestionOutlined, UserOutlined } from '@ant-design/icons';
++ import { QuestionOutlined, UserOutlined } from 'infra-design-icons';
 
   ReactDOM.render(
     <div>
@@ -244,12 +244,12 @@ antd4-codemod src
 
 ```
 
-#### 将 v3 Icon 组件转换成 `@ant-design/icons` 中引入
+#### 将 v3 Icon 组件转换成 `infra-design-icons` 中引入
 
 ```diff
 - import { Icon, Input } from 'antd';
 + import { Input } from 'antd';
-+ import Icon, { CodeFilled, SmileOutlined, SmileTwoTone } from '@ant-design/icons';
++ import Icon, { CodeFilled, SmileOutlined, SmileTwoTone } from 'infra-design-icons';
 
   const HeartSvg = () => (
     <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
@@ -295,11 +295,11 @@ antd4-codemod src
   );
 ```
 
-#### 将 `Modal.method()` 中字符串 icon 属性的调用转换成从 `@ant-design/icons` 中引入
+#### 将 `Modal.method()` 中字符串 icon 属性的调用转换成从 `infra-design-icons` 中引入
 
 ```diff
   import { Modal } from 'antd';
-+ import { AntDesignOutlined } from '@ant-design/icons';
++ import { AntDesignOutlined } from 'infra-design-icons';
 
   Modal.confirm({
 -  icon: 'ant-design',

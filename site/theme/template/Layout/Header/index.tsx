@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { UnorderedListOutlined } from '@ant-design/icons';
+import { UnorderedListOutlined } from 'infra-design-icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as utils from '../../utils';

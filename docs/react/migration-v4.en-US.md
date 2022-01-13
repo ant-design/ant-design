@@ -85,7 +85,7 @@ It will be imported on demand in v4:
 
   // tree-shaking supported
 - import { Icon } from 'antd';
-+ import { SmileOutlined } from '@ant-design/icons';
++ import { SmileOutlined } from 'infra-design-icons';
 
   const Demo = () => (
       <div>
@@ -96,7 +96,7 @@ It will be imported on demand in v4:
   );
 
   // or directly import
-  import SmileOutlined from '@ant-design/icons/SmileOutlined';
+  import SmileOutlined from 'infra-design-icons/SmileOutlined';
 ```
 
 You will still be able to continue using the compatibility pack:
@@ -219,11 +219,11 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
 
 > **Note:** Old Form imported from `@ ant-design / compatible` has change the class name from `.ant-form` to `.ant-legacy-form`. Need to be modified accordingly if override the style.
 
-#### Replace component's string icon prop with the new `@ant-design/icons`
+#### Replace component's string icon prop with the new `infra-design-icons`
 
 ```diff
   import { Avatar, Button, Result } from 'antd';
-+ import { QuestionOutlined, UserOutlined } from '@ant-design/icons';
++ import { QuestionOutlined, UserOutlined } from 'infra-design-icons';
 
   ReactDOM.render(
     <div>
@@ -243,12 +243,12 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
 
 ```
 
-#### Replace v3 Icon with `@ant-design/icons`
+#### Replace v3 Icon with `infra-design-icons`
 
 ```diff
 - import { Icon, Input } from 'antd';
 + import { Input } from 'antd';
-+ import Icon, { CodeFilled, SmileOutlined, SmileTwoTone } from '@ant-design/icons';
++ import Icon, { CodeFilled, SmileOutlined, SmileTwoTone } from 'infra-design-icons';
 
   const HeartSvg = () => (
     <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
@@ -294,11 +294,11 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
   );
 ```
 
-#### Replace `Modal.method()` icon string with `@ant-design/icons`
+#### Replace `Modal.method()` icon string with `infra-design-icons`
 
 ```diff
   import { Modal } from 'antd';
-+ import { AntDesignOutlined } from '@ant-design/icons';
++ import { AntDesignOutlined } from 'infra-design-icons';
 
   Modal.confirm({
 -  icon: 'ant-design',

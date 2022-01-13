@@ -1,5 +1,5 @@
 import * as React from 'react';
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import { DownOutlined } from 'infra-design-icons';
 
 import DropDown, { DropDownProps } from '../dropdown/dropdown';
 import { ConfigContext } from '../config-provider';
@@ -62,9 +62,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
     return (
       <span>
         {link}
-        {separator && (
-          <span className={`${prefixCls}-separator`}>{separator}</span>
-        )}
+        {separator && <span className={`${prefixCls}-separator`}>{separator}</span>}
       </span>
     );
   }

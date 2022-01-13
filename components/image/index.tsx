@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import { EyeOutlined } from 'infra-design-icons';
 import RcImage, { ImageProps } from 'rc-image';
 import defaultLocale from '../locale/en_US';
 import PreviewGroup, { icons } from './PreviewGroup';

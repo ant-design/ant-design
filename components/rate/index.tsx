@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcRate from 'rc-rate';
-import StarFilled from '@ant-design/icons/StarFilled';
+import { StarFilled } from 'infra-design-icons';
 
 import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';

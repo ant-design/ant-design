@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { IntlProvider } from 'react-intl';
 import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
 import themeSwitcher from 'theme-switcher';
-import { setTwoToneColor } from '@ant-design/icons';
+import { setTwoToneColor } from 'infra-design-icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
@@ -38,7 +38,7 @@ if (typeof window !== 'undefined') {
   window.antd = require('antd');
   window.infrad = require('infrad');
   // eslint-disable-next-line global-require
-  window['@ant-design/icons'] = require('@ant-design/icons');
+  window['infra-design-icons'] = require('infra-design-icons');
   window['infra-design-icons'] = require('infra-design-icons');
 
   // Error log statistic

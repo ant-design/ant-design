@@ -1,10 +1,8 @@
 import * as React from 'react';
 import CSSMotion, { CSSMotionList, CSSMotionListProps } from 'rc-motion';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
-import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
-import FileTwoTone from '@ant-design/icons/FileTwoTone';
+import { LoadingOutlined } from 'infra-design-icons';
+import { PaperClipOutlined, PictureTwoTone, FileTwoTone } from 'infra-design-icons';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import { UploadListProps, UploadFile, UploadListType, InternalUploadFile } from '../interface';
 import { previewImage, isImageUrl } from '../utils';

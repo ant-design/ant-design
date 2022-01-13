@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import AntdIcon, { createFromIconfontCN } from '@ant-design/icons';
+import AntdIcon, { createFromIconfontCN } from 'infra-design-icons';
 
 import { withThemeSuffix, removeTypeTheme, getThemeFromTypeName } from './utils';
 import warning from '../../../../components/_util/devWarning';

@@ -6,7 +6,7 @@ import {
   AppstoreOutlined,
   PieChartOutlined,
   UserOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 import { act } from 'react-dom/test-utils';
 import Menu from '..';
 import Layout from '../../layout';

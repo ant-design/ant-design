@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { SmileOutlined, LikeOutlined } from '@ant-design/icons';
+import { SmileOutlined, LikeOutlined } from 'infra-design-icons';
 
 import Base from '../Base';
 

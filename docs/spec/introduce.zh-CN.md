@@ -33,7 +33,7 @@ title: 介绍
 ```__react
 import {
   ExportOutlined,
-} from '@ant-design/icons';
+} from 'infra-design-icons';
 
 const LinkIcon = () => (
   <ExportOutlined className="outside-link-icon" />

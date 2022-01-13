@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useCallback, useMemo } from 'react';
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import { DownOutlined } from 'infra-design-icons';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { arrAdd, arrDel } from 'rc-tree/lib/util';

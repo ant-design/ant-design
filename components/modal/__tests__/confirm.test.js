@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TestUtils, { act } from 'react-dom/test-utils';
 import CSSMotion from 'rc-motion';
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined } from 'infra-design-icons';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';

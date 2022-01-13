@@ -1,5 +1,5 @@
 import * as React from 'react';
-import IconContext from '@ant-design/icons/lib/components/Context';
+import IconContext from 'infra-design-icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';

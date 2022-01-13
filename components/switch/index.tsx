@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import { LoadingOutlined } from 'infra-design-icons';
 
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';

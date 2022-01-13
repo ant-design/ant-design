@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { CloseOutlined } from 'infra-design-icons';
 
 import CheckableTag from './CheckableTag';
 import { ConfigContext } from '../config-provider';

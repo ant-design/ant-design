@@ -5,7 +5,7 @@ import {
   NotificationInstance as RCNotificationInstance,
   NoticeContent,
 } from 'rc-notification/lib/Notification';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import { LoadingOutlined } from 'infra-design-icons';
 import {
   ISuccessFilled,
   IInformationFilled,

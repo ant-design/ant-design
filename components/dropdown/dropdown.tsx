@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import { RightOutlined } from 'infra-design-icons';
 import DropdownButton from './dropdown-button';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';

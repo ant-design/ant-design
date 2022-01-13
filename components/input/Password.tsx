@@ -1,8 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
+import { EyeOutlined, EyeInvisibleOutlined } from 'infra-design-icons';
 
 import { useState } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';

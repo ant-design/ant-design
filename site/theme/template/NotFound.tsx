@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'bisheng/router';
 import { Result, Button } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
+import { HomeOutlined } from 'infra-design-icons';
 import * as utils from './utils';
 
 export interface NotFoundProps {

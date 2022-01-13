@@ -9,9 +9,7 @@ import type {
   DefaultOptionType,
 } from 'rc-cascader';
 import omit from 'rc-util/lib/omit';
-import RightOutlined from '@ant-design/icons/RightOutlined';
-import RedoOutlined from '@ant-design/icons/RedoOutlined';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import { RightOutlined, RedoOutlined, LeftOutlined } from 'infra-design-icons';
 import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
