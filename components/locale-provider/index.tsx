@@ -78,12 +78,14 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     changeConfirmLocale();
   }
 
+  getMemoizedContextValue = memoizeOne((localeValue: Locale): Locale & { exist?: boolean } => ({
+    ...localeValue,
+    exist: true,
+  }));
+
   render() {
     const { locale, children } = this.props;
-    const contextValue = memoizeOne(localeValue => ({
-      ...localeValue,
-      exist: true,
-    }))(locale);
+    const contextValue = this.getMemoizedContextValue(locale);
     return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
   }
 }
