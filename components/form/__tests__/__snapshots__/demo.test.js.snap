@@ -2617,7 +2617,7 @@ exports[`renders ./components/form/demo/label-debug.md correctly 1`] = `
         title=""
       >
         <span
-          class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
         >
           longtextlongtextlongtextlongtextlongtextlongtextlongtext
         </span>
@@ -2654,7 +2654,7 @@ exports[`renders ./components/form/demo/label-debug.md correctly 1`] = `
         title=""
       >
         <span
-          class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
         >
           longtext longtext longtext longtext longtext longtext longtext
         </span>
