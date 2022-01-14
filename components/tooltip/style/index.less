@@ -1,6 +1,5 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
-@import 'roundedArrow';
 
 @tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
 
@@ -88,10 +87,7 @@
       background-color: @tooltip-bg;
       content: '';
       pointer-events: auto;
-
-      &-round {
-        .roundedArrow(unit((@tooltip-arrow-width)), unit((@tooltip-arrow-width / 2)), unit(@border-radius-base));
-      }
+      .roundedArrow(@tooltip-arrow-width, 5px, @tooltip-bg);
     }
   }
 
