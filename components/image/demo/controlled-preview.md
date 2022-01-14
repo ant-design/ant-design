@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-You can make preview controlled
+You can make preview controlled.
 
 ```jsx
 import React, { useState } from 'react';
