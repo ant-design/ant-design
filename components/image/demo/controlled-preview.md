@@ -31,8 +31,8 @@ function ImageDemo() {
         preview={{
           visible,
           src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          onVisibleChange: visible => {
-            setVisible(visible);
+          onVisibleChange: value => {
+            setVisible(value);
           },
         }}
       />
