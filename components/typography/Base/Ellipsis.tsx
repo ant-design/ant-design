@@ -59,9 +59,21 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
   return nodeList;
 }
 
+const NONE = 0;
+const PREPARE = 1;
+const WALKING = 2;
+const DONE_WITH_ELLIPSIS = 3;
+const DONE_WITHOUT_ELLIPSIS = 4;
+
 const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: EllipsisProps) => {
   const [cutLength, setCutLength] = React.useState<[number, number, number]>([0, 0, 0]);
-  const [walking, setWalking] = React.useState(false);
+  const [walkingState, setWalkingState] = React.useState<
+    | typeof NONE
+    | typeof PREPARE
+    | typeof WALKING
+    | typeof DONE_WITH_ELLIPSIS
+    | typeof DONE_WITHOUT_ELLIPSIS
+  >(NONE);
   const [startLen, midLen, endLen] = cutLength;
 
   const [singleRowHeight, setSingleRowHeight] = React.useState(0);
@@ -73,61 +85,80 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
   const totalLen = React.useMemo(() => getNodesLen(nodeList), [nodeList]);
 
   const mergedChildren = React.useMemo(() => {
-    if (!enabledMeasure || walking) {
+    if (!enabledMeasure || walkingState !== DONE_WITH_ELLIPSIS) {
       return children(nodeList, false);
     }
 
     return children(sliceNodes(nodeList, midLen), midLen < totalLen);
-  }, [enabledMeasure, walking, children, nodeList, midLen, totalLen]);
-
+  }, [enabledMeasure, walkingState, children, nodeList, midLen, totalLen]);
 
   // ======================== Walk ========================
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (enabledMeasure && width && totalLen) {
-      setWalking(true);
+      setWalkingState(PREPARE);
       setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
     }
   }, [enabledMeasure, width, text, totalLen, rows]);
 
   React.useLayoutEffect(() => {
-    if (walking) {
+    if (walkingState === PREPARE) {
       setSingleRowHeight(singleRowRef.current?.offsetHeight || 0);
     }
-  }, [walking]);
+  }, [walkingState]);
 
   React.useLayoutEffect(() => {
-    if (walking && singleRowHeight) {
-      if (startLen !== endLen) {
+    if (singleRowHeight) {
+      if (walkingState === PREPARE) {
+        // Ignore if position is enough
         const midHeight = midRowRef.current?.offsetHeight || 0;
         const maxHeight = rows * singleRowHeight;
 
-        let nextStartLen = startLen;
-        let nextEndLen = endLen;
-
-        // We reach the last round
-        if (startLen === endLen - 1) {
-          if (midHeight > maxHeight) {
-            nextEndLen = startLen;
-          } else {
-            nextStartLen = endLen;
-          }
-        } else if (midHeight <= maxHeight) {
-          nextStartLen = midLen;
+        if (midHeight === maxHeight) {
+          setWalkingState(DONE_WITHOUT_ELLIPSIS);
+          onEllipsis(false);
         } else {
-          nextEndLen = midLen;
+          setWalkingState(WALKING);
         }
+      } else if (walkingState === WALKING) {
+        if (startLen !== endLen) {
+          const midHeight = midRowRef.current?.offsetHeight || 0;
+          const maxHeight = rows * singleRowHeight;
 
-        const nextMidLen = Math.ceil((nextStartLen + nextEndLen) / 2);
+          let nextStartLen = startLen;
+          let nextEndLen = endLen;
 
-        setCutLength([nextStartLen, nextMidLen, nextEndLen]);
-      } else {
-        setWalking(false);
-        onEllipsis(midLen < totalLen);
+          // We reach the last round
+          if (startLen === endLen - 1) {
+            if (midHeight > maxHeight) {
+              nextEndLen = startLen;
+            } else {
+              nextStartLen = endLen;
+            }
+          } else if (midHeight <= maxHeight) {
+            nextStartLen = midLen;
+          } else {
+            nextEndLen = midLen;
+          }
+
+          const nextMidLen = Math.ceil((nextStartLen + nextEndLen) / 2);
+
+          setCutLength([nextStartLen, nextMidLen, nextEndLen]);
+        } else {
+          setWalkingState(DONE_WITH_ELLIPSIS);
+          onEllipsis(true);
+        }
       }
     }
-  }, [walking, startLen, endLen, rows, singleRowHeight]);
+  }, [walkingState, startLen, endLen, rows, singleRowHeight]);
 
   // ======================= Render =======================
+  const measureStyle: React.CSSProperties = {
+    width,
+    whiteSpace: 'normal',
+    margin: 0,
+    padding: 0,
+  };
+
   const renderMeasure = (
     content: React.ReactNode,
     ref: React.Ref<HTMLSpanElement>,
@@ -152,25 +183,25 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
   const renderMeasureSlice = (len: number, ref: React.Ref<HTMLSpanElement>) => {
     const sliceNodeList = sliceNodes(nodeList, len);
 
-    return renderMeasure(children(sliceNodeList, true), ref, {
-      width,
-      whiteSpace: 'normal',
-      margin: 0,
-      padding: 0,
-    });
+    return renderMeasure(children(sliceNodeList, true), ref, measureStyle);
   };
 
   return (
     <>
       {mergedChildren}
       {/* Measure usage */}
-      {enabledMeasure && walking && (
-        <>
-          {/* `l` for top & `g` for bottom measure */}
-          {renderMeasure('lg', singleRowRef, { width: 9999 })}
-          {renderMeasureSlice(midLen, midRowRef)}
-        </>
-      )}
+      {enabledMeasure &&
+        walkingState !== DONE_WITH_ELLIPSIS &&
+        walkingState !== DONE_WITHOUT_ELLIPSIS && (
+          <>
+            {/* `l` for top & `g` for bottom measure */}
+            {renderMeasure('lg', singleRowRef, { width: 9999 })}
+            {/* {renderMeasureSlice(midLen, midRowRef)} */}
+            {walkingState === PREPARE
+              ? renderMeasure(children(nodeList, false), midRowRef, measureStyle)
+              : renderMeasureSlice(midLen, midRowRef)}
+          </>
+        )}
     </>
   );
 };
