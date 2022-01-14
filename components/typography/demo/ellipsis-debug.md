@@ -64,6 +64,10 @@ class Demo extends React.Component {
           </Paragraph>
         )}
 
+        <Text style={{ width: 100 }} ellipsis copyable>
+          Ant Design is a design language for background applications, is refined by Ant UED Team.
+        </Text>
+
         <p>
           [Before]<Text ellipsis>not ellipsis</Text>[After]
         </p>

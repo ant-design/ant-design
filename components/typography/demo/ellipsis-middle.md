@@ -3,6 +3,7 @@ order: 4.1
 title:
   zh-CN: 省略中间
   en-US: Ellipsis from middle
+only: true
 ---
 
 ## zh-CN

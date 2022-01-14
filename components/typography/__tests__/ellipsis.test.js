@@ -109,17 +109,8 @@ describe('Typography.Ellipsis', () => {
     await sleep(20);
     wrapper.update();
     expect(wrapper.text()).toEqual('Ant Design, a des...');
-    const ellipsisSpan = wrapper.find('span[title]');
+    const ellipsisSpan = wrapper.find('span[aria-hidden]').last();
     expect(ellipsisSpan.text()).toEqual('...');
-    expect(ellipsisSpan.props().title)
-      .toEqual(`ign language (for background applications, is refined by
-        Ant UED Team. Ant Design, a design language for background applications,
-        is refined by Ant UED Team. Ant Design, a design language for background
-        applications, is refined by Ant UED Team. Ant Design, a design language
-        for background applications, is refined by Ant UED Team. Ant Design, a
-        design language for background applications, is refined by Ant UED Team.
-        Ant Design, a design language for background applications, is refined by
-        Ant UED Team.`);
     onEllipsis.mockReset();
 
     wrapper.unmount();

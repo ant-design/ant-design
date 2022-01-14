@@ -127,6 +127,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     editable,
     copyable,
     component,
+    title,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -295,6 +296,30 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     }
   }, [enableEllipsis, cssEllipsis, children]);
 
+  // ========================== Tooltip ===========================
+  const tooltipTitle = ellipsisConfig.tooltip === true ? children : ellipsisConfig.tooltip;
+  const topAriaLabel = React.useMemo(() => {
+    const isValid = (val: any) => ['string', 'number'].includes(typeof val);
+
+    if (!enableEllipsis || cssEllipsis) {
+      return undefined;
+    }
+
+    if (isValid(children)) {
+      return children;
+    }
+
+    if (isValid(title)) {
+      return title;
+    }
+
+    if (isValid(tooltipTitle)) {
+      return tooltipTitle;
+    }
+
+    return undefined;
+  }, [enableEllipsis, cssEllipsis, title, tooltipTitle, isMergedEllipsis]);
+
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
   if (editing) {
@@ -347,11 +372,11 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
     const { icon, tooltip } = editConfig;
 
-    const title = toArray(tooltip)[0] || textLocale.edit;
-    const ariaLabel = typeof title === 'string' ? title : '';
+    const editTitle = toArray(tooltip)[0] || textLocale.edit;
+    const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
 
     return triggerType.includes('icon') ? (
-      <Tooltip key="edit" title={tooltip === false ? '' : title}>
+      <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
         <TransButton
           ref={editIconRef}
           className={`${prefixCls}-edit`}
@@ -373,14 +398,14 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     const tooltipNodes = toList(tooltips);
     const iconNodes = toList(icon);
 
-    const title = copied
+    const copyTitle = copied
       ? getNode(tooltipNodes[1], textLocale.copied)
       : getNode(tooltipNodes[0], textLocale.copy);
     const systemStr = copied ? textLocale.copied : textLocale.copy;
-    const ariaLabel = typeof title === 'string' ? title : systemStr;
+    const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
     return (
-      <Tooltip key="copy" title={title}>
+      <Tooltip key="copy" title={copyTitle}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={onCopyClick}
@@ -401,7 +426,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   ];
 
   const renderEllipsis = (needEllipsis: boolean) => [
-    needEllipsis && ELLIPSIS_STR,
+    needEllipsis && <span aria-hidden key="ellipsis">{ELLIPSIS_STR}</span>,
     ellipsisConfig.suffix,
     renderOperations(needEllipsis),
   ];
@@ -410,7 +435,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis || cssEllipsis}>
       {resizeRef => (
         <EllipsisTooltip
-          title={ellipsisConfig.tooltip === true ? children : ellipsisConfig.tooltip}
+          title={tooltipTitle}
           enabledEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
         >
@@ -434,6 +459,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
             ref={composeRef(resizeRef, typographyRef, ref)}
             direction={direction}
             onClick={triggerType.includes('text') ? onEditClick : null}
+            aria-label={topAriaLabel}
+            title={title}
             {...textProps}
           >
             <Ellipsis
@@ -444,10 +471,15 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
               onEllipsis={onJsEllipsis}
             >
               {(node, needEllipsis) => {
+                let renderNode: React.ReactNode = node;
+                if (node.length && needEllipsis && topAriaLabel) {
+                  renderNode = <span key="show-content" aria-hidden>{renderNode}</span>;
+                }
+
                 const wrappedContext = wrapperDecorations(
                   props,
                   <>
-                    {node}
+                    {renderNode}
                     {renderEllipsis(needEllipsis)}
                   </>,
                 );

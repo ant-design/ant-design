@@ -6,7 +6,7 @@ export interface EllipsisProps {
   text?: React.ReactNode;
   width: number;
   rows: number;
-  children: (cutChildren: React.ReactNode, needEllipsis: boolean) => React.ReactNode;
+  children: (cutChildren: React.ReactNode[], needEllipsis: boolean) => React.ReactNode;
   onEllipsis: (isEllipsis: boolean) => void;
 }
 
@@ -73,12 +73,13 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
   const totalLen = React.useMemo(() => getNodesLen(nodeList), [nodeList]);
 
   const mergedChildren = React.useMemo(() => {
-    if (!enabledMeasure) {
+    if (!enabledMeasure || walking) {
       return children(nodeList, false);
     }
 
     return children(sliceNodes(nodeList, midLen), midLen < totalLen);
-  }, [enabledMeasure, children, nodeList, midLen, totalLen]);
+  }, [enabledMeasure, walking, children, nodeList, midLen, totalLen]);
+
 
   // ======================== Walk ========================
   React.useLayoutEffect(() => {
