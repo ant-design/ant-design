@@ -400,8 +400,9 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     renderCopy(),
   ];
 
-  const renderSuffix = (needEllipsis: boolean) => [
-    needEllipsis && [ELLIPSIS_STR, ellipsisConfig.suffix],
+  const renderEllipsis = (needEllipsis: boolean) => [
+    needEllipsis && ELLIPSIS_STR,
+    ellipsisConfig.suffix,
     renderOperations(needEllipsis),
   ];
 
@@ -447,7 +448,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
                   props,
                   <>
                     {node}
-                    {renderSuffix(needEllipsis)}
+                    {renderEllipsis(needEllipsis)}
                   </>,
                 );
 

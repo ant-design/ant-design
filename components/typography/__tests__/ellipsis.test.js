@@ -105,6 +105,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
+    wrapper.triggerResize();
     await sleep(20);
     wrapper.update();
     expect(wrapper.text()).toEqual('Ant Design, a des...');
@@ -132,6 +133,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
+    wrapper.triggerResize();
     await sleep(20);
     wrapper.update();
     expect(wrapper.find('p').text()).toEqual('Bamboo is...--suffix');
@@ -146,6 +148,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
+    wrapper.triggerResize();
     await sleep(20);
     wrapper.update();
     expect(wrapper.find('p').text()).toEqual('...--The information is very important');
@@ -163,7 +166,7 @@ describe('Typography.Ellipsis', () => {
     wrapper.unmount();
   });
 
-  it.only('connect children', async () => {
+  it('connect children', async () => {
     const bamboo = 'Bamboo';
     const is = ' is ';
 
@@ -176,6 +179,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
+    wrapper.triggerResize();
     await sleep(20);
     wrapper.update();
 

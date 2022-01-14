@@ -59,9 +59,77 @@ const Demo = () => {
 
   return (
     <>
-      <Paragraph copyable={{ text: 'Hello, Ant Design!', tooltips: ['abc', ''] }}>
-        Replace copy text.
+      <Paragraph editable={{ onChange: setEditableStr }}>{editableStr}</Paragraph>
+      <Paragraph
+        editable={{
+          icon: <HighlightOutlined />,
+          tooltip: 'click to edit text',
+          onChange: setCustomIconStr,
+        }}
+      >
+        {customIconStr}
       </Paragraph>
+      Trigger edit with:{' '}
+      <Radio.Group
+        onChange={e => setChooseTrigger(radioToState(e.target.value))}
+        value={stateToRadio()}
+      >
+        <Radio value="icon">icon</Radio>
+        <Radio value="text">text</Radio>
+        <Radio value="both">both</Radio>
+      </Radio.Group>
+      <Paragraph
+        editable={{
+          tooltip: 'click to edit text',
+          onChange: setClickTriggerStr,
+          triggerType: chooseTrigger,
+        }}
+      >
+        {clickTriggerStr}
+      </Paragraph>
+      <Paragraph
+        editable={{
+          icon: <HighlightOutlined />,
+          tooltip: 'click to edit text',
+          onChange: setCustomEnterIconStr,
+          enterIcon: <CheckOutlined />,
+        }}
+      >
+        {customEnterIconStr}
+      </Paragraph>
+      <Paragraph
+        editable={{
+          icon: <HighlightOutlined />,
+          tooltip: 'click to edit text',
+          onChange: setNoEnterIconStr,
+          enterIcon: null,
+        }}
+      >
+        {noEnterIconStr}
+      </Paragraph>
+      <Paragraph editable={{ tooltip: false, onChange: setHideTooltipStr }}>
+        {hideTooltipStr}
+      </Paragraph>
+      <Paragraph
+        editable={{
+          onChange: setLengthLimitedStr,
+          maxLength: 50,
+          autoSize: { maxRows: 5, minRows: 3 },
+        }}
+      >
+        {lengthLimitedStr}
+      </Paragraph>
+      <Paragraph copyable>This is a copyable text.</Paragraph>
+      <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
+      <Paragraph
+        copyable={{
+          icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />],
+          tooltips: ['click here', 'you clicked!!'],
+        }}
+      >
+        Custom Copy icon and replace tooltips text.
+      </Paragraph>
+      <Paragraph copyable={{ tooltips: false }}>Hide Copy tooltips.</Paragraph>
     </>
   );
 };
