@@ -93,7 +93,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
   }, [enabledMeasure, walkingState, children, nodeList, midLen, totalLen]);
 
   // ======================== Walk ========================
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (enabledMeasure && width && totalLen) {
       setWalkingState(PREPARE);
       setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
@@ -113,7 +113,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
         const midHeight = midRowRef.current?.offsetHeight || 0;
         const maxHeight = rows * singleRowHeight;
 
-        if (midHeight === maxHeight) {
+        if (midHeight <= maxHeight) {
           setWalkingState(DONE_WITHOUT_ELLIPSIS);
           onEllipsis(false);
         } else {
