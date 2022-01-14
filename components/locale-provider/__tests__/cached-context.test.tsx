@@ -29,7 +29,7 @@ const CacheOuter = () => {
   // So 'CacheInner' component won't rerender.
   return (
     <div>
-      <button onClick={handleClick} id="parent_btn">
+      <button type="button" onClick={handleClick} id="parent_btn">
         Click
       </button>
       Parent Rendering Count: <span id="parent_count">{count}</span>
