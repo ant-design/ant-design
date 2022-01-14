@@ -4,6 +4,11 @@
 .@{iconfont-css-prefix} {
   .iconfont-mixin();
 
+  // https://github.com/ant-design/ant-design/issues/33703
+  & > & {
+    vertical-align: 0;
+  }
+
   &[tabindex] {
     cursor: pointer;
   }
