@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import Base from '../Base';
 import { sleep } from '../../../tests/utils';
 
