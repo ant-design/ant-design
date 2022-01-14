@@ -26,7 +26,7 @@ ReactDOM.render(
       <Tooltip placement="topLeft" title={text}>
         <Button>TL</Button>
       </Tooltip>
-      <Tooltip placement="top" title={text}>
+      <Tooltip placement="top" title={text} visible>
         <Button>Top</Button>
       </Tooltip>
       <Tooltip placement="topRight" title={text}>
