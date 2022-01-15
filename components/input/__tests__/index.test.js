@@ -116,7 +116,7 @@ describe('Input setting hidden', () => {
     const wrapper = mount(
       <>
         <Input
-          hidden={true}
+          hidden
           className="input"
           showCount
           allowClear
@@ -127,7 +127,7 @@ describe('Input setting hidden', () => {
           defaultValue="mysite1"
         />
         <Input.Search
-          hidden={true}
+          hidden
           className="input-search"
           showCount
           allowClear
@@ -138,7 +138,7 @@ describe('Input setting hidden', () => {
           defaultValue="mysite1"
         />
         <Input.TextArea
-          hidden={true}
+          hidden
           className="input-textarea"
           showCount
           allowClear
@@ -149,7 +149,7 @@ describe('Input setting hidden', () => {
           defaultValue="mysite1"
         />
         <Input.Password
-          hidden={true}
+          hidden
           className="input-password"
           showCount
           allowClear
