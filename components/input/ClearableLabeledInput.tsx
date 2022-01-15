@@ -148,7 +148,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement) {
-    const { addonBefore, addonAfter, style, size, className, direction } = this.props;
+    const { addonBefore, addonAfter, style, size, className, direction, hidden } = this.props;
     // Not wrap when there is not addons
     if (!hasAddon(this.props)) {
       return labeledElement;
@@ -178,7 +178,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
     return (
-      <span className={mergedGroupClassName} style={style}>
+      <span className={mergedGroupClassName} style={style} hidden={hidden}>
         <span className={mergedWrapperClassName}>
           {addonBeforeNode}
           {cloneElement(labeledElement, { style: null })}
@@ -189,7 +189,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement) {
-    const { value, allowClear, className, style, direction, bordered } = this.props;
+    const { value, allowClear, className, style, direction, bordered, hidden } = this.props;
     if (!allowClear) {
       return cloneElement(element, {
         value,
@@ -206,7 +206,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       },
     );
     return (
-      <span className={affixWrapperCls} style={style}>
+      <span className={affixWrapperCls} style={style} hidden={hidden}>
         {cloneElement(element, {
           style: null,
           value,

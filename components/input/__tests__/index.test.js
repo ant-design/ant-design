@@ -111,6 +111,64 @@ describe('prefix and suffix', () => {
   });
 });
 
+describe('Input setting hidden', () => {
+  it('should support hidden when has prefix or suffix or showCount or allowClear or addonBefore or addonAfter', () => {
+    const wrapper = mount(
+      <>
+        <Input
+          hidden
+          className="input"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.Search
+          hidden
+          className="input-search"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.TextArea
+          hidden
+          className="input-textarea"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.Password
+          hidden
+          className="input-password"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+      </>,
+    );
+
+    expect(wrapper.find('.input').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-search').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-textarea').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-password').at(0).getDOMNode().hidden).toBe(true);
+  });
+});
+
 describe('As Form Control', () => {
   it('should be reset when wrapped in form.getFieldDecorator without initialValue', () => {
     const Demo = () => {
