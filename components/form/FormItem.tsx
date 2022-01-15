@@ -224,7 +224,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: help || debounceErrors.length || debounceWarnings.length,
+      [`${prefixCls}-item-with-help`]:
+        (help !== undefined && help !== null) || debounceErrors.length || debounceWarnings.length,
       [`${className}`]: !!className,
 
       // Status

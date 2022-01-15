@@ -13,6 +13,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import zhCN from '../../locale/zh_CN';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -315,16 +316,30 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
   });
 
-  it('should show related className when customize help', () => {
-    const wrapper = mount(
-      <Form>
-        <Form.Item help="good">
-          <input />
-        </Form.Item>
-      </Form>,
-    );
+  describe('should show related className when customize help', () => {
+    it('normal', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item help="good">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
+      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
+    });
+
+    it('empty string', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item help="">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
+    });
   });
 
   it('warning when use v3 function', () => {
@@ -599,15 +614,17 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
-  it('should have default validateMessages in default locale', async () => {
+  // https://github.com/ant-design/ant-design/issues/33691
+  it('should keep upper locale in nested ConfigProvider', async () => {
     const wrapper = mount(
-      // eslint-disable-next-line no-template-curly-in-string
-      <ConfigProvider>
-        <Form>
-          <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
-            <input />
-          </Form.Item>
-        </Form>
+      <ConfigProvider locale={zhCN}>
+        <ConfigProvider>
+          <Form>
+            <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>
       </ConfigProvider>,
     );
 
@@ -615,7 +632,7 @@ describe('Form', () => {
     await sleep(100);
     wrapper.update();
     await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Please enter Bamboo');
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入Bamboo');
   });
 
   it('`name` support template when label is not provided', async () => {
