@@ -58,7 +58,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,
     });
-    const { hidden } = props;
+    const { hidden = false } = props;
 
     const handleSetValue = (val: string, callback?: () => void) => {
       if (props.value === undefined) {

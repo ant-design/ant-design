@@ -148,7 +148,15 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement) {
-    const { addonBefore, addonAfter, style, size, className, direction, hidden } = this.props;
+    const {
+      addonBefore,
+      addonAfter,
+      style,
+      size,
+      className,
+      direction,
+      hidden = false,
+    } = this.props;
     // Not wrap when there is not addons
     if (!hasAddon(this.props)) {
       return labeledElement;
@@ -189,7 +197,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement) {
-    const { value, allowClear, className, style, direction, bordered, hidden } = this.props;
+    const { value, allowClear, className, style, direction, bordered, hidden = false } = this.props;
     if (!allowClear) {
       return cloneElement(element, {
         value,
