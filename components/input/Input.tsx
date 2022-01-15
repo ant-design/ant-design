@@ -306,6 +306,7 @@ class Input extends React.Component<InputProps, InputState> {
       'inputType',
       'bordered',
       'htmlSize',
+      'showCount',
     ]);
     return (
       <input
