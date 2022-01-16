@@ -1,0 +1,90 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@segmented-prefix-cls: ~'@{ant-prefix}-segmented';
+
+.segmented-disabled-item() {
+  &,
+  &:hover,
+  &:focus {
+    color: @disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+.segmented-item-selected() {
+  background-color: white;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 4px -1px rgba(25, 15, 15, 0.07),
+    0 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.@{segmented-prefix-cls} {
+  .reset-component();
+
+  position: relative;
+
+  display: inline-flex;
+  padding: 2px;
+
+  background-color: rgba(0, 0, 0, 0.04);
+
+  border-radius: 2px;
+
+  &-item {
+    position: relative;
+    box-sizing: border-box;
+    height: 28px;
+    padding: 4px 30px;
+    color: @text-color;
+
+    // handle text ellipsis
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    border-radius: 1px;
+    cursor: pointer;
+
+    &-selected {
+      .segmented-item-selected();
+      color: #262626;
+    }
+
+    &:hover,
+    &:focus {
+      color: #262626;
+    }
+
+    &-disabled {
+      .segmented-disabled-item();
+    }
+
+    &-label {
+      z-index: 2;
+    }
+  }
+
+  // disabled styles
+  &-disabled &-item,
+  &-disabled &-item:hover,
+  &-disabled &-item:focus {
+    .segmented-disabled-item();
+  }
+
+  &-thumb {
+    .segmented-item-selected();
+
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    width: 0;
+    height: 28px;
+
+    // transition effect when `enter-active`
+    &-motion-enter-active {
+      transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out;
+      will-change: transform, width;
+    }
+  }
+}
+
+@import './responsive';
