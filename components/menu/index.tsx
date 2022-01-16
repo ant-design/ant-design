@@ -74,9 +74,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const inlineCollapsed = this.getInlineCollapsed();
 
     const defaultMotions = {
-      //horizontal: { motionName: `${rootPrefixCls}-slide-up` },
       inline: collapseMotion,
-      //other: { motionName: `${rootPrefixCls}-zoom-big` },
     };
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
@@ -90,9 +88,6 @@ class InternalMenu extends React.Component<InternalMenuProps> {
       direction: dir,
       firstLevel: true,
     }))(prefixCls, inlineCollapsed, theme, direction);
-
-    console.log('rest props are:');
-    console.log(restProps);
 
     return (
       <MenuContext.Provider value={contextValue}>

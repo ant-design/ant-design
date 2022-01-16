@@ -67,18 +67,6 @@ const Dropdown: DropdownInterface = props => {
     direction,
   } = React.useContext(ConfigContext);
 
-  //   const getTransitionName = () => {
-  //     const rootPrefixCls = getPrefixCls();
-  //     const { placement = '', transitionName } = props;
-  //     if (transitionName !== undefined) {
-  //       return transitionName;
-  //     }
-  //     if (placement.indexOf('top') >= 0) {
-  //       return `${rootPrefixCls}-slide-down`;
-  //     }
-  //     return `${rootPrefixCls}-slide-up`;
-  //   };
-
   const renderOverlay = (prefixCls: string) => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to rc-dropdown.
@@ -169,8 +157,6 @@ const Dropdown: DropdownInterface = props => {
     alignPoint = true;
   }
 
-  console.log('dropdown props are:');
-  console.log(props);
   return (
     <RcDropdown
       arrow={arrow}
@@ -179,7 +165,6 @@ const Dropdown: DropdownInterface = props => {
       overlayClassName={overlayClassNameCustomized}
       prefixCls={prefixCls}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      //transitionName={getTransitionName()}
       trigger={triggerActions}
       overlay={() => renderOverlay(prefixCls)}
       placement={getPlacement()}
