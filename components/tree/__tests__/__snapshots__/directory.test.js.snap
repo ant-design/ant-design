@@ -3282,7 +3282,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -3290,7 +3290,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
       class="ant-tree-indent"
@@ -3302,7 +3302,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -3310,7 +3310,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         />
       </div>
     </div>
@@ -3326,7 +3326,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -3334,7 +3334,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
       class="ant-tree-indent"
@@ -3346,7 +3346,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -3354,7 +3354,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         />
       </div>
     </div>

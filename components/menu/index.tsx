@@ -3,6 +3,7 @@ import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import memoize from 'memoize-one';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -22,6 +23,13 @@ export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizo
 export interface MenuProps extends RcMenuProps {
   theme?: MenuTheme;
   inlineIndent?: number;
+
+  // >>>>> Private
+  /**
+   * @private Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
+   *   for removing.
+   */
+  _internalDisableMenuItemTitleTooltip?: boolean;
 }
 
 type InternalMenuProps = MenuProps &
@@ -66,6 +74,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
       className,
       theme,
       expandIcon,
+      _internalDisableMenuItemTitleTooltip,
       ...restProps
     } = this.props;
 
@@ -81,16 +90,18 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
+    // TODO: refactor menu with function component
+    const contextValue = memoize((cls, collapsed, the, dir, disableMenuItemTitleTooltip) => ({
+      prefixCls: cls,
+      inlineCollapsed: collapsed || false,
+      antdMenuTheme: the,
+      direction: dir,
+      firstLevel: true,
+      disableMenuItemTitleTooltip,
+    }))(prefixCls, inlineCollapsed, theme, direction, _internalDisableMenuItemTitleTooltip);
+
     return (
-      <MenuContext.Provider
-        value={{
-          prefixCls,
-          inlineCollapsed: inlineCollapsed || false,
-          antdMenuTheme: theme,
-          direction,
-          firstLevel: true,
-        }}
-      >
+      <MenuContext.Provider value={contextValue}>
         <RcMenu
           getPopupContainer={getPopupContainer}
           overflowedIndicator={<EllipsisOutlined />}

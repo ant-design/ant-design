@@ -157,6 +157,6 @@ describe('PageHeader', () => {
     wrapper.triggerResize();
     await Promise.resolve();
     wrapper.update();
-    expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBe(true);
+    expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBeTruthy();
   });
 });

@@ -5,9 +5,10 @@ title: Dynamic Theme (Experimental)
 
 Except [less customize theme](/docs/react/customize-theme), We also provide CSS Variable version to enable dynamic theme. You can check on [ConfigProvider](/components/config-provider/#components-config-provider-demo-theme) demo.
 
-## Notice
+## Caveats
 
-This function need CSS Variable support which mean it can not support IE. Please make sure your browser requirement.
+- This function depends on CSS Variables. Please check the [browser compatibility](https://caniuse.com/css-variables).
+- This function requires at least `antd@4.17.0-alpha.0`.
 
 ## How to use
 
@@ -70,7 +71,7 @@ ConfigProvider.config({
 Since prefix modified. Origin `antd.variable.css` should also be replaced:
 
 ```bash
-lessc --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
+lessc --js --modify-var="ant-prefix=custom" antd/dist/antd.variable.less modified.css
 ```
 
 ### Related changes

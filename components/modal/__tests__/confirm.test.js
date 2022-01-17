@@ -545,4 +545,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await sleep(500);
     expect(afterClose).toHaveBeenCalled();
   });
+
+  it('bodyStyle', async () => {
+    open({ bodyStyle: { width: 500 } });
+    const { width } = $$('.ant-modal-body')[0].style;
+    expect(width).toBe('500px');
+  });
 });
