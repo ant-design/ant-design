@@ -23,7 +23,7 @@ export interface BadgeProps {
   /** Max count to show */
   overflowCount?: number;
   /** A string after the `overflowCount` number, default '+' */
-  overflowCountDescriptor: string;
+  overflowCountDescriptor?: string;
   /** Whether to show red dot without number */
   dot?: boolean;
   style?: React.CSSProperties;
