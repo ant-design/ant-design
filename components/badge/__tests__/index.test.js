@@ -159,4 +159,10 @@ describe('Badge', () => {
 
     expect(wrapper.find('.ant-badge')).toHaveLength(2);
   });
+
+  it('displays a custom overflowCountDescriptor properly', () => {
+    const wrapper = mount(<Badge overflowCount={1} count={2} overflowCountDescriptor="++" />);
+
+    expect(wrapper.find('.ant-badge-count').first().text()).toEqual('1++');
+  });
 });

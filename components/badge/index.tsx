@@ -22,6 +22,8 @@ export interface BadgeProps {
   showZero?: boolean;
   /** Max count to show */
   overflowCount?: number;
+  /** A string after the `overflowCount` number, default '+' */
+  overflowCountDescriptor: string;
   /** Whether to show red dot without number */
   dot?: boolean;
   style?: React.CSSProperties;
@@ -45,6 +47,7 @@ const Badge: CompoundedComponent = ({
   color,
   count = null,
   overflowCount = 99,
+  overflowCountDescriptor = '+',
   dot = false,
   size = 'default',
   title,
@@ -59,7 +62,9 @@ const Badge: CompoundedComponent = ({
 
   // ================================ Misc ================================
   const numberedDisplayCount = (
-    (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
+    (count as number) > (overflowCount as number)
+      ? `${overflowCount}${overflowCountDescriptor}`
+      : count
   ) as string | number | null;
 
   const hasStatus =
