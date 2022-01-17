@@ -112,6 +112,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     notFoundContent,
     direction,
     getPopupContainer,
+    dropdownMatchSelectWidth,
     ...rest
   } = props;
 
@@ -123,7 +124,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     renderEmpty,
     direction: rootDirection,
     // virtual,
-    // dropdownMatchSelectWidth,
   } = React.useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
@@ -226,6 +226,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       )}
       {...(restProps as any)}
       direction={mergedDirection}
+      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       notFoundContent={mergedNotFoundContent}
       allowClear={allowClear}
       showSearch={mergedShowSearch}
