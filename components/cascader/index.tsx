@@ -1,8 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcCascader from 'rc-cascader';
-import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
-import type { ShowSearchType, FieldNames } from 'rc-cascader/lib/interface';
+import type {
+  CascaderProps as RcCascaderProps,
+  ShowSearchType,
+  FieldNames,
+  BaseOptionType,
+  DefaultOptionType,
+} from 'rc-cascader';
 import omit from 'rc-util/lib/omit';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RedoOutlined from '@ant-design/icons/RedoOutlined';
@@ -18,6 +23,8 @@ import { getTransitionName } from '../_util/motion';
 // - List search content will show all content
 // - Hover opacity style
 // - Search filter match case
+
+export { BaseOptionType, DefaultOptionType };
 
 export type FieldNamesType = FieldNames;
 
@@ -38,7 +45,8 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string |
 
     if (index % 2 === 1) {
       originWorld = (
-        <span className={`${prefixCls}-menu-item-keyword`} key="seperator">
+        // eslint-disable-next-line react/no-array-index-key
+        <span className={`${prefixCls}-menu-item-keyword`} key={`seperator-${index}`}>
           {originWorld}
         </span>
       );
@@ -72,18 +80,22 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-export interface CascaderProps extends Omit<RcCascaderProps, 'checkable'> {
+export interface CascaderProps<DataNodeType>
+  extends Omit<RcCascaderProps, 'checkable' | 'options'> {
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;
+
+  suffixIcon?: React.ReactNode;
+  options?: DataNodeType[];
 }
 
-interface CascaderRef {
+export interface CascaderRef {
   focus: () => void;
   blur: () => void;
 }
 
-const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<CascaderRef>) => {
+const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<CascaderRef>) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -123,6 +135,12 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
       popupClassName === undefined,
       'Cascader',
       '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+    );
+
+    devWarning(
+      !multiple || !props.displayRender,
+      'Cascader',
+      '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
     );
   }
 
@@ -225,7 +243,11 @@ const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<Cascader
       ref={ref}
     />
   );
-});
+}) as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
+  props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
+) => React.ReactElement) & {
+  displayName: string;
+};
 
 Cascader.displayName = 'Cascader';
 

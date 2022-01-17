@@ -1,6 +1,6 @@
 import * as React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
-import RcTree, { TreeNode, TreeProps as RcTreeProps } from 'rc-tree';
+import RcTree, { TreeNode, TreeProps as RcTreeProps, BasicDataNode } from 'rc-tree';
 import classNames from 'classnames';
 import { DataNode, Key } from 'rc-tree/lib/interface';
 import DirectoryTree from './DirectoryTree';
@@ -98,8 +98,8 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-export interface TreeProps
-  extends Omit<RcTreeProps, 'prefixCls' | 'showLine' | 'direction' | 'draggable'> {
+export interface TreeProps<T extends BasicDataNode = DataNode>
+  extends Omit<RcTreeProps<T>, 'prefixCls' | 'showLine' | 'direction' | 'draggable'> {
   showLine?: boolean | { showLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
@@ -143,11 +143,13 @@ export interface TreeProps
   blockNode?: boolean;
 }
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<TreeProps & React.RefAttributes<RcTree>> {
+type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
+  props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },
+) => React.ReactElement) & {
+  defaultProps: Partial<React.PropsWithChildren<TreeProps<any>>>;
   TreeNode: typeof TreeNode;
   DirectoryTree: typeof DirectoryTree;
-}
+};
 
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
@@ -223,7 +225,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       {children}
     </RcTree>
   );
-}) as CompoundedComponent;
+}) as unknown as CompoundedComponent;
 
 Tree.TreeNode = TreeNode;
 

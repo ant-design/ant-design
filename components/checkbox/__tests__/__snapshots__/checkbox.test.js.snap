@@ -10,6 +10,7 @@ exports[`Checkbox rtl render component should be rendered correctly in RTL direc
     <input
       class="ant-checkbox-input"
       type="checkbox"
+      value=""
     />
     <span
       class="ant-checkbox-inner"

@@ -139,18 +139,7 @@ describe('TextArea', () => {
     const onResize = jest.fn();
     const wrapper = mount(<TextArea onResize={onResize} autoSize />);
     await sleep(100);
-    wrapper
-      .find('ResizeObserver')
-      .instance()
-      .onResize([
-        {
-          target: {
-            getBoundingClientRect() {
-              return {};
-            },
-          },
-        },
-      ]);
+    wrapper.triggerResize();
     await Promise.resolve();
 
     expect(onResize).toHaveBeenCalledWith(
@@ -369,6 +358,7 @@ describe('TextArea allowClear', () => {
       'setSelectionRange',
     );
     wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
+    wrapper.triggerResize();
     await sleep(100);
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();

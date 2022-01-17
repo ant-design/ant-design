@@ -23,6 +23,6 @@ describe('Comment', () => {
         datetime="YYYY-MM-DD HH:mm:ss"
       />,
     );
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

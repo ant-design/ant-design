@@ -21,6 +21,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   name?: string;
   layout?: FormLayout;
   labelAlign?: FormLabelAlign;
+  labelWrap?: boolean;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
@@ -42,6 +43,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     form,
     colon,
     labelAlign,
+    labelWrap,
     labelCol,
     wrapperCol,
     hideRequiredMark,
@@ -93,6 +95,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       name,
       labelAlign,
       labelCol,
+      labelWrap,
       wrapperCol,
       vertical: layout === 'vertical',
       colon: mergedColon,

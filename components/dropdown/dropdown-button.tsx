@@ -59,6 +59,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     mouseLeaveDelay,
     overlayClassName,
     overlayStyle,
+    destroyPopupOnHide,
     ...restProps
   } = props;
 
@@ -74,6 +75,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     mouseLeaveDelay,
     overlayClassName,
     overlayStyle,
+    destroyPopupOnHide,
   } as DropDownProps;
 
   if ('visible' in props) {

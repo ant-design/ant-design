@@ -137,8 +137,8 @@ const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as Co
 Mentions.displayName = 'Mentions';
 Mentions.Option = Option;
 
-Mentions.getMentions = (value: string = '', config?: MentionsConfig): MentionsEntity[] => {
-  const { prefix = '@', split = ' ' } = config || {};
+Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): MentionsEntity[] => {
+  const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
 
   return value

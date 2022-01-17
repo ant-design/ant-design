@@ -169,10 +169,11 @@ exports[`Button renders Chinese characters correctly 6`] = `
 >
   <span
     class="ant-btn-loading-icon"
+    style="width: 0px; opacity: 0; transform: scale(0);"
   >
     <span
       aria-label="loading"
-      class="anticon anticon-loading anticon-spin"
+      class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
       role="img"
     >
       <svg

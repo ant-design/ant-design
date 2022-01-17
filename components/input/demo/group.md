@@ -89,11 +89,14 @@ const App = () => (
     <br />
     <Input.Group compact>
       <Input style={{ width: 'calc(100% - 200px)' }} defaultValue="https://ant.design" />
-      <Button type="primary">Sumbit</Button>
+      <Button type="primary">Submit</Button>
     </Input.Group>
     <br />
     <Input.Group compact>
-      <Input style={{ width: 'calc(100% - 200px)' }} defaultValue="git@github.com:ant-design/ant-design.git" />
+      <Input
+        style={{ width: 'calc(100% - 200px)' }}
+        defaultValue="git@github.com:ant-design/ant-design.git"
+      />
       <Tooltip title="copy git url">
         <Button icon={<CopyOutlined />} />
       </Tooltip>

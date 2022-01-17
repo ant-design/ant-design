@@ -110,10 +110,15 @@ describe('Input.Search', () => {
 
   it('should trigger onSearch when click search button of native', () => {
     const onSearch = jest.fn();
+    const onButtonClick = jest.fn();
     const wrapper = mount(
       <Search
         defaultValue="search text"
-        enterButton={<button type="button">antd button</button>}
+        enterButton={
+          <button type="button" onClick={onButtonClick}>
+            antd button
+          </button>
+        }
         onSearch={onSearch}
       />,
     );
@@ -126,6 +131,7 @@ describe('Input.Search', () => {
         preventDefault: expect.any(Function),
       }),
     );
+    expect(onButtonClick).toHaveBeenCalledTimes(1);
   });
 
   it('should trigger onSearch when press enter', () => {

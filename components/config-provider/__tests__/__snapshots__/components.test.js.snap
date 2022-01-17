@@ -9977,7 +9977,6 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10033,7 +10032,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10089,7 +10087,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10145,7 +10142,6 @@ exports[`ConfigProvider components Cascader configProvider virtual and dropdownM
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10201,7 +10197,6 @@ exports[`ConfigProvider components Cascader normal 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10257,7 +10252,6 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
       class="prefix-Cascader-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -16402,17 +16396,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -16558,17 +16541,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -16721,17 +16693,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </span>
         </span>
       </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -16877,17 +16838,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -17040,17 +16990,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </span>
         </span>
       </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -17196,17 +17135,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -17359,17 +17287,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
           </span>
         </span>
       </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -17515,17 +17432,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -17678,17 +17584,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -17834,17 +17729,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -17997,17 +17881,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="prefix-Pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
-      </div>
     </li>
   </ul>
   <ul
@@ -18153,17 +18026,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="prefix-Pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          aria-label="Page"
-          type="text"
-          value=""
-        />
-        Page
       </div>
     </li>
   </ul>
@@ -21179,7 +21041,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21306,7 +21168,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21433,7 +21295,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21560,7 +21422,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21687,7 +21549,7 @@ exports[`ConfigProvider components Select normal 1`] = `
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21814,7 +21676,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -36643,7 +36505,6 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -36780,7 +36641,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -36917,7 +36777,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -37054,7 +36913,6 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -37191,7 +37049,6 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -37328,7 +37185,6 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
       class="prefix-TreeSelect-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"

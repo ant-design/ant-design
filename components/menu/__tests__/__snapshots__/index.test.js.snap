@@ -173,6 +173,7 @@ Array [
   >
     <li
       class="ant-menu-item"
+      data-menu-id="rc-menu-uuid-test-tmp_key-0"
       role="menuitem"
       tabindex="-1"
     >
@@ -195,9 +196,11 @@ Array [
       role="none"
     >
       <div
+        aria-controls="rc-menu-uuid-test-tmp_key-2-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-tmp_key-2"
         role="menuitem"
         tabindex="-1"
       >
@@ -212,7 +215,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display:none"
+    style="display: none;"
   />,
 ]
 `;

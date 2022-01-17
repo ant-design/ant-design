@@ -78,6 +78,8 @@ module.exports = {
         'jsx-a11y/href-no-hash': 0,
         'jsx-a11y/control-has-associated-label': 0,
         'import/no-extraneous-dependencies': 0,
+        'react/jsx-no-constructed-context-values': 0,
+        'react/no-unstable-nested-components': 0,
       },
     },
   ],
@@ -100,7 +102,8 @@ module.exports = {
     'react/no-unused-prop-types': 0,
     'react/default-props-match-prop-types': 0,
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
-
+    'react/function-component-definition': 0,
+    'react/no-unused-class-component-methods': 0,
     'import/extensions': 0,
     'import/no-cycle': 0,
     'import/no-extraneous-dependencies': [

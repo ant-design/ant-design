@@ -42,14 +42,14 @@
 [bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.css?label=antd.min.css&compression=gzip&style=flat-square
 [unpkg-js-url]: https://unpkg.com/browse/antd/dist/antd.min.js
 [unpkg-css-url]: https://unpkg.com/browse/antd/dist/antd.min.css
-[issues-helper-image]: https://img.shields.io/badge/Issues%20Manage%20By-issues--helper-orange?style=flat-square
+[issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
 
 </div>
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ey3wTo-5__QAAAAAAAAAAABkARQnAQ)](https://ant.design/index-cn)
 
-[English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md)
+[English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md)
 
 ## ✨ 特性
 

@@ -26,7 +26,7 @@ Tree selection control.
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | To set the style of the dropdown menu | CSSProperties | - |  |
-| fieldNames | Customize node title, key, children field name | object | { label: `label`, key: `key`, children: `children` } | 4.17.0 |
+| fieldNames | Customize node label, value, children field name | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default | boolean \| function(inputValue: string, treeNode: TreeNode) (should return boolean) | function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to {value: string, label: ReactNode, halfChecked: string\[]} | boolean | false |  |
@@ -35,6 +35,7 @@ Tree selection control.
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
+| notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | searchValue | Work with `onSearch` to make search value controlled | string | - |  |
 | showArrow | Whether to show the `suffixIcon`，when single selection mode, default `true` | boolean | - |  |

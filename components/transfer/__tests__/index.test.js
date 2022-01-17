@@ -98,7 +98,7 @@ describe('Transfer', () => {
 
   it('should render correctly', () => {
     const wrapper = mount(<Transfer {...listCommonProps} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should move selected keys to corresponding list', () => {
@@ -414,7 +414,7 @@ describe('Transfer', () => {
       lazy: false,
     };
     const wrapper = mount(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should add custom styles when their props are provided', () => {
@@ -488,7 +488,7 @@ describe('Transfer', () => {
         render={record => ({ value: `${record.title} value`, label: 'label' })}
       />,
     );
-    expect(component).toMatchRenderedSnapshot();
+    expect(component.render()).toMatchSnapshot();
   });
 
   it('should render correct checkbox label when checkboxLabel is defined', () => {
@@ -568,6 +568,6 @@ describe('immutable data', () => {
       }),
     ];
     const wrapper = mount(<Transfer rowKey={item => item.id} dataSource={mockData} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

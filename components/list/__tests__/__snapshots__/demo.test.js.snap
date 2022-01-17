@@ -1122,20 +1122,6 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1`] = `
-<div
-  class="ant-list ant-list-split"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    />
-  </div>
-</div>
-`;
-
 exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
@@ -2329,6 +2315,37 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         </button>
       </li>
     </ul>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/list/demo/virtual-list.md correctly 1`] = `
+<div
+  class="ant-list ant-list-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="rc-virtual-list"
+        style="position:relative"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="height:400px;overflow-y:auto;overflow-anchor:none"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display:flex;flex-direction:column"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
