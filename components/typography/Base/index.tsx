@@ -24,9 +24,6 @@ import EllipsisTooltip from './EllipsisTooltip';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
-const isLineClampSupport = isStyleSupport('webkitLineClamp');
-const isTextOverflowSupport = isStyleSupport('textOverflow');
-
 interface CopyConfig {
   text?: string;
   onCopy?: () => void;
@@ -217,6 +214,9 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   React.useEffect(() => cleanCopyId, []);
 
   // ========================== Ellipsis ==========================
+  const [isLineClampSupport, setIsLineClampSupport] = React.useState(false);
+  const [isTextOverflowSupport, setIsTextOverflowSupport] = React.useState(false);
+
   const [expanded, setExpanded] = React.useState(false);
   const [isJsEllipsis, setIsJsEllipsis] = React.useState(false);
   const [isNativeEllipsis, setIsNativeEllipsis] = React.useState(false);
@@ -229,8 +229,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   // Shared prop to reduce bundle size
   const { rows = 1 } = ellipsisConfig;
 
-  const cssEllipsis = React.useMemo(() => {
-    if (
+  const needMeasureEllipsis = React.useMemo(
+    () =>
       // Disable ellipsis
       !mergedEnableEllipsis ||
       // Provide suffix
@@ -239,8 +239,19 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
       // Can't use css ellipsis since we need to provide the place for button
       ellipsisConfig.expandable ||
       enableEdit ||
-      enableCopy
-    ) {
+      enableCopy,
+    [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
+  );
+
+  React.useLayoutEffect(() => {
+    if (enableEllipsis && needMeasureEllipsis) {
+      setIsLineClampSupport(isStyleSupport('webkitLineClamp'));
+      setIsTextOverflowSupport(isStyleSupport('textOverflow'));
+    }
+  }, [needMeasureEllipsis, enableEllipsis]);
+
+  const cssEllipsis = React.useMemo(() => {
+    if (!needMeasureEllipsis) {
       return false;
     }
 
@@ -249,14 +260,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     }
 
     return isLineClampSupport;
-  }, [
-    mergedEnableEllipsis,
-    enableEdit,
-    enableCopy,
-    ellipsisConfig,
-    isTextOverflowSupport,
-    isLineClampSupport,
-  ]);
+  }, [needMeasureEllipsis, isTextOverflowSupport, isLineClampSupport]);
 
   const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis);
 
@@ -426,7 +430,11 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   ];
 
   const renderEllipsis = (needEllipsis: boolean) => [
-    needEllipsis && <span aria-hidden key="ellipsis">{ELLIPSIS_STR}</span>,
+    needEllipsis && (
+      <span aria-hidden key="ellipsis">
+        {ELLIPSIS_STR}
+      </span>
+    ),
     ellipsisConfig.suffix,
     renderOperations(needEllipsis),
   ];
@@ -473,7 +481,11 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
               {(node, needEllipsis) => {
                 let renderNode: React.ReactNode = node;
                 if (node.length && needEllipsis && topAriaLabel) {
-                  renderNode = <span key="show-content" aria-hidden>{renderNode}</span>;
+                  renderNode = (
+                    <span key="show-content" aria-hidden>
+                      {renderNode}
+                    </span>
+                  );
                 }
 
                 const wrappedContext = wrapperDecorations(
