@@ -311,7 +311,7 @@
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     }
   ],
   "tnpm": {
