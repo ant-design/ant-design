@@ -244,14 +244,14 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   );
 
   React.useLayoutEffect(() => {
-    if (enableEllipsis && needMeasureEllipsis) {
+    if (enableEllipsis && !needMeasureEllipsis) {
       setIsLineClampSupport(isStyleSupport('webkitLineClamp'));
       setIsTextOverflowSupport(isStyleSupport('textOverflow'));
     }
   }, [needMeasureEllipsis, enableEllipsis]);
 
   const cssEllipsis = React.useMemo(() => {
-    if (!needMeasureEllipsis) {
+    if (needMeasureEllipsis) {
       return false;
     }
 
