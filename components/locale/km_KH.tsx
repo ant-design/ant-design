@@ -26,18 +26,18 @@ const localeValues: Locale = {
     sortTitle: 'តម្រៀប',
     expand: 'ពន្លាត',
     collapse: 'បិតបាំង',
-    triggerDesc: 'ចុចដើម្បីរៀបតាំលំដាប់ធំ',
-    triggerAsc: 'ចុចដើម្បីរៀបតាំលំដាប់តូច​',
+    triggerDesc: 'ចុចដើម្បីរៀបតាមលំដាប់ធំ',
+    triggerAsc: 'ចុចដើម្បីរៀបតាមលំដាប់តូច​',
     cancelSort: 'ចុចដើម្បីបោះបង់',
   },
   Modal: {
     okText: 'យល់ព្រម',
-    cancelText: 'យល់ព្រម',
+    cancelText: 'បោះបង់',
     justOkText: 'យល់ព្រម',
   },
   Popconfirm: {
     okText: 'យល់ព្រម',
-    cancelText: 'យល់ព្រម',
+    cancelText: 'បោះបង់',
   },
   Transfer: {
     searchPlaceholder: 'ស្វែងរកនៅទីនេះ',
