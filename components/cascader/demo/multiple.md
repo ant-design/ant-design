@@ -51,18 +51,20 @@ const options = [
   },
 ];
 
-function onChange(value) {
-  console.log(value);
-}
+const App = () => {
+  const onChange = value => {
+    console.log(value);
+  };
+  return (
+    <Cascader
+      style={{ width: '100%' }}
+      options={options}
+      onChange={onChange}
+      multiple
+      maxTagCount="responsive"
+    />
+  );
+};
 
-ReactDOM.render(
-  <Cascader
-    style={{ width: 233 }}
-    options={options}
-    onChange={onChange}
-    multiple
-    maxTagCount="responsive"
-  />,
-  mountNode,
-);
+ReactDOM.render(<App />, mountNode);
 ```
