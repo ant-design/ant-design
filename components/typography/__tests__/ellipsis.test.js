@@ -96,15 +96,6 @@ describe('Typography.Ellipsis', () => {
     expect(wrapper.find(Typography).prop('style').WebkitLineClamp).toEqual(2);
   });
 
-  it('start = end - 1 & midHeight <= maxHeight', async () => {
-    for (let i = 0; i < LINE_STR_COUNT * 5; i += 1) {
-      const onEllipsis = jest.fn();
-      const wrapper = mount(<Base ellipsis={{ onEllipsis }}>{new Array(i).fill('a')}</Base>);
-      wrapper.triggerResize();
-      await sleep(10);
-    }
-  });
-
   it('string with parentheses', async () => {
     const parenthesesStr = `Ant Design, a design language (for background applications, is refined by
         Ant UED Team. Ant Design, a design language for background applications,

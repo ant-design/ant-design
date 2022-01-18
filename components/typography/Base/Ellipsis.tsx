@@ -129,14 +129,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
 
           // We reach the last round
           if (startLen === endLen - 1) {
-            if (midHeight > maxHeight) {
-              nextEndLen = startLen;
-              /* istanbul ignore next */
-            } else {
-              // Follow code will never reach since mid use `Math.ceil`
-              // which makes midHeight always greater than maxHeight
-              nextStartLen = endLen;
-            }
+            nextEndLen = startLen;
           } else if (midHeight <= maxHeight) {
             nextStartLen = midLen;
           } else {
