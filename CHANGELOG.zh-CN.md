@@ -24,7 +24,7 @@ timeline: true
   - 🐞 重构 Typography `ellipsis` 逻辑以修复 `children` 如果消费上游 Context 会报错的问题。 [#33725](https://github.com/ant-design/ant-design/pull/33725)
 - Icon
   - 🐞 修复 `<Icon component={HomeOutlined} />`; 和 `<HomeOutlined />`; 不对齐的问题。[#33709](https://github.com/ant-design/ant-design/pull/33709)
-  - 🐞 修复 `<Icon component={SyncOutlined} spin />`; 抖动的问题。[#33726](https://github.com/ant-design/ant-design/pull/33726) [@JX-Zhuang](https://github.com/JX-Zhuang)
+  - 🐞 修复 `<Icon component={SyncOutlined} spin />` 抖动的问题。[#33726](https://github.com/ant-design/ant-design/pull/33726) [@JX-Zhuang](https://github.com/JX-Zhuang)
 - Input
   - 🐞 修复 Input 相关组件设置 `hidden` 时的展示问题。[#33735](https://github.com/ant-design/ant-design/pull/33735) [@fanerge](https://github.com/fanerge)，[#33706](https://github.com/ant-design/ant-design/pull/33706) [@hydraZty](https://github.com/hydraZty)
   - 🐞 修复 Input 传入 `showCount` 时控制台 warning 提示问题。[#33686](https://github.com/ant-design/ant-design/pull/33686) [@whwangms](https://github.com/whwangms)
