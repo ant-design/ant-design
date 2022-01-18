@@ -75,6 +75,8 @@
     pointer-events: none;
 
     &-content {
+      --antd-arrow-background-color: @tooltip-bg;
+
       position: absolute;
       top: 0;
       right: 0;
@@ -84,7 +86,7 @@
       width: @tooltip-arrow-width;
       height: @tooltip-arrow-width;
       margin: auto;
-      background-color: @tooltip-bg;
+      background-color: transparent;
       content: '';
       pointer-events: auto;
       .roundedArrow(@tooltip-arrow-width, 5px);

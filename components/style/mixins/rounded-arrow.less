@@ -1,37 +1,37 @@
-.roundedArrow(@width, @outer-radius, @bg-color: inherit) {
-  @offset: 0.6;
-  @corner-height: unit(((@outer-radius) * (1 - 1 / sqrt(2)))) + @offset;
-  @corner-width: unit(((@outer-radius) * (1 / sqrt(2))));
-  @corner-radius: unit((@outer-radius));
-  @width2x: unit(@width * 2);
-  @widthWithoutUnit: unit(@width);
+.roundedArrow(@width, @outer-radius, @bg-color: var(--antd-arrow-background-color)) {
+  @corner-height: unit(((@outer-radius) * (1 - 1 / sqrt(2))));
 
+  @width-without-unit: unit(@width);
+  @outer-radius-without-unit: unit(@outer-radius);
+  @inner-radius-without-unit: unit(@border-radius-base);
+
+  @a-x: @width-without-unit - @corner-height;
+  @a-y: 2 * @width-without-unit + @corner-height;
+  @b-x: @a-x + @outer-radius-without-unit * (1 / sqrt(2));
+  @b-y: 2 * @width-without-unit;
+  @c-x: 2 * @width-without-unit - @inner-radius-without-unit;
+  @c-y: 2 * @width-without-unit;
+  @d-x: 2 * @width-without-unit;
+  @d-y: 2 * @width-without-unit - @inner-radius-without-unit;
+  @e-x: 2 * @width-without-unit;
+  @e-y: @f-y + @outer-radius-without-unit * (1 / sqrt(2));
+  @f-x: 2 * @width-without-unit + @corner-height;
+  @f-y: @width-without-unit - @corner-height;
+
+  overflow: visible;
   border-radius: 0 0 @border-radius-base 0;
   pointer-events: none;
 
   &::before {
     position: absolute;
-    top: @width - unit(@offset, px);
-    left: unit((@corner-height - @offset), px) * -1;
-    width: @width;
-    height: @width;
+    top: -@width;
+    left: -@width;
+    width: @width * 3;
+    height: @width * 3;
     background: @bg-color;
     content: '';
     clip-path: path(
-      'M 0 @{corner-height} A @{corner-radius} @{corner-radius} 0 0 1 @{corner-width} @{offset} L @{corner-width} 0 L 0 0 Z'
-    );
-  }
-
-  &::after {
-    position: absolute;
-    top: unit((@corner-height - @offset), px) * -1;
-    left: @width - unit(@offset, px);
-    width: @width;
-    height: @width;
-    background: @bg-color;
-    content: '';
-    clip-path: path(
-      'M 0 @{corner-width} L @{offset} @{corner-width} A @{corner-radius} @{corner-radius} 0 0 1 @{corner-height} 0 L 0 0 Z'
+      'M @{a-x} @{a-y} A @{outer-radius-without-unit} @{outer-radius-without-unit} 0 0 1 @{b-x} @{b-y} L @{c-x} @{c-y} A @{inner-radius-without-unit} @{inner-radius-without-unit} 0 0 0 @{d-x} @{d-y} L @{e-x} @{e-y} A @{outer-radius-without-unit} @{outer-radius-without-unit} 0 0 1 @{f-x} @{f-y} Z'
     );
   }
 }
