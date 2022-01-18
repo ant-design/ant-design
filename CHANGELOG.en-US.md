@@ -15,6 +15,28 @@ timeline: true
 
 ---
 
+## 4.18.4
+
+`2022-01-18`
+
+- Typography
+  - ⚡️ Optimize Typography to use native css ellipsis when `tooltip` is configured. [#33669](https://github.com/ant-design/ant-design/pull/33669)
+  - 🐞 Refactor Typography `ellipsis` logic to fix error when `children` use Context content. [#33725](https://github.com/ant-design/ant-design/pull/33725)
+- Icon
+  - 🐞 Fix the alignment for `<Icon component={HomeOutlined} />` and `<HomeOutlined />`. [#33709](https://github.com/ant-design/ant-design/pull/33709)
+  - 🐞 Fix the shaking for `<Icon component={SyncOutlined} spin />`. [#33726](https://github.com/ant-design/ant-design/pull/33726) [@JX-Zhuang](https://github.com/JX-Zhuang)
+- Input
+  - 🐞 Fix the display problem for Input related components with `hidden`. [#33735](https://github.com/ant-design/ant-design/pull/33735) [@fanerge](https://github.com/fanerge)
+  - 🐞 Fix the problem that `hidden` is invalid for Input with `prefix`/`suffix`. [#33706](https://github.com/ant-design/ant-design/pull/33706) [@hydraZty](https://github.com/hydraZty)
+  - 🐞 Fix the warning console prompt for Input with `showCount`. [#33686](https://github.com/ant-design/ant-design/pull/33686) [@whwangms](https://github.com/whwangms)
+- ⚡️ Fix ConfigProvider and Anchor rerender unexpectedly. [#33723](https://github.com/ant-design/ant-design/pull/33723) [@mrwd2009](https://github.com/mrwd2009)
+- 🐞 Fix the duplicate keys warning in Cascader. [#33649](https://github.com/ant-design/ant-design/pull/33649) [@dimbslmh](https://github.com/dimbslmh)
+- 🐞 Checkbox.Group support number and boolean as options element. [#33678](https://github.com/ant-design/ant-design/pull/33678)
+- 🐞 Fix Form `validateMessages` bug in multiple ConfigProvider. [#33705](https://github.com/ant-design/ant-design/pull/33705)
+- 🐞 Fix the tail part would be hidden when `type` is navigation and `labelPlacement` is vertical in Steps. [#33716](https://github.com/ant-design/ant-design/pull/33716) [@toSayNothing](https://github.com/toSayNothing)
+- 🐞 Fix the bottom blank for Image. [#33631](https://github.com/ant-design/ant-design/pull/33631) [@fanerge](https://github.com/fanerge)
+- 🇰🇭 Fix some translations for Khmer (km_KH). [#33738](https://github.com/ant-design/ant-design/pull/33738) [@vireakkeosokvibol](https://github.com/vireakkeosokvibol)
+
 ## 4.18.3
 
 `2022-01-10`
