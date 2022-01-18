@@ -71,6 +71,14 @@ After cloning antd, run `npm install` to fetch its dependencies. Then, you can r
 1. `npm run compile` compiles TypeScript code to the `lib` and `es` directory.
 1. `npm run dist` creates UMD build of antd.
 
+### Switch Theme
+
+Use `DEV_THEME` to change start theme:
+
+```bash
+DEV_THEME=dark npm start
+```
+
 ## Being a collaborator
 
 If you are an active contributor and are willing to work with Ant Design Team in our opensource workflow, you can [apply to be a outside collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator).
