@@ -1,10 +1,13 @@
-.roundedArrow(@width, @outer-radius, @bg-color) {
-  @offset: 0.4;
+.roundedArrow(@width, @outer-radius, @bg-color: inherit) {
+  @offset: 0.6;
   @corner-height: unit(((@outer-radius) * (1 - 1 / sqrt(2)))) + @offset;
   @corner-width: unit(((@outer-radius) * (1 / sqrt(2))));
   @corner-radius: unit((@outer-radius));
+  @width2x: unit(@width * 2);
+  @widthWithoutUnit: unit(@width);
 
   border-radius: 0 0 @border-radius-base 0;
+  pointer-events: none;
 
   &::before {
     position: absolute;
@@ -12,7 +15,7 @@
     left: unit((@corner-height - @offset), px) * -1;
     width: @width;
     height: @width;
-    background: inherit;
+    background: @bg-color;
     content: '';
     clip-path: path(
       'M 0 @{corner-height} A @{corner-radius} @{corner-radius} 0 0 1 @{corner-width} @{offset} L @{corner-width} 0 L 0 0 Z'
@@ -25,7 +28,7 @@
     left: @width - unit(@offset, px);
     width: @width;
     height: @width;
-    background: inherit;
+    background: @bg-color;
     content: '';
     clip-path: path(
       'M 0 @{corner-width} L @{offset} @{corner-width} A @{corner-radius} @{corner-radius} 0 0 1 @{corner-height} 0 L 0 0 Z'

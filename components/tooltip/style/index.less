@@ -87,7 +87,7 @@
       background-color: @tooltip-bg;
       content: '';
       pointer-events: auto;
-      .roundedArrow(@tooltip-arrow-width, 5px, @tooltip-bg);
+      .roundedArrow(@tooltip-arrow-width, 5px);
     }
   }
 
@@ -142,7 +142,7 @@
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
-    right: @tooltip-distance - @tooltip-arrow-rotate-width;
+    right: @tooltip-distance - @tooltip-arrow-rotate-width + 0.5px;
 
     &-content {
       box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);

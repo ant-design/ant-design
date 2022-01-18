@@ -316,7 +316,7 @@
       transparent 40%,
       @calendar-bg 40%
     ); // Use linear-gradient to prevent arrow from covering text
-    box-shadow: 2px 2px 6px fade(@black, 6%);
+    box-shadow: 2px 2px 6px -2px fade(@black, 10%); // use spread radius to hide shadow over popover
     transition: left @animation-duration-slow ease-out;
     .roundedArrow(@arrow-size, 5px, @calendar-bg);
   }
