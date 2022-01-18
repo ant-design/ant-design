@@ -34,6 +34,7 @@ timeline: true
 - 🐞 Fix Form `validateMessages` bug in multiple ConfigProvider. [#33705](https://github.com/ant-design/ant-design/pull/33705)
 - 🐞 Fix the tail part would be hidden when `type` is navigation and `labelPlacement` is vertical in Steps. [#33716](https://github.com/ant-design/ant-design/pull/33716) [@toSayNothing](https://github.com/toSayNothing)
 - 🐞 Fix the bottom blank for Image. [#33631](https://github.com/ant-design/ant-design/pull/33631) [@fanerge](https://github.com/fanerge)
+- 🐞 Fix TreeSelect with keyboard operation missing highlight issue. [#33755](https://github.com/ant-design/ant-design/pull/33755)
 - 🇰🇭 Fix some translations for Khmer (km_KH). [#33738](https://github.com/ant-design/ant-design/pull/33738) [@vireakkeosokvibol](https://github.com/vireakkeosokvibol)
 
 ## 4.18.3

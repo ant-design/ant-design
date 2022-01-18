@@ -34,6 +34,7 @@ timeline: true
 - 🐞 修复 Form `validateMessages` 在多个 ConfigProvider 内错乱的问题。[#33705](https://github.com/ant-design/ant-design/pull/33705)
 - 🐞 修复 Steps 组件在 `type` 为 navigation 和 `labelPlacement` 为 vertical 时，tail 部分不会显示的问题。[#33716](https://github.com/ant-design/ant-design/pull/33716) [@toSayNothing](https://github.com/toSayNothing)
 - 🐞 修复 Image 底部留白问题。[#33631](https://github.com/ant-design/ant-design/pull/33631) [@fanerge](https://github.com/fanerge)
+- 🐞 修复 TreeSelect 键盘操作时，激活项不会高亮的问题。[#33755](https://github.com/ant-design/ant-design/pull/33755)
 - 🇰🇭 修正高棉语 (km_KH) 语言包中部分翻译。[#33738](https://github.com/ant-design/ant-design/pull/33738) [@vireakkeosokvibol](https://github.com/vireakkeosokvibol)
 
 ## 4.18.3
