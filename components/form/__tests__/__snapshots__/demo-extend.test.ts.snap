@@ -2979,9 +2979,26 @@ exports[`renders ./components/form/demo/label-debug.md extend context correctly 
         title=""
       >
         <span
+          aria-label="longtextlongtextlongtextlongtextlongtextlongtextlongtext"
           class="ant-typography ant-typography-ellipsis ant-typography-single-line"
         >
           longtextlongtextlongtextlongtextlongtextlongtextlongtext
+          <span
+            aria-hidden="true"
+            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:9999px"
+          >
+            lg
+          </span>
+          <span
+            aria-hidden="true"
+            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ...
+            </span>
+          </span>
         </span>
       </label>
     </div>
@@ -3016,9 +3033,26 @@ exports[`renders ./components/form/demo/label-debug.md extend context correctly 
         title=""
       >
         <span
+          aria-label="longtext longtext longtext longtext longtext longtext longtext"
           class="ant-typography ant-typography-ellipsis ant-typography-single-line"
         >
           longtext longtext longtext longtext longtext longtext longtext
+          <span
+            aria-hidden="true"
+            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:9999px"
+          >
+            lg
+          </span>
+          <span
+            aria-hidden="true"
+            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ...
+            </span>
+          </span>
         </span>
       </label>
     </div>
