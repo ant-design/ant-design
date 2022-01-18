@@ -1,18 +1,15 @@
 import * as React from 'react';
-import { Button, Popover } from 'antd';
+import { Button } from 'antd';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { PlayCircleFilled } from '@ant-design/icons';
 import Background from './Background';
 import { getLocalizedPathname } from '../../utils';
 import Logo from './Logo';
 
 import './index.less';
-import SiteContext from '../../Layout/SiteContext';
 
 const Banner = (props: { location: any }) => {
   const { location } = props;
-  const { isMobile } = React.useContext(SiteContext);
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
 
