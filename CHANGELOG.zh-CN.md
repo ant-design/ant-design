@@ -26,8 +26,8 @@ timeline: true
   - 🐞 修复 `<Icon component={HomeOutlined} />`; 和 `<HomeOutlined />`; 不对齐的问题。[#33709](https://github.com/ant-design/ant-design/pull/33709)
   - 🐞 修复 `<Icon component={SyncOutlined} spin />`; 抖动的问题。[#33726](https://github.com/ant-design/ant-design/pull/33726) [@JX-Zhuang](https://github.com/JX-Zhuang)
 - Input
-  - 🐞 修复 Input 相关组件设置 `hidden` 时的展示问题。[#33735](https://github.com/ant-design/ant-design/pull/33735) [@fanerge](https://github.com/fanerge)
-  - 🐞 修复设置 `prefix`/`suffix` 的 Input 的 `hidden` 无效的问题。[#33706](https://github.com/ant-design/ant-design/pull/33706) [@hydraZty](https://github.com/hydraZty)
+  - 🐞 修复 Input 相关组件设置 `hidden` 时的展示问题。[#33735](https://github.com/ant-design/ant-design/pull/33735) [@fanerge](https://github.com/fanerge)，[#33706](https://github.com/ant-design/ant-design/pull/33706) [@hydraZty](https://github.com/hydraZty)
+  - 🐞 修复设置 `prefix`/`suffix` 的 Input 的 `hidden` 无效的问题。
   - 🐞 修复 Input 传入 `showCount` 时控制台 warning 提示问题。[#33686](https://github.com/ant-design/ant-design/pull/33686) [@whwangms](https://github.com/whwangms)
 - ⚡️ 修复 ConfigProvider 和 Anchor 的渲染函数多次运行的问题。[#33723](https://github.com/ant-design/ant-design/pull/33723) [@mrwd2009](https://github.com/mrwd2009)
 - 🐞 修复 Cascader 组件中出现重复 key 的 warning 问题。[#33649](https://github.com/ant-design/ant-design/pull/33649) [@dimbslmh](https://github.com/dimbslmh)

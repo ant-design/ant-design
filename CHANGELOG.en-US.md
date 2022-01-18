@@ -26,8 +26,7 @@ timeline: true
   - 🐞 Fix the alignment for `<Icon component={HomeOutlined} />` and `<HomeOutlined />`. [#33709](https://github.com/ant-design/ant-design/pull/33709)
   - 🐞 Fix the shaking for `<Icon component={SyncOutlined} spin />`. [#33726](https://github.com/ant-design/ant-design/pull/33726) [@JX-Zhuang](https://github.com/JX-Zhuang)
 - Input
-  - 🐞 Fix the display problem for Input related components with `hidden`. [#33735](https://github.com/ant-design/ant-design/pull/33735) [@fanerge](https://github.com/fanerge)
-  - 🐞 Fix the problem that `hidden` is invalid for Input with `prefix`/`suffix`. [#33706](https://github.com/ant-design/ant-design/pull/33706) [@hydraZty](https://github.com/hydraZty)
+  - 🐞 Fix the display effect for Input related components with `hidden`. [#33735](https://github.com/ant-design/ant-design/pull/33735) [@fanerge](https://github.com/fanerge), [#33706](https://github.com/ant-design/ant-design/pull/33706) [@hydraZty](https://github.com/hydraZty)
   - 🐞 Fix the warning console prompt for Input with `showCount`. [#33686](https://github.com/ant-design/ant-design/pull/33686) [@whwangms](https://github.com/whwangms)
 - ⚡️ Fix ConfigProvider and Anchor rerender unexpectedly. [#33723](https://github.com/ant-design/ant-design/pull/33723) [@mrwd2009](https://github.com/mrwd2009)
 - 🐞 Fix the duplicate keys warning in Cascader. [#33649](https://github.com/ant-design/ant-design/pull/33649) [@dimbslmh](https://github.com/dimbslmh)
