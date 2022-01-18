@@ -2,9 +2,16 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import Base from '../Base';
+import Typography from '../Typography';
 import { sleep } from '../../../tests/utils';
+// eslint-disable-next-line no-unused-vars
+import * as styleChecker from '../../_util/styleChecker';
 
 jest.mock('copy-to-clipboard');
+
+jest.mock('../../_util/styleChecker', () => ({
+  isStyleSupport: () => true,
+}));
 
 describe('Typography.Ellipsis', () => {
   const LINE_STR_COUNT = 20;
@@ -76,6 +83,26 @@ describe('Typography.Ellipsis', () => {
     expect(onEllipsis).toHaveBeenCalledWith(false);
 
     wrapper.unmount();
+  });
+
+  it('support css multiple lines', async () => {
+    const wrapper = mount(
+      <Base ellipsis={{ rows: 2 }} component="p">
+        {fullStr}
+      </Base>,
+    );
+
+    expect(wrapper.exists('.ant-typography-ellipsis-multiple-line')).toBeTruthy();
+    expect(wrapper.find(Typography).prop('style').WebkitLineClamp).toEqual(2);
+  });
+
+  it('start = end - 1 & midHeight <= maxHeight', async () => {
+    for (let i = 0; i < LINE_STR_COUNT * 5; i += 1) {
+      const onEllipsis = jest.fn();
+      const wrapper = mount(<Base ellipsis={{ onEllipsis }}>{new Array(i).fill('a')}</Base>);
+      wrapper.triggerResize();
+      await sleep(10);
+    }
   });
 
   it('string with parentheses', async () => {
@@ -250,5 +277,13 @@ describe('Typography.Ellipsis', () => {
 
       expect(wrapper.find('Tooltip').prop('title')).toEqual('Bamboo is Light');
     });
+  });
+
+  it('js ellipsis should show aria-label', () => {
+    const titleWrapper = mount(<Base title="bamboo" ellipsis={{ expandable: true }} />);
+    expect(titleWrapper.find('.ant-typography').prop('aria-label')).toEqual('bamboo');
+
+    const tooltipWrapper = mount(<Base ellipsis={{ expandable: true, tooltip: 'little' }} />);
+    expect(tooltipWrapper.find('.ant-typography').prop('aria-label')).toEqual('little');
   });
 });

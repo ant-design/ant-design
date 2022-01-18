@@ -132,6 +132,9 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
             if (midHeight > maxHeight) {
               nextEndLen = startLen;
             } else {
+              // Follow code will never reach since mid use `Math.ceil`
+              // which makes midHeight always greater than maxHeight
+              /* istanbul ignore next */
               nextStartLen = endLen;
             }
           } else if (midHeight <= maxHeight) {
