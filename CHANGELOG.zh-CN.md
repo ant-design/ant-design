@@ -15,6 +15,28 @@ timeline: true
 
 ---
 
+## 4.18.4
+
+`2022-01-18`
+
+- Typography
+  - ⚡️ 优化 Typography 在配置 `tooltip` 时优先使用原生省略样式以提升性能。[#33669](https://github.com/ant-design/ant-design/pull/33669)
+  - 🐞 重构 Typography `ellipsis` 逻辑以修复 `children` 如果消费上游 Context 会报错的问题。 [#33725](https://github.com/ant-design/ant-design/pull/33725)
+- Icon
+  - 🐞 修复 `<Icon component={HomeOutlined} />` 和 `<HomeOutlined />` 不对齐的问题。[#33709](https://github.com/ant-design/ant-design/pull/33709)
+  - 🐞 修复 `<Icon component={SyncOutlined} spin />` 抖动的问题。[#33726](https://github.com/ant-design/ant-design/pull/33726) [@JX-Zhuang](https://github.com/JX-Zhuang)
+- Input
+  - 🐞 修复 Input 相关组件设置 `hidden` 时的展示问题。[#33735](https://github.com/ant-design/ant-design/pull/33735) [@fanerge](https://github.com/fanerge)，[#33706](https://github.com/ant-design/ant-design/pull/33706) [@hydraZty](https://github.com/hydraZty)
+  - 🐞 修复 Input 传入 `showCount` 时控制台 warning 问题。[#33686](https://github.com/ant-design/ant-design/pull/33686) [@whwangms](https://github.com/whwangms)
+- ⚡️ 修复 ConfigProvider 和 Anchor 的渲染函数多次运行的问题。[#33723](https://github.com/ant-design/ant-design/pull/33723) [@mrwd2009](https://github.com/mrwd2009)
+- 🐞 修复 Cascader 组件中出现重复 key 的控制台 warning 问题。[#33649](https://github.com/ant-design/ant-design/pull/33649) [@dimbslmh](https://github.com/dimbslmh)
+- 🐞 Checkbox.Group 的 `options` 支持数组中直接传入 number 和 boolean 类型。[#33678](https://github.com/ant-design/ant-design/pull/33678)
+- 🐞 修复 Form `validateMessages` 在多个 ConfigProvider 内错乱的问题。[#33705](https://github.com/ant-design/ant-design/pull/33705)
+- 🐞 修复 Steps 组件在 `type` 为 navigation 和 `labelPlacement` 为 vertical 时，tail 部分不会显示的问题。[#33716](https://github.com/ant-design/ant-design/pull/33716) [@toSayNothing](https://github.com/toSayNothing)
+- 🐞 修复 Image 底部留白问题。[#33631](https://github.com/ant-design/ant-design/pull/33631) [@fanerge](https://github.com/fanerge)
+- 🐞 修复 TreeSelect 键盘操作时，激活项不会高亮的问题。[#33755](https://github.com/ant-design/ant-design/pull/33755)
+- 🇰🇭 修正高棉语 (km_KH) 语言包中部分翻译。[#33738](https://github.com/ant-design/ant-design/pull/33738) [@vireakkeosokvibol](https://github.com/vireakkeosokvibol)
+
 ## 4.18.3
 
 `2022-01-10`
