@@ -9,9 +9,7 @@ import { OptionProps } from 'rc-select/lib/Option';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName, getTransitionDirection } from '../_util/motion';
-
-type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 
 type RawValue = string | number;
 
@@ -42,7 +40,7 @@ export interface SelectProps<
     InternalSelectProps<ValueType, OptionType>,
     'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
-  placement?: Placement;
+  placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
 }
 

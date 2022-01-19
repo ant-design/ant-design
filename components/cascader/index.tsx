@@ -17,7 +17,7 @@ import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import getIcons from '../select/utils/iconUtil';
-import { getTransitionName, getTransitionDirection } from '../_util/motion';
+import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -29,8 +29,6 @@ export { BaseOptionType, DefaultOptionType };
 export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
-
-type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
   const cells = str
@@ -86,7 +84,7 @@ export interface CascaderProps<DataNodeType>
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;
-  placement?: Placement;
+  placement?: SelectCommonPlacement;
   suffixIcon?: React.ReactNode;
   options?: DataNodeType[];
 }

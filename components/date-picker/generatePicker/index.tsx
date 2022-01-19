@@ -17,6 +17,7 @@ import PickerTag from '../PickerTag';
 import { TimePickerLocale } from '../../time-picker';
 import generateSinglePicker from './generateSinglePicker';
 import generateRangePicker from './generateRangePicker';
+import { tuple } from '../../_util/type';
 
 export const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -69,8 +70,8 @@ export function getTimeProps<DateType, DisabledTime>(
     showTime: showTimeObj,
   };
 }
-
-type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+const DataPickerPlacements = tuple('bottomLeft', 'bottomRight', 'topLeft', 'topRight');
+type DataPickerPlacement = typeof DataPickerPlacements[number];
 
 type InjectDefaultProps<Props> = Omit<
   Props,
@@ -78,7 +79,7 @@ type InjectDefaultProps<Props> = Omit<
 > & {
   locale?: PickerLocale;
   size?: SizeType;
-  placement?: Placement;
+  placement?: DataPickerPlacement;
   bordered?: boolean;
 };
 
