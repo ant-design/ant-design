@@ -80,12 +80,11 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-export interface CascaderProps<DataNodeType>
+export interface CascaderProps<DataNodeType extends BaseOptionType = DefaultOptionType>
   extends Omit<RcCascaderProps, 'checkable' | 'options'> {
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;
-
   suffixIcon?: React.ReactNode;
   options?: DataNodeType[];
 }
@@ -95,7 +94,7 @@ export interface CascaderRef {
   blur: () => void;
 }
 
-const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<CascaderRef>) => {
+const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<CascaderRef>) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
