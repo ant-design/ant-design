@@ -130,6 +130,7 @@ const Editable: React.FC<EditableProps> = ({
         onCompositionEnd={onCompositionEnd}
         onBlur={onBlur}
         aria-label={ariaLabel}
+        rows={1}
         autoSize={autoSize}
       />
       {enterIcon !== null
