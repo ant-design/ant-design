@@ -96,7 +96,7 @@
   &-placement-top &-arrow,
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {
-    bottom: @tooltip-distance - @tooltip-arrow-rotate-width;
+    bottom: @tooltip-distance - @tooltip-arrow-rotate-width + 0.24px;
 
     &-content {
       box-shadow: @tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
@@ -120,7 +120,7 @@
   &-placement-right &-arrow,
   &-placement-rightTop &-arrow,
   &-placement-rightBottom &-arrow {
-    left: @tooltip-distance - @tooltip-arrow-rotate-width;
+    left: @tooltip-distance - @tooltip-arrow-rotate-width + 0.1px;
 
     &-content {
       box-shadow: -@tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
@@ -144,7 +144,7 @@
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
-    right: @tooltip-distance - @tooltip-arrow-rotate-width + 0.5px;
+    right: @tooltip-distance - @tooltip-arrow-rotate-width + 0.08px;
 
     &-content {
       box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
@@ -168,7 +168,7 @@
   &-placement-bottom &-arrow,
   &-placement-bottomLeft &-arrow,
   &-placement-bottomRight &-arrow {
-    top: @tooltip-distance - @tooltip-arrow-rotate-width;
+    top: @tooltip-distance - @tooltip-arrow-rotate-width + 0.1px;
 
     &-content {
       box-shadow: -@tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
@@ -199,7 +199,7 @@
       background-color: @@lightColor;
     }
     .@{tooltip-prefix-cls}-arrow {
-      &-content {
+      &-content::before {
         background-color: @@lightColor;
       }
     }

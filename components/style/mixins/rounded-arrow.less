@@ -18,7 +18,6 @@
   @f-x: 2 * @width-without-unit + @corner-height;
   @f-y: @width-without-unit - @corner-height;
 
-  overflow: visible;
   border-radius: 0 0 @border-radius-base 0;
   pointer-events: none;
 
@@ -28,7 +27,8 @@
     left: -@width;
     width: @width * 3;
     height: @width * 3;
-    background: @bg-color;
+    background: linear-gradient(to left, @bg-color 50%, @bg-color 50%) no-repeat ceil(-@width + 1px)
+      ceil(-@width + 1px); // Hack firefox: https://github.com/ant-design/ant-design/pull/33710#issuecomment-1015287825
     content: '';
     clip-path: path(
       'M @{a-x} @{a-y} A @{outer-radius-without-unit} @{outer-radius-without-unit} 0 0 1 @{b-x} @{b-y} L @{c-x} @{c-y} A @{inner-radius-without-unit} @{inner-radius-without-unit} 0 0 0 @{d-x} @{d-y} L @{e-x} @{e-y} A @{outer-radius-without-unit} @{outer-radius-without-unit} 0 0 1 @{f-x} @{f-y} Z'
