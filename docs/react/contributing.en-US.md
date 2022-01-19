@@ -79,6 +79,8 @@ Use `DEV_THEME` to change start theme:
 DEV_THEME=dark npm start
 ```
 
+Visit [http://127.0.0.1:8001/components/button-cn/?theme=dark](http://127.0.0.1:8001/components/button-cn/?theme=dark).
+
 ## Being a collaborator
 
 If you are an active contributor and are willing to work with Ant Design Team in our opensource workflow, you can [apply to be a outside collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator).
