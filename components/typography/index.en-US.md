@@ -144,3 +144,5 @@ Basic text writing, including headings, body text, lists, and more.
 ```tsx
 <Link to="/" component={Typography.Link} />
 ```
+
+**Note：** This is not equivalent to the execution logic of react-router's Link [reference](https://github.com/ant-design/ant-design/pull/26737/files#r488769888)
