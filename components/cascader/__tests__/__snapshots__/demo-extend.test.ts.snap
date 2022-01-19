@@ -1524,7 +1524,7 @@ exports[`renders ./components/cascader/demo/lazy.md extend context correctly 1`]
 exports[`renders ./components/cascader/demo/multiple.md extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear"
-  style="width:233px"
+  style="width:100%"
 >
   <div
     class="ant-select-selector"
