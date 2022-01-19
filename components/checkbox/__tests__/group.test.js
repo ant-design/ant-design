@@ -213,4 +213,13 @@ describe('CheckboxGroup', () => {
       />,
     );
   });
+
+  it('should support number option', () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(<Checkbox.Group options={[1, 'Pear', 'Orange']} onChange={onChange} />);
+
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    expect(onChange).toHaveBeenCalledWith([1]);
+  });
 });

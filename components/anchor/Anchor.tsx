@@ -257,6 +257,16 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     }
   };
 
+  getMemoizedContextValue = memoizeOne(
+    (link: AntAnchor['activeLink'], onClickFn: AnchorProps['onClick']): AntAnchor => ({
+      registerLink: this.registerLink,
+      unregisterLink: this.unregisterLink,
+      scrollTo: this.handleScrollTo,
+      activeLink: link,
+      onClick: onClickFn,
+    }),
+  );
+
   render() {
     const { getPrefixCls, direction } = this.context;
     const {
@@ -310,13 +320,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       </div>
     );
 
-    const contextValue = memoizeOne((link, onClickFn) => ({
-      registerLink: this.registerLink,
-      unregisterLink: this.unregisterLink,
-      scrollTo: this.handleScrollTo,
-      activeLink: link,
-      onClick: onClickFn,
-    }))(activeLink, onClick);
+    const contextValue = this.getMemoizedContextValue(activeLink, onClick);
 
     return (
       <AnchorContext.Provider value={contextValue}>

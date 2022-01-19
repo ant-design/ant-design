@@ -444,7 +444,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
-    style="overflow:auto;height:100vh;position:fixed;left:0;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+    style="overflow:auto;height:100vh;position:fixed;left:0;top:0;bottom:0;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="ant-layout-sider-children"

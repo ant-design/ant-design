@@ -97,6 +97,76 @@ describe('prefix and suffix', () => {
     expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
     expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
   });
+
+  it('should support hidden when has prefix or suffix', () => {
+    const wrapper = mount(
+      <>
+        <Input prefix="prefix" hidden className="prefix-with-hidden" />
+        <Input suffix="suffix" hidden className="suffix-with-hidden" />
+      </>,
+    );
+
+    expect(wrapper.find('.prefix-with-hidden').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.suffix-with-hidden').at(0).getDOMNode().hidden).toBe(true);
+  });
+});
+
+describe('Input setting hidden', () => {
+  it('should support hidden when has prefix or suffix or showCount or allowClear or addonBefore or addonAfter', () => {
+    const wrapper = mount(
+      <>
+        <Input
+          hidden
+          className="input"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.Search
+          hidden
+          className="input-search"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.TextArea
+          hidden
+          className="input-textarea"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.Password
+          hidden
+          className="input-password"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+      </>,
+    );
+
+    expect(wrapper.find('.input').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-search').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-textarea').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-password').at(0).getDOMNode().hidden).toBe(true);
+  });
 });
 
 describe('As Form Control', () => {
