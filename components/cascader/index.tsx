@@ -215,7 +215,9 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     if (placement !== undefined) {
       return placement;
     }
-    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+    return direction === 'rtl'
+      ? ('bottomRight' as SelectCommonPlacement)
+      : ('bottomLeft' as SelectCommonPlacement);
   };
 
   // ==================== Render =====================

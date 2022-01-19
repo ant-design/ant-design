@@ -1,5 +1,6 @@
 import { PickerMode } from 'rc-picker/lib/interface';
 import { DirectionType } from '../config-provider';
+import { SelectCommonPlacement } from '../_util/motion';
 import { PickerLocale } from './generatePicker';
 
 export function getPlaceholder(
@@ -53,9 +54,10 @@ export function getRangePlaceholder(
   return locale.lang.rangePlaceholder;
 }
 
-type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
-
-export function transPlacement2DropdownAlign(direction: DirectionType, placement?: Placement) {
+export function transPlacement2DropdownAlign(
+  direction: DirectionType,
+  placement?: SelectCommonPlacement,
+) {
   const overflow = {
     adjustX: 1,
     adjustY: 1,

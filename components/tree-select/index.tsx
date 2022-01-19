@@ -126,7 +126,9 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     if (placement !== undefined) {
       return placement;
     }
-    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+    return direction === 'rtl'
+      ? ('bottomRight' as SelectCommonPlacement)
+      : ('bottomLeft' as SelectCommonPlacement);
   };
 
   const mergedSize = customizeSize || size;
