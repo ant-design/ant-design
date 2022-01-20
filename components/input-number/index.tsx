@@ -3,10 +3,12 @@ import classNames from 'classnames';
 import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-
+import { getInputValidationClassName } from '../input/utils';
+import { ValidateStatus } from '../form/FormItem';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
+import iconMap from '../_util/validationIcons';
 
 type ValueType = string | number;
 
@@ -18,6 +20,8 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   prefix?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
+  validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
@@ -37,6 +41,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     prefix,
     bordered = true,
     readOnly,
+    validateStatus,
+    hasFeedback,
     ...others
   } = props;
 
@@ -53,6 +59,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
     },
+    getInputValidationClassName(prefixCls, validateStatus),
     className,
   );
 
@@ -68,25 +75,38 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     />
   );
 
-  if (prefix != null) {
-    const affixWrapperCls = classNames(`${prefixCls}-affix-wrapper`, {
-      [`${prefixCls}-affix-wrapper-focused`]: focused,
-      [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
-      [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
-      [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
-      [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-      [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
-      [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-      // className will go to addon wrapper
-      [`${className}`]: !(addonBefore || addonAfter) && className,
-    });
+  if (prefix != null || hasFeedback) {
+    const affixWrapperCls = classNames(
+      `${prefixCls}-affix-wrapper`,
+      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus),
+      {
+        [`${prefixCls}-affix-wrapper-focused`]: focused,
+        [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
+        [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
+        [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
+        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+        [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
+        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+        // className will go to addon wrapper
+        [`${className}`]: !(addonBefore || addonAfter) && className,
+      },
+    );
+
+    const IconNode = validateStatus && iconMap[validateStatus];
+    const feedbackIcon =
+      hasFeedback && IconNode ? (
+        <span className={`${prefixCls}-feedback-icon`}>
+          <IconNode />
+        </span>
+      ) : null;
+
     element = (
       <div
         className={affixWrapperCls}
         style={props.style}
         onMouseUp={() => inputRef.current!.focus()}
       >
-        <span className={`${prefixCls}-prefix`}>{prefix}</span>
+        {prefix && <span className={`${prefixCls}-prefix`}>{prefix}</span>}
         {cloneElement(element, {
           style: null,
           value: props.value,
@@ -99,6 +119,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             props.onBlur?.(event);
           },
         })}
+        {feedbackIcon && <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>}
       </div>
     );
   }

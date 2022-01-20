@@ -24,6 +24,7 @@ When a numeric value needs to be provided.
 | defaultValue | The initial value | number | - | - |
 | disabled | If disable the input | boolean | false | - |
 | formatter | Specifies the format of the value presented | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |
+| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. | boolean | false |  |
 | keyboard | If enable keyboard behavior | boolean | true | 4.12.0 |
 | max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
@@ -38,6 +39,7 @@ When a numeric value needs to be provided.
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
+| validateStatus | The validation status. Options: `success` `warning` `error` `validating` | string | - |  |
 
 ## Methods
 

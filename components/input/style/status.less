@@ -21,10 +21,28 @@
     &-focused {
       .active(@text-color, @hoverBorderColor, @outlineColor);
     }
+  }
+}
 
-    .@{input-prefix-cls}-feedback-icon {
-      color: @text-color;
-    }
+.status-color-common(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  .@{prefix-cls}-feedback-icon {
+    color: @text-color;
+  }
+
+  .@{prefix-cls}-prefix {
+    color: @text-color;
+  }
+
+  .@{prefix-cls}-group-addon {
+    color: @text-color;
+    border-color: @border-color;
   }
 }
 
@@ -34,10 +52,12 @@ each(@input-wrapper-cls, {
   .@{value} {
     &-has-error {
       .status-color(@value, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+      .status-color-common(@input-prefix-cls, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
     }
 
     &-has-warning {
       .status-color(@value, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+      .status-color-common(@input-prefix-cls, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
     }
   }
 });

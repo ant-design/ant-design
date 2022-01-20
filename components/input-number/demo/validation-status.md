@@ -20,22 +20,29 @@ We provide properties like `validateStatus` `hasFeedback` to customize your own 
 2. `hasFeedback`: display feed icon of input control.
 
 ```tsx
-import { Input, Space } from 'antd';
+import { InputNumber, Space } from 'antd';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 
 const ValidateInputs: React.FC = () => {
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      <Input validateStatus="error" />
-      <Input validateStatus="warning" />
-      <Input validateStatus="error" hasFeedback />
-      <Input validateStatus="warning" hasFeedback />
-      <Input validateStatus="success" hasFeedback />
-      <Input validateStatus="validating" hasFeedback />
-      <Input validateStatus="error" hasFeedback showCount />
-      <Input validateStatus="error" hasFeedback prefix={<ClockCircleOutlined />} />
-      <Input.Password validateStatus="error" hasFeedback />
-      <Input.Search validateStatus="error" hasFeedback />
+      <InputNumber validateStatus="error" style={{ width: '100%' }} />
+      <InputNumber
+        validateStatus="warning"
+        style={{ width: '100%' }}
+        prefix={<ClockCircleOutlined />}
+      />
+      <InputNumber validateStatus="error" hasFeedback style={{ width: '100%' }} />
+      <InputNumber validateStatus="warning" hasFeedback style={{ width: '100%' }} />
+      <InputNumber validateStatus="success" hasFeedback style={{ width: '100%' }} />
+      <InputNumber validateStatus="validating" hasFeedback style={{ width: '100%' }} />
+      <InputNumber validateStatus="error" hasFeedback showCount style={{ width: '100%' }} />
+      <InputNumber
+        validateStatus="error"
+        hasFeedback
+        prefix={<ClockCircleOutlined />}
+        style={{ width: '100%' }}
+      />
     </Space>
   );
 };

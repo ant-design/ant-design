@@ -22,7 +22,7 @@ We provide properties like `validateStatus` `hasFeedback` to customize your own 
 ```tsx
 import { DatePicker, Space } from 'antd';
 
-const ValidateInputs: React.FC = () => {
+const Validation: React.FC = () => {
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
       <DatePicker validateStatus="error" style={{ width: '100%' }} />
@@ -35,5 +35,5 @@ const ValidateInputs: React.FC = () => {
   );
 };
 
-ReactDOM.render(<ValidateInputs />, mountNode);
+ReactDOM.render(<Validation />, mountNode);
 ```
