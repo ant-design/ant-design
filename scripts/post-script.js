@@ -5,7 +5,8 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const { spawnSync } = require('child_process');
 
-const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 15; // 15 days
+const SAFE_DAYS_START = 1000 * 60 * 60 * 24 * 15; // 15 days
+const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be stable
 
 (async function process() {
   console.log(chalk.cyan('🤖 Post Publish Scripting...\n'));
@@ -26,13 +27,32 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 15; // 15 days
     });
 
   // Slice for choosing the latest versions
-  const latestVersions = versionList.slice(0, 10).map(version => ({
+  const latestVersions = versionList.slice(0, 20).map(version => ({
     publishTime: time[version],
     timeDiff: moment().diff(moment(time[version])),
     value: version,
   }));
 
-  const defaultVersionObj = latestVersions.find(({ timeDiff }) => timeDiff >= SAFE_DAYS_DIFF);
+  const startDefaultVersionIndex = latestVersions.findIndex(
+    ({ timeDiff }) => timeDiff >= SAFE_DAYS_START,
+  );
+  const defaultVersionList = latestVersions.slice(0, startDefaultVersionIndex + 1).reverse();
+
+  // Find safe version
+  let defaultVersionObj;
+  for (let i = 0; i < defaultVersionList.length - 1; i += 1) {
+    defaultVersionObj = defaultVersionList[i];
+    const nextVersionObj = defaultVersionList[i + 1];
+
+    if (defaultVersionObj.timeDiff - nextVersionObj.timeDiff > SAFE_DAYS_DIFF) {
+      break;
+    }
+
+    defaultVersionObj = null;
+  }
+
+  // Not find to use the latest version instead
+  defaultVersionObj = defaultVersionObj || defaultVersionList[defaultVersionList.length - 1];
   const defaultVersion = defaultVersionObj ? defaultVersionObj.value : null;
 
   // Selection
