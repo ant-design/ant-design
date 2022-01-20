@@ -102,14 +102,14 @@
   &-placement-bottom > &-arrow,
   &-placement-bottomLeft > &-arrow,
   &-placement-bottomRight > &-arrow {
-    top: @popover-arrow-width * sqrt((1 / 2)) + 2px;
+    top: (@popover-arrow-width + 2px) * sqrt((1 / 2));
     box-shadow: 2px 2px 5px -2px fade(@black, 10%);
-    transform: rotate(-135deg);
+    transform: rotate(-135deg) translateY(-0.5px);
   }
 
   &-placement-bottom > &-arrow {
     left: 50%;
-    transform: translateX(-50%) rotate(-135deg);
+    transform: translateX(-50%) rotate(-135deg) translateY(-0.5px);
   }
 
   &-placement-bottomLeft > &-arrow {
