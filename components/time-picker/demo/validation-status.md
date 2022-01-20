@@ -10,7 +10,6 @@ title:
 我们提供了 `validateStatus` `hasFeedback` 等属性，你可以自己义校验的时机和内容。
 
 1. validateStatus: 校验状态，可选 `success`, `warning`, `error`, `validating`。
-
 2. hasFeedback：用于给输入框添加反馈图标。
 
 ## en-US
@@ -21,20 +20,18 @@ We provide properties like `validateStatus` `hasFeedback` to customize your own 
 2. `hasFeedback`: display feed icon of input control.
 
 ```tsx
-import { Input, Space } from 'antd';
-import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
+import { TimePicker, Space } from 'antd';
+import { RangePicker } from 'rc-picker';
 
 const ValidateInputs: React.FC = () => {
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      <Input validateStatus="error" />
-      <Input validateStatus="warning" />
-      <Input validateStatus="error" hasFeedback />
-      <Input validateStatus="warning" hasFeedback />
-      <Input validateStatus="success" hasFeedback />
-      <Input validateStatus="validating" hasFeedback />
-      <Input validateStatus="error" hasFeedback showCount />
-      <Input validateStatus="error" hasFeedback suffix={<ClockCircleOutlined />} />
+      <TimePicker validateStatus="error" style={{ width: '100%' }} />
+      <TimePicker validateStatus="warning" style={{ width: '100%' }} />
+      <TimePicker validateStatus="error" hasFeedback style={{ width: '100%' }} />
+      <TimePicker validateStatus="warning" hasFeedback style={{ width: '100%' }} />
+      <TimePicker validateStatus="success" hasFeedback style={{ width: '100%' }} />
+      <TimePicker validateStatus="validating" hasFeedback style={{ width: '100%' }} />
     </Space>
   );
 };

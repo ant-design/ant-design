@@ -24,6 +24,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | bordered | Whether has border style | boolean | true | 4.5.0 |
 | defaultValue | The initial input content | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
+| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. | boolean | false |  |
 | id | The ID for input | string | - |  |
 | maxLength | The max length | number | - |  |
 | showCount | Whether show text count | boolean \| { formatter: ({ count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 |
@@ -34,6 +35,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | value | The input content value | string | - |  |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
+| validateStatus | The validation status. Options: `success` `warning` `error` `validating` | string | - |  |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 

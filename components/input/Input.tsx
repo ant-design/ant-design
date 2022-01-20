@@ -411,15 +411,13 @@ class Input extends React.Component<InputProps, InputState> {
     const { suffix, showCount, hasFeedback } = this.props;
 
     return (
-      showCount ||
-      suffix ||
-      (hasFeedback && (
+      (showCount || suffix || hasFeedback) && (
         <>
           {showCount && this.renderShowCountSuffix(prefixCls)}
           {suffix}
           {hasFeedback && this.renderFeedback(prefixCls)}
         </>
-      ))
+      )
     );
   };
 

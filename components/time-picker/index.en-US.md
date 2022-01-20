@@ -38,6 +38,7 @@ import moment from 'moment';
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
 | hourStep | Interval between hours in picker | number | 1 |  |
+| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. | boolean | false |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | minuteStep | Interval between minutes in picker | number | 1 |  |
 | open | Whether to popup panel | boolean | false |  |
@@ -54,6 +55,7 @@ import moment from 'moment';
 | onChange | A callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
 | onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
+| validateStatus | The validation status. Options: `success` `warning` `error` `validating` | string | - |  |
 
 #### DisabledTime
 

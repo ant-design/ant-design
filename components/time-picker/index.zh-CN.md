@@ -36,6 +36,7 @@ import moment from 'moment';
 | disabledTime | 不可选择的时间 | [DisabledTime](#DisabledTime) | - | 4.19.0 |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
+| hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标 | boolean | false |  |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  |
 | hourStep | 小时选项间隔 | number | 1 |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
@@ -53,6 +54,7 @@ import moment from 'moment';
 | value | 当前时间 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
+| validateStatus | 校验状态，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 
 #### DisabledTime
 

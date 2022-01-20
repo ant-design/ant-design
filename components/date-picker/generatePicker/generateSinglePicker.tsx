@@ -21,9 +21,15 @@ import {
   Components,
 } from '.';
 import { PickerComponentClass } from './interface';
+import { ValidateStatus } from '../../form/FormItem';
+import { getInputValidationClassName } from '../../input/utils';
+import iconMap from '../../_util/validationIcons';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
-  type DatePickerProps = PickerProps<DateType>;
+  type DatePickerProps = PickerProps<DateType> & {
+    validateStatus?: ValidateStatus;
+    hasFeedback?: boolean;
+  };
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
@@ -59,6 +65,28 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         }
       };
 
+      renderFeedback = (prefixCls: string) => {
+        const { validateStatus, hasFeedback } = this.props;
+        const status = validateStatus as ValidateStatus; // Hack ts
+        const IconNode = status && iconMap[status];
+        return hasFeedback && IconNode ? (
+          <span className={`${prefixCls}-feedback-icon`}>
+            <IconNode />
+          </span>
+        ) : null;
+      };
+
+      renderSuffix = (prefixCls: string, mergedPicker?: PickerMode) => {
+        const { hasFeedback } = this.props;
+
+        return (
+          <>
+            {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+            {hasFeedback && this.renderFeedback(prefixCls)}
+          </>
+        );
+      };
+
       renderPicker = (contextLocale: PickerLocale) => {
         const locale = { ...contextLocale, ...this.props.locale };
         const { getPrefixCls, direction, getPopupContainer } = this.context;
@@ -70,6 +98,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           bordered = true,
           placement,
           placeholder,
+          validateStatus,
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;
@@ -103,10 +132,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                 <RCPicker<DateType>
                   ref={this.pickerRef}
                   placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
-                  suffixIcon={
-                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
-                  }
                   dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+                  suffixIcon={this.renderSuffix(prefixCls, mergedPicker)}
                   clearIcon={<CloseCircleFilled />}
                   prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                   nextIcon={<span className={`${prefixCls}-next-icon`} />}
@@ -123,6 +150,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                       [`${prefixCls}-${mergedSize}`]: mergedSize,
                       [`${prefixCls}-borderless`]: !bordered,
                     },
+                    getInputValidationClassName(prefixCls, validateStatus),
                     className,
                   )}
                   prefixCls={prefixCls}
