@@ -42,6 +42,7 @@ import moment from 'moment';
 | minuteStep | Interval between minutes in picker | number | 1 |  |
 | open | Whether to popup panel | boolean | false |  |
 | placeholder | Display when there's no value | string \| \[string, string] | `Select a time` |  |
+| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupClassName | The className of panel | string | - |  |
 | popupStyle | The style of panel | CSSProperties | - |  |
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |

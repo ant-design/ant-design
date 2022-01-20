@@ -9,7 +9,7 @@ import { OptionProps } from 'rc-select/lib/Option';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName } from '../_util/motion';
+import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 
 type RawValue = string | number;
 
@@ -38,8 +38,9 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
+  placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
 }
 
@@ -53,6 +54,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     getPopupContainer,
     dropdownClassName,
     listHeight = 256,
+    placement,
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
@@ -123,17 +125,32 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     className,
   );
 
+  // ===================== Placement =====================
+  const getPlacement = () => {
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl'
+      ? ('bottomRight' as SelectCommonPlacement)
+      : ('bottomLeft' as SelectCommonPlacement);
+  };
+
   return (
     <RcSelect<any, any>
       ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
+      transitionName={getTransitionName(
+        rootPrefixCls,
+        getTransitionDirection(placement),
+        props.transitionName,
+      )}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode as any}
       prefixCls={prefixCls}
+      placement={getPlacement()}
       direction={direction}
       inputIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
