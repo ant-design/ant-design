@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import { ValidateStatus } from '../form/FormItem';
 import type Group from './Group';
 import type Search from './Search';
 import type TextArea from './TextArea';
@@ -11,6 +12,7 @@ import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-pr
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
+import iconMap from '../_util/validationIcons';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -59,6 +61,8 @@ export interface InputProps
   showCount?: boolean | ShowCountProps;
   bordered?: boolean;
   htmlSize?: number;
+  validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
 }
 
 export function fixControlledValue<T>(value: T) {
@@ -289,6 +293,7 @@ class Input extends React.Component<InputProps, InputState> {
       size: customizeSize,
       disabled,
       htmlSize,
+      validateStatus,
     } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props as InputProps & { inputType: any }, [
@@ -307,6 +312,8 @@ class Input extends React.Component<InputProps, InputState> {
       'bordered',
       'htmlSize',
       'showCount',
+      'validateStatus',
+      'hasFeedback',
     ]);
     return (
       <input
@@ -317,7 +324,14 @@ class Input extends React.Component<InputProps, InputState> {
         onBlur={this.onBlur}
         onKeyDown={this.handleKeyDown}
         className={classNames(
-          getInputClassName(prefixCls, bordered, customizeSize || size, disabled, this.direction),
+          getInputClassName(
+            prefixCls,
+            bordered,
+            customizeSize || size,
+            disabled,
+            this.direction,
+            validateStatus,
+          ),
           {
             [className!]: className && !addonBefore && !addonAfter,
           },
@@ -369,21 +383,44 @@ class Input extends React.Component<InputProps, InputState> {
         dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
       }
       return (
-        <>
-          {!!showCount && (
-            <span
-              className={classNames(`${prefixCls}-show-count-suffix`, {
-                [`${prefixCls}-show-count-has-suffix`]: !!suffix,
-              })}
-            >
-              {dataCount}
-            </span>
-          )}
-          {suffix}
-        </>
+        !!showCount && (
+          <span
+            className={classNames(`${prefixCls}-show-count-suffix`, {
+              [`${prefixCls}-show-count-has-suffix`]: !!suffix,
+            })}
+          >
+            {dataCount}
+          </span>
+        )
       );
     }
     return null;
+  };
+
+  renderFeedback = (prefixCls: string) => {
+    const { validateStatus, hasFeedback } = this.props;
+    const IconNode = validateStatus && iconMap[validateStatus];
+    return hasFeedback && IconNode ? (
+      <span className={`${prefixCls}-feedback-icon`}>
+        <IconNode />
+      </span>
+    ) : null;
+  };
+
+  renderSuffix = (prefixCls: string) => {
+    const { suffix, showCount, hasFeedback } = this.props;
+
+    return (
+      showCount ||
+      suffix ||
+      (hasFeedback && (
+        <>
+          {showCount && this.renderShowCountSuffix(prefixCls)}
+          {suffix}
+          {hasFeedback && this.renderFeedback(prefixCls)}
+        </>
+      ))
+    );
   };
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
@@ -391,8 +428,6 @@ class Input extends React.Component<InputProps, InputState> {
     const { prefixCls: customizePrefixCls, bordered = true } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
-
-    const showCountSuffix = this.renderShowCountSuffix(prefixCls);
 
     return (
       <SizeContext.Consumer>
@@ -410,7 +445,7 @@ class Input extends React.Component<InputProps, InputState> {
             focused={focused}
             triggerFocus={this.focus}
             bordered={bordered}
-            suffix={showCountSuffix}
+            suffix={this.renderSuffix(prefixCls)}
           />
         )}
       </SizeContext.Consumer>

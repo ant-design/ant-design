@@ -1,0 +1,59 @@
+@import './mixin';
+
+@input-prefix-cls: ~'@{ant-prefix}-input';
+
+.status-color(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  &:not(.@{prefix-cls}-disabled):not(.@{prefix-cls}-borderless).@{prefix-cls} {
+    &,
+    &:hover {
+      background: @background-color;
+      border-color: @border-color;
+    }
+
+    &:focus,
+    &-focused {
+      .active(@text-color, @hoverBorderColor, @outlineColor);
+    }
+
+    .@{input-prefix-cls}-feedback-icon {
+      color: @text-color;
+    }
+  }
+}
+
+@input-wrapper-cls: @input-prefix-cls, ~'@{input-prefix-cls}-affix-wrapper';
+
+each(@input-wrapper-cls, {
+  .@{value} {
+    &-has-error {
+      .status-color(@value, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+    }
+
+    &-has-warning {
+      .status-color(@value, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+    }
+  }
+});
+
+.@{input-prefix-cls}-affix-wrapper {
+  &-is-validating {
+    .@{input-prefix-cls}-feedback-icon {
+      display: inline-block;
+      color: @primary-color;
+    }
+  }
+
+  &-has-success {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @success-color;
+      animation-name: diffZoomIn1 !important;
+    }
+  }
+}

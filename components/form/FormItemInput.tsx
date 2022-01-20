@@ -1,10 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-
+import iconMap from '../_util/validationIcons';
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext, FormItemPrefixContext } from './context';
@@ -37,13 +33,6 @@ export interface FormItemInputProps {
   status?: ValidateStatus;
   help?: React.ReactNode;
 }
-
-const iconMap: { [key: string]: any } = {
-  success: CheckCircleFilled,
-  warning: ExclamationCircleFilled,
-  error: CloseCircleFilled,
-  validating: LoadingOutlined,
-};
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {
   const {

@@ -1,12 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import { ValidateStatus } from '../form/FormItem';
 import { tuple } from '../_util/type';
 import type { InputProps } from './Input';
 import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
-import { getInputClassName, hasPrefixSuffix } from './utils';
+import { getInputClassName, getInputValidationClassName, hasPrefixSuffix } from './utils';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -40,6 +41,7 @@ export interface ClearableInputProps extends BasicProps {
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
+  validateStatus?: ValidateStatus;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -106,6 +108,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       readOnly,
       bordered,
       hidden,
+      validateStatus,
     } = this.props;
     if (!hasPrefixSuffix(this.props)) {
       return cloneElement(element, {
@@ -116,18 +119,22 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     const suffixNode = this.renderSuffix(prefixCls);
     const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
-    const affixWrapperCls = classNames(`${prefixCls}-affix-wrapper`, {
-      [`${prefixCls}-affix-wrapper-focused`]: focused,
-      [`${prefixCls}-affix-wrapper-disabled`]: disabled,
-      [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
-      [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
-      [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
-      [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-      [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
-      [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-      // className will go to addon wrapper
-      [`${className}`]: !hasAddon(this.props) && className,
-    });
+    const affixWrapperCls = classNames(
+      `${prefixCls}-affix-wrapper`,
+      {
+        [`${prefixCls}-affix-wrapper-focused`]: focused,
+        [`${prefixCls}-affix-wrapper-disabled`]: disabled,
+        [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
+        [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
+        [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
+        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+        [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
+        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+        // className will go to addon wrapper
+        [`${className}`]: !hasAddon(this.props) && className,
+      },
+      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus),
+    );
     return (
       <span
         ref={this.containerRef}
@@ -189,7 +196,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement) {
-    const { value, allowClear, className, style, direction, bordered, hidden } = this.props;
+    const { value, allowClear, className, style, direction, bordered, hidden, validateStatus } =
+      this.props;
     if (!allowClear) {
       return cloneElement(element, {
         value,
@@ -198,6 +206,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
+      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus),
       {
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
