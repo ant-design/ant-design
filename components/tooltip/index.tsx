@@ -87,7 +87,6 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
   if (
     (elementType.__ANT_BUTTON === true ||
       elementType.__ANT_SWITCH === true ||
-      elementType.__ANT_CHECKBOX === true ||
       element.type === 'button') &&
     element.props.disabled
   ) {
@@ -130,9 +129,11 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
 }
 
 const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const [visible, setVisible] = useMergedState(false, {
     value: props.visible,
