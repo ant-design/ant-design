@@ -4,7 +4,6 @@ import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import Tooltip from '..';
 import Button from '../../button';
 import Switch from '../../switch';
-import Checkbox from '../../checkbox';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
@@ -131,7 +130,6 @@ describe('Tooltip', () => {
 
     testComponent('Button', Button);
     testComponent('Switch', Switch);
-    testComponent('Checkbox', Checkbox);
   });
 
   it('should render disabled Button style properly', () => {
