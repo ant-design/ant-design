@@ -78,6 +78,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     if (restProps.value !== prevValue.current) {
       checkboxGroup?.cancelValue(prevValue.current);
       checkboxGroup?.registerValue(restProps.value);
+      prevValue.current = restProps.value;
     }
     return () => checkboxGroup?.cancelValue(restProps.value);
   }, [restProps.value]);
