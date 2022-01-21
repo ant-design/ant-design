@@ -136,7 +136,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>(
           mql?.removeListener(responsiveHandler);
         }
       };
-    }, []);
+    }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
 
     useEffect(() => {
       const uniqueId = generateId('ant-sider-');

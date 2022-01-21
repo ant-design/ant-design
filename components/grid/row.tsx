@@ -116,11 +116,13 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginBottom = verticalGutter;
   }
 
-  const rowContext = React.useMemo(() => ({ gutter: gutters, wrap, supportFlexGap }), [
-    gutters,
-    wrap,
-    supportFlexGap,
-  ]);
+  // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
+  // So we deconstruct "gutters" variable here.
+  const [gutterH, gutterV] = gutters;
+  const rowContext = React.useMemo(
+    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
+    [gutterH, gutterV, wrap, supportFlexGap],
+  );
 
   return (
     <RowContext.Provider value={rowContext}>
