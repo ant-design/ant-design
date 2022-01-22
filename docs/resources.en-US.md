@@ -73,7 +73,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - Ant for Plasmic
   - https://user-images.githubusercontent.com/7129/149994038-76214796-cd6a-4e80-b0a4-117e8edac050.png
   - Drag/drop live Ant components and manipulate props in this React visual builder
-  - https://www.plasmic.app
+  - https://www.plasmic.app/ant-design
 
 ## Articles
 
