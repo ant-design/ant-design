@@ -21,6 +21,7 @@ import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
+import useIsomorphicLayoutEffect from '../hooks/useIsomorphicLayoutEffect';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -243,7 +244,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
   );
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (enableEllipsis && !needMeasureEllipsis) {
       setIsLineClampSupport(isStyleSupport('webkitLineClamp'));
       setIsTextOverflowSupport(isStyleSupport('textOverflow'));
