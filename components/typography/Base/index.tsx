@@ -10,6 +10,7 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
 import TransButton from '../../_util/transButton';
@@ -21,7 +22,6 @@ import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
-import useIsomorphicLayoutEffect from '../hooks/useIsomorphicLayoutEffect';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
