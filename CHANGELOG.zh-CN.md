@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 4.18.5
+
+`2022-01-24`
+
+- Cascader
+  - 🐞 修复 Cascader 弹层超出屏幕时不会自动偏移以及激活选项不会自动滚动到正确位置的问题。[#33777](https://github.com/ant-design/ant-design/pull/33777)
+  - 💄 修复 Cascader 加载中图标。[#33799](https://github.com/ant-design/ant-design/pull/33799)
+- 💄 修复 Tag 在暗黑主题下的样式。[#33751](https://github.com/ant-design/ant-design/pull/33751)
+- 💄 修复 Tooltip 的子元素含有禁用态的 CheckBox 时可能引起的行为和样式异常。[#33772](https://github.com/ant-design/ant-design/pull/33772) [@boomler](https://github.com/boomler)
+- ⚡️ 优化 Row 和 Layout.Sider 的 hooks 依赖数组。[#33804](https://github.com/ant-design/ant-design/pull/33804) [@mrwd2009](https://github.com/mrwd2009)
+- 🐞 修复 Card `ref` 不生效的问题。[#33784](https://github.com/ant-design/ant-design/pull/33784) [@LongHaoo](https://github.com/LongHaoo)
+- 🐞 修复动态修改 Checkbox 的 `value` 时 `onChange` 不能正确传入修改后的值的问题。[#33753](https://github.com/ant-design/ant-design/pull/33753)
+
 ## 4.18.4
 
 `2022-01-18`
