@@ -99,6 +99,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           placement,
           placeholder,
           validateStatus,
+          hasFeedback,
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;
@@ -150,7 +151,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                       [`${prefixCls}-${mergedSize}`]: mergedSize,
                       [`${prefixCls}-borderless`]: !bordered,
                     },
-                    getInputValidationClassName(prefixCls, validateStatus),
+                    getInputValidationClassName(prefixCls, validateStatus, hasFeedback),
                     className,
                   )}
                   prefixCls={prefixCls}

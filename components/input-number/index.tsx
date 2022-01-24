@@ -59,7 +59,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, validateStatus),
+    getInputValidationClassName(prefixCls, validateStatus, hasFeedback),
     className,
   );
 
@@ -78,7 +78,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   if (prefix != null || hasFeedback) {
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
-      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus),
+      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus, hasFeedback),
       {
         [`${prefixCls}-affix-wrapper-focused`]: focused,
         [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,

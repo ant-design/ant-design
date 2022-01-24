@@ -5,12 +5,17 @@ import type { SizeType } from '../config-provider/SizeContext';
 import type { ClearableInputProps } from './ClearableLabeledInput';
 import type { InputProps } from './Input';
 
-export function getInputValidationClassName(prefixCls: string, validateStatus?: ValidateStatus) {
+export function getInputValidationClassName(
+  prefixCls: string,
+  validateStatus?: ValidateStatus,
+  hasFeedback?: boolean,
+) {
   return classNames({
     [`${prefixCls}-has-success`]: validateStatus === 'success',
     [`${prefixCls}-has-warning`]: validateStatus === 'warning',
     [`${prefixCls}-has-error`]: validateStatus === 'error',
     [`${prefixCls}-is-validating`]: validateStatus === 'validating',
+    [`${prefixCls}-has-feedback`]: hasFeedback,
   });
 }
 
@@ -21,6 +26,7 @@ export function getInputClassName(
   disabled?: boolean,
   direction?: DirectionType,
   validateStatus?: ValidateStatus,
+  hasFeedback?: boolean,
 ) {
   return classNames(
     prefixCls,
@@ -31,7 +37,7 @@ export function getInputClassName(
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, validateStatus),
+    getInputValidationClassName(prefixCls, validateStatus, hasFeedback),
   );
 }
 

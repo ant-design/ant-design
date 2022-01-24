@@ -294,6 +294,7 @@ class Input extends React.Component<InputProps, InputState> {
       disabled,
       htmlSize,
       validateStatus,
+      hasFeedback,
     } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props as InputProps & { inputType: any }, [
@@ -331,6 +332,7 @@ class Input extends React.Component<InputProps, InputState> {
             disabled,
             this.direction,
             validateStatus,
+            hasFeedback,
           ),
           {
             [className!]: className && !addonBefore && !addonAfter,

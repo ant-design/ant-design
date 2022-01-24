@@ -10,6 +10,9 @@ import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
+import { getInputValidationClassName } from '../input/utils';
+import { ValidateStatus } from '../form/FormItem';
+import iconMap from '../_util/validationIcons';
 
 type RawValue = string | number;
 
@@ -26,7 +29,7 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] 
 export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
+> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode' | 'suffix'> {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -42,6 +45,8 @@ export interface SelectProps<
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
+  validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -58,6 +63,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
+    validateStatus,
+    hasFeedback,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -122,6 +129,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
+    getInputValidationClassName(prefixCls, validateStatus, hasFeedback),
     className,
   );
 
@@ -133,6 +141,15 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     return direction === 'rtl'
       ? ('bottomRight' as SelectCommonPlacement)
       : ('bottomLeft' as SelectCommonPlacement);
+  };
+
+  const getSuffix = () => {
+    const IconNode = validateStatus && iconMap[validateStatus];
+    return hasFeedback && IconNode ? (
+      <span className={`${prefixCls}-feedback-icon`}>
+        <IconNode />
+      </span>
+    ) : null;
   };
 
   return (
@@ -160,6 +177,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropDownClassName}
+      suffix={getSuffix()}
     />
   );
 };

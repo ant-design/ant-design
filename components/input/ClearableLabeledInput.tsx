@@ -42,6 +42,7 @@ export interface ClearableInputProps extends BasicProps {
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
   validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -109,6 +110,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       bordered,
       hidden,
       validateStatus,
+      hasFeedback,
     } = this.props;
     if (!hasPrefixSuffix(this.props)) {
       return cloneElement(element, {
@@ -133,7 +135,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         // className will go to addon wrapper
         [`${className}`]: !hasAddon(this.props) && className,
       },
-      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus),
+      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus, hasFeedback),
     );
     return (
       <span
@@ -196,8 +198,17 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement) {
-    const { value, allowClear, className, style, direction, bordered, hidden, validateStatus } =
-      this.props;
+    const {
+      value,
+      allowClear,
+      className,
+      style,
+      direction,
+      bordered,
+      hidden,
+      validateStatus,
+      hasFeedback,
+    } = this.props;
     if (!allowClear) {
       return cloneElement(element, {
         value,
@@ -206,7 +217,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
-      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus),
+      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus, hasFeedback),
       {
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
