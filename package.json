@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.18.4",
+  "version": "4.18.5",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -272,7 +272,7 @@
     "rimraf": "^3.0.0",
     "scrollama": "^3.0.0",
     "semver": "^7.3.5",
-    "simple-git": "^2.23.0",
+    "simple-git": "^3.0.0",
     "string-replace-loader": "^3.0.3",
     "stylelint": "^14.0.0",
     "stylelint-config-prettier": "^9.0.2",
