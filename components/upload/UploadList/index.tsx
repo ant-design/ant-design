@@ -232,7 +232,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
               className: classNames(oriProps.className, motionClassName),
               style: {
                 ...motionStyle,
-                // prevent the element has hover css pseudo-class that way cause animation to end prematurely.
+                // prevent the element has hover css pseudo-class that may cause animation to end prematurely.
                 pointerEvents: motionClassName ? 'none' : undefined,
                 ...oriProps.style,
               },
