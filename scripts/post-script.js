@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
 const moment = require('moment');
