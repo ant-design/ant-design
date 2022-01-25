@@ -322,7 +322,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     delete rcUploadProps.id;
   }
 
-  const renderUploadList = (button?: React.ReactNode) =>
+  const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
     showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
         {(locale: UploadLocale) => {
@@ -354,6 +354,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
               isImageUrl={isImageUrl}
               progress={progress}
               appendAction={button}
+              appendActionVisible={buttonVisible}
               itemRender={itemRender}
             />
           );
@@ -400,8 +401,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  const uploadButton = (
-    <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
+  const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
+    <div className={uploadButtonCls} style={uploadButtonStyle}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );
@@ -409,14 +410,14 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   if (listType === 'picture-card') {
     return (
       <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
-        {renderUploadList(uploadButton)}
+        {renderUploadList(renderUploadButton(), !!children)}
       </span>
     );
   }
 
   return (
     <span className={className}>
-      {uploadButton}
+      {renderUploadButton(children ? undefined : { display: 'none' })}
       {renderUploadList()}
     </span>
   );

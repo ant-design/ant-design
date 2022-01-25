@@ -42,6 +42,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     downloadIcon,
     progress,
     appendAction,
+    appendActionVisible,
     itemRender,
   },
   ref,
@@ -225,12 +226,14 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 
       {/* Append action */}
       {appendAction && (
-        <CSSMotion {...motionConfig}>
+        <CSSMotion {...motionConfig} visible={appendActionVisible} forceRender>
           {({ className: motionClassName, style: motionStyle }) =>
             cloneElement(appendAction, oriProps => ({
               className: classNames(oriProps.className, motionClassName),
               style: {
                 ...motionStyle,
+                // prevent the element has hover css pseudo-class that may cause animation to end prematurely.
+                pointerEvents: motionClassName ? 'none' : undefined,
                 ...oriProps.style,
               },
             }))
@@ -254,6 +257,7 @@ UploadList.defaultProps = {
   showRemoveIcon: true,
   showDownloadIcon: false,
   showPreviewIcon: true,
+  appendActionVisible: true,
   previewFile: previewImage,
   isImageUrl,
 };
