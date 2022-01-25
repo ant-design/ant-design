@@ -13,12 +13,18 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
   ({ prefixCls: customizePrefixCls, title, content, ...otherProps }, ref) => {
     const { getPrefixCls } = React.useContext(ConfigContext);
 
-    const getOverlay = (prefixCls: string) => (
-      <>
-        {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
-        <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
-      </>
-    );
+    const getOverlay = (prefixCls: string) => {
+      const isTitleEmpty = !title || title.toString() === '';
+      const isContentEmpty = !content || content.toString() === '';
+      if (isTitleEmpty && isContentEmpty) return undefined;
+
+      return (
+        <>
+          {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
+          <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
+        </>
+      );
+    };
 
     const prefixCls = getPrefixCls('popover', customizePrefixCls);
     const rootPrefixCls = getPrefixCls();
