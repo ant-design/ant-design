@@ -2,9 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import iconMap from '../_util/validationIcons';
 import Col, { ColProps } from '../grid/col';
-import { ValidateStatus } from './FormItem';
 import { FormContext, FormItemPrefixContext } from './context';
 import ErrorList from './ErrorList';
+import { ValidateStatus } from '../_util/validateProps';
 
 interface FormItemInputMiscProps {
   prefixCls: string;

@@ -1,23 +1,23 @@
 import * as React from 'react';
 import { useContext } from 'react';
 import classNames from 'classnames';
-import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
+import { Field, FieldContext, FormInstance, ListContext } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
 import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
-import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, NoStyleItemContext } from './context';
-import { toArray, getFieldId } from './util';
+import { getFieldId, toArray } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
 import useDebounce from './hooks/useDebounce';
 import useItemRef from './hooks/useItemRef';
+import { ValidateStatus } from '../_util/validateProps';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -25,9 +25,6 @@ interface FieldError {
   errors: string[];
   warnings: string[];
 }
-
-const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
-export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;

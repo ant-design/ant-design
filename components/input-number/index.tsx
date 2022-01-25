@@ -4,24 +4,23 @@ import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { getInputValidationClassName } from '../input/utils';
-import { ValidateStatus } from '../form/FormItem';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import iconMap from '../_util/validationIcons';
+import { ValidateProps } from '../_util/validateProps';
 
 type ValueType = string | number;
 
 export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size'> {
+  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size'>,
+    ValidateProps {
   prefixCls?: string;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
-  validateStatus?: ValidateStatus;
-  hasFeedback?: boolean;
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {

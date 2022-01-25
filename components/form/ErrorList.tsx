@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import { FormItemPrefixContext } from './context';
 import { ConfigContext } from '../config-provider';
-import { ValidateStatus } from './FormItem';
 import collapseMotion from '../_util/motion';
+import { ValidateStatus } from '../_util/validateProps';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
