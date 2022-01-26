@@ -3,16 +3,16 @@
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
-import RcSelect, { BaseSelectRef, OptGroup, Option, SelectProps as RcSelectProps } from 'rc-select';
+import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps, BaseSelectRef } from 'rc-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import { OptionProps } from 'rc-select/lib/Option';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionDirection, getTransitionName, SelectCommonPlacement } from '../_util/motion';
+import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 import { getInputValidationClassName } from '../input/utils';
+import { ValidateStatus } from '../form/FormItem';
 import iconMap from '../_util/validationIcons';
-import { ValidateProps } from '../_util/validateProps';
 
 type RawValue = string | number;
 
@@ -40,12 +40,13 @@ export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-      InternalSelectProps<ValueType, OptionType>,
-      'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
-    >,
-    ValidateProps {
+    InternalSelectProps<ValueType, OptionType>,
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+  > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
+  validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';

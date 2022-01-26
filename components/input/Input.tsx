@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import { ValidateStatus } from '../form/FormItem';
 import type Group from './Group';
 import type Search from './Search';
 import type TextArea from './TextArea';
@@ -12,7 +13,6 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
 import iconMap from '../_util/validationIcons';
-import { ValidateProps } from '../_util/validateProps';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -23,8 +23,7 @@ export interface ShowCountProps {
 }
 
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'>,
-    ValidateProps {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
   prefixCls?: string;
   size?: SizeType;
   // ref: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types
@@ -62,6 +61,8 @@ export interface InputProps
   showCount?: boolean | ShowCountProps;
   bordered?: boolean;
   htmlSize?: number;
+  validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
 }
 
 export function fixControlledValue<T>(value: T) {

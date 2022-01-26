@@ -1,9 +1,9 @@
 import classNames from 'classnames';
+import { ValidateStatus } from '../form/FormItem';
 import type { DirectionType } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { ClearableInputProps } from './ClearableLabeledInput';
 import type { InputProps } from './Input';
-import { ValidateStatus } from '../_util/validateProps';
 
 export function getInputValidationClassName(
   prefixCls: string,

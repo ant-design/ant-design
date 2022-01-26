@@ -1,13 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import { ValidateStatus } from '../form/FormItem';
 import { tuple } from '../_util/type';
 import type { InputProps } from './Input';
 import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import { getInputClassName, getInputValidationClassName, hasPrefixSuffix } from './utils';
-import { ValidateProps } from '../_util/validateProps';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -34,13 +34,15 @@ interface BasicProps {
 }
 
 /** This props only for input. */
-export interface ClearableInputProps extends BasicProps, ValidateProps {
+export interface ClearableInputProps extends BasicProps {
   size?: SizeType;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
+  validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {

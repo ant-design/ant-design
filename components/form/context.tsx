@@ -6,7 +6,7 @@ import { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/Form
 import { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { RequiredMark } from './Form';
-import { ValidateStatus } from '../_util/validateProps';
+import { ValidateStatus } from './FormItem';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {

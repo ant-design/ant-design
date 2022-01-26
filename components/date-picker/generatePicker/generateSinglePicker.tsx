@@ -21,12 +21,15 @@ import {
   Components,
 } from '.';
 import { PickerComponentClass } from './interface';
+import { ValidateStatus } from '../../form/FormItem';
 import { getInputValidationClassName } from '../../input/utils';
 import iconMap from '../../_util/validationIcons';
-import { ValidateProps, ValidateStatus } from '../../_util/validateProps';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
-  type DatePickerProps = PickerProps<DateType> & ValidateProps;
+  type DatePickerProps = PickerProps<DateType> & {
+    validateStatus?: ValidateStatus;
+    hasFeedback?: boolean;
+  };
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
