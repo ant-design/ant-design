@@ -20,6 +20,8 @@ import {
   RadiusUprightOutlined,
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
+  BorderTopOutlined,
+  BorderBottomOutlined,
 } from '@ant-design/icons';
 
 const openNotification = placement => {
@@ -33,6 +35,17 @@ const openNotification = placement => {
 
 ReactDOM.render(
   <div>
+    <Space>
+      <Button type="primary" onClick={() => openNotification('top')}>
+        <BorderTopOutlined />
+        top
+      </Button>
+      <Button type="primary" onClick={() => openNotification('bottom')}>
+        <BorderBottomOutlined />
+        bottom
+      </Button>
+    </Space>
+    <Divider />
     <Space>
       <Button type="primary" onClick={() => openNotification('topLeft')}>
         <RadiusUpleftOutlined />
