@@ -18,6 +18,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import getIcons from '../select/utils/iconUtil';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
+import { ValidateProps } from '../_util/validateProps';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -81,7 +82,8 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
 };
 
 export interface CascaderProps<DataNodeType>
-  extends Omit<RcCascaderProps, 'checkable' | 'options'> {
+  extends Omit<RcCascaderProps, 'checkable' | 'options'>,
+    ValidateProps {
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;
