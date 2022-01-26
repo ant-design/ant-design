@@ -14,10 +14,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
     const { getPrefixCls } = React.useContext(ConfigContext);
 
     const getOverlay = (prefixCls: string) => {
-      const isTitleEmpty = !title || title.toString() === '';
-      const isContentEmpty = !content || content.toString() === '';
-      if (isTitleEmpty && isContentEmpty) return undefined;
-
+      if (!title && !content) return undefined;
       return (
         <>
           {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
