@@ -3,16 +3,15 @@
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
-import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps, BaseSelectRef } from 'rc-select';
+import RcSelect, { BaseSelectRef, OptGroup, Option, SelectProps as RcSelectProps } from 'rc-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import { OptionProps } from 'rc-select/lib/Option';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
+import { getTransitionDirection, getTransitionName, SelectCommonPlacement } from '../_util/motion';
 import { getInputValidationClassName } from '../input/utils';
 import { ValidateStatus } from '../form/FormItem';
-import iconMap from '../_util/validationIcons';
 
 type RawValue = string | number;
 
@@ -29,7 +28,7 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] 
 export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode' | 'suffix'> {
+> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -112,6 +111,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
+    validateStatus: hasFeedback ? validateStatus : undefined,
     prefixCls,
   });
 
@@ -143,15 +143,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       : ('bottomLeft' as SelectCommonPlacement);
   };
 
-  const getSuffix = () => {
-    const IconNode = validateStatus && iconMap[validateStatus];
-    return hasFeedback && IconNode ? (
-      <span className={`${prefixCls}-feedback-icon`}>
-        <IconNode />
-      </span>
-    ) : null;
-  };
-
   return (
     <RcSelect<any, any>
       ref={ref as any}
@@ -177,7 +168,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropDownClassName}
-      suffix={getSuffix()}
     />
   );
 };

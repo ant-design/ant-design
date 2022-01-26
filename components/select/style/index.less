@@ -121,6 +121,8 @@
     position: absolute;
     top: 50%;
     right: @control-padding-horizontal - 1px;
+    display: flex;
+    align-items: center;
     width: @font-size-sm;
     height: @font-size-sm;
     margin-top: (-@font-size-sm / 2);
@@ -181,19 +183,6 @@
     .@{select-prefix-cls}:hover & {
       opacity: 1;
     }
-  }
-
-  // ========================== Suffix ==========================
-
-  &-suffix {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex: none;
-    align-items: center;
-    margin: auto;
   }
 
   // ========================== Popup ==========================
