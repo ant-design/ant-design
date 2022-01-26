@@ -14,7 +14,7 @@ title:
 We preset a series of colorful Tooltip styles for use in different situations.
 
 ```jsx
-import { Tooltip, Button, Divider } from 'antd';
+import { Tooltip, Button, Divider, Switch } from 'antd';
 
 const colors = [
   'pink',
@@ -35,6 +35,9 @@ const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
 
 ReactDOM.render(
   <>
+    <Tooltip title="loading tips">
+      <Switch loading defaultChecked />
+    </Tooltip>
     <Divider orientation="left">Presets</Divider>
     <div>
       {colors.map(color => (
