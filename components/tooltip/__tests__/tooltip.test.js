@@ -346,4 +346,22 @@ describe('Tooltip', () => {
     );
     expect(wrapper.find('.ant-tooltip-inner').getDOMNode().style.color).toBe('red');
   });
+
+  it('should work with loading switch', () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Tooltip
+        title="loading tips"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <Switch loading defaultChecked />
+      </Tooltip>,
+    );
+    const wrapperEl = wrapper.find('.ant-tooltip-disabled-compatible-wrapper');
+    expect(wrapperEl).toHaveLength(1);
+    wrapper.find('span').first().simulate('mouseenter');
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
+  });
 });
