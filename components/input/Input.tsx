@@ -13,6 +13,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
 import iconMap from '../_util/validationIcons';
+import { FormItemValidationStatusContext } from '../form/context';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -62,7 +63,6 @@ export interface InputProps
   bordered?: boolean;
   htmlSize?: number;
   validateStatus?: ValidateStatus;
-  hasFeedback?: boolean;
 }
 
 export function fixControlledValue<T>(value: T) {
@@ -293,8 +293,7 @@ class Input extends React.Component<InputProps, InputState> {
       size: customizeSize,
       disabled,
       htmlSize,
-      validateStatus,
-      hasFeedback,
+      validateStatus: customValidateStatus,
     } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props as InputProps & { inputType: any }, [
@@ -314,33 +313,35 @@ class Input extends React.Component<InputProps, InputState> {
       'htmlSize',
       'showCount',
       'validateStatus',
-      'hasFeedback',
     ]);
     return (
-      <input
-        autoComplete={input.autoComplete}
-        {...otherProps}
-        onChange={this.handleChange}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-        onKeyDown={this.handleKeyDown}
-        className={classNames(
-          getInputClassName(
-            prefixCls,
-            bordered,
-            customizeSize || size,
-            disabled,
-            this.direction,
-            validateStatus,
-            hasFeedback,
-          ),
-          {
-            [className!]: className && !addonBefore && !addonAfter,
-          },
+      <FormItemValidationStatusContext.Consumer>
+        {({ validateStatus: contextStatus }) => (
+          <input
+            autoComplete={input.autoComplete}
+            {...otherProps}
+            onChange={this.handleChange}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            onKeyDown={this.handleKeyDown}
+            className={classNames(
+              getInputClassName(
+                prefixCls,
+                bordered,
+                customizeSize || size,
+                disabled,
+                this.direction,
+                contextStatus || customValidateStatus,
+              ),
+              {
+                [className!]: className && !addonBefore && !addonAfter,
+              },
+            )}
+            ref={this.saveInput}
+            size={htmlSize}
+          />
         )}
-        ref={this.saveInput}
-        size={htmlSize}
-      />
+      </FormItemValidationStatusContext.Consumer>
     );
   };
 
@@ -400,26 +401,38 @@ class Input extends React.Component<InputProps, InputState> {
   };
 
   renderFeedback = (prefixCls: string) => {
-    const { validateStatus, hasFeedback } = this.props;
-    const IconNode = validateStatus && iconMap[validateStatus];
-    return hasFeedback && IconNode ? (
-      <span className={`${prefixCls}-feedback-icon`}>
-        <IconNode />
-      </span>
-    ) : null;
+    const { validateStatus: customStatus } = this.props;
+
+    return (
+      <FormItemValidationStatusContext.Consumer>
+        {({ hasFeedback, validateStatus: contextStatus }) => {
+          const mergedStatus = contextStatus || customStatus;
+          const IconNode = mergedStatus && iconMap[mergedStatus];
+          return hasFeedback && IconNode ? (
+            <span className={`${prefixCls}-feedback-icon`}>
+              <IconNode />
+            </span>
+          ) : null;
+        }}
+      </FormItemValidationStatusContext.Consumer>
+    );
   };
 
   renderSuffix = (prefixCls: string) => {
-    const { suffix, showCount, hasFeedback } = this.props;
+    const { suffix, showCount } = this.props;
 
     return (
-      (showCount || suffix || hasFeedback) && (
-        <>
-          {showCount && this.renderShowCountSuffix(prefixCls)}
-          {suffix}
-          {hasFeedback && this.renderFeedback(prefixCls)}
-        </>
-      )
+      <FormItemValidationStatusContext.Consumer>
+        {({ hasFeedback }) =>
+          (showCount || suffix || hasFeedback) && (
+            <>
+              {showCount && this.renderShowCountSuffix(prefixCls)}
+              {suffix}
+              {hasFeedback && this.renderFeedback(prefixCls)}
+            </>
+          )
+        }
+      </FormItemValidationStatusContext.Consumer>
     );
   };
 

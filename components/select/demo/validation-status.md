@@ -28,10 +28,6 @@ const Validation: React.FC = () => {
     <Space direction="vertical" style={{ width: '100%' }}>
       <Select validateStatus="error" style={{ width: '100%' }} />
       <Select validateStatus="warning" style={{ width: '100%' }} />
-      <Select validateStatus="error" hasFeedback style={{ width: '100%' }} />
-      <Select validateStatus="warning" hasFeedback style={{ width: '100%' }} />
-      <Select validateStatus="success" hasFeedback style={{ width: '100%' }} />
-      <Select validateStatus="validating" hasFeedback style={{ width: '100%' }} />
     </Space>
   );
 };

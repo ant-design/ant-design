@@ -3,12 +3,14 @@ import classNames from 'classnames';
 import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import { useContext } from 'react';
 import { getInputValidationClassName } from '../input/utils';
 import { ValidateStatus } from '../form/FormItem';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import iconMap from '../_util/validationIcons';
+import { FormItemValidationStatusContext } from '../form/context';
 
 type ValueType = string | number;
 
@@ -21,7 +23,6 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   size?: SizeType;
   bordered?: boolean;
   validateStatus?: ValidateStatus;
-  hasFeedback?: boolean;
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
@@ -41,14 +42,18 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     prefix,
     bordered = true,
     readOnly,
-    validateStatus,
-    hasFeedback,
+    validateStatus: customStatus,
     ...others
   } = props;
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
   const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
   const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+
+  const { hasFeedback, validateStatus: contextStatus } = useContext(
+    FormItemValidationStatusContext,
+  );
+  const validateStatus = contextStatus || customStatus;
 
   const mergeSize = customizeSize || size;
   const inputNumberClass = classNames(

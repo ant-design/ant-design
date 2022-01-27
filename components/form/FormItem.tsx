@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
@@ -12,7 +12,12 @@ import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, NoStyleItemContext } from './context';
+import {
+  FormContext,
+  FormItemValidationStatusContext,
+  FormItemValidationStatusContextProps,
+  NoStyleItemContext,
+} from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -199,6 +204,28 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();
 
+  // ======================== Status ========================
+  let mergedValidateStatus: ValidateStatus = '';
+  if (validateStatus !== undefined) {
+    mergedValidateStatus = validateStatus;
+  } else if (meta?.validating) {
+    mergedValidateStatus = 'validating';
+  } else if (debounceErrors.length) {
+    mergedValidateStatus = 'error';
+  } else if (debounceWarnings.length) {
+    mergedValidateStatus = 'warning';
+  } else if (meta?.touched) {
+    mergedValidateStatus = 'success';
+  }
+
+  const formItemStatusContext = useMemo<FormItemValidationStatusContextProps>(
+    () => ({
+      validateStatus: mergedValidateStatus,
+      hasFeedback,
+    }),
+    [mergedValidateStatus, hasFeedback],
+  );
+
   // ======================== Render ========================
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -208,19 +235,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     if (noStyle && !hidden) {
       return baseChildren;
     }
-    // ======================== Status ========================
-    let mergedValidateStatus: ValidateStatus = '';
-    if (validateStatus !== undefined) {
-      mergedValidateStatus = validateStatus;
-    } else if (meta?.validating) {
-      mergedValidateStatus = 'validating';
-    } else if (debounceErrors.length) {
-      mergedValidateStatus = 'error';
-    } else if (debounceWarnings.length) {
-      mergedValidateStatus = 'warning';
-    } else if (meta?.touched) {
-      mergedValidateStatus = 'success';
-    }
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
@@ -229,11 +243,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       [`${className}`]: !!className,
 
       // Status
-      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
-      [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
-      [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
-      [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-      [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+      // [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
+      // [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
+      // [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
+      // [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
+      // [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
       [`${prefixCls}-item-hidden`]: hidden,
     };
 
@@ -285,7 +299,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           help={help}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            {baseChildren}
+            <FormItemValidationStatusContext.Provider value={formItemStatusContext}>
+              {baseChildren}
+            </FormItemValidationStatusContext.Provider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>

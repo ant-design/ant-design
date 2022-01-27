@@ -6,12 +6,14 @@ import classNames from 'classnames';
 import RcSelect, { BaseSelectRef, OptGroup, Option, SelectProps as RcSelectProps } from 'rc-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import { OptionProps } from 'rc-select/lib/Option';
+import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionDirection, getTransitionName, SelectCommonPlacement } from '../_util/motion';
 import { getInputValidationClassName } from '../input/utils';
 import { ValidateStatus } from '../form/FormItem';
+import { FormItemValidationStatusContext } from '../form/context';
 
 type RawValue = string | number;
 
@@ -45,7 +47,6 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   validateStatus?: ValidateStatus;
-  hasFeedback?: boolean;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -63,7 +64,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     size: customizeSize,
     notFoundContent,
     validateStatus,
-    hasFeedback,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -97,6 +97,10 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
+  // ===================== Validation Status =====================
+  const { validateStatus: formStatus, hasFeedback } = useContext(FormItemValidationStatusContext);
+  const mergedValidateStatus = formStatus ?? validateStatus;
+
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;
   if (notFoundContent !== undefined) {
@@ -111,7 +115,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
-    validateStatus: hasFeedback ? validateStatus : undefined,
+    validateStatus: hasFeedback ? mergedValidateStatus : undefined,
     prefixCls,
   });
 
@@ -129,7 +133,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, validateStatus, hasFeedback),
+    getInputValidationClassName(prefixCls, mergedValidateStatus, hasFeedback),
     className,
   );
 

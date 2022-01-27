@@ -50,3 +50,11 @@ export interface FormItemPrefixContextProps {
 export const FormItemPrefixContext = React.createContext<FormItemPrefixContextProps>({
   prefixCls: '',
 });
+
+export interface FormItemValidationStatusContextProps {
+  validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
+}
+
+export const FormItemValidationStatusContext =
+  React.createContext<FormItemValidationStatusContextProps>({});

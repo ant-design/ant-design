@@ -24,11 +24,11 @@ import { PickerComponentClass } from './interface';
 import { ValidateStatus } from '../../form/FormItem';
 import { getInputValidationClassName } from '../../input/utils';
 import iconMap from '../../_util/validationIcons';
+import { FormItemValidationStatusContext } from '../../form/context';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
     validateStatus?: ValidateStatus;
-    hasFeedback?: boolean;
   };
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
@@ -65,27 +65,28 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         }
       };
 
-      renderFeedback = (prefixCls: string) => {
-        const { validateStatus, hasFeedback } = this.props;
-        const status = validateStatus as ValidateStatus; // Hack ts
-        const IconNode = status && iconMap[status];
-        return hasFeedback && IconNode ? (
-          <span className={`${prefixCls}-feedback-icon`}>
-            <IconNode />
-          </span>
-        ) : null;
-      };
+      renderFeedback = (prefixCls: string) => (
+        <FormItemValidationStatusContext.Consumer>
+          {({ hasFeedback, validateStatus: contextStatus }) => {
+            const { validateStatus: customStatus } = this.props;
+            const validateStatus = contextStatus || customStatus;
+            const status = validateStatus as ValidateStatus; // Hack ts
+            const IconNode = status && iconMap[status];
+            return hasFeedback && IconNode ? (
+              <span className={`${prefixCls}-feedback-icon`}>
+                <IconNode />
+              </span>
+            ) : null;
+          }}
+        </FormItemValidationStatusContext.Consumer>
+      );
 
-      renderSuffix = (prefixCls: string, mergedPicker?: PickerMode) => {
-        const { hasFeedback } = this.props;
-
-        return (
-          <>
-            {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-            {hasFeedback && this.renderFeedback(prefixCls)}
-          </>
-        );
-      };
+      renderSuffix = (prefixCls: string, mergedPicker?: PickerMode) => (
+        <>
+          {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+          {this.renderFeedback(prefixCls)}
+        </>
+      );
 
       renderPicker = (contextLocale: PickerLocale) => {
         const locale = { ...contextLocale, ...this.props.locale };
@@ -98,8 +99,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           bordered = true,
           placement,
           placeholder,
-          validateStatus,
-          hasFeedback,
+          validateStatus: customStatus,
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;
@@ -130,36 +130,44 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               const mergedSize = customizeSize || size;
 
               return (
-                <RCPicker<DateType>
-                  ref={this.pickerRef}
-                  placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
-                  dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-                  suffixIcon={this.renderSuffix(prefixCls, mergedPicker)}
-                  clearIcon={<CloseCircleFilled />}
-                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                  allowClear
-                  transitionName={`${rootPrefixCls}-slide-up`}
-                  {...additionalProps}
-                  {...restProps}
-                  {...additionalOverrideProps}
-                  locale={locale!.lang}
-                  className={classNames(
-                    {
-                      [`${prefixCls}-${mergedSize}`]: mergedSize,
-                      [`${prefixCls}-borderless`]: !bordered,
-                    },
-                    getInputValidationClassName(prefixCls, validateStatus, hasFeedback),
-                    className,
+                <FormItemValidationStatusContext.Consumer>
+                  {({ hasFeedback, validateStatus: contextStatus }) => (
+                    <RCPicker<DateType>
+                      ref={this.pickerRef}
+                      placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
+                      suffixIcon={this.renderSuffix(prefixCls, mergedPicker)}
+                      dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+                      clearIcon={<CloseCircleFilled />}
+                      prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                      nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                      superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                      superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                      allowClear
+                      transitionName={`${rootPrefixCls}-slide-up`}
+                      {...additionalProps}
+                      {...restProps}
+                      {...additionalOverrideProps}
+                      locale={locale!.lang}
+                      className={classNames(
+                        {
+                          [`${prefixCls}-${mergedSize}`]: mergedSize,
+                          [`${prefixCls}-borderless`]: !bordered,
+                        },
+                        getInputValidationClassName(
+                          prefixCls,
+                          contextStatus || customStatus,
+                          hasFeedback,
+                        ),
+                        className,
+                      )}
+                      prefixCls={prefixCls}
+                      getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+                      generateConfig={generateConfig}
+                      components={Components}
+                      direction={direction}
+                    />
                   )}
-                  prefixCls={prefixCls}
-                  getPopupContainer={customizeGetPopupContainer || getPopupContainer}
-                  generateConfig={generateConfig}
-                  components={Components}
-                  direction={direction}
-                />
+                </FormItemValidationStatusContext.Consumer>
               );
             }}
           </SizeContext.Consumer>

@@ -8,6 +8,7 @@ import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import { getInputClassName, getInputValidationClassName, hasPrefixSuffix } from './utils';
+import { FormItemValidationStatusContext } from '../form/context';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -42,7 +43,6 @@ export interface ClearableInputProps extends BasicProps {
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
   validateStatus?: ValidateStatus;
-  hasFeedback?: boolean;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -95,64 +95,75 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderLabeledIcon(prefixCls: string, element: React.ReactElement) {
-    const {
-      focused,
-      value,
-      prefix,
-      className,
-      size,
-      suffix,
-      disabled,
-      allowClear,
-      direction,
-      style,
-      readOnly,
-      bordered,
-      hidden,
-      validateStatus,
-      hasFeedback,
-    } = this.props;
-    if (!hasPrefixSuffix(this.props)) {
-      return cloneElement(element, {
-        value,
-      });
-    }
-
-    const suffixNode = this.renderSuffix(prefixCls);
-    const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
-
-    const affixWrapperCls = classNames(
-      `${prefixCls}-affix-wrapper`,
-      {
-        [`${prefixCls}-affix-wrapper-focused`]: focused,
-        [`${prefixCls}-affix-wrapper-disabled`]: disabled,
-        [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
-        [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
-        [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
-        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-        [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
-        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-        // className will go to addon wrapper
-        [`${className}`]: !hasAddon(this.props) && className,
-      },
-      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus, hasFeedback),
-    );
     return (
-      <span
-        ref={this.containerRef}
-        className={affixWrapperCls}
-        style={style}
-        onMouseUp={this.onInputMouseUp}
-        hidden={hidden}
-      >
-        {prefixNode}
-        {cloneElement(element, {
-          style: null,
-          value,
-          className: getInputClassName(prefixCls, bordered, size, disabled),
-        })}
-        {suffixNode}
-      </span>
+      <FormItemValidationStatusContext.Consumer>
+        {({ hasFeedback, validateStatus: contextStatus }) => {
+          const {
+            focused,
+            value,
+            prefix,
+            className,
+            size,
+            suffix,
+            disabled,
+            allowClear,
+            direction,
+            style,
+            readOnly,
+            bordered,
+            hidden,
+            validateStatus: customStatus,
+          } = this.props;
+          if (!hasPrefixSuffix(this.props)) {
+            return cloneElement(element, {
+              value,
+            });
+          }
+
+          const suffixNode = this.renderSuffix(prefixCls);
+          const prefixNode = prefix ? (
+            <span className={`${prefixCls}-prefix`}>{prefix}</span>
+          ) : null;
+
+          const affixWrapperCls = classNames(
+            `${prefixCls}-affix-wrapper`,
+            {
+              [`${prefixCls}-affix-wrapper-focused`]: focused,
+              [`${prefixCls}-affix-wrapper-disabled`]: disabled,
+              [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
+              [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
+              [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
+              [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+              [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
+              [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+              // className will go to addon wrapper
+              [`${className}`]: !hasAddon(this.props) && className,
+            },
+            getInputValidationClassName(
+              `${prefixCls}-affix-wrapper`,
+              contextStatus || customStatus,
+              hasFeedback,
+            ),
+          );
+          return (
+            <span
+              ref={this.containerRef}
+              className={affixWrapperCls}
+              style={style}
+              onMouseUp={this.onInputMouseUp}
+              hidden={hidden}
+            >
+              {prefixNode}
+              {cloneElement(element, {
+                style: null,
+                value,
+                className: getInputClassName(prefixCls, bordered, size, disabled),
+              })}
+              {suffixNode}
+            </span>
+          );
+        }}
+      </FormItemValidationStatusContext.Consumer>
     );
   }
 
@@ -198,41 +209,50 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement) {
-    const {
-      value,
-      allowClear,
-      className,
-      style,
-      direction,
-      bordered,
-      hidden,
-      validateStatus,
-      hasFeedback,
-    } = this.props;
-    if (!allowClear) {
-      return cloneElement(element, {
-        value,
-      });
-    }
-    const affixWrapperCls = classNames(
-      `${prefixCls}-affix-wrapper`,
-      `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
-      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus, hasFeedback),
-      {
-        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-        // className will go to addon wrapper
-        [`${className}`]: !hasAddon(this.props) && className,
-      },
-    );
     return (
-      <span className={affixWrapperCls} style={style} hidden={hidden}>
-        {cloneElement(element, {
-          style: null,
-          value,
-        })}
-        {this.renderClearIcon(prefixCls)}
-      </span>
+      <FormItemValidationStatusContext.Consumer>
+        {({ hasFeedback, validateStatus: contextStatus }) => {
+          const {
+            value,
+            allowClear,
+            className,
+            style,
+            direction,
+            bordered,
+            hidden,
+            validateStatus: customStatus,
+          } = this.props;
+          if (!allowClear) {
+            return cloneElement(element, {
+              value,
+            });
+          }
+          const affixWrapperCls = classNames(
+            `${prefixCls}-affix-wrapper`,
+            `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
+            getInputValidationClassName(
+              `${prefixCls}-affix-wrapper`,
+              contextStatus || customStatus,
+              hasFeedback,
+            ),
+            {
+              [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+              [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+              // className will go to addon wrapper
+              [`${className}`]: !hasAddon(this.props) && className,
+            },
+          );
+          return (
+            <span className={affixWrapperCls} style={style} hidden={hidden}>
+              {cloneElement(element, {
+                style: null,
+                value,
+              })}
+              {this.renderClearIcon(prefixCls)}
+            </span>
+          );
+        }}
+      </FormItemValidationStatusContext.Consumer>
     );
   }
 
