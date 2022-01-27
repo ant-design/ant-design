@@ -293,12 +293,14 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     const textEle = typographyRef.current;
 
     if (enableEllipsis && cssEllipsis && textEle) {
-      const currentEllipsis = textEle.offsetWidth < textEle.scrollWidth;
+      const currentEllipsis = cssLineClamp
+        ? textEle.offsetHeight < textEle.scrollHeight
+        : textEle.offsetWidth < textEle.scrollWidth;
       if (isNativeEllipsis !== currentEllipsis) {
         setIsNativeEllipsis(currentEllipsis);
       }
     }
-  }, [enableEllipsis, cssEllipsis, children]);
+  }, [enableEllipsis, cssEllipsis, children, cssLineClamp]);
 
   // ========================== Tooltip ===========================
   const tooltipTitle = ellipsisConfig.tooltip === true ? children : ellipsisConfig.tooltip;
