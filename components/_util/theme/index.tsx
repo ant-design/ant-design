@@ -2,6 +2,7 @@ import React from 'react';
 import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
+import { ConfigContext } from '../../config-provider';
 
 export interface DesignToken {
   primaryColor: string;
@@ -18,6 +19,7 @@ export interface DesignToken {
   height: number;
 
   paddingMD: number;
+  marginXS: number;
 
   componentBackground: string;
 }
@@ -25,6 +27,7 @@ export interface DesignToken {
 /** This is temporary token definition since final token definition is not ready yet. */
 export interface DerivativeToken extends DesignToken {
   linkColor: string;
+  fontSizeLG: number;
 }
 
 export { useStyleRegister };
@@ -34,6 +37,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
   return {
     ...designToken,
     linkColor: designToken.primaryColor,
+    fontSizeLG: designToken.fontSize + 2,
   };
 }
 
@@ -51,6 +55,7 @@ export const DesignTokenContext = React.createContext<{
 
 // ================================== Hook ==================================
 export function useToken() {
+  const { iconPrefixCls } = React.useContext(ConfigContext);
   const { token: rootDesignToken = defaultDesignToken, hashed } =
     React.useContext(DesignTokenContext);
   const theme = React.useContext(ThemeContext);
@@ -60,5 +65,5 @@ export function useToken() {
   const [token, hashId] = useCacheToken(theme, [defaultDesignToken, rootDesignToken], {
     salt,
   });
-  return [theme, token, hashed ? hashId : ''];
+  return [theme, token, iconPrefixCls, hashed ? hashId : ''];
 }

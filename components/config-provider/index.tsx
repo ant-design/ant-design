@@ -13,6 +13,7 @@ import {
   DirectionType,
   ConfigConsumerProps,
   Theme,
+  defaultIconPrefixCls,
 } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
@@ -88,7 +89,7 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 }
 
 export const defaultPrefixCls = 'ant';
-export const defaultIconPrefixCls = 'anticon';
+export { defaultIconPrefixCls };
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 

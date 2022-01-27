@@ -12,6 +12,7 @@ const genSizeButtonStyle = (token: DerivativeToken) => ({
   //   border-radius: @border-radius;
 });
 
+// =============================== Type ===============================
 const genSharedButtonStyle = (token: DerivativeToken): CSSObject => ({
   position: 'relative',
   display: 'inline-block',
@@ -52,13 +53,22 @@ const genSolidButtonStyle = (token: DerivativeToken): CSSObject => {
 };
 
 // Default
-const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSInterpolation => ({
+const genDefaultButtonStyle = (
+  prefixCls: string,
+  iconPrefixCls: string,
+  token: DerivativeToken,
+): CSSInterpolation => ({
   [`.${prefixCls}`]: {
     ...genSolidButtonStyle(token),
 
     backgroundColor: token.componentBackground,
     color: token.textColor,
     borderColor: token.borderColor,
+
+    // Leave a space between icon and text.
+    [`> .${iconPrefixCls} + span, > span + .${iconPrefixCls}`]: {
+      marginInlineStart: token.marginXS,
+    },
   },
 });
 
@@ -96,14 +106,44 @@ const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSInter
   },
 });
 
+// ============================== Shape ===============================
+const genCircleButtonStyle = (prefixCls: string, token: DerivativeToken): CSSInterpolation => ({
+  [`.${prefixCls}-circle`]: {
+    minWidth: token.height,
+    paddingLeft: 0,
+    paddingRight: 0,
+    borderRadius: '50%',
+  },
+});
+
+// =============================== MISC ===============================
+const genIconOnlyButtonStyle = (prefixCls: string, token: DerivativeToken): CSSInterpolation => ({
+  [`.${prefixCls}-icon-only`]: {
+    width: token.height,
+    paddingLeft: 0,
+    paddingRight: 0,
+
+    '> span': {
+      transform: 'scale(1.143)', // 14px -> 16px
+    },
+  },
+});
+
 export default function useStyle(prefixCls: string) {
-  const [theme, token, hashId] = useToken();
+  const [theme, token, iconPrefixCls, hashId] = useToken();
 
   useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-    genDefaultButtonStyle(prefixCls, token),
+    // Type
+    genDefaultButtonStyle(prefixCls, iconPrefixCls, token),
     genPrimaryButtonStyle(prefixCls, token),
     genDashedButtonStyle(prefixCls),
     genTextButtonStyle(prefixCls),
     genLinkButtonStyle(prefixCls, token),
+
+    // Shape
+    genCircleButtonStyle(prefixCls, token),
+
+    // MISC
+    genIconOnlyButtonStyle(prefixCls, token),
   ]);
 }
