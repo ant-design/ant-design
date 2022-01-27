@@ -28,6 +28,7 @@ export interface DesignToken {
 export interface DerivativeToken extends DesignToken {
   linkColor: string;
   fontSizeLG: number;
+  heightLG: number;
 }
 
 export { useStyleRegister };
@@ -38,6 +39,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
     ...designToken,
     linkColor: designToken.primaryColor,
     fontSizeLG: designToken.fontSize + 2,
+    heightLG: designToken.height * 1.25,
   };
 }
 
