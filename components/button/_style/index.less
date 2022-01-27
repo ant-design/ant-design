@@ -1,0 +1,290 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './mixin';
+
+@btn-prefix-cls: ~'@{ant-prefix}-btn';
+
+// for compatible
+@btn-ghost-color: @text-color;
+@btn-ghost-bg: transparent;
+@btn-ghost-border: @border-color-base;
+
+// Button styles
+// -----------------------------
+.@{btn-prefix-cls} {
+  // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // Fixing https://github.com/ant-design/ant-design/issues/20058
+  // Fixing https://github.com/ant-design/ant-design/issues/19972
+  // Fixing https://github.com/ant-design/ant-design/issues/18107
+  // Fixing https://github.com/ant-design/ant-design/issues/13214
+  // It is a render problem of chrome, which is only happened in the codesandbox demo
+  // 0.001px solution works and I don't know why
+  line-height: @btn-line-height;
+  .btn();
+  .btn-default();
+
+  // Fix loading button animation
+  // https://github.com/ant-design/ant-design/issues/24323
+  > span {
+    display: inline-block;
+  }
+
+  &-primary {
+    .btn-primary();
+
+    .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
+      border-right-color: @btn-group-border;
+      border-left-color: @btn-group-border;
+
+      &:disabled {
+        border-color: @btn-default-border;
+      }
+    }
+
+    .@{btn-prefix-cls}-group &:first-child {
+      &:not(:last-child) {
+        border-right-color: @btn-group-border;
+
+        &[disabled] {
+          border-right-color: @btn-default-border;
+        }
+      }
+    }
+
+    .@{btn-prefix-cls}-group &:last-child:not(:first-child),
+    .@{btn-prefix-cls}-group & + & {
+      border-left-color: @btn-group-border;
+
+      &[disabled] {
+        border-left-color: @btn-default-border;
+      }
+    }
+  }
+
+  &-ghost {
+    .btn-ghost();
+  }
+
+  &-dashed {
+    .btn-dashed();
+  }
+
+  // type="danger" will deprecated
+  // use danger instead
+  &-danger {
+    .btn-danger();
+  }
+
+  &-link {
+    .btn-link();
+  }
+
+  &-text {
+    .btn-text();
+  }
+
+  &-dangerous {
+    .btn-danger-default();
+  }
+
+  &-dangerous&-primary {
+    .btn-danger();
+  }
+
+  &-dangerous&-link {
+    .btn-danger-link();
+  }
+
+  &-dangerous&-text {
+    .btn-danger-text();
+  }
+
+  &-icon-only {
+    .btn-square(@btn-prefix-cls);
+    vertical-align: -3px;
+
+    > .@{iconfont-css-prefix} {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  // https://github.com/ant-design/ant-design/issues/32365
+  a&-icon-only {
+    vertical-align: -1px;
+
+    > .@{iconfont-css-prefix} {
+      display: inline;
+    }
+  }
+
+  &-round {
+    .btn-round(@btn-prefix-cls);
+    &.@{btn-prefix-cls}-icon-only {
+      width: auto;
+    }
+  }
+
+  &-circle {
+    .btn-circle(@btn-prefix-cls);
+  }
+
+  &::before {
+    position: absolute;
+    top: -@btn-border-width;
+    right: -@btn-border-width;
+    bottom: -@btn-border-width;
+    left: -@btn-border-width;
+    z-index: 1;
+    display: none;
+    background: @component-background;
+    border-radius: inherit;
+    opacity: 0.35;
+    transition: opacity 0.2s;
+    content: '';
+    pointer-events: none;
+  }
+
+  .@{iconfont-css-prefix} {
+    transition: margin-left 0.3s @ease-in-out;
+
+    // Follow icon blur under windows. Change the render.
+    // https://github.com/ant-design/ant-design/issues/13924
+    &.@{iconfont-css-prefix}-plus,
+    &.@{iconfont-css-prefix}-minus {
+      > svg {
+        shape-rendering: optimizespeed;
+      }
+    }
+  }
+
+  &&-loading {
+    position: relative;
+    cursor: default;
+
+    &::before {
+      display: block;
+    }
+  }
+
+  & > &-loading-icon {
+    transition: width 0.3s @ease-in-out, opacity 0.3s @ease-in-out;
+
+    .@{iconfont-css-prefix} {
+      padding-right: @padding-xs;
+      animation: none;
+      // for smooth button padding transition
+      svg {
+        animation: loadingCircle 1s infinite linear;
+      }
+    }
+
+    &:only-child {
+      .@{iconfont-css-prefix} {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &-group {
+    .btn-group(@btn-prefix-cls);
+  }
+
+  // http://stackoverflow.com/a/21281554/3040605
+  &:focus > span,
+  &:active > span {
+    position: relative;
+  }
+
+  // To ensure that a space will be placed between character and `Icon`.
+  > .@{iconfont-css-prefix} + span,
+  > span + .@{iconfont-css-prefix} {
+    margin-left: @margin-xs;
+  }
+
+  &&-background-ghost {
+    color: @btn-default-ghost-color;
+    border-color: @btn-default-ghost-border;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      background: @btn-default-ghost-bg;
+    }
+
+    &:hover,
+    &:focus {
+      color: @primary-color-hover;
+      border-color: @primary-color-hover;
+    }
+
+    &:active {
+      color: @primary-color-active;
+      border-color: @primary-color-active;
+    }
+
+    &[disabled] {
+      color: @disabled-color;
+      background: @btn-default-ghost-bg;
+      border-color: @btn-default-border;
+    }
+  }
+
+  &-background-ghost&-primary {
+    .button-variant-ghost(@btn-primary-bg, @btn-primary-bg, @primary-color-hover, @primary-color-active);
+  }
+
+  &-background-ghost&-danger {
+    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
+  }
+
+  &-background-ghost&-dangerous {
+    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
+  }
+
+  &-background-ghost&-dangerous&-link {
+    .button-variant-ghost(@btn-danger-border, transparent, @error-color-hover, @error-color-active);
+  }
+
+  &-two-chinese-chars::first-letter {
+    letter-spacing: 0.34em;
+  }
+
+  &-two-chinese-chars > *:not(.@{iconfont-css-prefix}) {
+    margin-right: -0.34em;
+    letter-spacing: 0.34em;
+  }
+
+  &-block {
+    width: 100%;
+  }
+
+  // https://github.com/ant-design/ant-design/issues/12681
+  // same method as Select
+  &:empty {
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+    content: '\a0';
+  }
+}
+
+a.@{btn-prefix-cls} {
+  // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // https://github.com/ant-design/ant-design/issues/29978
+  // It is a render problem of chrome, which is only happened in the codesandbox demo
+  // 0.1px for padding-top solution works and I don't why
+  padding-top: 0.01px !important;
+  line-height: @btn-height-base - 2px;
+
+  &-lg {
+    line-height: @btn-height-lg - 2px;
+  }
+
+  &-sm {
+    line-height: @btn-height-sm - 2px;
+  }
+}
+
+@import './rtl';

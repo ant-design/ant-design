@@ -12,6 +12,9 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
 import { cloneElement } from '../_util/reactNode';
 
+// CSSINJS
+import useStyle from './style';
+
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str: any) {
@@ -151,10 +154,15 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     ...rest
   } = props;
 
+  const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('btn', customizePrefixCls);
+
+  // Style
+  useStyle(prefixCls);
+
   const size = React.useContext(SizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
-  const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
   const delayTimeoutRef = React.useRef<number>();
 
@@ -215,7 +223,6 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     "`link` or `text` button can't be a `ghost` button.",
   );
 
-  const prefixCls = getPrefixCls('btn', customizePrefixCls);
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
