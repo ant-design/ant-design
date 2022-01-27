@@ -119,6 +119,21 @@ const genCircleButtonStyle = (
   },
 });
 
+const genRoundButtonStyle = (
+  prefixCls: string,
+  patchCls: string,
+  token: DerivativeToken,
+): CSSInterpolation => ({
+  [`.${prefixCls}-round${patchCls}`]: {
+    [`&, &.${prefixCls}-icon-only`]: {
+      borderRadius: token.height,
+      paddingLeft: token.height / 2,
+      paddingRight: token.height / 2,
+      width: 'auto',
+    },
+  },
+});
+
 // =============================== MISC ===============================
 const genIconOnlyButtonStyle = (
   prefixCls: string,
@@ -155,6 +170,7 @@ const genSizeButtonStyle = (
 
     // Shape
     genCircleButtonStyle(prefixCls, patchCls, token),
+    genRoundButtonStyle(prefixCls, patchCls, token),
 
     // MISC
     genIconOnlyButtonStyle(prefixCls, patchCls, token),
