@@ -12,8 +12,8 @@ import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-pr
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
-import iconMap from '../_util/validationIcons';
-import { FormItemValidationStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../form/context';
+import getFeedbackIcon from '../_util/getFeedbackIcon';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -284,6 +284,7 @@ class Input extends React.Component<InputProps, InputState> {
     prefixCls: string,
     size: SizeType | undefined,
     bordered: boolean,
+    status?: ValidateStatus,
     input: ConfigConsumerProps['input'] = {},
   ) => {
     const {
@@ -293,7 +294,6 @@ class Input extends React.Component<InputProps, InputState> {
       size: customizeSize,
       disabled,
       htmlSize,
-      validateStatus: customValidateStatus,
     } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props as InputProps & { inputType: any }, [
@@ -315,33 +315,29 @@ class Input extends React.Component<InputProps, InputState> {
       'validateStatus',
     ]);
     return (
-      <FormItemValidationStatusContext.Consumer>
-        {({ validateStatus: contextStatus }) => (
-          <input
-            autoComplete={input.autoComplete}
-            {...otherProps}
-            onChange={this.handleChange}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
-            onKeyDown={this.handleKeyDown}
-            className={classNames(
-              getInputClassName(
-                prefixCls,
-                bordered,
-                customizeSize || size,
-                disabled,
-                this.direction,
-                contextStatus || customValidateStatus,
-              ),
-              {
-                [className!]: className && !addonBefore && !addonAfter,
-              },
-            )}
-            ref={this.saveInput}
-            size={htmlSize}
-          />
+      <input
+        autoComplete={input.autoComplete}
+        {...otherProps}
+        onChange={this.handleChange}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
+        onKeyDown={this.handleKeyDown}
+        className={classNames(
+          getInputClassName(
+            prefixCls,
+            bordered,
+            customizeSize || size,
+            disabled,
+            this.direction,
+            status,
+          ),
+          {
+            [className!]: className && !addonBefore && !addonAfter,
+          },
         )}
-      </FormItemValidationStatusContext.Consumer>
+        ref={this.saveInput}
+        size={htmlSize}
+      />
     );
   };
 
@@ -400,66 +396,56 @@ class Input extends React.Component<InputProps, InputState> {
     return null;
   };
 
-  renderFeedback = (prefixCls: string) => {
-    const { validateStatus: customStatus } = this.props;
-
-    return (
-      <FormItemValidationStatusContext.Consumer>
-        {({ hasFeedback, validateStatus: contextStatus }) => {
-          const mergedStatus = contextStatus || customStatus;
-          const IconNode = mergedStatus && iconMap[mergedStatus];
-          return hasFeedback && IconNode ? (
-            <span className={`${prefixCls}-feedback-icon`}>
-              <IconNode />
-            </span>
-          ) : null;
-        }}
-      </FormItemValidationStatusContext.Consumer>
-    );
-  };
-
-  renderSuffix = (prefixCls: string) => {
+  renderSuffix = (prefixCls: string, hasFeedback?: boolean, status?: ValidateStatus) => {
     const { suffix, showCount } = this.props;
 
     return (
-      <FormItemValidationStatusContext.Consumer>
-        {({ hasFeedback }) =>
-          (showCount || suffix || hasFeedback) && (
-            <>
-              {showCount && this.renderShowCountSuffix(prefixCls)}
-              {suffix}
-              {hasFeedback && this.renderFeedback(prefixCls)}
-            </>
-          )
-        }
-      </FormItemValidationStatusContext.Consumer>
+      (showCount || suffix || hasFeedback) && (
+        <>
+          {showCount && this.renderShowCountSuffix(prefixCls)}
+          {suffix}
+          {hasFeedback && getFeedbackIcon(prefixCls, status)}
+        </>
+      )
     );
   };
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      bordered = true,
+      validateStatus: customStatus,
+    } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
 
     return (
       <SizeContext.Consumer>
         {size => (
-          <ClearableLabeledInput
-            size={size}
-            {...this.props}
-            prefixCls={prefixCls}
-            inputType="input"
-            value={fixControlledValue(value)}
-            element={this.renderInput(prefixCls, size, bordered, input)}
-            handleReset={this.handleReset}
-            ref={this.saveClearableInput}
-            direction={direction}
-            focused={focused}
-            triggerFocus={this.focus}
-            bordered={bordered}
-            suffix={this.renderSuffix(prefixCls)}
-          />
+          <FormItemStatusContext.Consumer>
+            {({ status: contextStatus, hasFeedback }) => {
+              const mergedStatus = contextStatus || customStatus;
+
+              return (
+                <ClearableLabeledInput
+                  size={size}
+                  {...this.props}
+                  prefixCls={prefixCls}
+                  inputType="input"
+                  value={fixControlledValue(value)}
+                  element={this.renderInput(prefixCls, size, bordered, mergedStatus, input)}
+                  handleReset={this.handleReset}
+                  ref={this.saveClearableInput}
+                  direction={direction}
+                  focused={focused}
+                  triggerFocus={this.focus}
+                  bordered={bordered}
+                  suffix={this.renderSuffix(prefixCls, hasFeedback, mergedStatus)}
+                />
+              );
+            }}
+          </FormItemStatusContext.Consumer>
         )}
       </SizeContext.Consumer>
     );

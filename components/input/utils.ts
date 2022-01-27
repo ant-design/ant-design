@@ -7,14 +7,14 @@ import type { InputProps } from './Input';
 
 export function getInputValidationClassName(
   prefixCls: string,
-  validateStatus?: ValidateStatus,
+  status?: ValidateStatus,
   hasFeedback?: boolean,
 ) {
   return classNames({
-    [`${prefixCls}-has-success`]: validateStatus === 'success',
-    [`${prefixCls}-has-warning`]: validateStatus === 'warning',
-    [`${prefixCls}-has-error`]: validateStatus === 'error',
-    [`${prefixCls}-is-validating`]: validateStatus === 'validating',
+    [`${prefixCls}-has-success`]: status === 'success',
+    [`${prefixCls}-has-warning`]: status === 'warning',
+    [`${prefixCls}-has-error`]: status === 'error',
+    [`${prefixCls}-is-validating`]: status === 'validating',
     [`${prefixCls}-has-feedback`]: hasFeedback,
   });
 }
@@ -25,7 +25,7 @@ export function getInputClassName(
   size?: SizeType,
   disabled?: boolean,
   direction?: DirectionType,
-  validateStatus?: ValidateStatus,
+  status?: ValidateStatus,
   hasFeedback?: boolean,
 ) {
   return classNames(
@@ -37,7 +37,7 @@ export function getInputClassName(
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, validateStatus, hasFeedback),
+    getInputValidationClassName(prefixCls, status, hasFeedback),
   );
 }
 

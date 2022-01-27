@@ -1,13 +1,13 @@
 import * as React from 'react';
+import { ReactNode } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import { ReactNode } from 'react';
 import { ValidateStatus } from '../../form/FormItem';
-import iconMap from '../../_util/validationIcons';
+import getFeedbackIcon from '../../_util/getFeedbackIcon';
 
 export default function getIcons({
   suffixIcon,
@@ -16,7 +16,8 @@ export default function getIcons({
   removeIcon,
   loading,
   multiple,
-  validateStatus,
+  hasFeedback,
+  status,
   prefixCls,
 }: {
   suffixIcon?: React.ReactNode;
@@ -25,7 +26,8 @@ export default function getIcons({
   removeIcon?: React.ReactNode;
   loading?: boolean;
   multiple?: boolean;
-  validateStatus?: ValidateStatus;
+  hasFeedback?: boolean;
+  status?: ValidateStatus;
   prefixCls: string;
 }) {
   // Clear Icon
@@ -35,15 +37,10 @@ export default function getIcons({
   }
 
   // Validation Feedback Icon
-  const ValidationIconNode = validateStatus && iconMap[validateStatus];
   const getSuffixIconNode = (arrowIcon?: ReactNode) => (
     <>
       {arrowIcon}
-      {ValidationIconNode && (
-        <span className={`${prefixCls}-feedback-icon`}>
-          <ValidationIconNode />
-        </span>
-      )}
+      {hasFeedback && getFeedbackIcon(prefixCls, status)}
     </>
   );
 

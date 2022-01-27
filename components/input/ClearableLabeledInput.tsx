@@ -8,7 +8,7 @@ import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import { getInputClassName, getInputValidationClassName, hasPrefixSuffix } from './utils';
-import { FormItemValidationStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../form/context';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -96,8 +96,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
   renderLabeledIcon(prefixCls: string, element: React.ReactElement) {
     return (
-      <FormItemValidationStatusContext.Consumer>
-        {({ hasFeedback, validateStatus: contextStatus }) => {
+      <FormItemStatusContext.Consumer>
+        {({ hasFeedback, status: contextStatus }) => {
           const {
             focused,
             value,
@@ -163,7 +163,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
             </span>
           );
         }}
-      </FormItemValidationStatusContext.Consumer>
+      </FormItemStatusContext.Consumer>
     );
   }
 
@@ -210,8 +210,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement) {
     return (
-      <FormItemValidationStatusContext.Consumer>
-        {({ hasFeedback, validateStatus: contextStatus }) => {
+      <FormItemStatusContext.Consumer>
+        {({ hasFeedback, status: contextStatus }) => {
           const {
             value,
             allowClear,
@@ -252,7 +252,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
             </span>
           );
         }}
-      </FormItemValidationStatusContext.Consumer>
+      </FormItemStatusContext.Consumer>
     );
   }
 

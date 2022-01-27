@@ -25,51 +25,55 @@
   }
 }
 
-.@{select-prefix-cls} {
-  &-has-error {
-    .status-color(@error-color, @error-color, @select-background, @error-color-hover, @error-color-outline);
-  }
-
-  &-has-warning {
-    .status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
-  }
-
-  &-has-success {
-    .@{select-prefix-cls}-feedback-icon {
-      color: @success-color;
+.status-mix(@prefix-cls) {
+  .@{prefix-cls} {
+    &-has-error {
+      .status-color(@error-color, @error-color, @select-background, @error-color-hover, @error-color-outline);
     }
-  }
 
-  &-is-validating {
-    .@{select-prefix-cls}-feedback-icon {
-      color: @primary-color;
+    &-has-warning {
+      .status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
     }
-  }
 
-  &-has-error,
-  &-has-warning,
-  &-has-success,
-  &-is-validating {
-    &.@{select-prefix-cls}-has-feedback {
-      .@{select-prefix-cls}-arrow,
-      .@{select-prefix-cls}-clear {
-        right: 32px;
-      }
-
-      .@{select-prefix-cls}-selection-selected-value {
-        padding-right: 42px;
+    &-has-success {
+      .@{prefix-cls}-feedback-icon {
+        color: @success-color;
       }
     }
-  }
 
-  &-feedback-icon {
-    width: @input-height-base;
-    margin-left: 8px;
-    font-size: @font-size-base;
-    line-height: 20px;
-    text-align: center;
-    visibility: visible;
-    animation: zoomIn 0.3s @ease-out-back;
-    pointer-events: none;
+    &-is-validating {
+      .@{prefix-cls}-feedback-icon {
+        color: @primary-color;
+      }
+    }
+
+    &-has-error,
+    &-has-warning,
+    &-has-success,
+    &-is-validating {
+      &.@{prefix-cls}-has-feedback {
+        .@{prefix-cls}-arrow,
+        .@{prefix-cls}-clear {
+          right: 32px;
+        }
+
+        .@{prefix-cls}-selection-selected-value {
+          padding-right: 42px;
+        }
+      }
+    }
+
+    &-feedback-icon {
+      width: @input-height-base;
+      margin-left: 8px;
+      font-size: @font-size-base;
+      line-height: 20px;
+      text-align: center;
+      visibility: visible;
+      animation: zoomIn 0.3s @ease-out-back;
+      pointer-events: none;
+    }
   }
 }
+
+.status-mix(@select-prefix-cls);

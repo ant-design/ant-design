@@ -24,7 +24,7 @@ import { PickerComponentClass } from './interface';
 import { ValidateStatus } from '../../form/FormItem';
 import { getInputValidationClassName } from '../../input/utils';
 import iconMap from '../../_util/validationIcons';
-import { FormItemValidationStatusContext } from '../../form/context';
+import { FormItemStatusContext } from '../../form/context';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
@@ -66,8 +66,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       };
 
       renderFeedback = (prefixCls: string) => (
-        <FormItemValidationStatusContext.Consumer>
-          {({ hasFeedback, validateStatus: contextStatus }) => {
+        <FormItemStatusContext.Consumer>
+          {({ hasFeedback, status: contextStatus }) => {
             const { validateStatus: customStatus } = this.props;
             const validateStatus = contextStatus || customStatus;
             const status = validateStatus as ValidateStatus; // Hack ts
@@ -78,7 +78,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               </span>
             ) : null;
           }}
-        </FormItemValidationStatusContext.Consumer>
+        </FormItemStatusContext.Consumer>
       );
 
       renderSuffix = (prefixCls: string, mergedPicker?: PickerMode) => (
@@ -130,8 +130,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               const mergedSize = customizeSize || size;
 
               return (
-                <FormItemValidationStatusContext.Consumer>
-                  {({ hasFeedback, validateStatus: contextStatus }) => (
+                <FormItemStatusContext.Consumer>
+                  {({ hasFeedback, status: contextStatus }) => (
                     <RCPicker<DateType>
                       ref={this.pickerRef}
                       placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
@@ -167,7 +167,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                       direction={direction}
                     />
                   )}
-                </FormItemValidationStatusContext.Consumer>
+                </FormItemStatusContext.Consumer>
               );
             }}
           </SizeContext.Consumer>

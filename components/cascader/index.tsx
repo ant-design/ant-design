@@ -12,12 +12,16 @@ import omit from 'rc-util/lib/omit';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import { useContext } from 'react';
 import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import getIcons from '../select/utils/iconUtil';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
+import { ValidateStatus } from '../form/FormItem';
+import { FormItemStatusContext } from '../form/context';
+import { getInputValidationClassName } from '../input/utils';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -88,6 +92,7 @@ export interface CascaderProps<DataNodeType>
   placement?: SelectCommonPlacement;
   suffixIcon?: React.ReactNode;
   options?: DataNodeType[];
+  status?: ValidateStatus;
 }
 
 export interface CascaderRef {
@@ -113,6 +118,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     notFoundContent,
     direction,
     getPopupContainer,
+    status,
     ...rest
   } = props;
 
@@ -125,10 +131,14 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     direction: rootDirection,
     // virtual,
     // dropdownMatchSelectWidth,
-  } = React.useContext(ConfigContext);
+  } = useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
   const isRtl = mergedDirection === 'rtl';
+
+  // =================== Warning =====================
+  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  const mergedStatus = contextStatus || status;
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
@@ -207,6 +217,8 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   // ===================== Icons =====================
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
+    status: mergedStatus,
+    hasFeedback,
     multiple,
     prefixCls,
   });
@@ -233,6 +245,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
           [`${prefixCls}-rtl`]: isRtl,
           [`${prefixCls}-borderless`]: !bordered,
         },
+        getInputValidationClassName(prefixCls, mergedStatus, hasFeedback),
         className,
       )}
       {...(restProps as any)}

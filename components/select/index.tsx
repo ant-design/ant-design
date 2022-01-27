@@ -13,7 +13,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionDirection, getTransitionName, SelectCommonPlacement } from '../_util/motion';
 import { getInputValidationClassName } from '../input/utils';
 import { ValidateStatus } from '../form/FormItem';
-import { FormItemValidationStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../form/context';
 
 type RawValue = string | number;
 
@@ -46,7 +46,7 @@ export interface SelectProps<
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
-  validateStatus?: ValidateStatus;
+  status?: ValidateStatus;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -63,7 +63,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
-    validateStatus,
+    status,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -98,8 +98,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
   // ===================== Validation Status =====================
-  const { validateStatus: formStatus, hasFeedback } = useContext(FormItemValidationStatusContext);
-  const mergedValidateStatus = formStatus ?? validateStatus;
+  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  const mergedStatus = contextStatus || status;
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;
@@ -115,7 +115,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
-    validateStatus: hasFeedback ? mergedValidateStatus : undefined,
+    status: mergedStatus,
+    hasFeedback,
     prefixCls,
   });
 
@@ -133,7 +134,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, mergedValidateStatus, hasFeedback),
+    getInputValidationClassName(prefixCls, mergedStatus, hasFeedback),
     className,
   );
 

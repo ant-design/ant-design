@@ -10,7 +10,7 @@ import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import iconMap from '../_util/validationIcons';
-import { FormItemValidationStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../form/context';
 
 type ValueType = string | number;
 
@@ -50,9 +50,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
   const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
 
-  const { hasFeedback, validateStatus: contextStatus } = useContext(
-    FormItemValidationStatusContext,
-  );
+  const { hasFeedback, status: contextStatus } = useContext(FormItemStatusContext);
   const validateStatus = contextStatus || customStatus;
 
   const mergeSize = customizeSize || size;

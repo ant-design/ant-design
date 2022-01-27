@@ -14,8 +14,8 @@ import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemL
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import {
   FormContext,
-  FormItemValidationStatusContext,
-  FormItemValidationStatusContextProps,
+  FormItemStatusContext,
+  FormItemStatusContextProps,
   NoStyleItemContext,
 } from './context';
 import { toArray, getFieldId } from './util';
@@ -218,9 +218,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     mergedValidateStatus = 'success';
   }
 
-  const formItemStatusContext = useMemo<FormItemValidationStatusContextProps>(
+  const formItemStatusContext = useMemo<FormItemStatusContextProps>(
     () => ({
-      validateStatus: mergedValidateStatus,
+      status: mergedValidateStatus,
       hasFeedback,
     }),
     [mergedValidateStatus, hasFeedback],
@@ -299,9 +299,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           help={help}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            <FormItemValidationStatusContext.Provider value={formItemStatusContext}>
+            <FormItemStatusContext.Provider value={formItemStatusContext}>
               {baseChildren}
-            </FormItemValidationStatusContext.Provider>
+            </FormItemStatusContext.Provider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>
