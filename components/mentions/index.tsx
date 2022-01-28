@@ -8,6 +8,7 @@ import { ConfigContext } from '../config-provider';
 import { ValidateStatus } from '../form/FormItem';
 import { FormItemStatusContext } from '../form/context';
 import getStatusClassNames from '../_util/getStatusClassNames';
+import getFeedbackIcon from '../_util/getFeedbackIcon';
 
 export const { Option } = RcMentions;
 
@@ -120,10 +121,10 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
-    className,
+    !hasFeedback && className,
   );
 
-  return (
+  const mentions = (
     <RcMentions
       prefixCls={prefixCls}
       notFoundContent={getNotFoundContent()}
@@ -139,6 +140,23 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       {getOptions()}
     </RcMentions>
   );
+
+  if (hasFeedback) {
+    return (
+      <div
+        className={classNames(
+          `${prefixCls}-affix-wrapper`,
+          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+          className,
+        )}
+      >
+        {mentions}
+        {getFeedbackIcon(prefixCls, mergedStatus)}
+      </div>
+    );
+  }
+
+  return mentions;
 };
 
 const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;
