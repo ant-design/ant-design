@@ -20,10 +20,12 @@ const genSharedButtonStyle = (token: DerivativeToken): CSSObject => ({
   },
 });
 
-const genBorderedButtonStyle = (token: DerivativeToken): CSSObject => {
-  const paddingVertical =
-    (token.height - token.fontSize * token.lineHeight) / 2 - token.borderWidth;
-  const paddingHorizontal = token.paddingMD - token.borderWidth;
+const genSolidButtonStyle = (token: DerivativeToken): CSSObject => {
+  const paddingVertical = Math.max(
+    0,
+    (token.height - token.fontSize * token.lineHeight) / 2 - token.borderWidth,
+  );
+  const paddingHorizontal = token.padding - token.borderWidth;
 
   return {
     ...genSharedButtonStyle(token),
@@ -48,7 +50,7 @@ const genDefaultButtonStyle = (
   token: DerivativeToken,
 ): CSSInterpolation => ({
   [`.${prefixCls}${patchCls}`]: {
-    ...genBorderedButtonStyle(token),
+    ...genSolidButtonStyle(token),
 
     backgroundColor: token.componentBackground,
     color: token.textColor,
@@ -70,7 +72,7 @@ const genPrimaryButtonStyle = (
   token: DerivativeToken,
 ): CSSInterpolation => ({
   [`.${prefixCls}-primary${patchCls}`]: {
-    ...genBorderedButtonStyle(token),
+    ...genSolidButtonStyle(token),
 
     boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
 
@@ -151,6 +153,18 @@ const genIconOnlyButtonStyle = (
   },
 });
 
+const genButtonLoadingStyle = (
+  prefixCls: string,
+  iconPrefixCls: string,
+  token: DerivativeToken,
+): CSSInterpolation => ({
+  [`.${prefixCls}-loading`]: {
+    [`&-icon > .${iconPrefixCls}`]: {
+      marginInlineEnd: token.marginXS,
+    },
+  },
+});
+
 // =============================== Size ===============================
 const genSizeButtonStyle = (
   prefixCls: string,
@@ -183,6 +197,20 @@ const genSizeBaseButtonStyle = (
   token: DerivativeToken,
 ): CSSInterpolation => genSizeButtonStyle(prefixCls, iconPrefixCls, '', token);
 
+const genSizeSmallButtonStyle = (
+  prefixCls: string,
+  iconPrefixCls: string,
+  token: DerivativeToken,
+): CSSInterpolation => {
+  const largeToken: DerivativeToken = {
+    ...token,
+    height: token.heightSM,
+    padding: token.paddingXS,
+  };
+
+  return genSizeButtonStyle(prefixCls, iconPrefixCls, `${prefixCls}-sm`, largeToken);
+};
+
 const genSizeLargeButtonStyle = (
   prefixCls: string,
   iconPrefixCls: string,
@@ -202,7 +230,11 @@ export default function useStyle(prefixCls: string) {
 
   useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
     // Size (Type, Shape, MISC)
+    genSizeSmallButtonStyle(prefixCls, iconPrefixCls, token),
     genSizeBaseButtonStyle(prefixCls, iconPrefixCls, token),
     genSizeLargeButtonStyle(prefixCls, iconPrefixCls, token),
+
+    // Loading
+    genButtonLoadingStyle(prefixCls, iconPrefixCls, token),
   ]);
 }

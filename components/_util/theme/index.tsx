@@ -18,8 +18,8 @@ export interface DesignToken {
 
   height: number;
 
-  paddingMD: number;
-  marginXS: number;
+  padding: number;
+  margin: number;
 
   componentBackground: string;
 }
@@ -27,8 +27,12 @@ export interface DesignToken {
 /** This is temporary token definition since final token definition is not ready yet. */
 export interface DerivativeToken extends DesignToken {
   linkColor: string;
+  fontSizeSM: number;
   fontSizeLG: number;
+  heightSM: number;
   heightLG: number;
+  paddingXS: number;
+  marginXS: number;
 }
 
 export { useStyleRegister };
@@ -38,8 +42,12 @@ function derivative(designToken: DesignToken): DerivativeToken {
   return {
     ...designToken,
     linkColor: designToken.primaryColor,
+    fontSizeSM: designToken.fontSize - 2,
     fontSizeLG: designToken.fontSize + 2,
+    heightSM: designToken.height * 0.75,
     heightLG: designToken.height * 1.25,
+    paddingXS: designToken.padding * 0.5,
+    marginXS: designToken.margin * 0.5,
   };
 }
 

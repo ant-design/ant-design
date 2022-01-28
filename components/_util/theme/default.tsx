@@ -19,8 +19,8 @@ const defaultDesignToken: DesignToken = {
 
   height: 32,
 
-  paddingMD: 16,
-  marginXS: 8,
+  padding: 16,
+  margin: 16,
 
   componentBackground: '#fff',
 };
