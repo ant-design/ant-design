@@ -62,7 +62,7 @@ export interface InputProps
   showCount?: boolean | ShowCountProps;
   bordered?: boolean;
   htmlSize?: number;
-  validateStatus?: ValidateStatus;
+  status?: ValidateStatus;
 }
 
 export function fixControlledValue<T>(value: T) {
@@ -312,7 +312,7 @@ class Input extends React.Component<InputProps, InputState> {
       'bordered',
       'htmlSize',
       'showCount',
-      'validateStatus',
+      'status',
     ]);
     return (
       <input
@@ -412,11 +412,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
-    const {
-      prefixCls: customizePrefixCls,
-      bordered = true,
-      validateStatus: customStatus,
-    } = this.props;
+    const { prefixCls: customizePrefixCls, bordered = true, status: customStatus } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
 

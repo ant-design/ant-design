@@ -8,6 +8,10 @@ import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { ValidateStatus } from '../form/FormItem';
+import { FormItemStatusContext } from '../form/context';
+import getStatusClassNames from '../_util/getStatusClassNames';
+import getFeedbackIcon from '../_util/getFeedbackIcon';
 
 interface ShowCountProps {
   formatter: (args: { count: number; maxLength?: number }) => string;
@@ -22,6 +26,7 @@ export interface TextAreaProps extends RcTextAreaProps {
   bordered?: boolean;
   showCount?: boolean | ShowCountProps;
   size?: SizeType;
+  status?: ValidateStatus;
 }
 
 export interface TextAreaRef {
@@ -43,12 +48,16 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       onCompositionStart,
       onCompositionEnd,
       onChange,
+      status: customStatus,
       ...props
     },
     ref,
   ) => {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
+
+    const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
+    const mergedStatus = contextStatus || customStatus;
 
     const innerRef = React.useRef<RcTextArea>(null);
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
@@ -124,12 +133,15 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const textArea = (
       <RcTextArea
         {...omit(props, ['allowClear'])}
-        className={classNames({
-          [`${prefixCls}-borderless`]: !bordered,
-          [className!]: className && !showCount,
-          [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
-          [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
-        })}
+        className={classNames(
+          {
+            [`${prefixCls}-borderless`]: !bordered,
+            [className!]: className && !showCount,
+            [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
+            [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
+          },
+          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+        )}
         style={showCount ? undefined : style}
         prefixCls={prefixCls}
         onCompositionStart={onInternalCompositionStart}
@@ -158,12 +170,13 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         handleReset={handleReset}
         ref={clearableInputRef}
         bordered={bordered}
+        status={mergedStatus}
         style={showCount ? undefined : style}
       />
     );
 
     // Only show text area wrapper when needed
-    if (showCount) {
+    if (showCount || hasFeedback) {
       const valueLength = [...val].length;
 
       let dataCount = '';
@@ -180,14 +193,16 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             `${prefixCls}-textarea`,
             {
               [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
+              [`${prefixCls}-textarea-show-count`]: showCount,
             },
-            `${prefixCls}-textarea-show-count`,
+            getStatusClassNames(`${prefixCls}-textarea`, mergedStatus, hasFeedback),
             className,
           )}
           style={style}
           data-count={dataCount}
         >
           {textareaNode}
+          {hasFeedback && getFeedbackIcon(prefixCls, mergedStatus)}
         </div>
       );
     }

@@ -62,6 +62,7 @@ each(@input-wrapper-cls, {
   }
 });
 
+.@{input-prefix-cls}-textarea,
 .@{input-prefix-cls}-affix-wrapper {
   &-is-validating {
     .@{input-prefix-cls}-feedback-icon {
@@ -74,6 +75,42 @@ each(@input-wrapper-cls, {
     .@{input-prefix-cls}-feedback-icon {
       color: @success-color;
       animation-name: diffZoomIn1 !important;
+    }
+  }
+}
+
+.@{input-prefix-cls}-textarea {
+  &-has-error {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @error-color;
+    }
+  }
+
+  &-has-warning {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @warning-color;
+    }
+  }
+
+  .@{input-prefix-cls}-feedback-icon {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal-base;
+    bottom: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  &-has-error,
+  &-has-warning,
+  &-has-success,
+  &-is-validating {
+    &.@{input-prefix-cls}-textarea-has-feedback {
+      .@{input-prefix-cls} {
+        padding-right: 24px;
+      }
     }
   }
 }

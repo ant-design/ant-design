@@ -43,7 +43,7 @@ export interface ClearableInputProps extends BasicProps {
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
-  validateStatus?: ValidateStatus;
+  status?: ValidateStatus;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -113,7 +113,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
             readOnly,
             bordered,
             hidden,
-            validateStatus: customStatus,
+            status: customStatus,
           } = this.props;
           if (!hasPrefixSuffix(this.props)) {
             return cloneElement(element, {
@@ -221,7 +221,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
             direction,
             bordered,
             hidden,
-            validateStatus: customStatus,
+            status: customStatus,
           } = this.props;
           if (!allowClear) {
             return cloneElement(element, {
