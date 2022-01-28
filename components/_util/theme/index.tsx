@@ -86,7 +86,9 @@ export function withPrefix(
   prefixCls: string,
   additionalClsList: string[] = [],
 ): CSSObject {
+  const fullClsList = [prefixCls, ...additionalClsList].filter(cls => cls).map(cls => `.${cls}`);
+
   return {
-    [`.${prefixCls}`]: style,
+    [fullClsList.join('')]: style,
   };
 }

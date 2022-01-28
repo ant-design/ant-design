@@ -1,8 +1,8 @@
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { DerivativeToken, useStyleRegister, useToken, withPrefix } from '../../_util/theme';
 
-// =============================== Type ===============================
-const genSharedButtonStyle = (token: DerivativeToken): CSSObject => ({
+// ============================== Shared ==============================
+const genSharedButtonStyle = (iconPrefixCls: string, token: DerivativeToken): CSSObject => ({
   position: 'relative',
   display: 'inline-block',
   fontWeight: 400,
@@ -15,168 +15,73 @@ const genSharedButtonStyle = (token: DerivativeToken): CSSObject => ({
   transition: token.easeInOut,
   userSelect: 'none',
   touchAction: 'manipulation',
+  lineHeight: token.lineHeight,
+  color: token.textColor,
 
   '> span': {
     display: 'inline-block',
   },
-});
 
-const genResetButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
-  [`.${prefixCls}`]: genSharedButtonStyle(token),
-});
-
-const genSolidButtonStyle = (token: DerivativeToken): CSSObject => {
-  const paddingVertical = Math.max(
-    0,
-    (token.height - token.fontSize * token.lineHeight) / 2 - token.borderWidth,
-  );
-  const paddingHorizontal = token.padding - token.borderWidth;
-
-  return {
-    ...genSharedButtonStyle(token),
-
-    lineHeight: token.lineHeight,
-    borderRadius: token.borderRadius,
-    backgroundColor: token.primaryColor,
-
-    color: '#FFF',
-    fontSize: token.fontSize,
-    height: token.height,
-
-    padding: `${paddingVertical}px ${paddingHorizontal}px`,
-
-    '&[disabled]': {
-      borderColor: token.borderColor,
-      color: token.textColorDisabled,
-      backgroundColor: token.componentBackgroundDisabled,
-    },
-  };
-};
-
-// Default
-const genDefaultButtonStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  patchCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => ({
-  [`.${prefixCls}-default${patchCls}`]: {
-    ...genSolidButtonStyle(token),
-
-    backgroundColor: token.componentBackground,
-    color: token.textColor,
-    borderColor: token.borderColor,
-
-    boxShadow: '0 2px 0 rgba(0, 0, 0, 0.015)',
-
-    // Leave a space between icon and text.
-    [`> .${iconPrefixCls} + span, > span + .${iconPrefixCls}`]: {
-      marginInlineStart: token.marginXS,
-    },
-  },
-});
-
-// Primary
-const genPrimaryButtonStyle = (
-  prefixCls: string,
-  patchCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => ({
-  [`.${prefixCls}-primary${patchCls}`]: {
-    ...genSolidButtonStyle(token),
-
-    boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
-
-    borderColor: token.primaryColor,
-  },
-});
-
-// Dashed
-const genDashedButtonStyle = (prefixCls: string, patchCls: string): CSSInterpolation => ({
-  [`.${prefixCls}-dashed${patchCls}`]: {
-    borderStyle: 'dashed',
-  },
-});
-
-// Text
-const genTextButtonStyle = (prefixCls: string, patchCls: string): CSSInterpolation => ({
-  [`.${prefixCls}-text${patchCls}`]: {
-    borderColor: 'transparent',
-    boxShadow: 'none',
-  },
-});
-
-// Link
-const genLinkButtonStyle = (
-  prefixCls: string,
-  patchCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => ({
-  [`.${prefixCls}-link${patchCls}`]: {
-    borderColor: 'transparent',
-    boxShadow: 'none',
-
-    color: token.linkColor,
+  // Leave a space between icon and text.
+  [`> .${iconPrefixCls} + span, > span + .${iconPrefixCls}`]: {
+    marginInlineStart: token.marginXS,
   },
 });
 
 // ============================== Shape ===============================
-const genCircleButtonStyle = (
-  prefixCls: string,
-  patchCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => ({
-  [`.${prefixCls}-circle${patchCls}`]: {
-    minWidth: token.height,
-    paddingLeft: 0,
-    paddingRight: 0,
-    borderRadius: '50%',
-  },
+const genCircleButtonStyle = (token: DerivativeToken): CSSObject => ({
+  minWidth: token.height,
+  paddingLeft: 0,
+  paddingRight: 0,
+  borderRadius: '50%',
 });
 
-const genRoundButtonStyle = (
-  prefixCls: string,
-  patchCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => ({
-  [`.${prefixCls}-round${patchCls}`]: {
-    [`&, &.${prefixCls}-icon-only`]: {
-      borderRadius: token.height,
-      paddingLeft: token.height / 2,
-      paddingRight: token.height / 2,
-      width: 'auto',
-    },
-  },
+const genRoundButtonStyle = (token: DerivativeToken): CSSObject => ({
+  borderRadius: token.height,
+  paddingLeft: token.height / 2,
+  paddingRight: token.height / 2,
+  width: 'auto',
 });
 
-// =============================== MISC ===============================
-const genIconOnlyButtonStyle = (
-  prefixCls: string,
-  patchCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => ({
-  [`.${prefixCls}-icon-only${patchCls}`]: {
-    width: token.height,
-    paddingLeft: 0,
-    paddingRight: 0,
-
-    '> span': {
-      transform: 'scale(1.143)', // 14px -> 16px
-    },
-  },
+// =============================== Type ===============================
+const genSolidButtonStyle = (token: DerivativeToken): CSSObject => ({
+  borderRadius: token.borderRadius,
 });
 
-const genButtonLoadingStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => ({
-  [`.${prefixCls}-loading`]: {
-    [`&-icon > .${iconPrefixCls}`]: {
-      marginInlineEnd: token.marginXS,
-    },
-  },
+const genDefaultButtonStyle = (token: DerivativeToken): CSSObject => ({
+  ...genSolidButtonStyle(token),
+
+  backgroundColor: token.componentBackground,
+  borderColor: token.borderColor,
+
+  boxShadow: '0 2px 0 rgba(0, 0, 0, 0.015)',
 });
+
+const genPrimaryButtonStyle = (token: DerivativeToken): CSSObject => ({
+  ...genSolidButtonStyle(token),
+
+  color: '#FFF',
+  backgroundColor: token.primaryColor,
+
+  boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
+});
+
+const genDashedButtonStyle = (token: DerivativeToken): CSSObject => ({
+  ...genDefaultButtonStyle(token),
+
+  borderStyle: 'dashed',
+});
+
+const genLinkButtonStyle = (token: DerivativeToken): CSSObject => ({
+  color: token.linkColor,
+});
+
+const genTypeButtonStyle = (prefixCls: string, token: DerivativeToken): CSSInterpolation => [
+  withPrefix(genDefaultButtonStyle(token), `${prefixCls}-default`, []),
+  withPrefix(genPrimaryButtonStyle(token), `${prefixCls}-primary`, []),
+  withPrefix(genDashedButtonStyle(token), `${prefixCls}-dashed`, []),
+  withPrefix(genLinkButtonStyle(token), `${prefixCls}-link`, []),
+];
 
 // =============================== Size ===============================
 const genSizeButtonStyle = (
@@ -185,22 +90,27 @@ const genSizeButtonStyle = (
   sizePrefixCls: string,
   token: DerivativeToken,
 ): CSSInterpolation => {
-  const patchCls = sizePrefixCls ? `.${sizePrefixCls}` : '';
+  const paddingVertical = Math.max(
+    0,
+    (token.height - token.fontSize * token.lineHeight) / 2 - token.borderWidth,
+  );
+  const paddingHorizontal = token.padding - token.borderWidth;
 
   return [
-    // Type
-    genDefaultButtonStyle(prefixCls, iconPrefixCls, patchCls, token),
-    genPrimaryButtonStyle(prefixCls, patchCls, token),
-    genDashedButtonStyle(prefixCls, patchCls),
-    genTextButtonStyle(prefixCls, patchCls),
-    genLinkButtonStyle(prefixCls, patchCls, token),
+    // Size
+    withPrefix(
+      {
+        fontSize: token.fontSize,
+        height: token.height,
+        padding: `${paddingVertical}px ${paddingHorizontal}px`,
+      },
+      prefixCls,
+      [sizePrefixCls],
+    ),
 
     // Shape
-    genCircleButtonStyle(prefixCls, patchCls, token),
-    genRoundButtonStyle(prefixCls, patchCls, token),
-
-    // MISC
-    genIconOnlyButtonStyle(prefixCls, patchCls, token),
+    withPrefix(genCircleButtonStyle(token), `${prefixCls}-circle`, [prefixCls, sizePrefixCls]),
+    withPrefix(genRoundButtonStyle(token), `${prefixCls}-round`, [prefixCls, sizePrefixCls]),
   ];
 };
 
@@ -238,19 +148,20 @@ const genSizeLargeButtonStyle = (
   return genSizeButtonStyle(prefixCls, iconPrefixCls, `${prefixCls}-lg`, largeToken);
 };
 
+// ============================== Export ==============================
 export default function useStyle(prefixCls: string) {
   const [theme, token, iconPrefixCls, hashId] = useToken();
 
   useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-    // Reset
-    genResetButtonStyle(prefixCls, token),
+    // Shared
+    withPrefix(genSharedButtonStyle(iconPrefixCls, token), prefixCls),
 
-    // Size (Type, Shape, MISC)
+    // Size
     genSizeSmallButtonStyle(prefixCls, iconPrefixCls, token),
     genSizeBaseButtonStyle(prefixCls, iconPrefixCls, token),
     genSizeLargeButtonStyle(prefixCls, iconPrefixCls, token),
 
-    // Loading
-    genButtonLoadingStyle(prefixCls, iconPrefixCls, token),
+    // Group (type, ghost, danger, disabled, loading)
+    genTypeButtonStyle(prefixCls, token),
   ]);
 }
