@@ -21,7 +21,7 @@ import getIcons from '../select/utils/iconUtil';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 import { ValidateStatus } from '../form/FormItem';
 import { FormItemStatusContext } from '../form/context';
-import { getInputValidationClassName } from '../input/utils';
+import getStatusClassNames from '../_util/getStatusClassNames';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -245,7 +245,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
           [`${prefixCls}-rtl`]: isRtl,
           [`${prefixCls}-borderless`]: !bordered,
         },
-        getInputValidationClassName(prefixCls, mergedStatus, hasFeedback),
+        getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         className,
       )}
       {...(restProps as any)}

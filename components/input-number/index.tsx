@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { getInputValidationClassName } from '../input/utils';
 import { ValidateStatus } from '../form/FormItem';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import { FormItemStatusContext } from '../form/context';
 import getFeedbackIcon from '../_util/getFeedbackIcon';
+import getStatusClassNames from '../_util/getStatusClassNames';
 
 type ValueType = string | number;
 
@@ -62,7 +62,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, mergedStatus, hasFeedback),
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
   );
 
@@ -81,7 +81,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   if (prefix != null || hasFeedback) {
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
-      getInputValidationClassName(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+      getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
       {
         [`${prefixCls}-affix-wrapper-focused`]: focused,
         [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,

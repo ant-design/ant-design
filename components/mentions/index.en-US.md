@@ -32,6 +32,7 @@ When you need to mention someone or something.
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |
 | prefix | Set trigger prefix keyword | string \| string\[] | `@` |
 | split | Set split string before and after selected mention | string | ` ` |
+| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |
 | value | Set value of mentions | string | - |
 | onBlur | Trigger when mentions lose focus | () => void | - |
@@ -43,10 +44,10 @@ When you need to mention someone or something.
 
 ### Mention methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |
 
 ### Option
 

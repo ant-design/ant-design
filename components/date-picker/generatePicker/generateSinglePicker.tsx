@@ -22,9 +22,9 @@ import {
 } from '.';
 import { PickerComponentClass } from './interface';
 import { ValidateStatus } from '../../form/FormItem';
-import { getInputValidationClassName } from '../../input/utils';
 import { FormItemStatusContext } from '../../form/context';
 import getFeedbackIcon from '../../_util/getFeedbackIcon';
+import getStatusClassNames from '../../_util/getStatusClassNames';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
@@ -147,11 +147,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                           [`${prefixCls}-${mergedSize}`]: mergedSize,
                           [`${prefixCls}-borderless`]: !bordered,
                         },
-                        getInputValidationClassName(
-                          prefixCls,
-                          contextStatus || customStatus,
-                          hasFeedback,
-                        ),
+                        getStatusClassNames(prefixCls, contextStatus || customStatus, hasFeedback),
                         className,
                       )}
                       prefixCls={prefixCls}

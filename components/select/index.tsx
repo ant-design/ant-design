@@ -11,9 +11,9 @@ import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionDirection, getTransitionName, SelectCommonPlacement } from '../_util/motion';
-import { getInputValidationClassName } from '../input/utils';
 import { ValidateStatus } from '../form/FormItem';
 import { FormItemStatusContext } from '../form/context';
+import getStatusClassNames from '../_util/getStatusClassNames';
 
 type RawValue = string | number;
 
@@ -134,7 +134,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, mergedStatus, hasFeedback),
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
   );
 

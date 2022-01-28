@@ -33,6 +33,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 | placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |
 | prefix | 设置触发关键字 | string \| string\[] | `@` |
 | split | 设置选中项前后分隔符 | string | ` ` |
+| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |
 | value | 设置值 | string | - |
 | onBlur | 失去焦点时触发 | () => void | - |
@@ -44,14 +45,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 
 ### Mentions 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
 ### Option
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| children | 选项内容 | ReactNode | - |
-| value | 选择时填充的值 | string | - |
+| 参数     | 说明           | 类型      | 默认值 |
+| -------- | -------------- | --------- | ------ |
+| children | 选项内容       | ReactNode | -      |
+| value    | 选择时填充的值 | string    | -      |

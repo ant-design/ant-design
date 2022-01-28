@@ -20,7 +20,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 import { ValidateStatus } from '../form/FormItem';
 import { FormItemStatusContext } from '../form/context';
-import { getInputValidationClassName } from '../input/utils';
+import getStatusClassNames from '../_util/getStatusClassNames';
 
 type RawValue = string | number;
 
@@ -152,7 +152,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, mergedStatus, hasFeedback),
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
   );
   const rootPrefixCls = getPrefixCls();

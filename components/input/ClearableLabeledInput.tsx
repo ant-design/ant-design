@@ -7,8 +7,9 @@ import type { InputProps } from './Input';
 import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
-import { getInputClassName, getInputValidationClassName, hasPrefixSuffix } from './utils';
+import { getInputClassName, hasPrefixSuffix } from './utils';
 import { FormItemStatusContext } from '../form/context';
+import getStatusClassNames from '../_util/getStatusClassNames';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -139,7 +140,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
               // className will go to addon wrapper
               [`${className}`]: !hasAddon(this.props) && className,
             },
-            getInputValidationClassName(
+            getStatusClassNames(
               `${prefixCls}-affix-wrapper`,
               contextStatus || customStatus,
               hasFeedback,
@@ -230,7 +231,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
           const affixWrapperCls = classNames(
             `${prefixCls}-affix-wrapper`,
             `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
-            getInputValidationClassName(
+            getStatusClassNames(
               `${prefixCls}-affix-wrapper`,
               contextStatus || customStatus,
               hasFeedback,

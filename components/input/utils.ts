@@ -4,20 +4,7 @@ import type { DirectionType } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { ClearableInputProps } from './ClearableLabeledInput';
 import type { InputProps } from './Input';
-
-export function getInputValidationClassName(
-  prefixCls: string,
-  status?: ValidateStatus,
-  hasFeedback?: boolean,
-) {
-  return classNames({
-    [`${prefixCls}-has-success`]: status === 'success',
-    [`${prefixCls}-has-warning`]: status === 'warning',
-    [`${prefixCls}-has-error`]: status === 'error',
-    [`${prefixCls}-is-validating`]: status === 'validating',
-    [`${prefixCls}-has-feedback`]: hasFeedback,
-  });
-}
+import getStatusClassNames from '../_util/getStatusClassNames';
 
 export function getInputClassName(
   prefixCls: string,
@@ -37,7 +24,7 @@ export function getInputClassName(
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, status, hasFeedback),
+    getStatusClassNames(prefixCls, status, hasFeedback),
   );
 }
 

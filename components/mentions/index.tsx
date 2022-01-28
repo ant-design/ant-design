@@ -5,6 +5,9 @@ import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
+import { ValidateStatus } from '../form/FormItem';
+import { FormItemStatusContext } from '../form/context';
+import getStatusClassNames from '../_util/getStatusClassNames';
 
 export const { Option } = RcMentions;
 
@@ -22,6 +25,7 @@ export interface OptionProps {
 
 export interface MentionProps extends RcMentionsProps {
   loading?: boolean;
+  status?: ValidateStatus;
 }
 
 export interface MentionState {
@@ -53,6 +57,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     filterOption,
     children,
     notFoundContent,
+    status: customStatus,
     ...restProps
   },
   ref,
@@ -61,6 +66,8 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
+  const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
+  const mergedStatus = contextStatus || customStatus;
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
@@ -112,6 +119,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       [`${prefixCls}-focused`]: focused,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
   );
 
