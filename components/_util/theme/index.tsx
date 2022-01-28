@@ -1,5 +1,5 @@
 import React from 'react';
-import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
 import { ConfigContext } from '../../config-provider';
@@ -15,6 +15,7 @@ export interface DesignToken {
 
   fontSize: number;
   textColor: string;
+  textColorDisabled: string;
 
   height: number;
 
@@ -22,6 +23,7 @@ export interface DesignToken {
   margin: number;
 
   componentBackground: string;
+  componentBackgroundDisabled: string;
 }
 
 /** This is temporary token definition since final token definition is not ready yet. */
@@ -76,4 +78,15 @@ export function useToken() {
     salt,
   });
   return [theme, token, iconPrefixCls, hashed ? hashId : ''];
+}
+
+// ================================== Util ==================================
+export function withPrefix(
+  style: CSSObject,
+  prefixCls: string,
+  additionalClsList: string[] = [],
+): CSSObject {
+  return {
+    [`.${prefixCls}`]: style,
+  };
 }

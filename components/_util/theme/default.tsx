@@ -16,6 +16,7 @@ const defaultDesignToken: DesignToken = {
 
   fontSize: 14,
   textColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
+  textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
 
   height: 32,
 
@@ -23,6 +24,7 @@ const defaultDesignToken: DesignToken = {
   margin: 16,
 
   componentBackground: '#fff',
+  componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toRgbString(),
 };
 
 export default defaultDesignToken;

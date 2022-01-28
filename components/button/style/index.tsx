@@ -1,5 +1,5 @@
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import { DerivativeToken, useStyleRegister, useToken } from '../../_util/theme';
+import { DerivativeToken, useStyleRegister, useToken, withPrefix } from '../../_util/theme';
 
 // =============================== Type ===============================
 const genSharedButtonStyle = (token: DerivativeToken): CSSObject => ({
@@ -9,6 +9,7 @@ const genSharedButtonStyle = (token: DerivativeToken): CSSObject => ({
   whiteSpace: 'nowrap',
   textAlign: 'center',
   backgroundImage: 'none',
+  backgroundColor: 'transparent',
   border: `${token.borderWidth}px ${token.borderStyle} transparent`,
   cursor: 'pointer',
   transition: token.easeInOut,
@@ -18,6 +19,10 @@ const genSharedButtonStyle = (token: DerivativeToken): CSSObject => ({
   '> span': {
     display: 'inline-block',
   },
+});
+
+const genResetButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+  [`.${prefixCls}`]: genSharedButtonStyle(token),
 });
 
 const genSolidButtonStyle = (token: DerivativeToken): CSSObject => {
@@ -39,6 +44,12 @@ const genSolidButtonStyle = (token: DerivativeToken): CSSObject => {
     height: token.height,
 
     padding: `${paddingVertical}px ${paddingHorizontal}px`,
+
+    '&[disabled]': {
+      borderColor: token.borderColor,
+      color: token.textColorDisabled,
+      backgroundColor: token.componentBackgroundDisabled,
+    },
   };
 };
 
@@ -49,7 +60,7 @@ const genDefaultButtonStyle = (
   patchCls: string,
   token: DerivativeToken,
 ): CSSInterpolation => ({
-  [`.${prefixCls}${patchCls}`]: {
+  [`.${prefixCls}-default${patchCls}`]: {
     ...genSolidButtonStyle(token),
 
     backgroundColor: token.componentBackground,
@@ -91,6 +102,7 @@ const genDashedButtonStyle = (prefixCls: string, patchCls: string): CSSInterpola
 const genTextButtonStyle = (prefixCls: string, patchCls: string): CSSInterpolation => ({
   [`.${prefixCls}-text${patchCls}`]: {
     borderColor: 'transparent',
+    boxShadow: 'none',
   },
 });
 
@@ -102,6 +114,7 @@ const genLinkButtonStyle = (
 ): CSSInterpolation => ({
   [`.${prefixCls}-link${patchCls}`]: {
     borderColor: 'transparent',
+    boxShadow: 'none',
 
     color: token.linkColor,
   },
@@ -229,6 +242,9 @@ export default function useStyle(prefixCls: string) {
   const [theme, token, iconPrefixCls, hashId] = useToken();
 
   useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+    // Reset
+    genResetButtonStyle(prefixCls, token),
+
     // Size (Type, Shape, MISC)
     genSizeSmallButtonStyle(prefixCls, iconPrefixCls, token),
     genSizeBaseButtonStyle(prefixCls, iconPrefixCls, token),
