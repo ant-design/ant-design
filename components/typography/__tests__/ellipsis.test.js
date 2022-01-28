@@ -277,4 +277,34 @@ describe('Typography.Ellipsis', () => {
     const tooltipWrapper = mount(<Base ellipsis={{ expandable: true, tooltip: 'little' }} />);
     expect(tooltipWrapper.find('.ant-typography').prop('aria-label')).toEqual('little');
   });
+
+  it('should display tooltip if line clamp', () => {
+    mockRectSpy = spyElementPrototypes(HTMLElement, {
+      scrollHeight: {
+        get() {
+          let html = this.innerHTML;
+          html = html.replace(/<[^>]*>/g, '');
+          const lines = Math.ceil(html.length / LINE_STR_COUNT);
+          return lines * 16;
+        },
+      },
+      offsetHeight: {
+        get: () => 32,
+      },
+      offsetWidth: {
+        get: () => 100,
+      },
+      scrollWidth: {
+        get: () => 100,
+      },
+    });
+
+    const wrapper = mount(
+      <Base ellipsis={{ tooltip: 'This is tooltip', rows: 2 }}>
+        Ant Design, a design language for background applications, is refined by Ant UED Team.
+      </Base>,
+    );
+    expect(wrapper.find('EllipsisTooltip').prop('isEllipsis')).toBeTruthy();
+    mockRectSpy.mockRestore();
+  });
 });
