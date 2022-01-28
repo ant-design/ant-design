@@ -1,16 +1,16 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import classNames from 'classnames';
 import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { useContext } from 'react';
 import { getInputValidationClassName } from '../input/utils';
 import { ValidateStatus } from '../form/FormItem';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
-import iconMap from '../_util/validationIcons';
 import { FormItemStatusContext } from '../form/context';
+import getFeedbackIcon from '../_util/getFeedbackIcon';
 
 type ValueType = string | number;
 
@@ -51,7 +51,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
 
   const { hasFeedback, status: contextStatus } = useContext(FormItemStatusContext);
-  const validateStatus = contextStatus || customStatus;
+  const mergedStatus = contextStatus || customStatus;
 
   const mergeSize = customizeSize || size;
   const inputNumberClass = classNames(
@@ -62,7 +62,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
     },
-    getInputValidationClassName(prefixCls, validateStatus, hasFeedback),
+    getInputValidationClassName(prefixCls, mergedStatus, hasFeedback),
     className,
   );
 
@@ -81,7 +81,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   if (prefix != null || hasFeedback) {
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
-      getInputValidationClassName(`${prefixCls}-affix-wrapper`, validateStatus, hasFeedback),
+      getInputValidationClassName(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
       {
         [`${prefixCls}-affix-wrapper-focused`]: focused,
         [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
@@ -94,14 +94,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         [`${className}`]: !(addonBefore || addonAfter) && className,
       },
     );
-
-    const IconNode = validateStatus && iconMap[validateStatus];
-    const feedbackIcon =
-      hasFeedback && IconNode ? (
-        <span className={`${prefixCls}-feedback-icon`}>
-          <IconNode />
-        </span>
-      ) : null;
 
     element = (
       <div
@@ -122,7 +114,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             props.onBlur?.(event);
           },
         })}
-        {feedbackIcon && <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>}
+        {hasFeedback && (
+          <span className={`${prefixCls}-suffix`}>{getFeedbackIcon(prefixCls, mergedStatus)}</span>
+        )}
       </div>
     );
   }

@@ -25,7 +25,7 @@
   }
 }
 
-.status-mix(@prefix-cls) {
+.select-status-base(@prefix-cls) {
   .@{prefix-cls} {
     &-has-error {
       .status-color(@error-color, @error-color, @select-background, @error-color-hover, @error-color-outline);
@@ -67,7 +67,6 @@
       width: @input-height-base;
       margin-left: 8px;
       font-size: @font-size-base;
-      line-height: 20px;
       text-align: center;
       visibility: visible;
       animation: zoomIn 0.3s @ease-out-back;
@@ -76,4 +75,4 @@
   }
 }
 
-.status-mix(@select-prefix-cls);
+.select-status-base(@select-prefix-cls);

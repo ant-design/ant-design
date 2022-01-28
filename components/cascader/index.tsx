@@ -136,7 +136,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const mergedDirection = direction || rootDirection;
   const isRtl = mergedDirection === 'rtl';
 
-  // =================== Warning =====================
+  // =================== Status =====================
   const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
   const mergedStatus = contextStatus || status;
 

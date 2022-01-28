@@ -9,26 +9,26 @@ import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import devWarning from '../../_util/devWarning';
-import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
+import { ConfigConsumerProps, ConfigContext } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import SizeContext from '../../config-provider/SizeContext';
 import {
-  PickerProps,
-  PickerLocale,
-  PickerDateProps,
-  PickerTimeProps,
-  getTimeProps,
   Components,
+  getTimeProps,
+  PickerDateProps,
+  PickerLocale,
+  PickerProps,
+  PickerTimeProps,
 } from '.';
 import { PickerComponentClass } from './interface';
 import { ValidateStatus } from '../../form/FormItem';
 import { getInputValidationClassName } from '../../input/utils';
-import iconMap from '../../_util/validationIcons';
 import { FormItemStatusContext } from '../../form/context';
+import getFeedbackIcon from '../../_util/getFeedbackIcon';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
-    validateStatus?: ValidateStatus;
+    status?: ValidateStatus;
   };
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
@@ -68,15 +68,9 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       renderFeedback = (prefixCls: string) => (
         <FormItemStatusContext.Consumer>
           {({ hasFeedback, status: contextStatus }) => {
-            const { validateStatus: customStatus } = this.props;
-            const validateStatus = contextStatus || customStatus;
-            const status = validateStatus as ValidateStatus; // Hack ts
-            const IconNode = status && iconMap[status];
-            return hasFeedback && IconNode ? (
-              <span className={`${prefixCls}-feedback-icon`}>
-                <IconNode />
-              </span>
-            ) : null;
+            const { status: customStatus } = this.props;
+            const status = contextStatus || customStatus;
+            return hasFeedback && getFeedbackIcon(prefixCls, status);
           }}
         </FormItemStatusContext.Consumer>
       );
@@ -99,7 +93,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           bordered = true,
           placement,
           placeholder,
-          validateStatus: customStatus,
+          status: customStatus,
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;

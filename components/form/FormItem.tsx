@@ -295,7 +295,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           warnings={debounceWarnings}
           prefixCls={prefixCls}
           status={mergedValidateStatus}
-          validateStatus={mergedValidateStatus}
           help={help}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>

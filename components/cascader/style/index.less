@@ -2,7 +2,7 @@
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 @import '../../checkbox/style/mixin';
-@import './status';
+@import '../../select/style/status';
 
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
 
@@ -101,5 +101,7 @@
     }
   }
 }
+
+.select-status-base(@cascader-prefix-cls);
 
 @import './rtl';
