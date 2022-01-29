@@ -3741,7 +3741,7 @@ exports[`renders ./components/date-picker/demo/status.md correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-row ant-form-item"
+      class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
     >
       <div
         class="ant-col ant-form-item-control"

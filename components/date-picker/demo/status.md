@@ -16,17 +16,15 @@ Add status to DatePicker with `status`.
 ```tsx
 import { DatePicker, Space, Form } from 'antd';
 
-const Validation: React.FC = () => {
-  return (
-    <Space direction="vertical" style={{ width: '100%' }}>
-      <DatePicker status="error" style={{ width: '100%' }} />
-      <DatePicker status="warning" style={{ width: '100%' }} />
-      <Form.Item status="error" hasFeedback>
-        <DatePicker style={{ width: '100%' }} />
-      </Form.Item>
-    </Space>
-  );
-};
+const Validation: React.FC = () => (
+  <Space direction="vertical" style={{ width: '100%' }}>
+    <DatePicker status="error" style={{ width: '100%' }} />
+    <DatePicker status="warning" style={{ width: '100%' }} />
+    <Form.Item status="error" hasFeedback>
+      <DatePicker style={{ width: '100%' }} />
+    </Form.Item>
+  </Space>
+);
 
 ReactDOM.render(<Validation />, mountNode);
 ```

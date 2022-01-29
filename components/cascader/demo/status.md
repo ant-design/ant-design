@@ -16,30 +16,24 @@ Add status to with `status`.
 ```tsx
 import { Cascader, Space, Form } from 'antd';
 
-const Validation: React.FC = () => {
-  return (
-    <Space direction="vertical" style={{ width: '100%' }}>
-      <Cascader status="error" style={{ width: '100%' }} />
-      <Cascader status="warning" style={{ width: '100%' }} />
-      <Form.Item status="error" hasFeedback help="Something wrong.">
-        <Cascader style={{ width: '100%' }} />
-      </Form.Item>
-      <Form.Item status="warning" hasFeedback help="Please check.">
-        <Cascader style={{ width: '100%' }} />
-      </Form.Item>
-      <Form.Item status="success" hasFeedback>
-        <Cascader style={{ width: '100%' }} />
-      </Form.Item>
-      <Form.Item status="validating" hasFeedback>
-        <Cascader style={{ width: '100%' }} />
-      </Form.Item>
-    </Space>
-  );
-};
+const Validation: React.FC = () => (
+  <Space direction="vertical" style={{ width: '100%' }}>
+    <Cascader status="error" style={{ width: '100%' }} />
+    <Cascader status="warning" style={{ width: '100%' }} />
+    <Form.Item status="error" hasFeedback help="Something wrong.">
+      <Cascader style={{ width: '100%' }} />
+    </Form.Item>
+    <Form.Item status="warning" hasFeedback help="Please check.">
+      <Cascader style={{ width: '100%' }} />
+    </Form.Item>
+    <Form.Item status="success" hasFeedback>
+      <Cascader style={{ width: '100%' }} />
+    </Form.Item>
+    <Form.Item status="validating" hasFeedback>
+      <Cascader style={{ width: '100%' }} />
+    </Form.Item>
+  </Space>
+);
 
 ReactDOM.render(<Validation />, mountNode);
 ```
-
-<style>
-.
-</style>
