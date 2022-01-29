@@ -21,6 +21,8 @@ import notification from '../notification';
 import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
+import { DesignToken, DesignTokenContext } from '../_util/theme';
+import defaultThemeToken from '../_util/theme/default';
 
 export {
   RenderEmptyHandler,
@@ -81,6 +83,9 @@ export interface ConfigProviderProps {
   };
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
+  theme?: {
+    token?: DesignToken;
+  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -160,6 +165,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     legacyLocale,
     parentContext,
     iconPrefixCls,
+    theme = {},
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -247,6 +253,22 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   if (componentSize) {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
+  }
+
+  // Dynamic theme
+  const memoTheme = React.useMemo(
+    () => ({
+      token: {
+        ...defaultThemeToken,
+        ...theme?.token,
+      },
+    }),
+    [theme?.token],
+  );
+  if (theme?.token) {
+    childNode = (
+      <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
+    );
   }
 
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;

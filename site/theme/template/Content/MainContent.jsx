@@ -2,22 +2,20 @@ import React, { Component } from 'react';
 import { Link, browserHistory } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
 import { injectIntl } from 'react-intl';
-import { LeftOutlined, RightOutlined, ExportOutlined, BugOutlined } from '@ant-design/icons';
+import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 
-import ThemeIcon from '../ThemeIcon';
-import Article from '../Article';
-import PrevAndNext from '../PrevAndNext';
-import Footer from '../../Layout/Footer';
-import SiteContext from '../../Layout/SiteContext';
-import ComponentDoc from '../ComponentDoc';
-import ComponentOverview from '../ComponentOverview';
-import * as utils from '../../utils';
-
-import ThemeConfig from './ThemeConfig';
+import ThemeIcon from './ThemeIcon';
+import Article from './Article';
+import PrevAndNext from './PrevAndNext';
+import Footer from '../Layout/Footer';
+import SiteContext from '../Layout/SiteContext';
+import ComponentDoc from './ComponentDoc';
+import ComponentOverview from './ComponentOverview';
+import * as utils from '../utils';
 
 const { SubMenu } = Menu;
 
@@ -79,7 +77,6 @@ class MainContent extends Component {
 
   state = {
     openKeys: undefined,
-    openThemeDrawer: false,
   };
 
   componentDidMount() {
@@ -480,11 +477,7 @@ class MainContent extends Component {
   }
 
   render() {
-    const {
-      demos,
-      location,
-      intl: { formatMessage },
-    } = this.props;
+    const { demos, location } = this.props;
     const { openKeys } = this.state;
     const { isMobile, theme, setIframeTheme } = this.context;
     const activeMenuItem = this.getActiveMenuItem();
@@ -533,30 +526,12 @@ class MainContent extends Component {
                 <Dropdown overlay={this.getThemeSwitchMenu()} placement="topCenter">
                   <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
                 </Dropdown>
-                <Avatar
-                  className="fixed-widgets-avatar"
-                  size={44}
-                  icon={<BugOutlined />}
-                  onClick={() => {
-                    this.setState({ openThemeDrawer: true });
-                  }}
-                />
               </div>
             )}
             <PrevAndNext prev={prev} next={next} />
             <Footer location={location} />
           </Col>
         </Row>
-
-        <ThemeConfig
-          formatMessage={formatMessage}
-          visible={this.state.openThemeDrawer}
-          onVisibleChange={nextVisible =>
-            this.setState({
-              openThemeDrawer: nextVisible,
-            })
-          }
-        />
       </div>
     );
   }
