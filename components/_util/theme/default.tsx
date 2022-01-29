@@ -3,6 +3,7 @@ import type { DesignToken } from '.';
 
 const defaultDesignToken: DesignToken = {
   primaryColor: '#1890ff',
+  errorColor: '#ff4d4f',
 
   // https://github.com/ant-design/ant-design/issues/20210
   lineHeight: 1.5715,

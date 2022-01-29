@@ -6,6 +6,7 @@ import { ConfigContext } from '../../config-provider';
 
 export interface DesignToken {
   primaryColor: string;
+  errorColor: string;
   lineHeight: number;
   borderWidth: number;
   borderStyle: string;

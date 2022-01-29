@@ -2,7 +2,11 @@ import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { DerivativeToken, useStyleRegister, useToken, withPrefix } from '../../_util/theme';
 
 // ============================== Shared ==============================
-const genSharedButtonStyle = (iconPrefixCls: string, token: DerivativeToken): CSSObject => ({
+const genSharedButtonStyle = (
+  prefixCls: string,
+  iconPrefixCls: string,
+  token: DerivativeToken,
+): CSSObject => ({
   position: 'relative',
   display: 'inline-block',
   fontWeight: 400,
@@ -26,6 +30,10 @@ const genSharedButtonStyle = (iconPrefixCls: string, token: DerivativeToken): CS
   [`> .${iconPrefixCls} + span, > span + .${iconPrefixCls}`]: {
     marginInlineStart: token.marginXS,
   },
+
+  [`&.${prefixCls}-block`]: {
+    width: '100%',
+  },
 });
 
 // ============================== Shape ===============================
@@ -44,43 +52,143 @@ const genRoundButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObje
 });
 
 // =============================== Type ===============================
-const genSolidButtonStyle = (token: DerivativeToken): CSSObject => ({
-  borderRadius: token.borderRadius,
+const genGhostButtonStyle = (
+  prefixCls: string,
+  textColor: string | false,
+  borderColor: string | false,
+  textColorDisabled: string | false,
+  borderColorDisabled: string | false,
+): CSSObject => ({
+  [`&.${prefixCls}-background-ghost`]: {
+    color: textColor || undefined,
+    backgroundColor: 'transparent',
+    borderColor: borderColor || undefined,
+
+    '&[disabled]': {
+      color: textColorDisabled || undefined,
+      borderColor: borderColorDisabled || undefined,
+    },
+  },
 });
 
-const genDefaultButtonStyle = (token: DerivativeToken): CSSObject => ({
+const genSolidDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
+  '&:disabled': {
+    borderColor: token.borderColor,
+    color: token.textColorDisabled,
+    backgroundColor: token.componentBackgroundDisabled,
+    boxShadow: 'none',
+  },
+});
+
+const genSolidButtonStyle = (token: DerivativeToken): CSSObject => ({
+  borderRadius: token.borderRadius,
+
+  ...genSolidDisabledButtonStyle(token),
+});
+
+const genPureDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
+  '&:disabled': {
+    color: token.textColorDisabled,
+  },
+});
+
+// Type: Default
+const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   ...genSolidButtonStyle(token),
 
   backgroundColor: token.componentBackground,
   borderColor: token.borderColor,
 
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.015)',
+
+  ...genGhostButtonStyle(
+    prefixCls,
+    token.componentBackground,
+    token.componentBackground,
+    token.textColorDisabled,
+    token.borderColor,
+  ),
+
+  [`&.${prefixCls}-dangerous`]: {
+    color: token.errorColor,
+    borderColor: token.errorColor,
+
+    ...genGhostButtonStyle(
+      prefixCls,
+      token.errorColor,
+      token.errorColor,
+      token.textColorDisabled,
+      token.borderColor,
+    ),
+    ...genSolidDisabledButtonStyle(token),
+  },
 });
 
-const genPrimaryButtonStyle = (token: DerivativeToken): CSSObject => ({
+// Type: Primary
+const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   ...genSolidButtonStyle(token),
 
   color: '#FFF',
   backgroundColor: token.primaryColor,
 
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
+
+  ...genGhostButtonStyle(
+    prefixCls,
+    token.primaryColor,
+    token.primaryColor,
+    token.textColorDisabled,
+    token.borderColor,
+  ),
+
+  [`&.${prefixCls}-dangerous`]: {
+    backgroundColor: token.errorColor,
+
+    ...genGhostButtonStyle(
+      prefixCls,
+      token.errorColor,
+      token.errorColor,
+      token.textColorDisabled,
+      token.borderColor,
+    ),
+    ...genSolidDisabledButtonStyle(token),
+  },
 });
 
-const genDashedButtonStyle = (token: DerivativeToken): CSSObject => ({
-  ...genDefaultButtonStyle(token),
+// Type: Dashed
+const genDashedButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+  ...genDefaultButtonStyle(prefixCls, token),
 
   borderStyle: 'dashed',
 });
 
-const genLinkButtonStyle = (token: DerivativeToken): CSSObject => ({
+// Type: Link
+const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   color: token.linkColor,
+  ...genPureDisabledButtonStyle(token),
+
+  [`&.${prefixCls}-dangerous`]: {
+    color: token.errorColor,
+    ...genPureDisabledButtonStyle(token),
+  },
+});
+
+// Type: Text
+const genTextButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+  ...genPureDisabledButtonStyle(token),
+
+  [`&.${prefixCls}-dangerous`]: {
+    color: token.errorColor,
+    ...genPureDisabledButtonStyle(token),
+  },
 });
 
 const genTypeButtonStyle = (prefixCls: string, token: DerivativeToken): CSSInterpolation => [
-  withPrefix(genDefaultButtonStyle(token), `${prefixCls}-default`, []),
-  withPrefix(genPrimaryButtonStyle(token), `${prefixCls}-primary`, []),
-  withPrefix(genDashedButtonStyle(token), `${prefixCls}-dashed`, []),
-  withPrefix(genLinkButtonStyle(token), `${prefixCls}-link`, []),
+  withPrefix(genDefaultButtonStyle(prefixCls, token), `${prefixCls}-default`, []),
+  withPrefix(genPrimaryButtonStyle(prefixCls, token), `${prefixCls}-primary`, []),
+  withPrefix(genDashedButtonStyle(prefixCls, token), `${prefixCls}-dashed`, []),
+  withPrefix(genLinkButtonStyle(prefixCls, token), `${prefixCls}-link`, []),
+  withPrefix(genTextButtonStyle(prefixCls, token), `${prefixCls}-text`, []),
 ];
 
 // =============================== Size ===============================
@@ -170,7 +278,7 @@ export default function useStyle(prefixCls: string) {
 
   useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
     // Shared
-    withPrefix(genSharedButtonStyle(iconPrefixCls, token), prefixCls),
+    withPrefix(genSharedButtonStyle(prefixCls, iconPrefixCls, token), prefixCls),
 
     // Size
     genSizeSmallButtonStyle(prefixCls, iconPrefixCls, token),
