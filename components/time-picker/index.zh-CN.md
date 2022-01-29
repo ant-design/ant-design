@@ -36,7 +36,6 @@ import moment from 'moment';
 | disabledTime | 不可选择的时间 | [DisabledTime](#DisabledTime) | - | 4.19.0 |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
-| hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标 | boolean | false |  |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  |
 | hourStep | 小时选项间隔 | number | 1 |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
@@ -49,12 +48,12 @@ import moment from 'moment';
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |
 | showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
+| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
 | value | 当前时间 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
-| validateStatus | 校验状态，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 
 #### DisabledTime
 

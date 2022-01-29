@@ -38,7 +38,6 @@ import moment from 'moment';
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
 | hourStep | Interval between hours in picker | number | 1 |  |
-| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. | boolean | false |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | minuteStep | Interval between minutes in picker | number | 1 |  |
 | open | Whether to popup panel | boolean | false |  |
@@ -49,13 +48,13 @@ import moment from 'moment';
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
+| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [moment](http://momentjs.com/) | - |  |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
 | onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
-| validateStatus | The validation status. Options: `success` `warning` `error` `validating` | string | - |  |
 
 #### DisabledTime
 

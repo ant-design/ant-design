@@ -13,8 +13,6 @@ title:
 
 Add status to Mentions with `status`.
 
-Basic usage.
-
 ```jsx
 import { Mentions, Space } from 'antd';
 

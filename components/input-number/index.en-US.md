@@ -24,13 +24,13 @@ When a numeric value needs to be provided.
 | defaultValue | The initial value | number | - | - |
 | disabled | If disable the input | boolean | false | - |
 | formatter | Specifies the format of the value presented | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |
-| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. | boolean | false |  |
 | keyboard | If enable keyboard behavior | boolean | true | 4.12.0 |
 | max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
 | parser | Specifies the value extracted from formatter | function(string): number | - | - |
 | precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - |
 | readOnly | If readonly the input | boolean | false | - |
+| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - |
 | prefix | The prefix icon for the Input | ReactNode | - | 4.17.0 |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
@@ -39,7 +39,6 @@ When a numeric value needs to be provided.
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
-| validateStatus | The validation status. Options: `success` `warning` `error` `validating` | string | - |  |
 
 ## Methods
 

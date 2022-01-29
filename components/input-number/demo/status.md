@@ -20,17 +20,21 @@ We provide properties like `validateStatus` `hasFeedback` to customize your own 
 2. `hasFeedback`: display feed icon of input control.
 
 ```tsx
-import { Select, Space } from 'antd';
+import { InputNumber, Space } from 'antd';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 
-const Validation: React.FC = () => {
+const ValidateInputs: React.FC = () => {
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      <Select validateStatus="error" style={{ width: '100%' }} />
-      <Select validateStatus="warning" style={{ width: '100%' }} />
+      <InputNumber validateStatus="error" style={{ width: '100%' }} />
+      <InputNumber
+        validateStatus="warning"
+        style={{ width: '100%' }}
+        prefix={<ClockCircleOutlined />}
+      />
     </Space>
   );
 };
 
-ReactDOM.render(<Validation />, mountNode);
+ReactDOM.render(<ValidateInputs />, mountNode);
 ```

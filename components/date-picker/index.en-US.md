@@ -61,7 +61,6 @@ The following APIs are shared by DatePicker, RangePicker.
 | disabledDate | Specify the date that cannot be selected | (currentDate: moment) => boolean | - |  |
 | dropdownClassName | To customize the className of the popup calendar | string | - |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
-| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. | boolean | false |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
@@ -74,13 +73,13 @@ The following APIs are shared by DatePicker, RangePicker.
 | popupStyle | To customize the style of the popup calendar | CSSProperties | {} |  |
 | prevIcon | The custom prev icon | ReactNode | - | 4.17.0 |
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
+| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - |  |
 | style | To customize the style of the input box | CSSProperties | {} |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
-| validateStatus | The validation status. Options: `success` `warning` `error` `validating` | string | - |  |
 
 ### Common Methods
 
