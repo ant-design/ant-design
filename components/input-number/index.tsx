@@ -16,6 +16,8 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
+  upIcon?: React.ReactNode;
+  downIcon?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
 }
@@ -37,12 +39,33 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     prefix,
     bordered = true,
     readOnly,
+    upIcon,
+    downIcon,
     ...others
   } = props;
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-  const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-  const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+
+  let upCurrentClassName = '';
+  let downCurrentClassName = '';
+  React.isValidElement(upIcon) && (upCurrentClassName = upIcon?.props?.className ?? '');
+  React.isValidElement(downIcon) && (downCurrentClassName = downIcon?.props?.className ?? '');
+
+  const upTargetClassName = upCurrentClassName ?
+    `${upCurrentClassName} ${prefixCls}-handler-up-inner` :
+    `${prefixCls}-handler-up-inner`;
+  const downTargetClassName = downCurrentClassName ?
+    `${downCurrentClassName} ${prefixCls}-handler-down-inner` :
+    `${prefixCls}-handler-down-inner`;
+
+  const upHandler = cloneElement(
+    upIcon || <UpOutlined />,
+    { className: upTargetClassName }
+  );
+  const downHandler = cloneElement(
+    downIcon || <DownOutlined />,
+    { className: downTargetClassName }
+  );
 
   const mergeSize = customizeSize || size;
   const inputNumberClass = classNames(
@@ -60,8 +83,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     <RcInputNumber
       ref={inputRef}
       className={inputNumberClass}
-      upHandler={upIcon}
-      downHandler={downIcon}
+      upHandler={upHandler}
+      downHandler={downHandler}
       prefixCls={prefixCls}
       readOnly={readOnly}
       {...others}
