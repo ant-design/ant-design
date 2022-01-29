@@ -1,4 +1,5 @@
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 import { DerivativeToken, useStyleRegister, useToken, withPrefix } from '../../_util/theme';
 
 // ============================== Shared ==============================
@@ -7,6 +8,7 @@ const genSharedButtonStyle = (
   iconPrefixCls: string,
   token: DerivativeToken,
 ): CSSObject => ({
+  outline: 'none',
   position: 'relative',
   display: 'inline-block',
   fontWeight: 400,
@@ -33,6 +35,13 @@ const genSharedButtonStyle = (
 
   [`&.${prefixCls}-block`]: {
     width: '100%',
+  },
+});
+
+const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject): CSSObject => ({
+  '&:not(:disabled)': {
+    '&:hover, &:focus': hoverStyle,
+    '&:active': activeStyle,
   },
 });
 
@@ -104,6 +113,17 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.015)',
 
+  ...genHoverActiveButtonStyle(
+    {
+      color: token.primaryHoverColor,
+      borderColor: token.primaryHoverColor,
+    },
+    {
+      color: token.primaryActiveColor,
+      borderColor: token.primaryActiveColor,
+    },
+  ),
+
   ...genGhostButtonStyle(
     prefixCls,
     token.componentBackground,
@@ -115,6 +135,17 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   [`&.${prefixCls}-dangerous`]: {
     color: token.errorColor,
     borderColor: token.errorColor,
+
+    ...genHoverActiveButtonStyle(
+      {
+        color: token.errorHoverColor,
+        borderColor: token.errorHoverColor,
+      },
+      {
+        color: token.errorActiveColor,
+        borderColor: token.errorActiveColor,
+      },
+    ),
 
     ...genGhostButtonStyle(
       prefixCls,
@@ -136,6 +167,15 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
 
+  ...genHoverActiveButtonStyle(
+    {
+      backgroundColor: token.primaryHoverColor,
+    },
+    {
+      backgroundColor: token.primaryActiveColor,
+    },
+  ),
+
   ...genGhostButtonStyle(
     prefixCls,
     token.primaryColor,
@@ -146,6 +186,15 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   [`&.${prefixCls}-dangerous`]: {
     backgroundColor: token.errorColor,
+
+    ...genHoverActiveButtonStyle(
+      {
+        backgroundColor: token.errorHoverColor,
+      },
+      {
+        backgroundColor: token.errorActiveColor,
+      },
+    ),
 
     ...genGhostButtonStyle(
       prefixCls,
@@ -168,23 +217,60 @@ const genDashedButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObj
 // Type: Link
 const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   color: token.linkColor,
+
+  ...genHoverActiveButtonStyle(
+    {
+      color: token.primaryHoverColor,
+    },
+    {
+      color: token.primaryActiveColor,
+    },
+  ),
+
   ...genPureDisabledButtonStyle(token),
 
   [`&.${prefixCls}-dangerous`]: {
     color: token.errorColor,
+
+    ...genHoverActiveButtonStyle(
+      {
+        color: token.errorHoverColor,
+      },
+      {
+        color: token.errorActiveColor,
+      },
+    ),
+
     ...genPureDisabledButtonStyle(token),
   },
 });
 
 // Type: Text
-const genTextButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
-  ...genPureDisabledButtonStyle(token),
+const genTextButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => {
+  const backgroundColor = new TinyColor({ r: 0, g: 0, b: 0, a: 0.018 });
 
-  [`&.${prefixCls}-dangerous`]: {
-    color: token.errorColor,
+  return {
+    ...genHoverActiveButtonStyle(
+      {
+        backgroundColor: backgroundColor.toRgbString(),
+      },
+      {
+        backgroundColor: backgroundColor
+          .clone()
+          .setAlpha(backgroundColor.getAlpha() * 1.5)
+          .toRgbString(),
+      },
+    ),
+
     ...genPureDisabledButtonStyle(token),
-  },
-});
+
+    [`&.${prefixCls}-dangerous`]: {
+      color: token.errorColor,
+
+      ...genPureDisabledButtonStyle(token),
+    },
+  };
+};
 
 const genTypeButtonStyle = (prefixCls: string, token: DerivativeToken): CSSInterpolation => [
   withPrefix(genDefaultButtonStyle(prefixCls, token), `${prefixCls}-default`, []),

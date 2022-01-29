@@ -1,4 +1,5 @@
 import React from 'react';
+import { generate } from '@ant-design/colors';
 import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
@@ -31,6 +32,11 @@ export interface DesignToken {
 
 /** This is temporary token definition since final token definition is not ready yet. */
 export interface DerivativeToken extends DesignToken {
+  primaryHoverColor: string;
+  primaryActiveColor: string;
+  errorHoverColor: string;
+  errorActiveColor: string;
+
   linkColor: string;
   fontSizeSM: number;
   fontSizeLG: number;
@@ -44,8 +50,18 @@ export { useStyleRegister };
 
 // =============================== Derivative ===============================
 function derivative(designToken: DesignToken): DerivativeToken {
+  const primaryColors = generate(designToken.primaryColor);
+  const errorColors = generate(designToken.errorColor);
+
   return {
     ...designToken,
+
+    primaryHoverColor: primaryColors[4],
+    primaryActiveColor: primaryColors[6],
+
+    errorHoverColor: errorColors[4],
+    errorActiveColor: errorColors[6],
+
     linkColor: designToken.primaryColor,
     fontSizeSM: designToken.fontSize - 2,
     fontSizeLG: designToken.fontSize + 2,
