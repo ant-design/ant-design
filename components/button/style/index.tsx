@@ -233,6 +233,10 @@ const genSizeButtonStyle = (
           cursor: 'default',
         },
 
+        [`.${prefixCls}-loading-icon`]: {
+          transition: `width ${token.duration} ${token.easeInOut}, opacity ${token.duration} ${token.easeInOut}`,
+        },
+
         [`&:not(${iconOnlyCls}) .${prefixCls}-loading-icon > .${iconPrefixCls}`]: {
           marginInlineEnd: token.marginXS,
         },
