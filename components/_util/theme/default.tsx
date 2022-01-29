@@ -26,6 +26,8 @@ const defaultDesignToken: DesignToken = {
 
   componentBackground: '#fff',
   componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toRgbString(),
+
+  duration: '0.3s',
 };
 
 export default defaultDesignToken;

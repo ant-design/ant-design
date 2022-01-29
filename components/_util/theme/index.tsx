@@ -25,6 +25,8 @@ export interface DesignToken {
 
   componentBackground: string;
   componentBackgroundDisabled: string;
+
+  duration: string;
 }
 
 /** This is temporary token definition since final token definition is not ready yet. */

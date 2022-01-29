@@ -16,7 +16,7 @@ const genSharedButtonStyle = (
   backgroundColor: 'transparent',
   border: `${token.borderWidth}px ${token.borderStyle} transparent`,
   cursor: 'pointer',
-  transition: token.easeInOut,
+  transition: `all ${token.duration} ${token.easeInOut}`,
   userSelect: 'none',
   touchAction: 'manipulation',
   lineHeight: token.lineHeight,
@@ -64,7 +64,8 @@ const genGhostButtonStyle = (
     backgroundColor: 'transparent',
     borderColor: borderColor || undefined,
 
-    '&[disabled]': {
+    '&:disabled': {
+      cursor: 'not-allowed',
       color: textColorDisabled || undefined,
       borderColor: borderColorDisabled || undefined,
     },
@@ -73,6 +74,7 @@ const genGhostButtonStyle = (
 
 const genSolidDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
   '&:disabled': {
+    cursor: 'not-allowed',
     borderColor: token.borderColor,
     color: token.textColorDisabled,
     backgroundColor: token.componentBackgroundDisabled,
@@ -88,6 +90,7 @@ const genSolidButtonStyle = (token: DerivativeToken): CSSObject => ({
 
 const genPureDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
   '&:disabled': {
+    cursor: 'not-allowed',
     color: token.textColorDisabled,
   },
 });
@@ -204,6 +207,8 @@ const genSizeButtonStyle = (
   );
   const paddingHorizontal = token.padding - token.borderWidth;
 
+  const iconOnlyCls = `.${prefixCls}-icon-only`;
+
   return [
     // Size
     withPrefix(
@@ -212,7 +217,7 @@ const genSizeButtonStyle = (
         height: token.height,
         padding: `${paddingVertical}px ${paddingHorizontal}px`,
 
-        [`&.${prefixCls}-icon-only`]: {
+        [`&${iconOnlyCls}`]: {
           width: token.height,
           paddingLeft: 0,
           paddingRight: 0,
@@ -220,6 +225,16 @@ const genSizeButtonStyle = (
           '> span': {
             transform: 'scale(1.143)', // 14px -> 16px
           },
+        },
+
+        // Loading
+        [`&.${prefixCls}-loading`]: {
+          opacity: 0.65,
+          cursor: 'default',
+        },
+
+        [`&:not(${iconOnlyCls}) .${prefixCls}-loading-icon > .${iconPrefixCls}`]: {
+          marginInlineEnd: token.marginXS,
         },
       },
       prefixCls,
