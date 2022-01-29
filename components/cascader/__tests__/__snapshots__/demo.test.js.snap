@@ -1168,7 +1168,7 @@ exports[`renders ./components/cascader/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-row ant-form-item ant-form-item-with-help"
+      class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -1278,7 +1278,7 @@ exports[`renders ./components/cascader/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-row ant-form-item ant-form-item-with-help"
+      class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -1388,7 +1388,7 @@ exports[`renders ./components/cascader/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-row ant-form-item"
+      class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -1487,7 +1487,7 @@ exports[`renders ./components/cascader/demo/status.md correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-row ant-form-item"
+      class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-is-validating"
     >
       <div
         class="ant-col ant-form-item-control"
