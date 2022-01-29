@@ -11,7 +11,7 @@ const defaultDesignToken: DesignToken = {
   borderWidth: 1,
   borderStyle: 'solid',
   borderRadius: 2,
-  borderColor: new TinyColor({ h: 0, s: 0, v: 85 }).toRgbString(),
+  borderColor: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
 
   easeInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
 
@@ -25,7 +25,7 @@ const defaultDesignToken: DesignToken = {
   margin: 16,
 
   componentBackground: '#fff',
-  componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toRgbString(),
+  componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
 
   duration: '0.3s',
 };
