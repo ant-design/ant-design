@@ -29,14 +29,14 @@ const genSharedButtonStyle = (iconPrefixCls: string, token: DerivativeToken): CS
 });
 
 // ============================== Shape ===============================
-const genCircleButtonStyle = (token: DerivativeToken): CSSObject => ({
+const genCircleButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   minWidth: token.height,
   paddingLeft: 0,
   paddingRight: 0,
   borderRadius: '50%',
 });
 
-const genRoundButtonStyle = (token: DerivativeToken): CSSObject => ({
+const genRoundButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   borderRadius: token.height,
   paddingLeft: token.height / 2,
   paddingRight: token.height / 2,
@@ -103,14 +103,30 @@ const genSizeButtonStyle = (
         fontSize: token.fontSize,
         height: token.height,
         padding: `${paddingVertical}px ${paddingHorizontal}px`,
+
+        [`&.${prefixCls}-icon-only`]: {
+          width: token.height,
+          paddingLeft: 0,
+          paddingRight: 0,
+
+          '> span': {
+            transform: 'scale(1.143)', // 14px -> 16px
+          },
+        },
       },
       prefixCls,
       [sizePrefixCls],
     ),
 
-    // Shape
-    withPrefix(genCircleButtonStyle(token), `${prefixCls}-circle`, [prefixCls, sizePrefixCls]),
-    withPrefix(genRoundButtonStyle(token), `${prefixCls}-round`, [prefixCls, sizePrefixCls]),
+    // Shape - patch prefixCls again to override solid border radius style
+    withPrefix(genCircleButtonStyle(prefixCls, token), `${prefixCls}-circle`, [
+      prefixCls,
+      sizePrefixCls,
+    ]),
+    withPrefix(genRoundButtonStyle(prefixCls, token), `${prefixCls}-round`, [
+      prefixCls,
+      sizePrefixCls,
+    ]),
   ];
 };
 
