@@ -21,10 +21,10 @@ const Validation: React.FC = () => {
     <Space direction="vertical" style={{ width: '100%' }}>
       <Cascader status="error" style={{ width: '100%' }} />
       <Cascader status="warning" style={{ width: '100%' }} />
-      <Form.Item validateStatus="error" hasFeedback>
+      <Form.Item validateStatus="error" hasFeedback help="Something wrong.">
         <Cascader style={{ width: '100%' }} />
       </Form.Item>
-      <Form.Item validateStatus="warning" hasFeedback>
+      <Form.Item validateStatus="warning" hasFeedback help="Please check.">
         <Cascader style={{ width: '100%' }} />
       </Form.Item>
       <Form.Item validateStatus="success" hasFeedback>
@@ -39,3 +39,7 @@ const Validation: React.FC = () => {
 
 ReactDOM.render(<Validation />, mountNode);
 ```
+
+<style>
+.
+</style>

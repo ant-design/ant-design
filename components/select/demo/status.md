@@ -21,10 +21,10 @@ const Validation: React.FC = () => {
     <Space direction="vertical" style={{ width: '100%' }}>
       <Select status="error" style={{ width: '100%' }} />
       <Select status="warning" style={{ width: '100%' }} />
-      <Form.Item validateStatus="error" hasFeedback>
+      <Form.Item validateStatus="error" hasFeedback help="Something wrong.">
         <Select style={{ width: '100%' }} />
       </Form.Item>
-      <Form.Item validateStatus="warning" hasFeedback>
+      <Form.Item validateStatus="warning" hasFeedback help="Please check.">
         <Select style={{ width: '100%' }} />
       </Form.Item>
       <Form.Item validateStatus="success" hasFeedback>
@@ -38,4 +38,10 @@ const Validation: React.FC = () => {
 };
 
 ReactDOM.render(<Validation />, mountNode);
+```
+
+```css
+#components-select-demo-status .ant-select {
+  margin: 0;
+}
 ```
