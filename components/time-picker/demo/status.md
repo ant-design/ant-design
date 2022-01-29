@@ -22,7 +22,7 @@ const Validation: React.FC = () => {
     <Space direction="vertical" style={{ width: '100%' }}>
       <TimePicker status="error" style={{ width: '100%' }} />
       <TimePicker status="warning" style={{ width: '100%' }} />
-      <Form.Item validateStatus="error" hasFeedback>
+      <Form.Item status="error" hasFeedback>
         <TimePicker style={{ width: '100%' }} />
       </Form.Item>
     </Space>

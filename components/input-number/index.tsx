@@ -22,7 +22,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   prefix?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
-  validateStatus?: ValidateStatus;
+  status?: ValidateStatus;
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
@@ -42,7 +42,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     prefix,
     bordered = true,
     readOnly,
-    validateStatus: customStatus,
+    status: customStatus,
     ...others
   } = props;
 

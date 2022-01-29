@@ -21,16 +21,16 @@ const Validation: React.FC = () => {
     <Space direction="vertical" style={{ width: '100%' }}>
       <TreeSelect status="error" style={{ width: '100%' }} />
       <TreeSelect status="warning" style={{ width: '100%' }} />
-      <Form.Item validateStatus="error" hasFeedback help="Something wrong.">
+      <Form.Item status="error" hasFeedback help="Something wrong.">
         <TreeSelect style={{ width: '100%' }} />
       </Form.Item>
-      <Form.Item validateStatus="warning" hasFeedback help="Please check again.">
+      <Form.Item status="warning" hasFeedback help="Please check again.">
         <TreeSelect style={{ width: '100%' }} />
       </Form.Item>
-      <Form.Item validateStatus="success" hasFeedback>
+      <Form.Item status="success" hasFeedback>
         <TreeSelect style={{ width: '100%' }} />
       </Form.Item>
-      <Form.Item validateStatus="validating" hasFeedback>
+      <Form.Item status="validating" hasFeedback>
         <TreeSelect style={{ width: '100%' }} />
       </Form.Item>
     </Space>

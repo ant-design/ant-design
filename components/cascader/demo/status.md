@@ -21,16 +21,16 @@ const Validation: React.FC = () => {
     <Space direction="vertical" style={{ width: '100%' }}>
       <Cascader status="error" style={{ width: '100%' }} />
       <Cascader status="warning" style={{ width: '100%' }} />
-      <Form.Item validateStatus="error" hasFeedback help="Something wrong.">
+      <Form.Item status="error" hasFeedback help="Something wrong.">
         <Cascader style={{ width: '100%' }} />
       </Form.Item>
-      <Form.Item validateStatus="warning" hasFeedback help="Please check.">
+      <Form.Item status="warning" hasFeedback help="Please check.">
         <Cascader style={{ width: '100%' }} />
       </Form.Item>
-      <Form.Item validateStatus="success" hasFeedback>
+      <Form.Item status="success" hasFeedback>
         <Cascader style={{ width: '100%' }} />
       </Form.Item>
-      <Form.Item validateStatus="validating" hasFeedback>
+      <Form.Item status="validating" hasFeedback>
         <Cascader style={{ width: '100%' }} />
       </Form.Item>
     </Space>

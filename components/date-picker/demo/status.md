@@ -21,7 +21,7 @@ const Validation: React.FC = () => {
     <Space direction="vertical" style={{ width: '100%' }}>
       <DatePicker status="error" style={{ width: '100%' }} />
       <DatePicker status="warning" style={{ width: '100%' }} />
-      <Form.Item validateStatus="error" hasFeedback>
+      <Form.Item status="error" hasFeedback>
         <DatePicker style={{ width: '100%' }} />
       </Form.Item>
     </Space>
