@@ -243,11 +243,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       [`${className}`]: !!className,
 
       // Status
-      // [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
-      // [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
-      // [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
-      // [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-      // [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
+      [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
+      [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
+      [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
+      [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
       [`${prefixCls}-item-hidden`]: hidden,
     };
 
