@@ -1,20 +1,8 @@
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
-import {
-  PickerBaseProps as RCPickerBaseProps,
-  PickerDateProps as RCPickerDateProps,
-  PickerTimeProps as RCPickerTimeProps,
-} from 'rc-picker/lib/Picker';
 import { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
-import {
-  RangePickerBaseProps as RCRangePickerBaseProps,
-  RangePickerDateProps as RCRangePickerDateProps,
-  RangePickerTimeProps as RCRangePickerTimeProps,
-} from 'rc-picker/lib/RangePicker';
-import { PickerMode, Locale as RcPickerLocale } from 'rc-picker/lib/interface';
-import { SizeType } from '../../config-provider/SizeContext';
+import type { PickerMode } from 'rc-picker/lib/interface';
 import PickerButton from '../PickerButton';
 import PickerTag from '../PickerTag';
-import { TimePickerLocale } from '../../time-picker';
 import generateSinglePicker from './generateSinglePicker';
 import generateRangePicker from './generateRangePicker';
 
@@ -64,62 +52,6 @@ export function getTimeProps<DateType>(
     showTime: showTimeObj,
   };
 }
-
-type InjectDefaultProps<Props> = Omit<
-  Props,
-  | 'locale'
-  | 'generateConfig'
-  | 'hideHeader'
-  | 'components'
-> & {
-  locale?: PickerLocale;
-  size?: SizeType;
-  bordered?: boolean;
-};
-
-export type PickerLocale = {
-  lang: RcPickerLocale & AdditionalPickerLocaleLangProps;
-  timePickerLocale: TimePickerLocale;
-} & AdditionalPickerLocaleProps;
-
-export type AdditionalPickerLocaleProps = {
-  dateFormat?: string;
-  dateTimeFormat?: string;
-  weekFormat?: string;
-  monthFormat?: string;
-};
-
-export type AdditionalPickerLocaleLangProps = {
-  placeholder: string;
-  yearPlaceholder?: string;
-  quarterPlaceholder?: string;
-  monthPlaceholder?: string;
-  weekPlaceholder?: string;
-  rangeYearPlaceholder?: [string, string];
-  rangeMonthPlaceholder?: [string, string];
-  rangeWeekPlaceholder?: [string, string];
-  rangePlaceholder?: [string, string];
-};
-
-// Picker Props
-export type PickerBaseProps<DateType> = InjectDefaultProps<RCPickerBaseProps<DateType>>;
-export type PickerDateProps<DateType> = InjectDefaultProps<RCPickerDateProps<DateType>>;
-export type PickerTimeProps<DateType> = InjectDefaultProps<RCPickerTimeProps<DateType>>;
-
-export type PickerProps<DateType> =
-  | PickerBaseProps<DateType>
-  | PickerDateProps<DateType>
-  | PickerTimeProps<DateType>;
-
-// Range Picker Props
-export type RangePickerBaseProps<DateType> = InjectDefaultProps<RCRangePickerBaseProps<DateType>>;
-export type RangePickerDateProps<DateType> = InjectDefaultProps<RCRangePickerDateProps<DateType>>;
-export type RangePickerTimeProps<DateType> = InjectDefaultProps<RCRangePickerTimeProps<DateType>>;
-
-export type RangePickerProps<DateType> =
-  | RangePickerBaseProps<DateType>
-  | RangePickerDateProps<DateType>
-  | RangePickerTimeProps<DateType>;
 
 function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   // =========================== Picker ===========================

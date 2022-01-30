@@ -17,10 +17,9 @@ import {
   PickerLocale,
   PickerDateProps,
   PickerTimeProps,
-  getTimeProps,
-  Components,
-} from '.';
-import { PickerComponentClass } from './interface';
+  PickerComponentClass,
+} from './interface';
+import { getTimeProps, Components } from '.';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType>;
