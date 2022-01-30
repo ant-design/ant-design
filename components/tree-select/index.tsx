@@ -16,7 +16,7 @@ import { AntTreeNodeProps, TreeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
+import { getTransitionName } from '../_util/motion';
 
 type RawValue = string | number;
 
@@ -43,7 +43,6 @@ export interface TreeSelectProps<
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
-  placement?: SelectCommonPlacement;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
 }
@@ -58,7 +57,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     multiple,
     listHeight = 256,
     listItemHeight = 26,
-    placement,
     notFoundContent,
     switcherIcon,
     treeLine,
@@ -121,16 +119,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     'switcherIcon',
   ]);
 
-  // ===================== Placement =====================
-  const getPlacement = () => {
-    if (placement !== undefined) {
-      return placement;
-    }
-    return direction === 'rtl'
-      ? ('bottomRight' as SelectCommonPlacement)
-      : ('bottomLeft' as SelectCommonPlacement);
-  };
-
   const mergedSize = customizeSize || size;
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,
@@ -160,7 +148,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       treeLine={!!treeLine}
       inputIcon={suffixIcon}
       multiple={multiple}
-      placement={getPlacement()}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
@@ -172,11 +159,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(
-        rootPrefixCls,
-        getTransitionDirection(placement),
-        transitionName,
-      )}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
     />
   );
 };

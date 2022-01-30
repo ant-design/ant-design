@@ -7,7 +7,6 @@ import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { tuple } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
-import getPlacements from '../_util/placements';
 
 const Placements = tuple(
   'topLeft',
@@ -16,8 +15,6 @@ const Placements = tuple(
   'bottomLeft',
   'bottomCenter',
   'bottomRight',
-  'top',
-  'bottom',
 );
 
 type Placement = typeof Placements[number];
@@ -37,12 +34,8 @@ type Align = {
   useCssTransform?: boolean;
 };
 
-export type DropdownArrowOptions = {
-  pointAtCenter?: boolean;
-};
-
 export interface DropDownProps {
-  arrow?: boolean | DropdownArrowOptions;
+  arrow?: boolean;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
@@ -136,21 +129,10 @@ const Dropdown: DropdownInterface = props => {
 
   const getPlacement = () => {
     const { placement } = props;
-    if (!placement) {
-      return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+    if (placement !== undefined) {
+      return placement;
     }
-
-    if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center'));
-      devWarning(
-        !placement.includes('Center'),
-        'Dropdown',
-        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
-      );
-      return newPlacement;
-    }
-
-    return placement;
+    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
   };
 
   const {
@@ -187,16 +169,11 @@ const Dropdown: DropdownInterface = props => {
     alignPoint = true;
   }
 
-  const builtinPlacements = getPlacements({
-    arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
-  });
-
   return (
     <RcDropdown
+      arrow={arrow}
       alignPoint={alignPoint}
       {...props}
-      builtinPlacements={builtinPlacements}
-      arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
       prefixCls={prefixCls}
       getPopupContainer={getPopupContainer || getContextPopupContainer}

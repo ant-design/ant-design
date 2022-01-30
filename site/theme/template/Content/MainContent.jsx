@@ -523,7 +523,7 @@ class MainContent extends Component {
             </section>
             {componentPage && (
               <div className="fixed-widgets">
-                <Dropdown overlay={this.getThemeSwitchMenu()} placement="top">
+                <Dropdown overlay={this.getThemeSwitchMenu()} placement="topCenter">
                   <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
                 </Dropdown>
               </div>

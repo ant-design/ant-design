@@ -109,15 +109,11 @@
     }
   }
 
-  // Skeleton Block Button, Input
+  // Skeleton Block Button
   &.@{skeleton-prefix-cls}-block {
     width: 100%;
 
     .@{skeleton-button-prefix-cls} {
-      width: 100%;
-    }
-
-    .@{skeleton-input-prefix-cls} {
       width: 100%;
     }
   }
@@ -242,8 +238,7 @@
 }
 
 .skeleton-element-input-size(@size) {
-  width: @size * 5;
-  min-width: @size * 5;
+  width: 100%;
   .skeleton-element-common-size(@size);
 }
 

@@ -59,24 +59,4 @@ describe('Dropdown', () => {
     await sleep(500);
     expect(wrapper.find(Dropdown).find('#customExpandIcon').length).toBe(1);
   });
-
-  it('should warn if use topCenter or bottomCenter', () => {
-    const error = jest.spyOn(console, 'error');
-    mount(
-      <div>
-        <Dropdown overlay="123" placement="bottomCenter">
-          <button type="button">bottomCenter</button>
-        </Dropdown>
-        <Dropdown overlay="123" placement="topCenter">
-          <button type="button">topCenter</button>
-        </Dropdown>
-      </div>,
-    );
-    expect(error).toHaveBeenCalledWith(
-      expect.stringContaining("[antd: Dropdown] You are using 'bottomCenter'"),
-    );
-    expect(error).toHaveBeenCalledWith(
-      expect.stringContaining("[antd: Dropdown] You are using 'topCenter'"),
-    );
-  });
 });

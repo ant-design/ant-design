@@ -12778,7 +12778,6 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                     </div>
                   </th>
                   <th
-                    aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                   >
                     <div

@@ -42,7 +42,7 @@ Cascade selection box.
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#Option)\[] | - |  |
 | placeholder | The input placeholder | string | `Please select` |  |
-| placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
+| placement | Use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` | 4.17.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showSearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | style | The additional style | CSSProperties | - |  |

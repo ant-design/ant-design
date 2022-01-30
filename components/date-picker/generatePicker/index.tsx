@@ -17,7 +17,6 @@ import PickerTag from '../PickerTag';
 import { TimePickerLocale } from '../../time-picker';
 import generateSinglePicker from './generateSinglePicker';
 import generateRangePicker from './generateRangePicker';
-import { tuple } from '../../_util/type';
 
 export const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -28,18 +27,13 @@ function toArray<T>(list: T | T[]): T[] {
   return Array.isArray(list) ? list : [list];
 }
 
-export function getTimeProps<DateType, DisabledTime>(
-  props: { format?: string; picker?: PickerMode } & Omit<
-    SharedTimeProps<DateType>,
-    'disabledTime'
-  > & {
-      disabledTime?: DisabledTime;
-    },
+export function getTimeProps<DateType>(
+  props: { format?: string; picker?: PickerMode } & SharedTimeProps<DateType>,
 ) {
   const { format, picker, showHour, showMinute, showSecond, use12Hours } = props;
 
   const firstFormat = toArray(format)[0];
-  const showTimeObj = { ...props };
+  const showTimeObj: SharedTimeProps<DateType> = { ...props };
 
   if (firstFormat && typeof firstFormat === 'string') {
     if (!firstFormat.includes('s') && showSecond === undefined) {
@@ -70,16 +64,16 @@ export function getTimeProps<DateType, DisabledTime>(
     showTime: showTimeObj,
   };
 }
-const DataPickerPlacements = tuple('bottomLeft', 'bottomRight', 'topLeft', 'topRight');
-type DataPickerPlacement = typeof DataPickerPlacements[number];
 
 type InjectDefaultProps<Props> = Omit<
   Props,
-  'locale' | 'generateConfig' | 'hideHeader' | 'components'
+  | 'locale'
+  | 'generateConfig'
+  | 'hideHeader'
+  | 'components'
 > & {
   locale?: PickerLocale;
   size?: SizeType;
-  placement?: DataPickerPlacement;
   bordered?: boolean;
 };
 
