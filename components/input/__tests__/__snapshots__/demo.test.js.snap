@@ -427,7 +427,6 @@ Array [
       </span>
       <input
         class="ant-input"
-        style="width:100px"
         type="text"
         value=""
       />
@@ -1587,7 +1586,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-input-affix-wrapper"
-          style="width:40%"
         >
           <input
             class="ant-input"
@@ -1658,7 +1656,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-input-affix-wrapper"
-          style="width:40%"
         >
           <input
             class="ant-input"
@@ -2656,7 +2653,6 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
         <input
           class="ant-input"
           placeholder="input search text"
-          style="width:200px"
           type="text"
           value=""
         />
@@ -2704,7 +2700,6 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
       >
         <span
           class="ant-input-affix-wrapper"
-          style="width:200px"
         >
           <input
             class="ant-input"
@@ -2786,7 +2781,6 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
         </span>
         <span
           class="ant-input-affix-wrapper"
-          style="width:304px"
         >
           <input
             class="ant-input"

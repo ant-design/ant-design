@@ -314,6 +314,7 @@ class Input extends React.Component<InputProps, InputState> {
       'showCount',
       'status',
     ]);
+
     return (
       <input
         autoComplete={input.autoComplete}

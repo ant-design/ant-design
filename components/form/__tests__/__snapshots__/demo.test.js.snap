@@ -4002,7 +4002,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               <input
                 class="ant-input"
                 id="register_phone"
-                style="width:100%"
                 type="text"
                 value=""
               />

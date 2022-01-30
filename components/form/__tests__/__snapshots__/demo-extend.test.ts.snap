@@ -4560,7 +4560,6 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
               <input
                 class="ant-input"
                 id="register_phone"
-                style="width:100%"
                 type="text"
                 value=""
               />
