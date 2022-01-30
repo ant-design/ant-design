@@ -11,8 +11,8 @@ import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
 import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder } from '../util';
-import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
-import { PickerComponentClass } from './interface';
+import { getTimeProps, Components } from '.';
+import { PickerComponentClass, RangePickerProps, PickerLocale } from './interface';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
