@@ -12,11 +12,6 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 interface ShowCountProps {
   formatter: (args: { count: number; maxLength?: number }) => string;
 }
-
-function fixEmojiLength(value: string, maxLength: number) {
-  return [...(value || '')].slice(0, maxLength).join('');
-}
-
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
@@ -54,6 +49,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
     const [compositing, setCompositing] = React.useState(false);
+    const [oldCompositionValue, setOldCompositionValue] = React.useState<string>();
+    const [oldSelectionStart, setOldSelectionStart] = React.useState<number>(0);
 
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,
@@ -72,7 +69,11 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const hasMaxLength = Number(maxLength) > 0;
 
     const onInternalCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = e => {
+      // 拼音输入前保存一份旧值
       setCompositing(true);
+      // 保存旧的光标位置
+      setOldSelectionStart(e.currentTarget.selectionStart);
+      setOldCompositionValue(value as string);
       onCompositionStart?.(e);
     };
 
@@ -81,24 +82,46 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
       let triggerValue = e.currentTarget.value;
       if (hasMaxLength) {
-        triggerValue = fixEmojiLength(triggerValue, maxLength!);
+        const isCursorInEnd =
+          oldSelectionStart >= maxLength! + 1 || oldSelectionStart === oldCompositionValue?.length;
+        // 如果光标在尾部，则可输入后按照maxlength截取,
+        if (isCursorInEnd) {
+          triggerValue = [...(triggerValue || '')].slice(0, maxLength).join('');
+        } else if (
+          [...(oldCompositionValue || '')].length < triggerValue.length &&
+          [...(triggerValue || '')].length > maxLength!
+        ) {
+          // 光标在中间，如果最后的值超过最大值，则采用原先的值,
+          triggerValue = oldCompositionValue as string;
+        }
       }
-
       // Patch composition onChange when value changed
-      if (triggerValue !== value) {
-        handleSetValue(triggerValue);
-        resolveOnChange(e.currentTarget, e, onChange, triggerValue);
-      }
-
+      handleSetValue(triggerValue);
+      resolveOnChange(e.currentTarget, e, onChange, triggerValue);
       onCompositionEnd?.(e);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       let triggerValue = e.target.value;
+      // 1. 复制粘贴超过maxlength的情况 2.未超过maxlength的情况
+      const isCursorInEnd =
+        e.target.selectionStart >= maxLength! + 1 ||
+        e.target.selectionStart === triggerValue.length;
       if (!compositing && hasMaxLength) {
-        triggerValue = fixEmojiLength(triggerValue, maxLength!);
+        // 考虑删除的情况
+        // 光标在最后，直接按照maxLength裁切
+        if (isCursorInEnd) {
+          triggerValue = [...(triggerValue || '')].slice(0, maxLength).join('');
+        } else if (
+          [...((value || '') as string)].length < triggerValue.length &&
+          [...((triggerValue || '') as string)].length > maxLength!
+        ) {
+          // 光标在中间，如果最后的值超过最大值，则采用原先的值
+          triggerValue = value as string;
+        }
       }
-
+      // 如果compositing为true的话，应该要越过onchange的setvalue 逻辑，统一到onInternalCompositionEnd中进行处理
+      // 但是这里没有set的话，onInternalCompositionEnd没法执行
       handleSetValue(triggerValue);
       resolveOnChange(e.currentTarget, e, onChange, triggerValue);
     };
@@ -139,12 +162,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       />
     );
 
-    let val = fixControlledValue(value) as string;
-
-    if (!compositing && hasMaxLength && (props.value === null || props.value === undefined)) {
-      // fix #27612 将value转为数组进行截取，解决 '😂'.length === 2 等emoji表情导致的截取乱码的问题
-      val = fixEmojiLength(val, maxLength!);
-    }
+    const val = fixControlledValue(value) as string;
 
     // TextArea
     const textareaNode = (
