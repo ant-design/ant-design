@@ -16,6 +16,8 @@
   z-index: @zindex-notification;
   margin-right: @notification-margin-edge;
 
+  &-top,
+  &-bottom,
   &-topLeft,
   &-bottomLeft {
     margin-right: 0;
@@ -25,6 +27,12 @@
     .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
       animation-name: NotificationLeftFadeIn;
     }
+  }
+
+  &-top,
+  &-bottom {
+    margin-right: auto;
+    margin-left: auto;
   }
 
   &-close-icon {
@@ -49,6 +57,12 @@
     background: @notification-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
+
+    .@{notification-prefix-cls}-top &,
+    .@{notification-prefix-cls}-bottom & {
+      margin-right: auto;
+      margin-left: auto;
+    }
 
     .@{notification-prefix-cls}-topLeft &,
     .@{notification-prefix-cls}-bottomLeft & {

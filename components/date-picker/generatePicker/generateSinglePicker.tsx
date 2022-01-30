@@ -7,7 +7,7 @@ import RCPicker from 'rc-picker';
 import { PickerMode } from 'rc-picker/lib/interface';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
-import { getPlaceholder } from '../util';
+import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import devWarning from '../../_util/devWarning';
 import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
@@ -68,6 +68,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           className,
           size: customizeSize,
           bordered = true,
+          placement,
           placeholder,
           ...restProps
         } = this.props;
@@ -105,6 +106,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   suffixIcon={
                     mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
                   }
+                  dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
                   clearIcon={<CloseCircleFilled />}
                   prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                   nextIcon={<span className={`${prefixCls}-next-icon`} />}
