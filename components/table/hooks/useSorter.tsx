@@ -192,15 +192,6 @@ function injectSorter<RecordType>(
             }
           };
 
-          // Inform the screen-reader so it can tell the visually impaired user which column is sorted
-          if (sorterOrder) {
-            if (sorterOrder === 'ascend') {
-              cell['aria-sort'] = 'ascending';
-            } else {
-              cell['aria-sort'] = 'descending';
-            }
-          }
-
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
 
           return cell;

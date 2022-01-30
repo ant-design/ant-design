@@ -43,7 +43,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#Option)\[] | - |  |
 | placeholder | 输入框占位文本 | string | `请选择` |  |
-| placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
+| placement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` | 4.17.0 |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showSearch) | false |  |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - |  |
 | style | 自定义样式 | CSSProperties | - |  |
