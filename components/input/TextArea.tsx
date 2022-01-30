@@ -78,9 +78,10 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const onInternalCompositionEnd: React.CompositionEventHandler<HTMLTextAreaElement> = e => {
       setCompositing(false);
 
-      let triggerValue = e.currentTarget.value;
-      if (hasMaxLength) {
-        triggerValue = fixEmojiLength(triggerValue, maxLength!);
+      const triggerValue = e.currentTarget.value;
+      if (hasMaxLength && triggerValue.length === maxLength) {
+        // 输入文本长度达 maxLength 时，无法更新内容
+        onCompositionEnd?.(e);
       }
 
       // Patch composition onChange when value changed
