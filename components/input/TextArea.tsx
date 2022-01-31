@@ -12,6 +12,31 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 interface ShowCountProps {
   formatter: (args: { count: number; maxLength?: number }) => string;
 }
+
+function fixEmojiLength(value: string, maxLength: number) {
+  return [...(value || '')].slice(0, maxLength).join('');
+}
+
+function setTriggerValue(
+  isCursorInEnd: boolean,
+  preValue: string,
+  triggerValue: string,
+  maxLength: number,
+) {
+  let newTriggerValue = triggerValue;
+  if (isCursorInEnd) {
+    // 光标在尾部，直接截断
+    newTriggerValue = fixEmojiLength(triggerValue, maxLength!);
+  } else if (
+    [...((preValue || '') as string)].length < triggerValue.length &&
+    [...((triggerValue || '') as string)].length > maxLength!
+  ) {
+    // 光标在中间，如果最后的值超过最大值，则采用原先的值
+    newTriggerValue = preValue as string;
+  }
+  return newTriggerValue;
+}
+
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
@@ -84,16 +109,12 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       if (hasMaxLength) {
         const isCursorInEnd =
           oldSelectionStart >= maxLength! + 1 || oldSelectionStart === oldCompositionValue?.length;
-        // 如果光标在尾部，则可输入后按照maxlength截取,
-        if (isCursorInEnd) {
-          triggerValue = [...(triggerValue || '')].slice(0, maxLength).join('');
-        } else if (
-          [...(oldCompositionValue || '')].length < triggerValue.length &&
-          [...(triggerValue || '')].length > maxLength!
-        ) {
-          // 光标在中间，如果最后的值超过最大值，则采用原先的值,
-          triggerValue = oldCompositionValue as string;
-        }
+        triggerValue = setTriggerValue(
+          isCursorInEnd,
+          oldCompositionValue as string,
+          triggerValue,
+          maxLength!,
+        );
       }
       // Patch composition onChange when value changed
       handleSetValue(triggerValue);
@@ -103,25 +124,13 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       let triggerValue = e.target.value;
-      // 1. 复制粘贴超过maxlength的情况 2.未超过maxlength的情况
-      const isCursorInEnd =
-        e.target.selectionStart >= maxLength! + 1 ||
-        e.target.selectionStart === triggerValue.length;
       if (!compositing && hasMaxLength) {
-        // 考虑删除的情况
-        // 光标在最后，直接按照maxLength裁切
-        if (isCursorInEnd) {
-          triggerValue = [...(triggerValue || '')].slice(0, maxLength).join('');
-        } else if (
-          [...((value || '') as string)].length < triggerValue.length &&
-          [...((triggerValue || '') as string)].length > maxLength!
-        ) {
-          // 光标在中间，如果最后的值超过最大值，则采用原先的值
-          triggerValue = value as string;
-        }
+        // 1. 复制粘贴超过maxlength的情况 2.未超过maxlength的情况
+        const isCursorInEnd =
+          e.target.selectionStart >= maxLength! + 1 ||
+          e.target.selectionStart === triggerValue.length;
+        triggerValue = setTriggerValue(isCursorInEnd, value as string, triggerValue, maxLength!);
       }
-      // 如果compositing为true的话，应该要越过onchange的setvalue 逻辑，统一到onInternalCompositionEnd中进行处理
-      // 但是这里没有set的话，onInternalCompositionEnd没法执行
       handleSetValue(triggerValue);
       resolveOnChange(e.currentTarget, e, onChange, triggerValue);
     };
