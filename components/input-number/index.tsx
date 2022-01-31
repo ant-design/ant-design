@@ -48,16 +48,18 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
 
   if (typeof controls === 'object') {
-    upIcon = (
-      <span className={`${prefixCls}-handler-up-inner`}>
-        {typeof controls.upIcon === 'undefined' ? <UpOutlined /> : controls.upIcon}
-      </span>
-    );
-    downIcon = (
-      <span className={`${prefixCls}-handler-down-inner`}>
-        {typeof controls.upIcon === 'undefined' ? <DownOutlined /> : controls.downIcon}
-      </span>
-    );
+    upIcon =
+      typeof controls.upIcon === 'undefined' ? (
+        upIcon
+      ) : (
+        <span className={`${prefixCls}-handler-up-inner`}>{controls.upIcon}</span>
+      );
+    downIcon =
+      typeof controls.downIcon === 'undefined' ? (
+        downIcon
+      ) : (
+        <span className={`${prefixCls}-handler-down-inner`}>{controls.downIcon}</span>
+      );
   }
 
   const mergeSize = customizeSize || size;
