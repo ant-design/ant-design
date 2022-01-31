@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { ArrowUpOutlined,ArrowDownOutlined } from '@ant-design/icons';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { ArrowUpOutlined,ArrowDownOutlined } from '@ant-design/icons';
 
 describe('InputNumber', () => {
   focusTest(InputNumber, { refFocus: true });
@@ -43,9 +43,9 @@ describe('InputNumber', () => {
       <InputNumber
         controls={{
           upIcon: <ArrowUpOutlined/>,
-          downIcon: <ArrowDownOutlined/>
+          downIcon: <ArrowDownOutlined/>,
         }}
-      />
+      />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -55,9 +55,9 @@ describe('InputNumber', () => {
       <InputNumber
         controls={{
           upIcon: <ArrowUpOutlined className="my-class-name"/>,
-          downIcon: <ArrowDownOutlined className="my-class-name"/>
+          downIcon: <ArrowDownOutlined className="my-class-name"/>,
         }}
-      />
+      />,
     );
     expect(wrapper.find('.anticon-arrow-up').getDOMNode().className.includes('my-class-name')).toBe(true);
     expect(wrapper.find('.anticon-arrow-down').getDOMNode().className.includes('my-class-name')).toBe(true);
