@@ -35,7 +35,7 @@ describe('InputNumber', () => {
   });
 
   it('renders correctly when controls is {}', () => {
-    expect(mount(<InputNumber controls={{}}/>).render()).toMatchSnapshot();
+    expect(mount(<InputNumber controls={{}} />).render()).toMatchSnapshot();
   });
 
   it('renders correctly when controls has custom upIcon and downIcon', () => {
@@ -54,8 +54,8 @@ describe('InputNumber', () => {
     const wrapper = mount(
       <InputNumber
         controls={{
-          upIcon: <ArrowUpOutlined className="my-class-name"/>,
-          downIcon: <ArrowDownOutlined className="my-class-name"/>,
+          upIcon: <ArrowUpOutlined className="my-class-name" />,
+          downIcon: <ArrowDownOutlined className="my-class-name" />,
         }}
       />,
     );

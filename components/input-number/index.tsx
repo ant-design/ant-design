@@ -43,8 +43,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = props;
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-  let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />
-  let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />
+  let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
+  let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
 
   if (typeof controls === 'object') {
     upIcon = typeof controls.upIcon === 'undefined' ? upIcon : (
@@ -75,7 +75,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       downHandler={downIcon}
       prefixCls={prefixCls}
       readOnly={readOnly}
-      controls={typeof controls === 'boolean' ? controls : undefined}
+      controls={!!controls}
       {...others}
     />
   );
