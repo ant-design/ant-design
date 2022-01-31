@@ -16,6 +16,7 @@ When you need to use a custom `Icon`, you can set the `Icon` component as the pr
 ```jsx
 import { InputNumber } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+
 ReactDOM.render(
   <InputNumber
     controls={{ upIcon: <ArrowUpOutlined />, downIcon: <ArrowDownOutlined/>} }
