@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-When you need to use a custom `Icon`, you can set the `Icon` component as the property value of `upIcon` and `downIcon`
+When you need to use a custom `Icon`, you can set the `Icon` component as the property value of `upIcon` and `downIcon`.
 
 ```jsx
 import { InputNumber } from 'antd';

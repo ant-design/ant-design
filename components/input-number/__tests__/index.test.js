@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { ArrowUpOutlined,ArrowDownOutlined } from '@ant-design/icons';
+import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -31,7 +31,7 @@ describe('InputNumber', () => {
   });
 
   it('renders correctly when controls is boolean', () => {
-    expect(mount(<InputNumber controls={false}/>).render()).toMatchSnapshot();
+    expect(mount(<InputNumber controls={false} />).render()).toMatchSnapshot();
   });
 
   it('renders correctly when controls is {}', () => {
@@ -42,8 +42,8 @@ describe('InputNumber', () => {
     const wrapper = mount(
       <InputNumber
         controls={{
-          upIcon: <ArrowUpOutlined/>,
-          downIcon: <ArrowDownOutlined/>,
+          upIcon: <ArrowUpOutlined />,
+          downIcon: <ArrowDownOutlined />,
         }}
       />,
     );
@@ -59,7 +59,11 @@ describe('InputNumber', () => {
         }}
       />,
     );
-    expect(wrapper.find('.anticon-arrow-up').getDOMNode().className.includes('my-class-name')).toBe(true);
-    expect(wrapper.find('.anticon-arrow-down').getDOMNode().className.includes('my-class-name')).toBe(true);
+    expect(wrapper.find('.anticon-arrow-up').getDOMNode().className.includes('my-class-name')).toBe(
+      true,
+    );
+    expect(
+      wrapper.find('.anticon-arrow-down').getDOMNode().className.includes('my-class-name'),
+    ).toBe(true);
   });
 });

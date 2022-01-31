@@ -1082,11 +1082,12 @@ exports[`renders ./components/input-number/demo/controls.md extend context corre
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-valuenow="1"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
       step="1"
-      value=""
+      value="1"
     />
   </div>
 </div>
