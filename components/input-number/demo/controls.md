@@ -1,5 +1,6 @@
 ---
-order: 1
+order: 99
+debug: true
 title:
   zh-CN: 图标按钮
   en-US: Icon
