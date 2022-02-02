@@ -61,7 +61,7 @@ export default TimePicker;
 import { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from 'rc-picker/es/generate/dayjs';
 import generateCalendar from 'antd/es/calendar/generateCalendar';
-import 'antd/es/calendar/style';
+import 'antd/lib/calendar/style/index';
 
 const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 
