@@ -304,6 +304,17 @@ exports[`Button should render empty button without errors 1`] = `
 />
 `;
 
+exports[`Button should support custom icon for Button loading state 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
 exports[`Button should support link button 1`] = `
 <a
   class="ant-btn"

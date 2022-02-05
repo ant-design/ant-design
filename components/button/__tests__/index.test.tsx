@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, SyncOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
 import Button from '..';
 import ConfigProvider from '../../config-provider';
@@ -51,12 +51,14 @@ describe('Button', () => {
     // should not insert space when there is icon
     expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
     // should not insert space when there is icon
-    expect(mount(
-      <Button>
-        <SearchOutlined />
-        按钮
-      </Button>,
-    ).render()).toMatchSnapshot();
+    expect(
+      mount(
+        <Button>
+          <SearchOutlined />
+          按钮
+        </Button>,
+      ).render(),
+    ).toMatchSnapshot();
     // should not insert space when there is icon
     expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
     // should not insert space when there is icon while loading
@@ -278,6 +280,18 @@ describe('Button', () => {
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
     );
     warnSpy.mockRestore();
+  });
+
+  it('should support custom icon for Button loading state', () => {
+    const wrapper = mount(<Button loadingIcon={<SyncOutlined />}>Button</Button>);
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find('.anticon-sync')).toHaveLength(0);
+    wrapper.setProps({ loading: true });
+    wrapper.update();
+    expect(wrapper.find('.anticon-sync')).toHaveLength(1);
+    wrapper.setProps({ loading: false });
+    wrapper.update();
+    expect(wrapper.hasClass('.anticon-sync')).toBe(false);
   });
 
   it('should warning when pass type=text and ghost=true', () => {

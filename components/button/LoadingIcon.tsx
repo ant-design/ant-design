@@ -6,6 +6,7 @@ export interface LoadingIconProps {
   prefixCls: string;
   existIcon: boolean;
   loading?: boolean | object;
+  loadingIcon?: React.ReactNode;
 }
 const getCollapsedWidth = () => ({ width: 0, opacity: 0, transform: 'scale(0)' });
 const getRealWidth = (node: HTMLElement) => ({
@@ -14,14 +15,17 @@ const getRealWidth = (node: HTMLElement) => ({
   transform: 'scale(1)',
 });
 
-const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon }) => {
+const LoadingIcon: React.FC<LoadingIconProps> = ({
+  prefixCls,
+  loading,
+  existIcon,
+  loadingIcon,
+}) => {
   const visible = !!loading;
 
   if (existIcon) {
     return (
-      <span className={`${prefixCls}-loading-icon`}>
-        <LoadingOutlined />
-      </span>
+      <span className={`${prefixCls}-loading-icon`}>{loadingIcon || <LoadingOutlined />}</span>
     );
   }
 
@@ -40,7 +44,7 @@ const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon
     >
       {({ className, style }: { className?: string; style?: React.CSSProperties }, ref: any) => (
         <span className={`${prefixCls}-loading-icon`} style={style} ref={ref}>
-          <LoadingOutlined className={className} />
+          {loadingIcon || <LoadingOutlined className={className} />}
         </span>
       )}
     </CSSMotion>
