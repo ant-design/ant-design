@@ -9,7 +9,6 @@ import type {
   BaseOptionType,
   DefaultOptionType,
 } from 'rc-cascader';
-import type { ShowSearchType, FieldNames, DataNode } from 'rc-cascader/lib/interface';
 import omit from 'rc-util/lib/omit';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
