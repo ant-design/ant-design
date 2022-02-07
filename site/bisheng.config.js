@@ -8,7 +8,7 @@ const themeConfig = require('./themeConfig');
 const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
-const { ANT_THEME } = process.env;
+const { ANT_THEME, DEV_THEME } = process.env;
 
 function alertBabelConfig(rules) {
   rules.forEach(rule => {
@@ -58,7 +58,7 @@ module.exports = {
   lessConfig: {
     javascriptEnabled: true,
     modifyVars: {
-      'root-entry-name': ANT_THEME || 'variable',
+      'root-entry-name': ANT_THEME || DEV_THEME || 'variable',
     },
   },
   webpackConfig(config) {

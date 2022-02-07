@@ -64,6 +64,7 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
+    colon?: boolean;
   };
   input?: {
     autoComplete?: string;

@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import * as React from 'react';
-import Cascader, { BasicDataNode } from '..';
+import Cascader, { BaseOptionType } from '..';
 
 describe('Cascader.typescript', () => {
   it('options value', () => {
@@ -50,7 +50,7 @@ describe('Cascader.typescript', () => {
   });
 
   it('Generic', () => {
-    interface MyOptionData extends BasicDataNode {
+    interface MyOptionData extends BaseOptionType {
       customizeLabel: string;
       customizeValue: string;
       customizeChildren?: MyOptionData[];

@@ -547,8 +547,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('bodyStyle', async () => {
-    open({ bodyStyle: { width: 500 }});
-    const {width} = $$('.ant-modal-body')[0].style;
-    expect(width).toBe("500px");
+    open({ bodyStyle: { width: 500 } });
+    const { width } = $$('.ant-modal-body')[0].style;
+    expect(width).toBe('500px');
   });
 });

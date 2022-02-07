@@ -475,6 +475,12 @@ describe('Cascader', () => {
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
 
+  it('rtl should work well with placement', () => {
+    const wrapper = mount(<Cascader options={options} direction="rtl" />);
+
+    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('bottomRight');
+  });
+
   describe('legacy props', () => {
     it('popupClassName', () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

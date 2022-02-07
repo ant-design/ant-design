@@ -3,7 +3,7 @@
 exports[`Dropdown overlay is function and has custom transitionName 1`] = `
 Array [
   <button
-    class="ant-dropdown-trigger"
+    class="ant-dropdown-trigger ant-dropdown-open"
     type="button"
   >
     button
@@ -24,7 +24,7 @@ Array [
 exports[`Dropdown overlay is string 1`] = `
 Array [
   <button
-    class="ant-dropdown-trigger"
+    class="ant-dropdown-trigger ant-dropdown-open"
     type="button"
   >
     button

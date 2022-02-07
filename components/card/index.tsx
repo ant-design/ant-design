@@ -56,12 +56,12 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   tabProps?: TabsProps;
 }
 
-export interface CardInterface extends React.FC<CardProps> {
+export interface CardInterface extends React.ForwardRefExoticComponent<CardProps> {
   Grid: typeof Grid;
   Meta: typeof Meta;
 }
 
-const Card: CardInterface = props => {
+const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -196,14 +196,14 @@ const Card: CardInterface = props => {
   );
 
   return (
-    <div {...divProps} className={classString}>
+    <div ref={ref} {...divProps} className={classString}>
       {head}
       {coverDom}
       {body}
       {actionDom}
     </div>
   );
-};
+}) as CardInterface;
 
 Card.Grid = Grid;
 Card.Meta = Meta;

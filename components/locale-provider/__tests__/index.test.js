@@ -50,6 +50,7 @@ import kaGE from '../ka_GE';
 import kkKZ from '../kk_KZ';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
+import kmKH from '../km_KH';
 import kmrIQ from '../kmr_IQ';
 import kuIQ from '../ku_IQ';
 import lvLV from '../lv_LV';
@@ -115,6 +116,7 @@ const locales = [
   kkKZ,
   knIN,
   koKR,
+  kmKH,
   kmrIQ,
   kuIQ,
   ltLT,

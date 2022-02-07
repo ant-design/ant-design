@@ -97,6 +97,76 @@ describe('prefix and suffix', () => {
     expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
     expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
   });
+
+  it('should support hidden when has prefix or suffix', () => {
+    const wrapper = mount(
+      <>
+        <Input prefix="prefix" hidden className="prefix-with-hidden" />
+        <Input suffix="suffix" hidden className="suffix-with-hidden" />
+      </>,
+    );
+
+    expect(wrapper.find('.prefix-with-hidden').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.suffix-with-hidden').at(0).getDOMNode().hidden).toBe(true);
+  });
+});
+
+describe('Input setting hidden', () => {
+  it('should support hidden when has prefix or suffix or showCount or allowClear or addonBefore or addonAfter', () => {
+    const wrapper = mount(
+      <>
+        <Input
+          hidden
+          className="input"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.Search
+          hidden
+          className="input-search"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.TextArea
+          hidden
+          className="input-textarea"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+        <Input.Password
+          hidden
+          className="input-password"
+          showCount
+          allowClear
+          prefix="11"
+          suffix="22"
+          addonBefore="http://"
+          addonAfter=".com"
+          defaultValue="mysite1"
+        />
+      </>,
+    );
+
+    expect(wrapper.find('.input').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-search').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-textarea').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input-password').at(0).getDOMNode().hidden).toBe(true);
+  });
 });
 
 describe('As Form Control', () => {
@@ -130,6 +200,49 @@ describe('As Form Control', () => {
     wrapper.find('button').simulate('click');
     expect(wrapper.find('input').prop('value')).toBe('');
     expect(wrapper.find('textarea').prop('value')).toBe('');
+  });
+});
+
+describe('should support showCount', () => {
+  it('maxLength', () => {
+    const wrapper = mount(<Input maxLength={5} showCount value="12345" />);
+    expect(wrapper.find('input').prop('value')).toBe('12345');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+  });
+
+  it('control exceed maxLength', () => {
+    const wrapper = mount(<Input maxLength={5} showCount value="12345678" />);
+    expect(wrapper.find('input').prop('value')).toBe('12345678');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('8 / 5');
+  });
+
+  describe('emoji', () => {
+    it('should minimize value between emoji length and maxLength', () => {
+      const wrapper = mount(<Input maxLength={1} showCount value="👀" />);
+      expect(wrapper.find('input').prop('value')).toBe('👀');
+      expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('1 / 1');
+
+      const wrapper1 = mount(<Input maxLength={2} showCount value="👀" />);
+      expect(wrapper1.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('1 / 2');
+    });
+
+    it('slice emoji', () => {
+      const wrapper = mount(<Input maxLength={5} showCount value="1234😂" />);
+      expect(wrapper.find('input').prop('value')).toBe('1234😂');
+      expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+    });
+  });
+
+  it('count formatter', () => {
+    const wrapper = mount(
+      <Input
+        maxLength={5}
+        showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+        value="12345"
+      />,
+    );
+    expect(wrapper.find('input').prop('value')).toBe('12345');
+    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5, 5');
   });
 });
 
@@ -254,5 +367,10 @@ describe('Input allowClear', () => {
     expect(wrapper.find('input').getDOMNode().value).toEqual('');
 
     wrapper.unmount();
+  });
+
+  it('not crash when value is number', () => {
+    const wrapper = mount(<Input suffix="Bamboo" value={1} />);
+    expect(wrapper).toBeTruthy();
   });
 });

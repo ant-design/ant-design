@@ -16,6 +16,10 @@ export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
 }
 
+export interface ShowCountProps {
+  formatter: (args: { count: number; maxLength?: number }) => React.ReactNode;
+}
+
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
   prefixCls?: string;
@@ -52,6 +56,7 @@ export interface InputProps
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   allowClear?: boolean;
+  showCount?: boolean | ShowCountProps;
   bordered?: boolean;
   htmlSize?: number;
 }
@@ -60,7 +65,7 @@ export function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
-  return value;
+  return String(value);
 }
 
 export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
@@ -78,9 +83,6 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
   let event = e;
 
   if (e.type === 'click') {
-    // click clear icon
-    event = Object.create(e);
-
     // Clone a new target for event.
     // Avoid the following usage, the setQuery method gets the original value.
     //
@@ -95,8 +97,11 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
 
     const currentTarget = target.cloneNode(true) as E;
 
-    event.target = currentTarget;
-    event.currentTarget = currentTarget;
+    // click clear icon
+    event = Object.create(e, {
+      target: { value: currentTarget },
+      currentTarget: { value: currentTarget },
+    });
 
     currentTarget.value = '';
     onChange(event as React.ChangeEvent<E>);
@@ -105,9 +110,10 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
 
   // Trigger by composition event, this means we need force change the input value
   if (targetValue !== undefined) {
-    event = Object.create(e);
-    event.target = target;
-    event.currentTarget = target;
+    event = Object.create(e, {
+      target: { value: target },
+      currentTarget: { value: target },
+    });
 
     target.value = targetValue;
     onChange(event as React.ChangeEvent<E>);
@@ -300,6 +306,7 @@ class Input extends React.Component<InputProps, InputState> {
       'inputType',
       'bordered',
       'htmlSize',
+      'showCount',
     ]);
     return (
       <input
@@ -347,11 +354,45 @@ class Input extends React.Component<InputProps, InputState> {
     onKeyDown?.(e);
   };
 
+  renderShowCountSuffix = (prefixCls: string) => {
+    const { value } = this.state;
+    const { maxLength, suffix, showCount } = this.props;
+    // Max length value
+    const hasMaxLength = Number(maxLength) > 0;
+
+    if (suffix || showCount) {
+      const valueLength = [...fixControlledValue(value)].length;
+      let dataCount = null;
+      if (typeof showCount === 'object') {
+        dataCount = showCount.formatter({ count: valueLength, maxLength });
+      } else {
+        dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+      }
+      return (
+        <>
+          {!!showCount && (
+            <span
+              className={classNames(`${prefixCls}-show-count-suffix`, {
+                [`${prefixCls}-show-count-has-suffix`]: !!suffix,
+              })}
+            >
+              {dataCount}
+            </span>
+          )}
+          {suffix}
+        </>
+      );
+    }
+    return null;
+  };
+
   renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
     const { prefixCls: customizePrefixCls, bordered = true } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
+
+    const showCountSuffix = this.renderShowCountSuffix(prefixCls);
 
     return (
       <SizeContext.Consumer>
@@ -369,6 +410,7 @@ class Input extends React.Component<InputProps, InputState> {
             focused={focused}
             triggerFocus={this.focus}
             bordered={bordered}
+            suffix={showCountSuffix}
           />
         )}
       </SizeContext.Consumer>
