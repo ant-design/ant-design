@@ -58,6 +58,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,
     });
+    const { hidden } = props;
 
     const handleSetValue = (val: string, callback?: () => void) => {
       if (props.value === undefined) {
@@ -135,7 +136,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         onChange={handleChange}
         onCompositionEnd={onInternalCompositionEnd}
         ref={innerRef}
-        maxLength={maxLength}
       />
     );
 
@@ -175,6 +175,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
       return (
         <div
+          hidden={hidden}
           className={classNames(
             `${prefixCls}-textarea`,
             {

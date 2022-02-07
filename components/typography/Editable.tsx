@@ -5,6 +5,7 @@ import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import TextArea from '../input/TextArea';
 import { DirectionType } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 
 interface EditableProps {
   prefixCls?: string;
@@ -18,6 +19,7 @@ interface EditableProps {
   direction?: DirectionType;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
+  enterIcon?: React.ReactNode;
 }
 
 const Editable: React.FC<EditableProps> = ({
@@ -32,6 +34,7 @@ const Editable: React.FC<EditableProps> = ({
   onSave,
   onCancel,
   onEnd,
+  enterIcon = <EnterOutlined />,
 }) => {
   const ref = React.useRef<any>();
 
@@ -127,9 +130,12 @@ const Editable: React.FC<EditableProps> = ({
         onCompositionEnd={onCompositionEnd}
         onBlur={onBlur}
         aria-label={ariaLabel}
+        rows={1}
         autoSize={autoSize}
       />
-      <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
+      {enterIcon !== null
+        ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
+        : null}
     </div>
   );
 };

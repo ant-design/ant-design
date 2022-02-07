@@ -108,3 +108,30 @@ exports[`Alert rtl render component should be rendered correctly in RTL directio
   />
 </div>
 `;
+
+exports[`Alert support closeIcon 1`] = `
+<div
+  class="ant-alert ant-alert-warning ant-alert-no-icon"
+  data-show="true"
+  role="alert"
+>
+  <div
+    class="ant-alert-content"
+  >
+    <div
+      class="ant-alert-message"
+    >
+      Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
+    </div>
+  </div>
+  <button
+    class="ant-alert-close-icon"
+    tabindex="0"
+    type="button"
+  >
+    <span>
+      close
+    </span>
+  </button>
+</div>
+`;

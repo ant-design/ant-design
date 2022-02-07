@@ -30,6 +30,7 @@ When a numeric value needs to be provided.
 | parser | Specifies the value extracted from formatter | function(string): number | - | - |
 | precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - |
 | readOnly | If readonly the input | boolean | false | - |
+| prefix | The prefix icon for the Input | ReactNode | - | 4.17.0 |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |

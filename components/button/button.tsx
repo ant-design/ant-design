@@ -156,7 +156,6 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
-  const delayTimeoutRef = React.useRef<number>();
 
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
@@ -177,22 +176,29 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   };
 
   // =============== Update Loading ===============
-  let loadingOrDelay: Loading;
-  if (typeof loading === 'object' && loading.delay) {
-    loadingOrDelay = loading.delay || true;
-  } else {
-    loadingOrDelay = !!loading;
-  }
+  const loadingOrDelay: Loading =
+    typeof loading === 'object' && loading.delay ? loading.delay || true : !!loading;
 
   React.useEffect(() => {
-    clearTimeout(delayTimeoutRef.current);
+    let delayTimer: number | null = null;
+
     if (typeof loadingOrDelay === 'number') {
-      delayTimeoutRef.current = window.setTimeout(() => {
+      delayTimer = window.setTimeout(() => {
+        delayTimer = null;
         setLoading(loadingOrDelay);
       }, loadingOrDelay);
     } else {
       setLoading(loadingOrDelay);
     }
+
+    return () => {
+      if (delayTimer) {
+        // in order to not perform a React state update on an unmounted component
+        // and clear timer after 'loadingOrDelay' updated.
+        window.clearTimeout(delayTimer);
+        delayTimer = null;
+      }
+    };
   }, [loadingOrDelay]);
 
   React.useEffect(fixTwoCNChar, [buttonRef]);
@@ -222,19 +228,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
-  // large => lg
-  // small => sm
-  let sizeCls = '';
-  switch (customizeSize || size) {
-    case 'large':
-      sizeCls = 'lg';
-      break;
-    case 'small':
-      sizeCls = 'sm';
-      break;
-    default:
-      break;
-  }
+  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
+  const sizeFullname = customizeSize || size;
+  const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 

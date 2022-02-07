@@ -18,7 +18,7 @@
   // Fixing https://github.com/ant-design/ant-design/issues/18107
   // Fixing https://github.com/ant-design/ant-design/issues/13214
   // It is a render problem of chrome, which is only happened in the codesandbox demo
-  // 0.001px solution works and I don't why
+  // 0.001px solution works and I don't know why
   line-height: @btn-line-height;
   .btn();
   .btn-default();
@@ -153,7 +153,7 @@
     &.@{iconfont-css-prefix}-plus,
     &.@{iconfont-css-prefix}-minus {
       > svg {
-        shape-rendering: optimizeSpeed;
+        shape-rendering: optimizespeed;
       }
     }
   }
@@ -168,7 +168,7 @@
   }
 
   & > &-loading-icon {
-    transition: all 0.3s @ease-in-out;
+    transition: width 0.3s @ease-in-out, opacity 0.3s @ease-in-out;
 
     .@{iconfont-css-prefix} {
       padding-right: @padding-xs;
@@ -256,7 +256,7 @@
     letter-spacing: 0.34em;
   }
 
-  &-block {
+  &&-block {
     width: 100%;
   }
 

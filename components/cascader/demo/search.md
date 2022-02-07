@@ -74,6 +74,7 @@ ReactDOM.render(
     onChange={onChange}
     placeholder="Please select"
     showSearch={{ filter }}
+    onSearch={value => console.log(value)}
   />,
   mountNode,
 );

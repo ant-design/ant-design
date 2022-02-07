@@ -1,16 +1,19 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
-import Alert from '..';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Button from '../../button';
 import Tooltip from '../../tooltip';
 import Popconfirm from '../../popconfirm';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { sleep } from '../../../tests/utils';
+import Alert from '..';
 
 const { ErrorBoundary } = Alert;
 
 describe('Alert', () => {
   rtlTest(Alert);
+  accessibilityTest(Alert);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -30,14 +33,18 @@ describe('Alert', () => {
         onClose={onClose}
       />,
     );
-    wrapper.find('.ant-alert-close-icon').simulate('click');
-    jest.runAllTimers();
+    act(() => {
+      jest.useFakeTimers();
+      wrapper.find('.ant-alert-close-icon').simulate('click');
+      jest.runAllTimers();
+      jest.useRealTimers();
+    });
     expect(onClose).toHaveBeenCalled();
   });
 
   describe('action of Alert', () => {
     it('custom action', () => {
-      const wrapper = render(
+      const wrapper = mount(
         <Alert
           message="Success Tips"
           type="success"
@@ -50,8 +57,20 @@ describe('Alert', () => {
           closable
         />,
       );
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  it('support closeIcon', () => {
+    const wrapper = mount(
+      <Alert
+        closable
+        closeIcon={<span>close</span>}
+        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        type="warning"
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('data and aria props', () => {
@@ -129,7 +148,7 @@ describe('Alert', () => {
 
   it('could accept none react element icon', () => {
     const wrapper = mount(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should not render message div when no message', () => {

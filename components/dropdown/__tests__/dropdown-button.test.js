@@ -95,4 +95,12 @@ describe('DropdownButton', () => {
     expect(wrapper.find('.ant-dropdown').getDOMNode().className).toContain('className');
     expect(wrapper.find('.ant-dropdown').getDOMNode().style.color).toContain('red');
   });
+
+  it('should support loading', () => {
+    const wrapper = mount(<Dropdown.Button loading />);
+
+    expect(wrapper.find('.ant-dropdown-button .ant-btn-loading').getDOMNode().className).toContain(
+      'ant-btn',
+    );
+  });
 });
