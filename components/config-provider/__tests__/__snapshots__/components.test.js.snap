@@ -18555,11 +18555,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
         <div
           class="config-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="config-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18591,11 +18587,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
         <div
           class="config-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="config-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18627,11 +18619,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
         <div
           class="config-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="config-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18663,11 +18651,7 @@ exports[`ConfigProvider components Popover configProvider virtual and dropdownMa
         <div
           class="ant-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="ant-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18699,11 +18683,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
         <div
           class="ant-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="ant-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18735,11 +18715,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
         <div
           class="prefix-Popover-inner"
           role="tooltip"
-        >
-          <div
-            class="prefix-Popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
