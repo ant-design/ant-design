@@ -867,4 +867,26 @@ describe('Upload', () => {
 
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
   });
+
+  // https://github.com/ant-design/ant-design/issues/33819
+  it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
+    const wrapper = mount(
+      <Upload listType="picture-card">
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper.setProps({ children: null });
+    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).not.toBe(
+      'none',
+    );
+    await act(async () => {
+      await sleep(100);
+      wrapper
+        .find('.ant-upload-select-picture-card')
+        .getDOMNode()
+        .dispatchEvent(new Event('animationend'));
+      await sleep(20);
+    });
+    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).toBe('none');
+  });
 });
