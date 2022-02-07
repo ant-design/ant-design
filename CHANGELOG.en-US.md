@@ -17,6 +17,8 @@ timeline: true
 
 ## 4.18.6
 
+`2022-02-07`
+
 - 🐞 Hide the empty popover when the props' content is undefined or null. [#33835](https://github.com/ant-design/ant-design/pull/33835) [@DawnLck](https://github.com/DawnLck)
 - 🐞 Fix DatePicker `ref` TypeScript definition. [#33901](https://github.com/ant-design/ant-design/pull/33901) [@Amour1688](https://github.com/Amour1688)
 - 🐞 Fix the problem that tooltip didn't show on ellipsis with rows larger than 1. [#33875](https://github.com/ant-design/ant-design/pull/33875) [@MadCcc](https://github.com/MadCcc)

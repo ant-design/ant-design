@@ -17,6 +17,8 @@ timeline: true
 
 ## 4.18.6
 
+`2022-02-07`
+
 - 🐞 修复当传入的内容参数和标题参数都为空时，气泡组件仍旧会渲染空气泡的问题。[#33835](https://github.com/ant-design/ant-design/pull/33835) [@DawnLck](https://github.com/DawnLck)
 - 🐞 修复 DatePicker `ref` TypeScript 定义。[#33901](https://github.com/ant-design/ant-design/pull/33901) [@Amour1688](https://github.com/Amour1688)
 - 🐞 修复 Typography ellipsis 行数大于 1 时 Tooltip 不显示的问题。[#33875](https://github.com/ant-design/ant-design/pull/33875) [@MadCcc](https://github.com/MadCcc)
