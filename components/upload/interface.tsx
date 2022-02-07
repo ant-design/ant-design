@@ -155,5 +155,6 @@ export interface UploadListProps<T = any> {
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   appendAction?: React.ReactNode;
+  appendActionVisible?: boolean;
   itemRender?: ItemRender<T>;
 }
