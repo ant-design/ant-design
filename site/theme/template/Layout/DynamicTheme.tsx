@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Drawer, Form, Input, Button } from 'antd';
+import { TinyColor } from '@ctrl/tinycolor';
+import { Drawer, Form, Input, Button, InputNumber } from 'antd';
 import { useIntl } from 'react-intl';
 import { BugOutlined } from '@ant-design/icons';
 import { DesignToken } from '../../../../components/_util/theme';
@@ -54,12 +55,46 @@ export default ({ onChangeTheme, defaultToken }: ThemeConfigProps) => {
         }
         destroyOnClose
       >
-        <Form form={form} initialValues={defaultToken} layout="vertical" onFinish={onFinish}>
-          {keys.map(key => (
-            <Form.Item key={key} label={key} name={key}>
-              <Input />
-            </Form.Item>
-          ))}
+        <Form
+          form={form}
+          initialValues={defaultToken}
+          layout="vertical"
+          onFinish={onFinish}
+          autoComplete="off"
+        >
+          {keys.map((key: keyof typeof defaultToken) => {
+            const originValue = defaultToken[key];
+            const originValueType = typeof originValue;
+
+            let node: React.ReactElement;
+
+            switch (originValueType) {
+              case 'number':
+                node = <InputNumber />;
+                break;
+
+              default:
+                node = <Input />;
+            }
+
+            const rules: any[] = [{ required: true }];
+            const originColor = new TinyColor(originValue);
+            if (originValueType === 'string' && originColor.isValid) {
+              rules.push({
+                validator: async (_: any, value: string) => {
+                  if (!new TinyColor(value).isValid) {
+                    throw new Error('Invalidate color type');
+                  }
+                },
+              });
+            }
+
+            return (
+              <Form.Item key={key} label={key} name={key} rules={rules} validateFirst>
+                {node}
+              </Form.Item>
+            );
+          })}
         </Form>
       </Drawer>
     </>
