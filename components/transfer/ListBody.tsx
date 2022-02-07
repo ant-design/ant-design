@@ -24,9 +24,6 @@ function parsePagination(pagination?: PaginationType) {
 
   const defaultPagination = {
     pageSize: 10,
-    simple: true,
-    showSizeChanger: false,
-    showLessItems: false,
   };
 
   if (typeof pagination === 'object') {
@@ -119,9 +116,7 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
     if (mergedPagination) {
       paginationNode = (
         <Pagination
-          simple={mergedPagination.simple}
-          showSizeChanger={mergedPagination.showSizeChanger}
-          showLessItems={mergedPagination.showLessItems}
+          simple
           size="small"
           disabled={globalDisabled}
           className={`${prefixCls}-pagination`}
