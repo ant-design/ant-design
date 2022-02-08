@@ -68,20 +68,22 @@
     position: absolute;
     z-index: 1; // lift it up so the menu wouldn't cask shadow on it
     display: block;
-    width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
-    height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
-    background: transparent;
-    border-style: solid;
-    border-width: (sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2);
-    transform: rotate(45deg);
+    width: @popover-arrow-width;
+    height: @popover-arrow-width;
+    background: linear-gradient(
+      135deg,
+      transparent 40%,
+      @popover-bg 40%
+    ); // Use linear-gradient to prevent arrow from covering text
+    .roundedArrow(@popover-arrow-width, 5px, @popover-bg);
   }
 
   &-placement-top > &-arrow,
   &-placement-topLeft > &-arrow,
   &-placement-topRight > &-arrow {
-    bottom: @popover-distance - @popover-arrow-width + 2.2px;
-    border-color: transparent @popover-bg @popover-bg transparent;
-    box-shadow: 3px 3px 7px fade(@black, 7%);
+    bottom: @popover-arrow-width * sqrt((1 / 2)) + 2px;
+    box-shadow: 3px 3px 7px -3px fade(@black, 10%);
+    transform: rotate(45deg);
   }
 
   &-placement-top > &-arrow {
@@ -100,14 +102,14 @@
   &-placement-bottom > &-arrow,
   &-placement-bottomLeft > &-arrow,
   &-placement-bottomRight > &-arrow {
-    top: @popover-distance - @popover-arrow-width + 2px;
-    border-color: @popover-bg transparent transparent @popover-bg;
-    box-shadow: -2px -2px 5px fade(@black, 6%);
+    top: (@popover-arrow-width + 2px) * sqrt((1 / 2));
+    box-shadow: 2px 2px 5px -2px fade(@black, 10%);
+    transform: rotate(-135deg) translateY(-0.5px);
   }
 
   &-placement-bottom > &-arrow {
     left: 50%;
-    transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(-135deg) translateY(-0.5px);
   }
 
   &-placement-bottomLeft > &-arrow {
