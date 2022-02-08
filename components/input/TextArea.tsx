@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { ValidateStatus } from '../form/FormItem';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../_util/formItemStatus';
 import getStatusClassNames from '../_util/getStatusClassNames';
 import getFeedbackIcon from '../_util/getFeedbackIcon';
 

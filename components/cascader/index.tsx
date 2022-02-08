@@ -20,7 +20,7 @@ import SizeContext from '../config-provider/SizeContext';
 import getIcons from '../select/utils/iconUtil';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 import { ValidateStatus } from '../form/FormItem';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../_util/formItemStatus';
 import getStatusClassNames from '../_util/getStatusClassNames';
 
 // Align the design since we use `rc-select` in root. This help:

@@ -10,7 +10,7 @@ import { TransferListBodyProps } from './ListBody';
 import { PaginationType } from './interface';
 import devWarning from '../_util/devWarning';
 import { ValidateStatus } from '../form/FormItem';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../_util/formItemStatus';
 import getStatusClassNames from '../_util/getStatusClassNames';
 
 export { TransferListProps } from './list';

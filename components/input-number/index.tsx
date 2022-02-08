@@ -8,7 +8,7 @@ import { ValidateStatus } from '../form/FormItem';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../_util/formItemStatus';
 import getFeedbackIcon from '../_util/getFeedbackIcon';
 import getStatusClassNames from '../_util/getStatusClassNames';
 

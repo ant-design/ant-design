@@ -6,7 +6,7 @@ import { composeRef } from 'rc-util/lib/ref';
 import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
 import { ValidateStatus } from '../form/FormItem';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../_util/formItemStatus';
 import getStatusClassNames from '../_util/getStatusClassNames';
 import getFeedbackIcon from '../_util/getFeedbackIcon';
 

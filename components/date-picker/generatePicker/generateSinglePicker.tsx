@@ -22,7 +22,7 @@ import {
 } from '.';
 import { PickerComponentClass } from './interface';
 import { ValidateStatus } from '../../form/FormItem';
-import { FormItemStatusContext } from '../../form/context';
+import { FormItemStatusContext } from '../../_util/formItemStatus';
 import getFeedbackIcon from '../../_util/getFeedbackIcon';
 import getStatusClassNames from '../../_util/getStatusClassNames';
 

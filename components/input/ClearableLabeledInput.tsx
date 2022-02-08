@@ -8,7 +8,7 @@ import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import { getInputClassName, hasPrefixSuffix } from './utils';
-import { FormItemStatusContext, FormItemStatusContextProps } from '../form/context';
+import { FormItemStatusContext, FormItemStatusContextProps } from '../_util/formItemStatus';
 import getStatusClassNames from '../_util/getStatusClassNames';
 
 const ClearableInputType = tuple('text', 'input');

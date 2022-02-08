@@ -12,7 +12,7 @@ import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionDirection, getTransitionName, SelectCommonPlacement } from '../_util/motion';
 import { ValidateStatus } from '../form/FormItem';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../_util/formItemStatus';
 import getStatusClassNames from '../_util/getStatusClassNames';
 
 type RawValue = string | number;

@@ -12,7 +12,7 @@ import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-pr
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext } from '../_util/formItemStatus';
 import getFeedbackIcon from '../_util/getFeedbackIcon';
 
 export interface InputFocusOptions extends FocusOptions {
