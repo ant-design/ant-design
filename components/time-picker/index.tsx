@@ -2,6 +2,7 @@ import { Moment } from 'moment';
 import * as React from 'react';
 import DatePicker from '../date-picker';
 import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import { ValidateStatus } from '../form/FormItem';
 import devWarning from '../_util/devWarning';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
@@ -28,6 +29,7 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
   addon?: () => React.ReactNode;
   popupClassName?: string;
+  status?: ValidateStatus;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(

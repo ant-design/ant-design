@@ -17,11 +17,11 @@ Add status to TimePicker with `status`.
 import { TimePicker, Space, Form } from 'antd';
 
 const Validation: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
-    <TimePicker status="error" style={{ width: '100%' }} />
-    <TimePicker status="warning" style={{ width: '100%' }} />
+  <Space direction="vertical">
+    <TimePicker status="error" />
+    <TimePicker status="warning" />
     <Form.Item status="error" hasFeedback>
-      <TimePicker style={{ width: '100%' }} />
+      <TimePicker />
     </Form.Item>
   </Space>
 );

@@ -112,7 +112,7 @@ ReactDOM.render(
     <Form.Item label="Warning" hasFeedback status="warning" help="Need to be checked">
       <TreeSelect
         placeholder="I'm TreeSelect"
-        options={[{ value: 'xx', label: 'xx' }]}
+        treeData={[{ value: 'xx', label: 'xx' }]}
         allowClear
       />
     </Form.Item>
