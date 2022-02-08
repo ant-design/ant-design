@@ -19020,7 +19020,6 @@ Array [
 exports[`renders ./components/time-picker/demo/status.md extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
 >
   <div
     class="ant-space-item"
@@ -19028,7 +19027,6 @@ exports[`renders ./components/time-picker/demo/status.md extend context correctl
   >
     <div
       class="ant-picker ant-picker-has-error"
-      style="width:100%"
     >
       <div
         class="ant-picker-input"
@@ -20441,7 +20439,6 @@ exports[`renders ./components/time-picker/demo/status.md extend context correctl
   >
     <div
       class="ant-picker ant-picker-has-warning"
-      style="width:100%"
     >
       <div
         class="ant-picker-input"
@@ -21865,7 +21862,6 @@ exports[`renders ./components/time-picker/demo/status.md extend context correctl
           >
             <div
               class="ant-picker ant-picker-has-error ant-picker-has-feedback"
-              style="width:100%"
             >
               <div
                 class="ant-picker-input"

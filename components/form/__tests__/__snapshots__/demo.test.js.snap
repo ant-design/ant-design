@@ -8013,7 +8013,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <div
             class="ant-select ant-tree-select ant-select-has-warning ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
-            options="[object Object]"
           >
             <div
               class="ant-select-selector"
