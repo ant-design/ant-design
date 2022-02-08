@@ -90,7 +90,7 @@ More layouts with navigation: [Layout](/components/layout).
 ### Menu.SubMenu
 
 | Param | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | children | Sub-menus or sub-menu items | Array&lt;MenuItem \| SubMenu> | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - | 4.2.0 |
@@ -98,6 +98,7 @@ More layouts with navigation: [Layout](/components/layout).
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
 | title | Title of sub menu | ReactNode | - |  |
+| theme | Color theme of the sub menu (inherits from `Menu`) |  | `light` \| `dark` | - | 4.18 |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
 ### Menu.ItemGroup
