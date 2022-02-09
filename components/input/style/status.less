@@ -39,7 +39,13 @@
   .@{prefix-cls}-prefix {
     color: @text-color;
   }
+}
 
+.group-status-color(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+) {
   .@{prefix-cls}-group-addon {
     color: @text-color;
     border-color: @border-color;
@@ -112,5 +118,15 @@ each(@input-wrapper-cls, {
         padding-right: 24px;
       }
     }
+  }
+}
+
+.@{input-prefix-cls}-group-wrapper {
+  &-has-error {
+    .group-status-color(@input-prefix-cls, @error-color, @error-color);
+  }
+
+  &-has-warning {
+    .group-status-color(@input-prefix-cls, @warning-color, @warning-color);
   }
 }

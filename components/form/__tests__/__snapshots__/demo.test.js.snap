@@ -1444,7 +1444,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-group-wrapper"
+            class="ant-input-group-wrapper ant-input-group-wrapper-has-error"
           >
             <span
               class="ant-input-wrapper ant-input-group"
@@ -1499,7 +1499,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-group-wrapper"
+            class="ant-input-group-wrapper ant-input-group-wrapper-has-error"
           >
             <span
               class="ant-input-wrapper ant-input-group"

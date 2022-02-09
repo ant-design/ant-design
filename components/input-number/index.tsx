@@ -140,6 +140,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         [`${prefixCls}-group-wrapper-lg`]: size === 'large',
         [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
       },
+      getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
       className,
     );
     element = (

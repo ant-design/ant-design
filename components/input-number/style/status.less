@@ -33,3 +33,13 @@ each(@input-number-wrapper-cls, {
     }
   }
 }
+
+.@{input-number-prefix-cls}-group-wrapper {
+  &-has-error {
+    .group-status-color(@input-number-prefix-cls, @error-color, @error-color);
+  }
+
+  &-has-warning {
+    .group-status-color(@input-number-prefix-cls, @warning-color, @warning-color);
+  }
+}

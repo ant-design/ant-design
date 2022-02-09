@@ -24,21 +24,6 @@
   }
 
   &-has-feedback {
-    // ========================= Input =========================
-    // https://github.com/ant-design/ant-design/issues/19884
-    .@{ant-prefix}-input-affix-wrapper {
-      .@{ant-prefix}-input-suffix {
-        padding-right: 18px;
-      }
-    }
-
-    // Fix issue: https://github.com/ant-design/ant-design/issues/7854
-    .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
-      .@{ant-prefix}-input-suffix {
-        right: 28px;
-      }
-    }
-
     // ======================== Switch =========================
     .@{ant-prefix}-switch {
       margin: 2px 0 4px;
@@ -53,25 +38,6 @@
   // ========================= Error =========================
   &-has-error {
     .form-control-validation(@error-color; @error-color; @form-error-input-bg; @error-color-hover; @error-color-outline);
-
-    // fixes https://github.com/ant-design/ant-design/issues/20482
-    .@{ant-prefix}-input-group-addon,
-    .@{ant-prefix}-input-number-group-addon {
-      .@{ant-prefix}-select {
-        &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
-          .@{ant-prefix}-select-selector {
-          background-color: inherit;
-          border: 0;
-          box-shadow: none;
-        }
-      }
-    }
-
-    .@{ant-prefix}-select.@{ant-prefix}-select-auto-complete {
-      .@{ant-prefix}-input:focus {
-        border-color: @error-color;
-      }
-    }
 
     // Radio.Group
     .@{ant-prefix}-radio-button-wrapper {

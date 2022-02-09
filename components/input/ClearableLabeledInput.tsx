@@ -163,8 +163,22 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     );
   }
 
-  renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement) {
-    const { addonBefore, addonAfter, style, size, className, direction, hidden } = this.props;
+  renderInputWithLabel(
+    prefixCls: string,
+    labeledElement: React.ReactElement,
+    statusContext: FormItemStatusContextProps,
+  ) {
+    const {
+      addonBefore,
+      addonAfter,
+      style,
+      size,
+      className,
+      direction,
+      hidden,
+      status: customStatus,
+    } = this.props;
+    const { status: contextStatus, hasFeedback } = statusContext;
     // Not wrap when there is not addons
     if (!hasAddon(this.props)) {
       return labeledElement;
@@ -188,6 +202,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         [`${prefixCls}-group-wrapper-lg`]: size === 'large',
         [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
       },
+      getStatusClassNames(`${prefixCls}-group-wrapper`, contextStatus || customStatus, hasFeedback),
       className,
     );
 
@@ -260,6 +275,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
           return this.renderInputWithLabel(
             prefixCls,
             this.renderLabeledIcon(prefixCls, element, statusContext),
+            statusContext,
           );
         }}
       </FormItemStatusContext.Consumer>
