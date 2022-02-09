@@ -14,7 +14,7 @@ title:
 Add status to Mentions with `status`.
 
 ```jsx
-import { Mentions, Space } from 'antd';
+import { Mentions, Space, Form } from 'antd';
 
 const { Option } = Mentions;
 
@@ -55,6 +55,16 @@ const MentionsStatuses = () => {
       >
         {options}
       </Mentions>
+      <Form.Item status="error" hasFeedback>
+        <Mentions
+          style={{ width: '100%' }}
+          onChange={onChange}
+          onSelect={onSelect}
+          defaultValue="@afc163"
+        >
+          {options}
+        </Mentions>
+      </Form.Item>
     </Space>
   );
 };
