@@ -98,6 +98,7 @@
       border-radius: @radio-size;
       transform: scale(0);
       opacity: 0;
+      transition: all @radio-duration @ease-in-out-circ;
       content: ' ';
     }
 
@@ -112,7 +113,7 @@
     border-style: solid;
     border-width: @radio-border-width;
     border-radius: 50%;
-    transition: all @radio-duration;
+    transition: all 0s;
   }
 
   &-input {
@@ -135,6 +136,7 @@
     &::after {
       transform: scale((unit(@radio-dot-size) / unit(@radio-size)));
       opacity: 1;
+      transition: all @radio-duration @ease-in-out-circ;
     }
   }
 }
@@ -149,6 +151,7 @@
 
     &::after {
       background-color: @radio-dot-disabled-color;
+      transition: all 0s;
     }
   }
 
