@@ -29,16 +29,16 @@ const ValidateInputs: React.FC = () => (
     <InputNumber status="warning" style={{ width: '100%' }} prefix={<ClockCircleOutlined />} />
     <InputNumber addonBefore="Price" status="warning" style={{ width: '100%' }} />
     <Form.Item status="error" hasFeedback help="Error">
-      <InputNumber allowClear style={{ width: '100%' }} />
+      <InputNumber style={{ width: '100%' }} />
     </Form.Item>
     <Form.Item status="warning" hasFeedback help="Warning">
-      <InputNumber allowClear style={{ width: '100%' }} />
+      <InputNumber style={{ width: '100%' }} />
     </Form.Item>
     <Form.Item status="validating" hasFeedback help="Loading...">
-      <InputNumber allowClear style={{ width: '100%' }} />
+      <InputNumber style={{ width: '100%' }} />
     </Form.Item>
     <Form.Item status="success" hasFeedback help="Success!">
-      <InputNumber allowClear style={{ width: '100%' }} />
+      <InputNumber style={{ width: '100%' }} />
     </Form.Item>
   </Space>
 );

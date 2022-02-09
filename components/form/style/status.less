@@ -38,16 +38,5 @@
   // ========================= Error =========================
   &-has-error {
     .form-control-validation(@error-color; @error-color; @form-error-input-bg; @error-color-hover; @error-color-outline);
-
-    // Radio.Group
-    .@{ant-prefix}-radio-button-wrapper {
-      border-color: @error-color !important;
-
-      &:not(:first-child) {
-        &::before {
-          background-color: @error-color;
-        }
-      }
-    }
   }
 }

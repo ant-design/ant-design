@@ -30,7 +30,7 @@ When a numeric value needs to be provided.
 | parser | Specifies the value extracted from formatter | function(string): number | - | - |
 | precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - |
 | readOnly | If readonly the input | boolean | false | - |
-| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - |
+| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | prefix | The prefix icon for the Input | ReactNode | - | 4.17.0 |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |

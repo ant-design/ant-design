@@ -1,0 +1,60 @@
+@radio-prefix-cls: ~'@{ant-prefix}-radio';
+@radio-group-prefix-cls: ~'@{radio-prefix-cls}-group';
+
+.status-color(@color, @outlineColor) {
+  .@{radio-prefix-cls}-button-wrapper {
+    border-color: @color;
+
+    &:not(:first-child) {
+      &::before {
+        background-color: @color;
+      }
+    }
+
+    &:first-child {
+      border-left-color: @color;
+    }
+
+    &-checked:not(&-disabled) {
+      border-color: @color;
+
+      &::before {
+        background-color: @color;
+      }
+
+      &:first-child {
+        border-color: @color;
+      }
+
+      &:hover {
+        border-color: @color;
+
+        &::before {
+          background-color: @color;
+        }
+      }
+
+      &:active {
+        border-color: @color;
+
+        &::before {
+          background-color: @color;
+        }
+      }
+
+      &:focus-within {
+        box-shadow: 0 0 0 3px @outlineColor;
+      }
+    }
+  }
+}
+
+.@{radio-group-prefix-cls} {
+  &-has-error {
+    .status-color(@error-color, @error-color-outline);
+  }
+
+  &-has-warning {
+    .status-color(@warning-color, @warning-color-outline);
+  }
+}

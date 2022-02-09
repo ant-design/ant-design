@@ -3548,7 +3548,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+      class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-success"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -3597,6 +3597,16 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
             </span>
           </div>
         </div>
+        <div
+          class="ant-form-item-explain ant-form-item-explain-connected"
+        >
+          <div
+            class="ant-form-item-explain-success"
+            role="alert"
+          >
+            OK!!
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -3605,7 +3615,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+      class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -3690,6 +3700,16 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
             </span>
           </div>
         </div>
+        <div
+          class="ant-form-item-explain ant-form-item-explain-connected"
+        >
+          <div
+            class="ant-form-item-explain-warning"
+            role="alert"
+          >
+            Something wrong.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -3698,7 +3718,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+      class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -3780,6 +3800,16 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
             </span>
           </div>
         </div>
+        <div
+          class="ant-form-item-explain ant-form-item-explain-connected"
+        >
+          <div
+            class="ant-form-item-explain-error"
+            role="alert"
+          >
+            Invalid
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -3801,93 +3831,6 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
             <span
               class="ant-input-group ant-input-group-compact"
             >
-              <span
-                class="ant-input-group-wrapper ant-input-group-wrapper-has-error ant-input-group-wrapper-has-feedback"
-                style="width:20%"
-              >
-                <span
-                  class="ant-input-wrapper ant-input-group"
-                >
-                  <span
-                    class="ant-input-group-addon"
-                  >
-                    http://
-                  </span>
-                  <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error ant-input-affix-wrapper-has-feedback"
-                  >
-                    <input
-                      class="ant-input"
-                      type="text"
-                      value="0571"
-                    />
-                    <span
-                      class="ant-input-suffix"
-                    >
-                      <span
-                        class="ant-input-feedback-icon"
-                      >
-                        <span
-                          aria-label="close-circle"
-                          class="anticon anticon-close-circle"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="close-circle"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-              <span
-                class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error ant-input-affix-wrapper-has-feedback"
-                style="width:30%"
-              >
-                <input
-                  class="ant-input"
-                  type="text"
-                  value="26888888"
-                />
-                <span
-                  class="ant-input-suffix"
-                >
-                  <span
-                    class="ant-input-feedback-icon"
-                  >
-                    <span
-                      aria-label="close-circle"
-                      class="anticon anticon-close-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="close-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
               <div
                 class="ant-select ant-select-has-error ant-select-has-feedback ant-select-single ant-select-show-arrow"
               >
@@ -3915,9 +3858,9 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-item"
-                    title="Zhejiang"
+                    title="+86"
                   >
-                    Zhejiang
+                    +86
                   </span>
                 </div>
                 <span
@@ -3970,6 +3913,43 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
                   </span>
                 </span>
               </div>
+              <span
+                class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error ant-input-affix-wrapper-has-feedback"
+                style="width:20%"
+              >
+                <input
+                  class="ant-input"
+                  type="text"
+                  value="18900001111"
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    class="ant-input-feedback-icon"
+                  >
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </span>
             </span>
           </div>
         </div>
