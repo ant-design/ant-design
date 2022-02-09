@@ -326,7 +326,7 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-hide-arrow config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -356,7 +356,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize large 1`] = `
 <div
-  class="config-select config-select-lg config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-lg config-select-hide-arrow config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -386,7 +386,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-hide-arrow config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -416,7 +416,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
 
 exports[`ConfigProvider components AutoComplete configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-hide-arrow ant-select-auto-complete ant-select-single ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -446,7 +446,7 @@ exports[`ConfigProvider components AutoComplete configProvider virtual and dropd
 
 exports[`ConfigProvider components AutoComplete normal 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-hide-arrow ant-select-auto-complete ant-select-single ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -476,7 +476,7 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
 
 exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
 <div
-  class="prefix-AutoComplete prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
+  class="prefix-AutoComplete prefix-AutoComplete-hide-arrow prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
 >
   <div
     class="prefix-AutoComplete-selector"

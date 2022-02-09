@@ -1,19 +1,19 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import RcSelect, { BaseSelectRef, OptGroup, Option, SelectProps as RcSelectProps } from 'rc-select';
-import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import { OptionProps } from 'rc-select/lib/Option';
+import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionDirection, getTransitionName, SelectCommonPlacement } from '../_util/motion';
 import { ValidateStatus } from '../form/FormItem';
 import { FormItemStatusContext } from '../_util/formItemStatus';
 import getStatusClassNames from '../_util/getStatusClassNames';
+import { getTransitionDirection, getTransitionName, SelectCommonPlacement } from '../_util/motion';
+import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
 
@@ -64,6 +64,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     size: customizeSize,
     notFoundContent,
     status,
+    showArrow,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -96,6 +97,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
+  const mergedShowArrow =
+    showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
 
   // ===================== Validation Status =====================
   const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
@@ -117,6 +120,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     multiple: isMultiple,
     status: mergedStatus,
     hasFeedback,
+    showArrow: mergedShowArrow,
     prefixCls,
   });
 
@@ -133,6 +137,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-hide-arrow`]: !mergedShowArrow,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
@@ -173,6 +178,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropDownClassName}
+      showArrow={hasFeedback || showArrow}
     />
   );
 };

@@ -73,6 +73,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     transitionName,
     choiceTransitionName = '',
     status: customStatus,
+    showArrow,
     ...props
   }: TreeSelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -102,6 +103,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   });
 
   const isMultiple = !!(treeCheckable || multiple);
+  const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !isMultiple;
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
@@ -112,6 +114,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     ...props,
     multiple: isMultiple,
     status: mergedStatus,
+    showArrow: mergedShowArrow,
     hasFeedback,
     prefixCls,
   });
@@ -151,6 +154,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-hide-arrow`]: !mergedShowArrow,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
@@ -190,6 +194,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
         getTransitionDirection(placement),
         transitionName,
       )}
+      showArrow={hasFeedback || showArrow}
     />
   );
 };

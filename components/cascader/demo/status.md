@@ -27,7 +27,7 @@ const Validation: React.FC = () => (
       <Cascader style={{ width: '100%' }} />
     </Form.Item>
     <Form.Item status="success" hasFeedback>
-      <Cascader style={{ width: '100%' }} />
+      <Cascader multiple style={{ width: '100%' }} />
     </Form.Item>
     <Form.Item status="validating" hasFeedback>
       <Cascader style={{ width: '100%' }} />

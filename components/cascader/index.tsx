@@ -119,6 +119,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     direction,
     getPopupContainer,
     status,
+    showArrow,
     ...rest
   } = props;
 
@@ -215,10 +216,12 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   );
 
   // ===================== Icons =====================
+  const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !multiple;
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     status: mergedStatus,
     hasFeedback,
+    showArrow: mergedShowArrow,
     multiple,
     prefixCls,
   });
@@ -244,6 +247,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
           [`${prefixCls}-sm`]: mergedSize === 'small',
           [`${prefixCls}-rtl`]: isRtl,
           [`${prefixCls}-borderless`]: !bordered,
+          [`${prefixCls}-hide-arrow`]: !mergedShowArrow,
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         className,
@@ -270,6 +274,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       )}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
+      showArrow={hasFeedback || showArrow}
     />
   );
 }) as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(

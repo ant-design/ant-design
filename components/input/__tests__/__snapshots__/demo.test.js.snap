@@ -958,7 +958,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-hide-arrow ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width:100px"
   >
     <div
@@ -2279,7 +2279,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-hide-arrow ant-select-auto-complete ant-select-single ant-select-show-search"
       style="width:70%"
     >
       <div

@@ -27,7 +27,7 @@ const Validation: React.FC = () => (
       <TreeSelect style={{ width: '100%' }} />
     </Form.Item>
     <Form.Item status="success" hasFeedback>
-      <TreeSelect style={{ width: '100%' }} />
+      <TreeSelect multiple style={{ width: '100%' }} />
     </Form.Item>
     <Form.Item status="validating" hasFeedback>
       <TreeSelect style={{ width: '100%' }} />

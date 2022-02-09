@@ -2,7 +2,7 @@
 
 exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -333,7 +333,7 @@ Array [
     100000 Items
   </h4>,
   <div
-    class="ant-select ant-select-multiple ant-select-show-search"
+    class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
     style="width:100%"
   >
     <div
@@ -969,7 +969,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-select-multiple ant-select-show-search"
+    class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
     style="width:120px"
   >
     <div
@@ -1071,7 +1071,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -1187,7 +1187,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+    class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-allow-clear ant-select-show-search"
     style="width:100%"
   >
     <div
@@ -1340,7 +1340,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+    class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-disabled ant-select-show-search"
     style="width:100%"
   >
     <div
@@ -1483,7 +1483,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -1727,7 +1727,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-search"
+      class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -1791,7 +1791,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-disabled ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -1916,7 +1916,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-search"
+  class="ant-select ant-select-hide-arrow ant-select-single ant-select-show-search"
   style="width:200px"
 >
   <div
@@ -2008,7 +2008,7 @@ exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -2186,7 +2186,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-select ant-select-multiple ant-select-show-search"
+    class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
     style="width:100%"
   >
     <div
@@ -2313,7 +2313,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-select ant-select-multiple ant-select-show-search"
+    class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
     style="width:100%"
   >
     <div
@@ -3122,7 +3122,7 @@ Array [
 
 exports[`renders ./components/select/demo/tags.md correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-hide-arrow ant-select-multiple ant-select-show-search"
   style="width:100%"
 >
   <div
