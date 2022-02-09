@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-There are two built-in themes: `light` and `dark`. The default value is `light`.
+There are two built-in themes: `light` and `dark`. The default value is `light`. They can be applied to the `Menu`, and the Sub-menu will inherit this, or you can override at the `SubMenu` level
 
 ```jsx
 import { Menu, Switch } from 'antd';
@@ -21,13 +21,20 @@ const { SubMenu } = Menu;
 
 class Sider extends React.Component {
   state = {
-    theme: 'dark',
+    menuTheme: 'dark',
+    subMenuTheme: 'dark',
     current: '1',
   };
 
-  changeTheme = value => {
+  changeMenuTheme = value => {
     this.setState({
-      theme: value ? 'dark' : 'light',
+      menuTheme: value ? 'dark' : 'light',
+    });
+  };
+
+  changeSubMenuTheme = value => {
+    this.setState({
+      subMenuTheme: value ? 'dark' : 'light',
     });
   };
 
@@ -41,23 +48,37 @@ class Sider extends React.Component {
   render() {
     return (
       <>
+        Menu Theme:{' '}
         <Switch
-          checked={this.state.theme === 'dark'}
-          onChange={this.changeTheme}
+          checked={this.state.menuTheme === 'dark'}
+          onChange={this.changeMenuTheme}
+          checkedChildren="Dark"
+          unCheckedChildren="Light"
+        />
+        <br />
+        <br />
+        Sub-Menu Theme: <Switch
+          checked={this.state.subMenuTheme === 'dark'}
+          onChange={this.changeSubMenuTheme}
           checkedChildren="Dark"
           unCheckedChildren="Light"
         />
         <br />
         <br />
         <Menu
-          theme={this.state.theme}
+          theme={this.state.menuTheme}
           onClick={this.handleClick}
           style={{ width: 256 }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current]}
           mode="inline"
         >
-          <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
+          <SubMenu
+            key="sub1"
+            icon={<MailOutlined />}
+            title="Navigation One"
+            theme={this.state.subMenuTheme}
+          >
             <Menu.Item key="1">Option 1</Menu.Item>
             <Menu.Item key="2">Option 2</Menu.Item>
             <Menu.Item key="3">Option 3</Menu.Item>
