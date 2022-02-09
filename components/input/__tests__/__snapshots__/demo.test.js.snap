@@ -3304,10 +3304,19 @@ Array [
 `;
 
 exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
-<textarea
-  class="ant-input"
-  rows="4"
-/>
+Array [
+  <textarea
+    class="ant-input"
+    rows="4"
+  />,
+  <br />,
+  <br />,
+  <textarea
+    class="ant-input"
+    placeholder="maxLength is 6"
+    rows="4"
+  />,
+]
 `;
 
 exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
