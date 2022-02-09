@@ -168,8 +168,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     }
   }, [editing]);
 
-  const onEditClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onEditClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
     triggerEdit(true);
   };
 
@@ -192,8 +192,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     clearTimeout(copyIdRef.current!);
   };
 
-  const onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
 
     if (copyConfig.text === undefined) {
       copyConfig.text = String(children);
