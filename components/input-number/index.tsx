@@ -15,7 +15,7 @@ import getStatusClassNames from '../_util/getStatusClassNames';
 type ValueType = string | number;
 
 export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size'> {
+  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
   prefixCls?: string;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
@@ -23,6 +23,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   size?: SizeType;
   bordered?: boolean;
   status?: ValidateStatus;
+  controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
@@ -43,12 +44,29 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     bordered = true,
     readOnly,
     status: customStatus,
+    controls,
     ...others
   } = props;
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-  const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-  const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+  let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
+  let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+  const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
+
+  if (typeof controls === 'object') {
+    upIcon =
+      typeof controls.upIcon === 'undefined' ? (
+        upIcon
+      ) : (
+        <span className={`${prefixCls}-handler-up-inner`}>{controls.upIcon}</span>
+      );
+    downIcon =
+      typeof controls.downIcon === 'undefined' ? (
+        downIcon
+      ) : (
+        <span className={`${prefixCls}-handler-down-inner`}>{controls.downIcon}</span>
+      );
+  }
 
   const { hasFeedback, status: contextStatus } = useContext(FormItemStatusContext);
   const mergedStatus = contextStatus || customStatus;
@@ -74,6 +92,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       downHandler={downIcon}
       prefixCls={prefixCls}
       readOnly={readOnly}
+      controls={controlsTemp}
       {...others}
     />
   );
