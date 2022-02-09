@@ -74,8 +74,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
     const [compositing, setCompositing] = React.useState(false);
-    const [oldCompositionValue, setOldCompositionValue] = React.useState<string>();
-    const [oldSelectionStart, setOldSelectionStart] = React.useState<number>(0);
+    const oldCompositionValueRef = React.useRef<string>();
+    const oldSelectionStartRef = React.useRef<number>(0);
 
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,
@@ -94,11 +94,11 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const hasMaxLength = Number(maxLength) > 0;
 
     const onInternalCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = e => {
-      // 拼音输入前保存一份旧值
       setCompositing(true);
+      // 拼音输入前保存一份旧值
+      oldCompositionValueRef.current = value as string;
       // 保存旧的光标位置
-      setOldSelectionStart(e.currentTarget.selectionStart);
-      setOldCompositionValue(value as string);
+      oldSelectionStartRef.current = e.currentTarget.selectionStart;
       onCompositionStart?.(e);
     };
 
@@ -108,10 +108,11 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       let triggerValue = e.currentTarget.value;
       if (hasMaxLength) {
         const isCursorInEnd =
-          oldSelectionStart >= maxLength! + 1 || oldSelectionStart === oldCompositionValue?.length;
+          oldSelectionStartRef.current >= maxLength! + 1 ||
+          oldSelectionStartRef.current === oldCompositionValueRef.current?.length;
         triggerValue = setTriggerValue(
           isCursorInEnd,
-          oldCompositionValue as string,
+          oldCompositionValueRef.current as string,
           triggerValue,
           maxLength!,
         );
@@ -131,7 +132,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         // 1. 复制粘贴超过maxlength的情况 2.未超过maxlength的情况
         const isCursorInEnd =
           e.target.selectionStart >= maxLength! + 1 ||
-          e.target.selectionStart === triggerValue.length;
+          e.target.selectionStart === triggerValue.length ||
+          !e.target.selectionStart;
         triggerValue = setTriggerValue(isCursorInEnd, value as string, triggerValue, maxLength!);
       }
       handleSetValue(triggerValue);
