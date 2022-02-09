@@ -19,7 +19,7 @@ When a numeric value needs to be provided.
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | autoFocus | If get focus when component mounted | boolean | false | - |
 | bordered | Whether has border style | boolean | true | 4.12.0 |
-| controls | Whether to show `+-` controls | boolean | true | 4.17.0 |
+| controls | Whether to show `+-` controls, or set custom arrows icon | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; }  | - | 4.19.0 |
 | decimalSeparator | Decimal separator | string | - | - |
 | defaultValue | The initial value | number | - | - |
 | disabled | If disable the input | boolean | false | - |
