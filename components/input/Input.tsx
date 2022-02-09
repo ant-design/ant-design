@@ -403,7 +403,7 @@ class Input extends React.Component<InputProps, InputState> {
     return (
       (showCount || suffix || hasFeedback) && (
         <>
-          {showCount && this.renderShowCountSuffix(prefixCls)}
+          {this.renderShowCountSuffix(prefixCls)}
           {suffix}
           {hasFeedback && getFeedbackIcon(prefixCls, status)}
         </>
