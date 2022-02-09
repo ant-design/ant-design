@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-There are two built-in themes: `light` and `dark`. The default value is `light`. They can be applied to the `Menu`, and the Sub-menu will inherit this, or you can override at the `SubMenu` level
+There are two built-in themes: `light` and `dark`. The default value is `light`.
 
 ```jsx
 import { Menu, Switch } from 'antd';
@@ -21,20 +21,13 @@ const { SubMenu } = Menu;
 
 class Sider extends React.Component {
   state = {
-    menuTheme: 'dark',
-    subMenuTheme: 'dark',
+    theme: 'dark',
     current: '1',
   };
 
-  changeMenuTheme = value => {
+  changeTheme = value => {
     this.setState({
-      menuTheme: value ? 'dark' : 'light',
-    });
-  };
-
-  changeSubMenuTheme = value => {
-    this.setState({
-      subMenuTheme: value ? 'dark' : 'light',
+      theme: value ? 'dark' : 'light',
     });
   };
 
@@ -48,37 +41,23 @@ class Sider extends React.Component {
   render() {
     return (
       <>
-        Menu Theme:{' '}
         <Switch
-          checked={this.state.menuTheme === 'dark'}
-          onChange={this.changeMenuTheme}
-          checkedChildren="Dark"
-          unCheckedChildren="Light"
-        />
-        <br />
-        <br />
-        Sub-Menu Theme: <Switch
-          checked={this.state.subMenuTheme === 'dark'}
-          onChange={this.changeSubMenuTheme}
+          checked={this.state.theme === 'dark'}
+          onChange={this.changeTheme}
           checkedChildren="Dark"
           unCheckedChildren="Light"
         />
         <br />
         <br />
         <Menu
-          theme={this.state.menuTheme}
+          theme={this.state.theme}
           onClick={this.handleClick}
           style={{ width: 256 }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current]}
           mode="inline"
         >
-          <SubMenu
-            key="sub1"
-            icon={<MailOutlined />}
-            title="Navigation One"
-            theme={this.state.subMenuTheme}
-          >
+          <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
             <Menu.Item key="1">Option 1</Menu.Item>
             <Menu.Item key="2">Option 2</Menu.Item>
             <Menu.Item key="3">Option 3</Menu.Item>
