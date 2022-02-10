@@ -1,0 +1,132 @@
+@import './mixin';
+
+@input-prefix-cls: ~'@{ant-prefix}-input';
+
+.status-color(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  &:not(.@{prefix-cls}-disabled):not(.@{prefix-cls}-borderless).@{prefix-cls} {
+    &,
+    &:hover {
+      background: @background-color;
+      border-color: @border-color;
+    }
+
+    &:focus,
+    &-focused {
+      .active(@text-color, @hoverBorderColor, @outlineColor);
+    }
+  }
+}
+
+.status-color-common(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  .@{prefix-cls}-feedback-icon {
+    color: @text-color;
+  }
+
+  .@{prefix-cls}-prefix {
+    color: @text-color;
+  }
+}
+
+.group-status-color(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+) {
+  .@{prefix-cls}-group-addon {
+    color: @text-color;
+    border-color: @border-color;
+  }
+}
+
+@input-wrapper-cls: @input-prefix-cls, ~'@{input-prefix-cls}-affix-wrapper';
+
+each(@input-wrapper-cls, {
+  .@{value} {
+    &-has-error {
+      .status-color(@value, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+      .status-color-common(@input-prefix-cls, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+    }
+
+    &-has-warning {
+      .status-color(@value, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+      .status-color-common(@input-prefix-cls, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+    }
+  }
+});
+
+.@{input-prefix-cls}-textarea,
+.@{input-prefix-cls}-affix-wrapper {
+  &-is-validating {
+    .@{input-prefix-cls}-feedback-icon {
+      display: inline-block;
+      color: @primary-color;
+    }
+  }
+
+  &-has-success {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @success-color;
+      animation-name: diffZoomIn1 !important;
+    }
+  }
+}
+
+.@{input-prefix-cls}-textarea {
+  &-has-error {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @error-color;
+    }
+  }
+
+  &-has-warning {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @warning-color;
+    }
+  }
+
+  .@{input-prefix-cls}-feedback-icon {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal-base;
+    bottom: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  &-has-error,
+  &-has-warning,
+  &-has-success,
+  &-is-validating {
+    &.@{input-prefix-cls}-textarea-has-feedback {
+      .@{input-prefix-cls} {
+        padding-right: 24px;
+      }
+    }
+  }
+}
+
+.@{input-prefix-cls}-group-wrapper {
+  &-has-error {
+    .group-status-color(@input-prefix-cls, @error-color, @error-color);
+  }
+
+  &-has-warning {
+    .group-status-color(@input-prefix-cls, @warning-color, @warning-color);
+  }
+}
