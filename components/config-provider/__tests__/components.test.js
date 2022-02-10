@@ -290,7 +290,7 @@ describe('ConfigProvider', () => {
     // Form
     testPair('Form', props => (
       <Form {...props}>
-        <Form.Item {...props} status="error" help="Bamboo is Light">
+        <Form.Item {...props} validateStatus="error" help="Bamboo is Light">
           <Input {...props} />
         </Form.Item>
       </Form>

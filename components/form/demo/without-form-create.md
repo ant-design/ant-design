@@ -17,17 +17,20 @@ title:
 import React, { useState } from 'react';
 import { Form, InputNumber } from 'antd';
 
-type Status = Parameters<typeof Form.Item>[0]['status'];
+type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];
 
-function validatePrimeNumber(number: number): { status: Status; errorMsg: string | null } {
+function validatePrimeNumber(number: number): {
+  validateStatus: ValidateStatus;
+  errorMsg: string | null;
+} {
   if (number === 11) {
     return {
-      status: 'success',
+      validateStatus: 'success',
       errorMsg: null,
     };
   }
   return {
-    status: 'error',
+    validateStatus: 'error',
     errorMsg: 'The prime between 8 and 12 is 11!',
   };
 }
@@ -40,7 +43,7 @@ const formItemLayout = {
 const RawForm = () => {
   const [number, setNumber] = useState<{
     value: number;
-    status?: Status;
+    validateStatus?: ValidateStatus;
     errorMsg?: string | null;
   }>({
     value: 11,
@@ -61,7 +64,7 @@ const RawForm = () => {
       <Form.Item
         {...formItemLayout}
         label="Prime between 8 & 12"
-        status={number.status}
+        validateStatus={number.validateStatus}
         help={number.errorMsg || tips}
       >
         <InputNumber min={8} max={12} value={number.value} onChange={onNumberChange} />

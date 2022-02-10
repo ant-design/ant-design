@@ -56,7 +56,8 @@ export interface FormItemProps<Values = any>
   children?: ChildrenType<Values>;
   id?: string;
   hasFeedback?: boolean;
-  status?: ValidateStatus;
+  validateStatus?: ValidateStatus;
+  status?: ValidateStatus; // Alias for validateStatus
   required?: boolean;
   hidden?: boolean;
   initialValue?: any;
@@ -96,6 +97,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     help,
     rules,
     status,
+    validateStatus,
     children,
     required,
     label,
@@ -202,7 +204,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
   // ======================== Status ========================
   let mergedValidateStatus: ValidateStatus = '';
-  if (status !== undefined) {
+  if (validateStatus !== undefined) {
+    mergedValidateStatus = validateStatus;
+  } else if (status !== undefined) {
     mergedValidateStatus = status;
   } else if (meta?.validating) {
     mergedValidateStatus = 'validating';

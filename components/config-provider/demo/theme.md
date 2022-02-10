@@ -384,16 +384,16 @@ const FormSizeDemo = () => {
               <Form.Item>
                 <Input {...inputProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="success">
+              <Form.Item hasFeedback validateStatus="success">
                 <Input {...inputProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="warning">
+              <Form.Item hasFeedback validateStatus="warning">
                 <Input {...inputProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="error">
+              <Form.Item hasFeedback validateStatus="error">
                 <Input {...inputProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="validating">
+              <Form.Item hasFeedback validateStatus="validating">
                 <Input {...inputProps} />
               </Form.Item>
             </SplitSpace>
@@ -405,16 +405,16 @@ const FormSizeDemo = () => {
               <Form.Item>
                 <Select {...selectProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="success">
+              <Form.Item hasFeedback validateStatus="success">
                 <Select {...selectProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="warning">
+              <Form.Item hasFeedback validateStatus="warning">
                 <Select {...selectProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="error">
+              <Form.Item hasFeedback validateStatus="error">
                 <Select {...selectProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="validating">
+              <Form.Item hasFeedback validateStatus="validating">
                 <Select {...selectProps} />
               </Form.Item>
             </SplitSpace>
@@ -426,16 +426,16 @@ const FormSizeDemo = () => {
               <Form.Item>
                 <TreeSelect {...treeSelectProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="success">
+              <Form.Item hasFeedback validateStatus="success">
                 <TreeSelect {...treeSelectProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="warning">
+              <Form.Item hasFeedback validateStatus="warning">
                 <TreeSelect {...treeSelectProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="error">
+              <Form.Item hasFeedback validateStatus="error">
                 <TreeSelect {...treeSelectProps} />
               </Form.Item>
-              <Form.Item hasFeedback status="validating">
+              <Form.Item hasFeedback validateStatus="validating">
                 <TreeSelect {...treeSelectProps} />
               </Form.Item>
             </SplitSpace>
@@ -447,16 +447,16 @@ const FormSizeDemo = () => {
               <Form.Item>
                 <InputNumber />
               </Form.Item>
-              <Form.Item hasFeedback status="success">
+              <Form.Item hasFeedback validateStatus="success">
                 <InputNumber />
               </Form.Item>
-              <Form.Item hasFeedback status="warning">
+              <Form.Item hasFeedback validateStatus="warning">
                 <InputNumber />
               </Form.Item>
-              <Form.Item hasFeedback status="error">
+              <Form.Item hasFeedback validateStatus="error">
                 <InputNumber />
               </Form.Item>
-              <Form.Item hasFeedback status="validating">
+              <Form.Item hasFeedback validateStatus="validating">
                 <InputNumber />
               </Form.Item>
             </SplitSpace>
@@ -468,16 +468,16 @@ const FormSizeDemo = () => {
               <Form.Item>
                 <DatePicker />
               </Form.Item>
-              <Form.Item hasFeedback status="success">
+              <Form.Item hasFeedback validateStatus="success">
                 <DatePicker />
               </Form.Item>
-              <Form.Item hasFeedback status="warning">
+              <Form.Item hasFeedback validateStatus="warning">
                 <DatePicker />
               </Form.Item>
-              <Form.Item hasFeedback status="error">
+              <Form.Item hasFeedback validateStatus="error">
                 <DatePicker />
               </Form.Item>
-              <Form.Item hasFeedback status="validating">
+              <Form.Item hasFeedback validateStatus="validating">
                 <DatePicker />
               </Form.Item>
             </SplitSpace>
