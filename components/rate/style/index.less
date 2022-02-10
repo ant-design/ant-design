@@ -40,16 +40,13 @@
         transform: @rate-star-hover-scale;
       }
 
-      &:focus-visible {
-        transform: @rate-star-hover-scale;
-      }
-
       &:focus {
         outline: 0;
       }
 
       &:focus-visible {
         outline: 1px dashed @rate-star-color;
+        transform: @rate-star-hover-scale;
       }
     }
 

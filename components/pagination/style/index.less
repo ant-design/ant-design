@@ -68,6 +68,8 @@
       }
     }
 
+    // cannot merge with `&:hover`
+    // see https://github.com/ant-design/ant-design/pull/34002
     &:focus-visible {
       border-color: @primary-color;
       transition: all 0.3s;
