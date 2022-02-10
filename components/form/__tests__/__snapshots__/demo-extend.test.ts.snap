@@ -1477,7 +1477,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-has-error"
+            class="ant-input ant-input-status-error"
             placeholder="unavailable choice"
             type="text"
             value="Buggy!"
@@ -1519,7 +1519,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-disabled ant-input-has-error"
+            class="ant-input ant-input-disabled ant-input-status-error"
             disabled=""
             placeholder="unavailable choice"
             type="text"
@@ -1594,7 +1594,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-has-error"
+            class="ant-input ant-input-status-error"
             placeholder="unavailable choice"
             type="text"
             value="Buggy!"
@@ -1636,7 +1636,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-disabled ant-input-has-error"
+            class="ant-input ant-input-disabled ant-input-status-error"
             disabled=""
             placeholder="unavailable choice"
             type="text"
@@ -1724,7 +1724,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-group-wrapper ant-input-group-wrapper-has-error"
+            class="ant-input-group-wrapper ant-input-group-wrapper-status-error"
           >
             <span
               class="ant-input-wrapper ant-input-group"
@@ -1735,7 +1735,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
                 Buggy!
               </span>
               <input
-                class="ant-input ant-input-has-error"
+                class="ant-input ant-input-status-error"
                 placeholder="unavailable choice"
                 type="text"
                 value=""
@@ -1779,7 +1779,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-group-wrapper ant-input-group-wrapper-has-error"
+            class="ant-input-group-wrapper ant-input-group-wrapper-status-error"
           >
             <span
               class="ant-input-wrapper ant-input-group"
@@ -1790,7 +1790,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
                 Buggy!
               </span>
               <input
-                class="ant-input ant-input-disabled ant-input-has-error"
+                class="ant-input ant-input-disabled ant-input-status-error"
                 disabled=""
                 placeholder="unavailable choice"
                 type="text"
@@ -1876,7 +1876,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error"
           >
             <span
               class="ant-input-prefix"
@@ -1927,7 +1927,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-affix-wrapper-has-error"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-affix-wrapper-status-error"
           >
             <span
               class="ant-input-prefix"
@@ -16004,7 +16004,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-has-error"
+            class="ant-input ant-input-status-error"
             id="error"
             placeholder="unavailable choice"
             type="text"
@@ -16047,7 +16047,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-has-warning"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning"
           >
             <span
               class="ant-input-prefix"
@@ -16107,7 +16107,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-is-validating ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-validating ant-input-affix-wrapper-has-feedback"
           >
             <input
               class="ant-input"
@@ -16181,7 +16181,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-has-success ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
           >
             <input
               class="ant-input"
@@ -16245,7 +16245,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-has-warning ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
           >
             <input
               class="ant-input"
@@ -16309,7 +16309,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
           >
             <input
               class="ant-input"
@@ -20276,7 +20276,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-has-success ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
           >
             <input
               class="ant-input"
@@ -20359,7 +20359,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-warning ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
           >
             <input
               action="click"
@@ -20446,7 +20446,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-error ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
           >
             <input
               action="click"
@@ -20587,14 +20587,14 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-has-error ant-input-textarea-has-feedback"
+            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-status-error ant-input-textarea-has-feedback"
             data-count="0"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-has-error ant-input-affix-wrapper-has-feedback"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
             >
               <textarea
-                class="ant-input ant-input-has-error ant-input-has-feedback"
+                class="ant-input ant-input-status-error ant-input-has-feedback"
               />
               <span
                 aria-label="close-circle"

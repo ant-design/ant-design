@@ -3313,7 +3313,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <input
-      class="ant-input ant-input-has-error"
+      class="ant-input ant-input-status-error"
       type="text"
       value=""
     />
@@ -3323,7 +3323,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error"
+      class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error"
     >
       <input
         class="ant-input"
@@ -3361,7 +3361,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-affix-wrapper-has-warning"
+      class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning"
     >
       <span
         class="ant-input-prefix"
@@ -3401,7 +3401,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-error"
+      class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-error"
     >
       <input
         action="click"
@@ -3443,13 +3443,13 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-has-error ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-status-error ant-input-search"
     >
       <span
         class="ant-input-wrapper ant-input-group"
       >
         <input
-          class="ant-input ant-input-has-error"
+          class="ant-input ant-input-status-error"
           type="text"
           value=""
         />
@@ -3489,7 +3489,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <textarea
-      class="ant-input ant-input-has-error"
+      class="ant-input ant-input-status-error"
     />
   </div>
   <div
@@ -3497,7 +3497,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-has-error"
+      class="ant-input-group-wrapper ant-input-group-wrapper-status-error"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -3508,7 +3508,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
           http://
         </span>
         <span
-          class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error"
+          class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error"
         >
           <input
             class="ant-input"
@@ -3560,7 +3560,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-success ant-input-affix-wrapper-has-feedback"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
             >
               <input
                 class="ant-input"
@@ -3627,13 +3627,13 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper ant-input-group-wrapper-has-warning ant-input-group-wrapper-has-feedback ant-input-search"
+              class="ant-input-group-wrapper ant-input-group-wrapper-status-warning ant-input-group-wrapper-has-feedback ant-input-search"
             >
               <span
                 class="ant-input-wrapper ant-input-group"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-input-affix-wrapper-has-warning ant-input-affix-wrapper-has-feedback"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
                 >
                   <input
                     class="ant-input"
@@ -3730,7 +3730,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper ant-input-group-wrapper-has-error ant-input-group-wrapper-has-feedback"
+              class="ant-input-group-wrapper ant-input-group-wrapper-status-error ant-input-group-wrapper-has-feedback"
             >
               <span
                 class="ant-input-wrapper ant-input-group"
@@ -3741,7 +3741,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
                   http://
                 </span>
                 <span
-                  class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error ant-input-affix-wrapper-has-feedback"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
                 >
                   <input
                     class="ant-input"
@@ -3891,7 +3891,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
                 </span>
               </div>
               <span
-                class="ant-input-affix-wrapper ant-input-affix-wrapper-has-error ant-input-affix-wrapper-has-feedback"
+                class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
                 style="width:20%"
               >
                 <input
