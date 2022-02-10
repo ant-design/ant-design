@@ -99,7 +99,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     hasFeedback,
     help,
     rules,
-    status,
     validateStatus,
     children,
     required,
