@@ -13355,7 +13355,8 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-row config-form-item config-form-item-with-help"
+    validatestatus="error"
   >
     <div
       class="config-col config-form-item-control"
@@ -13377,7 +13378,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
         class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
-          class="config-form-item-explain-error"
+          class=""
           role="alert"
         >
           Bamboo is Light
@@ -13393,7 +13394,8 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
   class="config-form config-form-horizontal config-form-large"
 >
   <div
-    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-row config-form-item config-form-item-with-help"
+    validatestatus="error"
   >
     <div
       class="config-col config-form-item-control"
@@ -13415,7 +13417,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
         class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
-          class="config-form-item-explain-error"
+          class=""
           role="alert"
         >
           Bamboo is Light
@@ -13431,7 +13433,8 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
   class="config-form config-form-horizontal config-form-middle"
 >
   <div
-    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-row config-form-item config-form-item-with-help"
+    validatestatus="error"
   >
     <div
       class="config-col config-form-item-control"
@@ -13453,7 +13456,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
         class="config-form-item-explain config-form-item-explain-connected"
       >
         <div
-          class="config-form-item-explain-error"
+          class=""
           role="alert"
         >
           Bamboo is Light
@@ -13469,7 +13472,8 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-row ant-form-item ant-form-item-with-help"
+    validatestatus="error"
   >
     <div
       class="ant-col ant-form-item-control"
@@ -13491,7 +13495,7 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
         class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
-          class="ant-form-item-explain-error"
+          class=""
           role="alert"
         >
           Bamboo is Light
@@ -13507,7 +13511,8 @@ exports[`ConfigProvider components Form normal 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-row ant-form-item ant-form-item-with-help"
+    validatestatus="error"
   >
     <div
       class="ant-col ant-form-item-control"
@@ -13529,7 +13534,7 @@ exports[`ConfigProvider components Form normal 1`] = `
         class="ant-form-item-explain ant-form-item-explain-connected"
       >
         <div
-          class="ant-form-item-explain-error"
+          class=""
           role="alert"
         >
           Bamboo is Light
@@ -13545,7 +13550,8 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
   class="prefix-Form prefix-Form-horizontal"
 >
   <div
-    class="ant-row prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error"
+    class="ant-row prefix-Form-item prefix-Form-item-with-help"
+    validatestatus="error"
   >
     <div
       class="ant-col prefix-Form-item-control"
@@ -13567,7 +13573,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
         class="prefix-Form-item-explain prefix-Form-item-explain-connected"
       >
         <div
-          class="prefix-Form-item-explain-error"
+          class=""
           role="alert"
         >
           Bamboo is Light
