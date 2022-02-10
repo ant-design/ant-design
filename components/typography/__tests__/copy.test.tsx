@@ -193,5 +193,18 @@ describe('Typography copy', () => {
         tooltipLength: 0,
       });
     });
+
+    it('copy click event stopPropagation', () => {
+      const onDivClick = jest.fn();
+      const wrapper = mount(
+        <div onClick={onDivClick}>
+          <Base component="p" copyable>
+            test copy
+          </Base>
+        </div>,
+      );
+      wrapper.find('.ant-typography-copy').first().simulate('click');
+      expect(onDivClick).not.toBeCalled();
+    });
   });
 });

@@ -194,6 +194,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
     e?.preventDefault();
+    e?.stopPropagation();
 
     if (copyConfig.text === undefined) {
       copyConfig.text = String(children);
