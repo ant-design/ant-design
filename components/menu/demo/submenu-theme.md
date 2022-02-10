@@ -54,7 +54,7 @@ class Sider extends React.Component {
           style={{ width: 256 }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current]}
-          mode="horizontal"
+          mode="vertical"
           theme="dark"
         >
           <SubMenu
@@ -66,7 +66,6 @@ class Sider extends React.Component {
             <Menu.Item key="1">Option 1</Menu.Item>
             <Menu.Item key="2">Option 2</Menu.Item>
             <Menu.Item key="3">Option 3</Menu.Item>
-            <Menu.Item key="4">Option 4</Menu.Item>
           </SubMenu>
           <Menu.Item key="5">Option 5</Menu.Item>
           <Menu.Item key="6">Option 6</Menu.Item>
