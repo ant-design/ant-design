@@ -291,7 +291,7 @@ describe('Menu', () => {
     const menuModesWithPopupSubMenu = ['horizontal', 'vertical'];
 
     menuModesWithPopupSubMenu.forEach(menuMode => {
-      it(`when submenu is mode ${menuMode}`, () => {
+      it(`when menu is mode ${menuMode}`, () => {
         const wrapper = mount(
           <Menu mode={menuMode} openKeys={['1']} theme="dark">
             <SubMenu key="1" title="submenu1" theme="light">
