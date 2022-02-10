@@ -1064,4 +1064,15 @@ describe('Form', () => {
       expect(wrapper.find('.ant-form-item-no-colon')).toBeTruthy();
     });
   });
+
+  it('status should work as validateStatus', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item status="error">
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-has-error')).toBeTruthy();
+  });
 });
