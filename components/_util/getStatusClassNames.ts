@@ -7,10 +7,10 @@ export default function getStatusClassNames(
   hasFeedback?: boolean,
 ) {
   return classNames({
-    [`${prefixCls}-has-success`]: status === 'success',
-    [`${prefixCls}-has-warning`]: status === 'warning',
-    [`${prefixCls}-has-error`]: status === 'error',
-    [`${prefixCls}-is-validating`]: status === 'validating',
+    [`${prefixCls}-status-success`]: status === 'success',
+    [`${prefixCls}-status-warning`]: status === 'warning',
+    [`${prefixCls}-status-error`]: status === 'error',
+    [`${prefixCls}-status-validating`]: status === 'validating',
     [`${prefixCls}-has-feedback`]: hasFeedback,
   });
 }
