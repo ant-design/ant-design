@@ -46,14 +46,14 @@ const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject
 });
 
 // ============================== Shape ===============================
-const genCircleButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+const genCircleButtonStyle = (token: DerivativeToken): CSSObject => ({
   minWidth: token.height,
   paddingLeft: 0,
   paddingRight: 0,
   borderRadius: '50%',
 });
 
-const genRoundButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+const genRoundButtonStyle = (token: DerivativeToken): CSSObject => ({
   borderRadius: token.height,
   paddingLeft: token.height / 2,
   paddingRight: token.height / 2,
@@ -332,14 +332,8 @@ const genSizeButtonStyle = (
     ),
 
     // Shape - patch prefixCls again to override solid border radius style
-    withPrefix(genCircleButtonStyle(prefixCls, token), `${prefixCls}-circle`, [
-      prefixCls,
-      sizePrefixCls,
-    ]),
-    withPrefix(genRoundButtonStyle(prefixCls, token), `${prefixCls}-round`, [
-      prefixCls,
-      sizePrefixCls,
-    ]),
+    withPrefix(genCircleButtonStyle(token), `${prefixCls}-circle`, [prefixCls, sizePrefixCls]),
+    withPrefix(genRoundButtonStyle(token), `${prefixCls}-round`, [prefixCls, sizePrefixCls]),
   ];
 };
 
