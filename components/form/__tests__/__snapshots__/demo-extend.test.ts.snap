@@ -20594,7 +20594,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
             >
               <textarea
-                class="ant-input ant-input-status-error ant-input-has-feedback"
+                class="ant-input ant-input-status-error"
               />
               <span
                 aria-label="close-circle"

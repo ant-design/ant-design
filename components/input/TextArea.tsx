@@ -139,7 +139,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
             [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
           },
-          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+          getStatusClassNames(prefixCls, mergedStatus),
         )}
         style={showCount ? undefined : style}
         prefixCls={prefixCls}

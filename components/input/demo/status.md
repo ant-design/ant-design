@@ -14,7 +14,7 @@ title:
 Add status to Input with `status`.
 
 ```tsx
-import { Input, Space, Form, Select } from 'antd';
+import { Input, Space, Select } from 'antd';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 
 const ValidateInputs: React.FC = () => (
@@ -26,23 +26,12 @@ const ValidateInputs: React.FC = () => (
     <Input.Search status="error" />
     <Input.TextArea status="error" />
     <Input addonBefore="http://" allowClear status="error" />
-    <Form.Item status="success" hasFeedback help="OK!!">
-      <Input />
-    </Form.Item>
-    <Form.Item status="warning" hasFeedback help="Something wrong.">
-      <Input.Search />
-    </Form.Item>
-    <Form.Item status="error" hasFeedback help="Invalid">
-      <Input addonBefore="http://" allowClear />
-    </Form.Item>
-    <Form.Item status="error" hasFeedback>
-      <Input.Group compact>
-        <Select defaultValue="+86">
-          <Select.Option value="+86">+86</Select.Option>
-        </Select>
-        <Input style={{ width: '20%' }} defaultValue="18900001111" />
-      </Input.Group>
-    </Form.Item>
+    <Input.Group compact>
+      <Select defaultValue="+86">
+        <Select.Option value="+86">+86</Select.Option>
+      </Select>
+      <Input style={{ width: '20%' }} defaultValue="18900001111" />
+    </Input.Group>
   </Space>
 );
 
