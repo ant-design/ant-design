@@ -61,7 +61,6 @@ export interface FormItemProps<Values = any>
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
-  status?: ValidateStatus; // Alias for validateStatus
   required?: boolean;
   hidden?: boolean;
   initialValue?: any;
@@ -210,8 +209,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   let mergedValidateStatus: ValidateStatus = '';
   if (validateStatus !== undefined) {
     mergedValidateStatus = validateStatus;
-  } else if (status !== undefined) {
-    mergedValidateStatus = status;
   } else if (meta?.validating) {
     mergedValidateStatus = 'validating';
   } else if (debounceErrors.length) {
