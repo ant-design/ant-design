@@ -36,7 +36,10 @@
     > div {
       transition: all 0.3s, outline 0s;
 
-      &:hover,
+      &:hover {
+        transform: @rate-star-hover-scale;
+      }
+
       &:focus-visible {
         transform: @rate-star-hover-scale;
       }
