@@ -575,7 +575,7 @@ describe('Form', () => {
         <Form>
           <Form.Item
             help={error ? 'This is an error msg' : undefined}
-            status={error ? 'error' : ''}
+            validateStatus={error ? 'error' : ''}
             label="Username"
             name="username"
           >
