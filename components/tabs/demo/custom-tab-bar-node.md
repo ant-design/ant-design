@@ -34,6 +34,7 @@ const DraggableTabNode = ({ index, children, moveNode }) => {
       }
       return {
         isOver: monitor.isOver(),
+        dropClassName: 'dropping',
       };
     },
     drop: item => {
@@ -48,7 +49,11 @@ const DraggableTabNode = ({ index, children, moveNode }) => {
     }),
   });
   drop(drag(ref));
-  return cloneElement(children, { ref });
+  return (
+    <div ref={ref} style={{ marginRight: 24 }} className={isOver ? dropClassName : ''}>
+      {children}
+    </div>
+  );
 };
 
 class DraggableTabs extends React.Component {
@@ -140,4 +145,11 @@ ReactDOM.render(
   </DraggableTabs>,
   mountNode,
 );
+```
+
+```css
+.dropping {
+  background: #fefefe;
+  transition: all 0.3s;
+}
 ```
