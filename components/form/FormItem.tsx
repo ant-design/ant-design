@@ -12,8 +12,12 @@ import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, NoStyleItemContext } from './context';
-import { FormItemStatusContext, FormItemStatusContextProps } from '../_util/formItemStatus';
+import {
+  FormContext,
+  FormItemStatusContext,
+  NoStyleItemContext,
+  FormItemStatusContextProps,
+} from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
