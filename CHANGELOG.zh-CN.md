@@ -19,14 +19,15 @@ timeline: true
 
 `2022-02-07`
 
-- 🐞 修复当传入的内容参数和标题参数都为空时，气泡组件仍旧会渲染空气泡的问题。[#33835](https://github.com/ant-design/ant-design/pull/33835) [@DawnLck](https://github.com/DawnLck)
-- 🐞 修复 DatePicker `ref` TypeScript 定义。[#33901](https://github.com/ant-design/ant-design/pull/33901) [@Amour1688](https://github.com/Amour1688)
-- 🐞 修复 Typography ellipsis 行数大于 1 时 Tooltip 不显示的问题。[#33875](https://github.com/ant-design/ant-design/pull/33875) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复当传入的内容参数和标题参数都为空时，Popover 仍旧会渲染空气泡的问题。[#33835](https://github.com/ant-design/ant-design/pull/33835) [@DawnLck](https://github.com/DawnLck)
+- 🐞 修复 Typography `ellipsis` 行数大于 1 时 Tooltip 不显示的问题。[#33875](https://github.com/ant-design/ant-design/pull/33875)
 - Button
-  - 🐞 修复小尺寸下 Button 组件 block 属性无效的问题[#33878](https://github.com/ant-design/ant-design/pull/33878) [@tangjinzhou](https://github.com/tangjinzhou)
-  - 🐞 Button 组件卸载后，清理延迟加载定时器。[#33858](https://github.com/ant-design/ant-design/pull/33858) [@mrwd2009](https://github.com/mrwd2009)
-- 🐞 修复 Tooltip 套在 loading 状态的 switch 上时无法正常显示的问题。[#33860](https://github.com/ant-design/ant-design/pull/33860) [@MadCcc](https://github.com/MadCcc)
-- 🐞 修复 Upload 组件为 picture-card 类型时，由隐藏上传按钮改为显示后，上传按钮有时会闪烁的问题。[#33820](https://github.com/ant-design/ant-design/pull/33820) [@credred](https://github.com/credred)
+  - 🐞 修复小尺寸下 Button 组件 `block` 属性无效的问题[#33878](https://github.com/ant-design/ant-design/pull/33878) [@tangjinzhou](https://github.com/tangjinzhou)
+  - 🐞 修复 Button 组件 `loading.delay` 定时器未清除导致的内存泄漏警告[#33858](https://github.com/ant-design/ant-design/pull/33858) [@mrwd2009](https://github.com/mrwd2009)
+- 🐞 修复 Tooltip 套在 `loading` 状态的 Switch 上时无法正常显示的问题。[#33860](https://github.com/ant-design/ant-design/pull/33860)
+- 🐞 修复 Upload 组件为 `picture-card` 类型时，由隐藏上传按钮改为显示后，上传按钮有时会闪烁的问题。[#33820](https://github.com/ant-design/ant-design/pull/33820) [@credred](https://github.com/credred)
+- Typescript
+  - 🤖 修复 DatePicker `ref` TypeScript 定义。[#33901](https://github.com/ant-design/ant-design/pull/33901) [@Amour1688](https://github.com/Amour1688)
 
 ## 4.18.5
 
