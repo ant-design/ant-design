@@ -4,7 +4,7 @@ import type { DirectionType } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { ClearableInputProps } from './ClearableLabeledInput';
 import type { InputProps } from './Input';
-import getStatusClassNames from '../_util/getStatusClassNames';
+import { getStatusClassNames } from '../_util/status-utils';
 
 export function getInputClassName(
   prefixCls: string,

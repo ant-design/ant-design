@@ -3,6 +3,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import classNames from 'classnames';
 import { ValidateStatus } from '../form/FormItem';
 
 const iconMap = {
@@ -12,7 +13,7 @@ const iconMap = {
   validating: LoadingOutlined,
 };
 
-const getFeedbackIcon = (prefixCls: string, status?: ValidateStatus) => {
+export const getFeedbackIcon = (prefixCls: string, status?: ValidateStatus) => {
   const IconNode = status && iconMap[status];
   return IconNode ? (
     <span className={`${prefixCls}-feedback-icon`}>
@@ -21,4 +22,16 @@ const getFeedbackIcon = (prefixCls: string, status?: ValidateStatus) => {
   ) : null;
 };
 
-export default getFeedbackIcon;
+export function getStatusClassNames(
+  prefixCls: string,
+  status?: ValidateStatus,
+  hasFeedback?: boolean,
+) {
+  return classNames({
+    [`${prefixCls}-status-success`]: status === 'success',
+    [`${prefixCls}-status-warning`]: status === 'warning',
+    [`${prefixCls}-status-error`]: status === 'error',
+    [`${prefixCls}-status-validating`]: status === 'validating',
+    [`${prefixCls}-has-feedback`]: hasFeedback,
+  });
+}
