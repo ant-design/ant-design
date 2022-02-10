@@ -9,7 +9,7 @@ import { SizeType } from '../config-provider/SizeContext';
 import { cloneElement } from '../_util/reactNode';
 import { getInputClassName, hasPrefixSuffix } from './utils';
 import { FormItemStatusContext, FormItemStatusContextProps } from '../form/context';
-import { getStatusClassNames } from '../_util/status-utils';
+import { getStatusClassNames } from '../_util/statusUtils';
 
 const ClearableInputType = tuple('text', 'input');
 

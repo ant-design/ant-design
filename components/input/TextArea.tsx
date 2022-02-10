@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { ValidateStatus } from '../form/FormItem';
-import { getFeedbackIcon, getStatusClassNames } from '../_util/status-utils';
+import { getFeedbackIcon, getStatusClassNames } from '../_util/statusUtils';
 import { FormItemStatusContext } from '../form/context';
 
 interface ShowCountProps {

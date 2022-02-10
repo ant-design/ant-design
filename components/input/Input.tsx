@@ -13,7 +13,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
 import { FormItemStatusContext } from '../form/context';
-import { getFeedbackIcon } from '../_util/status-utils';
+import { getFeedbackIcon } from '../_util/statusUtils';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
