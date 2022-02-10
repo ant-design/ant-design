@@ -158,7 +158,7 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^3.0.1",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/tools": "^14.0.2",
+    "@ant-design/tools": "^14.1.0",
     "@docsearch/css": "^3.0.0-alpha.39",
     "@docsearch/react": "^3.0.0-alpha.39",
     "@qixian.cs/github-contributors-list": "^1.0.3",
