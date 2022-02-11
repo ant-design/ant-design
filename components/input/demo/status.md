@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-使用 `status` 为 Input 添加状态。
+使用 `status` 为 Input 添加状态。可选 `error` 或者 `warning`。
 
 ## en-US
 
-Add status to Input with `status`.
+Add status to Input with `status`, which could be `error` or `warning`。
 
 ```tsx
 import { Input, Space, Select } from 'antd';
@@ -20,18 +20,17 @@ import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 const ValidateInputs: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Input status="error" />
-    <Input status="error" allowClear />
+    <Input status="warning" />
+    <Input status="error" prefix={<ClockCircleOutlined />} />
     <Input status="warning" prefix={<ClockCircleOutlined />} />
     <Input.Password status="error" />
+    <Input.Password status="warning" />
     <Input.Search status="error" />
+    <Input.Search status="warning" />
     <Input.TextArea status="error" />
+    <Input.TextArea status="warning" />
     <Input addonBefore="http://" allowClear status="error" />
-    <Input.Group compact>
-      <Select defaultValue="+86">
-        <Select.Option value="+86">+86</Select.Option>
-      </Select>
-      <Input style={{ width: '20%' }} defaultValue="18900001111" />
-    </Input.Group>
+    <Input addonBefore="http://" allowClear status="warning" />
   </Space>
 );
 
