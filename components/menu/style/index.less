@@ -5,10 +5,6 @@
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 @menu-animation-duration-normal: 0.15s;
 
-.accessibility-focus() {
-  box-shadow: 0 0 0 2px @primary-1;
-}
-
 // TODO: Should remove icon style compatible in v5
 
 // default theme
@@ -30,7 +26,7 @@
   .clearfix();
 
   &&-root:focus-visible {
-    .accessibility-focus();
+    box-shadow: 0 0 0 2px @primary-2;
   }
 
   ul,
@@ -242,10 +238,6 @@
       > .@{menu-prefix-cls}-item-icon {
         margin-right: 0;
       }
-    }
-
-    &:focus-visible {
-      .accessibility-focus();
     }
   }
 
