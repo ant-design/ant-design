@@ -98,7 +98,7 @@ More layouts with navigation: [Layout](/components/layout).
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
 | title | Title of sub menu | ReactNode | - |  |
-| theme | Color theme of the sub-menu (inherits from `Menu`) |  | `light` \| `dark` | - | 4.19.0 |
+| theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - | 4.19.0 |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
 ### Menu.ItemGroup
