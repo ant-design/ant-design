@@ -100,7 +100,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
 | title | 子菜单项值 | ReactNode | - |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
-| theme | Color theme of the sub-menu (inherits from `Menu`) |  | `light` \| `dark` | - | 4.19.0 |
+| theme | 设置子菜单的主题，默认从 Menu 上继承 |  | `light` \| `dark` | - | 4.19.0 |
 
 ### Menu.ItemGroup
 
