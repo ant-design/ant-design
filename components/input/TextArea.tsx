@@ -28,11 +28,11 @@ function setTriggerValue(
     // 光标在尾部，直接截断
     newTriggerValue = fixEmojiLength(triggerValue, maxLength!);
   } else if (
-    [...((preValue || '') as string)].length < triggerValue.length &&
-    [...((triggerValue || '') as string)].length > maxLength!
+    [...(preValue || '')].length < triggerValue.length &&
+    [...(triggerValue || '')].length > maxLength!
   ) {
     // 光标在中间，如果最后的值超过最大值，则采用原先的值
-    newTriggerValue = preValue as string;
+    newTriggerValue = preValue;
   }
   return newTriggerValue;
 }
