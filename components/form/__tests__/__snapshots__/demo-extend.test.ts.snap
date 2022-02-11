@@ -2985,7 +2985,7 @@ exports[`renders ./components/form/demo/label-debug.md extend context correctly 
           longtextlongtextlongtextlongtextlongtextlongtextlongtext
           <span
             aria-hidden="true"
-            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:9999px"
+            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
           >
             lg
           </span>
@@ -3039,7 +3039,7 @@ exports[`renders ./components/form/demo/label-debug.md extend context correctly 
           longtext longtext longtext longtext longtext longtext longtext
           <span
             aria-hidden="true"
-            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:9999px"
+            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
           >
             lg
           </span>
