@@ -1,4 +1,19 @@
+.accessibility-focus-dark() {
+  box-shadow: 0 0 0 2px @primary-7;
+}
+
 .@{menu-prefix-cls} {
+  &&-root:focus-visible {
+    .accessibility-focus-dark();
+  }
+
+  &-dark &-item,
+  &-dark &-submenu-title {
+    &:focus-visible {
+      .accessibility-focus-dark();
+    }
+  }
+
   // dark theme
   &&-dark,
   &-dark &-sub,
