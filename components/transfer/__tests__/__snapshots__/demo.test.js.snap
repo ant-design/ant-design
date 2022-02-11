@@ -173,7 +173,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-sm"
         style="float:left;margin:5px"
         type="button"
       >
@@ -412,7 +412,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-sm"
         style="float:right;margin:5px"
         type="button"
       >

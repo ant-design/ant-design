@@ -168,8 +168,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     }
   }, [editing]);
 
-  const onEditClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onEditClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
     triggerEdit(true);
   };
 
@@ -192,8 +192,9 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     clearTimeout(copyIdRef.current!);
   };
 
-  const onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
+    e?.stopPropagation();
 
     if (copyConfig.text === undefined) {
       copyConfig.text = String(children);
@@ -293,12 +294,14 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     const textEle = typographyRef.current;
 
     if (enableEllipsis && cssEllipsis && textEle) {
-      const currentEllipsis = textEle.offsetWidth < textEle.scrollWidth;
+      const currentEllipsis = cssLineClamp
+        ? textEle.offsetHeight < textEle.scrollHeight
+        : textEle.offsetWidth < textEle.scrollWidth;
       if (isNativeEllipsis !== currentEllipsis) {
         setIsNativeEllipsis(currentEllipsis);
       }
     }
-  }, [enableEllipsis, cssEllipsis, children]);
+  }, [enableEllipsis, cssEllipsis, children, cssLineClamp]);
 
   // ========================== Tooltip ===========================
   const tooltipTitle = ellipsisConfig.tooltip === true ? children : ellipsisConfig.tooltip;
