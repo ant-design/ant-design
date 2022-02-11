@@ -15,65 +15,51 @@ The Sub-menu will inherit the theme of `Menu`, but you can override this at the 
 
 ```jsx
 import { Menu, Switch } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { MailOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
-class Sider extends React.Component {
-  state = {
-    theme: 'light',
-    current: '1',
+const SubMenuTheme = () => {
+  const [theme, setTheme] = React.useState('light');
+  const [current, setCurrent] = React.useState('1');
+
+  const changeTheme = value => {
+    setTheme(value ? 'dark' : 'light');
   };
 
-  changeTheme = value => {
-    this.setState({
-      theme: value ? 'dark' : 'light',
-    });
+  const handleClick = e => {
+    setCurrent(e.key);
   };
 
-  handleClick = e => {
-    console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
-  };
+  return (
+    <>
+      <Switch
+        checked={theme === 'dark'}
+        onChange={changeTheme}
+        checkedChildren="Dark"
+        unCheckedChildren="Light"
+      />
+      <br />
+      <br />
+      <Menu
+        onClick={handleClick}
+        style={{ width: 256 }}
+        defaultOpenKeys={['sub1']}
+        selectedKeys={[current]}
+        mode="vertical"
+        theme="dark"
+      >
+        <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One" theme={theme}>
+          <Menu.Item key="1">Option 1</Menu.Item>
+          <Menu.Item key="2">Option 2</Menu.Item>
+          <Menu.Item key="3">Option 3</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="5">Option 5</Menu.Item>
+        <Menu.Item key="6">Option 6</Menu.Item>
+      </Menu>
+    </>
+  );
+};
 
-  render() {
-    return (
-      <>
-        <Switch
-          checked={this.state.theme === 'dark'}
-          onChange={this.changeTheme}
-          checkedChildren="Dark"
-          unCheckedChildren="Light"
-        />
-        <br />
-        <br />
-        <Menu
-          onClick={this.handleClick}
-          style={{ width: 256 }}
-          defaultOpenKeys={['sub1']}
-          selectedKeys={[this.state.current]}
-          mode="vertical"
-          theme="dark"
-        >
-          <SubMenu
-            key="sub1"
-            icon={<MailOutlined />}
-            title="Navigation One"
-            theme={this.state.theme}
-          >
-            <Menu.Item key="1">Option 1</Menu.Item>
-            <Menu.Item key="2">Option 2</Menu.Item>
-            <Menu.Item key="3">Option 3</Menu.Item>
-          </SubMenu>
-          <Menu.Item key="5">Option 5</Menu.Item>
-          <Menu.Item key="6">Option 6</Menu.Item>
-        </Menu>
-      </>
-    );
-  }
-}
-
-ReactDOM.render(<Sider />, mountNode);
+ReactDOM.render(<SubMenuTheme />, mountNode);
 ```
