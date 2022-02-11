@@ -1533,7 +1533,7 @@ Array [
 exports[`renders ./components/select/demo/custom-dropdown-menu.md extend context correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:240px"
+  style="width:300px"
 >
   <div
     class="ant-select-selector"
@@ -1569,96 +1569,105 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md extend context
       style="opacity:0;pointer-events:none"
     >
       <div>
-        <div>
+        <div
+          id="undefined_list"
+          role="listbox"
+          style="height:0;width:0;overflow:hidden"
+        >
           <div
-            id="undefined_list"
-            role="listbox"
-            style="height:0;width:0;overflow:hidden"
+            aria-label="jack"
+            aria-selected="false"
+            id="undefined_list_0"
+            role="option"
           >
-            <div
-              aria-label="jack"
-              aria-selected="false"
-              id="undefined_list_0"
-              role="option"
-            >
-              jack
-            </div>
-            <div
-              aria-label="lucy"
-              aria-selected="false"
-              id="undefined_list_1"
-              role="option"
-            >
-              lucy
-            </div>
+            jack
           </div>
           <div
-            class="rc-virtual-list"
-            style="position:relative"
+            aria-label="lucy"
+            aria-selected="false"
+            id="undefined_list_1"
+            role="option"
           >
-            <div
-              class="rc-virtual-list-holder"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-            >
-              <div>
+            lucy
+          </div>
+        </div>
+        <div
+          class="rc-virtual-list"
+          style="position:relative"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                style="display:flex;flex-direction:column"
+              >
                 <div
-                  class="rc-virtual-list-holder-inner"
-                  style="display:flex;flex-direction:column"
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                  title="jack"
                 >
                   <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                    title="jack"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      jack
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
-                    />
+                    jack
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select:none;-webkit-user-select:none"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  title="lucy"
+                >
                   <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    title="lucy"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      lucy
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
-                    />
+                    lucy
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select:none;-webkit-user-select:none"
+                    unselectable="on"
+                  />
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin:8px 0"
+        />
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+          style="padding:0 8px 4px"
+        >
           <div
-            class="ant-divider ant-divider-horizontal"
-            role="separator"
-            style="margin:4px 0"
-          />
-          <div
-            style="display:flex;flex-wrap:nowrap;padding:8px"
+            class="ant-space-item"
+            style="margin-right:8px"
           >
             <input
               class="ant-input"
-              style="flex:auto"
+              placeholder="Please enter item"
               type="text"
               value=""
             />
+          </div>
+          <div
+            class="ant-space-item"
+          >
             <a
-              style="flex:none;padding:8px;display:block;cursor:pointer"
+              class="ant-typography"
+              style="white-space:nowrap"
             >
               <span
                 aria-label="plus"
@@ -2419,7 +2428,7 @@ exports[`renders ./components/select/demo/debug.md extend context correctly 1`] 
     AntDesign
   </span>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>

@@ -2,7 +2,7 @@
 
 exports[`Button fixbug renders {0} , 0 and {false} 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   0
@@ -11,7 +11,7 @@ exports[`Button fixbug renders {0} , 0 and {false} 1`] = `
 
 exports[`Button fixbug renders {0} , 0 and {false} 2`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -22,14 +22,14 @@ exports[`Button fixbug renders {0} , 0 and {false} 2`] = `
 
 exports[`Button fixbug renders {0} , 0 and {false} 3`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 />
 `;
 
 exports[`Button renders Chinese characters correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -40,7 +40,7 @@ exports[`Button renders Chinese characters correctly 1`] = `
 
 exports[`Button renders Chinese characters correctly 2`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span
@@ -70,7 +70,7 @@ exports[`Button renders Chinese characters correctly 2`] = `
 
 exports[`Button renders Chinese characters correctly 3`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span
@@ -100,7 +100,7 @@ exports[`Button renders Chinese characters correctly 3`] = `
 
 exports[`Button renders Chinese characters correctly 4`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span
@@ -130,7 +130,7 @@ exports[`Button renders Chinese characters correctly 4`] = `
 
 exports[`Button renders Chinese characters correctly 5`] = `
 <button
-  class="ant-btn ant-btn-loading"
+  class="ant-btn ant-btn-default ant-btn-loading"
   type="button"
 >
   <span
@@ -164,7 +164,7 @@ exports[`Button renders Chinese characters correctly 5`] = `
 
 exports[`Button renders Chinese characters correctly 6`] = `
 <button
-  class="ant-btn ant-btn-loading"
+  class="ant-btn ant-btn-default ant-btn-loading"
   type="button"
 >
   <span
@@ -199,7 +199,7 @@ exports[`Button renders Chinese characters correctly 6`] = `
 
 exports[`Button renders Chinese characters correctly 7`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -210,7 +210,7 @@ exports[`Button renders Chinese characters correctly 7`] = `
 
 exports[`Button renders correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -221,21 +221,21 @@ exports[`Button renders correctly 1`] = `
 
 exports[`Button rtl render component should be rendered correctly in RTL direction 1`] = `
 <button
-  class="ant-btn ant-btn-rtl"
+  class="ant-btn ant-btn-default ant-btn-rtl"
   type="button"
 />
 `;
 
 exports[`Button rtl render component should be rendered correctly in RTL direction 2`] = `
 <button
-  class="ant-btn ant-btn-lg ant-btn-rtl"
+  class="ant-btn ant-btn-default ant-btn-lg ant-btn-rtl"
   type="button"
 />
 `;
 
 exports[`Button rtl render component should be rendered correctly in RTL direction 3`] = `
 <button
-  class="ant-btn ant-btn-sm ant-btn-rtl"
+  class="ant-btn ant-btn-default ant-btn-sm ant-btn-rtl"
   type="button"
 />
 `;
@@ -266,7 +266,7 @@ exports[`Button rtl render component should be rendered correctly in RTL directi
 
 exports[`Button should handle fragment as children 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -277,7 +277,7 @@ exports[`Button should handle fragment as children 1`] = `
 
 exports[`Button should merge text if children using variable 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -299,14 +299,14 @@ exports[`Button should not render as link button when href is undefined 1`] = `
 
 exports[`Button should render empty button without errors 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 />
 `;
 
 exports[`Button should support link button 1`] = `
 <a
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   href="https://ant.design"
   target="_blank"
 >

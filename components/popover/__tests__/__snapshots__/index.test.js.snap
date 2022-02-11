@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Popover handles empty title/content props safely 1`] = `"<div class=\\"ant-popover-content\\"><div class=\\"ant-popover-arrow\\"><span class=\\"ant-popover-arrow-content\\"></span></div><div class=\\"ant-popover-inner\\" role=\\"tooltip\\"><div class=\\"ant-popover-inner-content\\"></div></div></div>"`;
-
 exports[`Popover should be rendered correctly in RTL direction 1`] = `
 Array [
   <span

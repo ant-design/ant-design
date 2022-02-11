@@ -61,7 +61,7 @@ exports[`renders ./components/skeleton/demo/children.md extend context correctly
     </p>
   </div>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>

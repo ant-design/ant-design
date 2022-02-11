@@ -193,7 +193,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
         walkingState !== DONE_WITHOUT_ELLIPSIS && (
           <>
             {/* `l` for top & `g` for bottom measure */}
-            {renderMeasure('lg', singleRowRef, { width: 9999 })}
+            {renderMeasure('lg', singleRowRef, { wordBreak: 'keep-all', whiteSpace: 'nowrap' })}
             {/* {renderMeasureSlice(midLen, midRowRef)} */}
             {walkingState === PREPARE
               ? renderMeasure(children(nodeList, false), midRowRef, measureStyle)

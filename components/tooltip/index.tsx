@@ -85,10 +85,8 @@ const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?
 function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixCls: string) {
   const elementType = element.type as any;
   if (
-    (elementType.__ANT_BUTTON === true ||
-      elementType.__ANT_SWITCH === true ||
-      element.type === 'button') &&
-    element.props.disabled
+    ((elementType.__ANT_BUTTON === true || element.type === 'button') && element.props.disabled) ||
+    (elementType.__ANT_SWITCH === true && (element.props.disabled || element.props.loading))
   ) {
     // Pick some layout related style properties up to span
     // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254

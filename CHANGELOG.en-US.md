@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.18.6
+
+`2022-02-07`
+
+- 🐞 Fix the empty Popover displayed when `content` and `title` is undefined or null. [#33835](https://github.com/ant-design/ant-design/pull/33835) [@DawnLck](https://github.com/DawnLck)
+- 🐞 Fix the problem that Tooltip didn't show on `ellipsis` with rows larger than 1. [#33875](https://github.com/ant-design/ant-design/pull/33875)
+- Button
+  - 🐞 Fix the issue that `block` of Button not work when small size. [#33878](https://github.com/ant-design/ant-design/pull/33878) [@tangjinzhou](https://github.com/tangjinzhou)
+  - 🐞 Fix the issue that `loading.delay` of Button cause React memory leak warning [#33858](https://github.com/ant-design/ant-design/pull/33858) [@mrwd2009](https://github.com/mrwd2009)
+- 🐞 Fix the problem that Tooltip cannot be displayed when it is used with Switch in `loading` state. [#33860](https://github.com/ant-design/ant-design/pull/33860)
+- 🐞 Fix the Upload button sometimes flashes after changed from hidden to display when the Upload component is a `picture-card` type. [#33820](https://github.com/ant-design/ant-design/pull/33820) [@credred](https://github.com/credred)
+- TypeScript
+  - 🤖 Fix DatePicker `ref` TypeScript definition. [#33901](https://github.com/ant-design/ant-design/pull/33901) [@Amour1688](https://github.com/Amour1688)
+
 ## 4.18.5
 
 `2022-01-24`

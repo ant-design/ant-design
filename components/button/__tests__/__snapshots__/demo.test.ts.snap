@@ -11,7 +11,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -57,7 +57,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-block"
     type="button"
   >
     <span>
@@ -94,7 +94,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-dangerous"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -149,7 +149,7 @@ Array [
   </button>,
   <br />,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -157,7 +157,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     disabled=""
     type="button"
   >
@@ -221,7 +221,7 @@ Array [
   </button>,
   <br />,
   <button
-    class="ant-btn ant-btn-dangerous"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -229,7 +229,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-dangerous"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     disabled=""
     type="button"
   >
@@ -277,7 +277,7 @@ Array [
     class="site-button-ghost-wrapper"
   >
     <button
-      class="ant-btn ant-btn-background-ghost"
+      class="ant-btn ant-btn-default ant-btn-background-ghost"
       type="button"
     >
       <span>
@@ -285,7 +285,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-background-ghost"
+      class="ant-btn ant-btn-default ant-btn-background-ghost"
       disabled=""
       type="button"
     >
@@ -310,7 +310,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-background-ghost"
+    class="ant-btn ant-btn-default ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -339,7 +339,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 exports[`renders ./components/button/demo/icon.md correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-primary ant-btn-icon-only"
     type="button"
   >
     <span
@@ -363,7 +363,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle"
+    class="ant-btn ant-btn-circle ant-btn-primary"
     type="button"
   >
     <span>
@@ -398,7 +398,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-default ant-btn-icon-only"
     type="button"
   >
     <span
@@ -422,7 +422,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span
@@ -450,7 +450,7 @@ Array [
   </button>,
   <br />,
   <button
-    class="ant-btn ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-default ant-btn-icon-only"
     type="button"
   >
     <span
@@ -474,7 +474,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span
@@ -501,7 +501,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-dashed ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-icon-only"
     type="button"
   >
     <span
@@ -552,7 +552,7 @@ Array [
     </span>
   </button>,
   <a
-    class="ant-btn ant-btn-icon-only"
+    class="ant-btn ant-btn-default ant-btn-icon-only"
     href="https://www.google.com"
   >
     <span
@@ -578,7 +578,7 @@ Array [
   <br />,
   <br />,
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -602,7 +602,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
+    class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg"
     type="button"
   >
     <span>
@@ -637,7 +637,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-default ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -661,7 +661,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-lg"
+    class="ant-btn ant-btn-default ant-btn-lg"
     type="button"
   >
     <span
@@ -689,7 +689,7 @@ Array [
   </button>,
   <br />,
   <button
-    class="ant-btn ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-default ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -713,7 +713,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-lg"
+    class="ant-btn ant-btn-default ant-btn-lg"
     type="button"
   >
     <span
@@ -740,7 +740,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-dashed ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -791,7 +791,7 @@ Array [
     </span>
   </button>,
   <a
-    class="ant-btn ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-default ant-btn-lg ant-btn-icon-only"
     href="https://www.google.com"
   >
     <span
@@ -1258,7 +1258,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1269,7 +1269,7 @@ Array [
     class="ant-btn-group ant-dropdown-button"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1277,7 +1277,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -1379,7 +1379,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-lg"
+    class="ant-btn ant-btn-default ant-btn-lg"
     type="button"
   >
     <span>
@@ -1429,7 +1429,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -1453,7 +1453,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-round ant-btn-primary ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -1477,7 +1477,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg"
+    class="ant-btn ant-btn-round ant-btn-primary ant-btn-lg"
     type="button"
   >
     <span
