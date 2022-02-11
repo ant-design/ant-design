@@ -168,7 +168,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         handleReset={handleReset}
         ref={clearableInputRef}
         bordered={bordered}
-        status={mergedStatus}
+        status={customStatus}
         style={showCount ? undefined : style}
       />
     );
